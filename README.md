@@ -12,6 +12,10 @@ Repo -> Settings -> Secrets and variables -> Actions -> add **secrets**:
 | `GROQ_API_KEY` | console.groq.com (GPT-OSS 120B) |
 | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | your bot / your chat |
 | `BUFFER_API_KEY` | publish.buffer.com/settings/api |
+| `ZERNIO_API_KEY` | zernio.com/dashboard/api-keys (starts with `sk_`) |
+| `UPLOAD_POST_API_KEY`, `UPLOAD_POST_USER` | Upload-Post dashboard -> API Keys; `USER` is your Upload-Post profile name |
+
+Publishers rotate daily (first choice changes each day) and each platform falls back to the next tool if one fails. A tool with no secrets is skipped.
 
 Optional **variables**: `GEMMA_MODEL`, `GROQ_MODEL`, `GEMINI_MODEL` (to change model IDs).
 

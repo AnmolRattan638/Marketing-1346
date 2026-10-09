@@ -1,6 +1,8 @@
 """Offline smoke test: stubs every LLM/Telegram/Buffer call and runs the whole daily + approval flow."""
 import json, pathlib, sys, tempfile
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+import os
+os.environ.update(BUFFER_API_KEY='x', ZERNIO_API_KEY='y')
 from src import config, llm, tg, buffer, publish
 
 tmp = pathlib.Path(tempfile.mkdtemp())
@@ -27,10 +29,12 @@ draft = config.load_json(config.DRAFTS / f"{run_daily.today}.json", None)
 assert draft and draft["status"] == "pending" and len(draft["posts"]["bluesky"]) <= 300, draft
 assert sent[-1][1][0]["callback_data"].startswith("approve:")
 
-buffer.channel_map = lambda: {"linkedin": "c1", "bluesky": "c2"}
+buffer.channel_map = lambda: {"linkedin": "c1"}   # bluesky missing in Buffer -> must fall back to Zernio
+publish.Zernio.post = lambda self, p, t, u, i: "zernio ok"
 buffer.create_post = lambda cid, text, url=None: {"id": cid, "dueAt": "soon"}
 from src import process_approvals
 process_approvals.handle({"id": "x", "data": f"approve:{run_daily.today}", "message": {"chat": {"id": 1}}})
 d = config.load_json(config.DRAFTS / f"{run_daily.today}.json", {})
 assert d["status"] == "partial", d["status"]   # Instagram skipped: no image
+assert d["results"]["bluesky"]["ok"] and ("zernio" in d["results"]["bluesky"]["detail"] or "buffer" in d["results"]["bluesky"]["detail"])
 print("smoke test passed:", d["results"])

@@ -1,23 +1,99 @@
+"""Publishers: Buffer, Zernio, Upload-Post. Rotates the first-choice tool daily and falls back per platform."""
+import datetime as dt
+import os
+import requests
 from . import buffer, config
+
+
+class Buffer:
+    name, secrets = "buffer", ["BUFFER_API_KEY"]
+
+    def __init__(self):
+        self._ch = None
+
+    def post(self, platform, text, image_url, image_path):
+        if self._ch is None:
+            self._ch = buffer.channel_map()
+        if platform not in self._ch:
+            raise RuntimeError("channel not connected")
+        p = buffer.create_post(self._ch[platform], text, image_url)
+        return f"queued {p.get('id')}"
+
+
+class Zernio:
+    name, secrets = "zernio", ["ZERNIO_API_KEY"]
+    base = "https://zernio.com/api/v1"
+
+    def __init__(self):
+        self._acc = None
+
+    def _h(self):
+        return {"Authorization": f"Bearer {os.environ['ZERNIO_API_KEY']}"}
+
+    def post(self, platform, text, image_url, image_path):
+        if self._acc is None:
+            r = requests.get(f"{self.base}/accounts", headers=self._h(), timeout=60)
+            r.raise_for_status()
+            self._acc = {}
+            for a in r.json().get("accounts", []):
+                if a.get("isActive", True):
+                    self._acc.setdefault(a["platform"], a["_id"])
+        if platform not in self._acc:
+            raise RuntimeError("account not connected")
+        body = {"content": text, "publishNow": True, "platforms": [{"platform": platform, "accountId": self._acc[platform]}]}
+        if image_url:
+            body["mediaItems"] = [{"url": image_url, "type": "image"}]
+        r = requests.post(f"{self.base}/posts", headers=self._h(), json=body, timeout=120)
+        if not r.ok:
+            raise RuntimeError(f"{r.status_code} {r.text[:200]}")
+        return f"posted {r.json().get('post', {}).get('_id')}"
+
+
+class UploadPost:
+    name, secrets = "upload-post", ["UPLOAD_POST_API_KEY", "UPLOAD_POST_USER"]
+    base = "https://api.upload-post.com/api"
+
+    def post(self, platform, text, image_url, image_path):
+        h = {"Authorization": f"Apikey {os.environ['UPLOAD_POST_API_KEY']}"}
+        data = {"user": os.environ["UPLOAD_POST_USER"], "platform[]": [platform], "title": text}
+        if image_path:
+            with open(config.ROOT / image_path, "rb") as f:
+                r = requests.post(f"{self.base}/upload_photos", headers=h, data=data,
+                                  files=[("photos[]", (os.path.basename(image_path), f, "image/jpeg"))], timeout=180)
+        else:
+            r = requests.post(f"{self.base}/upload_text", headers=h, data=data, timeout=120)
+        if not r.ok:
+            raise RuntimeError(f"{r.status_code} {r.text[:200]}")
+        j = r.json()
+        if j.get("success") is False:
+            raise RuntimeError(str(j)[:200])
+        return f"sent {j.get('request_id') or j.get('job_id') or ''}".strip()
+
+
+PROVIDERS = [Buffer, Zernio, UploadPost]   # add Lime Social / SocialAPI here once their docs are known
 
 
 def publish_draft(draft):
     """Returns {platform: {"ok": bool, "detail": str}}."""
-    results = {}
-    try:
-        channels = buffer.channel_map()
-    except Exception as e:
-        return {p: {"ok": False, "detail": f"Buffer channels failed: {e}"} for p in config.PLATFORMS}
+    provs = [P() for P in PROVIDERS if all(os.getenv(s) for s in P.secrets)]
+    if not provs:
+        return {p: {"ok": False, "detail": "no publisher secrets configured"} for p in config.PLATFORMS}
+    start = dt.date.today().timetuple().tm_yday % len(provs)      # rotate the first choice daily
+    order = provs[start:] + provs[:start]
     image_path = (draft.get("image") or {}).get("path")
     image_url = f"https://raw.githubusercontent.com/{config.REPO}/{config.BRANCH}/{image_path}" if image_path else None
+    results = {}
     for p in config.PLATFORMS:
-        try:
-            if p not in channels:
-                raise RuntimeError("channel not connected in Buffer")
-            if p == "instagram" and not image_url:
-                raise RuntimeError("Instagram needs an image and none was generated")
-            post = buffer.create_post(channels[p], draft["posts"][p], image_url)
-            results[p] = {"ok": True, "detail": f"queued {post.get('id')} due {post.get('dueAt')}"}
-        except Exception as e:
-            results[p] = {"ok": False, "detail": str(e)[:300]}
+        if p == "instagram" and not image_url:
+            results[p] = {"ok": False, "detail": "Instagram needs an image and none was generated"}
+            continue
+        errors = []
+        for prov in order:
+            try:
+                results[p] = {"ok": True, "detail": f"{prov.name}: {prov.post(p, draft['posts'][p], image_url, image_path)}"}
+                break
+            except Exception as e:
+                errors.append(f"{prov.name}: {str(e)[:120]}")
+        else:
+            results[p] = {"ok": False, "detail": " | ".join(errors)[:400]}
     return results

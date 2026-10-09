@@ -23,8 +23,7 @@ Repo -> Settings -> Secrets and variables -> Actions -> add **secrets**:
 | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | Image generation (FLUX on Workers AI), else a free fallback |
 | `OPENROUTER_API_KEY` | Fallback model when another provider returns 429 |
 | `BLUESKY_HANDLE`, `BLUESKY_APP_PASSWORD` | Direct Bluesky posting (joins the rotation) |
-| `LIMESOCIAL_API_KEY` | Lime Social publisher (Instagram + LinkedIn; needs an image for Instagram) |
-| `LIMESOCIAL_INSTAGRAM_USERNAME`, `LIMESOCIAL_LINKEDIN_USERNAME` | The account handles as shown in your Lime Social dashboard |
+| `LIMESOCIAL_API_KEY`, `LIMESOCIAL_INSTAGRAM_USERNAME` | Lime Social publisher, Instagram only (needs an image). Username as shown in its dashboard |
 | `SOCIALAPI_KEY` | Not wired yet (API docs needed) |
 
 Variables (Variables tab): `NVIDIA_MODEL`, `OPENROUTER_MODEL`, `FACTCHECK_PROVIDER` (groq / nvidia / gemini / openrouter), `FACTCHECK_MODEL`.

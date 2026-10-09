@@ -71,7 +71,7 @@ class UploadPost:
 
 
 class LimeSocial:
-    name, secrets, platforms = "limesocial", ["LIMESOCIAL_API_KEY"], ("instagram", "linkedin")
+    name, secrets, platforms = "limesocial", ["LIMESOCIAL_API_KEY"], ("instagram",)   # LinkedIn is paid-only there
     base = "https://api.limesocial.io/v1"
 
     def post(self, platform, text, image_url, image_path):

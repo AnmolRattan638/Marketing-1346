@@ -23,9 +23,9 @@ Repo -> Settings -> Secrets and variables -> Actions -> add **secrets**:
 | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | Image generation (FLUX on Workers AI), else a free fallback |
 | `OPENROUTER_API_KEY` | Fallback model when another provider returns 429 |
 | `BLUESKY_HANDLE`, `BLUESKY_APP_PASSWORD` | Direct Bluesky posting (joins the rotation) |
-| `MASTODON_INSTANCE`, `MASTODON_TOKEN` | Extra channel: posts the short text + image |
-| `DISCORD_WEBHOOK_URL` | Extra channel: posts the LinkedIn text + image |
-| `LIMESOCIAL_API_KEY`, `SOCIALAPI_KEY` | Not wired yet (API docs needed) |
+| `LIMESOCIAL_API_KEY` | Lime Social publisher (Instagram + LinkedIn; needs an image for Instagram) |
+| `LIMESOCIAL_INSTAGRAM_USERNAME`, `LIMESOCIAL_LINKEDIN_USERNAME` | The account handles as shown in your Lime Social dashboard |
+| `SOCIALAPI_KEY` | Not wired yet (API docs needed) |
 
 Variables (Variables tab): `NVIDIA_MODEL`, `OPENROUTER_MODEL`, `FACTCHECK_PROVIDER` (groq / nvidia / gemini / openrouter), `FACTCHECK_MODEL`.
 Instagram and Facebook via Meta Business Suite stay manual: the image and caption arrive in Telegram.

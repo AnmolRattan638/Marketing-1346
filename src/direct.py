@@ -1,4 +1,4 @@
-"""Direct channels that need no scheduler: Bluesky (AT protocol), Mastodon, Discord webhook."""
+"""Direct channel that needs no scheduler: Bluesky (AT protocol)."""
 import datetime as dt
 import os
 import requests
@@ -26,36 +26,3 @@ def bluesky(text, image_path=None):
                       json={"repo": s["did"], "collection": "app.bsky.feed.post", "record": record})
     r.raise_for_status()
     return r.json().get("uri", "posted")
-
-
-def mastodon(text, image_path=None):
-    base = os.environ["MASTODON_INSTANCE"].strip().rstrip("/")
-    base = base if base.startswith("http") else f"https://{base}"
-    h = {"Authorization": f"Bearer {os.environ['MASTODON_TOKEN']}"}
-    body = {"status": text[:500]}
-    data = _img(image_path)
-    if data:
-        m = requests.post(f"{base}/api/v2/media", headers=h, timeout=120, files={"file": ("post.jpg", data, "image/jpeg")})
-        m.raise_for_status()
-        body["media_ids"] = [m.json()["id"]]
-    r = requests.post(f"{base}/api/v1/statuses", headers=h, json=body, timeout=60)
-    r.raise_for_status()
-    return r.json().get("url", "posted")
-
-
-def discord(text, image_path=None):
-    url = os.environ["DISCORD_WEBHOOK_URL"]
-    data = _img(image_path)
-    if data:
-        r = requests.post(url, data={"content": text[:2000]}, files={"file": ("post.jpg", data, "image/jpeg")}, timeout=60)
-    else:
-        r = requests.post(url, json={"content": text[:2000]}, timeout=60)
-    r.raise_for_status()
-    return "sent"
-
-
-# extra channel -> (needed secrets, function, which draft text to use)
-EXTRAS = {
-    "mastodon": (["MASTODON_INSTANCE", "MASTODON_TOKEN"], mastodon, "bluesky"),
-    "discord": (["DISCORD_WEBHOOK_URL"], discord, "linkedin"),
-}

@@ -31,11 +31,11 @@ jobs:
           ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
           UPLOAD_POST_API_KEY: ${{ secrets.UPLOAD_POST_API_KEY }}
           UPLOAD_POST_USER: ${{ secrets.UPLOAD_POST_USER }}
+          LIMESOCIAL_API_KEY: ${{ secrets.LIMESOCIAL_API_KEY }}
+          LIMESOCIAL_INSTAGRAM_USERNAME: ${{ secrets.LIMESOCIAL_INSTAGRAM_USERNAME }}
+          LIMESOCIAL_LINKEDIN_USERNAME: ${{ secrets.LIMESOCIAL_LINKEDIN_USERNAME }}
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
-          MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
-          MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python -m src.process_approvals
       - name: Commit state
         if: always()

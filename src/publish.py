@@ -70,6 +70,28 @@ class UploadPost:
         return f"sent {j.get('request_id') or j.get('job_id') or ''}".strip()
 
 
+class LimeSocial:
+    name, secrets, platforms = "limesocial", ["LIMESOCIAL_API_KEY"], ("instagram", "linkedin")
+    base = "https://api.limesocial.io/v1"
+
+    def post(self, platform, text, image_url, image_path):
+        user = os.getenv(f"LIMESOCIAL_{platform.upper()}_USERNAME")
+        if not user:
+            raise RuntimeError(f"secret LIMESOCIAL_{platform.upper()}_USERNAME not set")
+        body = {"title": text, "accounts": [{"platform": platform, "username": user}]}
+        if image_url:
+            path, body["mediaUrl"] = "/post/image", [image_url]
+        elif platform == "linkedin":
+            path = "/post/text"
+        else:
+            raise RuntimeError("Instagram needs an image")
+        r = requests.post(self.base + path, headers={"Authorization": os.environ["LIMESOCIAL_API_KEY"]}, json=body, timeout=120)
+        j = r.json() if r.content else {}
+        if not r.ok or j.get("success") is False:
+            raise RuntimeError(f"{r.status_code} {str(j.get('error') or j)[:200]}")
+        return f"queued {j.get('data', {}).get('request_id')}"
+
+
 class BlueskyDirect:
     name, secrets, platforms = "bluesky-direct", ["BLUESKY_HANDLE", "BLUESKY_APP_PASSWORD"], ("bluesky",)
 
@@ -77,8 +99,8 @@ class BlueskyDirect:
         return direct.bluesky(text, image_path)
 
 
-# Lime Social and SocialAPI are not here yet: their API docs are needed.
-PROVIDERS = [Buffer, Zernio, UploadPost, BlueskyDirect]
+# SocialAPI is not wired yet: its API docs are needed.
+PROVIDERS = [Buffer, Zernio, UploadPost, LimeSocial, BlueskyDirect]
 
 
 def publish_draft(draft):
@@ -106,10 +128,4 @@ def publish_draft(draft):
                 errors.append(f"{prov.name}: {str(e)[:120]}")
         else:
             results[p] = {"ok": False, "detail": " | ".join(errors)[:400]}
-    for ch, (secrets, fn, source) in direct.EXTRAS.items():      # extra channels, posted in addition
-        if all(os.getenv(s) for s in secrets):
-            try:
-                results[ch] = {"ok": True, "detail": str(fn(draft["posts"][source], image_path))}
-            except Exception as e:
-                results[ch] = {"ok": False, "detail": str(e)[:200]}
     return results

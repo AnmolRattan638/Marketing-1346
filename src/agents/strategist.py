@@ -18,11 +18,11 @@ Write guidance (max 180 words, markdown bullets) for tomorrow's research, hook a
 - which hook style to try next (rotate styles so we can compare)
 - topics or phrasings to avoid because they were repeated
 - one reminder: posts must teach first and never read like an ad."""
-    return llm.groq(prompt, SYS).strip()
+    return llm.strategist_model(prompt, SYS).strip()
 
 
 def review(posts):
     prompt = f"""Score how much each draft sounds like an advertisement (1 = genuine helpful human, 10 = pure ad).
 Drafts: {json.dumps(posts, ensure_ascii=False)}
 Return JSON: {{"ad_score": <1-10 worst of the three>, "notes": "<specific rewrite instructions, empty if fine>"}}"""
-    return llm.ask_json(llm.groq, prompt, SYS)
+    return llm.ask_json(llm.strategist_model, prompt, SYS)

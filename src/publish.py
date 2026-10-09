@@ -2,7 +2,7 @@
 import datetime as dt
 import os
 import requests
-from . import buffer, config
+from . import buffer, config, direct
 
 
 class Buffer:
@@ -70,7 +70,15 @@ class UploadPost:
         return f"sent {j.get('request_id') or j.get('job_id') or ''}".strip()
 
 
-PROVIDERS = [Buffer, Zernio, UploadPost]   # add Lime Social / SocialAPI here once their docs are known
+class BlueskyDirect:
+    name, secrets, platforms = "bluesky-direct", ["BLUESKY_HANDLE", "BLUESKY_APP_PASSWORD"], ("bluesky",)
+
+    def post(self, platform, text, image_url, image_path):
+        return direct.bluesky(text, image_path)
+
+
+# Lime Social and SocialAPI are not here yet: their API docs are needed.
+PROVIDERS = [Buffer, Zernio, UploadPost, BlueskyDirect]
 
 
 def publish_draft(draft):
@@ -89,6 +97,8 @@ def publish_draft(draft):
             continue
         errors = []
         for prov in order:
+            if getattr(prov, "platforms", None) and p not in prov.platforms:
+                continue
             try:
                 results[p] = {"ok": True, "detail": f"{prov.name}: {prov.post(p, draft['posts'][p], image_url, image_path)}"}
                 break
@@ -96,4 +106,10 @@ def publish_draft(draft):
                 errors.append(f"{prov.name}: {str(e)[:120]}")
         else:
             results[p] = {"ok": False, "detail": " | ".join(errors)[:400]}
+    for ch, (secrets, fn, source) in direct.EXTRAS.items():      # extra channels, posted in addition
+        if all(os.getenv(s) for s in secrets):
+            try:
+                results[ch] = {"ok": True, "detail": str(fn(draft["posts"][source], image_path))}
+            except Exception as e:
+                results[ch] = {"ok": False, "detail": str(e)[:200]}
     return results

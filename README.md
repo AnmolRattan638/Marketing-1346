@@ -15,6 +15,21 @@ Repo -> Settings -> Secrets and variables -> Actions -> add **secrets**:
 | `ZERNIO_API_KEY` | zernio.com/dashboard/api-keys (starts with `sk_`) |
 | `UPLOAD_POST_API_KEY`, `UPLOAD_POST_USER` | Upload-Post dashboard -> API Keys; `USER` is your Upload-Post profile name |
 
+**More secrets (all optional, a missing one is skipped):**
+
+| Secret | Used for |
+|---|---|
+| `NVIDIA_API_KEY` | Nemotron for the strategist (else GPT-OSS on Groq) |
+| `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | Image generation (FLUX on Workers AI), else a free fallback |
+| `OPENROUTER_API_KEY` | Fallback model when another provider returns 429 |
+| `BLUESKY_HANDLE`, `BLUESKY_APP_PASSWORD` | Direct Bluesky posting (joins the rotation) |
+| `MASTODON_INSTANCE`, `MASTODON_TOKEN` | Extra channel: posts the short text + image |
+| `DISCORD_WEBHOOK_URL` | Extra channel: posts the LinkedIn text + image |
+| `LIMESOCIAL_API_KEY`, `SOCIALAPI_KEY` | Not wired yet (API docs needed) |
+
+Variables (Variables tab): `NVIDIA_MODEL`, `OPENROUTER_MODEL`, `FACTCHECK_PROVIDER` (groq / nvidia / gemini / openrouter), `FACTCHECK_MODEL`.
+Instagram and Facebook via Meta Business Suite stay manual: the image and caption arrive in Telegram.
+
 Publishers rotate daily (first choice changes each day) and each platform falls back to the next tool if one fails. A tool with no secrets is skipped.
 
 Optional **variables**: `GEMMA_MODEL`, `GROQ_MODEL`, `GEMINI_MODEL` (to change model IDs).

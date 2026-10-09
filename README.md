@@ -24,7 +24,7 @@ Repo -> Settings -> Secrets and variables -> Actions -> add **secrets**:
 | `OPENROUTER_API_KEY` | Fallback model when another provider returns 429 |
 | `BLUESKY_HANDLE`, `BLUESKY_APP_PASSWORD` | Direct Bluesky posting (joins the rotation) |
 | `LIMESOCIAL_API_KEY`, `LIMESOCIAL_INSTAGRAM_USERNAME` | Lime Social publisher, Instagram only (needs an image). Username as shown in its dashboard |
-| `SOCIALAPI_KEY` | Not wired yet (API docs needed) |
+| `SOCIALAPI_KEY` | SocialAPI.ai publisher (key starts `sapi_key_`; Instagram + LinkedIn, not Bluesky) |
 
 Variables (Variables tab): `NVIDIA_MODEL`, `OPENROUTER_MODEL`, `FACTCHECK_PROVIDER` (groq / nvidia / gemini / openrouter), `FACTCHECK_MODEL`.
 Instagram and Facebook via Meta Business Suite stay manual: the image and caption arrive in Telegram.

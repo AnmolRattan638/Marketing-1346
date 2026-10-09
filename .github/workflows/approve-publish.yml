@@ -33,6 +33,7 @@ jobs:
           UPLOAD_POST_USER: ${{ secrets.UPLOAD_POST_USER }}
           LIMESOCIAL_API_KEY: ${{ secrets.LIMESOCIAL_API_KEY }}
           LIMESOCIAL_INSTAGRAM_USERNAME: ${{ secrets.LIMESOCIAL_INSTAGRAM_USERNAME }}
+          SOCIALAPI_KEY: ${{ secrets.SOCIALAPI_KEY }}
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
         run: python -m src.process_approvals

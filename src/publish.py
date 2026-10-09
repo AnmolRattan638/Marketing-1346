@@ -92,6 +92,39 @@ class LimeSocial:
         return f"queued {j.get('data', {}).get('request_id')}"
 
 
+class SocialAPI:
+    """SocialAPI.ai (keys start with sapi_key_). Supports Instagram and LinkedIn, not Bluesky."""
+    name, secrets, platforms = "socialapi", ["SOCIALAPI_KEY"], ("instagram", "linkedin")
+    base = "https://api.social-api.ai/v1"
+
+    def __init__(self):
+        self._acc = None
+
+    def _h(self):
+        return {"Authorization": f"Bearer {os.environ['SOCIALAPI_KEY']}"}
+
+    def post(self, platform, text, image_url, image_path):
+        if self._acc is None:
+            r = requests.get(f"{self.base}/accounts", headers=self._h(), timeout=60)
+            r.raise_for_status()
+            self._acc = {}
+            for a in r.json().get("data", []):
+                self._acc.setdefault(a["platform"], a["id"])
+        if platform not in self._acc:
+            raise RuntimeError("account not connected")
+        body = {"text": text, "publish_now": True, "targets": [{"account_id": self._acc[platform]}]}
+        if image_url:
+            body["media"] = [{"source_type": "url", "source": image_url}]
+        elif platform == "instagram":
+            raise RuntimeError("Instagram needs an image")
+        r = requests.post(f"{self.base}/posts", headers=self._h(), json=body, timeout=120)
+        j = r.json() if r.content else {}
+        if r.status_code != 201:      # 207 = partial, 422 = all targets failed
+            errs = [t.get("error") for t in j.get("targets", []) if t.get("error")] or [j]
+            raise RuntimeError(f"{r.status_code} {str(errs)[:200]}")
+        return f"publishing {j.get('id')}"
+
+
 class BlueskyDirect:
     name, secrets, platforms = "bluesky-direct", ["BLUESKY_HANDLE", "BLUESKY_APP_PASSWORD"], ("bluesky",)
 
@@ -99,8 +132,7 @@ class BlueskyDirect:
         return direct.bluesky(text, image_path)
 
 
-# SocialAPI is not wired yet: its API docs are needed.
-PROVIDERS = [Buffer, Zernio, UploadPost, LimeSocial, BlueskyDirect]
+PROVIDERS = [Buffer, Zernio, UploadPost, LimeSocial, SocialAPI, BlueskyDirect]
 
 
 def publish_draft(draft):

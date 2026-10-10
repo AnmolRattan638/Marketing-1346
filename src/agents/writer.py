@@ -21,7 +21,7 @@ Write one post per platform:
 - instagram: caption, 80-160 words, ends with a soft DM invite (vary the wording), 3-5 hashtags at the end
 - linkedin: 120-200 words, short paragraphs, ends with a soft DM invite
 - bluesky: ONE thought under 280 characters, soft nudge to DM
-Mention a price only for website/chatbot/animated ads and only copy it from price_note; never for lead gen.
+Audience is all of India: no city-specific assumptions; use broad hashtags like #SmallBusinessIndia, not city tags. Mention a price only for website/chatbot/animated ads and only copy it from price_note; never for lead gen.
 Also write 3 reply drafts for likely comments/DMs (e.g. "how much?", "do you do this for my kind of business?").
 Return JSON: {{"instagram": "...", "linkedin": "...", "bluesky": "...", "replies": [{{"if_they_say": "...", "reply": "..."}}]}}"""
     out = llm.ask_json(llm.gemini, prompt, SYS)

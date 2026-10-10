@@ -1,19 +1,19 @@
 {
   "brand": "AR Designs",
   "owner": "Anmol",
-  "positioning": "Freelance web developer from Himachal Pradesh helping local businesses (hotels, cafes, gyms, homestays) grow online.",
+  "positioning": "Freelance web developer based in Himachal Pradesh, working remotely with small businesses across all of India (hotels, cafes, gyms, clinics, coaching centres, salons, shops, D2C brands) to help them grow online.", "audience": "Small and medium business owners anywhere in India, plus freelancers and agencies for the lead-gen service. Work is done fully online, in English and Hindi/Hinglish.",
   "portfolio": "https://anmolrattan.netlify.app",
   "services": [
-    {"id": "website", "priority": 1, "name": "Website development", "pitch": "Fast, mobile-first websites for local businesses (hotels, cafes, gyms, homestays, restaurants, yoga studios).", "price_note": "Packages from INR 1,499 (Basic) up to INR 3,599 (Bundle 2); domain setup INR 800."},
+    {"id": "website", "priority": 1, "name": "Website development", "pitch": "Fast, mobile-first websites for small businesses anywhere in India (hotels, cafes, gyms, clinics, coaching centres, salons, shops).", "price_note": "Packages from INR 1,499 (Basic) up to INR 3,599 (Bundle 2); domain setup INR 800."},
     {"id": "chatbot", "priority": 1, "name": "AI chatbot development", "pitch": "AI chatbot that answers customer questions and takes enquiries automatically, so no lead goes unanswered.", "price_note": "INR 2,999 or INR 4,999, plus INR 299/month maintenance."},
-    {"id": "animated_ads", "priority": 1, "name": "AI animated ads", "pitch": "Short animated ads for local businesses to use on Instagram and Facebook.", "price_note": "INR 999 / 1,499 / 2,199."},
-    {"id": "lead_gen", "priority": 1, "name": "Lead generation (LocalSignal)", "pitch": "Daily Excel sheet of pre-qualified local businesses (found via Google Places plus website analysis) for freelancers and agencies, so they can pitch without cold-searching for hours.", "price_note": "Do not state a price; tell people to DM."},
-    {"id": "reel_scripts", "priority": 3, "name": "Reel script writing", "pitch": "Hinglish/English reel scripts for small businesses.", "price_note": "INR 299 / 499 / 999."},
-    {"id": "seo_blogs", "priority": 3, "name": "SEO blog writing", "pitch": "Monthly SEO blog writing for local businesses.", "price_note": "INR 1,499 / 2,499 / 3,999 per month."}
+    {"id": "animated_ads", "priority": 1, "name": "AI animated ads", "pitch": "Short animated ads for small businesses anywhere in India to use on Instagram and Facebook.", "price_note": "INR 999 / 1,499 / 2,199."},
+    {"id": "lead_gen", "priority": 1, "name": "Lead generation (LocalSignal)", "pitch": "Daily Excel sheet of pre-qualified businesses (found via Google Places plus website analysis) for freelancers and agencies, so they can pitch without cold-searching for hours.", "price_note": "Do not state a price; tell people to DM."},
+    {"id": "reel_scripts", "priority": 3, "name": "Reel script writing", "pitch": "Hinglish/English reel scripts for small businesses across India.", "price_note": "INR 299 / 499 / 999."},
+    {"id": "seo_blogs", "priority": 3, "name": "SEO blog writing", "pitch": "Monthly SEO blog writing for small businesses across India.", "price_note": "INR 1,499 / 2,499 / 3,999 per month."}
   ],
   "facts_rules": [
     "No testimonials, client names, results, or statistics exist yet. Never invent any.",
     "Only quote prices that appear in price_note. Never promise rankings, revenue or guaranteed results.",
-    "Primary goal of every post: earn DMs/messages."
+    "Primary goal of every post: earn DMs/messages.", "Audience is all of India: do not assume one city or state; use examples from varied industries and cities, and national (not city-specific) hashtags."
   ]
 }

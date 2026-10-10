@@ -1,7 +1,7 @@
 # Voice (DRAFT - edit this to sound like you)
 
 - First person, one real person (Anmol) talking, never "we are a leading agency".
-- Plain, specific, a little warm. Short sentences. Concrete examples from hotels, cafes, gyms, homestays.
+- Plain, specific, a little warm. Short sentences. Concrete examples from many kinds of Indian small businesses (cafes, clinics, coaching centres, salons, gyms, shops, hotels). Audience is all of India, so don't assume one city or state.
 - Teach something useful first; the offer comes second and stays small.
 - Never sound like an ad: no "limited offer", "best in class", "game-changer", no hype, no emoji spam (0-2 per post).
 - No fake urgency, no invented numbers, no invented clients.

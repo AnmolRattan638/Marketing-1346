@@ -61,6 +61,35 @@ def _pollinations(img_prompt, path):
     _save(r.content, path)
 
 
+def _card(plan, path):
+    """Plain brand text card with the hook, used when no AI engine works (so Instagram still gets an image)."""
+    from PIL import ImageDraw, ImageFont
+    hook = plan["hooks"][plan.get("chosen_hook", 0)]["text"]
+    im = Image.new("RGB", (1080, 1080), (11, 18, 32))
+    d = ImageDraw.Draw(im)
+    for size in (84, 70, 58, 48):
+        font = ImageFont.load_default(size=size)
+        lines, cur = [], ""
+        for w in hook.split():
+            t = (cur + " " + w).strip()
+            if d.textlength(t, font=font) <= 880:
+                cur = t
+            else:
+                lines.append(cur)
+                cur = w
+        lines.append(cur)
+        if len(lines) <= 6:
+            break
+    lh = int(size * 1.3)
+    y = (1080 - lh * len(lines)) // 2 - 20
+    d.rectangle([100, y - 50, 300, y - 42], fill=(212, 175, 55))
+    for ln in lines:
+        d.text((100, y), ln, font=font, fill=(255, 255, 255))
+        y += lh
+    d.text((100, 960), "Anmol | AR Designs", font=ImageFont.load_default(size=36), fill=(212, 175, 55))
+    im.save(path, "JPEG", quality=90)    # no AI-generated marker: this is not AI imagery
+
+
 def run(plan, focus, date, guidance=""):
     prompt = f"""Write ONE image-generation prompt (max 60 words) for a clean, modern social media square graphic.
 Idea: {plan.get('image_idea')} | Topic: {plan['topic']} | Service: {focus['name']}
@@ -79,4 +108,9 @@ Return only the prompt."""
             except Exception as e:
                 print(f"[image] {engine.__name__} failed: {e}")
                 errors.append(f"{engine.__name__.strip('_')}: {str(e)[:110]}")
+    try:
+        _card(plan, path)
+        return {"prompt": img_prompt, "path": str(path.relative_to(config.ROOT)), "engine": "text_card", "errors": errors[-4:]}
+    except Exception as e:
+        errors.append(f"text_card: {str(e)[:80]}")
     return {"prompt": img_prompt, "path": None, "errors": errors[-4:]}

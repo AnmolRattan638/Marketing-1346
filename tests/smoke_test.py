@@ -28,6 +28,9 @@ run_daily.main()
 draft = config.load_json(config.DRAFTS / f"{run_daily.today}.json", None)
 assert draft and draft["status"] == "pending" and len(draft["posts"]["bluesky"]) <= 300, draft
 assert sent[-1][1][0]["callback_data"].startswith("approve:")
+assert draft["instagram_mode"] in ("manual_reel", "auto_image")
+draft["instagram_mode"] = "manual_reel"      # make the rest of this test independent of the weekday
+config.save_json(config.DRAFTS / f"{run_daily.today}.json", draft)
 
 buffer.channel_map = lambda: {"linkedin": "c1"}   # bluesky missing in Buffer -> must fall back to Zernio
 publish.Zernio.post = lambda self, p, t, u, i: "zernio ok"

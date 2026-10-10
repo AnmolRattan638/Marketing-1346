@@ -145,9 +145,9 @@ def publish_draft(draft):
     image_path = (draft.get("image") or {}).get("path")
     image_url = f"https://raw.githubusercontent.com/{config.REPO}/{config.BRANCH}/{image_path}" if image_path else None
     results = {}
-    manual_ig = config.services().get("instagram_mode") == "reel_manual"
+    manual_ig = draft.get("instagram_mode") == "manual_reel"
     for p in config.PLATFORMS:
-        if p == "instagram" and manual_ig:      # you post the daily reel yourself
+        if p == "instagram" and manual_ig:      # Wednesday: you post the reel yourself
             continue
         if p == "instagram" and not image_url:
             results[p] = {"ok": False, "detail": "Instagram needs an image and none was generated"}

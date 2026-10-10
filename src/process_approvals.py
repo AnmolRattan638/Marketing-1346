@@ -4,6 +4,17 @@ import sys, time
 from . import config, publish, tg
 
 
+def _tail(draft):
+    ai_img = (draft.get("image") or {}).get("engine") not in (None, "text_card") and (draft.get("image") or {}).get("path")
+    if draft.get("instagram_mode") == "manual_reel":
+        s = "\n\nInstagram: post today's reel yourself with the INSTAGRAM caption above. If the video or presenter is AI-generated, switch the AI label on."
+    else:
+        s = "\n\nInstagram was posted automatically with the image and caption."
+    if ai_img:
+        s += " The image is AI-generated: check the AI label shows on Instagram and LinkedIn, and switch it on if not."
+    return s
+
+
 def handle(cb):
     if str(cb["message"]["chat"]["id"]) != str(tg.chat_id()):
         return
@@ -30,7 +41,7 @@ def handle(cb):
         draft["status"] = "published" if len(ok) == len(res) else ("partial" if ok else "failed")
         tg.send(f"Publish result for {date}: {draft['status']}\n" +
                 "\n".join(f"- {p}: {'OK' if r['ok'] else 'FAILED'} ({r['detail']})" for p, r in res.items()) +
-                "\n\nInstagram: post today's reel yourself with the INSTAGRAM caption above (it is not auto-posted). If the video or presenter is AI-generated, switch the AI label on. LinkedIn: check the AI label shows on the image; if not, switch it on.")
+                _tail(draft))
     else:
         return
     history.append({"date": date, "service": draft["service"], "topic": draft["topic"],

@@ -44,6 +44,7 @@ def main():
     history = config.load_json(config.DATA / "history.json", [])
     metrics = config.load_json(config.DATA / "metrics.json", {})
     focus = pick_focus(brand, history)
+    ig_mode = "manual_reel" if dt.date.today().weekday() in brand.get("instagram", {}).get("manual_reel_weekdays", [2]) else "auto_image"
 
     try:
         state = stage("strategist.guide",
@@ -63,18 +64,18 @@ def main():
                        fallback=[{"topic": f"A practical tip about {focus['name']} for local businesses",
                                   "angle": focus["pitch"], "why_it_matters": "fallback topic"}])
         plan = stage("analysis", lambda: analysis.run(topics, focus, g('analysis'), history))
-        posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer')))
+        posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer'), ig_mode=ig_mode))
         fc = stage("factcheck", lambda: factcheck.run(posts, focus, brand), fallback={"ok": None, "issues": ["fact-check unavailable"], "revised": {}})
         for k, v in (fc.get("revised") or {}).items():
             if k in posts and v:
                 posts[k] = v[:300] if k == "bluesky" else v
         rv = stage("strategist.review", lambda: strategist.review(posts), fallback={"ad_score": None, "notes": ""})
         if (rv.get("ad_score") or 0) >= 7:
-            posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), rv.get("notes", "")), fallback=posts)
+            posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), rv.get("notes", ""), ig_mode=ig_mode), fallback=posts)
         img = stage("image", lambda: image.run(plan, focus, today, g('image')), fallback={"prompt": None, "path": None})
-        if not img.get("path"):
-            WARNINGS.append("image: no engine produced an image. " + " | ".join(dict.fromkeys(img.get("errors", [])))[:400])
-        vid = stage("video", lambda: video.run(plan, focus, posts, g('video')), fallback={})
+        if img.get("engine") == "text_card" or not img.get("path"):
+            WARNINGS.append(("image: AI engines failed, used a plain text card. " if img.get("path") else "image: no image at all. ") + " | ".join(dict.fromkeys(img.get("errors", [])))[:400])
+        vid = stage("video", lambda: video.run(plan, focus, posts, g('video')), fallback={}) if ig_mode == "manual_reel" else {}
     except Exception as e:
         tg.send(f"Marketing pipeline failed on {today}: {e}\nNothing was posted. Check the Actions log.")
         raise
@@ -83,19 +84,19 @@ def main():
              "hooks": plan["hooks"], "chosen_hook": plan.get("chosen_hook", 0),
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),
-             "image": img, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score")}
+             "image": img, "instagram_mode": ig_mode, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score")}
     config.save_json(path, draft)
 
     tg.send((f"WARNINGS (a step failed and a fallback was used):\n- " + "\n- ".join(WARNINGS) + "\n\n" if WARNINGS else "") +
             f"Draft for {today}\nService: {focus['name']}\nTopic: {plan['topic']}\n"
-            f"Fact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n\n"
+            f"Instagram today: {'MANUAL reel (post it yourself)' if ig_mode == 'manual_reel' else 'auto-posted image + caption'}\nFact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n\n"
             f"Account check ({state.get('stage')}): {state.get('summary')}" +
             "\n\nModels that answered: " + (" | ".join(dict.fromkeys(llm.LOG))[:700] or "n/a") +
             ("\nManual tips:\n- " + "\n- ".join(map(str, state.get("manual_tips") or [])) if state.get("manual_tips") else ""))
     if img.get("path"):
         tg.send_photo(config.ROOT / img["path"], img.get("prompt") or "")
     for p in config.PLATFORMS:
-        tg.send(f"[{p.upper()}{' CAPTION FOR YOUR REEL' if p == 'instagram' else ''}]\n{posts[p]}")
+        tg.send(f"[{p.upper()}{' CAPTION FOR YOUR REEL' if p == 'instagram' and ig_mode == 'manual_reel' else (' CAPTION, auto-posted with the image' if p == 'instagram' else '')}]\n{posts[p]}")
     if vid:
         parts = vid.get("parts") or []
         tg.send("[REEL, 30 seconds = 3 clips of 10s in Google Flow]\nHook (first 3s): " + str(vid.get("hook_first_3s", "")) +
@@ -105,7 +106,7 @@ def main():
             tg.send(f"[FLOW PROMPT {i}/{len(parts)} | {part.get('time')}]\nSpoken line: {part.get('voiceover')}\n\n{part.get('flow_prompt')}")
     if draft["replies"]:
         tg.send("[REPLY DRAFTS]\n" + "\n\n".join(f"If: {r['if_they_say']}\n-> {r['reply']}" for r in draft["replies"]))
-    tg.send("Approve posting to LinkedIn and Bluesky? (Instagram is your manual reel.) It posts within seconds of your tap.",
+    tg.send(("Approve posting to LinkedIn and Bluesky? (Wednesday: Instagram is your manual reel.)" if ig_mode == "manual_reel" else "Approve posting to Instagram, LinkedIn and Bluesky?") + " It posts within seconds of your tap.",
             buttons=[{"text": "Approve", "callback_data": f"approve:{today}"},
                      {"text": "Reject", "callback_data": f"reject:{today}"}])
 

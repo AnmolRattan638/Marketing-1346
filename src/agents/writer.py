@@ -5,7 +5,7 @@ from .. import config, llm
 SYS = "You write social posts in the author's own voice. Follow the voice guide strictly."
 
 
-def run(plan, focus, brand, voice, guidance, rewrite_notes=""):
+def run(plan, focus, brand, voice, guidance, rewrite_notes="", ig_mode="auto_image"):
     hook = plan["hooks"][plan.get("chosen_hook", 0)]["text"]
     prompt = f"""VOICE GUIDE:
 {voice}
@@ -20,7 +20,7 @@ Strategist guidance: {guidance}
 Languages: {json.dumps(brand.get('languages', {}))}. Adapt the opening hook into the platform's language (Instagram = Hinglish).
 Frame every post as a web developer SHOWING real work: one concrete thing built, fixed or noticed, with a specific detail. Call demo projects "sample" or "demo". It must NOT read like an advertisement.
 Write one post per platform:
-- instagram: caption for a REEL, 40-100 words, first line is the hook, ends with ONE soft DM invite (vary the wording), 3-5 hashtags at the end
+- instagram: {'caption for a REEL, 40-100 words' if ig_mode == 'manual_reel' else 'caption for an IMAGE post (a graphic with the hook), 80-140 words'}, first line is the hook, ends with ONE soft DM invite (vary the wording), 3-5 hashtags at the end
 - linkedin: 120-200 words, short paragraphs, ends with a soft DM invite
 - bluesky: ONE thought under 280 characters, soft nudge to DM
 Audience is all of India: no city-specific assumptions; use broad hashtags like #SmallBusinessIndia, not city tags. Mention a price only for website/chatbot/animated ads and only copy it from price_note; never for lead gen.

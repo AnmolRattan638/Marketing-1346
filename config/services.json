@@ -71,5 +71,10 @@
     "website_weekday": 5,
     "other_weekday": 2
   },
-  "instagram_mode": "reel_manual"
+  "instagram": {
+    "manual_reel_weekdays": [
+      2
+    ],
+    "note": "Weekday numbers: Monday=0 ... Sunday=6. On these days you post the reel yourself (the draft includes the 3 Flow prompts). On every other day the approved image + caption is posted to Instagram automatically."
+  }
 }

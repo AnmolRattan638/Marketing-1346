@@ -39,37 +39,43 @@ _FREE = None
 _GMODELS = None
 
 
-def _openrouter_free_model():
-    """Pick a currently-free OpenRouter model from its public model list (free slugs come and go)."""
+def _openrouter_free_models():
+    """Currently-free OpenRouter models from its public list, best first (free slugs come and go)."""
     global _FREE
     if _FREE is None:
         r = requests.get("https://openrouter.ai/api/v1/models", timeout=60)
         r.raise_for_status()
         free = [m["id"] for m in r.json().get("data", [])
                 if m["id"].endswith(":free") and str((m.get("pricing") or {}).get("prompt")) in ("0", "0.0")]
+        ordered = []
         for pref in ("gpt-oss-120b", "llama-3.3-70b", "qwen3", "nemotron", "gemma", "deepseek"):
-            for mid in free:
-                if pref in mid:
-                    _FREE = mid
-                    break
-            if _FREE:
-                break
-        _FREE = _FREE or (free[0] if free else "")
-        print(f"[llm] OpenRouter free model chosen: {_FREE}")
+            ordered += [m for m in free if pref in m and m not in ordered]
+        _FREE = ordered + [m for m in free if m not in ordered]
     return _FREE
 
 
 def openrouter(prompt, system="", model=None, temperature=0.7):
+    """Call OpenRouter. If the chosen model returns 404 (retired / no longer free), try other free models."""
     url, key = "https://openrouter.ai/api/v1/chat/completions", os.environ["OPENROUTER_API_KEY"]
-    chosen = model or config.OPENROUTER_MODEL or _openrouter_free_model()
-    try:
-        return _chat(url, key, prompt, system, chosen, temperature)
-    except RuntimeError as e:
-        if "HTTP 404" in str(e) and not model:            # slug retired or no longer free: rediscover
-            alt = _openrouter_free_model()
-            if alt and alt != chosen:
-                return _chat(url, key, prompt, system, alt, temperature)
-        raise
+    first = model or config.OPENROUTER_MODEL
+    tried, last = [], None
+    for attempt in range(5):
+        if attempt == 0 and first:
+            chosen = first
+        else:
+            cands = [m for m in _openrouter_free_models() if m not in tried]
+            if not cands:
+                break
+            chosen = cands[0]
+        tried.append(chosen)
+        try:
+            return _chat(url, key, prompt, system, chosen, temperature)
+        except RuntimeError as e:
+            last = e
+            if "HTTP 404" not in str(e) or model:   # an explicitly requested model is not swapped
+                raise
+            print(f"[llm] OpenRouter {chosen} unavailable (404), trying another free model")
+    raise last or RuntimeError("no free OpenRouter model available")
 
 
 def _with_fallback(fn):

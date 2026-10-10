@@ -48,8 +48,13 @@ jobs:
         run: python -m src.run_daily ${{ inputs.force && '--force' || '' }}
       - name: Commit draft, image and strategy
         if: always()
+        run: bash scripts/commit_state.sh "draft: $(date -u +%F)"
+      - name: Alert if the draft could not be saved
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          git config user.name "marketing-bot"
-          git config user.email "marketing-bot@users.noreply.github.com"
-          git add -A data
-          git diff --cached --quiet || (git commit -m "draft: $(date -u +%F)" && git pull --rebase && git push)
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=Daily draft workflow failed or could not save the draft. Do NOT tap Approve on any earlier draft message. Re-run Daily draft from the Actions tab." > /dev/null

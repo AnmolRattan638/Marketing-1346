@@ -39,8 +39,4 @@ jobs:
         run: python -m src.process_approvals
       - name: Commit state
         if: always()
-        run: |
-          git config user.name "marketing-bot"
-          git config user.email "marketing-bot@users.noreply.github.com"
-          git add -A data
-          git diff --cached --quiet || (git commit -m "state: $(date -u +%FT%TZ)" && git pull --rebase && git push)
+        run: bash scripts/commit_state.sh "state: $(date -u +%FT%TZ)"

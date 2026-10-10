@@ -10,6 +10,7 @@ def handle(cb):
     draft = config.load_json(path, None)
     if not draft:
         tg.answer(cb["id"], "Draft not found")
+        tg.send(f"Could not find the saved draft for {date}, so nothing was posted. Run Daily draft again from the Actions tab and approve the new message.")
         return
     if draft["status"] != "pending":
         tg.answer(cb["id"], f"Already {draft['status']}")

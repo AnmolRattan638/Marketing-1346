@@ -5,13 +5,20 @@ from PIL import Image
 from .. import config, llm
 
 
+XMP = ('<?xpacket begin="\ufeff" id="W5M0MpCehiHzreSzNTczkc9d"?><x:xmpmeta xmlns:x="adobe:ns:meta/">'
+       '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><rdf:Description rdf:about="" '
+       'xmlns:Iptc4xmpExt="http://iptc.org/std/Iptc4xmpExt/2008-02-12/" '
+       'Iptc4xmpExt:DigitalSourceType="http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"/>'
+       '</rdf:RDF></x:xmpmeta><?xpacket end="w"?>').encode("utf-8")   # IPTC "AI generated" marker platforms can read
+
+
 def _save(data, path):
     """Normalise any engine's output to a <900 KB RGB JPEG (Instagram needs JPEG, Bluesky limits size)."""
     im = Image.open(io.BytesIO(data)).convert("RGB")
     im.thumbnail((1080, 1080))
     for q in (90, 80, 70, 60):
         buf = io.BytesIO()
-        im.save(buf, "JPEG", quality=q)
+        im.save(buf, "JPEG", quality=q, xmp=XMP)
         if buf.tell() < 900_000:
             break
     path.write_bytes(buf.getvalue())

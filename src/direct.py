@@ -21,7 +21,7 @@ def bluesky(text, image_path=None):
         b = requests.post("https://bsky.social/xrpc/com.atproto.repo.uploadBlob", timeout=120,
                           headers={**h, "Content-Type": "image/jpeg"}, data=data)
         b.raise_for_status()
-        record["embed"] = {"$type": "app.bsky.embed.images", "images": [{"alt": "Illustration for the post", "image": b.json()["blob"]}]}
+        record["embed"] = {"$type": "app.bsky.embed.images", "images": [{"alt": "AI-generated illustration for the post", "image": b.json()["blob"]}]}
     r = requests.post("https://bsky.social/xrpc/com.atproto.repo.createRecord", headers=h, timeout=60,
                       json={"repo": s["did"], "collection": "app.bsky.feed.post", "record": record})
     r.raise_for_status()

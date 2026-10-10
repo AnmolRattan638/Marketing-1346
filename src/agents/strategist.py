@@ -22,7 +22,7 @@ Write guidance (max 180 words, markdown bullets) for tomorrow's research, hook a
 
 
 def review(posts):
-    prompt = f"""Score how much each draft sounds like an advertisement (1 = genuine helpful human, 10 = pure ad).
+    prompt = f"""Score how much each draft sounds like an advertisement (1 = a developer genuinely showing real work, 10 = pure ad). Score 7+ if it does not show a specific, concrete piece of work or reads like a sales pitch.
 Drafts: {json.dumps(posts, ensure_ascii=False)}
 Return JSON: {{"ad_score": <1-10 worst of the three>, "notes": "<specific rewrite instructions, empty if fine>"}}"""
     return llm.ask_json(llm.strategist_model, prompt, SYS)

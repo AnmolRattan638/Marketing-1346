@@ -72,6 +72,8 @@ def main():
         if (rv.get("ad_score") or 0) >= 7:
             posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), rv.get("notes", "")), fallback=posts)
         img = stage("image", lambda: image.run(plan, focus, today, g('image')), fallback={"prompt": None, "path": None})
+        if not img.get("path"):
+            WARNINGS.append("image: no engine produced an image. " + " | ".join(dict.fromkeys(img.get("errors", [])))[:400])
         vid = stage("video", lambda: video.run(plan, focus, posts, g('video')), fallback={})
     except Exception as e:
         tg.send(f"Marketing pipeline failed on {today}: {e}\nNothing was posted. Check the Actions log.")

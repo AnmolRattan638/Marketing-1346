@@ -70,6 +70,7 @@ Return only the prompt."""
     img_prompt = llm.gemma(prompt).strip().strip('"')
     path = config.MEDIA / f"{date}.jpg"
     engines = ([_cloudflare] if os.getenv("CLOUDFLARE_API_TOKEN") and os.getenv("CLOUDFLARE_ACCOUNT_ID") else []) + ([_gemini] if os.getenv("GEMINI_API_KEY") else []) + [_pollinations]
+    errors = []
     for engine in engines:
         for _ in range(2):
             try:
@@ -77,4 +78,5 @@ Return only the prompt."""
                 return {"prompt": img_prompt, "path": str(path.relative_to(config.ROOT)), "engine": engine.__name__.strip("_")}
             except Exception as e:
                 print(f"[image] {engine.__name__} failed: {e}")
-    return {"prompt": img_prompt, "path": None}
+                errors.append(f"{engine.__name__.strip('_')}: {str(e)[:110]}")
+    return {"prompt": img_prompt, "path": None, "errors": errors[-4:]}

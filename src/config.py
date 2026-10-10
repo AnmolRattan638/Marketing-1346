@@ -8,7 +8,7 @@ REPO = (os.getenv("GITHUB_REPOSITORY") or "AnmolRattan638/Marketing-1346")
 BRANCH = (os.getenv("GITHUB_REF_NAME") or "main")
 
 # Override any of these with repo Variables / env if the model IDs change.
-GEMMA_MODEL = (os.getenv("GEMMA_MODEL") or "gemma-3-27b-it")      # research / images / video (set to the Gemma 4 ID from AI Studio)
+GEMMA_MODEL = (os.getenv("GEMMA_MODEL") or "gemma-4-31b-it")      # research / images / video (set to the Gemma 4 ID from AI Studio)
 GROQ_MODEL = (os.getenv("GROQ_MODEL") or "openai/gpt-oss-120b")    # analysis, fact-check, strategist
 GEMINI_MODEL = (os.getenv("GEMINI_MODEL") or "gemini-3.5-flash")   # final post writing
 

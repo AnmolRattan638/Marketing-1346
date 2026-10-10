@@ -12,11 +12,11 @@ def guide(history, metrics, focus, today):
     prompt = f"""Today: {today}. Today's focus service: {focus['name']}.
 Live Instagram data is NOT available. Judge the account's state from the posting history and the manual stats below, and say how thin the data is.
 Recent posts (topic, service, hook style, status): {json.dumps(history[-14:], ensure_ascii=False)[:3500]}
-Manual account/performance stats entered by the owner (followers, likes, posts, comments; may be empty): {json.dumps(metrics, ensure_ascii=False)[:1500]}
+Manual account/performance stats entered by the owner (followers, likes, posts, comments; may be empty): {json.dumps(metrics, ensure_ascii=False)[:4000]}
 
 1) Classify the account stage (e.g. brand new under 100 followers, building trust, growing).
 2) Say what the data suggests works or not (be honest if there is too little data).
-3) Write general guidance (max 150 words, markdown bullets): hook style to try next (rotate styles), topics/phrasings to avoid because repeated, and a reminder that posts show a developer's real work and never read like an ad.
+3) Write general guidance (max 150 words, markdown bullets). Use skip rate, average watch time, shares, comments and view sources if present: a high skip rate means the first 3 seconds fail. Cover: hook style to try next (rotate styles), topics/phrasings to avoid because repeated, and a reminder that posts show a developer's real work and never read like an ad.
 4) Give each agent one short, concrete instruction for today's post.
 5) Give up to 3 manual tips the owner should do himself today (only safe organic actions, e.g. commenting on relevant posts).
 Never suggest buying followers, engagement pods, spam or fake claims.

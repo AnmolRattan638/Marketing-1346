@@ -8,14 +8,91 @@
     "views_last_30_days": 539,
     "bio": "Websites for hotels, cafes, gyms & homestays in Himachal. From Rs 1499, ready in 24 hrs. Free 2-min site check on WhatsApp. Link: anmolrattan.netlify.app",
     "posts_by_views": [
-      {"views": 783, "format": "reel", "what": "Cafe / Restaurant sample website 'Live Preview'"},
-      {"views": 614, "format": "reel", "what": "Presenter with '24' clock graphic (delivery speed)"},
-      {"views": 395, "format": "image", "what": "AR Designs services overview, 'DM Now'"},
-      {"views": 298, "format": "reel", "what": "AR Designs 'Elevate Your Digital Presence' services intro"},
-      {"views": 143, "format": "reel", "what": "Presenter: websites from Rs 1,499, delivered in 24 hrs, WhatsApp now"},
-      {"views": 125, "format": "carousel", "what": "Hotel sample site on a phone, Hinglish text 'Room ki photo nahi mili'"}
+      {
+        "views": 783,
+        "format": "reel",
+        "what": "Cafe / Restaurant sample website 'Live Preview'"
+      },
+      {
+        "views": 614,
+        "format": "reel",
+        "what": "Presenter with '24' clock graphic (delivery speed)"
+      },
+      {
+        "views": 395,
+        "format": "image",
+        "what": "AR Designs services overview, 'DM Now'"
+      },
+      {
+        "views": 298,
+        "format": "reel",
+        "what": "AR Designs 'Elevate Your Digital Presence' services intro"
+      },
+      {
+        "views": 143,
+        "format": "reel",
+        "what": "Presenter: websites from Rs 1,499, delivered in 24 hrs, WhatsApp now"
+      },
+      {
+        "views": 125,
+        "format": "carousel",
+        "what": "Hotel sample site on a phone, Hinglish text 'Room ki photo nahi mili'"
+      }
     ],
     "likes": "not shown on this screen",
-    "dms_received": "unknown"
+    "dms_received": "0 on Instagram from all 6 posts (WhatsApp enquiries not checked yet)",
+    "dms_received_instagram": 0,
+    "reel_insights": [
+      {
+        "what": "Presenter with '24' clock graphic",
+        "length_s": 44,
+        "views": 614,
+        "viewers": 254,
+        "avg_watch_s": 11,
+        "skip_rate_pct": 63.6,
+        "share_rate_pct": 51.3,
+        "like_rate_pct": 11.0,
+        "save_rate_pct": 1.5,
+        "repost_rate_pct": 2.1,
+        "comment_rate_pct": 4.8,
+        "likes": 37,
+        "comments": 16,
+        "reposts": 7,
+        "shares": 168,
+        "saves": 5,
+        "view_sources_pct": {
+          "feed": 60.8,
+          "profile": 24.2,
+          "reels_tab": 4.2,
+          "explore": 0.2,
+          "stories": 0.2
+        },
+        "collab": "Collaboration with editorxyz_official and 2 others",
+        "retention": "steep drop at the start, then nearly flat"
+      },
+      {
+        "what": "Cafe / Restaurant sample website 'Live Preview'",
+        "length_s": 62,
+        "views": 783,
+        "viewers": 360,
+        "avg_watch_s": 7,
+        "follows": 1,
+        "profile_visits": 3,
+        "bio_link_taps": 1,
+        "skip_rate_pct": 74.9,
+        "share_rate_pct": 0.4,
+        "like_rate_pct": 6.9,
+        "save_rate_pct": 0.2,
+        "repost_rate_pct": 1.5,
+        "comment_rate_pct": 1.5,
+        "likes": 33,
+        "comments": 7,
+        "reposts": 7,
+        "shares": 2,
+        "saves": 1,
+        "collab": "Collaboration with editorxyz_official and 2 others",
+        "retention": "steep drop at the start, then nearly flat"
+      }
+    ]
   }
 }

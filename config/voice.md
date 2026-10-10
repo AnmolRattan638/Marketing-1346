@@ -38,6 +38,14 @@
 - Mention real process and tools plainly (mobile-first, WhatsApp button, fast loading, basic SEO). Don't pretend to be an agency.
 - Honest social-proof principles only: reciprocity (give a useful tip or quick review first), authority (explain how you work), commitment (a tiny next step). Never fabricate proof.
 
+## Hooks and retention (fix the first 3 seconds)
+Real data from the account: 64-75% of viewers skipped our reels in the first seconds, average watch was 7-11 seconds on 44-62 second reels, and almost all views came from the feed, not from Reels/Explore. So:
+- The first line (spoken AND on-screen text) must be a specific problem or visible result, 12 words or fewer. No greeting, no "Hi I'm Anmol", no logo or brand intro, no slow build-up.
+- Show the visual payoff in the first 3 seconds (the working chatbot reply, the finished ad, the fixed page), then explain.
+- Reels: 15-30 seconds, one idea, payoff by second 10, one next step at the end. Cut anything that doesn't earn its seconds.
+- Hooks that worked best in our data got SHARES: practical, relatable lines people forward to a friend ("send this to a shop owner who..."). Prefer hooks worth forwarding.
+- Reply to every comment fast and move the person to a DM; comments are the warmest leads.
+
 ## Hooks that fit (first line; adapt to the post's one business type)
 - "Café owners: Instagram followers are not orders."
 - "Clinic owner: are patients finding your phone number in 3 seconds on mobile?"

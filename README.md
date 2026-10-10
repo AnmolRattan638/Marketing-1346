@@ -46,4 +46,5 @@ Actions -> **Daily draft** -> Run workflow (or wait for 08:00 IST). Tap Approve 
 ## Known limits
 - Google Flow has no API: the reel idea is sent to Telegram for you to generate manually.
 - Images come from a free generator and are served to Buffer via this repo's raw URLs, so the repo must stay public.
+- Every week or two, copy per-reel numbers into `data/metrics.json`: views, average watch time, skip rate, shares, comments, DMs. The strategist uses them to tune the hooks.
 - `data/metrics.json` is filled manually (e.g. `{"followers": 8, "likes": 0, "posts": 4}`); the strategist reads it to judge the account's state. No Instagram API is used (it needs a Business/Creator account).

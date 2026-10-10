@@ -42,6 +42,7 @@ jobs:
       GEMMA_MODEL: ${{ vars.GEMMA_MODEL }}
       GROQ_MODEL: ${{ vars.GROQ_MODEL }}
       GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+      GEMINI_IMAGE_MODEL: ${{ vars.GEMINI_IMAGE_MODEL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

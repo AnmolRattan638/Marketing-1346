@@ -3,6 +3,9 @@ import requests
 from . import config
 
 
+LOG = []   # which provider:model actually answered (or failed), shown in the Telegram draft
+
+
 class RateLimited(RuntimeError):
     pass
 
@@ -32,6 +35,7 @@ def _post(url, headers, body, tries=3, timeout=120):
 def _chat(url, key, prompt, system, model, temperature):
     msgs = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": prompt}]
     d = _post(url, {"Authorization": f"Bearer {key}"}, {"model": model, "messages": msgs, "temperature": temperature})
+    LOG.append(f"{url.split('/')[2].replace('api.', '')}:{model}")
     return d["choices"][0]["message"]["content"]
 
 
@@ -86,6 +90,7 @@ def _with_fallback(fn):
         except Exception as e:
             if os.getenv("OPENROUTER_API_KEY"):
                 print(f"[llm] {fn.__name__} failed ({str(e)[:150]}), falling back to OpenRouter")
+                LOG.append(f"FAILED {fn.__name__}: {str(e)[:70]}")
                 try:
                     return openrouter(prompt, system)
                 except Exception as e2:
@@ -123,9 +128,13 @@ def _discover_gemini(kind):
     return max(c, key=ver) if c else None
 
 
+_ALIAS = {}
+
+
 def _gemini(prompt, system="", model=None, temperature=0.8, _kind="text"):
     """Google AI Studio API (Gemini and Gemma models). If the model has been retired (404), pick a current one."""
-    model = model or config.GEMINI_MODEL
+    orig = model = model or config.GEMINI_MODEL
+    model = _ALIAS.get(model, model)
     for attempt in (1, 2):
         sys_, pr = system, prompt
         if model.startswith("gemma") and sys_:     # Gemma has no system-instruction support
@@ -137,19 +146,31 @@ def _gemini(prompt, system="", model=None, temperature=0.8, _kind="text"):
         try:
             d = _post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
                       {"x-goog-api-key": os.environ["GEMINI_API_KEY"]}, body)
+            LOG.append(f"google:{model}")
             return "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
         except RuntimeError as e:
             if attempt == 1 and "HTTP 404" in str(e):
                 alt = _discover_gemini("gemma" if model.startswith("gemma") else _kind)
                 if alt and alt != model:
                     print(f"[llm] {model} unavailable (404); using {alt}")
-                    model = alt
+                    model = _ALIAS[orig] = alt
                     continue
             raise
 
 
 def _gemma(prompt, system="", temperature=0.7):
-    return _gemini(prompt, system, model=config.GEMMA_MODEL, temperature=temperature, _kind="gemma")
+    m = config.GEMMA_MODEL
+    if "/" in m or m.endswith(":free"):          # OpenRouter-style ID, e.g. google/gemma-4-31b-it:free
+        try:
+            return openrouter(prompt, system, model=m, temperature=temperature)
+        except Exception as e:
+            print(f"[llm] {m} via OpenRouter failed ({str(e)[:120]}); trying Gemma on Google AI Studio")
+            LOG.append(f"FAILED {m}: {str(e)[:60]}")
+        try:
+            m = _discover_gemini("gemma") or "gemma-3-27b-it"
+        except Exception:
+            m = "gemma-3-27b-it"
+    return _gemini(prompt, system, model=m, temperature=temperature, _kind="gemma")
 
 
 def _groq(prompt, system="", model=None, temperature=0.6):

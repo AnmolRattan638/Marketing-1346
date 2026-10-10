@@ -1,7 +1,7 @@
 """Daily draft run: strategist (incl. Instagram state check) -> research -> analysis -> writer -> fact-check -> ad-check -> image/video -> Telegram."""
 import datetime as dt
 import sys, traceback
-from . import config, tg
+from . import config, llm, tg
 from .agents import analysis, factcheck, image, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
@@ -90,6 +90,7 @@ def main():
             f"Draft for {today}\nService: {focus['name']}\nTopic: {plan['topic']}\n"
             f"Fact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n\n"
             f"Account check ({state.get('stage')}): {state.get('summary')}" +
+            "\n\nModels that answered: " + (" | ".join(dict.fromkeys(llm.LOG))[:700] or "n/a") +
             ("\nManual tips:\n- " + "\n- ".join(map(str, state.get("manual_tips") or [])) if state.get("manual_tips") else ""))
     if img.get("path"):
         tg.send_photo(config.ROOT / img["path"], img.get("prompt") or "")

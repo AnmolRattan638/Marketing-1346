@@ -6,13 +6,13 @@ SYS = ("You are the marketing strategist for a solo freelance web developer in I
        "lead generation and websites. Be concrete, brief and honest about thin data.")
 
 
-def guide(ig, history, metrics, focus, today):
-    """Before each post: read the Instagram account's current state, learn from history, and brief every agent.
+def guide(history, metrics, focus, today):
+    """Before each post: judge the Instagram account's current state from our history and manual stats, and brief every agent.
     Returns {"stage", "followers", "summary", "guidance", "instructions": {agent: text}, "manual_tips": [...]}."""
     prompt = f"""Today: {today}. Today's focus service: {focus['name']}.
-Live Instagram data: {json.dumps(ig, ensure_ascii=False)[:5000] if ig else 'NOT AVAILABLE (no token). Use posting history only and say so.'}
+Live Instagram data is NOT available. Judge the account's state from the posting history and the manual stats below, and say how thin the data is.
 Recent posts (topic, service, hook style, status): {json.dumps(history[-14:], ensure_ascii=False)[:3500]}
-Manual performance data (may be empty): {json.dumps(metrics, ensure_ascii=False)[:1500]}
+Manual account/performance stats entered by the owner (followers, likes, posts, comments; may be empty): {json.dumps(metrics, ensure_ascii=False)[:1500]}
 
 1) Classify the account stage (e.g. brand new under 100 followers, building trust, growing).
 2) Say what the data suggests works or not (be honest if there is too little data).

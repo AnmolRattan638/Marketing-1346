@@ -3,7 +3,6 @@ import datetime as dt
 import sys, traceback
 from . import config, tg
 from .agents import analysis, factcheck, image, research, strategist, video, writer
-from . import instagram
 
 today = dt.date.today().isoformat()
 
@@ -45,9 +44,8 @@ def main():
     focus = pick_focus(brand, history)
 
     try:
-        ig = stage("instagram", instagram.snapshot, fallback={"error": "Instagram snapshot unavailable"})
         state = stage("strategist.guide",
-                      lambda: strategist.guide(None if (ig or {}).get("error") else ig, history, metrics, focus, today),
+                      lambda: strategist.guide(history, metrics, focus, today),
                       fallback={"stage": "unknown", "summary": "", "instructions": {}, "manual_tips": [],
                                 "guidance": "No guidance today. Teach first, never sound like an ad."})
         guidance = state.get("guidance") or "Teach first, never sound like an ad."

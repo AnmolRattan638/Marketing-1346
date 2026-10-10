@@ -20,7 +20,6 @@ Repo -> Settings -> Secrets and variables -> Actions -> add **secrets**:
 | Secret | Used for |
 |---|---|
 | `NVIDIA_API_KEY` | Only for non-`:free` Nemotron IDs. The default `nvidia/nemotron-3-ultra-550b-a55b:free` runs through OpenRouter (`OPENROUTER_API_KEY`); on failure GPT-OSS on Groq answers (strategist) |
-| `INSTAGRAM_ACCESS_TOKEN` | Optional. Lets the strategist read your live Instagram stats before each post |
 | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | Image generation (FLUX on Workers AI), else a free fallback |
 | `OPENROUTER_API_KEY` | Fallback model when another provider returns 429 |
 | `BLUESKY_HANDLE`, `BLUESKY_APP_PASSWORD` | Direct Bluesky posting (joins the rotation) |
@@ -47,4 +46,4 @@ Actions -> **Daily draft** -> Run workflow (or wait for 08:00 IST). Tap Approve 
 ## Known limits
 - Google Flow has no API: the reel idea is sent to Telegram for you to generate manually.
 - Images come from a free generator and are served to Buffer via this repo's raw URLs, so the repo must stay public.
-- `data/metrics.json` is filled manually for now; automatic engagement collection is not built.
+- `data/metrics.json` is filled manually (e.g. `{"followers": 8, "likes": 0, "posts": 4}`); the strategist reads it to judge the account's state. No Instagram API is used (it needs a Business/Creator account).

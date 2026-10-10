@@ -1,3 +1,3 @@
-- Hook style to try next: open with a real client pain point on screen (e.g., "Hotel owner: 'My site loads in 8 seconds'") then cut to your fix in 1s. Rotate: problem→proof, speed demo, before/after scroll.
-- Avoid repeating: generic "services overview" carousels, "DM now" without visible result, presenter talking without screen capture.
-- Reminder: every post must show actual code/design you built — live preview, admin panel, mobile scroll. No stock footage, no agency-speak.
+- Hook style to try next: open with a real client screen-record ("Here's the site I built for a Manali homestay") — no talking head, no clock graphic.
+- Avoid repeating "Rs 1,499 / 24 hrs" as the lead; it's used in 3 of 6 posts and correlates with steep drop-off.
+- Every post must show actual code/design output (live preview, CMS edit, mobile scroll) — never a generic promise graphic.

@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-10",
+  "status": "pending",
+  "service": "website",
+  "topic": "The 'Missing Website' Trust Gap",
+  "hooks": [
+    {
+      "style": "Question",
+      "text": "No website on your Google Maps listing? Losing bookings daily."
+    },
+    {
+      "style": "Mistake Callout",
+      "text": "Your homestay’s biggest credibility mistake: missing a website link."
+    },
+    {
+      "style": "Myth Bust",
+      "text": "Myth: Google Maps alone drives guests. Reality: A website seals trust."
+    }
+  ],
+  "chosen_hook": 2,
+  "hook_style": "Myth Bust",
+  "posts": {
+    "instagram": "Google Maps listing hai par website nahi? Guests trust nahi karte.\n\nHimachal homestays search karte waqt yeh gap dikha: Maps par photos hain par koi direct link nahi. Guest turant kisi dusre stay par shift ho jata hai.\n\nMaine ek clean mobile demo concept banaya: fast loading room photos aur direct WhatsApp enquiry button. Simple layout se guest ka trust banta hai.\n\nDM 'DEMO' agar aapko apne stay ya café ke liye sample dekhna hai. You pay only after you approve the work.\n\n#HomestayIndia #SmallBusinessIndia #WebDevelopmentIndia #IndianHotels",
+    "linkedin": "Google Maps gets you discovered, but a missing website loses trust.\n\nBrowsing homestays across Himachal, I noticed a repeating issue: great Google ratings, but the website field is completely blank.\n\nWhen a guest taps that profile on a phone and finds no official page, friction creeps in. They hesitate, open an aggregator app, or compare three other properties where room photos and contact details are clear.\n\nTo solve this, I designed a mobile-first demo concept for a homestay:\n- Room visuals that load smoothly on standard mobile data\n- Clear amenities without clutter\n- A sticky WhatsApp button for direct questions\n\nNo bulky booking software—just an easy path for guests to reach the host directly without commission fees.\n\nIf you manage a stay, clinic, or local shop, DM 'DEMO' and I'll send over the sample page. You pay only after you approve the work.",
+    "bluesky": "A Google Maps listing gets a homestay noticed, but without a website link, guests hesitate and move on. Built a clean mobile demo concept with a direct WhatsApp button to fix that trust gap.\n\nDM 'DEMO' to check the sample page. Pay only after approval."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does this cost?",
+      "reply": "Packages start from INR 1,499 (Basic) up to INR 3,599 (Bundle 2), with domain setup at INR 800. What kind of business do you run, and do you mainly need direct WhatsApp enquiries or phone calls? (Also, you pay only after you approve the work.)"
+    },
+    {
+      "if_they_say": "Do you only build sites for homestays?",
+      "reply": "Not just homestays—I build fast mobile sites for clinics, cafes, gyms, salons, and local shops across India. What kind of business do you run?"
+    },
+    {
+      "if_they_say": "Can I see the demo?",
+      "reply": "Just sent the sample link to your DM. It is designed to load fast on mobile with a direct WhatsApp enquiry button. Let me know what you think."
+    }
+  ],
+  "image": {
+    "prompt": "Clean, modern social media square graphic.\nSplit-screen comparison.\n        *   Left: GoogleClean, modern social media square graphic.\nSplit-screen comparison.\n        *   Left: Google Maps listing with \"no website\" (missing link).\n        *   Right: Sleek mobile website preview.\n\"The Missing Website Trust Gap\" / Website development.\nMinimal flat illustration, bold colors, lots of empty space.\nNO text, NO logos, NO real people's faces.\nOne prompt, max 60 words. Return *only* the prompt.\n\n    *   *Keywords:* Flat illustration, split-screen, vector, bold colors, minimalist, mobile UI, Google Maps interface (stylized), empty space.\n    *   *Left side:* Stylized map pin, generic business profile, empty website button/placeholder.\n    *   *Right side:* Modern smartphone, vibrant website layout, clean UI.\n    *   *Style:* High contrast, 2D vector art, clean lines.\n\n    *   *Draft 1:* A split-screen flat illustration for social media. Left side: a stylized Google Maps business profile with a missing website link. Right side: a sleek, modern mobile website displayed on a smartphone screen. Bold colors, minimal aesthetic, plenty of negative space. 2D vector art, no text, no logos, no faces.\n\n    *   *Refining for AI (Midjourney/DALL-E style):*\n        \"Minimalist 2D flat vector illustration, split-screen layout. Left: a stylized map interface showing a business profile with a blank website slot. Right: a sleek, modern mobile website preview on a smartphone. Bold vibrant colors, high contrast, ample negative space, clean lines. No text, no logos, no human faces, square composition.\"\n\n    *   Max 60 words? Yes (approx 45 words).\n    *   Split screen? Yes.\n    *   Left: Google Maps without site? Yes.\n    *   Right: Mobile site? Yes.\n    *   Minimal flat illustration? Yes.\n    *   Bold colors? Yes.\n    *   Empty space? Yes.\n    *   NO text, logos, faces? Yes.\n    *   Only the prompt? Yes.Minimalist 2D flat vector illustration, split-screen layout. Left: a stylized map interface showing a business profile with a blank website slot. Right: a sleek, modern mobile website preview on a smartphone. Bold vibrant colors, high contrast, ample negative space, clean lines. No text, no logos, no human faces, square composition.",
+    "path": null
+  },
+  "video": {
+    "hook_first_3s": "Google Maps gets you seen, but a website gets you booked. (Text: Maps = Visibility | Website = Trust)",
+    "voiceover": "Google Maps gets you seen, but a website gets you booked. Most guests check reviews, then look for a site to verify the rooms and trust the host. Here is a clean, fast site I built for a Manali homestay to bridge that gap. DM 'Site' to fix your trust gap.",
+    "shots": [
+      "0-3s: Screen record of Netlify deploy log, finger taps the live URL",
+      "3-8s: Fast mobile scroll of the Manali homestay homepage showing high-res images",
+      "8-12s: Quick cut to the CMS editor changing a room description in real-time",
+      "12-15s: Final scroll to the 'Book Now' button on the mobile view"
+    ],
+    "flow_prompt": "Create a high-retention 15-second vertical video. Start with a raw screen recording of a Netlify deployment transitioning into a live mobile website for a Manali homestay. Use fast cuts between the live site scroll and the backend CMS editor to prove authenticity. No stock footage, no talking head, and no generic graphics. The audio should be a clean, honest voiceover with raw ambient clicking sounds from the screen recording."
+  },
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "Google Maps listing hai par website nahi? Guests trust nahi karte.\n\nHimachal homestays search karte waqt yeh gap dikha: Maps par photos hain par koi direct link nahi. Guest turant kisi dusre stay par shift ho jata hai.\n\nMaine ek clean mobile demo concept banaya: fast loading room photos aur direct WhatsApp enquiry button. Simple layout se guest ka trust banta hai.\n\nDM 'DEMO' agar aapko apne stay ya café ke liye sample dekhna hai. You pay only after you approve the work.\n\n#HomestayIndia #SmallBusinessIndia #WebDevelopmentIndia #IndianHotels",
+      "linkedin": "Google Maps gets you discovered, but a missing website loses trust.\n\nBrowsing homestays across Himachal, I noticed a repeating issue: great Google ratings, but the website field is completely blank.\n\nWhen a guest taps that profile on a phone and finds no official page, friction creeps in. They hesitate, open an aggregator app, or compare three other properties where room photos and contact details are clear.\n\nTo solve this, I designed a mobile-first demo concept for a homestay:\n- Room visuals that load smoothly on standard mobile data\n- Clear amenities without clutter\n- A sticky WhatsApp button for direct questions\n\nNo bulky booking software—just an easy path for guests to reach the host directly without commission fees.\n\nIf you manage a stay, clinic, or local shop, DM 'DEMO' and I'll send over the sample page. You pay only after you approve the work.",
+      "bluesky": "A Google Maps listing gets a homestay noticed, but without a website link, guests hesitate and move on. Built a clean mobile demo concept with a direct WhatsApp button to fix that trust gap.\n\nDM 'DEMO' to check the sample page. Pay only after approval."
+    }
+  },
+  "ad_score": 4
+}

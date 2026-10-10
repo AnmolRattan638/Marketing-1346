@@ -2,18 +2,18 @@
   "date": "2026-10-10",
   "stage": "brand new under 100 followers",
   "followers": 8,
-  "summary": "6 posts, 539 views/30 days. Reels outperform static. Top reels use collab with editorxyz_official. Both analyzed reels have >60% skip rate — hooks fail in first 3s. 0 IG DMs. Views mostly from feed (61%) and profile (24%), near-zero explore. Shares high on speed-reel (51%), near-zero on sample-site reel.",
-  "guidance": "- Hook style to try next: open with a real client pain point on screen (e.g., \"Hotel owner: 'My site loads in 8 seconds'\") then cut to your fix in 1s. Rotate: problem→proof, speed demo, before/after scroll.\n- Avoid repeating: generic \"services overview\" carousels, \"DM now\" without visible result, presenter talking without screen capture.\n- Reminder: every post must show actual code/design you built — live preview, admin panel, mobile scroll. No stock footage, no agency-speak.",
+  "summary": "Brand new account (8 followers, 6 posts). High skip rates (64-75%) show hooks fail in first 3s. '24hr delivery' reel got shares (51%) and comments (4.8%) but low watch time. 'Live preview' got views (783) but near-zero engagement. Zero IG DMs. Data thin: only 2 reels have retention metrics, no explore reach.",
+  "guidance": "- Hook style to try next: open with a real client screen-record (\"Here's the site I built for a Manali homestay\") — no talking head, no clock graphic.\n- Avoid repeating \"Rs 1,499 / 24 hrs\" as the lead; it's used in 3 of 6 posts and correlates with steep drop-off.\n- Every post must show actual code/design output (live preview, CMS edit, mobile scroll) — never a generic promise graphic.",
   "instructions": {
-    "research": "Find 3 Himachal hotel/homestay Instagram pages with broken/slow sites; screenshot their mobile load time.",
-    "analysis": "Compare the two collab reels: list exact first-3-second frames; note where retention flattens.",
-    "writer": "Write a 40-char Hinglish hook for a reel: \"Hotel site 8s → 1.2s. Dekho kaise.\"",
-    "image": "Create a split-screen carousel: left = client's old site (blurred URL), right = your 24hr rebuild (live link in bio).",
-    "video": "Record a 15s reel: phone screen recording of you deploying a cafe site to Netlify, timer overlay, zero talking."
+    "research": "Find 3 Himachal hotels/homestays with broken or missing websites; note their names and current Google Maps listings.",
+    "analysis": "Compare the two reels' retention curves: identify the exact second where '24 clock' flatlines vs 'Live preview' drop — note visual difference at that frame.",
+    "writer": "Draft a 90-char Hinglish hook for a reel showing a live site edit: \"Manali café ka menu 30 sec me update — dekho live\" (no price, no speed claim).",
+    "image": "Create a carousel cover: split screen — left: client's old Google Maps 'no website' badge, right: your new site on phone. Caption: \"Fixed in one afternoon.\"",
+    "video": "Record a 15-sec screen capture: open the Netlify deploy log, tap the live URL, scroll homepage on mobile. No face, no text overlay, raw audio."
   },
   "manual_tips": [
-    "Comment on 5 Himachal cafe/hotel posts with a genuine compliment + \"Saw your mobile site loads slow — happy to share a 30s fix video if useful.\"",
-    "Reply to every story mention/tag from editorxyz_official collab with a thank-you and a behind-the-scenes detail.",
-    "Add a WhatsApp click-to-chat link in bio (wa.me/91XXXXXXXXXX) and test it from a second phone."
+    "Comment on 5 recent posts by Himachal tourism pages or local hotel owners — ask a genuine question about their website needs.",
+    "Reply to the 16 comments on the '24 clock' reel with a specific follow-up: \"Which section would you want to edit yourself?\"",
+    "Add the WhatsApp link to your bio Linktree and post a Story: \"Free 2-min site check — tap link, send URL.\""
   ]
 }

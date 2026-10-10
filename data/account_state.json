@@ -1,8 +1,19 @@
 {
   "date": "2026-10-10",
-  "stage": "unknown",
-  "summary": "",
-  "instructions": {},
-  "manual_tips": [],
-  "guidance": "No guidance today. Teach first, never sound like an ad."
+  "stage": "brand new under 100 followers",
+  "followers": 8,
+  "summary": "6 posts, 539 views/30 days. Reels outperform static. Top reels use collab with editorxyz_official. Both analyzed reels have >60% skip rate — hooks fail in first 3s. 0 IG DMs. Views mostly from feed (61%) and profile (24%), near-zero explore. Shares high on speed-reel (51%), near-zero on sample-site reel.",
+  "guidance": "- Hook style to try next: open with a real client pain point on screen (e.g., \"Hotel owner: 'My site loads in 8 seconds'\") then cut to your fix in 1s. Rotate: problem→proof, speed demo, before/after scroll.\n- Avoid repeating: generic \"services overview\" carousels, \"DM now\" without visible result, presenter talking without screen capture.\n- Reminder: every post must show actual code/design you built — live preview, admin panel, mobile scroll. No stock footage, no agency-speak.",
+  "instructions": {
+    "research": "Find 3 Himachal hotel/homestay Instagram pages with broken/slow sites; screenshot their mobile load time.",
+    "analysis": "Compare the two collab reels: list exact first-3-second frames; note where retention flattens.",
+    "writer": "Write a 40-char Hinglish hook for a reel: \"Hotel site 8s → 1.2s. Dekho kaise.\"",
+    "image": "Create a split-screen carousel: left = client's old site (blurred URL), right = your 24hr rebuild (live link in bio).",
+    "video": "Record a 15s reel: phone screen recording of you deploying a cafe site to Netlify, timer overlay, zero talking."
+  },
+  "manual_tips": [
+    "Comment on 5 Himachal cafe/hotel posts with a genuine compliment + \"Saw your mobile site loads slow — happy to share a 30s fix video if useful.\"",
+    "Reply to every story mention/tag from editorxyz_official collab with a thank-you and a behind-the-scenes detail.",
+    "Add a WhatsApp click-to-chat link in bio (wa.me/91XXXXXXXXXX) and test it from a second phone."
+  ]
 }

@@ -1,1 +1,3 @@
-No guidance today. Teach first, never sound like an ad.
+- Hook style to try next: open with a real client pain point on screen (e.g., "Hotel owner: 'My site loads in 8 seconds'") then cut to your fix in 1s. Rotate: problem→proof, speed demo, before/after scroll.
+- Avoid repeating: generic "services overview" carousels, "DM now" without visible result, presenter talking without screen capture.
+- Reminder: every post must show actual code/design you built — live preview, admin panel, mobile scroll. No stock footage, no agency-speak.

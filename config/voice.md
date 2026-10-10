@@ -42,7 +42,7 @@
 Real data from the account: 64-75% of viewers skipped our reels in the first seconds, average watch was 7-11 seconds on 44-62 second reels, and almost all views came from the feed, not from Reels/Explore. So:
 - The first line (spoken AND on-screen text) must be a specific problem or visible result, 12 words or fewer. No greeting, no "Hi I'm Anmol", no logo or brand intro, no slow build-up.
 - Show the visual payoff in the first 3 seconds (the working chatbot reply, the finished ad, the fixed page), then explain.
-- Reels: 15-30 seconds, one idea, payoff by second 10, one next step at the end. Cut anything that doesn't earn its seconds.
+- Reels: exactly 30 seconds, built from three 10-second Google Flow clips: (1) hook + visual payoff, (2) proof or how it works, (3) result + one next step. One idea. Cut anything that doesn't earn its seconds.
 - Hooks that worked best in our data got SHARES: practical, relatable lines people forward to a friend ("send this to a shop owner who..."). Prefer hooks worth forwarding.
 - Reply to every comment fast and move the person to a DM; comments are the warmest leads.
 

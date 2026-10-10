@@ -97,7 +97,12 @@ def main():
     for p in config.PLATFORMS:
         tg.send(f"[{p.upper()}{' CAPTION FOR YOUR REEL' if p == 'instagram' else ''}]\n{posts[p]}")
     if vid:
-        tg.send("[REEL IDEA, make it in Google Flow]\nHook (first 3s): " + str(vid.get("hook_first_3s", "")) + "\n\n" + vid.get("voiceover", "") + "\n\nFlow prompt:\n" + vid.get("flow_prompt", ""))
+        parts = vid.get("parts") or []
+        tg.send("[REEL, 30 seconds = 3 clips of 10s in Google Flow]\nHook (first 3s): " + str(vid.get("hook_first_3s", "")) +
+                "\n\nFull voiceover:\n" + vid.get("voiceover", "") +
+                "\n\nThe 3 prompts follow, one message each. Generate them in order, join the clips in any editor (e.g. CapCut), add captions, then post.")
+        for i, part in enumerate(parts, 1):
+            tg.send(f"[FLOW PROMPT {i}/{len(parts)} | {part.get('time')}]\nSpoken line: {part.get('voiceover')}\n\n{part.get('flow_prompt')}")
     if draft["replies"]:
         tg.send("[REPLY DRAFTS]\n" + "\n\n".join(f"If: {r['if_they_say']}\n-> {r['reply']}" for r in draft["replies"]))
     tg.send("Approve posting to LinkedIn and Bluesky? (Instagram is your manual reel.) It posts within seconds of your tap.",

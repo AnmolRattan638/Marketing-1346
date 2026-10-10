@@ -1,6 +1,6 @@
 {
   "date": "2026-10-10",
-  "status": "pending",
+  "status": "published",
   "service": "website",
   "topic": "The 'Missing Website' Trust Gap",
   "hooks": [
@@ -62,5 +62,15 @@
       "bluesky": "A Google Maps listing gets a homestay noticed, but without a website link, guests hesitate and move on. Built a clean mobile demo concept with a direct WhatsApp button to fix that trust gap.\n\nDM 'DEMO' to check the sample page. Pay only after approval."
     }
   },
-  "ad_score": 4
+  "ad_score": 4,
+  "results": {
+    "linkedin": {
+      "ok": true,
+      "detail": "zernio: posted 6aca5ad0db59714e5cdb02cd"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mxjss7vrzj2i"
+    }
+  }
 }

@@ -56,11 +56,14 @@
     "Any project shown is a sample, demo or concept project unless stated otherwise by the owner; never describe it as client work.",
     "Posts must read as a developer showing real work, not as an advertisement.",
     "Do not state counts or timeframes about the owner's work (projects built, days taken, clients) unless given here.",
-    "Free offers allowed in posts: only a quick look at someone's site/page with 3 things to fix, and sending a sample page. Nothing else free; no 'pay after approval' terms."
+    "Offers allowed in posts: a quick look at someone's site/page with 3 things to fix (free), a sample page (free), and 'pay after approval' (the client pays only after approving the work). Do not invent any other free offers, discounts, guarantees, refunds or payment terms."
   ],
   "languages": {
     "instagram": "Hindi written in Hinglish (Roman script), everyday spoken Hindi with English tech words",
     "linkedin": "simple English",
     "bluesky": "simple English"
+  },
+  "offers": {
+    "pay_after_approval": "Client pays only after approving the work."
   }
 }

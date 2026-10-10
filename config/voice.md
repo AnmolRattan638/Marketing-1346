@@ -33,6 +33,7 @@
 - Show the work: screen-record or describe a sample page; label it "demo concept, not a client project".
 - Show thinking: explain why a button is there, why a page loads fast, what was fixed.
 - Teardowns: point out one fixable problem in a generic, unnamed way ("a lot of cafe sites hide the phone number below the fold").
+- Remove the risk: "You pay only after you approve the work." State it plainly, once, as a fact about how you work, not as a hard sell.
 - Be specific: name the type of business and the outcome ("more direct enquiries") instead of "I build websites".
 - Mention real process and tools plainly (mobile-first, WhatsApp button, fast loading, basic SEO). Don't pretend to be an agency.
 - Honest social-proof principles only: reciprocity (give a useful tip or quick review first), authority (explain how you work), commitment (a tiny next step). Never fabricate proof.
@@ -49,16 +50,17 @@ Avoid generic hooks like "I build stunning websites".
 - Keyword DMs, short and specific: "DM 'SITE' and I'll look at yours and tell you 3 things to fix." / "DM 'DEMO' and I'll send a sample page for your kind of business." / "DM 'BOT' and I'll show how a chatbot would answer your customers." / "DM 'LEADS' for a 1-minute explanation of the lead sheet." / "Comment your city + business type and I'll reply with one idea."
 - Ask for a DM or comment, not a call. Owners prefer WhatsApp/DM first.
 - Occasionally end with a question instead of an ask.
+- Pay-after-approval can be the closing line: "DM 'SITE'. You pay only after you approve the work." Don't add other terms (no discounts, guarantees or refunds).
 - Don't ask for a call straight away. Don't send long cold messages.
 
 ## DM reply playbook (use for reply drafts)
 Reply fast: speed matters most. Qualify first, don't pitch.
 - **First reply:** thank them, one line on what you do, one question. e.g. "Hi [Name], thanks for messaging. I help [business type] get more enquiries with a simple website + WhatsApp setup. Quick question: is your main problem getting enquiries, converting Instagram followers, or managing leads?"
 - **Came from a post:** "Glad the [topic] post helped. Do you want more direct enquiries, or a cleaner online presence first?"
-- **"How much?":** don't send a random number. Ask what they want customers to do (call, WhatsApp, book, fill a form), then give a range using ONLY the price notes in services.json, then offer a next step: "I can send a short demo or a fixed-price scope. Prefer a 5-minute WhatsApp chat or details here?" For lead gen, never state a price: move to DM/WhatsApp.
-- **"I'll think about it":** don't pressure. "Of course. I'll send a one-page summary: what's included, timeline, price range. Is the hesitation budget, timing, or whether it will actually bring enquiries?" If budget: suggest a smaller starting version, expand later. If timing: offer a checklist of what to have ready. If doubt: "Fair. I keep the first project small and scoped so you aren't committing to a big package."
+- **"How much?":** don't send a random number. Ask what they want customers to do (call, WhatsApp, book, fill a form), then give a range using ONLY the price notes in services.json, mention that payment is only after they approve the work, then offer a next step: "I can send a short demo or a fixed-price scope. Prefer a 5-minute WhatsApp chat or details here?" For lead gen, never state a price: move to DM/WhatsApp.
+- **"I'll think about it":** don't pressure. "Of course. I'll send a one-page summary: what's included, timeline, price range. Is the hesitation budget, timing, or whether it will actually bring enquiries?" If budget: suggest a smaller starting version, expand later. If timing: offer a checklist of what to have ready. If doubt: "Fair. I keep the first project small and scoped, and you pay only after you approve the work, so there's no big upfront commitment."
 - **Follow-up cadence (3-4 max, each with value):** Day 1 send what was promised. Day 3 share one relevant example or idea. Day 7 soft close: "Want me to prepare a fixed-price scope?" Day 14 polite last note: "No pressure, I'll stop following up; the offer stays open."
 - Qualify before quoting: goal, current setup, budget range, timeline.
 
 ## Don't
-- Don't say "I build websites" without the outcome. Don't use fake testimonials, fake scarcity or copied agency language. Don't quote a final price before understanding scope. Don't argue with "I'll think about it", diagnose it. Don't post only portfolio screenshots with no problem or next step. Don't expect every DM to convert.
+- Don't say "I build websites" without the outcome. Don't use fake testimonials, fake scarcity or copied agency language. Don't quote a final price before understanding scope. Don't promise anything beyond pay-after-approval (no guarantees, refunds or discounts). Don't argue with "I'll think about it", diagnose it. Don't post only portfolio screenshots with no problem or next step. Don't expect every DM to convert.

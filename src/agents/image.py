@@ -33,11 +33,18 @@ def _cloudflare(img_prompt, path):
 
 
 def _gemini(img_prompt, path):
-    model = os.getenv("GEMINI_IMAGE_MODEL") or "gemini-2.5-flash-image"
-    d = llm._post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-                  {"x-goog-api-key": os.environ["GEMINI_API_KEY"]},
-                  {"contents": [{"parts": [{"text": img_prompt}]}], "generationConfig": {"responseModalities": ["IMAGE"]}},
-                  tries=1)
+    model = os.getenv("GEMINI_IMAGE_MODEL") or "gemini-3.1-flash-image"
+    body = {"contents": [{"parts": [{"text": img_prompt}]}], "generationConfig": {"responseModalities": ["IMAGE"]}}
+    url = "https://generativelanguage.googleapis.com/v1beta/models/{}:generateContent"
+    hdr = {"x-goog-api-key": os.environ["GEMINI_API_KEY"]}
+    try:
+        d = llm._post(url.format(model), hdr, body, tries=1)
+    except RuntimeError as e:
+        alt = llm._discover_gemini("image") if "HTTP 404" in str(e) else None
+        if not alt or alt == model:
+            raise
+        print(f"[image] {model} unavailable; using {alt}")
+        d = llm._post(url.format(alt), hdr, body, tries=1)
     for part in d["candidates"][0]["content"]["parts"]:
         inline = part.get("inlineData") or part.get("inline_data")
         if inline:

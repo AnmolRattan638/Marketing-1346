@@ -35,9 +35,41 @@ def _chat(url, key, prompt, system, model, temperature):
     return d["choices"][0]["message"]["content"]
 
 
+_FREE = None
+_GMODELS = None
+
+
+def _openrouter_free_model():
+    """Pick a currently-free OpenRouter model from its public model list (free slugs come and go)."""
+    global _FREE
+    if _FREE is None:
+        r = requests.get("https://openrouter.ai/api/v1/models", timeout=60)
+        r.raise_for_status()
+        free = [m["id"] for m in r.json().get("data", [])
+                if m["id"].endswith(":free") and str((m.get("pricing") or {}).get("prompt")) in ("0", "0.0")]
+        for pref in ("gpt-oss-120b", "llama-3.3-70b", "qwen3", "nemotron", "gemma", "deepseek"):
+            for mid in free:
+                if pref in mid:
+                    _FREE = mid
+                    break
+            if _FREE:
+                break
+        _FREE = _FREE or (free[0] if free else "")
+        print(f"[llm] OpenRouter free model chosen: {_FREE}")
+    return _FREE
+
+
 def openrouter(prompt, system="", model=None, temperature=0.7):
-    return _chat("https://openrouter.ai/api/v1/chat/completions", os.environ["OPENROUTER_API_KEY"], prompt, system,
-                 model or config.OPENROUTER_MODEL, temperature)
+    url, key = "https://openrouter.ai/api/v1/chat/completions", os.environ["OPENROUTER_API_KEY"]
+    chosen = model or config.OPENROUTER_MODEL or _openrouter_free_model()
+    try:
+        return _chat(url, key, prompt, system, chosen, temperature)
+    except RuntimeError as e:
+        if "HTTP 404" in str(e) and not model:            # slug retired or no longer free: rediscover
+            alt = _openrouter_free_model()
+            if alt and alt != chosen:
+                return _chat(url, key, prompt, system, alt, temperature)
+        raise
 
 
 def _with_fallback(fn):
@@ -48,28 +80,70 @@ def _with_fallback(fn):
         except Exception as e:
             if os.getenv("OPENROUTER_API_KEY"):
                 print(f"[llm] {fn.__name__} failed ({str(e)[:150]}), falling back to OpenRouter")
-                return openrouter(prompt, system)
+                try:
+                    return openrouter(prompt, system)
+                except Exception as e2:
+                    raise RuntimeError(f"{fn.__name__} failed: {str(e)[:300]} | OpenRouter fallback failed: {str(e2)[:300]}") from e2
             raise
     wrapper.__name__ = fn.__name__
     return wrapper
 
 
-def _gemini(prompt, system="", model=None, temperature=0.8):
-    """Google AI Studio API (Gemini and Gemma models)."""
+def _discover_gemini(kind):
+    """Ask the Gemini API which models exist for this key and pick the newest suitable one.
+    kind: 'text' (Gemini flash), 'gemma', 'image'."""
+    global _GMODELS
+    if _GMODELS is None:
+        r = requests.get("https://generativelanguage.googleapis.com/v1beta/models", params={"pageSize": 200},
+                         headers={"x-goog-api-key": os.environ["GEMINI_API_KEY"]}, timeout=60)
+        if r.status_code >= 400:
+            raise RuntimeError(f"HTTP {r.status_code} listing Gemini models: {r.text[:200]}")
+        _GMODELS = [m["name"].split("/", 1)[1] for m in r.json().get("models", [])
+                    if "generateContent" in m.get("supportedGenerationMethods", [])]
+
+    def ver(m):
+        nums = re.findall(r"(\d+(?:\.\d+)?)", m)
+        return (float(nums[0]) if nums else 0, float(nums[1]) if len(nums) > 1 and kind == "gemma" else 0)
+    bad = ("tts", "live", "audio", "embedding", "robotics", "computer", "thinking", "learnlm", "aqa", "omni")
+    if kind == "gemma":
+        c = [m for m in _GMODELS if m.startswith("gemma-") and "3n" not in m and m.endswith("it")]
+    elif kind == "image":
+        c = [m for m in _GMODELS if m.startswith("gemini-") and "image" in m and not any(b in m for b in bad)]
+        c = [m for m in c if "preview" not in m] or c
+    else:
+        c = [m for m in _GMODELS if m.startswith("gemini-") and "flash" in m and "image" not in m
+             and "lite" not in m and not any(b in m for b in bad)]
+        c = [m for m in c if "preview" not in m] or c
+    return max(c, key=ver) if c else None
+
+
+def _gemini(prompt, system="", model=None, temperature=0.8, _kind="text"):
+    """Google AI Studio API (Gemini and Gemma models). If the model has been retired (404), pick a current one."""
     model = model or config.GEMINI_MODEL
-    if model.startswith("gemma") and system:  # Gemma has no system-instruction support
-        prompt, system = system + "\n\n" + prompt, ""
-    body = {"contents": [{"role": "user", "parts": [{"text": prompt}]}],
-            "generationConfig": {"temperature": temperature}}
-    if system:
-        body["systemInstruction"] = {"parts": [{"text": system}]}
-    d = _post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-              {"x-goog-api-key": os.environ["GEMINI_API_KEY"]}, body)
-    return "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
+    for attempt in (1, 2):
+        sys_, pr = system, prompt
+        if model.startswith("gemma") and sys_:     # Gemma has no system-instruction support
+            pr, sys_ = sys_ + "\n\n" + pr, ""
+        body = {"contents": [{"role": "user", "parts": [{"text": pr}]}],
+                "generationConfig": {"temperature": temperature}}
+        if sys_:
+            body["systemInstruction"] = {"parts": [{"text": sys_}]}
+        try:
+            d = _post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                      {"x-goog-api-key": os.environ["GEMINI_API_KEY"]}, body)
+            return "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
+        except RuntimeError as e:
+            if attempt == 1 and "HTTP 404" in str(e):
+                alt = _discover_gemini("gemma" if model.startswith("gemma") else _kind)
+                if alt and alt != model:
+                    print(f"[llm] {model} unavailable (404); using {alt}")
+                    model = alt
+                    continue
+            raise
 
 
 def _gemma(prompt, system="", temperature=0.7):
-    return _gemini(prompt, system, model=config.GEMMA_MODEL, temperature=temperature)
+    return _gemini(prompt, system, model=config.GEMMA_MODEL, temperature=temperature, _kind="gemma")
 
 
 def _groq(prompt, system="", model=None, temperature=0.6):

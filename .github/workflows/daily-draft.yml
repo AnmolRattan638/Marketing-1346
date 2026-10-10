@@ -48,7 +48,8 @@ jobs:
         run: python -m src.run_daily ${{ inputs.force && '--force' || '' }}
       - name: Commit draft, image and strategy
         if: always()
-        run: bash scripts/commit_state.sh "draft: $(date -u +%F)"
+        run: |
+          bash scripts/commit_state.sh "draft: $(date -u +%F)"
       - name: Alert if the draft could not be saved
         if: failure()
         env:

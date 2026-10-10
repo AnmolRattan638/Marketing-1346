@@ -39,4 +39,5 @@ jobs:
         run: python -m src.process_approvals
       - name: Commit state
         if: always()
-        run: bash scripts/commit_state.sh "state: $(date -u +%FT%TZ)"
+        run: |
+          bash scripts/commit_state.sh "state: $(date -u +%FT%TZ)"

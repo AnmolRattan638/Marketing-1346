@@ -36,7 +36,7 @@ Optional **variables**: `GEMMA_MODEL`, `GROQ_MODEL`, `GEMINI_MODEL` (to change m
 Telegram: approvals are polled with `getUpdates`, so the bot must have **no webhook** set (`/deleteWebhook`).
 
 ## Run
-Actions -> **Daily draft** -> Run workflow (or wait for 08:00 IST). Tap Approve in Telegram; **Approve and publish** (checks every ~5 min; if it seems slow, run it manually from the Actions tab) posts it.
+Actions -> **Daily draft** -> Run workflow (or wait for 08:00 IST). After sending the draft, the run stays alive (up to ~5h40m) and publishes within seconds of your Approve tap. It shows as 'in progress' while it waits. **Approve and publish** is only a safety net for taps made after that window; it skips itself while Daily draft is running.
 
 ## Files
 - `config/voice.md`, `config/services.json`: your voice and the facts the agents may use. **Edit these first.**

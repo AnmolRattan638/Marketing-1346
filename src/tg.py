@@ -30,8 +30,8 @@ def send_photo(path, caption=""):
         return _api("sendPhoto", data={"chat_id": chat_id(), "caption": caption[:1000]}, files={"photo": f})
 
 
-def get_updates(offset):
-    return _api("getUpdates", json={"offset": offset, "timeout": 0, "allowed_updates": ["callback_query"]})
+def get_updates(offset, timeout=0):
+    return _api("getUpdates", json={"offset": offset, "timeout": timeout, "allowed_updates": ["callback_query"]})
 
 
 def answer(cb_id, text):

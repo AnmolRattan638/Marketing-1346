@@ -1,4 +1,6 @@
 """Poll Telegram for Approve/Reject taps and publish approved drafts. Runs every ~15 minutes."""
+import datetime as dt
+import sys, time
 from . import config, publish, tg
 
 
@@ -37,7 +39,52 @@ def handle(cb):
     config.save_json(config.DATA / "history.json", history)
 
 
+def _today():
+    return dt.date.today().isoformat()
+
+
+def pending_today():
+    d = config.load_json(config.DRAFTS / f"{_today()}.json", None)
+    return bool(d) and d.get("status") == "pending"
+
+
+def poll(state, timeout):
+    """One getUpdates call; handles every Approve/Reject tap it returns."""
+    updates = tg.get_updates(state["offset"], timeout)
+    for u in updates:
+        state["offset"] = u["update_id"] + 1
+        if "callback_query" in u:
+            try:
+                handle(u["callback_query"])
+            except Exception as e:
+                tg.send(f"Error handling approval: {e}")
+    config.save_json(config.DATA / "tg_state.json", state)
+
+
+def wait(seconds):
+    """Stay alive after the draft is sent and publish the moment you tap Approve (checks every few seconds)."""
+    state = config.load_json(config.DATA / "tg_state.json", {"offset": 0})
+    deadline, conflicts = time.time() + seconds, 0
+    while time.time() < deadline and pending_today():
+        try:
+            poll(state, 25)
+            conflicts = 0
+        except RuntimeError as e:
+            msg = str(e)
+            if "webhook" in msg.lower():
+                raise SystemExit(f"{msg}. Remove the webhook: https://api.telegram.org/bot<TOKEN>/deleteWebhook")
+            conflicts += 1
+            print(f"[wait] {msg}")
+            if conflicts == 5:
+                tg.send("Another program seems to be reading this Telegram bot's messages (maybe your Aegis agent), so approvals can be missed. Create a separate bot for marketing with @BotFather.")
+            time.sleep(15)
+    if pending_today():
+        tg.send(f"No decision on today's draft after {seconds // 3600}h {seconds % 3600 // 60}m. It stays saved: tap Approve within 24 hours and it will post within about 10 minutes.")
+
+
 def main():
+    if "--wait" in sys.argv:
+        return wait(int(sys.argv[sys.argv.index("--wait") + 1]))
     state = config.load_json(config.DATA / "tg_state.json", {"offset": 0})
     try:
         updates = tg.get_updates(state["offset"])

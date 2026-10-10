@@ -1,1 +1,21 @@
-{"note": "Edit by hand every week, e.g. followers, likes, posts, comments, DMs received", "followers": 8, "likes": 0, "posts": 4}
+{
+  "note": "Entered by hand from the Instagram profile screen. Update every week or two.",
+  "as_of": "2026-10-10",
+  "instagram": {
+    "followers": 8,
+    "following": 14,
+    "posts": 6,
+    "views_last_30_days": 539,
+    "bio": "Websites for hotels, cafes, gyms & homestays in Himachal. From Rs 1499, ready in 24 hrs. Free 2-min site check on WhatsApp. Link: anmolrattan.netlify.app",
+    "posts_by_views": [
+      {"views": 783, "format": "reel", "what": "Cafe / Restaurant sample website 'Live Preview'"},
+      {"views": 614, "format": "reel", "what": "Presenter with '24' clock graphic (delivery speed)"},
+      {"views": 395, "format": "image", "what": "AR Designs services overview, 'DM Now'"},
+      {"views": 298, "format": "reel", "what": "AR Designs 'Elevate Your Digital Presence' services intro"},
+      {"views": 143, "format": "reel", "what": "Presenter: websites from Rs 1,499, delivered in 24 hrs, WhatsApp now"},
+      {"views": 125, "format": "carousel", "what": "Hotel sample site on a phone, Hinglish text 'Room ki photo nahi mili'"}
+    ],
+    "likes": "not shown on this screen",
+    "dms_received": "unknown"
+  }
+}

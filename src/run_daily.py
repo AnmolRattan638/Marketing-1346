@@ -5,6 +5,7 @@ from . import config, tg
 from .agents import analysis, factcheck, image, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
+WARNINGS = []
 
 
 def pick_focus(brand, history):
@@ -25,6 +26,7 @@ def stage(name, fn, fallback=None):
     try:
         return fn()
     except Exception as e:
+        WARNINGS.append(f"{name}: {str(e)[:160]}")
         print(f"[{name}] failed: {e}", file=sys.stderr)
         traceback.print_exc()
         if fallback is None:
@@ -82,7 +84,8 @@ def main():
              "image": img, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score")}
     config.save_json(path, draft)
 
-    tg.send(f"Draft for {today}\nService: {focus['name']}\nTopic: {plan['topic']}\n"
+    tg.send((f"WARNINGS (a step failed and a fallback was used):\n- " + "\n- ".join(WARNINGS) + "\n\n" if WARNINGS else "") +
+            f"Draft for {today}\nService: {focus['name']}\nTopic: {plan['topic']}\n"
             f"Fact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n\n"
             f"Account check ({state.get('stage')}): {state.get('summary')}" +
             ("\nManual tips:\n- " + "\n- ".join(map(str, state.get("manual_tips") or [])) if state.get("manual_tips") else ""))

@@ -16,8 +16,11 @@ def _post(url, headers, body, tries=3, timeout=120):
                 last = RateLimited(f"429 {r.text[:200]}") if r.status_code == 429 else RuntimeError(f"{r.status_code} {r.text[:200]}")
                 time.sleep(10 * (i + 1))
                 continue
-            r.raise_for_status()
+            if r.status_code >= 400:
+                raise RuntimeError(f"HTTP {r.status_code} from {url.split('?')[0]}: {r.text[:300]}")
             return r.json()
+        except RuntimeError:
+            raise
         except requests.RequestException as e:
             last = e
             time.sleep(5 * (i + 1))
@@ -38,13 +41,13 @@ def openrouter(prompt, system="", model=None, temperature=0.7):
 
 
 def _with_fallback(fn):
-    """On a 429 (after retries), retry once through OpenRouter if a key is set."""
+    """If a provider fails for any reason (rate limit, wrong model, outage), retry once through OpenRouter if a key is set."""
     def wrapper(prompt, system="", **kw):
         try:
             return fn(prompt, system, **kw)
-        except RateLimited:
+        except Exception as e:
             if os.getenv("OPENROUTER_API_KEY"):
-                print(f"[llm] {fn.__name__} rate limited, falling back to OpenRouter")
+                print(f"[llm] {fn.__name__} failed ({str(e)[:150]}), falling back to OpenRouter")
                 return openrouter(prompt, system)
             raise
     wrapper.__name__ = fn.__name__
@@ -98,7 +101,7 @@ def strategist_model(prompt, system="", **kw):
 
 def factcheck_model(prompt, system="", **kw):
     """Provider/model chosen by FACTCHECK_PROVIDER + FACTCHECK_MODEL (default: GPT-OSS on Groq)."""
-    p, m = os.getenv("FACTCHECK_PROVIDER", "groq").lower(), os.getenv("FACTCHECK_MODEL") or None
+    p, m = (os.getenv("FACTCHECK_PROVIDER") or "groq").lower(), os.getenv("FACTCHECK_MODEL") or None
     fn = {"groq": groq, "nvidia": nvidia, "gemini": gemini, "openrouter": openrouter}.get(p, groq)
     return fn(prompt, system, model=m, **kw) if m else fn(prompt, system, **kw)
 

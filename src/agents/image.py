@@ -33,7 +33,7 @@ def _cloudflare(img_prompt, path):
 
 
 def _gemini(img_prompt, path):
-    model = os.getenv("GEMINI_IMAGE_MODEL", "gemini-2.5-flash-image")
+    model = os.getenv("GEMINI_IMAGE_MODEL") or "gemini-2.5-flash-image"
     d = llm._post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
                   {"x-goog-api-key": os.environ["GEMINI_API_KEY"]},
                   {"contents": [{"parts": [{"text": img_prompt}]}], "generationConfig": {"responseModalities": ["IMAGE"]}},

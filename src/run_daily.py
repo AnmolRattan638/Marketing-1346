@@ -1,8 +1,8 @@
-"""Daily draft run: strategist -> research -> analysis -> writer -> fact-check -> ad-check -> image/video -> Telegram."""
+"""Daily draft run: strategist (incl. Instagram state check) -> research -> analysis -> writer -> fact-check -> ad-check -> image/video -> Telegram."""
 import datetime as dt
 import sys, traceback
 from . import config, tg
-from .agents import analysis, analyst, factcheck, image, research, strategist, video, writer
+from .agents import analysis, factcheck, image, research, strategist, video, writer
 from . import instagram
 
 today = dt.date.today().isoformat()
@@ -45,17 +45,18 @@ def main():
     focus = pick_focus(brand, history)
 
     try:
-        guidance = stage("strategist.guide", lambda: strategist.guide(history, metrics),
-                         fallback="No guidance today. Teach first, never sound like an ad.")
-        (config.DATA / "strategy.md").write_text(guidance, encoding="utf-8")
         ig = stage("instagram", instagram.snapshot, fallback={"error": "Instagram snapshot unavailable"})
-        state = stage("analyst", lambda: analyst.run(None if (ig or {}).get("error") else ig, history, metrics, focus, today),
-                      fallback={"stage": "unknown", "summary": "", "instructions": {}, "manual_tips": []})
+        state = stage("strategist.guide",
+                      lambda: strategist.guide(None if (ig or {}).get("error") else ig, history, metrics, focus, today),
+                      fallback={"stage": "unknown", "summary": "", "instructions": {}, "manual_tips": [],
+                                "guidance": "No guidance today. Teach first, never sound like an ad."})
+        guidance = state.get("guidance") or "Teach first, never sound like an ad."
+        (config.DATA / "strategy.md").write_text(guidance, encoding="utf-8")
         config.save_json(config.DATA / "account_state.json", {"date": today, **state})
 
         def g(agent):
             note = (state.get("instructions") or {}).get(agent)
-            return guidance + (f"\n\nACCOUNT ANALYST (current Instagram state: {state.get('stage')}): {note}" if note else "")
+            return guidance + (f"\n\nSTRATEGIST BRIEF (current Instagram state: {state.get('stage')}): {note}" if note else "")
 
         used = [h.get("topic") for h in history]
         topics = stage("research", lambda: research.run(brand, focus, used, g('research'), today),

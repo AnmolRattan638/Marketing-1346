@@ -2,23 +2,26 @@
 import json
 from .. import config, llm
 
-SYS = "You are the marketing strategist for a solo freelance web developer. Be concrete and brief."
+SYS = ("You are the marketing strategist for a solo freelance web developer in India who markets AI chatbots, AI animated ads, "
+       "lead generation and websites. Be concrete, brief and honest about thin data.")
 
 
-def guide(history, metrics):
-    recent = history[-14:]
-    prompt = f"""Recent posts (topic, service, hook style, status):
-{json.dumps(recent, ensure_ascii=False)[:4000]}
+def guide(ig, history, metrics, focus, today):
+    """Before each post: read the Instagram account's current state, learn from history, and brief every agent.
+    Returns {"stage", "followers", "summary", "guidance", "instructions": {agent: text}, "manual_tips": [...]}."""
+    prompt = f"""Today: {today}. Today's focus service: {focus['name']}.
+Live Instagram data: {json.dumps(ig, ensure_ascii=False)[:5000] if ig else 'NOT AVAILABLE (no token). Use posting history only and say so.'}
+Recent posts (topic, service, hook style, status): {json.dumps(history[-14:], ensure_ascii=False)[:3500]}
+Manual performance data (may be empty): {json.dumps(metrics, ensure_ascii=False)[:1500]}
 
-Performance data (may be empty early on):
-{json.dumps(metrics, ensure_ascii=False)[:2000]}
-
-Write guidance (max 180 words, markdown bullets) for tomorrow's research, hook and writing agents:
-- what seems to work / not work (say 'not enough data yet' if so)
-- which hook style to try next (rotate styles so we can compare)
-- topics or phrasings to avoid because they were repeated
-- one reminder: posts must teach first and never read like an ad."""
-    return llm.strategist_model(prompt, SYS).strip()
+1) Classify the account stage (e.g. brand new under 100 followers, building trust, growing).
+2) Say what the data suggests works or not (be honest if there is too little data).
+3) Write general guidance (max 150 words, markdown bullets): hook style to try next (rotate styles), topics/phrasings to avoid because repeated, and a reminder that posts show a developer's real work and never read like an ad.
+4) Give each agent one short, concrete instruction for today's post.
+5) Give up to 3 manual tips the owner should do himself today (only safe organic actions, e.g. commenting on relevant posts).
+Never suggest buying followers, engagement pods, spam or fake claims.
+Return JSON: {{"stage": "...", "followers": <number or null>, "summary": "<=60 words", "guidance": "...", "instructions": {{"research": "...", "analysis": "...", "writer": "...", "image": "...", "video": "..."}}, "manual_tips": ["..."]}}"""
+    return llm.ask_json(llm.strategist_model, prompt, SYS)
 
 
 def review(posts):

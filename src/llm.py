@@ -83,8 +83,17 @@ gemini, gemma, groq, nvidia = map(_with_fallback, (_gemini, _gemma, _groq, _nvid
 
 
 def strategist_model(prompt, system="", **kw):
-    """Nemotron on NVIDIA if its key is set, otherwise GPT-OSS on Groq."""
-    return (nvidia if os.getenv("NVIDIA_API_KEY") else groq)(prompt, system, **kw)
+    """Nemotron for strategist/analyst. A ':free' model ID goes through OpenRouter; any other ID goes to NVIDIA.
+    If that fails for any reason, GPT-OSS on Groq answers instead."""
+    model = config.NVIDIA_MODEL
+    try:
+        if ":free" in model:
+            return openrouter(prompt, system, model=model)
+        if os.getenv("NVIDIA_API_KEY"):
+            return nvidia(prompt, system, model=model, **kw)
+    except Exception as e:
+        print(f"[llm] strategist model failed ({str(e)[:120]}), using Groq")
+    return groq(prompt, system, **kw)
 
 
 def factcheck_model(prompt, system="", **kw):

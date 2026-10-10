@@ -2,16 +2,22 @@
 import datetime as dt
 import sys, traceback
 from . import config, tg
-from .agents import analysis, factcheck, image, research, strategist, video, writer
+from .agents import analysis, analyst, factcheck, image, research, strategist, video, writer
+from . import instagram
 
 today = dt.date.today().isoformat()
 
 
 def pick_focus(brand, history):
-    svcs = brand["services"]
-    pool = [s for s in svcs if s["priority"] == 1]
-    if dt.date.today().timetuple().tm_yday % 7 == 0:   # one day a week for the lower-priority services
-        pool = [s for s in svcs if s["priority"] != 1] or pool
+    svcs, sched = brand["services"], brand.get("schedule", {})
+    wd = dt.date.today().weekday()
+    if wd == sched.get("website_weekday", 5):               # websites: one post a week
+        pool = [s for s in svcs if s["priority"] == 2]
+    elif wd == sched.get("other_weekday", 2):               # scripts / SEO: one slot a week
+        pool = [s for s in svcs if s["priority"] == 3]
+    else:                                                   # chatbots, AI ads, lead gen
+        pool = [s for s in svcs if s["priority"] == 1]
+    pool = pool or [s for s in svcs if s["priority"] == 1]
     last_used = {h.get("service"): h.get("date", "") for h in history}
     return min(pool, key=lambda s: last_used.get(s["id"], ""))
 
@@ -42,21 +48,30 @@ def main():
         guidance = stage("strategist.guide", lambda: strategist.guide(history, metrics),
                          fallback="No guidance today. Teach first, never sound like an ad.")
         (config.DATA / "strategy.md").write_text(guidance, encoding="utf-8")
+        ig = stage("instagram", instagram.snapshot, fallback={"error": "Instagram snapshot unavailable"})
+        state = stage("analyst", lambda: analyst.run(None if (ig or {}).get("error") else ig, history, metrics, focus, today),
+                      fallback={"stage": "unknown", "summary": "", "instructions": {}, "manual_tips": []})
+        config.save_json(config.DATA / "account_state.json", {"date": today, **state})
+
+        def g(agent):
+            note = (state.get("instructions") or {}).get(agent)
+            return guidance + (f"\n\nACCOUNT ANALYST (current Instagram state: {state.get('stage')}): {note}" if note else "")
+
         used = [h.get("topic") for h in history]
-        topics = stage("research", lambda: research.run(brand, focus, used, guidance, today),
+        topics = stage("research", lambda: research.run(brand, focus, used, g('research'), today),
                        fallback=[{"topic": f"A practical tip about {focus['name']} for local businesses",
                                   "angle": focus["pitch"], "why_it_matters": "fallback topic"}])
-        plan = stage("analysis", lambda: analysis.run(topics, focus, guidance, history))
-        posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, guidance))
+        plan = stage("analysis", lambda: analysis.run(topics, focus, g('analysis'), history))
+        posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer')))
         fc = stage("factcheck", lambda: factcheck.run(posts, focus, brand), fallback={"ok": None, "issues": ["fact-check unavailable"], "revised": {}})
         for k, v in (fc.get("revised") or {}).items():
             if k in posts and v:
                 posts[k] = v[:300] if k == "bluesky" else v
         rv = stage("strategist.review", lambda: strategist.review(posts), fallback={"ad_score": None, "notes": ""})
         if (rv.get("ad_score") or 0) >= 7:
-            posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, guidance, rv.get("notes", "")), fallback=posts)
-        img = stage("image", lambda: image.run(plan, focus, today), fallback={"prompt": None, "path": None})
-        vid = stage("video", lambda: video.run(plan, focus, posts), fallback={})
+            posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), rv.get("notes", "")), fallback=posts)
+        img = stage("image", lambda: image.run(plan, focus, today, g('image')), fallback={"prompt": None, "path": None})
+        vid = stage("video", lambda: video.run(plan, focus, posts, g('video')), fallback={})
     except Exception as e:
         tg.send(f"Marketing pipeline failed on {today}: {e}\nNothing was posted. Check the Actions log.")
         raise
@@ -69,7 +84,9 @@ def main():
     config.save_json(path, draft)
 
     tg.send(f"Draft for {today}\nService: {focus['name']}\nTopic: {plan['topic']}\n"
-            f"Fact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)")
+            f"Fact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n\n"
+            f"Account check ({state.get('stage')}): {state.get('summary')}" +
+            ("\nManual tips:\n- " + "\n- ".join(map(str, state.get("manual_tips") or [])) if state.get("manual_tips") else ""))
     if img.get("path"):
         tg.send_photo(config.ROOT / img["path"], img.get("prompt") or "")
     for p in config.PLATFORMS:

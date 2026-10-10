@@ -12,7 +12,7 @@ GEMMA_MODEL = os.getenv("GEMMA_MODEL", "gemma-3-27b-it")      # research / image
 GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")    # analysis, fact-check, strategist
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")   # final post writing
 
-NVIDIA_MODEL = os.getenv("NVIDIA_MODEL", "nvidia/llama-3.3-nemotron-super-49b-v1")   # Nemotron for the strategist (set the exact ID from build.nvidia.com)
+NVIDIA_MODEL = os.getenv("NVIDIA_MODEL", "nvidia/nemotron-3-ultra-550b-a55b:free")   # strategist + analyst. A ":free" ID is OpenRouter-style and is called via OpenRouter
 OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openai/gpt-oss-120b:free")       # only used as a 429 fallback
 
 PLATFORMS = ["instagram", "linkedin", "bluesky"]

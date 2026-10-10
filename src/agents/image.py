@@ -54,9 +54,10 @@ def _pollinations(img_prompt, path):
     _save(r.content, path)
 
 
-def run(plan, focus, date):
+def run(plan, focus, date, guidance=""):
     prompt = f"""Write ONE image-generation prompt (max 60 words) for a clean, modern social media square graphic.
 Idea: {plan.get('image_idea')} | Topic: {plan['topic']} | Service: {focus['name']}
+Analyst note: {guidance}
 Style: minimal flat illustration, bold colours, lots of empty space, NO text, NO logos, NO real people's faces.
 Return only the prompt."""
     img_prompt = llm.gemma(prompt).strip().strip('"')

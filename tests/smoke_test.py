@@ -21,7 +21,7 @@ llm.gemma = lambda p, s="", **k: json.dumps({"topics": [{"topic": "t", "angle": 
                                               "voiceover": "v", "shots": ["s"], "flow_prompt": "f"}) if "JSON" in p else "img prompt"
 llm.gemini = lambda p, s="", **k: json.dumps({"instagram": "ig", "linkedin": "li", "bluesky": "bs" * 400, "replies": []})
 import src.agents.image as image_mod
-image_mod.run = lambda plan, focus, date: {"prompt": "p", "path": None}
+image_mod.run = lambda plan, focus, date, guidance="": {"prompt": "p", "path": None}
 
 from src import run_daily
 run_daily.main()

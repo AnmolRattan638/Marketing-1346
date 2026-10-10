@@ -83,7 +83,7 @@ gemini, gemma, groq, nvidia = map(_with_fallback, (_gemini, _gemma, _groq, _nvid
 
 
 def strategist_model(prompt, system="", **kw):
-    """Nemotron for strategist/analyst. A ':free' model ID goes through OpenRouter; any other ID goes to NVIDIA.
+    """Nemotron for the strategist. A ':free' model ID goes through OpenRouter; any other ID goes to NVIDIA.
     If that fails for any reason, GPT-OSS on Groq answers instead."""
     model = config.NVIDIA_MODEL
     try:

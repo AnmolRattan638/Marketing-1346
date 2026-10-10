@@ -97,7 +97,7 @@ def main():
         tg.send("[REEL IDEA, make it in Google Flow]\nHook (first 3s): " + str(vid.get("hook_first_3s", "")) + "\n\n" + vid.get("voiceover", "") + "\n\nFlow prompt:\n" + vid.get("flow_prompt", ""))
     if draft["replies"]:
         tg.send("[REPLY DRAFTS]\n" + "\n\n".join(f"If: {r['if_they_say']}\n-> {r['reply']}" for r in draft["replies"]))
-    tg.send(f"Approve posting to Instagram, LinkedIn and Bluesky via Buffer?",
+    tg.send("Approve posting to LinkedIn and Bluesky? (Instagram is your manual reel.) Posting starts within about 5 minutes of your tap.",
             buttons=[{"text": "Approve", "callback_data": f"approve:{today}"},
                      {"text": "Reject", "callback_data": f"reject:{today}"}])
 

@@ -2,7 +2,7 @@ name: Approve and publish
 
 on:
   schedule:
-    - cron: "*/15 * * * *"    # checks Telegram for Approve/Reject taps
+    - cron: "*/5 * * * *"     # checks Telegram for Approve/Reject taps (GitHub may delay scheduled runs)
   workflow_dispatch:
 
 permissions:

@@ -35,6 +35,6 @@ buffer.create_post = lambda cid, text, url=None: {"id": cid, "dueAt": "soon"}
 from src import process_approvals
 process_approvals.handle({"id": "x", "data": f"approve:{run_daily.today}", "message": {"chat": {"id": 1}}})
 d = config.load_json(config.DRAFTS / f"{run_daily.today}.json", {})
-assert d["status"] == "partial", d["status"]   # Instagram skipped: no image
+assert d["status"] == "published", d["status"]   # Instagram is a manual reel, so only LinkedIn + Bluesky are auto-posted
 assert d["results"]["bluesky"]["ok"] and ("zernio" in d["results"]["bluesky"]["detail"] or "buffer" in d["results"]["bluesky"]["detail"])
 print("smoke test passed:", d["results"])

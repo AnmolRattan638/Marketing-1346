@@ -20,7 +20,7 @@ Strategist guidance: {guidance}
 Languages: {json.dumps(brand.get('languages', {}))}. Adapt the opening hook into the platform's language (Instagram = Hinglish).
 Frame every post as a web developer SHOWING real work: one concrete thing built, fixed or noticed, with a specific detail. Call demo projects "sample" or "demo". It must NOT read like an advertisement.
 Write one post per platform:
-- instagram: caption, 80-160 words, ends with a soft DM invite (vary the wording), 3-5 hashtags at the end
+- instagram: caption for a REEL, 40-100 words, first line is the hook, ends with ONE soft DM invite (vary the wording), 3-5 hashtags at the end
 - linkedin: 120-200 words, short paragraphs, ends with a soft DM invite
 - bluesky: ONE thought under 280 characters, soft nudge to DM
 Audience is all of India: no city-specific assumptions; use broad hashtags like #SmallBusinessIndia, not city tags. Mention a price only for website/chatbot/animated ads and only copy it from price_note; never for lead gen.

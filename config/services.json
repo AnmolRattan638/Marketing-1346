@@ -67,8 +67,9 @@
     "pay_after_approval": "Applies to every service: the client pays only after approving the work."
   },
   "schedule": {
-    "note": "Websites are saturated in India: 1 post per week only. Core = priority 1 (chatbots, AI ads, lead gen). Weekdays: Monday=0.",
+    "note": "Websites are saturated in India: 1 post per week only. Core = priority 1 (chatbots, AI ads, lead gen), rotating by least recently used. Weekdays: Monday=0. One reel a day on Instagram, posted manually.",
     "website_weekday": 5,
     "other_weekday": 2
-  }
+  },
+  "instagram_mode": "reel_manual"
 }

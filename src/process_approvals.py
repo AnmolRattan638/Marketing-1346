@@ -27,7 +27,7 @@ def handle(cb):
         draft["status"] = "published" if len(ok) == len(res) else ("partial" if ok else "failed")
         tg.send(f"Publish result for {date}: {draft['status']}\n" +
                 "\n".join(f"- {p}: {'OK' if r['ok'] else 'FAILED'} ({r['detail']})" for p, r in res.items()) +
-                "\n\nCheck: the image is AI-made. Make sure the AI label / 'AI info' shows on Instagram and LinkedIn; if not, switch it on in the app.")
+                "\n\nInstagram: post today's reel yourself with the INSTAGRAM caption above (it is not auto-posted). If the video or presenter is AI-generated, switch the AI label on. LinkedIn: check the AI label shows on the image; if not, switch it on.")
     else:
         return
     history.append({"date": date, "service": draft["service"], "topic": draft["topic"],

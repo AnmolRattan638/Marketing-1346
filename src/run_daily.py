@@ -89,7 +89,7 @@ def main():
     if img.get("path"):
         tg.send_photo(config.ROOT / img["path"], img.get("prompt") or "")
     for p in config.PLATFORMS:
-        tg.send(f"[{p.upper()}]\n{posts[p]}")
+        tg.send(f"[{p.upper()}{' CAPTION FOR YOUR REEL' if p == 'instagram' else ''}]\n{posts[p]}")
     if vid:
         tg.send("[REEL IDEA, make it in Google Flow]\nHook (first 3s): " + str(vid.get("hook_first_3s", "")) + "\n\n" + vid.get("voiceover", "") + "\n\nFlow prompt:\n" + vid.get("flow_prompt", ""))
     if draft["replies"]:

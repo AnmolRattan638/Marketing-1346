@@ -1,5 +1,5 @@
 """Agent 4: make an image prompt (Gemma), then render it: Cloudflare FLUX first, then Gemini image, then a free fallback."""
-import base64, io, os, urllib.parse
+import base64, io, os, re, urllib.parse
 import requests
 from PIL import Image
 from .. import config, llm
@@ -10,6 +10,22 @@ XMP = ('<?xpacket begin="\ufeff" id="W5M0MpCehiHzreSzNTczkc9d"?><x:xmpmeta xmlns
        'xmlns:Iptc4xmpExt="http://iptc.org/std/Iptc4xmpExt/2008-02-12/" '
        'Iptc4xmpExt:DigitalSourceType="http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"/>'
        '</rdf:RDF></x:xmpmeta><?xpacket end="w"?>').encode("utf-8")   # IPTC "AI generated" marker platforms can read
+
+
+def clean_prompt(text, limit=900):
+    """Some models leak their reasoning before the answer. Keep only the real prompt, on one line, capped."""
+    tagged = re.findall(r"<prompt>(.*?)</prompt>", text, re.S | re.I)
+    if tagged:
+        out = tagged[-1]
+    else:
+        quoted = re.findall(r'"([^"\n]{80,}?)"', text)
+        if quoted:
+            out = quoted[-1]
+        else:
+            paras = [p for p in re.split(r"\n\s*\n", text.strip()) if p.strip()]
+            out = paras[-1] if paras else text
+    out = re.sub(r"^[\s*\-\d.)]+", "", re.sub(r"\s+", " ", out).strip())
+    return out.strip('" ')[:limit]
 
 
 def _save(data, path):
@@ -95,8 +111,8 @@ def run(plan, focus, date, guidance=""):
 Idea: {plan.get('image_idea')} | Topic: {plan['topic']} | Service: {focus['name']}
 Strategist note: {guidance}
 Style: minimal flat illustration, bold colours, lots of empty space, NO text, NO logos, NO real people's faces.
-Return only the prompt."""
-    img_prompt = llm.gemma(prompt).strip().strip('"')
+Return ONLY the final prompt wrapped in <prompt></prompt> tags. No notes, no drafts, no explanation."""
+    img_prompt = clean_prompt(llm.gemma(prompt))
     path = config.MEDIA / f"{date}.jpg"
     engines = ([_cloudflare] if os.getenv("CLOUDFLARE_API_TOKEN") and os.getenv("CLOUDFLARE_ACCOUNT_ID") else []) + ([_gemini] if os.getenv("GEMINI_API_KEY") else []) + [_pollinations]
     errors = []

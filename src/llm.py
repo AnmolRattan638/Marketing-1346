@@ -147,7 +147,7 @@ def _gemini(prompt, system="", model=None, temperature=0.8, _kind="text"):
             d = _post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
                       {"x-goog-api-key": os.environ["GEMINI_API_KEY"]}, body)
             LOG.append(f"google:{model}")
-            return "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
+            return "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"] if not p.get("thought"))
         except RuntimeError as e:
             if attempt == 1 and "HTTP 404" in str(e):
                 alt = _discover_gemini("gemma" if model.startswith("gemma") else _kind)
@@ -208,14 +208,23 @@ def factcheck_model(prompt, system="", **kw):
 
 
 def parse_json(text):
+    """Find the JSON in a model reply, even if the model also wrote reasoning (with stray braces) around it."""
     t = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M).strip()
     try:
         return json.loads(t)
     except Exception:
-        m = re.search(r"(\{.*\}|\[.*\])", t, re.S)
-        if not m:
-            raise
-        return json.loads(m.group(1))
+        pass
+    dec, best = json.JSONDecoder(), None
+    for m in re.finditer(r"[\{\[]", t):
+        try:
+            obj, end = dec.raw_decode(t[m.start():])
+        except Exception:
+            continue
+        if isinstance(obj, (dict, list)) and (best is None or end > best[1]):
+            best = (obj, end)
+    if best is None:
+        raise ValueError("no JSON found in model reply")
+    return best[0]
 
 
 def ask_json(fn, prompt, system="", **kw):

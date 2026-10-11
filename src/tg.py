@@ -31,7 +31,14 @@ def send_photo(path, caption=""):
 
 
 def get_updates(offset, timeout=0):
-    return _api("getUpdates", json={"offset": offset, "timeout": timeout, "allowed_updates": ["callback_query"]})
+    return _api("getUpdates", json={"offset": offset, "timeout": timeout, "allowed_updates": ["callback_query", "message"]})
+
+
+def download_file(file_id):
+    info = _api("getFile", json={"file_id": file_id})
+    r = requests.get(f"https://api.telegram.org/file/bot{os.environ['TELEGRAM_BOT_TOKEN']}/{info['file_path']}", timeout=120)
+    r.raise_for_status()
+    return r.content
 
 
 def answer(cb_id, text):

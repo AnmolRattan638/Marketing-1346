@@ -26,3 +26,29 @@ assert time.time() - t0 < 10 and calls["n"] == 3, (time.time() - t0, calls)
 assert config.load_json(tmp / "tg_state.json", {})["offset"] == 8
 assert any("Publish result" in s for s in sent)
 print("wait test passed: published after", calls["n"], "polls")
+
+# ---- image sent to the bot becomes today's post image
+import io
+from PIL import Image
+from src.agents import image as image_mod
+tmp2 = pathlib.Path(tempfile.mkdtemp()); (tmp2 / "drafts").mkdir(); (tmp2 / "data" / "media").mkdir(parents=True)
+config.ROOT, config.DATA, config.DRAFTS, config.MEDIA = tmp2, tmp2 / "data", tmp2 / "drafts", tmp2 / "data" / "media"
+config.save_json(config.DRAFTS / f"{today}.json", {"date": today, "status": "pending", "service": "chatbot", "topic": "t",
+                 "posts": {"instagram": "i", "linkedin": "l", "bluesky": "b"}, "image": {"path": None}})
+buf = io.BytesIO(); Image.new("RGBA", (1500, 1500), (200, 30, 30, 255)).save(buf, "PNG")
+tg.download_file = lambda fid: buf.getvalue()
+commits, sent2 = [], []
+pa._commit = lambda m: commits.append(m)
+tg.send = lambda text, buttons=None: sent2.append(text)
+pa.handle_message({"chat": {"id": 1}, "photo": [{"file_id": "small"}, {"file_id": "big"}], "caption": "design from Adobe"})
+d = config.load_json(config.DRAFTS / f"{today}.json", {})
+assert d["image"]["engine"] == "user_upload" and d["image"]["ai_generated"] is False, d["image"]
+raw = (config.ROOT / d["image"]["path"]).read_bytes()
+assert raw[:2] == b"\xff\xd8" and b"trainedAlgorithmicMedia" not in raw and Image.open(io.BytesIO(raw)).size[0] <= 1080
+assert commits and any("Image received" in s for s in sent2)
+pa.handle_message({"chat": {"id": 1}, "document": {"mime_type": "image/png", "file_id": "f"}, "caption": "ai"})
+d = config.load_json(config.DRAFTS / f"{today}.json", {})
+assert d["image"]["ai_generated"] is True and b"trainedAlgorithmicMedia" in (config.ROOT / d["image"]["path"]).read_bytes()
+pa.handle_message({"chat": {"id": 999}, "photo": [{"file_id": "x"}]})        # other chats are ignored
+pa.handle_message({"chat": {"id": 1}, "text": "hello"})                          # plain text is ignored
+print("upload test passed: photo -> today's image (not AI-marked), caption 'ai' -> AI-marked")

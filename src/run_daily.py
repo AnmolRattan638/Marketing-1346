@@ -106,7 +106,7 @@ def main():
             tg.send(f"[FLOW PROMPT {i}/{len(parts)} | {part.get('time')}]\nSpoken line: {part.get('voiceover')}\n\n{part.get('flow_prompt')}")
     if draft["replies"]:
         tg.send("[REPLY DRAFTS]\n" + "\n\n".join(f"If: {r['if_they_say']}\n-> {r['reply']}" for r in draft["replies"]))
-    tg.send(("Approve posting to LinkedIn and Bluesky? (Wednesday: Instagram is your manual reel.)" if ig_mode == "manual_reel" else "Approve posting to Instagram, LinkedIn and Bluesky?") + " It posts within seconds of your tap.",
+    tg.send(("Approve posting to LinkedIn and Bluesky? (Wednesday: Instagram is your manual reel.)" if ig_mode == "manual_reel" else "Approve posting to Instagram, LinkedIn and Bluesky?") + " It posts within seconds of your tap. Want your own image (e.g. from Adobe Express)? Send it to this chat as a photo first; add the caption 'ai' if it is AI-made.",
             buttons=[{"text": "Approve", "callback_data": f"approve:{today}"},
                      {"text": "Reject", "callback_data": f"reject:{today}"}])
 

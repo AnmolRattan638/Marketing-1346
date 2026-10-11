@@ -28,13 +28,13 @@ def clean_prompt(text, limit=900):
     return out.strip('" ')[:limit]
 
 
-def _save(data, path):
+def _save(data, path, ai=True):
     """Normalise any engine's output to a <900 KB RGB JPEG (Instagram needs JPEG, Bluesky limits size)."""
     im = Image.open(io.BytesIO(data)).convert("RGB")
     im.thumbnail((1080, 1080))
     for q in (90, 80, 70, 60):
         buf = io.BytesIO()
-        im.save(buf, "JPEG", quality=q, xmp=XMP)
+        im.save(buf, "JPEG", quality=q, **({"xmp": XMP} if ai else {}))
         if buf.tell() < 900_000:
             break
     path.write_bytes(buf.getvalue())

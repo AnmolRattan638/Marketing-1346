@@ -1,11 +1,12 @@
 """Poll Telegram for Approve/Reject taps and publish approved drafts. Runs every ~15 minutes."""
 import datetime as dt
-import sys, time
+import subprocess, sys, time
 from . import config, publish, tg
 
 
 def _tail(draft):
-    ai_img = (draft.get("image") or {}).get("engine") not in (None, "text_card") and (draft.get("image") or {}).get("path")
+    img = draft.get("image") or {}
+    ai_img = img.get("path") and img.get("ai_generated", img.get("engine") not in (None, "text_card", "user_upload"))
     if draft.get("instagram_mode") == "manual_reel":
         s = "\n\nInstagram: post today's reel yourself with the INSTAGRAM caption above. If the video or presenter is AI-generated, switch the AI label on."
     else:
@@ -50,6 +51,38 @@ def handle(cb):
     config.save_json(config.DATA / "history.json", history)
 
 
+def _commit(msg):
+    """Push the draft + image to the repo right away (image links for the posting tools need it)."""
+    subprocess.run(["bash", "scripts/commit_state.sh", msg], cwd=config.ROOT, check=False)
+
+
+def handle_message(msg):
+    """A photo/image file sent to the bot becomes today's post image (e.g. a design made in Adobe Express)."""
+    if str(msg["chat"]["id"]) != str(tg.chat_id()):
+        return
+    file_id = None
+    if msg.get("photo"):
+        file_id = msg["photo"][-1]["file_id"]
+    elif str((msg.get("document") or {}).get("mime_type", "")).startswith("image/"):
+        file_id = msg["document"]["file_id"]
+    if not file_id:
+        return
+    today = _today()
+    path = config.DRAFTS / f"{today}.json"
+    draft = config.load_json(path, None)
+    if not draft or draft.get("status") != "pending":
+        tg.send("There is no pending draft to attach this image to, so I ignored it.")
+        return
+    from .agents import image
+    ai = "ai" in (msg.get("caption") or "").lower().split()      # caption "ai" marks it as AI-generated
+    dest = config.MEDIA / f"{today}.jpg"
+    image._save(tg.download_file(file_id), dest, ai=ai)
+    draft["image"] = {"prompt": None, "path": str(dest.relative_to(config.ROOT)), "engine": "user_upload", "ai_generated": ai}
+    config.save_json(path, draft)
+    _commit(f"image: {today}")
+    tg.send("Image received and saved for today's draft. Tap Approve and it will be used.")
+
+
 def _today():
     return dt.date.today().isoformat()
 
@@ -60,15 +93,17 @@ def pending_today():
 
 
 def poll(state, timeout):
-    """One getUpdates call; handles every Approve/Reject tap it returns."""
+    """One getUpdates call; handles every Approve/Reject tap and every image you sent to the bot."""
     updates = tg.get_updates(state["offset"], timeout)
     for u in updates:
         state["offset"] = u["update_id"] + 1
-        if "callback_query" in u:
-            try:
+        try:
+            if "callback_query" in u:
                 handle(u["callback_query"])
-            except Exception as e:
-                tg.send(f"Error handling approval: {e}")
+            elif "message" in u:
+                handle_message(u["message"])
+        except Exception as e:
+            tg.send(f"Error handling that message: {e}")
     config.save_json(config.DATA / "tg_state.json", state)
 
 
@@ -98,18 +133,9 @@ def main():
         return wait(int(sys.argv[sys.argv.index("--wait") + 1]))
     state = config.load_json(config.DATA / "tg_state.json", {"offset": 0})
     try:
-        updates = tg.get_updates(state["offset"])
+        poll(state, 0)
     except RuntimeError as e:
-        tg.send  # noqa
         raise SystemExit(f"{e}. If a webhook is set on the bot, remove it: https://api.telegram.org/bot<TOKEN>/deleteWebhook")
-    for u in updates:
-        state["offset"] = u["update_id"] + 1
-        if "callback_query" in u:
-            try:
-                handle(u["callback_query"])
-            except Exception as e:
-                tg.send(f"Error handling approval: {e}")
-    config.save_json(config.DATA / "tg_state.json", state)
 
 
 if __name__ == "__main__":

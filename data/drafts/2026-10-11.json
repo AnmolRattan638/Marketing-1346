@@ -1,6 +1,6 @@
 {
   "date": "2026-10-11",
-  "status": "pending",
+  "status": "rejected",
   "service": "chatbot",
   "topic": "The 2 AM Lead Leak",
   "hooks": [
@@ -54,5 +54,6 @@
       "bluesky": "Homestay guests browse late. If you reply at 10 AM, they've usually messaged elsewhere. Built a sample AI chatbot that answers room FAQs and logs leads 24/7. DM 'BOT' to test the demo link."
     }
   },
-  "ad_score": 4
+  "ad_score": 4,
+  "note": "Rejected by owner: demo claims, niche targeting, weak image"
 }

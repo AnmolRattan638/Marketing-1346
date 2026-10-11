@@ -1,3 +1,5 @@
-- Hook style to try next: open with a real client screen-record ("Here's the site I built for a Manali homestay") — no talking head, no clock graphic.
-- Avoid repeating "Rs 1,499 / 24 hrs" as the lead; it's used in 3 of 6 posts and correlates with steep drop-off.
-- Every post must show actual code/design output (live preview, CMS edit, mobile scroll) — never a generic promise graphic.
+- Hook style to try next: **Problem-Agitate-Solve** with a 3-second visual proof (e.g., chatbot replying live). Rotate away from Myth Bust and Presenter-with-graphic.
+- Avoid repeating: "24-hour delivery", "Rs 1,499", generic "live preview" walkthroughs — they’re already in 3/6 posts.
+- Keep posts looking like a developer’s portfolio: show raw code snippet, console logs, or a real client dashboard screen-record. No stock footage, no ad copy.
+- First 3 seconds must show the chatbot doing something useful (answering a FAQ, booking a table). Skip rate >60% means current intros fail.
+- Aim for profile visits >5 per reel; add a clear "DM 'bot' for demo" CTA in caption and on-screen.

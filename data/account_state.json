@@ -1,19 +1,19 @@
 {
-  "date": "2026-10-10",
+  "date": "2026-10-11",
   "stage": "brand new under 100 followers",
   "followers": 8,
-  "summary": "Brand new account (8 followers, 6 posts). High skip rates (64-75%) show hooks fail in first 3s. '24hr delivery' reel got shares (51%) and comments (4.8%) but low watch time. 'Live preview' got views (783) but near-zero engagement. Zero IG DMs. Data thin: only 2 reels have retention metrics, no explore reach.",
-  "guidance": "- Hook style to try next: open with a real client screen-record (\"Here's the site I built for a Manali homestay\") — no talking head, no clock graphic.\n- Avoid repeating \"Rs 1,499 / 24 hrs\" as the lead; it's used in 3 of 6 posts and correlates with steep drop-off.\n- Every post must show actual code/design output (live preview, CMS edit, mobile scroll) — never a generic promise graphic.",
+  "summary": "Account has 8 followers, 6 posts, 539 30-day views, 0 DMs. High skip rates (64-75%) show weak hooks; '24 clock' reel got shares (51%) and comments (4.8%) but low watch time. Collabs drive feed views. No explore reach.",
+  "guidance": "- Hook style to try next: **Problem-Agitate-Solve** with a 3-second visual proof (e.g., chatbot replying live). Rotate away from Myth Bust and Presenter-with-graphic.\n- Avoid repeating: \"24-hour delivery\", \"Rs 1,499\", generic \"live preview\" walkthroughs — they’re already in 3/6 posts.\n- Keep posts looking like a developer’s portfolio: show raw code snippet, console logs, or a real client dashboard screen-record. No stock footage, no ad copy.\n- First 3 seconds must show the chatbot doing something useful (answering a FAQ, booking a table). Skip rate >60% means current intros fail.\n- Aim for profile visits >5 per reel; add a clear \"DM 'bot' for demo\" CTA in caption and on-screen.",
   "instructions": {
-    "research": "Find 3 Himachal hotels/homestays with broken or missing websites; note their names and current Google Maps listings.",
-    "analysis": "Compare the two reels' retention curves: identify the exact second where '24 clock' flatlines vs 'Live preview' drop — note visual difference at that frame.",
-    "writer": "Draft a 90-char Hinglish hook for a reel showing a live site edit: \"Manali café ka menu 30 sec me update — dekho live\" (no price, no speed claim).",
-    "image": "Create a carousel cover: split screen — left: client's old Google Maps 'no website' badge, right: your new site on phone. Caption: \"Fixed in one afternoon.\"",
-    "video": "Record a 15-sec screen capture: open the Netlify deploy log, tap the live URL, scroll homepage on mobile. No face, no text overlay, raw audio."
+    "research": "Find 3 Himachal hotels/homestays with active Instagram but no chat widget. Screenshot their DM FAQs.",
+    "analysis": "Compare the two reel retention curves; note exact second where drop flattens. Use that timestamp for today’s hook.",
+    "writer": "Write a 90-char hook: \"Your receptionist sleeps. This bot doesn't. Watch it book a room at 2 AM.\"",
+    "image": "Record a 15-sec screen capture of the chatbot handling a WhatsApp enquiry end-to-end. No facecam.",
+    "video": "Edit the screen capture into a Reel: 0-3s bot typing reply, 3-10s calendar auto-fill, 10-15s confirmation toast. Add captions."
   },
   "manual_tips": [
-    "Comment on 5 recent posts by Himachal tourism pages or local hotel owners — ask a genuine question about their website needs.",
-    "Reply to the 16 comments on the '24 clock' reel with a specific follow-up: \"Which section would you want to edit yourself?\"",
-    "Add the WhatsApp link to your bio Linktree and post a Story: \"Free 2-min site check — tap link, send URL.\""
+    "Comment on 5 posts from Himachal hotel pages: \"Love the property! Do you handle late-night booking enquiries manually?\"",
+    "Reply to every story mention of 'staff shortage' with a 1-sentence value prop and your WhatsApp link.",
+    "Post a Story poll: \"What's worse: missed calls or manual WhatsApp replies?\" — share results tomorrow."
   ]
 }

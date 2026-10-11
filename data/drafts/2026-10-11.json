@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-11",
+  "status": "pending",
+  "service": "chatbot",
+  "topic": "The 2 AM Lead Leak",
+  "hooks": [
+    {
+      "style": "Question",
+      "text": "Losing night‑time leads while you sleep?"
+    },
+    {
+      "style": "Mistake-Callout",
+      "text": "Your DM inbox isn’t a night‑shift."
+    },
+    {
+      "style": "Specific Observation",
+      "text": "0 replies at 2 AM = zero sales."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "Question",
+  "posts": {
+    "instagram": "Raat ke 2 baje guest room check kar raha hai, par aap so rahe ho?\n\nHomestay aur boutique hotel owners ke saath ye aksar hota hai. Guest late night enquiry drop karta hai. Subah 10 baje jab tak aap reply karte ho, wo kisi aur stay par enquiry bhej chuka hota hai.\n\nMaine ek sample AI chatbot configure kiya hai demo ke liye. Ye guest ke basic sawal—rates, check-in timing, parking, location—turant handle karta hai aur WhatsApp number save kar leta hai.\n\nSetup INR 2,999 ya INR 4,999 hai (plus INR 299/month maintenance). Aur aap pay tabhi karte ho jab aap kaam approve kar do.\n\nDM 'BOT' aur main aapko iska live demo link bhej dunga.\n\n#HomestayIndia #HotelBusiness #SmallBusinessIndia #DirectBookings",
+    "linkedin": "Homestay owners: guests browse rooms late at night while you sleep.\n\nIf someone messages your property at 1:30 AM asking about weekend rates or parking, they rarely wait until 10 AM for a reply. By morning, they've already messaged another stay.\n\nTo solve this, I built a simple AI chatbot demo designed for small hotels and homestays.\n\nHere is how it works:\n1. It answers frequent questions instantly (room pricing, pet policy, directions).\n2. It logs the guest's name, dates, and phone number so you have an organised lead waiting in the morning.\n\nNo bulky software needed. It sits right on your page and responds in seconds.\n\nSetup is INR 2,999 or INR 4,999 depending on scope, plus INR 299/month for maintenance. You only pay after you approve the work.\n\nDM 'BOT' if you'd like to test the live demo yourself.",
+    "bluesky": "Homestay guests browse late. If you reply at 10 AM, they've usually messaged elsewhere. Built a sample AI chatbot that answers room FAQs and logs leads 24/7. DM 'BOT' to test the demo link."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does it cost?",
+      "reply": "Hi! Setup is either INR 2,999 or INR 4,999 depending on how many FAQs and flows you need, plus INR 299/month maintenance. You only pay after you test and approve the work. Quick question: what kind of business do you run, and what questions do people ask you most often?"
+    },
+    {
+      "if_they_say": "Do you build this for dental clinics / other businesses?",
+      "reply": "Yes, absolutely. The logic is the same: it answers clinic timings, consultation fees, and doctor availability, then collects the patient's phone number for booking. Would you like me to send a quick sample flow for a clinic?"
+    },
+    {
+      "if_they_say": "I'll think about it.",
+      "reply": "Fair enough, take your time. I keep the scope simple and you only pay after you test and approve the setup, so there's no upfront risk. Just let me know if your main hesitation is budget, timing, or how it works."
+    }
+  ],
+  "image": {
+    "prompt": "Minimal flat vector illustration of a smartphone centered in a vast, bold deep-purple void. The screen shows a simplified chat interface with clean, colorful speech bubbles. Modern geometric style, high contrast, plenty of negative space. No text, no letters, no logos, no human faces.",
+    "path": "data/media/2026-10-11.jpg",
+    "engine": "cloudflare"
+  },
+  "instagram_mode": "auto_image",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "Raat ke 2 baje guest room check kar raha hai, par aap so rahe ho?\n\nHomestay aur boutique hotel owners ke saath ye aksar hota hai. Guest late night enquiry drop karta hai. Subah 10 baje jab tak aap reply karte ho, wo kisi aur stay par enquiry bhej chuka hota hai.\n\nMaine ek sample AI chatbot configure kiya hai demo ke liye. Ye guest ke basic sawal—rates, check-in timing, parking, location—turant handle karta hai aur WhatsApp number save kar leta hai.\n\nSetup INR 2,999 ya INR 4,999 hai (plus INR 299/month maintenance). Aur aap pay tabhi karte ho jab aap kaam approve kar do.\n\nDM 'BOT' aur main aapko iska live demo link bhej dunga.\n\n#HomestayIndia #HotelBusiness #SmallBusinessIndia #DirectBookings",
+      "linkedin": "Homestay owners: guests browse rooms late at night while you sleep.\n\nIf someone messages your property at 1:30 AM asking about weekend rates or parking, they rarely wait until 10 AM for a reply. By morning, they've already messaged another stay.\n\nTo solve this, I built a simple AI chatbot demo designed for small hotels and homestays.\n\nHere is how it works:\n1. It answers frequent questions instantly (room pricing, pet policy, directions).\n2. It logs the guest's name, dates, and phone number so you have an organised lead waiting in the morning.\n\nNo bulky software needed. It sits right on your page and responds in seconds.\n\nSetup is INR 2,999 or INR 4,999 depending on scope, plus INR 299/month for maintenance. You only pay after you approve the work.\n\nDM 'BOT' if you'd like to test the live demo yourself.",
+      "bluesky": "Homestay guests browse late. If you reply at 10 AM, they've usually messaged elsewhere. Built a sample AI chatbot that answers room FAQs and logs leads 24/7. DM 'BOT' to test the demo link."
+    }
+  },
+  "ad_score": 4
+}

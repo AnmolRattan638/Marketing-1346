@@ -1,7 +1,7 @@
 {
   "id": "2026-10-12-25cb54",
   "date": "2026-10-12",
-  "status": "pending",
+  "status": "published",
   "service": "chatbot",
   "topic": "Your customers ask the same 5 questions every day. Your phone doesn't.",
   "hooks": [
@@ -89,5 +89,19 @@
       "bluesky": "Answering the same 5 questions every day drains your time. I sketch lightweight WhatsApp chatbot flows for hotels, cafes and clinics that reply instantly—customers get 24/7 answers, your team gets focus time. Curious? DM me your top 3 FAQs and I'll sketch a flow."
     }
   },
-  "ad_score": 9
+  "ad_score": 9,
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6acc97448128badc57075a94"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "socialapi: publishing 222d4646-cb7b-436c-aa39-c195d3d93edf"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mxo3bszd662l"
+    }
+  }
 }

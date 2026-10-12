@@ -172,10 +172,10 @@ Strategist note: {guidance}
 
 Rules:
 - Universal: any small business owner should relate. Never one niche. No demos, samples or claims of work done.
-- "headline": 4-9 words, plain English, stops the scroll (a pain, a question or a sharp truth). Based on the hook.
+- "headline": 4-9 words, plain English, stops the scroll (a pain, a question or a sharp truth). Based on the hook. No absolute claims (no "kill", "guaranteed", "always", "never", "eliminates").
 - "highlight": 1-3 words from the headline to show in yellow.
 - "sub": one short supporting line, max 12 words (or empty).
-- "style": "chat" if the pain is about customer messages, replies or enquiries, else "bold".
+- "style": "chat" ONLY if the headline itself is about customers messaging, waiting for a reply or unanswered enquiries; otherwise "bold" (forms, ads, websites, leads, SEO are "bold").
 - If style is "chat": "chat" = 2-3 messages of a plausible customer-to-business conversation as an illustrative EXAMPLE
   [{{"side":"left","text":"max 9 words","time":"1:47 AM"}}, ...] (at most 3 messages); "sub" = the cost of the delay, max 6 words (e.g. "No reply by morning.").
 Return JSON: {{"style": "bold|chat", "headline": "...", "highlight": ["..."], "sub": "...", "chat": []}}"""
@@ -185,6 +185,9 @@ Return JSON: {{"style": "bold|chat", "headline": "...", "highlight": ["..."], "s
             raise ValueError("no headline")
     except Exception:
         spec = {"style": "bold", "headline": hook, "highlight": [], "sub": ""}
+    if not spec.get("highlight"):
+        words = [w for w in str(spec["headline"]).split() if len(re.sub(r"\W", "", w)) > 3]
+        spec["highlight"] = words[-1:]
     spec["cta"] = f'DM "{kw}"'
     spec["tag"] = "FOR EVERY SMALL BUSINESS" if focus.get("id") != "lead_gen" else "FOR FREELANCERS & AGENCIES"
     return spec

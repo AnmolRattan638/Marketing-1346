@@ -72,6 +72,11 @@ def main():
         rv = stage("strategist.review", lambda: strategist.review(posts), fallback={"ad_score": None, "notes": ""})
         if (rv.get("ad_score") or 0) >= 7:
             posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), rv.get("notes", ""), ig_mode=ig_mode), fallback=posts)
+            fc2 = stage("factcheck.2", lambda: factcheck.run(posts, focus, brand), fallback={"ok": None, "issues": [], "revised": {}})
+            for k, v in (fc2.get("revised") or {}).items():
+                if k in posts and v:
+                    posts[k] = v[:300] if k == "bluesky" else v
+            fc = fc2
         img = stage("image", lambda: image.run(plan, focus, today, g('image')), fallback={"prompt": None, "path": None})
         if img.get("engine") == "text_card" or not img.get("path"):
             WARNINGS.append(("image: AI engines failed, used a plain text card. " if img.get("path") else "image: no image at all. ") + " | ".join(dict.fromkeys(img.get("errors", [])))[:400])

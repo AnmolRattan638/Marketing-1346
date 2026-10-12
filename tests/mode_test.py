@@ -42,3 +42,14 @@ assert out["engine"] == "text_card" and out["path"], out
 raw = (tmp / out["path"]).read_bytes()
 assert raw[:2] == b"\xff\xd8" and b"trainedAlgorithmicMedia" not in raw   # a text card must not be labelled AI-generated
 print("mode tests passed: auto/manual publish, Wednesday-only manual, text-card fallback ->", out["path"])
+
+# ---- run_daily must not skip silently, and must replace a rejected draft
+import tempfile as _tf
+from src import run_daily
+d = pathlib.Path(_tf.mkdtemp()); f = d / "x.json"
+assert run_daily.should_skip(f, False) == (False, "")                                  # no draft yet
+f.write_text(json.dumps({"status": "rejected"})); assert run_daily.should_skip(f, False)[0] is False     # rejected -> make a new one
+f.write_text(json.dumps({"status": "pending"})); sk, msg = run_daily.should_skip(f, False); assert sk and "Approve" in msg
+f.write_text(json.dumps({"status": "published"})); assert run_daily.should_skip(f, False)[0] is True
+assert run_daily.should_skip(f, True)[0] is False                                      # force always redoes
+print("skip-logic test passed")

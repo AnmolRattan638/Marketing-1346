@@ -23,6 +23,18 @@ def pick_focus(brand, history):
     return min(pool, key=lambda s: last_used.get(s["id"], ""))
 
 
+def should_skip(path, force):
+    """Skip only if today's draft is still alive (pending or published). A rejected or failed one is replaced."""
+    if force or not path.exists():
+        return False, ""
+    status = config.load_json(path, {}).get("status")
+    if status in ("pending", "published", "partial"):
+        return True, (f"Today's draft already exists (status: {status}), so I did not create another. "
+                      + ("Find its message above and tap Approve or Reject. " if status == "pending" else "")
+                      + "To make a new one, run Daily draft and tick 'Redo today's draft'.")
+    return False, ""
+
+
 def stage(name, fn, fallback=None):
     try:
         return fn()
@@ -38,8 +50,10 @@ def stage(name, fn, fallback=None):
 def main():
     force = "--force" in sys.argv
     path = config.DRAFTS / f"{today}.json"
-    if path.exists() and not force:
-        print("Draft for today already exists; use --force to redo.")
+    skip, why = should_skip(path, force)
+    if skip:
+        print(why)
+        tg.send(why)          # never skip silently: say so in Telegram
         return
     brand, voice = config.services(), config.voice()
     history = config.load_json(config.DATA / "history.json", [])

@@ -1,6 +1,6 @@
 {
   "date": "2026-10-12",
-  "status": "pending",
+  "status": "rejected",
   "service": "chatbot",
   "topic": "The Friction-Free Enquiry",
   "hooks": [
@@ -88,5 +88,6 @@
       "bluesky": "Still losing leads to long contact forms? On mobile, nobody wants to type into 5 input boxes. A simple bot asking one question at a time collects the same info and can reduce drop‑off. DM 'BOT' and tell me what your customers ask most; I'll tell you if it fits."
     }
   },
-  "ad_score": 10
+  "ad_score": 10,
+  "note": "superseded by a fixed draft"
 }

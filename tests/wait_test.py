@@ -52,3 +52,17 @@ assert d["image"]["ai_generated"] is True and b"trainedAlgorithmicMedia" in (con
 pa.handle_message({"chat": {"id": 999}, "photo": [{"file_id": "x"}]})        # other chats are ignored
 pa.handle_message({"chat": {"id": 1}, "text": "hello"})                          # plain text is ignored
 print("upload test passed: photo -> today's image (not AI-marked), caption 'ai' -> AI-marked")
+
+# ---- a stale button (older message / legacy date-only data) must not approve a newer draft
+config.save_json(config.DRAFTS / f"{today}.json", {"id": f"{today}-abc123", "date": today, "status": "pending", "service": "chatbot", "topic": "t",
+                 "posts": {"instagram": "i", "linkedin": "l", "bluesky": "b"}, "image": {"path": None}, "instagram_mode": "manual_reel"})
+calls2 = []
+publish.publish_draft = lambda d: calls2.append(1) or {"linkedin": {"ok": True, "detail": "ok"}}
+answers = []
+tg.answer = lambda cid, text: answers.append(text)
+pa.handle({"id": "x", "data": f"approve:{today}", "message": {"chat": {"id": 1}}})          # old format
+pa.handle({"id": "x", "data": f"approve:{today}-zzz999", "message": {"chat": {"id": 1}}})    # other draft id
+assert not calls2 and config.load_json(config.DRAFTS / f"{today}.json", {})["status"] == "pending" and len(answers) == 2, (calls2, answers)
+pa.handle({"id": "x", "data": f"approve:{today}-abc123", "message": {"chat": {"id": 1}}})    # the right one
+assert calls2 and config.load_json(config.DRAFTS / f"{today}.json", {})["status"] == "published"
+print("stale-button test passed: old taps ignored, matching id publishes")

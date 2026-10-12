@@ -1,5 +1,6 @@
 """Daily draft run: strategist (incl. Instagram state check) -> research -> analysis -> writer -> fact-check -> ad-check -> image/video -> Telegram."""
 import datetime as dt
+import secrets
 import sys, traceback
 from . import config, llm, tg
 from .agents import analysis, factcheck, image, research, strategist, video, writer
@@ -85,7 +86,7 @@ def main():
         tg.send(f"Marketing pipeline failed on {today}: {e}\nNothing was posted. Check the Actions log.")
         raise
 
-    draft = {"date": today, "status": "pending", "service": focus["id"], "topic": plan["topic"],
+    draft = {"id": f"{today}-{secrets.token_hex(3)}", "date": today, "status": "pending", "service": focus["id"], "topic": plan["topic"],
              "hooks": plan["hooks"], "chosen_hook": plan.get("chosen_hook", 0),
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),
@@ -112,8 +113,8 @@ def main():
     if draft["replies"]:
         tg.send("[REPLY DRAFTS]\n" + "\n\n".join(f"If: {r['if_they_say']}\n-> {r['reply']}" for r in draft["replies"]))
     tg.send(("Approve posting to LinkedIn and Bluesky? (Wednesday: Instagram is your manual reel.)" if ig_mode == "manual_reel" else "Approve posting to Instagram, LinkedIn and Bluesky?") + " It posts within seconds of your tap. Want your own image (e.g. from Adobe Express)? Send it to this chat as a photo first; add the caption 'ai' if it is AI-made.",
-            buttons=[{"text": "Approve", "callback_data": f"approve:{today}"},
-                     {"text": "Reject", "callback_data": f"reject:{today}"}])
+            buttons=[{"text": "Approve", "callback_data": f"approve:{draft['id']}"},
+                     {"text": "Reject", "callback_data": f"reject:{draft['id']}"}])
 
 
 if __name__ == "__main__":

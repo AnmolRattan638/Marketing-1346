@@ -19,12 +19,16 @@ def _tail(draft):
 def handle(cb):
     if str(cb["message"]["chat"]["id"]) != str(tg.chat_id()):
         return
-    action, _, date = cb["data"].partition(":")
+    action, _, key = cb["data"].partition(":")
+    date = key[:10]
     path = config.DRAFTS / f"{date}.json"
     draft = config.load_json(path, None)
     if not draft:
         tg.answer(cb["id"], "Draft not found")
         tg.send(f"Could not find the saved draft for {date}, so nothing was posted. Run Daily draft again from the Actions tab and approve the new message.")
+        return
+    if draft.get("id") and draft["id"] != key:        # a button from an older message: never apply it to a newer draft
+        tg.answer(cb["id"], "That button belongs to an older draft. Use the newest message.")
         return
     if draft["status"] != "pending":
         tg.answer(cb["id"], f"Already {draft['status']}")

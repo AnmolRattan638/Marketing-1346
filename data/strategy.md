@@ -1,5 +1,3 @@
-- Hook style to try next: Problem-Agitate-Solve (e.g., "11 PM WhatsApp flood → lost bookings → bot handles it")
-- Avoid repeating "Rs 1499, 24 hrs" phrasing; it's used in 3/6 posts
-- High skip rates (64-75%) mean first 3 seconds fail — open with visual proof, not talking head
-- Share rate 51% on clock reel came from collab, not content; don't rely on collabs for reach
-- Posts must show real dev work: screen recordings, code snippets, live bot replies — never read like an ad
+- Hook style to try next: **Demo Proof** — show a 5-second screen capture of a chatbot answering a real hotel/cafe query, then cut to result. Rotate away from Myth Bust and Presenter clock.
+- Avoid: generic "24-hour delivery" claims (used 3×), "Rs 1,499" price lead (used 2×), and static service carousels — they repeat and skip rates stay >60%.
+- Every post must show *your* code/UI: a live bot snippet, a dashboard screenshot, or a WhatsApp chat export. Never read like an ad; caption = one technical detail + one client outcome.

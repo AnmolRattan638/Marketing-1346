@@ -1,41 +1,42 @@
 {
+  "id": "2026-10-12-25cb54",
   "date": "2026-10-12",
-  "status": "rejected",
+  "status": "pending",
   "service": "chatbot",
-  "topic": "The Friction-Free Enquiry",
+  "topic": "Your customers ask the same 5 questions every day. Your phone doesn't.",
   "hooks": [
     {
-      "style": "Question",
-      "text": "Still losing leads to long contact forms?"
+      "style": "question",
+      "text": "Tired of answering the same 5 questions on repeat?"
     },
     {
-      "style": "Mistake-Callout",
-      "text": "Your static form is scaring customers away."
+      "style": "mistake-callout",
+      "text": "Stop letting repetitive FAQs steal your workday."
     },
     {
-      "style": "Specific-Observation",
-      "text": "90% of visitors abandon forms longer than three fields."
+      "style": "specific-observation",
+      "text": "Every missed FAQ costs you a potential sale."
     }
   ],
   "chosen_hook": 0,
-  "hook_style": "Question",
+  "hook_style": "question",
   "posts": {
-    "instagram": "Long contact form dekh kar customers page chhod dete hain.\n\nMobile screen par Name, Email, Phone aur Message type karna kisi ko pasand nahi hota. Sab back daba dete hain.\n\nIski jagah ek simple conversational chatbot wahi details naturally collect karta hai—ek time par ek sawaal.\n\n(Example: \"Kaunsi service chahiye?\" -> customer taps -> \"Aapka WhatsApp number?\")\n\nKaam wahi hua, lekin friction khatam. Chahe clinic ho, coaching institute ho ya salon, customer chat karna prefer karta hai, form bharna nahi.\n\nSetup is INR 2,999 or INR 4,999 (plus INR 299/month maintenance). And you pay only after you approve the work.\n\nDM 'BOT' and tell me what your customers ask most. Main honestly bataunga if it is worth it for you.\n\n#SmallBusinessIndia #BusinessGrowthIndia #ChatbotIndia #IndianEntrepreneurs",
-    "linkedin": "Still losing leads to long contact forms?\n\nMost mobile visitors drop off the moment they see five empty boxes: Name, Email, City, Requirement, Phone. On a small screen, filling out a form feels like homework.\n\nCompare that to a conversational flow. Instead of dumping every field at once, a lightweight chatbot asks one question at a time:\n\n(Example: \"What service are you looking for?\" -> Visitor taps an option -> \"Where should we send the pricing?\")\n\nYou get the exact same lead details, but the customer experiences a conversation instead of a survey. It removes friction for any customer-facing setup—clinics, consultants, gyms, or repair services.\n\nI build these starting at INR 2,999 or INR 4,999 (plus INR 299/month maintenance). You pay only after you approve the work.\n\nDM 'BOT' and tell me what your customers ask most. I'll tell you honestly if a chatbot makes sense for your business.",
-    "bluesky": "A 5-field contact form feels like homework on a phone screen. A simple bot asking one question at a time collects the exact same details without the drop-off.\n\nDM 'BOT' with your business type. I'll tell you honestly if it fits. Pay only after approval."
+    "instagram": "Tired of answering the same 5 questions on repeat? Hotel café aur clinic wale roz sawaal jaise 'kahan hain?', 'ghante kya hain?', 'price kya?'—har reply ek choti sale miss hoti hai. Main lightweight WhatsApp chatbot flows banata hoon jo ye FAQs instant jawab dete hain, koi complex setup nahi. Customer ko 24/7 jawab mile, aapko time wapas mile. Sirf apne top 3 FAQs do, main unka flow sketch karunga. Aapka time bachta hai, customer तुरंत जवाब pay karta है. DM me your top 3 FAQs and I'll sketch a flow. #SmallBusinessIndia #WebDev #India #Chatbot #FAQs",
+    "linkedin": "Small businesses across India spend hours each day answering the same customer questions. A hotel may receive many 'room rate?' messages, a café often gets 'what are your opening hours?' queries, and a clinic hears repeated 'when are you open?' questions. I create simple WhatsApp chatbot flows that handle these FAQs and reply instantly, without a complex setup. You receive a lightweight flow based on your top three questions, and I hand over the configuration so you can start using it right away. You only pay after you approve the work. If you’re curious how a chatbot could look for your business, DM me your top 3 FAQs and I’ll sketch a flow.",
+    "bluesky": "Answering the same 5 questions every day drains your time. I sketch lightweight WhatsApp chatbot flows for hotels, cafes and clinics that reply instantly—customers get 24/7 answers, your team gets focus time. Curious? DM me your top 3 FAQs and I'll sketch a flow."
   },
   "replies": [
     {
-      "if_they_say": "How much does it cost?",
-      "reply": "Hi! Setup is INR 2,999 or INR 4,999 depending on how many questions and flows you need, plus INR 299/month maintenance. You pay only after you approve the work. Quick question: what do you mainly want the bot to handle—answering common questions or collecting booking details?"
+      "if_they_say": "how much?",
+      "reply": "Hi there! I charge INR 2,999 for a basic chatbot flow covering up to 5 FAQs, or INR 4,999 for a wider setup, plus INR 299/month for maintenance. You only pay after you approve the work. What do your customers ask most — calls, WhatsApp messages, or form submissions? That helps me scope the right flow for you. DM 'BOT' and I'll share a quick sketch of how that would look for your top FAQs."
     },
     {
-      "if_they_say": "Does this work for my kind of business?",
-      "reply": "Hi! It works well for any business where customers ask the same 3-4 questions before booking (like timings, pricing range, or location). What kind of business do you run, and what is the question you find yourself answering most often?"
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "I work with any small business that talks to customers — cafés, clinics, hotels, gyms, you name it. The setup adapts to your top questions. Quick question: is your main challenge getting replies, managing the volume, or following up after hours? That tells me whether a chatbot would fit right now. DM 'BOT' and I can sketch a flow for your business type."
     },
     {
-      "if_they_say": "I'll think about it and let you know.",
-      "reply": "Of course, take your time. I keep the setup small and focused, and you pay only after you approve the work, so there is no upfront risk. Whenever you're ready, just send a message here."
+      "if_they_say": "can I see a demo?",
+      "reply": "I don't share personalised demos or links, but I can explain how the flow works in general. Here's an example (labelled as an example): a hotel's top FAQs are 'room rates', 'check-in time', 'location' — the bot replies instantly with those answers, and you receive a daily summary. Does that style of instant reply match what you're looking for? If yes, I can sketch a flow for your top 3 questions. DM 'BOT' and I'll share a similar example for your business."
     }
   ],
   "image": {
@@ -46,26 +47,26 @@
     "ai_generated": false,
     "spec": {
       "style": "chat",
-      "headline": "Long contact forms kill your leads",
+      "headline": "Tired of the same five questions?",
       "highlight": [
-        "kill your leads"
+        "same five questions"
       ],
-      "sub": "Lost to a faster competitor.",
+      "sub": "No reply by morning.",
       "chat": [
         {
           "side": "left",
-          "text": "Are you open tomorrow?",
-          "time": "11:42 PM"
+          "text": "What are your prices?",
+          "time": "1:47 AM"
         },
         {
           "side": "left",
-          "text": "Hello?",
-          "time": "11:45 PM"
+          "text": "Where are you located?",
+          "time": "1:48 AM"
         },
         {
           "side": "left",
-          "text": "Found someone else. Bye.",
-          "time": "11:50 PM"
+          "text": "How do I book?",
+          "time": "1:49 AM"
         }
       ],
       "cta": "DM \"BOT\"",
@@ -78,16 +79,15 @@
   "factcheck": {
     "ok": false,
     "issues": [
-      "Instagram post claims reduced drop‑off as a guaranteed outcome.",
-      "LinkedIn post claims the chatbot solves the problem and works reliably, implying guaranteed results.",
-      "Bluesky post claims the bot eliminates drop‑off, implying a guaranteed outcome."
+      "LinkedIn draft mentions testing on a sample WhatsApp number (implies a demo) which is not allowed.",
+      "LinkedIn draft states a timeframe ('The whole process takes less than a week') which is not permitted.",
+      "LinkedIn draft does not explicitly include the 'pay after approval' offer, which is required for all services."
     ],
     "revised": {
-      "instagram": "Kya aapke website ke lambe contact forms se leads drop ho rahe hain?\n\nMobile par 5-6 fields ka form dekh kar customer page band kar deta hai. Name, email, requirement type karna phone par irritating lagta hai.\n\nIska simple fix hai conversational bot. Form bharwane ke bajaye, bot ek normal chat ki tarah info collect karta hai.\n\nExample:\nBot: \"Kaunsi service chahiye?\"\nCustomer: \"Consultation / Pricing\"\nBot: \"Great, kis time par callback prefer karenge? Aur aapka WhatsApp number?\"\n\nInfo wahi aati hai, aur aap dekh sakte hain ki drop‑off kam ho sakta hai. Chahe clinic ho, coaching institute ya salon—enquiries direct lead sheet me aa jaati hain.\n\nSetup INR 2,999 se start hota hai (INR 299/month maintenance). You pay only after you approve the work.\n\nDM 'BOT' and tell me what your customers ask most. Main honestly bataunga chatbot aapke kaam aayega ya nahi.\n\n#SmallBusinessIndia #WebDevelopment #LeadGeneration #Chatbot",
-      "linkedin": "Still losing leads to long contact forms?\n\nMost small business websites still ask mobile visitors to fill out a 5-field static form: Name, Email, Phone, Requirement, Message.\n\nOn a phone screen, that friction kills conversion. Visitors simply bounce.\n\nA conversational chatbot can address this by turning a static form into a guided conversation. Instead of demanding all the details at once, it asks one question at a time.\n\nExample:\nBot: \"What service are you looking for?\"\nVisitor picks an option.\nBot: \"Got it. Which day suits you best?\"\nBot: \"Perfect. What's your WhatsApp number so we can confirm details?\"\n\nYou capture the same data directly into a sheet or notification, but without overwhelming the customer. It often works well for any customer‑facing setup—whether you run a clinic, a coaching center, or a salon.\n\nSetup starts at INR 2,999 (with INR 299/month maintenance), and you pay only after you approve the work.\n\nDM 'BOT' and tell me what your customers ask you most often. I'll share honest feedback on whether a chatbot makes sense for your business.",
-      "bluesky": "Still losing leads to long contact forms? On mobile, nobody wants to type into 5 input boxes. A simple bot asking one question at a time collects the same info and can reduce drop‑off. DM 'BOT' and tell me what your customers ask most; I'll tell you if it fits."
+      "instagram": "Tired of answering the same 5 questions on repeat? Hotel café aur clinic wale roz sawaal jaise 'kahan hain?', 'ghante kya hain?', 'price kya?'—har reply ek choti sale miss hoti hai. Main lightweight WhatsApp chatbot flows banata hoon jo ye FAQs instant jawab dete hain, koi complex setup nahi. Customer ko 24/7 jawab mile, aapko time wapas mile. Sirf apne top 3 FAQs do, main unka flow sketch karunga. Aapka time bachta hai, customer तुरंत जवाब pay karta है. DM me your top 3 FAQs and I'll sketch a flow. #SmallBusinessIndia #WebDev #India #Chatbot #FAQs",
+      "linkedin": "Small businesses across India spend hours each day answering the same customer questions. A hotel may receive many 'room rate?' messages, a café often gets 'what are your opening hours?' queries, and a clinic hears repeated 'when are you open?' questions. I create simple WhatsApp chatbot flows that handle these FAQs and reply instantly, without a complex setup. You receive a lightweight flow based on your top three questions, and I hand over the configuration so you can start using it right away. You only pay after you approve the work. If you’re curious how a chatbot could look for your business, DM me your top 3 FAQs and I’ll sketch a flow.",
+      "bluesky": "Answering the same 5 questions every day drains your time. I sketch lightweight WhatsApp chatbot flows for hotels, cafes and clinics that reply instantly—customers get 24/7 answers, your team gets focus time. Curious? DM me your top 3 FAQs and I'll sketch a flow."
     }
   },
-  "ad_score": 10,
-  "note": "superseded by a fixed draft"
+  "ad_score": 9
 }

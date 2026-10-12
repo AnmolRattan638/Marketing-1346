@@ -1,19 +1,19 @@
 {
-  "date": "2026-10-11",
+  "date": "2026-10-12",
   "stage": "brand new under 100 followers",
   "followers": 8,
-  "summary": "Account has 8 followers, 6 posts, 539 30-day views, 0 DMs. High skip rates (64-75%) show weak hooks; '24 clock' reel got shares (51%) and comments (4.8%) but low watch time. Collabs drive feed views. No explore reach.",
-  "guidance": "- Hook style to try next: **Problem-Agitate-Solve** with a 3-second visual proof (e.g., chatbot replying live). Rotate away from Myth Bust and Presenter-with-graphic.\n- Avoid repeating: \"24-hour delivery\", \"Rs 1,499\", generic \"live preview\" walkthroughs — they’re already in 3/6 posts.\n- Keep posts looking like a developer’s portfolio: show raw code snippet, console logs, or a real client dashboard screen-record. No stock footage, no ad copy.\n- First 3 seconds must show the chatbot doing something useful (answering a FAQ, booking a table). Skip rate >60% means current intros fail.\n- Aim for profile visits >5 per reel; add a clear \"DM 'bot' for demo\" CTA in caption and on-screen.",
+  "summary": "Account has 8 followers, 6 posts, high reel views but steep early drop-off and zero DMs. Data too thin to confirm patterns; need consistent posting and hook testing.",
+  "guidance": "- Hook style to try next: Problem-Agitate-Solve or Behind-the-Scenes showing chatbot build process.\n- Avoid repeating \"24-hour delivery\" and \"Rs 1499\" in every post; vary value props.\n- Posts must show real work (code snippet, live demo) not generic ad copy.\n- High skip rates (64-75%) mean first 3 seconds fail; open with visual proof of problem solved.\n- Share rate on presenter reel (51%) suggests collaboration format works; replicate with chatbot demo.\n- View sources mostly feed/profile; add explore-friendly hashtags and location tags.",
   "instructions": {
-    "research": "Find 3 Himachal hotels/homestays with active Instagram but no chat widget. Screenshot their DM FAQs.",
-    "analysis": "Compare the two reel retention curves; note exact second where drop flattens. Use that timestamp for today’s hook.",
-    "writer": "Write a 90-char hook: \"Your receptionist sleeps. This bot doesn't. Watch it book a room at 2 AM.\"",
-    "image": "Record a 15-sec screen capture of the chatbot handling a WhatsApp enquiry end-to-end. No facecam.",
-    "video": "Edit the screen capture into a Reel: 0-3s bot typing reply, 3-10s calendar auto-fill, 10-15s confirmation toast. Add captions."
+    "research": "Find 3 Himachal hotels/cafes with poor website chat support; note their pain points.",
+    "analysis": "Compare skip rates of two reels; identify first 3 seconds that caused drop-off.",
+    "writer": "Draft a 60-second reel script: hook with a real chatbot fail, demo your AI fix, end with WhatsApp CTA.",
+    "image": "Create a carousel: slide 1 - hotel site without chat, slide 2 - your chatbot mockup, slide 3 - pricing Rs 2999.",
+    "video": "Record screen capture of chatbot responding to 'room availability' query; keep first 3 seconds dynamic."
   },
   "manual_tips": [
-    "Comment on 5 posts from Himachal hotel pages: \"Love the property! Do you handle late-night booking enquiries manually?\"",
-    "Reply to every story mention of 'staff shortage' with a 1-sentence value prop and your WhatsApp link.",
-    "Post a Story poll: \"What's worse: missed calls or manual WhatsApp replies?\" — share results tomorrow."
+    "Comment on 5 local hotel/cafe Instagram posts with genuine feedback about their website.",
+    "Reply to any story mentions or tags from collaborators (editorxyz_official).",
+    "Post a story showing today's chatbot development progress with a poll: 'Which feature matters most?'"
   ]
 }

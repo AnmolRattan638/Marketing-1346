@@ -1,5 +1,6 @@
-- Hook style to try next: **Problem-Agitate-Solve** with a 3-second visual proof (e.g., chatbot replying live). Rotate away from Myth Bust and Presenter-with-graphic.
-- Avoid repeating: "24-hour delivery", "Rs 1,499", generic "live preview" walkthroughs — they’re already in 3/6 posts.
-- Keep posts looking like a developer’s portfolio: show raw code snippet, console logs, or a real client dashboard screen-record. No stock footage, no ad copy.
-- First 3 seconds must show the chatbot doing something useful (answering a FAQ, booking a table). Skip rate >60% means current intros fail.
-- Aim for profile visits >5 per reel; add a clear "DM 'bot' for demo" CTA in caption and on-screen.
+- Hook style to try next: Problem-Agitate-Solve or Behind-the-Scenes showing chatbot build process.
+- Avoid repeating "24-hour delivery" and "Rs 1499" in every post; vary value props.
+- Posts must show real work (code snippet, live demo) not generic ad copy.
+- High skip rates (64-75%) mean first 3 seconds fail; open with visual proof of problem solved.
+- Share rate on presenter reel (51%) suggests collaboration format works; replicate with chatbot demo.
+- View sources mostly feed/profile; add explore-friendly hashtags and location tags.

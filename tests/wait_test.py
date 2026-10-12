@@ -1,5 +1,5 @@
 """Offline test: the wait loop must publish as soon as the Approve tap arrives, then stop."""
-import datetime as dt, json, pathlib, sys, tempfile, time
+import datetime as dt, pathlib, sys, tempfile, time
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 from src import config, tg, publish, process_approvals as pa
 
@@ -30,7 +30,6 @@ print("wait test passed: published after", calls["n"], "polls")
 # ---- image sent to the bot becomes today's post image
 import io
 from PIL import Image
-from src.agents import image as image_mod
 tmp2 = pathlib.Path(tempfile.mkdtemp()); (tmp2 / "drafts").mkdir(); (tmp2 / "data" / "media").mkdir(parents=True)
 config.ROOT, config.DATA, config.DRAFTS, config.MEDIA = tmp2, tmp2 / "data", tmp2 / "drafts", tmp2 / "data" / "media"
 config.save_json(config.DRAFTS / f"{today}.json", {"date": today, "status": "pending", "service": "chatbot", "topic": "t",

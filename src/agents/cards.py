@@ -2,11 +2,10 @@
 
 The LLM only supplies the words; the layout is deterministic, so the result is always readable and on brand.
 """
-import json
 import pathlib
 import re
 from PIL import Image, ImageDraw, ImageFont
-from .. import config, llm
+from .. import llm
 
 W, H = 1080, 1350
 BG, PANEL, WHITE, MUTED = (9, 12, 20), (21, 27, 40), (255, 255, 255), (168, 176, 192)

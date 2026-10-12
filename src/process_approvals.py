@@ -1,6 +1,6 @@
-"""Poll Telegram for Approve/Reject taps and publish approved drafts. Runs every ~15 minutes."""
+"""Poll Telegram for Approve/Reject taps and publish approved drafts (the Daily draft run waits for the tap; the safety-net workflow polls every 10 minutes)."""
 import datetime as dt
-import subprocess, sys, time
+import os, subprocess, sys, time
 from . import config, publish, tg
 
 
@@ -16,8 +16,23 @@ def _tail(draft):
     return s
 
 
+def authorized(chat, sender):
+    """Only the owner may approve or send images. In a private chat the sender is the chat itself. In a group chat nobody is trusted
+    unless TELEGRAM_ALLOWED_USER_ID is set to the owner's Telegram user id."""
+    if str(chat["id"]) != str(tg.chat_id()):
+        return False
+    allowed = os.getenv("TELEGRAM_ALLOWED_USER_ID")
+    if allowed:
+        return sender is None or str(sender.get("id")) == str(allowed)
+    if str(chat["id"]).startswith("-"):                     # group / channel and no allowed user configured
+        if sender is not None:
+            tg.send("Approvals from a group chat are disabled until TELEGRAM_ALLOWED_USER_ID (your own Telegram user id) is set as a secret or variable. Nothing was posted.")
+        return False
+    return sender is None or str(sender.get("id")) == str(chat["id"])
+
+
 def handle(cb):
-    if str(cb["message"]["chat"]["id"]) != str(tg.chat_id()):
+    if not authorized(cb["message"]["chat"], cb.get("from")):
         return
     action, _, key = cb["data"].partition(":")
     date = key[:10]
@@ -30,6 +45,10 @@ def handle(cb):
     if draft.get("id") and draft["id"] != key:        # a button from an older message: never apply it to a newer draft
         tg.answer(cb["id"], "That button belongs to an older draft. Use the newest message.")
         return
+    if draft["status"] == "publishing":
+        tg.answer(cb["id"], "Publishing started earlier")
+        tg.send(f"Draft {date} was already being published and the run may have been interrupted. Check Instagram, LinkedIn and Bluesky before retrying so nothing is posted twice.")
+        return
     if draft["status"] != "pending":
         tg.answer(cb["id"], f"Already {draft['status']}")
         return
@@ -40,6 +59,8 @@ def handle(cb):
         tg.send(f"Rejected {date}. Nothing was posted.")
     elif action == "approve":
         tg.answer(cb["id"], "Publishing...")
+        draft["status"] = "publishing"          # saved BEFORE posting: if the run dies mid-publish, the draft can never post a second time
+        config.save_json(path, draft)
         res = publish.publish_draft(draft)
         draft["results"] = res
         ok = [p for p, r in res.items() if r["ok"]]
@@ -62,7 +83,7 @@ def _commit(msg):
 
 def handle_message(msg):
     """A photo/image file sent to the bot becomes today's post image (e.g. a design made in Adobe Express)."""
-    if str(msg["chat"]["id"]) != str(tg.chat_id()):
+    if not authorized(msg["chat"], msg.get("from")):
         return
     file_id = None
     if msg.get("photo"):

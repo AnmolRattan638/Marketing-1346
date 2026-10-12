@@ -33,6 +33,22 @@ def save_json(path, obj):
     pathlib.Path(path).write_text(json.dumps(obj, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
+def history():
+    """Posting history for the agents: history.json merged with every saved draft, one entry per (date, topic).
+    Drafts that were rejected by hand-editing the draft file, or never tapped, still count as 'topic already used',
+    and so does a rejected draft that was replaced by a new one on the same day."""
+    merged = {}
+    for h in load_json(DATA / "history.json", []):
+        if isinstance(h, dict) and h.get("date"):
+            merged[(h["date"], h.get("topic") or "")] = h
+    for f in sorted(pathlib.Path(DRAFTS).glob("*.json")):
+        d = load_json(f, None)
+        if isinstance(d, dict) and d.get("date"):
+            merged[(d["date"], d.get("topic") or "")] = {"date": d["date"], "service": d.get("service"), "topic": d.get("topic"),
+                                                         "hook_style": d.get("hook_style"), "status": d.get("status")}
+    return [merged[k] for k in sorted(merged)]
+
+
 def services():
     return load_json(ROOT / "config" / "services.json", {})
 

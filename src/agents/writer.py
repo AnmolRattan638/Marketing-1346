@@ -1,6 +1,6 @@
 """Agent 3: write the final per-platform posts (Gemini)."""
 import json
-from .. import config, llm
+from .. import llm
 
 SYS = "You write social posts in the author's own voice. Follow the voice guide strictly."
 

@@ -127,12 +127,39 @@ class SocialAPI:
 
 class BlueskyDirect:
     name, secrets, platforms = "bluesky-direct", ["BLUESKY_HANDLE", "BLUESKY_APP_PASSWORD"], ("bluesky",)
+    alt = None      # set by publish_draft before posting
 
     def post(self, platform, text, image_url, image_path):
-        return direct.bluesky(text, image_path)
+        return direct.bluesky(text, image_path, alt=self.alt)
 
 
 PROVIDERS = [Buffer, Zernio, UploadPost, LimeSocial, SocialAPI, BlueskyDirect]
+
+
+def image_alt(draft):
+    """Honest alt text: say what the image really is (a designed card with the hook, an AI image, or the owner's own design)."""
+    img = draft.get("image") or {}
+    try:
+        hook = draft["hooks"][draft.get("chosen_hook", 0)]["text"]
+    except Exception:
+        hook = draft.get("topic") or ""
+    if img.get("ai_generated"):
+        return f"AI-generated illustration for a post about: {hook}"[:1000]
+    return f"Graphic with the text: {hook}"[:1000] if hook else "Graphic for the post"
+
+
+def choose_order(provs, today=None):
+    """PUBLISHER_ORDER (e.g. 'buffer,zernio') pins which tools are used and in what order, with no daily rotation.
+    Unset = the original behaviour: use every tool that has secrets and rotate the first choice daily."""
+    wanted = [n.strip().lower() for n in (os.getenv("PUBLISHER_ORDER") or "").split(",") if n.strip()]
+    if wanted:
+        by_name = {p.name: p for p in provs}
+        pinned = [by_name[n] for n in wanted if n in by_name]
+        if pinned:
+            return pinned
+    day = (today or dt.date.today()).timetuple().tm_yday
+    start = day % len(provs)      # rotate the first choice daily
+    return provs[start:] + provs[:start]
 
 
 def publish_draft(draft):
@@ -140,8 +167,10 @@ def publish_draft(draft):
     provs = [P() for P in PROVIDERS if all(os.getenv(s) for s in P.secrets)]
     if not provs:
         return {p: {"ok": False, "detail": "no publisher secrets configured"} for p in config.PLATFORMS}
-    start = dt.date.today().timetuple().tm_yday % len(provs)      # rotate the first choice daily
-    order = provs[start:] + provs[:start]
+    order = choose_order(provs)
+    alt = image_alt(draft)
+    for prov in order:
+        prov.alt = alt
     image_path = (draft.get("image") or {}).get("path")
     image_url = f"https://raw.githubusercontent.com/{config.REPO}/{config.BRANCH}/{image_path}" if image_path else None
     results = {}

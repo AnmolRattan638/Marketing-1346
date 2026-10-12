@@ -26,17 +26,26 @@ Repo -> Settings -> Secrets and variables -> Actions -> add **secrets**:
 | `LIMESOCIAL_API_KEY`, `LIMESOCIAL_INSTAGRAM_USERNAME` | Lime Social publisher, Instagram only (needs an image). Username as shown in its dashboard |
 | `SOCIALAPI_KEY` | SocialAPI.ai publisher (key starts `sapi_key_`; Instagram + LinkedIn, not Bluesky) |
 
-Variables (Variables tab): `NVIDIA_MODEL`, `OPENROUTER_MODEL`, `FACTCHECK_PROVIDER` (groq / nvidia / gemini / openrouter), `FACTCHECK_MODEL`.
+Variables (Variables tab): `NVIDIA_MODEL`, `OPENROUTER_MODEL`, `FACTCHECK_PROVIDER` (groq / nvidia / gemini / openrouter), `FACTCHECK_MODEL`, `PUBLISHER_ORDER` (see below).
+
+**Telegram safety:** only the owner can approve. In a private chat this works automatically. If `TELEGRAM_CHAT_ID` is a group, approvals are refused until you add `TELEGRAM_ALLOWED_USER_ID` (your own Telegram user id) as a secret or variable.
 Instagram: auto-posted image + caption every day except Wednesday (set in `config/services.json` -> `instagram.manual_reel_weekdays`); on Wednesday you post the reel yourself from the 3 Flow prompts.
 
-Publishers rotate daily (first choice changes each day) and each platform falls back to the next tool if one fails. A tool with no secrets is skipped.
+By default publishers rotate daily (first choice changes each day) and each platform falls back to the next tool if one fails. A tool with no secrets is skipped.
+To use fixed tools instead (recommended once one tool works well for you, because posting to one account through many tools can look odd to a platform), set the variable `PUBLISHER_ORDER`, e.g. `buffer,zernio`: only those tools are used, in that order, with no rotation. Names: `buffer`, `zernio`, `upload-post`, `limesocial`, `socialapi`, `bluesky-direct`. Note: Buffer queues the post, the others publish immediately.
 
 Optional **variables**: `GEMMA_MODEL`, `GROQ_MODEL`, `GEMINI_MODEL` (to change model IDs).
 
 Telegram: approvals are polled with `getUpdates`, so the bot must have **no webhook** set (`/deleteWebhook`).
 
+**The repo must stay public.** Images are served to the posting tools from `raw.githubusercontent.com`, and the Daily draft run waits up to ~5h40m for your tap (about 170 runner-hours a month), which is free only on public repos. Everything under `data/` (drafts, metrics, strategy) is therefore public too: never put anything private in it. The daily run sends a Telegram warning if GitHub reports the repo as private.
+
 ## Run
-Actions -> **Daily draft** -> Run workflow (or wait for 08:00 IST). After sending the draft, the run stays alive (up to ~5h40m) and publishes within seconds of your Approve tap. It shows as 'in progress' while it waits. **Approve and publish** is only a safety net for taps made after that window; it skips itself while Daily draft is running.
+Actions -> **Daily draft** -> Run workflow (or wait for 08:00 IST). After sending the draft, the run stays alive (up to ~5h40m) and publishes within seconds of your Approve tap. It shows as 'in progress' while it waits. **Approve and publish** is only a safety net for taps made after that window (it checks every 10 minutes); it skips itself while Daily draft is running.
+A draft is marked `publishing` before anything is posted. If a run is killed mid-publish, tapping Approve again will NOT re-post; check your accounts and run Daily draft with *force* if you want a fresh draft.
+
+## Tests
+`tests/*_test.py` run offline (no keys, no network): `for t in tests/*_test.py; do python $t; done`. The **CI** workflow runs pyflakes and these tests on every push and pull request.
 
 ## Files
 - `config/voice.md`, `config/services.json`: your voice and the facts the agents may use. **Edit these first.**
@@ -46,8 +55,9 @@ Actions -> **Daily draft** -> Run workflow (or wait for 08:00 IST). After sendin
 ## Known limits
 - Google Flow has no API: the reel idea is sent to Telegram for you to generate manually.
 - Images come from a free generator and are served to Buffer via this repo's raw URLs, so the repo must stay public.
-- Every week or two, copy per-reel numbers into `data/metrics.json`: views, average watch time, skip rate, shares, comments, DMs. The strategist uses them to tune the hooks.
-- `data/metrics.json` is filled manually (e.g. `{"followers": 8, "likes": 0, "posts": 4}`); the strategist reads it to judge the account's state. No Instagram API is used (it needs a Business/Creator account).
+- Every week or two, update `data/metrics.json` by hand: views, average watch time, skip rate, shares, comments, DMs. The strategist uses it to tune the hooks. Keep the existing shape: an `instagram` object with `followers`, `posts`, `views_last_30_days`, `bio`, `posts_by_views` and `reel_insights`. No Instagram API is used (it needs a Business/Creator account).
+- The Instagram `bio` in `metrics.json` is read by the strategist and checked against the rules in `config/services.json`. A bio that names one niche or region, or promises a timeframe, will be flagged. Keep the real bio there so the check is honest.
+- History: `data/history.json` plus every file in `data/drafts/` count as "already used", so a draft you rejected by editing its file is not repeated.
 
 ## Using your own design (e.g. Adobe Express)
 Send a photo (or an image file) to the bot while a draft is pending. It becomes today's image for Instagram, LinkedIn and Bluesky; then tap Approve. Add the caption `ai` if the image is AI-generated so the AI marker is embedded.

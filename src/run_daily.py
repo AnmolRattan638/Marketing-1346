@@ -1,7 +1,8 @@
 """Daily draft run: strategist (incl. Instagram state check) -> research -> analysis -> writer -> fact-check -> ad-check -> image/video -> Telegram."""
 import datetime as dt
-import secrets
+import os, secrets
 import sys, traceback
+import requests
 from . import config, llm, tg
 from .agents import analysis, factcheck, image, research, strategist, video, writer
 
@@ -24,15 +25,31 @@ def pick_focus(brand, history):
 
 
 def should_skip(path, force):
-    """Skip only if today's draft is still alive (pending or published). A rejected or failed one is replaced."""
+    """Skip only if today's draft is still alive (pending, publishing or published). A rejected or failed one is replaced."""
     if force or not path.exists():
         return False, ""
     status = config.load_json(path, {}).get("status")
+    if status == "publishing":      # an earlier run died while posting: do NOT make a new draft until the owner has checked the accounts
+        return True, ("Today's draft was being published when a run stopped, so it may already be live. Check Instagram, LinkedIn and Bluesky first. "
+                      "If nothing was posted, run Daily draft and tick 'Redo today's draft'.")
     if status in ("pending", "published", "partial"):
         return True, (f"Today's draft already exists (status: {status}), so I did not create another. "
                       + ("Find its message above and tap Approve or Reject. " if status == "pending" else "")
                       + "To make a new one, run Daily draft and tick 'Redo today's draft'.")
     return False, ""
+
+
+def check_repo_public():
+    """Images reach Instagram/LinkedIn through raw.githubusercontent.com and the approval wait burns ~170 runner-hours a month,
+    so the repo must be public. Warn in Telegram if GitHub says it is not (unauthenticated lookup 404s for private repos)."""
+    if not os.getenv("GITHUB_REPOSITORY"):
+        return
+    try:
+        r = requests.get(f"https://api.github.com/repos/{config.REPO}", timeout=20)
+        if r.status_code == 404:
+            WARNINGS.append("repo looks PRIVATE: image links will 404 for the posting tools and the approval wait will use your free Actions minutes. Make it public or change the design.")
+    except Exception:
+        pass
 
 
 def stage(name, fn, fallback=None):
@@ -56,14 +73,15 @@ def main():
         tg.send(why)          # never skip silently: say so in Telegram
         return
     brand, voice = config.services(), config.voice()
-    history = config.load_json(config.DATA / "history.json", [])
+    history = config.history()
     metrics = config.load_json(config.DATA / "metrics.json", {})
+    check_repo_public()
     focus = pick_focus(brand, history)
     ig_mode = "manual_reel" if dt.date.today().weekday() in brand.get("instagram", {}).get("manual_reel_weekdays", [2]) else "auto_image"
 
     try:
         state = stage("strategist.guide",
-                      lambda: strategist.guide(history, metrics, focus, today),
+                      lambda: strategist.guide(history, metrics, focus, today, brand),
                       fallback={"stage": "unknown", "summary": "", "instructions": {}, "manual_tips": [],
                                 "guidance": "No guidance today. Teach first, never sound like an ad."})
         guidance = state.get("guidance") or "Teach first, never sound like an ad."
@@ -107,7 +125,7 @@ def main():
              "image": img, "instagram_mode": ig_mode, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score")}
     config.save_json(path, draft)
 
-    tg.send((f"WARNINGS (a step failed and a fallback was used):\n- " + "\n- ".join(WARNINGS) + "\n\n" if WARNINGS else "") +
+    tg.send(("WARNINGS (a step failed and a fallback was used):\n- " + "\n- ".join(WARNINGS) + "\n\n" if WARNINGS else "") +
             f"Draft for {today}\nService: {focus['name']}\nTopic: {plan['topic']}\n"
             f"Instagram today: {'MANUAL reel (post it yourself)' if ig_mode == 'manual_reel' else 'auto-posted image + caption'}\nFact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n\n"
             f"Account check ({state.get('stage')}): {state.get('summary')}" +

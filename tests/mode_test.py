@@ -26,8 +26,15 @@ tmp = pathlib.Path(tempfile.mkdtemp())
 config.ROOT, config.MEDIA = tmp, tmp
 (tmp / "data").mkdir()
 config.MEDIA = tmp / "data"
-image.llm.gemma = lambda p, s="", **k: "a prompt"
+image.llm.gemma = lambda p, s="", **k: json.dumps({"style": "chat", "headline": "A customer messages you at 11 pm. When do they get a reply?",
+    "highlight": ["reply?"], "sub": "No reply by morning.", "chat": [{"side": "left", "text": "Are you open tomorrow?", "time": "11:42 PM"}]}) if "JSON" in p else "a prompt"
+plan0 = {"topic": "t", "hooks": [{"text": "Your website is slow"}], "chosen_hook": 0}
+d0 = image.run(plan0, {"id": "chatbot", "name": "Chatbot"}, "2026-10-10")
+assert d0["engine"] == "designed_card" and d0["ai_generated"] is False and d0["spec"]["cta"] == 'DM "BOT"', d0
+assert b"trainedAlgorithmicMedia" not in (tmp / d0["path"]).read_bytes()
+from src.agents import cards
 def boom(*a, **k): raise RuntimeError("engine down")
+cards.render = boom                 # designed card fails -> AI engines -> plain text card
 image._pollinations = boom
 plan = {"topic": "t", "hooks": [{"text": "Your website loads in six seconds, so customers leave before they see it"}], "chosen_hook": 0}
 out = image.run(plan, {"name": "Websites"}, "2026-10-11")

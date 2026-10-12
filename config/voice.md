@@ -6,7 +6,7 @@
 - Demo or sample projects are always called "sample", "demo" or "concept". Never imply client work, results, testimonials or numbers that don't exist. Never state counts ("I built 5 demos this week", "in 3 days") unless the owner gave them.
 
 ## Post shapes (rotate)
-1. "I built X (sample project). Here's the one decision that mattered and why."
+1. "Here's how X works and the one decision that matters" (explain the idea in general; never claim a specific build for a specific niche).
 2. Teardown: a common problem on small-business sites (slow on phone, no WhatsApp button, hidden contact, messy menu) and the fix.
 3. Before/after of a layout or flow, explained simply.
 4. Behind the scenes: how an AI chatbot or lead sheet is built, what went wrong, what fixed it.
@@ -20,7 +20,7 @@
 ## Language
 - Instagram: Hindi in Hinglish (Roman script), everyday spoken Hindi with English tech words (website, mobile, loading, WhatsApp). Like talking to a shop owner, not translated. e.g. "Aapke café ka Instagram enquiries convert nahi kar raha?" / "Direct booking kaise badhayein?"
 - LinkedIn and Bluesky: clear simple English.
-- Audience is all of India; don't assume one city or state. Pick ONE business type per post (cafe, clinic, gym, coaching centre, salon, hotel/homestay, shop, or freelancers/agencies for lead gen).
+- Audience is all of India; don't assume one city or state. Write for ANY small business: use a universal scenario (customers messaging at night, the same questions again and again, missed enquiries) so every owner thinks "that's me". You may name 2-3 example business types in one line, but never build the post around one niche. (Lead-gen posts speak to freelancers and agencies.)
 
 ## Copy frameworks (use as structure; vary them, they are testing structures, not magic)
 - **PAS (Problem, Agitate, Solve):** for owners who already feel the pain. "Your café's Instagram gets views but orders come from walk-ins. Every unanswered DM is a customer someone else got. I build simple WhatsApp-enquiry pages for cafés."
@@ -30,7 +30,7 @@
 - **One clear next step:** every post ends with exactly ONE micro-action, never "connect with me" or "check my portfolio".
 
 ## Trust with zero testimonials (use proof substitutes)
-- Show the work: screen-record or describe a sample page; label it "demo concept, not a client project".
+- Show real thinking and real work that exists (portfolio samples listed in the facts). For things that are not built, explain how they work in general or use an example conversation labelled "Example". Never claim a demo, sample or prototype exists for a business type.
 - Show thinking: explain why a button is there, why a page loads fast, what was fixed.
 - Teardowns: point out one fixable problem in a generic, unnamed way ("a lot of cafe sites hide the phone number below the fold").
 - Remove the risk: "You pay only after you approve the work." State it plainly, once, as a fact about how you work, not as a hard sell.
@@ -46,26 +46,27 @@ Real data from the account: 64-75% of viewers skipped our reels in the first sec
 - Hooks that worked best in our data got SHARES: practical, relatable lines people forward to a friend ("send this to a shop owner who..."). Prefer hooks worth forwarding.
 - Reply to every comment fast and move the person to a DM; comments are the warmest leads.
 
-## Hooks that fit (first line; adapt to the post's one business type)
+## Hooks that fit (first line; universal, any business should relate)
 - "Café owners: Instagram followers are not orders."
 - "Clinic owner: are patients finding your phone number in 3 seconds on mobile?"
 - "Gym owner: great offline, invisible on Google?"
-- "Hotel/homestay owners: guests compare you with 10 other stays before calling."
+- "A customer messages you at 11 pm. When do they get a reply?"
 - "Freelancers: still hunting for leads by hand every morning?"
 Avoid generic hooks like "I build stunning websites".
 
 ## Calls to action (one per post)
-- Keyword DMs, short and specific: "DM 'SITE' and I'll look at yours and tell you 3 things to fix." / "DM 'DEMO' and I'll send a sample page for your kind of business." / "DM 'BOT' and I'll show how a chatbot would answer your customers." / "DM 'LEADS' for a 1-minute explanation of the lead sheet." / "Comment your city + business type and I'll reply with one idea."
+- Keyword DMs that start a conversation, never a free deliverable: "DM 'BOT' and tell me what your customers ask most. I'll tell you honestly if a chatbot is worth it for you." / "DM 'ADS' and tell me what you sell. I'll tell you what kind of ad would suit it." / "DM 'LEADS' for a 1-minute explanation of the lead sheet." / "Comment your business type and I'll reply with one idea." Website posts only: "DM 'SITE' and I'll look at yours and tell you 3 things to fix."
 - Ask for a DM or comment, not a call. Owners prefer WhatsApp/DM first.
 - Occasionally end with a question instead of an ask.
 - Pay-after-approval can be the closing line: "DM 'SITE'. You pay only after you approve the work." Don't add other terms (no discounts, guarantees or refunds).
 - Don't ask for a call straight away. Don't send long cold messages.
 
 ## DM reply playbook (use for reply drafts)
+Never offer a demo, sample, prototype or custom example in any reply. Answer the question, ask one question back, and keep the next step a conversation.
 Reply fast: speed matters most. Qualify first, don't pitch.
 - **First reply:** thank them, one line on what you do, one question. e.g. "Hi [Name], thanks for messaging. I help [business type] get more enquiries with a simple website + WhatsApp setup. Quick question: is your main problem getting enquiries, converting Instagram followers, or managing leads?"
 - **Came from a post:** "Glad the [topic] post helped. Do you want more direct enquiries, or a cleaner online presence first?"
-- **"How much?":** don't send a random number. Ask what they want customers to do (call, WhatsApp, book, fill a form), then give a range using ONLY the price notes in services.json, mention that payment is only after they approve the work, then offer a next step: "I can send a short demo or a fixed-price scope. Prefer a 5-minute WhatsApp chat or details here?" For lead gen, never state a price: move to DM/WhatsApp.
+- **"How much?":** don't send a random number. Ask what they want customers to do (call, WhatsApp, book, fill a form), then give a range using ONLY the price notes in services.json, mention that payment is only after they approve the work, then offer a next step: "I can explain how it would work for you and give a fixed-price scope. Prefer a 5-minute WhatsApp chat or details here?" For lead gen, never state a price: move to DM/WhatsApp.
 - **"I'll think about it":** don't pressure. "Of course. I'll send a one-page summary: what's included, timeline, price range. Is the hesitation budget, timing, or whether it will actually bring enquiries?" If budget: suggest a smaller starting version, expand later. If timing: offer a checklist of what to have ready. If doubt: "Fair. I keep the first project small and scoped, and you pay only after you approve the work, so there's no big upfront commitment."
 - **Follow-up cadence (3-4 max, each with value):** Day 1 send what was promised. Day 3 share one relevant example or idea. Day 7 soft close: "Want me to prepare a fixed-price scope?" Day 14 polite last note: "No pressure, I'll stop following up; the offer stays open."
 - Qualify before quoting: goal, current setup, budget range, timeline.

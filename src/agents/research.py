@@ -14,6 +14,6 @@ Strategist guidance:
 
 Topics already used recently (do NOT repeat or paraphrase): {json.dumps(history_topics[-30:], ensure_ascii=False)}
 
-Propose 5 post topics tied to the focus service. Each must be useful to a small business owner anywhere in India, in any industry (or, for lead gen, a freelancer/agency), based on well-known facts or practical advice. No invented statistics, clients or testimonials.
+Propose 5 post topics tied to the focus service. Each must be useful to ANY small business owner in India, whatever the industry (or, for lead gen, a freelancer/agency). Use universal situations, not one niche, and never propose topics that rely on having built a demo or sample for a specific business type, based on well-known facts or practical advice. No invented statistics, clients or testimonials.
 Return JSON: {{"topics": [{{"topic": "...", "angle": "...", "why_it_matters": "..."}}]}}"""
     return llm.ask_json(llm.gemma, prompt, SYS)["topics"]

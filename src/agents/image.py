@@ -107,15 +107,26 @@ def _card(plan, path):
 
 
 def run(plan, focus, date, guidance=""):
+    """Designed card first (bold headline or chat-mock; deterministic layout, no AI imagery). AI engines and a plain
+    text card are only fallbacks if the designed card fails."""
+    path = config.MEDIA / f"{date}.jpg"
+    errors = []
+    try:
+        from . import cards
+        spec = cards.make_spec(plan, focus, guidance)
+        cards.render(spec, path)
+        return {"prompt": None, "path": str(path.relative_to(config.ROOT)), "engine": "designed_card",
+                "style": spec.get("style"), "ai_generated": False, "spec": spec, "errors": []}
+    except Exception as e:
+        print(f"[image] designed card failed: {e}")
+        errors.append(f"designed_card: {str(e)[:110]}")
     prompt = f"""Write ONE image-generation prompt (max 60 words) for a clean, modern social media square graphic.
 Idea: {plan.get('image_idea')} | Topic: {plan['topic']} | Service: {focus['name']}
 Strategist note: {guidance}
 Style: minimal flat illustration, bold colours, lots of empty space, NO text, NO logos, NO real people's faces.
 Return ONLY the final prompt wrapped in <prompt></prompt> tags. No notes, no drafts, no explanation."""
     img_prompt = clean_prompt(llm.gemma(prompt))
-    path = config.MEDIA / f"{date}.jpg"
     engines = ([_cloudflare] if os.getenv("CLOUDFLARE_API_TOKEN") and os.getenv("CLOUDFLARE_ACCOUNT_ID") else []) + ([_gemini] if os.getenv("GEMINI_API_KEY") else []) + [_pollinations]
-    errors = []
     for engine in engines:
         for _ in range(2):
             try:

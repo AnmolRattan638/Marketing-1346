@@ -1,6 +1,5 @@
-- Hook style to try next: Problem-Agitate-Solve or Behind-the-Scenes showing chatbot build process.
-- Avoid repeating "24-hour delivery" and "Rs 1499" in every post; vary value props.
-- Posts must show real work (code snippet, live demo) not generic ad copy.
-- High skip rates (64-75%) mean first 3 seconds fail; open with visual proof of problem solved.
-- Share rate on presenter reel (51%) suggests collaboration format works; replicate with chatbot demo.
-- View sources mostly feed/profile; add explore-friendly hashtags and location tags.
+- Hook style to try next: Problem-Agitate-Solve (e.g., "11 PM WhatsApp flood → lost bookings → bot handles it")
+- Avoid repeating "Rs 1499, 24 hrs" phrasing; it's used in 3/6 posts
+- High skip rates (64-75%) mean first 3 seconds fail — open with visual proof, not talking head
+- Share rate 51% on clock reel came from collab, not content; don't rely on collabs for reach
+- Posts must show real dev work: screen recordings, code snippets, live bot replies — never read like an ad

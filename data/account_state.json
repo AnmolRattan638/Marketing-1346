@@ -2,18 +2,18 @@
   "date": "2026-10-12",
   "stage": "brand new under 100 followers",
   "followers": 8,
-  "summary": "Account has 8 followers, 6 posts, high reel views but steep early drop-off and zero DMs. Data too thin to confirm patterns; need consistent posting and hook testing.",
-  "guidance": "- Hook style to try next: Problem-Agitate-Solve or Behind-the-Scenes showing chatbot build process.\n- Avoid repeating \"24-hour delivery\" and \"Rs 1499\" in every post; vary value props.\n- Posts must show real work (code snippet, live demo) not generic ad copy.\n- High skip rates (64-75%) mean first 3 seconds fail; open with visual proof of problem solved.\n- Share rate on presenter reel (51%) suggests collaboration format works; replicate with chatbot demo.\n- View sources mostly feed/profile; add explore-friendly hashtags and location tags.",
+  "summary": "8 followers, 6 posts, 539 views/30 days. Two reels got 600-783 views via collabs but 64-75% skip rates and 7-11s avg watch. Zero Instagram DMs. Data too thin to judge chatbot content; only website posts exist.",
+  "guidance": "- Hook style to try next: Problem-Agitate-Solve (e.g., \"11 PM WhatsApp flood → lost bookings → bot handles it\")\n- Avoid repeating \"Rs 1499, 24 hrs\" phrasing; it's used in 3/6 posts\n- High skip rates (64-75%) mean first 3 seconds fail — open with visual proof, not talking head\n- Share rate 51% on clock reel came from collab, not content; don't rely on collabs for reach\n- Posts must show real dev work: screen recordings, code snippets, live bot replies — never read like an ad",
   "instructions": {
-    "research": "Find 3 Himachal hotels/cafes with poor website chat support; note their pain points.",
-    "analysis": "Compare skip rates of two reels; identify first 3 seconds that caused drop-off.",
-    "writer": "Draft a 60-second reel script: hook with a real chatbot fail, demo your AI fix, end with WhatsApp CTA.",
-    "image": "Create a carousel: slide 1 - hotel site without chat, slide 2 - your chatbot mockup, slide 3 - pricing Rs 2999.",
-    "video": "Record screen capture of chatbot responding to 'room availability' query; keep first 3 seconds dynamic."
+    "research": "Find 3 common pain points of Himachal hotels/cafes that a chatbot solves (missed late-night bookings, language queries, repeat FAQs). Search \"Himachal hotel WhatsApp booking\" and note exact phrases owners use.",
+    "analysis": "Compare the two reels' retention curves: both show steep initial drop then flat. The clock reel's 51% share rate came from collab tags, not organic interest. Note that cafe preview had 0.4% share rate despite higher views.",
+    "writer": "Draft a 90-sec reel script for AI chatbot: Hook (0-3s): \"Your WhatsApp blows up at 11 PM. You're asleep. This bot replies, books rooms, upsells dinner.\" Demo (3-30s): screen record bot handling a real hotel query. Proof (30-60s): show dashboard with 3 auto-bookings. CTA (60-90s): \"Setup in 2 days. DM 'BOT' for free audit.\"",
+    "image": "Create carousel: Slide 1 — \"3 messages you lose while sleeping\" with blurred hotel WhatsApp screenshots. Slide 2 — chatbot handling each in Hindi/English. Slide 3 — \"Goes live in 48 hrs. DM 'BOT'.\" Use your brand colors, no stock photos.",
+    "video": "Shoot 30-sec screen recording of your chatbot demo on a local hotel site (anonymized). Add captions: \"User asks: 'Room available 20 Oct?' → Bot checks calendar → Confirms → Sends payment link.\" Use trending audio at 10% volume."
   },
   "manual_tips": [
-    "Comment on 5 local hotel/cafe Instagram posts with genuine feedback about their website.",
-    "Reply to any story mentions or tags from collaborators (editorxyz_official).",
-    "Post a story showing today's chatbot development progress with a poll: 'Which feature matters most?'"
+    "Comment on 5 posts from Himachal hotel/cafe owners (not competitors) with genuine observations: \"Love the mountain view from your balcony! Noticed your website doesn't show room availability live — happy to share a 2-min Loom of how a bot could auto-reply bookings.\"",
+    "Reply to all 16 comments on the '24 clock' reel with personalized answers (not emojis). Example: \"Thanks! The 24-hr build uses a custom CMS — happy to show the backend if useful.\"",
+    "Message past WhatsApp enquiries (if any) offering a free 15-min chatbot audit: \"Saw you enquired about a website. Added a chatbot demo for your cafe — want a quick screen share?\""
   ]
 }

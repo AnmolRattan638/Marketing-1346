@@ -3,8 +3,14 @@ import requests
 
 
 def _api(method, **kw):
-    r = requests.post(f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/{method}", timeout=60, **kw)
-    d = r.json()
+    try:
+        r = requests.post(f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/{method}", timeout=60, **kw)
+    except requests.RequestException as e:
+        raise RuntimeError(f"Telegram {method} network error: {type(e).__name__}") from None     # never put the bot token (in the URL) in a message
+    try:
+        d = r.json()
+    except ValueError:
+        raise RuntimeError(f"Telegram {method} returned a non-JSON reply (HTTP {r.status_code})") from None
     if not d.get("ok"):
         raise RuntimeError(f"Telegram {method} failed: {d.get('description')}")
     return d["result"]

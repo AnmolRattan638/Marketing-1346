@@ -1,41 +1,102 @@
-import json, os, re, time
+import json, os, random, re, time
 import requests
 from . import config
 
 
-LOG = []   # which provider:model actually answered (or failed), shown in the Telegram draft
+LOG = []        # short lines shown in the Telegram draft: which provider:model answered or failed
+FAILURES = []   # full detail of every failure in this run; saved with the draft so a problem can be diagnosed afterwards
+_DOWN = {}      # "provider:model" -> time until which it is skipped (circuit breaker)
+COOLDOWN = 600  # seconds a model that returned a server error is skipped: one outage costs one wait, not one per call
 
 
 class RateLimited(RuntimeError):
     pass
 
 
+class ProviderDown(RuntimeError):
+    """Server error (500/502/503/504) or unreachable. Waiting on the same model rarely helps; switching model usually does."""
+
+
+def _scrub(text):
+    for k in ("GEMINI_API_KEY", "GROQ_API_KEY", "OPENROUTER_API_KEY", "NVIDIA_API_KEY", "TELEGRAM_BOT_TOKEN"):
+        v = os.environ.get(k)
+        if v and len(v) > 6:
+            text = text.replace(v, "***")
+    return text
+
+
+def _retry_after(r):
+    """Seconds the provider asks us to wait: Retry-After header, or Gemini's retryDelay / 'retry in 12s' in the body."""
+    try:
+        h = r.headers.get("Retry-After")
+        if h and h.replace(".", "", 1).isdigit():
+            return float(h)
+    except Exception:
+        pass
+    m = re.search(r'retry(?:Delay)?"?\s*(?:in|:)?\s*"?(\d+(?:\.\d+)?)s', r.text or "", re.I)
+    return float(m.group(1)) if m else None
+
+
 def _post(url, headers, body, tries=3, timeout=120):
-    last = None
+    """429: wait as asked (capped) and retry. 5xx / unreachable: one quick retry, then raise ProviderDown so the caller can switch model.
+    Other 4xx (bad key, bad request, unknown model): raise at once, retrying cannot help."""
+    host = url.split("/")[2]
+    last, net_fail, server_fail = None, 0, 0
     for i in range(tries):
         try:
             r = requests.post(url, headers=headers, json=body, timeout=timeout)
-            if r.status_code in (429, 500, 502, 503, 504):
-                last = RateLimited(f"429 {r.text[:200]}") if r.status_code == 429 else RuntimeError(f"{r.status_code} {r.text[:200]}")
-                time.sleep(10 * (i + 1))
-                continue
-            if r.status_code >= 400:
-                raise RuntimeError(f"HTTP {r.status_code} from {url.split('?')[0]}: {r.text[:300]}")
-            return r.json()
-        except RuntimeError:
-            raise
         except requests.RequestException as e:
-            last = e
-            time.sleep(5 * (i + 1))
-    if isinstance(last, RateLimited):
-        raise last
-    raise RuntimeError(f"LLM request failed: {last}")
+            net_fail += 1
+            last = ProviderDown(f"{host} unreachable: {type(e).__name__}")
+            if net_fail >= 2:
+                raise last
+            time.sleep(3 + random.random() * 2)
+            continue
+        if r.status_code == 429:
+            last = RateLimited(f"HTTP 429 from {host}: {_scrub(r.text[:200])}")
+            if i < tries - 1:
+                time.sleep(min(max(_retry_after(r) or 0, 5 * (i + 1)), 45))
+            continue
+        if r.status_code in (500, 502, 503, 504):
+            server_fail += 1
+            last = ProviderDown(f"HTTP {r.status_code} from {host}: {_scrub(r.text[:300])}")
+            if server_fail >= 2:
+                raise last
+            time.sleep(3 + random.random() * 2)
+            continue
+        if r.status_code >= 400:
+            raise RuntimeError(f"HTTP {r.status_code} from {host}: {_scrub(r.text[:300])}")
+        try:
+            return r.json()
+        except ValueError:
+            raise ProviderDown(f"{host} returned a non-JSON reply (HTTP {r.status_code})")
+    raise last or RuntimeError("LLM request failed")
+
+
+def _down(key):
+    return _DOWN.get(key, 0) > time.time()
+
+
+def _fail(provider, model, err, t0):
+    """Record a failure in full (FAILURES) and briefly (LOG); a server error or rate limit also benches the model for COOLDOWN seconds."""
+    key = f"{provider}:{model}"
+    m = re.search(r"\bHTTP (\d{3})\b", str(err))
+    FAILURES.append({"model": key, "status": m.group(1) if m else type(err).__name__, "seconds": round(time.time() - t0, 1),
+                     "error": _scrub(str(err))[:300]})
+    LOG.append(f"FAILED {key} ({'HTTP ' + m.group(1) if m else type(err).__name__})")
+    if isinstance(err, (ProviderDown, RateLimited)):
+        _DOWN[key] = time.time() + COOLDOWN
 
 
 def _chat(url, key, prompt, system, model, temperature):
     msgs = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": prompt}]
-    d = _post(url, {"Authorization": f"Bearer {key}"}, {"model": model, "messages": msgs, "temperature": temperature})
-    LOG.append(f"{url.split('/')[2].replace('api.', '')}:{model}")
+    provider, t0 = url.split("/")[2].replace("api.", ""), time.time()
+    try:
+        d = _post(url, {"Authorization": f"Bearer {key}"}, {"model": model, "messages": msgs, "temperature": temperature})
+    except Exception as e:
+        _fail(provider, model, e, t0)
+        raise
+    LOG.append(f"{provider}:{model}")
     return d["choices"][0]["message"]["content"]
 
 
@@ -59,7 +120,8 @@ def _openrouter_free_models():
 
 
 def openrouter(prompt, system="", model=None, temperature=0.7):
-    """Call OpenRouter. If the chosen model returns 404 (retired / no longer free), try other free models."""
+    """Call OpenRouter. If the chosen model is gone (404), erroring (5xx) or rate limited, try other free models.
+    An explicitly requested model is never swapped: the caller decides what happens next."""
     url, key = "https://openrouter.ai/api/v1/chat/completions", os.environ["OPENROUTER_API_KEY"]
     first = model or config.OPENROUTER_MODEL
     tried, last = [], None
@@ -67,42 +129,53 @@ def openrouter(prompt, system="", model=None, temperature=0.7):
         if attempt == 0 and first:
             chosen = first
         else:
-            cands = [m for m in _openrouter_free_models() if m not in tried]
+            cands = [m for m in _openrouter_free_models() if m not in tried and not _down(f"openrouter.ai:{m}")]
             if not cands:
                 break
             chosen = cands[0]
         tried.append(chosen)
+        if _down(f"openrouter.ai:{chosen}"):
+            if model:
+                raise ProviderDown(f"{chosen} skipped: it returned server errors earlier in this run")
+            continue
         try:
             return _chat(url, key, prompt, system, chosen, temperature)
         except RuntimeError as e:
             last = e
-            if "HTTP 404" not in str(e) or model:   # an explicitly requested model is not swapped
+            if model or not ("HTTP 404" in str(e) or isinstance(e, (ProviderDown, RateLimited))):
                 raise
-            print(f"[llm] OpenRouter {chosen} unavailable (404), trying another free model")
+            print(f"[llm] OpenRouter {chosen} unavailable ({str(e)[:90]}), trying another free model")
     raise last or RuntimeError("no free OpenRouter model available")
 
 
 def _with_fallback(fn):
-    """If a provider fails for any reason (rate limit, wrong model, outage), retry once through OpenRouter if a key is set."""
+    """If every model of a provider fails, retry through OpenRouter and then Groq, so a request never dies because one vendor is down."""
     def wrapper(prompt, system="", **kw):
         try:
             return fn(prompt, system, **kw)
         except Exception as e:
+            chain = []
             if os.getenv("OPENROUTER_API_KEY"):
-                print(f"[llm] {fn.__name__} failed ({str(e)[:150]}), falling back to OpenRouter")
-                LOG.append(f"FAILED {fn.__name__}: {str(e)[:70]}")
+                chain.append(("OpenRouter", lambda: openrouter(prompt, system)))
+            if os.getenv("GROQ_API_KEY") and fn.__name__ != "_groq":
+                chain.append(("Groq", lambda: _groq(prompt, system)))
+            if not chain:
+                raise
+            first = _scrub(str(e))[:300]
+            print(f"[llm] {fn.__name__} failed ({first[:150]}), falling back")
+            LOG.append(f"FAILED {fn.__name__.lstrip('_')}: all its models")
+            errs = [f"{fn.__name__}: {first}"]
+            for name, call in chain:
                 try:
-                    return openrouter(prompt, system)
+                    return call()
                 except Exception as e2:
-                    raise RuntimeError(f"{fn.__name__} failed: {str(e)[:300]} | OpenRouter fallback failed: {str(e2)[:300]}") from e2
-            raise
+                    errs.append(f"{name}: {_scrub(str(e2))[:200]}")
+            raise RuntimeError(" | ".join(errs)) from e
     wrapper.__name__ = fn.__name__
     return wrapper
 
 
-def _discover_gemini(kind):
-    """Ask the Gemini API which models exist for this key and pick the newest suitable one.
-    kind: 'text' (Gemini flash), 'gemma', 'image'."""
+def _gemini_models():
     global _GMODELS
     if _GMODELS is None:
         r = requests.get("https://generativelanguage.googleapis.com/v1beta/models", params={"pageSize": 200},
@@ -111,51 +184,86 @@ def _discover_gemini(kind):
             raise RuntimeError(f"HTTP {r.status_code} listing Gemini models: {r.text[:200]}")
         _GMODELS = [m["name"].split("/", 1)[1] for m in r.json().get("models", [])
                     if "generateContent" in m.get("supportedGenerationMethods", [])]
+    return _GMODELS
+
+
+def _rank_gemini(kind):
+    """Suitable models for this key, newest first. kind: 'text' (Gemini flash), 'gemma', 'image'."""
+    models = _gemini_models()
 
     def ver(m):
         nums = re.findall(r"(\d+(?:\.\d+)?)", m)
         return (float(nums[0]) if nums else 0, float(nums[1]) if len(nums) > 1 and kind == "gemma" else 0)
     bad = ("tts", "live", "audio", "embedding", "robotics", "computer", "thinking", "learnlm", "aqa", "omni")
     if kind == "gemma":
-        c = [m for m in _GMODELS if m.startswith("gemma-") and "3n" not in m and m.endswith("it")]
+        c = [m for m in models if m.startswith("gemma-") and "3n" not in m and m.endswith("it")]
     elif kind == "image":
-        c = [m for m in _GMODELS if m.startswith("gemini-") and "image" in m and not any(b in m for b in bad)]
+        c = [m for m in models if m.startswith("gemini-") and "image" in m and not any(b in m for b in bad)]
         c = [m for m in c if "preview" not in m] or c
     else:
-        c = [m for m in _GMODELS if m.startswith("gemini-") and "flash" in m and "image" not in m
+        c = [m for m in models if m.startswith("gemini-") and "flash" in m and "image" not in m
              and "lite" not in m and not any(b in m for b in bad)]
         c = [m for m in c if "preview" not in m] or c
-    return max(c, key=ver) if c else None
+    return sorted(c, key=ver, reverse=True)
+
+
+def _discover_gemini(kind):
+    ranked = _rank_gemini(kind)
+    return ranked[0] if ranked else None
 
 
 _ALIAS = {}
+_STATIC = {"text": ["gemini-flash-latest", "gemini-flash-lite-latest"], "gemma": ["gemma-3-27b-it"]}
+
+
+def _gemini_ladder(model, kind):
+    """The model asked for, then the next-best Google models: Google's own advice for a 500 or 503 is to switch model."""
+    ladder = [model]
+    try:
+        ladder += _rank_gemini(kind)[:2]
+    except Exception:
+        ladder += _STATIC.get(kind, [])
+    if kind == "gemma":                                  # no Gemma answering: a Gemini Flash can still do the job
+        try:
+            ladder += _rank_gemini("text")[:1]
+        except Exception:
+            ladder += _STATIC["text"][:1]
+    return list(dict.fromkeys(ladder))[:5]
 
 
 def _gemini(prompt, system="", model=None, temperature=0.8, _kind="text"):
-    """Google AI Studio API (Gemini and Gemma models). If the model has been retired (404), pick a current one."""
-    orig = model = model or config.GEMINI_MODEL
-    model = _ALIAS.get(model, model)
-    for attempt in (1, 2):
+    """Google AI Studio API (Gemini and Gemma). A model that is retired (404), erroring (5xx), overloaded or rate limited
+    is skipped for the next-best Google model; only when all of them fail does the caller fall back to another provider."""
+    orig = model or config.GEMINI_MODEL
+    start = _ALIAS.get(orig, orig)
+    ladder = _gemini_ladder(start, _kind)
+    live = [m for m in ladder if not _down(f"google:{m}")] or ladder[:1]
+    errors, retired = [], False
+    for m in live:
         sys_, pr = system, prompt
-        if model.startswith("gemma") and sys_:     # Gemma has no system-instruction support
+        if m.startswith("gemma") and sys_:             # Gemma has no system-instruction support
             pr, sys_ = sys_ + "\n\n" + pr, ""
         body = {"contents": [{"role": "user", "parts": [{"text": pr}]}],
                 "generationConfig": {"temperature": temperature}}
         if sys_:
             body["systemInstruction"] = {"parts": [{"text": sys_}]}
+        t0 = time.time()
         try:
-            d = _post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+            d = _post(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent",
                       {"x-goog-api-key": os.environ["GEMINI_API_KEY"]}, body)
-            LOG.append(f"google:{model}")
-            return "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"] if not p.get("thought"))
         except RuntimeError as e:
-            if attempt == 1 and "HTTP 404" in str(e):
-                alt = _discover_gemini("gemma" if model.startswith("gemma") else _kind)
-                if alt and alt != model:
-                    print(f"[llm] {model} unavailable (404); using {alt}")
-                    model = _ALIAS[orig] = alt
-                    continue
-            raise
+            _fail("google", m, e, t0)
+            gone = "HTTP 404" in str(e)
+            if isinstance(e, (ProviderDown, RateLimited)) or gone:
+                errors.append(f"{m}: {_scrub(str(e))[:120]}")
+                retired = retired or (gone and m == start)
+                continue
+            raise                                       # bad key / bad request: another model will not fix it
+        LOG.append(f"google:{m}")
+        if retired and m != start:
+            _ALIAS[orig] = m                            # the configured model was retired: use the replacement from now on
+        return "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"] if not p.get("thought"))
+    raise ProviderDown("all Google models failed: " + " | ".join(errors))
 
 
 def _gemma(prompt, system="", temperature=0.7):

@@ -40,7 +40,7 @@ def should_skip(path, force):
 
 
 def check_repo_public():
-    """Images reach Instagram/LinkedIn through raw.githubusercontent.com and the approval wait burns ~170 runner-hours a month,
+    """Images reach Instagram/LinkedIn through raw.githubusercontent.com and the approval wait burns ~150 runner-hours a month,
     so the repo must be public. Warn in Telegram if GitHub says it is not (unauthenticated lookup 404s for private repos)."""
     if not os.getenv("GITHUB_REPOSITORY"):
         return
@@ -122,7 +122,8 @@ def main():
              "hooks": plan["hooks"], "chosen_hook": plan.get("chosen_hook", 0),
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),
-             "image": img, "instagram_mode": ig_mode, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score")}
+             "image": img, "instagram_mode": ig_mode, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score"),
+             "llm": {"answered": list(dict.fromkeys(llm.LOG)), "failures": llm.FAILURES[:20]}}
     config.save_json(path, draft)
 
     tg.send(("WARNINGS (a step failed and a fallback was used):\n- " + "\n- ".join(WARNINGS) + "\n\n" if WARNINGS else "") +

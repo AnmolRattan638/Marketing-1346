@@ -132,25 +132,48 @@ def poll(state, timeout):
     config.save_json(config.DATA / "tg_state.json", state)
 
 
+def _notify(text):
+    try:
+        tg.send(text)
+    except Exception as e:                                  # a failed notification must never crash the run
+        print(f"[wait] could not send Telegram message: {e}")
+
+
 def wait(seconds):
-    """Stay alive after the draft is sent and publish the moment you tap Approve (checks every few seconds)."""
+    """Stay alive after the draft is sent and publish the moment you tap Approve (checks every few seconds).
+    Any error (network blip, non-JSON reply, Telegram outage) is logged and retried with a growing pause. If errors never stop,
+    the job ends normally and the 'Approve and publish' safety-net workflow (every 10 minutes) takes over: the run does not fail."""
     state = config.load_json(config.DATA / "tg_state.json", {"offset": 0})
-    deadline, conflicts = time.time() + seconds, 0
+    deadline, conflicts, errors = time.time() + seconds, 0, 0
     while time.time() < deadline and pending_today():
         try:
             poll(state, 25)
-            conflicts = 0
+            conflicts = errors = 0
+        except SystemExit:
+            raise
         except RuntimeError as e:
             msg = str(e)
             if "webhook" in msg.lower():
                 raise SystemExit(f"{msg}. Remove the webhook: https://api.telegram.org/bot<TOKEN>/deleteWebhook")
-            conflicts += 1
-            print(f"[wait] {msg}")
-            if conflicts == 5:
-                tg.send("Another program seems to be reading this Telegram bot's messages (maybe your Aegis agent), so approvals can be missed. Create a separate bot for marketing with @BotFather.")
-            time.sleep(15)
+            if "conflict" in msg.lower():
+                conflicts += 1
+                print(f"[wait] {msg}")
+                if conflicts == 5:
+                    _notify("Another program seems to be reading this Telegram bot's messages (maybe your Aegis agent), so approvals can be missed. Create a separate bot for marketing with @BotFather.")
+                time.sleep(15)
+            else:
+                errors += 1
+                print(f"[wait] {msg}")
+                time.sleep(min(15 * errors, 120))
+        except Exception as e:
+            errors += 1
+            print(f"[wait] unexpected {type(e).__name__}: {e}")
+            time.sleep(min(15 * errors, 120))
+        if errors >= 20:
+            _notify("Telegram kept failing for this run, so the live wait for your Approve tap ended early. Nothing is lost: your draft is saved and posts within about 10 minutes of you tapping Approve.")
+            return
     if pending_today():
-        tg.send(f"No decision on today's draft after {seconds // 3600}h {seconds % 3600 // 60}m. It stays saved: tap Approve within 24 hours and it will post within about 10 minutes.")
+        _notify(f"No decision on today's draft after {seconds // 3600}h {seconds % 3600 // 60}m. It stays saved: tap Approve within 24 hours and it will post within about 10 minutes.")
 
 
 def main():

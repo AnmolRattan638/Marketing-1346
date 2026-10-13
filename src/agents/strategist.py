@@ -6,14 +6,19 @@ SYS = ("You are the marketing strategist for a solo freelance web developer in I
        "lead generation and websites. Be concrete, brief and honest about thin data.")
 
 
-def guide(history, metrics, focus, today, brand=None):
+def guide(history, metrics, focus, today, brand=None, analytics_digest=None):
     """Before each post: judge the Instagram account's current state from our history and manual stats, and brief every agent.
     Returns {"stage", "followers", "summary", "guidance", "instructions": {agent: text}, "manual_tips": [...]}."""
     rules = json.dumps((brand or {}).get("facts_rules", []), ensure_ascii=False)
+    live = (("LIVE ANALYTICS, synced automatically from the platforms. These numbers are real; n/a means the platform did not report it, NOT zero:\n"
+             + analytics_digest + "\nUse this first: name the single weakest area in \"summary\", make \"guidance\" and every agent instruction respond to it, "
+             "and do not over-read a pattern backed by fewer than 3 posts. The manual stats below fill the gaps (LinkedIn, DMs, anything marked NO LIVE DATA).")
+            if analytics_digest else
+            "Live analytics are NOT available. Judge the account's state from the posting history and the manual stats below, and say how thin the data is.")
     prompt = f"""Today: {today}. Today's focus service: {focus['name']}.
 BRAND RULES (binding: nothing you write, including the agent instructions and the manual tips, may break any of them. If a rule forbids something, do not suggest it, not even as an example): {rules}
 Audience and positioning: {(brand or {}).get('positioning', '')}
-Live Instagram data is NOT available. Judge the account's state from the posting history and the manual stats below, and say how thin the data is.
+{live}
 Recent posts (topic, service, hook style, status): {json.dumps(history[-14:], ensure_ascii=False)[:3500]}
 Manual account/performance stats entered by the owner (followers, likes, posts, comments; may be empty): {json.dumps(metrics, ensure_ascii=False)[:4000]}
 

@@ -64,7 +64,7 @@ jobs:
 
       - name: Wait for your Approve tap and publish
         if: steps.gen.outcome == 'success'
-        run: python -m src.process_approvals --wait 20400
+        run: python -m src.process_approvals --wait 18000    # 5h; the job limit is 355 min, so even a 55-minute generation fits
 
       - name: Save result
         if: always()

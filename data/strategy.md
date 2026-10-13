@@ -1,3 +1,5 @@
-- Hook style to try next: **Demo Proof** — show a 5-second screen capture of a chatbot answering a real hotel/cafe query, then cut to result. Rotate away from Myth Bust and Presenter clock.
-- Avoid: generic "24-hour delivery" claims (used 3×), "Rs 1,499" price lead (used 2×), and static service carousels — they repeat and skip rates stay >60%.
-- Every post must show *your* code/UI: a live bot snippet, a dashboard screenshot, or a WhatsApp chat export. Never read like an ad; caption = one technical detail + one client outcome.
+- Rotate hook styles: try "Story" or "Contrast" next; avoid another "Question" hook (used 2/3 recent posts).
+- Skip rate >60% means first 3 seconds need visual + text promise of value for any Indian small business.
+- Shares high (51%) on presenter reel — keep human face + clear benefit.
+- View sources: 61% feed, 24% profile — optimise caption for feed scrollers.
+- Posts must read as developer sharing real work, never an ad. No demos, no niche targeting, no invented results.

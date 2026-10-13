@@ -1,0 +1,73 @@
+{
+  "id": "2026-10-13-93d52d",
+  "date": "2026-10-13",
+  "status": "pending",
+  "service": "animated_ads",
+  "topic": "From 'busy' to 'visible' in seconds",
+  "hooks": [
+    {
+      "style": "Contrast",
+      "text": "While you hustle, a 5‑second animation hustles for you."
+    },
+    {
+      "style": "Mistake Callout",
+      "text": "Posting daily? Stop—your time’s wasted, automation does the work."
+    },
+    {
+      "style": "Specific Observation",
+      "text": "Most owners post once, then disappear; animated ads never sleep."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "Contrast",
+  "posts": {
+    "instagram": "Aap kaam mein busy hain, par ek 5-second ki animation scroll rok sakti hai.\n\nRoz naye graphics banate rehna kisi bhi business owner ke liye mushkil hota hai—chahe bakery ho, clinic ya repair service. Static image par log rukte nahi, scroll karke nikal jaate hain. Motion screen par dhyan kheenchta hai.\n\nMain simple 5-10 second AI animated ads design karta hoon: clear offer, clean movement, aur seedha WhatsApp ya call ka prompt. Ek focused ad se regular enquiries aana aasan ho sakta hai, bina daily posting ke jhanjhat ke.\n\nPricing: INR 999 / 1,499 / 2,199. You pay only after you approve the work.\n\nDM 'ADS' aur batayein aap kya sell karte hain. Main batata hoon ye aapke setup ke liye sahi hai ya nahi.\n\n#SmallBusinessIndia #IndianEntrepreneurs #LocalBusinessIndia #SmallBusinessTips",
+    "linkedin": "While you hustle with customers, a 5-second animation can do the talking online.\n\nMost small business owners do not have hours every day to design social posts. Whether you run a clinic, a gym, or an auto workshop, your real hours go into servicing clients.\n\nThe challenge with static images is simple: people scroll right past them. Motion changes that. A short 5-to-10 second animated loop catches the eye just long enough to deliver one clear message.\n\nWhen I build AI animated ads for small businesses, I keep the structure focused:\n1. A clear hook stating the offer.\n2. Subtle motion that cuts through feed fatigue.\n3. A direct prompt to message on WhatsApp or call.\n\nA single scheduled ad running quietly in the background can bring consistent enquiries without the pressure of posting every morning.\n\nPricing is INR 999 / 1,499 / 2,199. You pay only after you approve the work.\n\nDM 'ADS' and tell me what you sell. I'll tell you honestly what kind of ad would suit your business.",
+    "bluesky": "Static posts get scrolled past. A 5-second animated ad with clean motion stops the thumb and delivers your offer clearly. \n\nPricing is INR 999 / 1,499 / 2,199, and you pay only after approving the work.\n\nDM 'ADS' and tell me what you sell to see if it fits."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does it cost?",
+      "reply": "Pricing is INR 999 / 1,499 / 2,199 depending on the format and length, and you pay only after you approve the work. Quick question: what do you sell, and do you want customers to WhatsApp or call you?"
+    },
+    {
+      "if_they_say": "Do you make these for my business?",
+      "reply": "I design them for all types of small businesses across India—services, retail, clinics, and more. What is your business, and what is the main offer you want people to see?"
+    },
+    {
+      "if_they_say": "ADS",
+      "reply": "Thanks for messaging! Tell me briefly what you sell or what service you run. I'll tell you honestly what kind of animated ad would suit your setup."
+    }
+  ],
+  "image": {
+    "prompt": null,
+    "path": "data/media/2026-10-13.jpg",
+    "engine": "designed_card",
+    "style": "bold",
+    "ai_generated": false,
+    "spec": {
+      "style": "bold",
+      "headline": "While you hustle, motion works",
+      "highlight": [
+        "motion"
+      ],
+      "sub": "Motion adds visibility fast",
+      "chat": [],
+      "cta": "DM \"ADS\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": []
+  },
+  "instagram_mode": "auto_image",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "Aap kaam mein busy hain, par ek 5-second ki animation scroll rok sakti hai.\n\nRoz naye graphics banate rehna kisi bhi business owner ke liye mushkil hota hai—chahe bakery ho, clinic ya repair service. Static image par log rukte nahi, scroll karke nikal jaate hain. Motion screen par dhyan kheenchta hai.\n\nMain simple 5-10 second AI animated ads design karta hoon: clear offer, clean movement, aur seedha WhatsApp ya call ka prompt. Ek focused ad se regular enquiries aana aasan ho sakta hai, bina daily posting ke jhanjhat ke.\n\nPricing: INR 999 / 1,499 / 2,199. You pay only after you approve the work.\n\nDM 'ADS' aur batayein aap kya sell karte hain. Main batata hoon ye aapke setup ke liye sahi hai ya nahi.\n\n#SmallBusinessIndia #IndianEntrepreneurs #LocalBusinessIndia #SmallBusinessTips",
+      "linkedin": "While you hustle with customers, a 5-second animation can do the talking online.\n\nMost small business owners do not have hours every day to design social posts. Whether you run a clinic, a gym, or an auto workshop, your real hours go into servicing clients.\n\nThe challenge with static images is simple: people scroll right past them. Motion changes that. A short 5-to-10 second animated loop catches the eye just long enough to deliver one clear message.\n\nWhen I build AI animated ads for small businesses, I keep the structure focused:\n1. A clear hook stating the offer.\n2. Subtle motion that cuts through feed fatigue.\n3. A direct prompt to message on WhatsApp or call.\n\nA single scheduled ad running quietly in the background can bring consistent enquiries without the pressure of posting every morning.\n\nPricing is INR 999 / 1,499 / 2,199. You pay only after you approve the work.\n\nDM 'ADS' and tell me what you sell. I'll tell you honestly what kind of ad would suit your business.",
+      "bluesky": "Static posts get scrolled past. A 5-second animated ad with clean motion stops the thumb and delivers your offer clearly. \n\nPricing is INR 999 / 1,499 / 2,199, and you pay only after approving the work.\n\nDM 'ADS' and tell me what you sell to see if it fits."
+    }
+  },
+  "ad_score": 9
+}

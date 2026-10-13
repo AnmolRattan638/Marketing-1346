@@ -1,19 +1,19 @@
 {
-  "date": "2026-10-12",
+  "date": "2026-10-13",
   "stage": "brand new under 100 followers",
   "followers": 8,
-  "summary": "8 followers, 6 posts, 539 30-day views. Two reels with collaborator got 600-780 views but 64-75% skip rates. Zero Instagram DMs from all posts. Data is extremely thin: only 2 reels have retention metrics, no chatbot content yet.",
-  "guidance": "- Hook style to try next: **Demo Proof** — show a 5-second screen capture of a chatbot answering a real hotel/cafe query, then cut to result. Rotate away from Myth Bust and Presenter clock.\n- Avoid: generic \"24-hour delivery\" claims (used 3×), \"Rs 1,499\" price lead (used 2×), and static service carousels — they repeat and skip rates stay >60%.\n- Every post must show *your* code/UI: a live bot snippet, a dashboard screenshot, or a WhatsApp chat export. Never read like an ad; caption = one technical detail + one client outcome.",
+  "summary": "8 followers, 6 posts, 0 IG DMs. High skip rates (64-75%) show hooks fail in first 3s. Bio mentions Himachal niche and 24hr delivery — conflicts with rules. Free site check offer only allowed for website posts.",
+  "guidance": "- Rotate hook styles: try \"Story\" or \"Contrast\" next; avoid another \"Question\" hook (used 2/3 recent posts).\n- Skip rate >60% means first 3 seconds need visual + text promise of value for any Indian small business.\n- Shares high (51%) on presenter reel — keep human face + clear benefit.\n- View sources: 61% feed, 24% profile — optimise caption for feed scrollers.\n- Posts must read as developer sharing real work, never an ad. No demos, no niche targeting, no invented results.",
   "instructions": {
-    "research": "Find 3 Himachal hotels/homestays with active WhatsApp Business but no chatbot. Note their common FAQs (booking, menu, directions).",
-    "analysis": "Compare the two reel retention curves: both drop steeply in first 3s. Hypothesis: opening text overlay is too slow. Test a 1-second visual hook (bot typing animation) before any text.",
-    "writer": "Write a 90-character Hinglish hook: \"Yeh bot 2 min mein hotel ka menu, booking aur location — sab handle karta hai. Demo:\" + link to 15-sec Reel.",
-    "image": "Create a split-frame carousel: left = chaotic WhatsApp inbox (blurred), right = clean bot reply flow. Overlay: \"From 50 msgs/day to 0 manual replies.\"",
-    "video": "Record a 15-sec vertical screen capture: open chatbot builder → paste hotel FAQ → deploy → test in WhatsApp. No face, no voiceover. Add captions at 0.5s, 3s, 8s."
+    "research": "Find 2-3 relatable Indian small-business scenarios (e.g. a Jaipur jeweller, a Kochi cafe, a Delhi coaching centre) where short animated ads could replace static posts. Note common pain points: low reach, high creative cost, slow turnaround.",
+    "analysis": "Compare the two published reels: presenter clock (614 views, 51% share) vs cafe preview (783 views, 0.4% share). Presenter format drives shares; preview format drives views but not action. For AI animated ads, use presenter style with on-screen text showing ad frames.",
+    "writer": "Write a 90-120 word caption: open with a visual hook line (e.g. \"Static posts scroll past. Motion stops them.\"), show the problem generically, explain how AI animated ads work in one sentence, end with \"Pay after you approve. DM to see if it fits.\" No niche, no guarantees, no demo offer.",
+    "image": "Create a single carousel slide: left side a static post example (generic product photo), right side the same frame animated (subtle motion arrows). Caption overlay: \"Same asset. Motion added. ₹X after approval.\" No client names, no region.",
+    "video": "Record a 15-20s reel: you at desk, phone screen shows a generic static post, then the same post animates (text pops, image pans). Voiceover: \"AI turns your existing creatives into short motion ads. You approve, then pay. DM me.\" First 3s must show the before/after side by side."
   },
   "manual_tips": [
-    "Comment on 5 Himachal hotel/cafe Instagram posts with a genuine question about their WhatsApp enquiry volume (no pitch).",
-    "Reply to every story mention of \"WhatsApp Business\" or \"online booking\" from local pages with a helpful tip (e.g., \"Quick reply templates save 30 min/day\").",
-    "Post a 30-sec Reel to your personal WhatsApp status (not Instagram) showing the chatbot demo; ask 3 contacts for raw feedback on clarity."
+    "Update bio: remove \"Himachal\", \"24 hrs\", and \"Free 2-min site check\". Keep only: \"Websites, AI chatbots, AI animated ads, lead gen for small businesses across India. Pay after approval. DM to chat.\"",
+    "Comment thoughtfully on 5 posts from Indian small-business accounts (cafes, gyms, D2C brands) — ask a genuine question about their current ad creatives, no self-promo.",
+    "Reply to the 1 comment on your latest reel (if any) with a follow-up question about their lead flow, steering toward a DM conversation."
   ]
 }

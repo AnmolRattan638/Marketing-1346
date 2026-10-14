@@ -1,19 +1,26 @@
 {
-  "date": "2026-10-13",
+  "date": "2026-10-14",
   "stage": "brand new under 100 followers",
-  "followers": 8,
-  "summary": "8 followers, 6 posts, 0 IG DMs. High skip rates (64-75%) show hooks fail in first 3s. Bio mentions Himachal niche and 24hr delivery — conflicts with rules. Free site check offer only allowed for website posts.",
-  "guidance": "- Rotate hook styles: try \"Story\" or \"Contrast\" next; avoid another \"Question\" hook (used 2/3 recent posts).\n- Skip rate >60% means first 3 seconds need visual + text promise of value for any Indian small business.\n- Shares high (51%) on presenter reel — keep human face + clear benefit.\n- View sources: 61% feed, 24% profile — optimise caption for feed scrollers.\n- Posts must read as developer sharing real work, never an ad. No demos, no niche targeting, no invented results.",
+  "followers": 9,
+  "summary": "Account is brand new with 9 IG followers, 1 LI, 1 BS. Only 3 posts in 30 days — too little data for patterns. IG bio violates rules: niches (hotels, cafes, gyms, homestays), region (Himachal), timeframe (24 hrs), free offer (site check). Zero DMs from posts.",
+  "guidance": "- Hook style to try next: **Story** — show a relatable moment (e.g., owner scrolling reels at night, realising script is the bottleneck). Rotate from Question/Contrast/Myth Bust.\n- Avoid: \"24 hrs\", \"Rs 1499\", \"Himachal\", niche lists (hotels/cafés/gyms), \"free site check\", any demo/sample language.\n- Posts must read like a developer sharing real work, not an ad. No outcome guarantees.\n- First 3 seconds matter: both reels had 64–75% skip rate. Open with a visual/text hook that states the problem in 1 line, no logo/intro.",
   "instructions": {
-    "research": "Find 2-3 relatable Indian small-business scenarios (e.g. a Jaipur jeweller, a Kochi cafe, a Delhi coaching centre) where short animated ads could replace static posts. Note common pain points: low reach, high creative cost, slow turnaround.",
-    "analysis": "Compare the two published reels: presenter clock (614 views, 51% share) vs cafe preview (783 views, 0.4% share). Presenter format drives shares; preview format drives views but not action. For AI animated ads, use presenter style with on-screen text showing ad frames.",
-    "writer": "Write a 90-120 word caption: open with a visual hook line (e.g. \"Static posts scroll past. Motion stops them.\"), show the problem generically, explain how AI animated ads work in one sentence, end with \"Pay after you approve. DM to see if it fits.\" No niche, no guarantees, no demo offer.",
-    "image": "Create a single carousel slide: left side a static post example (generic product photo), right side the same frame animated (subtle motion arrows). Caption overlay: \"Same asset. Motion added. ₹X after approval.\" No client names, no region.",
-    "video": "Record a 15-20s reel: you at desk, phone screen shows a generic static post, then the same post animates (text pops, image pans). Voiceover: \"AI turns your existing creatives into short motion ads. You approve, then pay. DM me.\" First 3s must show the before/after side by side."
+    "research": "Find 3 real Indian small-business reels (café, gym, coaching) that use voiceover + text overlay but have weak scripts — note the missing hook, rambling middle, no CTA. Do not name businesses.",
+    "analysis": "Compare the two published reels: the '24 clock' reel had 51% share rate despite 64% skip — the speed promise resonated. The 'live preview' reel had 75% skip, 0.4% shares — passive viewing. For script writing, lead with the pain of blank screen, not the deliverable.",
+    "writer": "Write a 60–90 sec reel script about 'Reel script writing' service. Hook: business owner staring at blank caption at 11 PM. Middle: show 3-script structure (hook, value, CTA) in a split-screen example labelled 'Example only'. End: 'Pay after you approve the script — DM me'. No niche, no region, no timeframe.",
+    "image": "Create a static carousel slide 1: photo of a phone with a half-typed caption, text overlay 'Stuck at the first line?' Slide 2: three bullet frames labelled 'Hook / Value / CTA — example structure'. Slide 3: 'Pay after approval • DM to discuss'. Clean, code-editor aesthetic.",
+    "video": "Shoot a 45-sec reel: you at desk, typing a script structure on screen (record screen, no face needed). Voiceover: 'Most reels lose viewers in 3 seconds. A script fixes that.' Show the three-part template. Caption: 'I write reel scripts for any Indian small business. Pay after approval. DM me.'"
   },
   "manual_tips": [
-    "Update bio: remove \"Himachal\", \"24 hrs\", and \"Free 2-min site check\". Keep only: \"Websites, AI chatbots, AI animated ads, lead gen for small businesses across India. Pay after approval. DM to chat.\"",
-    "Comment thoughtfully on 5 posts from Indian small-business accounts (cafes, gyms, D2C brands) — ask a genuine question about their current ad creatives, no self-promo.",
-    "Reply to the 1 comment on your latest reel (if any) with a follow-up question about their lead flow, steering toward a DM conversation."
+    "Update Instagram bio to: 'Websites, AI chatbots, animated ads & reel scripts for small businesses across India. Pay after approval. DM for honest advice.' Remove niches, region, price, timeframe, free offer.",
+    "Comment thoughtfully on 5 reels from Indian small businesses (café, gym, coaching, salon, D2C) — ask a genuine question about their content process, no self-promo.",
+    "Post one Instagram Story showing your code editor with a script template open, text: 'Building a reel script template for any business. What's your biggest blocker?' Use poll sticker: 'Hook / Structure / CTA / Time'."
+  ],
+  "weak_signals": [
+    {
+      "id": "no_posts_seen",
+      "platform": "linkedin",
+      "detail": "connected through Zernio but no posts found (LinkedIn only reports posts published through Zernio)"
+    }
   ]
 }

@@ -1,5 +1,4 @@
-- Rotate hook styles: try "Story" or "Contrast" next; avoid another "Question" hook (used 2/3 recent posts).
-- Skip rate >60% means first 3 seconds need visual + text promise of value for any Indian small business.
-- Shares high (51%) on presenter reel — keep human face + clear benefit.
-- View sources: 61% feed, 24% profile — optimise caption for feed scrollers.
-- Posts must read as developer sharing real work, never an ad. No demos, no niche targeting, no invented results.
+- Hook style to try next: **Story** — show a relatable moment (e.g., owner scrolling reels at night, realising script is the bottleneck). Rotate from Question/Contrast/Myth Bust.
+- Avoid: "24 hrs", "Rs 1499", "Himachal", niche lists (hotels/cafés/gyms), "free site check", any demo/sample language.
+- Posts must read like a developer sharing real work, not an ad. No outcome guarantees.
+- First 3 seconds matter: both reels had 64–75% skip rate. Open with a visual/text hook that states the problem in 1 line, no logo/intro.

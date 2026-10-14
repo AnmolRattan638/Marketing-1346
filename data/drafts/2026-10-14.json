@@ -1,0 +1,135 @@
+{
+  "id": "2026-10-14-0a4bf0",
+  "date": "2026-10-14",
+  "status": "pending",
+  "service": "reel_scripts",
+  "topic": "The 'Blank Screen' Paralysis",
+  "hooks": [
+    {
+      "style": "Story",
+      "text": "Midnight scroll, blank screen—until I realized script was the missing key."
+    },
+    {
+      "style": "Question",
+      "text": "Ever stare at a black Reel editor and feel stuck?"
+    },
+    {
+      "style": "Myth Bust",
+      "text": "Myth: Great reels start with flashy intros—not a single word."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "Story",
+  "posts": {
+    "instagram": "𝗕𝗟𝗔𝗡𝗞 𝗦𝗖𝗥𝗘𝗘𝗡 𝗦𝗧𝗢𝗣𝗦 𝗣𝗢𝗦𝗧𝗜𝗡𝗚 𝗖𝗢𝗡𝗦𝗜𝗦𝗧𝗘𝗡𝗖𝗬\n→ Script gives direction and cuts filming time for reels in three frames.\n→ Clear outline hits audience pain points and keeps posting regular.\n𝗥𝗘𝗘𝗟 𝗪𝗥𝗜𝗧𝗜𝗡𝗚\nDM 𝗦𝗖𝗥𝗜𝗣𝗧 and tell me what you sell\n\n#SmallBusinessIndia #WebDev #ScriptIdeas",
+    "linkedin": "𝗕𝗟𝗔𝗡𝗞 𝗦𝗖𝗥𝗘𝗘𝗡 𝗦𝗧𝗢𝗣𝗦 𝗣𝗢𝗦𝗧𝗜𝗡𝗚 𝗖𝗢𝗡𝗦𝗜𝗦𝗧𝗘𝗡𝗖𝗬\n\n→ Script gives direction and cuts filming time for reels in three frames.\n\n→ Clear outline hits audience pain points and keeps posting regular.\n\n→ One script structure hooks value CTA in split screen example only.\n\nSmall businesses often post reels without a clear hook, which can lead to fewer viewers.\n\nA simple script can improve reel performance.\n\n𝗥𝗘𝗘𝗟 𝗪𝗥𝗜𝗧𝗜𝗡𝗚 defines the script flow.\n\nDM 𝗦𝗖𝗥𝗜𝗣𝗧 and tell me what you sell",
+    "bluesky": "𝗕𝗟𝗔𝗡𝗞 𝗦𝗖𝗥𝗘𝗘𝗡 stops posting consistency. DM 𝗦𝗖𝗥𝗜𝗣𝗧 for a quick outline."
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi there! Script writing starts at INR 299 and goes up to 999 depending on the length and turnaround. You only pay after you approve the work. Quick question: whats the main thing your customers ask about most - a booking link, a price list, or something else?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "I work with all sorts of small businesses across India cafes clinics gyms you name it. The goal is always clearer communication with customers. Quick question: is your biggest challenge getting replies keeping posts consistent or something else?"
+    },
+    {
+      "if_they_say": "can you send a demo or sample?",
+      "reply": "I keep things honest: I dont share personalised demos or samples but I can explain how a 3-script structure works in general. Quick question: whats the main bottleneck your customers face when trying to reach you?"
+    }
+  ],
+  "image": {
+    "prompt": "Premium commercial photography of a sleek laptop on a dark walnut desk at midnight. The dim screen displays a single blinking vertical cursor. A steaming ceramic mug sits beside the device. Dramatic natural lighting with a warm yellow lamp glow. Shallow depth of field. The lower forty percent is a clean, smooth, dark wooden surface. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, professional commercial lighting, rich natural colour, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-10-14.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "style": "bold",
+      "headline": "Midnight scroll and a blank screen",
+      "highlight": [
+        "blank screen"
+      ],
+      "sub": "The script is usually the bottleneck.",
+      "cta": "DM \"SCRIPT\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": []
+  },
+  "instagram_mode": "manual_reel",
+  "video": {
+    "hook_first_3s": "Midnight scroll, blank screen—until I realized the script was missing.",
+    "continuity": "A person wearing a grey oversized t-shirt in a minimalist home office. Setting features a dark wood desk, a warm desk lamp providing soft ambient lighting, and a muted color palette. Cinematic vertical 4k style, shallow depth of field, focused on real work movements.",
+    "parts": [
+      {
+        "time": "0-10s",
+        "voiceover": "Midnight scroll, blank screen—until I realized the script was the missing key.",
+        "flow_prompt": "A person wearing a grey oversized t-shirt in a minimalist home office. Setting features a dark wood desk, a warm desk lamp providing soft ambient lighting, and a muted color palette. Cinematic vertical 4k style, shallow depth of field, focused on real work movements.\n\nVertical close-up shot. Starts with a hand scrolling through Instagram reels on a smartphone in a dimly lit room. Within 3 seconds, cut to a shot of a laptop screen showing a completely blank white Google Doc. Warm ambient lighting from a desk lamp, cinematic feel. Voiceover: 'Midnight scroll, blank screen—until I realized the script was the missing key.'"
+      },
+      {
+        "time": "10-20s",
+        "voiceover": "I stopped guessing and started using a structure: a strong hook, a quick value point, and a clear call to action.",
+        "flow_prompt": "A person wearing a grey oversized t-shirt in a minimalist home office. Setting features a dark wood desk, a warm desk lamp providing soft ambient lighting, and a muted color palette. Cinematic vertical 4k style, shallow depth of field, focused on real work movements.\n\nVertical over-the-shoulder shot. A person typing on a laptop. The screen shows a document being filled with a clear three-part structure: 'Hook', 'Value', and 'CTA'. Focus on the screen and the rhythmic typing of the keyboard. Muted colors, professional home office setting. Voiceover: 'I stopped guessing and started using a structure: a strong hook, a quick value point, and a clear call to action.'"
+      },
+      {
+        "time": "20-30s",
+        "voiceover": "Now the filming takes minutes, not hours. DM me 'SCRIPTS' if you need help with your content.",
+        "flow_prompt": "A person wearing a grey oversized t-shirt in a minimalist home office. Setting features a dark wood desk, a warm desk lamp providing soft ambient lighting, and a muted color palette. Cinematic vertical 4k style, shallow depth of field, focused on real work movements.\n\nVertical mid-shot. A person in a grey oversized t-shirt leaning back in an ergonomic chair at a dark wood desk, slowly closing a laptop lid. Soft warm lighting, clean background. The person looks relaxed and satisfied. Cinematic camera movement, slight zoom out. Voiceover: 'Now the filming takes minutes, not hours. DM me 'SCRIPTS' if you need help with your content.'"
+      }
+    ],
+    "voiceover": "Midnight scroll, blank screen—until I realized the script was the missing key. I stopped guessing and started using a structure: a strong hook, a quick value point, and a clear call to action. Now the filming takes minutes, not hours. DM me 'SCRIPTS' if you need help with your content."
+  },
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "LinkedIn draft contains an absolute outcome claim \"A simple script changes the whole performance.\" which should be softened to a non‑guaranteed statement."
+    ],
+    "revised": {
+      "instagram": "**BLANK SCREEN STOPS POSTING CONSISTENCY**\n→ Script gives direction and cuts filming time for reels in three frames.\n→ Clear outline hits audience pain points and keeps posting regular.\n**REEL** **WRITING**\nDM **SCRIPT** and tell me what you sell\n\n#SmallBusinessIndia #WebDev #ScriptIdeas",
+      "linkedin": "**BLANK SCREEN STOPS POSTING CONSISTENCY**\n\n→ Script gives direction and cuts filming time for reels in three frames.\n\n→ Clear outline hits audience pain points and keeps posting regular.\n\n→ One script structure hooks value CTA in split screen example only.\n\nSmall businesses often post reels without a clear hook, which can lead to fewer viewers.\n\nA simple script can improve reel performance.\n\n**REEL** **WRITING** defines the script flow.\n\nDM **SCRIPT** and tell me what you sell",
+      "bluesky": "**BLANK** **SCREEN** stops posting consistency. DM **SCRIPT** for a quick outline."
+    }
+  },
+  "ad_score": 10,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "google:gemma-4-26b-a4b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-lightning:free",
+      "FAILED google:gemini-3.8-flash (ProviderDown)",
+      "google:gemma-4-31b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 3.8,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 131.4,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 5.9,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 244.8,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      }
+    ]
+  }
+}

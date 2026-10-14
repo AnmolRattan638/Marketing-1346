@@ -1,6 +1,35 @@
 {
   "posts": [
     {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mxsp6ba7xm2p",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mxsp6ba7xm2p",
+      "published_at": "2026-10-14T04:22:44.634863+00:00",
+      "text": "𝗕𝗟𝗔𝗡𝗞 𝗦𝗖𝗥𝗘𝗘𝗡 stops posting consistency. DM 𝗦𝗖𝗥𝗜𝗣𝗧 for a quick outline.",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-14",
+        "service": "reel_scripts",
+        "hook_style": "Story",
+        "topic": "The 'Blank Screen' Paralysis"
+      }
+    },
+    {
       "platform": "instagram",
       "id": "18419182012156606",
       "url": "https://www.instagram.com/p/DeYyGo7jje5/",
@@ -9,9 +38,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 201,
-        "reach": 88,
-        "views": 201,
+        "impressions": 205,
+        "reach": 89,
+        "views": 205,
         "likes": 9,
         "comments": 0,
         "shares": 1,
@@ -75,6 +104,35 @@
         "shares": 0,
         "saves": null,
         "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-10",
+        "service": "website",
+        "hook_style": "Myth Bust",
+        "topic": "The 'Missing Website' Trust Gap"
+      }
+    },
+    {
+      "platform": "linkedin",
+      "id": "urn:li:share:7514709732507512833",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7514709732507512833/",
+      "published_at": "2026-10-10T15:33:37.687Z",
+      "text": "Google Maps gets you discovered, but a missing website loses trust.\n\nBrowsing homestays across Himachal, I noticed a repeating issue: great Google ratings, but ",
+      "format": "text",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 113,
+        "reach": 76,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
         "reposts": null,
         "skip_rate": null,
         "avg_watch_s": null,
@@ -196,7 +254,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 2
+      "posts": 3
     }
   },
   "coverage": {
@@ -208,7 +266,7 @@
     "linkedin": {
       "source": "zernio",
       "ok": true,
-      "note": "connected through Zernio but no posts found (LinkedIn only reports posts published through Zernio)"
+      "note": null
     },
     "bluesky": {
       "source": "bluesky",
@@ -245,5 +303,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-14T03:54:00+00:00"
+  "updated_at": "2026-10-14T11:55:00+00:00"
 }

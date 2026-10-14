@@ -319,7 +319,7 @@ def sync(env=None, get=None, now=None, alert=None):
             accounts[p] = {**(accounts.get(p) or {}), **{k: v for k, v in (results[chosen][1].get(p) or {}).items() if v is not None}}
             note = None
             if not prows and chosen == "zernio":
-                note = ("connected through Zernio but no posts found" + (" (LinkedIn only reports posts published through Zernio)" if p == "linkedin" else ""))
+                note = ("connected through Zernio but no posts found" + (" (LinkedIn only reports posts published through Zernio; the owner's own LinkedIn numbers are in the manual stats)" if p == "linkedin" else ""))
             coverage[p] = {"source": chosen, "ok": True, "note": note}
             rows += prows
         else:

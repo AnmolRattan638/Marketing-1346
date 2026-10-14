@@ -20,7 +20,7 @@ BRAND RULES (binding: nothing you write, including the agent instructions and th
 Audience and positioning: {(brand or {}).get('positioning', '')}
 {live}
 Recent posts (topic, service, hook style, status): {json.dumps(history[-14:], ensure_ascii=False)[:3500]}
-Manual account/performance stats entered by the owner (followers, likes, posts, comments; may be empty): {json.dumps(metrics, ensure_ascii=False)[:4000]}
+Manual account/performance stats entered by the owner (followers, likes, posts, comments; may be empty): {json.dumps(metrics, ensure_ascii=False)[:9000]}
 
 1) Classify the account stage (e.g. brand new under 100 followers, building trust, growing).
 2) Say what the data suggests works or not (be honest if there is too little data).

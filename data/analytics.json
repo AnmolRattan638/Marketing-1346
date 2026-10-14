@@ -38,9 +38,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 205,
-        "reach": 89,
-        "views": 205,
+        "impressions": 220,
+        "reach": 92,
+        "views": 220,
         "likes": 9,
         "comments": 0,
         "shares": 1,
@@ -125,8 +125,8 @@
       "format": "text",
       "source": "zernio",
       "metrics": {
-        "impressions": 113,
-        "reach": 76,
+        "impressions": 115,
+        "reach": 77,
         "views": null,
         "likes": 0,
         "comments": 0,
@@ -154,17 +154,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 144,
+        "impressions": 145,
         "reach": 98,
-        "views": 144,
+        "views": 145,
         "likes": 8,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 73.6,
-        "avg_watch_s": 5.305,
+        "skip_rate": 72.9,
+        "avg_watch_s": 5.276,
         "duration_s": 40
       },
       "matched": null
@@ -178,9 +178,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 129,
+        "impressions": 130,
         "reach": 33,
-        "views": 129,
+        "views": 130,
         "likes": 3,
         "comments": 0,
         "shares": 0,
@@ -202,9 +202,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 401,
+        "impressions": 402,
         "reach": 156,
-        "views": 401,
+        "views": 402,
         "likes": 9,
         "comments": 7,
         "shares": 0,
@@ -226,16 +226,16 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 790,
+        "impressions": 791,
         "reach": 389,
-        "views": 790,
+        "views": 791,
         "likes": 34,
         "comments": 7,
         "shares": 2,
         "saves": 1,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 75,
+        "skip_rate": 74.8,
         "avg_watch_s": 7.761,
         "duration_s": 62
       },
@@ -303,5 +303,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-14T11:55:00+00:00"
+  "updated_at": "2026-10-14T17:12:22+00:00"
 }

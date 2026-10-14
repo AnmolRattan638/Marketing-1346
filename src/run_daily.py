@@ -3,7 +3,7 @@ import datetime as dt
 import os, secrets
 import sys, traceback
 import requests
-from . import config, llm, tg
+from . import captions, config, llm, tg
 from .agents import analysis, factcheck, image, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
@@ -110,6 +110,7 @@ def main():
                 if k in posts and v:
                     posts[k] = v[:300] if k == "bluesky" else v
             fc = fc2
+        posts = captions.finalize_posts(posts)             # LAST: markers -> real bold, layout tidy, Bluesky <= 300 (fact-check may have rewritten the text)
         img = stage("image", lambda: image.run(plan, focus, today, g('image')), fallback={"prompt": None, "path": None})
         if img.get("engine") == "text_card" or not img.get("path"):
             WARNINGS.append(("image: AI engines failed, used a plain text card. " if img.get("path") else "image: no image at all. ") + " | ".join(dict.fromkeys(img.get("errors", [])))[:400])

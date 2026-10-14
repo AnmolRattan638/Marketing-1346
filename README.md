@@ -44,6 +44,14 @@ Telegram: approvals are polled with `getUpdates`, so the bot must have **no webh
 Actions -> **Daily draft** -> Run workflow (or wait for 08:00 IST). After sending the draft, the run stays alive (up to 5 hours) and publishes within seconds of your Approve tap. It shows as 'in progress' while it waits. **Approve and publish** is only a safety net for taps made after that window (it checks every 10 minutes); it skips itself while Daily draft is running.
 A draft is marked `publishing` before anything is posted. If a run is killed mid-publish, tapping Approve again will NOT re-post; check your accounts and run Daily draft with *force* if you want a fresh draft.
 
+## Captions and images
+**Captions** are short and scannable, not paragraphs: a hook line in CAPITALS and bold, 2-3 short `→` lines, a DM line with the keyword in bold, then hashtags (Instagram). Limits: Instagram image 35-60 words, reel 25-45, LinkedIn 70-120 (one sentence per line), Bluesky under 260 characters. If the writer overshoots it is asked once to shorten. The format lives in `config/voice.md` ("Caption format") and the writer prompt.
+- Instagram, LinkedIn and Bluesky have no real bold, so emphasis is Unicode bold letters (like 𝗧𝗵𝗶𝘀). It is applied last, after fact-check and ad-review, on at most 6 short spans, never on hashtags, handles or links. Trade-off: screen readers spell it out and bold words are not searchable. `UNICODE_BOLD=0` (a variable) keeps the CAPITALS but drops the bold.
+
+**Images** are now a topic-specific AI picture (a concrete scene, not an empty background) with the hook, tag and DM pill drawn on top in real fonts (image models garble lettering, so they are never asked for text), 1080x1350. Chat cards (customer-message posts) are still the designed chat card. If no AI engine works you get the designed text card, then a plain card. `IMAGE_VISUALS=0` goes back to text cards only.
+- **Permanent quality prompt:** `config/image_style.json` has a `quality_suffix` that is appended to *every* prompt sent to Cloudflare FLUX, Gemini and Pollinations (inside each engine, so none can skip it). Edit it there; keep it positive (say what you want, not what to avoid).
+- Honest limit: a prompt cannot add pixels. The suffix pushes the model toward sharper, more detailed output; actual resolution comes from asking each engine for portrait size (FLUX at its maximum 8 steps, Gemini with a 4:5 ratio, Pollinations 1080x1350), a sharpening pass after upscaling, and saving at the best JPEG quality that stays under 900 KB. Picture cards carry the IPTC "AI generated" marker.
+
 ## Tests
 `tests/*_test.py` run offline (no keys, no network): `for t in tests/*_test.py; do python $t; done`. The **CI** workflow runs pyflakes and these tests on every push and pull request.
 

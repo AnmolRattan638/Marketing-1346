@@ -29,7 +29,7 @@ Return JSON: {{"stage": "...", "followers": <number or null>, "summary": "<=60 w
 
 
 def review(posts):
-    prompt = f"""Score how much each draft sounds like an advertisement (1 = a developer genuinely showing real work, 10 = pure ad). Score 7+ if it does not show a specific, concrete piece of work or reads like a sales pitch.
+    prompt = f"""Score how much each draft sounds like an advertisement (1 = a developer genuinely showing real work, 10 = pure ad). Score 7+ if it does not show a specific, concrete piece of work or reads like a sales pitch. IGNORE the required caption format: a CAPITAL hook line, a few CAPITAL **bold-marked** keywords, short \"→\" lines and a keyword DM line are the house style, NOT a sign of advertising.
 Drafts: {json.dumps(posts, ensure_ascii=False)}
 Return JSON: {{"ad_score": <1-10 worst of the three>, "notes": "<specific rewrite instructions, empty if fine>"}}"""
     return llm.ask_json(llm.strategist_model, prompt, SYS)

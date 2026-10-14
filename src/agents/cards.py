@@ -4,7 +4,7 @@ The LLM only supplies the words; the layout is deterministic, so the result is a
 """
 import pathlib
 import re
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from .. import llm
 
 W, H = 1080, 1350
@@ -95,6 +95,45 @@ def render_bold(spec, path):
         lines = _wrap(d, [(w, MUTED) for w in spec["sub"].split()], sf, 900)[:4]
         _draw_lines(d, lines, sf, 70, y_end + 86, 62)
     im.save(path, "JPEG", quality=92)
+
+
+def _smooth(t):
+    t = max(0.0, min(1.0, t))
+    return t * t * (3 - 2 * t)
+
+
+def compose_visual(spec, bg_path):
+    """An AI picture as a full-bleed 4:5 background, darkened behind the text, with the hook, tag and DM pill in real fonts.
+    Image models garble lettering, so they are never asked for text. Returns a 1080x1350 RGB image."""
+    bg = Image.open(bg_path).convert("RGB")
+    scale = max(W / bg.width, H / bg.height)                           # cover-fit, then centre-crop to 4:5
+    bg = bg.resize((round(bg.width * scale), round(bg.height * scale)), Image.LANCZOS)
+    left, top = (bg.width - W) // 2, (bg.height - H) // 2
+    im = bg.crop((left, top, left + W, top + H))
+    if scale > 1.05:                                                   # undo some of the softness of upscaling
+        im = im.filter(ImageFilter.UnsharpMask(radius=1.4, percent=70, threshold=3))
+    # measure the text first, so the dark scrim can be anchored to where the headline really starts
+    sizes = (112, 104, 96, 88, 80, 72)
+    probe = ImageDraw.Draw(Image.new("RGB", (W, H)))
+    _, h = _headline(probe, spec["headline"], spec.get("highlight"), 70, 0, 940, 520, sizes, 5)
+    sub_lines = []
+    if spec.get("sub"):
+        sub_lines = _wrap(probe, [(w, MUTED) for w in spec["sub"].split()], font("Medium", 40), 900)[:2]
+    block = h + 58 + (len(sub_lines) * 56 + 22 if sub_lines else 0)
+    y0 = max(300, 1150 - block)
+    ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    od = ImageDraw.Draw(ov)
+    for y in range(H):                                                 # light at the top for the tag, strong from just above the headline down
+        a = max(int(218 * _smooth((y - (y0 - 400)) / 380)), int(150 * (1 - _smooth(y / 300))), 24)
+        od.line([(0, y), (W, y)], fill=(5, 8, 16, a))
+    im = Image.alpha_composite(im.convert("RGBA"), ov).convert("RGB")
+    d = ImageDraw.Draw(im)
+    _top_and_footer(d, spec.get("tag") or "FOR EVERY SMALL BUSINESS", spec.get("cta"))
+    y_end, _ = _headline(d, spec["headline"], spec.get("highlight"), 70, y0, 940, 520, sizes, 5)
+    d.rounded_rectangle([70, y_end + 34, 70 + 150, y_end + 44], radius=5, fill=ACCENT)
+    if sub_lines:
+        _draw_lines(d, sub_lines, font("Medium", 40), 70, y_end + 72, 56)
+    return im
 
 
 def _bubble_lines(d, text, fnt, maxw):

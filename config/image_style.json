@@ -1,0 +1,4 @@
+{
+  "_comment": "quality_suffix is appended to EVERY image-generation prompt (Cloudflare FLUX, Gemini, Pollinations). Edit it here; it is never skipped. Keep it positive (say what you want, not what to avoid): image models tend to draw whatever the prompt names.",
+  "quality_suffix": "Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, professional commercial lighting, rich natural colour, high dynamic range, premium polished finish, vertical 4:5 composition."
+}

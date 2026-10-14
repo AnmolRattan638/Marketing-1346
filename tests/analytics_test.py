@@ -266,6 +266,9 @@ strategist.guide([], {}, {"name": "Chatbot"}, "2026-10-13", {"facts_rules": []},
 assert "DIGEST-MARK" in seen["p"] and "NOT zero" in seen["p"] and "weakest area" in seen["p"] and "Live analytics are NOT available" not in seen["p"]
 strategist.guide([], {}, {"name": "Chatbot"}, "2026-10-13", {"facts_rules": []})
 assert "Live analytics are NOT available" in seen["p"]
+# manual stats grow every time the owner adds a screenshot's numbers: the END of a long file must still reach the strategist
+strategist.guide([], {"filler": "x" * 6000, "linkedin": "TAIL-MARK-LINKEDIN"}, {"name": "Chatbot"}, "2026-10-13", {"facts_rules": []})
+assert "TAIL-MARK-LINKEDIN" in seen["p"], "metrics.json was silently cut off before the end"
 # bold-formatted drafts (Unicode bold) still match the posted text, whether the platform keeps the bold or flattens it
 from src import captions as _C
 bold_draft = {"date": "2026-10-12", "status": "published", "service": "chatbot", "topic": "T", "hook_style": "Q",

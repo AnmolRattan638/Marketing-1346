@@ -1,0 +1,249 @@
+{
+  "posts": [
+    {
+      "platform": "instagram",
+      "id": "18419182012156606",
+      "url": "https://www.instagram.com/p/DeYyGo7jje5/",
+      "published_at": "2026-10-12T08:16:17.000Z",
+      "text": "Tired of answering the same 5 questions on repeat? Hotel café aur clinic wale roz sawaal jaise 'kahan hain?', 'ghante kya hain?', 'price kya?'—har reply ek chot",
+      "format": "image",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 201,
+        "reach": 88,
+        "views": 201,
+        "likes": 9,
+        "comments": 0,
+        "shares": 1,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-12",
+        "service": "chatbot",
+        "hook_style": "question",
+        "topic": "Your customers ask the same 5 questions every day. Your phone doesn't."
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mxo3bszd662l",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mxo3bszd662l",
+      "published_at": "2026-10-12T08:16:10.482343+00:00",
+      "text": "Answering the same 5 questions every day drains your time. I sketch lightweight WhatsApp chatbot flows for hotels, cafes and clinics that reply instantly—custom",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-12",
+        "service": "chatbot",
+        "hook_style": "question",
+        "topic": "Your customers ask the same 5 questions every day. Your phone doesn't."
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mxjss7vrzj2i",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mxjss7vrzj2i",
+      "published_at": "2026-10-10T15:33:38.747010+00:00",
+      "text": "A Google Maps listing gets a homestay noticed, but without a website link, guests hesitate and move on. Built a clean mobile demo concept with a direct WhatsApp",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 1,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-10",
+        "service": "website",
+        "hook_style": "Myth Bust",
+        "topic": "The 'Missing Website' Trust Gap"
+      }
+    },
+    {
+      "platform": "instagram",
+      "id": "18188406346402194",
+      "url": "https://www.instagram.com/reel/DdI9d_ipRYK/",
+      "published_at": "2026-09-11T08:21:04.000Z",
+      "text": "#ARDesigns #WebDevelopment\n\n#FreelanceWebDeveloper\n\n#WebDesignerIndia #Himachal Pradesh\n\nDigitalMarketingIndia AIChatbot\n\nBusinessGrowth SmallBusinessIndia\n\nSta",
+      "format": "reel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 144,
+        "reach": 98,
+        "views": 144,
+        "likes": 8,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": 73.6,
+        "avg_watch_s": 5.305,
+        "duration_s": 40
+      },
+      "matched": null
+    },
+    {
+      "platform": "instagram",
+      "id": "18133254256648347",
+      "url": "https://www.instagram.com/p/DdEeXU0nzpp/",
+      "published_at": "2026-09-09T14:27:25.000Z",
+      "text": "#ARDesigns #WebDevelopment\n\n#FreelanceWebDeveloper\n\n#WebDesignerIndia #Himachal Pradesh\n\nDigitalMarketingIndia AIChatbot\n\nBusinessGrowth SmallBusinessIndia\n\nSta",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 129,
+        "reach": 33,
+        "views": 129,
+        "likes": 3,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": null
+    },
+    {
+      "platform": "instagram",
+      "id": "18074462507418981",
+      "url": "https://www.instagram.com/p/DcyZtGNp9jL/",
+      "published_at": "2026-09-02T14:00:24.000Z",
+      "text": "#WebDesigner#VideoEditing#FreelanceWebDesigner#marketing#viral",
+      "format": "image",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 401,
+        "reach": 156,
+        "views": 401,
+        "likes": 9,
+        "comments": 7,
+        "shares": 0,
+        "saves": 3,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": null
+    },
+    {
+      "platform": "instagram",
+      "id": "17905744611507089",
+      "url": "https://www.instagram.com/reel/DctQakzpOs4/",
+      "published_at": "2026-08-31T14:03:44.000Z",
+      "text": "AR Design website #ardesign #viral #websitedevelopment  #ᴠɪᴅᴇᴏᴇᴅɪᴛ",
+      "format": "reel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 790,
+        "reach": 389,
+        "views": 790,
+        "likes": 34,
+        "comments": 7,
+        "shares": 2,
+        "saves": 1,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": 75,
+        "avg_watch_s": 7.761,
+        "duration_s": 62
+      },
+      "matched": null
+    }
+  ],
+  "accounts": {
+    "instagram": {
+      "followers": 9,
+      "username": "ar__designerx"
+    },
+    "linkedin": {
+      "followers": 1,
+      "username": "Anmol Rattan"
+    },
+    "bluesky": {
+      "followers": 1,
+      "following": 2,
+      "posts": 2
+    }
+  },
+  "coverage": {
+    "instagram": {
+      "source": "zernio",
+      "ok": true,
+      "note": null
+    },
+    "linkedin": {
+      "source": "zernio",
+      "ok": true,
+      "note": "connected through Zernio but no posts found (LinkedIn only reports posts published through Zernio)"
+    },
+    "bluesky": {
+      "source": "bluesky",
+      "ok": true,
+      "note": null
+    }
+  },
+  "sources": {
+    "bluesky": {
+      "ok": true,
+      "error": null,
+      "fails": 0
+    },
+    "instagram": {
+      "ok": null,
+      "error": "not configured",
+      "fails": 0
+    },
+    "zernio": {
+      "ok": true,
+      "error": null,
+      "fails": 0
+    }
+  },
+  "snapshots": [
+    {
+      "date": "2026-10-14",
+      "followers": {
+        "instagram": 9,
+        "linkedin": 1,
+        "bluesky": 1
+      }
+    }
+  ],
+  "ig_token": {},
+  "alerts": {},
+  "updated_at": "2026-10-14T03:54:00+00:00"
+}

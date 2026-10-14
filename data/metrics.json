@@ -1,44 +1,38 @@
 {
-  "note": "Entered by hand from the Instagram profile screen. Update every week or two.",
-  "as_of": "2026-10-10",
+  "note": "Entered by hand from the Instagram and LinkedIn insight screens (LinkedIn has no usable analytics API for personal profiles). Update every week or two.",
+  "as_of": "2026-10-14",
+  "linkedin": {
+    "as_of": "2026-10-14",
+    "source": "LinkedIn 'Content analytics' screen, last 7 days (Oct 8 to Oct 14), entered by hand",
+    "impressions_7d": 144,
+    "discovery_pct": {
+      "in_network_followers_and_connections": 27,
+      "out_of_network": 73
+    },
+    "reactions_7d": 1,
+    "comments_7d": 0,
+    "reposts_7d": 0,
+    "saves_7d": 0,
+    "sends_7d": 0,
+    "posts": [
+      {
+        "what": "Text-only post 'Google Maps gets you discovered, but a missing website loses trust.' (website)",
+        "impressions": 112,
+        "engagements": 0
+      },
+      {
+        "what": "Chat-card image post 'Small businesses across India spend hours each day answering the same...' (chatbot)",
+        "impressions": 32,
+        "engagements": 1
+      }
+    ]
+  },
   "instagram": {
     "followers": 8,
     "following": 14,
     "posts": 6,
     "views_last_30_days": 539,
     "bio": "Websites for hotels, cafes, gyms & homestays in Himachal. From Rs 1499, ready in 24 hrs. Free 2-min site check on WhatsApp. Link: anmolrattan.netlify.app",
-    "posts_by_views": [
-      {
-        "views": 783,
-        "format": "reel",
-        "what": "Cafe / Restaurant sample website 'Live Preview'"
-      },
-      {
-        "views": 614,
-        "format": "reel",
-        "what": "Presenter with '24' clock graphic (delivery speed)"
-      },
-      {
-        "views": 395,
-        "format": "image",
-        "what": "AR Designs services overview, 'DM Now'"
-      },
-      {
-        "views": 298,
-        "format": "reel",
-        "what": "AR Designs 'Elevate Your Digital Presence' services intro"
-      },
-      {
-        "views": 143,
-        "format": "reel",
-        "what": "Presenter: websites from Rs 1,499, delivered in 24 hrs, WhatsApp now"
-      },
-      {
-        "views": 125,
-        "format": "carousel",
-        "what": "Hotel sample site on a phone, Hinglish text 'Room ki photo nahi mili'"
-      }
-    ],
     "likes": "not shown on this screen",
     "dms_received": "0 on Instagram from all 6 posts (WhatsApp enquiries not checked yet)",
     "dms_received_instagram": 0,
@@ -92,6 +86,91 @@
         "saves": 1,
         "collab": "Collaboration with editorxyz_official and 2 others",
         "retention": "steep drop at the start, then nearly flat"
+      },
+      {
+        "what": "Reel 'BUY TEMPLATES STORE IS LIVE!' (templates store promo)",
+        "as_of": "2026-10-14",
+        "length_s": 10,
+        "views": 177,
+        "viewers": 87,
+        "avg_watch_s": 4,
+        "follows": null,
+        "skip_rate_pct": 76.6,
+        "share_rate_pct": 0.0,
+        "like_rate_pct": 12.8,
+        "save_rate_pct": 0.0,
+        "repost_rate_pct": 1.1,
+        "comment_rate_pct": 0.0,
+        "likes": 12,
+        "comments": 0,
+        "reposts": 1,
+        "shares": 0,
+        "saves": 0,
+        "collab": "Collaboration with shiven_xyz (views include the collaborator's audience)",
+        "retention": "28% still watching at 0:04 of 10 s, steady decline to about 0 by the end",
+        "views_over_time": "most views in the first few hours, nearly flat after about 10 h (177 after 21 h)"
+      }
+    ],
+    "post_insights": [
+      {
+        "what": "Chat card 'Tired of the same five questions?' (chatbot, published 2026-10-12)",
+        "as_of": "2026-10-14",
+        "views": 201,
+        "viewers": 89,
+        "profile_visits": 1,
+        "follows": 0,
+        "likes": 9,
+        "comments": 0,
+        "reposts": 0,
+        "shares": 1,
+        "saves": 0,
+        "view_sources_pct": {
+          "feed": 96.5,
+          "profile": 3.0
+        },
+        "collab": "Collaboration with editorxyz_official and shiven_xyz (views include the collaborators' audiences)"
+      }
+    ],
+    "posts_by_views": [
+      {
+        "views": 783,
+        "format": "reel",
+        "what": "Cafe / Restaurant sample website 'Live Preview'"
+      },
+      {
+        "views": 614,
+        "format": "reel",
+        "what": "Presenter with '24' clock graphic (delivery speed)"
+      },
+      {
+        "views": 395,
+        "format": "image",
+        "what": "AR Designs services overview, 'DM Now'"
+      },
+      {
+        "views": 298,
+        "format": "reel",
+        "what": "AR Designs 'Elevate Your Digital Presence' services intro"
+      },
+      {
+        "views": 201,
+        "format": "image",
+        "what": "Chat card 'Tired of the same five questions?' (chatbot, published 2026-10-12)"
+      },
+      {
+        "views": 177,
+        "format": "reel",
+        "what": "Reel 'BUY TEMPLATES STORE IS LIVE!' (templates store promo, 10 s)"
+      },
+      {
+        "views": 143,
+        "format": "reel",
+        "what": "Presenter: websites from Rs 1,499, delivered in 24 hrs, WhatsApp now"
+      },
+      {
+        "views": 125,
+        "format": "carousel",
+        "what": "Hotel sample site on a phone, Hinglish text 'Room ki photo nahi mili'"
       }
     ]
   }

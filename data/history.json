@@ -12,5 +12,12 @@
     "topic": "Your customers ask the same 5 questions every day. Your phone doesn't.",
     "hook_style": "question",
     "status": "published"
+  },
+  {
+    "date": "2026-10-14",
+    "service": "reel_scripts",
+    "topic": "The 'Blank Screen' Paralysis",
+    "hook_style": "Story",
+    "status": "published"
   }
 ]

@@ -1,7 +1,7 @@
 {
   "id": "2026-10-14-0a4bf0",
   "date": "2026-10-14",
-  "status": "pending",
+  "status": "published",
   "service": "reel_scripts",
   "topic": "The 'Blank Screen' Paralysis",
   "hooks": [
@@ -131,5 +131,15 @@
         "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
       }
     ]
+  },
+  "results": {
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: queued 6acf0394848c31c8095c590d"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mxsp6ba7xm2p"
+    }
   }
 }

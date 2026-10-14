@@ -266,4 +266,11 @@ strategist.guide([], {}, {"name": "Chatbot"}, "2026-10-13", {"facts_rules": []},
 assert "DIGEST-MARK" in seen["p"] and "NOT zero" in seen["p"] and "weakest area" in seen["p"] and "Live analytics are NOT available" not in seen["p"]
 strategist.guide([], {}, {"name": "Chatbot"}, "2026-10-13", {"facts_rules": []})
 assert "Live analytics are NOT available" in seen["p"]
+# bold-formatted drafts (Unicode bold) still match the posted text, whether the platform keeps the bold or flattens it
+from src import captions as _C
+bold_draft = {"date": "2026-10-12", "status": "published", "service": "chatbot", "topic": "T", "hook_style": "Q",
+              "posts": {"instagram": _C.finalize("**STOP LOSING LEADS** to slow replies every single night\n\n→ more", bold_on=True)}}
+for posted in (bold_draft["posts"]["instagram"], "STOP LOSING LEADS to slow replies every single night\n\n→ more"):
+    row = {"platform": "instagram", "id": "x", "published_at": iso(1), "text": posted}
+    assert A.match_drafts([row], [bold_draft])[0]["matched"]["service"] == "chatbot", posted
 print("analytics test passed: collectors, merge, matching, no-zero-for-missing, isolation, scrubbing, alerts, weak signals, strategist")

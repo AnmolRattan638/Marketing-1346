@@ -15,6 +15,7 @@ import json
 import os
 import re
 import statistics
+import unicodedata
 import requests
 from . import config
 
@@ -58,7 +59,8 @@ def _pos(x):
 
 
 def _norm(text):
-    return re.sub(r"[\W_]+", "", (text or "").lower())
+    """Comparable form of a post: Unicode bold letters fold to plain ones (NFKC), so a bold-formatted draft still matches the posted text."""
+    return re.sub(r"[\W_]+", "", unicodedata.normalize("NFKC", text or "").lower())
 
 
 def _scrub(text, env):

@@ -3,7 +3,7 @@ import datetime as dt
 import os, secrets
 import sys, traceback
 import requests
-from . import captions, config, llm, tg
+from . import analytics, captions, config, llm, tg
 from .agents import analysis, factcheck, image, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
@@ -76,17 +76,20 @@ def main():
     history = config.history()
     metrics = config.load_json(config.DATA / "metrics.json", {})
     check_repo_public()
+    # Read-only: the Analytics sync workflow (every 6 hours) owns data/analytics.json. This long-running job must never write it,
+    # or its end-of-run commit could overwrite a newer sync.
+    live_digest, live_signals = analytics.load_digest()
     focus = pick_focus(brand, history)
     ig_mode = "manual_reel" if dt.date.today().weekday() in brand.get("instagram", {}).get("manual_reel_weekdays", [2]) else "auto_image"
 
     try:
         state = stage("strategist.guide",
-                      lambda: strategist.guide(history, metrics, focus, today, brand),
+                      lambda: strategist.guide(history, metrics, focus, today, brand, live_digest),
                       fallback={"stage": "unknown", "summary": "", "instructions": {}, "manual_tips": [],
                                 "guidance": "No guidance today. Teach first, never sound like an ad."})
         guidance = state.get("guidance") or "Teach first, never sound like an ad."
         (config.DATA / "strategy.md").write_text(guidance, encoding="utf-8")
-        config.save_json(config.DATA / "account_state.json", {"date": today, **state})
+        config.save_json(config.DATA / "account_state.json", {"date": today, **state, "weak_signals": live_signals})
 
         def g(agent):
             note = (state.get("instructions") or {}).get(agent)
@@ -131,6 +134,7 @@ def main():
             f"Draft for {today}\nService: {focus['name']}\nTopic: {plan['topic']}\n"
             f"Instagram today: {'MANUAL reel (post it yourself)' if ig_mode == 'manual_reel' else 'auto-posted image + caption'}\nFact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n\n"
             f"Account check ({state.get('stage')}): {state.get('summary')}" +
+            (("\nLive weak spots: " + "; ".join(f"[{s['platform']}] {s['detail']}" for s in live_signals[:2])) if live_signals else "") +
             "\n\nModels that answered: " + (" | ".join(dict.fromkeys(llm.LOG))[:700] or "n/a") +
             ("\nManual tips:\n- " + "\n- ".join(map(str, state.get("manual_tips") or [])) if state.get("manual_tips") else ""))
     if img.get("path"):

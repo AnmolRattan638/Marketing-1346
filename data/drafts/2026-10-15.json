@@ -1,0 +1,128 @@
+{
+  "id": "2026-10-15-c075d2",
+  "date": "2026-10-15",
+  "status": "pending",
+  "service": "lead_gen",
+  "topic": "3 places to spot businesses that need your service",
+  "idea_id": "leads-where",
+  "hooks": [
+    {
+      "style": "top3",
+      "text": "Top 3 places to find clients craving your service today"
+    },
+    {
+      "style": "value",
+      "text": "Try this simple trick to uncover hidden local leads instantly"
+    },
+    {
+      "style": "controversy",
+      "text": "Stop chasing websites—look for businesses with broken digital signals"
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "top3",
+  "posts": {
+    "instagram": "𝟯 𝗝𝗔𝗚𝗔𝗛 𝗝𝗔𝗛𝗔𝗔𝗡 𝗖𝗟𝗜𝗘𝗡𝗧𝗦 𝗔𝗣𝗞𝗜 𝗦𝗘𝗥𝗩𝗜𝗖𝗘 𝗞𝗔 𝗪𝗔𝗜𝗧 𝗞𝗔𝗥 𝗥𝗔𝗛𝗘 𝗛𝗔𝗜𝗡\n\n→ 𝗚𝗢𝗢𝗚𝗟𝗘 𝗠𝗔𝗣𝗦 par bina website waale businesses check karo.\n\n→ Outdated sites jahan contact details aur phone missing hote hain.\n\n→ Maine ek 𝗗𝗔𝗜𝗟𝗬 𝗦𝗛𝗘𝗘𝗧 script banayi jo yeh filter kartti hai.\n\nDM 𝗟𝗘𝗔𝗗𝗦 and tell me what you sell. Pay after approval.\n\n#FreelanceIndia #AgencyLife #SmallBusinessIndia #WebDeveloper",
+    "linkedin": "Three simple signs show a small business needs immediate web assistance.\n\nMany map listings show a business address but no website link, so they lose online inquiries.\n\nOlder websites often omit phone numbers or mobile contact details, causing visitors to leave quickly.\n\nBroken links or missing call buttons on mobile make it hard for customers to reach you.\n\nI run a daily script that scans local listings and records these gaps in a spreadsheet.\n\nYou can use these signals to offer web improvements, and you only pay after you approve the work.\n\nDM LEADS if you want to discuss how I can help.",
+    "bluesky": "𝗦𝗧𝗢𝗣 𝗦𝗘𝗔𝗥𝗖𝗛𝗜𝗡𝗚 𝗙𝗢𝗥 𝗖𝗟𝗜𝗘𝗡𝗧𝗦 𝗠𝗔𝗡𝗨𝗔𝗟𝗟𝗬\n\n→ Check 𝗠𝗔𝗣 𝗟𝗜𝗦𝗧𝗜𝗡𝗚𝗦 with no website.\n→ Sites with missing phone numbers.\n→ Filtered into a daily 𝗦𝗣𝗥𝗘𝗔𝗗𝗦𝗛𝗘𝗘𝗧.\n\nDM 𝗟𝗘𝗔𝗗𝗦 to chat. Pay after approval."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does the lead sheet cost?",
+      "reply": "It depends on the cities and categories you want to target. Quick question: what service do you offer, and who do you usually pitch to? You pay only after you approve the work."
+    },
+    {
+      "if_they_say": "Does this work for web designers and marketing agencies?",
+      "reply": "Yes, it is built specifically for that because the filter flags businesses with no site, missing contact details, or broken pages. Which location are you currently targeting?"
+    },
+    {
+      "if_they_say": "Can you send a sample sheet?",
+      "reply": "I do not keep pre-made sample files, but I can configure a fresh run for your specific target category and city. You inspect the work first and pay only after you approve it. What kind of clients are you looking for?"
+    }
+  ],
+  "image": {
+    "prompt": "Left: laptop open on reclaimed wood table in the upper left, blank clean page, ceramic mug, warm window light, shallow depth of field, yellow rim highlighted. Right: narrow vertical panel divided into four equal sections, minimalist grid, lower 40% calm uncluttered, warm tone, premium photography style, shallow depth, rich color balance. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, professional commercial lighting, rich natural colour, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-10-15.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "style": "bold",
+      "headline": "Stop hunting leads. Start spotting them.",
+      "highlight": [
+        "Start spotting"
+      ],
+      "sub": "3 places to find businesses that need your help.",
+      "cta": "DM \"LEADS\"",
+      "tag": "FOR FREELANCERS & AGENCIES"
+    },
+    "errors": []
+  },
+  "instagram_mode": "auto_image",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**3 JAGAH JAHAAN CLIENTS APKI SERVICE KA WAIT KAR RAHE HAIN**\n\n→ **GOOGLE MAPS** par bina website waale businesses check karo.\n\n→ Outdated sites jahan contact details aur phone missing hote hain.\n\n→ Maine ek **DAILY SHEET** script banayi jo yeh filter kartti hai.\n\nDM **LEADS** and tell me what you sell. Pay after approval.\n\n#FreelanceIndia #AgencyLife #SmallBusinessIndia #WebDeveloper",
+      "linkedin": "Three simple signs show a small business needs immediate web assistance.\n\nMany map listings show a business address but no website link, so they lose online inquiries.\n\nOlder websites often omit phone numbers or mobile contact details, causing visitors to leave quickly.\n\nBroken links or missing call buttons on mobile make it hard for customers to reach you.\n\nI run a daily script that scans local listings and records these gaps in a spreadsheet.\n\nYou can use these signals to offer web improvements, and you only pay after you approve the work.\n\nDM LEADS if you want to discuss how I can help.",
+      "bluesky": "**STOP SEARCHING FOR CLIENTS MANUALLY**\n\n→ Check **MAP LISTINGS** with no website.\n→ Sites with missing phone numbers.\n→ Filtered into a daily **SPREADSHEET**.\n\nDM **LEADS** to chat. Pay after approval."
+    }
+  },
+  "ad_score": 8,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "google:gemma-4-26b-a4b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (ProviderDown)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-lightning:free",
+      "google:gemini-3.8-flash",
+      "google:gemma-4-31b-it",
+      "FAILED google:gemma-4-26b-a4b-it (HTTP 500)",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED gemma: all its models"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 217.3,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 249.3,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 82.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 5.2,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "500",
+        "seconds": 3.6,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 4.6,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    ]
+  }
+}

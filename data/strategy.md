@@ -1,4 +1,6 @@
-- Hook style to try next: **Story** — show a relatable moment (e.g., owner scrolling reels at night, realising script is the bottleneck). Rotate from Question/Contrast/Myth Bust.
-- Avoid: "24 hrs", "Rs 1499", "Himachal", niche lists (hotels/cafés/gyms), "free site check", any demo/sample language.
-- Posts must read like a developer sharing real work, not an ad. No outcome guarantees.
-- First 3 seconds matter: both reels had 64–75% skip rate. Open with a visual/text hook that states the problem in 1 line, no logo/intro.
+- Rotate hook styles: try 'Contrast' or 'Myth Bust' for lead gen (last used: Question, Story).
+- Avoid repeating 'same 5 questions' or 'blank screen' phrasing; they've appeared recently.
+- Keep posts reading like a developer sharing real work, never an ad.
+- High skip rates (63–75%) mean first 3 seconds need stronger visual/verbal hooks.
+- Shares drive reach (51% share rate on clock reel); craft share-worthy insights.
+- No demos, free audits, or niche targeting — only 'pay after approval' or a short DM conversation.

@@ -1,26 +1,20 @@
 {
-  "date": "2026-10-14",
+  "date": "2026-10-15",
   "stage": "brand new under 100 followers",
   "followers": 9,
-  "summary": "Account is brand new with 9 IG followers, 1 LI, 1 BS. Only 3 posts in 30 days — too little data for patterns. IG bio violates rules: niches (hotels, cafes, gyms, homestays), region (Himachal), timeframe (24 hrs), free offer (site check). Zero DMs from posts.",
-  "guidance": "- Hook style to try next: **Story** — show a relatable moment (e.g., owner scrolling reels at night, realising script is the bottleneck). Rotate from Question/Contrast/Myth Bust.\n- Avoid: \"24 hrs\", \"Rs 1499\", \"Himachal\", niche lists (hotels/cafés/gyms), \"free site check\", any demo/sample language.\n- Posts must read like a developer sharing real work, not an ad. No outcome guarantees.\n- First 3 seconds matter: both reels had 64–75% skip rate. Open with a visual/text hook that states the problem in 1 line, no logo/intro.",
+  "summary": "Account is brand new (9 IG, 1 LI, 1 BS followers). Only 5 posts in 30 days — too little data for patterns. Instagram bio violates brand rules: names specific niches (hotels, cafes, gyms, homestays), region (Himachal), promises '24 hrs' delivery, and offers free site check outside website posts.",
+  "guidance": "- Rotate hook styles: try 'Contrast' or 'Myth Bust' for lead gen (last used: Question, Story).\n- Avoid repeating 'same 5 questions' or 'blank screen' phrasing; they've appeared recently.\n- Keep posts reading like a developer sharing real work, never an ad.\n- High skip rates (63–75%) mean first 3 seconds need stronger visual/verbal hooks.\n- Shares drive reach (51% share rate on clock reel); craft share-worthy insights.\n- No demos, free audits, or niche targeting — only 'pay after approval' or a short DM conversation.",
   "instructions": {
-    "research": "Find 3 real Indian small-business reels (café, gym, coaching) that use voiceover + text overlay but have weak scripts — note the missing hook, rambling middle, no CTA. Do not name businesses.",
-    "analysis": "Compare the two published reels: the '24 clock' reel had 51% share rate despite 64% skip — the speed promise resonated. The 'live preview' reel had 75% skip, 0.4% shares — passive viewing. For script writing, lead with the pain of blank screen, not the deliverable.",
-    "writer": "Write a 60–90 sec reel script about 'Reel script writing' service. Hook: business owner staring at blank caption at 11 PM. Middle: show 3-script structure (hook, value, CTA) in a split-screen example labelled 'Example only'. End: 'Pay after you approve the script — DM me'. No niche, no region, no timeframe.",
-    "image": "Create a static carousel slide 1: photo of a phone with a half-typed caption, text overlay 'Stuck at the first line?' Slide 2: three bullet frames labelled 'Hook / Value / CTA — example structure'. Slide 3: 'Pay after approval • DM to discuss'. Clean, code-editor aesthetic.",
-    "video": "Shoot a 45-sec reel: you at desk, typing a script structure on screen (record screen, no face needed). Voiceover: 'Most reels lose viewers in 3 seconds. A script fixes that.' Show the three-part template. Caption: 'I write reel scripts for any Indian small business. Pay after approval. DM me.'"
+    "research": "Find 2-3 common lead-generation pain points Indian small businesses mention in public forums (e.g. WhatsApp Business queries, IndiaMART, Justdial reviews) — no niche focus.",
+    "analysis": "Compare the two published chatbot posts (Question hook) vs the website Myth Bust post: note which format (image vs text) got any profile visits or follows, even if tiny.",
+    "writer": "Write one lead-gen post using 'Contrast' hook: contrast manual lead tracking (notebooks, spreadsheets, missed follow-ups) with a simple automated sheet — no tool names, no guarantees, end with 'pay after approval' CTA.",
+    "image": "Create a single static image: split screen — left side messy notebook/spreadsheet, right side clean lead sheet with columns (Name, Source, Status, Next Action). Minimal text, developer aesthetic.",
+    "video": "Skip video today; static image fits Contrast hook faster and avoids high skip-rate risk."
   },
   "manual_tips": [
-    "Update Instagram bio to: 'Websites, AI chatbots, animated ads & reel scripts for small businesses across India. Pay after approval. DM for honest advice.' Remove niches, region, price, timeframe, free offer.",
-    "Comment thoughtfully on 5 reels from Indian small businesses (café, gym, coaching, salon, D2C) — ask a genuine question about their content process, no self-promo.",
-    "Post one Instagram Story showing your code editor with a script template open, text: 'Building a reel script template for any business. What's your biggest blocker?' Use poll sticker: 'Hook / Structure / CTA / Time'."
+    "Update Instagram bio to: 'Websites, AI chatbots, animated ads & lead systems for small businesses across India. Pay after approval. DM for honest advice.'",
+    "Comment thoughtfully on 3 posts by Indian small business owners (any industry) discussing lead follow-up struggles — no pitching, just empathy.",
+    "Reply to the 1 comment on your chatbot post (if any) with a genuine question about their current process."
   ],
-  "weak_signals": [
-    {
-      "id": "no_posts_seen",
-      "platform": "linkedin",
-      "detail": "connected through Zernio but no posts found (LinkedIn only reports posts published through Zernio)"
-    }
-  ]
+  "weak_signals": []
 }

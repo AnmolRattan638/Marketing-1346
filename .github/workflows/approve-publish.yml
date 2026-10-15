@@ -32,6 +32,7 @@ jobs:
       BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
       BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
       PUBLISHER_ORDER: ${{ vars.PUBLISHER_ORDER }}
+      LINKEDIN_PUBLISHER_ORDER: ${{ vars.LINKEDIN_PUBLISHER_ORDER }}
       TELEGRAM_ALLOWED_USER_ID: ${{ secrets.TELEGRAM_ALLOWED_USER_ID || vars.TELEGRAM_ALLOWED_USER_ID }}
     steps:
       - name: Skip while Daily draft is waiting for your tap

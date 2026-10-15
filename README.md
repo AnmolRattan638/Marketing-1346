@@ -34,6 +34,8 @@ Instagram: auto-posted image + caption every day except Wednesday (set in `confi
 By default publishers rotate daily (first choice changes each day) and each platform falls back to the next tool if one fails. A tool with no secrets is skipped.
 To use fixed tools instead (recommended once one tool works well for you, because posting to one account through many tools can look odd to a platform), set the variable `PUBLISHER_ORDER`, e.g. `buffer,zernio`: only those tools are used, in that order, with no rotation. Names: `buffer`, `zernio`, `upload-post`, `limesocial`, `socialapi`, `bluesky-direct`. Note: all tools publish immediately (Buffer posts are sent with shareNow, falling back to a post scheduled 2 minutes ahead, never the Buffer queue).
 
+LinkedIn has its own order: it always goes through Buffer first (other tools only if Buffer fails), while Instagram and Bluesky keep the rotation or your `PUBLISHER_ORDER`. To change it, set the variable `LINKEDIN_PUBLISHER_ORDER` (e.g. `buffer`, or `buffer,zernio`); then only those tools are used for LinkedIn.
+
 Optional **variables**: `GEMMA_MODEL`, `GROQ_MODEL`, `GEMINI_MODEL` (to change model IDs).
 
 Telegram: approvals are polled with `getUpdates`, so the bot must have **no webhook** set (`/deleteWebhook`).

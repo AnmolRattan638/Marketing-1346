@@ -162,6 +162,21 @@ def choose_order(provs, today=None):
     return provs[start:] + provs[:start]
 
 
+def choose_linkedin_order(provs, general):
+    """LinkedIn only (Instagram and Bluesky keep `general`). The same tool every day, so timing and look stay consistent.
+    LINKEDIN_PUBLISHER_ORDER (e.g. 'buffer' or 'buffer,zernio') pins it: only those tools are used, in that order.
+    Not set: Buffer goes first and the other tools are a fallback ONLY if Buffer fails. If you pinned all platforms with
+    PUBLISHER_ORDER and did not set a LinkedIn order, LinkedIn follows that pin."""
+    by_name = {p.name: p for p in provs}
+    wanted = [n.strip().lower() for n in (os.getenv("LINKEDIN_PUBLISHER_ORDER") or "").split(",") if n.strip()]
+    pinned = [by_name[n] for n in wanted if n in by_name]
+    if pinned:
+        return pinned
+    if (os.getenv("PUBLISHER_ORDER") or "").strip() or "buffer" not in by_name:
+        return general
+    return [by_name["buffer"]] + [p for p in general if p.name != "buffer"]
+
+
 def publish_draft(draft):
     """Returns {platform: {"ok": bool, "detail": str}}."""
     provs = [P() for P in PROVIDERS if all(os.getenv(s) for s in P.secrets)]
@@ -182,7 +197,7 @@ def publish_draft(draft):
             results[p] = {"ok": False, "detail": "Instagram needs an image and none was generated"}
             continue
         errors = []
-        for prov in order:
+        for prov in (choose_linkedin_order(provs, order) if p == "linkedin" else order):
             if getattr(prov, "platforms", None) and p not in prov.platforms:
                 continue
             try:

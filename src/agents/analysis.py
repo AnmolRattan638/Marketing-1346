@@ -16,6 +16,6 @@ Hook library (patterns that stop the scroll, adapted from vidIQ; use them as sta
 
 Pick the single best topic. It and its hooks must be universal: any small business that talks to customers should relate, never one niche. No hook may imply a demo, sample or prototype exists. Write 3 hooks, each in a DIFFERENT style, each 12 words or fewer, specific, readable in 3 seconds, and worth forwarding to a friend (e.g. question, mistake-callout, specific-observation, myth-bust), first line only, no clickbait lies.
 If the topic you pick came with an idea_id, return it. A hook states ONE specific promise and who it is for in its first words (people decide in about a second).
-Return JSON: {{"idea_id": "from the picked topic, or null", "topic": "...", "angle": "...", "key_points": ["3-4 short points"], "hooks": [{{"style": "...", "text": "..."}}], "chosen_hook": 0, "image_idea": "one-sentence visual idea"}}
+Return JSON: {{"idea_id": "from the picked topic, or null", "topic": "...", "angle": "...", "key_points": ["3-4 short points"], "hooks": [{{"style": "...", "text": "..."}}], "chosen_hook": 0, "image_idea": "ONE real object in ONE real place, as a single scene (never a layout: no split screen, panels, sections, grids, collages or counts of parts)"}}
 chosen_hook is the index of the best hook; prefer a style not used recently."""
     return llm.ask_json(llm.groq, prompt, SYS)

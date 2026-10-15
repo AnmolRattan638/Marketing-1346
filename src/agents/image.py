@@ -147,6 +147,27 @@ def _card(plan, path):
     im.save(path, "JPEG", quality=90)    # no AI-generated marker: this is not AI imagery
 
 
+# An image model draws ONE scene. A prompt that describes a layout ("Left: ... Right: a panel divided into four sections") is ignored
+# or turned into a blurry gradient, which is what produced the empty grey panel on 2026-10-15. Such prompts are rejected.
+LAYOUT_WORDS = re.compile(r"\b(?:left|right|top|bottom)\s*:|\bpanels?\b|\bdivided\b|\bsections?\b|\bgrid\b|\bsplit[- ]?screen\b|\bcollage\b|"
+                          r"\bcolumns?\b|\binfographic\b|\bdiagram\b|\bflowchart\b|\b(?:two|three|four|five|six|2|3|4|5|6)\s+(?:equal\s+)?(?:parts|sections|panels|columns|boxes|cards|steps)\b", re.I)
+
+SCENES = {      # a concrete, topic-specific picture used when the model's prompt is unusable; no text, brands or faces
+    "lead_gen": "A laptop on a wooden desk showing a bright city map covered in glowing yellow location pins over small shopfronts, a cup of tea beside it, warm window light",
+    "chatbot": "A smartphone on a cafe counter at night, its screen lit by a stack of unread chat bubbles, warm lamp light",
+    "animated_ads": "A smartphone propped on a cafe counter playing a short colourful animated ad, warm afternoon light",
+    "website": "A laptop on a tidy desk showing a clean mobile-friendly landing page, beside a cup of tea in warm window light",
+    "reel_scripts": "A smartphone on a small tripod beside an open notebook and pen on a wooden desk, soft window light",
+    "seo_blogs": "An open laptop beside a notebook and a cup of tea on a desk, a search results page glowing on the screen",
+}
+
+
+def scene_fallback(focus):
+    scene = SCENES.get((focus or {}).get("id"), "A laptop on a wooden desk beside a cup of tea in warm window light")
+    return enhance(f"{scene}. Premium commercial photography, one strong focal subject in the upper two thirds, shallow depth of field, "
+                   "rich colour with a warm yellow accent, calm and uncluttered in the lower 40%.")
+
+
 def picture_prompt(plan, focus, spec, guidance=""):
     """Ask Gemma for ONE concrete, topic-specific scene (not an empty abstract background). The headline is added afterwards in real fonts."""
     headline = (spec or {}).get("headline") or plan["hooks"][plan.get("chosen_hook", 0)]["text"]
@@ -157,8 +178,19 @@ Strategist note: {guidance}
 The picture must show ONE concrete, specific scene that makes the headline visible at a glance: a real object in a real situation, for example a phone playing a short animated ad on a cafe counter, a shop owner's phone lighting up with unanswered messages late at night, a laptop showing a clean booking page beside a cup of tea. Generic, not a real brand and not a claim about real client work.
 Look: premium commercial photography or a polished 3D render, one strong focal subject in the upper two thirds, shallow depth of field, dramatic but natural light, rich colour with warm yellow as the accent, calm and uncluttered in the lower 40% (the headline goes there).
 Write ONLY what should be visible, in positive wording (do not use the words no, not, without, avoid). Do not mention signs, screens with words, labels, logos, watermarks or any text. No close-up faces.
+ONE subject in ONE scene. NEVER describe a layout: no left/right halves, panels, sections, grids, collages, split screens, diagrams or counts of parts. If the Idea describes a layout, keep only its object and situation.
 Return ONLY the final prompt wrapped in <prompt></prompt> tags. No notes, no drafts, no explanation."""
-    return enhance(clean_prompt(llm.gemma(prompt)))
+    for attempt in (0, 1):
+        ask = prompt if attempt == 0 else prompt + "\nYOUR LAST PROMPT DESCRIBED A LAYOUT OR WAS TOO VAGUE. Describe ONE real object in ONE real place instead."
+        try:
+            text = clean_prompt(llm.gemma(ask))
+        except Exception as e:
+            print(f"[image] picture prompt failed: {e}")
+            break
+        if len(text.split()) >= 12 and not LAYOUT_WORDS.search(text):
+            return enhance(text)
+        print(f"[image] picture prompt rejected (layout or too short): {text[:90]}")
+    return scene_fallback(focus)
 
 
 def _engines():

@@ -19,5 +19,12 @@
     "topic": "The 'Blank Screen' Paralysis",
     "hook_style": "Story",
     "status": "published"
+  },
+  {
+    "date": "2026-10-15",
+    "service": "lead_gen",
+    "topic": "3 places to spot businesses that need your service",
+    "hook_style": "top3",
+    "status": "published"
   }
 ]

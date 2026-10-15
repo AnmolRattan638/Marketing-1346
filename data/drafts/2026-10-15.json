@@ -1,7 +1,7 @@
 {
   "id": "2026-10-15-c075d2",
   "date": "2026-10-15",
-  "status": "pending",
+  "status": "published",
   "service": "lead_gen",
   "topic": "3 places to spot businesses that need your service",
   "idea_id": "leads-where",
@@ -124,5 +124,19 @@
         "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6ad09a189c4b068a12732624"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6ad09a1e921b099deb30d2d1 (due 2026-10-15T09:17:18.041Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6ad09a285308ec6b2f82c0e7 (due 2026-10-15T09:17:28.648Z)"
+    }
   }
 }

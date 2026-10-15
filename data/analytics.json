@@ -38,10 +38,10 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 5,
-        "reach": 2,
-        "views": 5,
-        "likes": 0,
+        "impressions": 127,
+        "reach": 56,
+        "views": 127,
+        "likes": 4,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -96,9 +96,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 226,
-        "reach": 98,
-        "views": 226,
+        "impressions": 238,
+        "reach": 101,
+        "views": 238,
         "likes": 9,
         "comments": 0,
         "shares": 1,
@@ -213,7 +213,7 @@
       "source": "zernio",
       "metrics": {
         "impressions": 145,
-        "reach": 98,
+        "reach": 99,
         "views": 145,
         "likes": 8,
         "comments": 0,
@@ -222,7 +222,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 72.9,
-        "avg_watch_s": 5.276,
+        "avg_watch_s": 5.219,
         "duration_s": 40
       },
       "matched": null
@@ -237,7 +237,7 @@
       "source": "zernio",
       "metrics": {
         "impressions": 130,
-        "reach": 33,
+        "reach": 34,
         "views": 130,
         "likes": 3,
         "comments": 0,
@@ -261,7 +261,7 @@
       "source": "zernio",
       "metrics": {
         "impressions": 402,
-        "reach": 156,
+        "reach": 158,
         "views": 402,
         "likes": 9,
         "comments": 7,
@@ -285,7 +285,7 @@
       "source": "zernio",
       "metrics": {
         "impressions": 791,
-        "reach": 389,
+        "reach": 390,
         "views": 791,
         "likes": 34,
         "comments": 7,
@@ -293,8 +293,8 @@
         "saves": 1,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 74.8,
-        "avg_watch_s": 7.761,
+        "skip_rate": 75.1,
+        "avg_watch_s": 7.746,
         "duration_s": 62
       },
       "matched": null
@@ -369,5 +369,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-15T11:31:45+00:00"
+  "updated_at": "2026-10-15T17:02:57+00:00"
 }

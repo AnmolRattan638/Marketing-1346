@@ -1,5 +1,5 @@
 """Buffer GraphQL API (https://developers.buffer.com): publish approved posts to the queue."""
-import json, os
+import datetime as dt, json, os
 import requests
 
 URL = "https://api.buffer.com"
@@ -29,12 +29,28 @@ def channel_map():
     return out
 
 
+def _due_soon(minutes=2):
+    t = dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=minutes)
+    return t.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+
+
 def create_post(channel_id, text, image_url=None):
+    """Publish NOW, not "add to queue": addToQueue waits for the next slot in the channel's Buffer posting
+    schedule, and if that channel has no schedule slots the post sits there for ever (it was reported as
+    "queued" and never appeared on LinkedIn). Try shareNow first; if the API rejects it, schedule 2 minutes ahead."""
     assets = f", assets: [{{ image: {{ url: {_s(image_url)} }} }}]" if image_url else ""
-    q = (f"mutation {{ createPost(input: {{ text: {_s(text)}, channelId: {_s(channel_id)}, "
-         f"schedulingType: automatic, mode: addToQueue{assets} }}) {{ "
-         f"... on PostActionSuccess {{ post {{ id dueAt }} }} ... on MutationError {{ message }} }} }}")
-    res = _gql(q)["createPost"]
-    if res.get("post"):
-        return res["post"]
-    raise RuntimeError(res.get("message", "unknown Buffer error"))
+    modes = ["mode: shareNow", f"mode: customScheduled, dueAt: {_s(_due_soon())}"]
+    last = None
+    for m in modes:
+        q = (f"mutation {{ createPost(input: {{ text: {_s(text)}, channelId: {_s(channel_id)}, "
+             f"schedulingType: automatic, {m}{assets} }}) {{ "
+             f"... on PostActionSuccess {{ post {{ id dueAt }} }} ... on MutationError {{ message }} }} }}")
+        try:
+            res = _gql(q)["createPost"]
+        except RuntimeError as e:        # e.g. the API does not know this mode
+            last = e
+            continue
+        if res.get("post"):
+            return res["post"]
+        last = RuntimeError(res.get("message", "unknown Buffer error"))
+    raise last

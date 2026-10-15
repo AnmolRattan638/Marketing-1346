@@ -17,7 +17,7 @@ class Buffer:
         if platform not in self._ch:
             raise RuntimeError("channel not connected")
         p = buffer.create_post(self._ch[platform], text, image_url)
-        return f"queued {p.get('id')}"
+        return f"sent to Buffer {p.get('id')} (due {p.get('dueAt') or 'now'})"
 
 
 class Zernio:

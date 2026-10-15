@@ -111,8 +111,30 @@ def finalize_linkedin(text):
     return text.strip()
 
 
-def finalize_posts(posts, bold_on=None):
+NARROW_TAGS = {"webdeveloper", "webdevelopment", "webdevelopers", "webdesign", "webdesigner", "webdev", "websitedesign",
+               "developer", "developers", "coding", "programmer", "freelancedeveloper", "agencylife"}
+BROAD_TAGS = ["#FreelanceIndia", "#Freelancers", "#LeadGeneration", "#GetClients", "#SmallBusinessIndia"]
+
+
+def widen_lead_hashtags(text):
+    """Lead-gen Instagram caption only: drop profession-specific hashtags (#WebDeveloper...) and top up with broad ones (4-5 in total)."""
+    lines = (text or "").rstrip().split("\n")
+    has_tags = bool(lines) and re.fullmatch(r"(?:#\w+\s*)+", lines[-1].strip() or "x") is not None
+    tags = re.findall(r"#\w+", lines[-1]) if has_tags else []
+    keep = [t for t in tags if t[1:].lower() not in NARROW_TAGS]
+    for t in BROAD_TAGS:
+        if len(keep) >= 4:
+            break
+        if t.lower() not in [k.lower() for k in keep]:
+            keep.append(t)
+    line = " ".join(keep[:5])
+    return "\n".join(lines[:-1] + [line]) if has_tags else "\n".join(lines).rstrip() + "\n\n" + line
+
+
+def finalize_posts(posts, bold_on=None, focus_id=None):
     out = dict(posts)
+    if focus_id == "lead_gen" and isinstance(out.get("instagram"), str):
+        out["instagram"] = widen_lead_hashtags(out["instagram"])
     for k in ("instagram", "bluesky"):          # unchanged: Unicode bold + arrows
         if isinstance(out.get(k), str):
             out[k] = finalize(out[k], bold_on)

@@ -69,6 +69,11 @@ Real data from the account: 64-75% of viewers skipped our reels in the first sec
 - "Freelancers: still hunting for leads by hand every morning?"
 Avoid generic hooks like "I build stunning websites".
 
+## Lead-gen posts: the audience is every freelancer and agency
+- Talk to anyone who sells a service to local businesses (marketing, design, video editing, SEO, ads, web, software, photography, accounting, consulting, coaching). Never to one profession, and never as a web developer talking to web developers.
+- Hooks start with "Freelancers", "Agencies" or "Anyone selling a service". Say "whatever you sell" at least once. Avoid "no website" as the main example of a good lead.
+- Hashtags: broad only (#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia).
+
 ## Calls to action (one per post)
 - Keyword DMs that start a conversation, never a free deliverable: "DM 'BOT' and tell me what your customers ask most. I'll tell you honestly if a chatbot is worth it for you." / "DM 'ADS' and tell me what you sell. I'll tell you what kind of ad would suit it." / "DM 'LEADS' for a 1-minute explanation of the lead sheet." / "Comment your business type and I'll reply with one idea." Website posts only: "DM 'SITE' and I'll look at yours and tell you 3 things to fix."
 - Ask for a DM or comment, not a call. Owners prefer WhatsApp/DM first.

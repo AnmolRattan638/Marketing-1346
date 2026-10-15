@@ -6,6 +6,16 @@ SYS = "You write social posts in the author's own voice. Follow the voice guide 
 
 
 def run(plan, focus, brand, voice, guidance, rewrite_notes="", ig_mode="auto_image"):
+    lead_gen_block = ""
+    if focus.get("id") == "lead_gen":     # only the lead-gen service has this audience; other services are untouched
+        lead_gen_block = (
+            "LEAD GEN AUDIENCE (this post only; it overrides any narrower habit): the reader is ANY freelancer, agency or solo service seller "
+            "who needs clients from local businesses: marketing, design, video editing, SEO, ads, web, software, photography, accounting, consulting, "
+            "coaching, anything. Never address one profession (do not call the reader a web developer, developer, coder or website designer) and do not "
+            "use 'businesses with no website' as the main example. Start with 'Freelancers', 'Agencies' or 'Anyone selling a service' (in Hinglish on Instagram), "
+            "and say 'whatever you sell' somewhere. Describe the sheet only as local businesses found through Google Places, with contact details, review counts "
+            "and website checks, including newly opened ones. Instagram hashtags: only broad ones such as #FreelanceIndia #Freelancers #LeadGeneration "
+            "#GetClients #SmallBusinessIndia; never #WebDeveloper, #WebDesign or #AgencyLife.\n")
     hook = plan["hooks"][plan.get("chosen_hook", 0)]["text"]
     prompt = f"""VOICE GUIDE:
 {voice}
@@ -32,7 +42,7 @@ LINKEDIN FORMAT (linkedin only; plain text, written like a person talking to a b
 - Then 3-5 short lines, one or two sentences each with a blank line between them. Each adds one concrete detail, reason or example; one of them says what the owner can do about it.
 - Last line: a soft DM invite using exactly the keyword '{focus.get('dm_keyword', 'HI')}', for example: DM {focus.get('dm_keyword', 'HI')} and tell me what you sell. Vary the wording.
 - All the HARD RULES above still apply (no demo claims, no invented numbers, no single niche, not an advertisement).
-Write one post per platform:
+{lead_gen_block}Write one post per platform:
 - instagram: {'REEL caption, 25-45 words in total' if ig_mode == 'manual_reel' else 'IMAGE caption, 35-60 words in total'} (hashtags not counted), in the format above, then a blank line and 3-5 hashtags
 - linkedin: follow the LINKEDIN FORMAT below
 - bluesky: ONE punchy thought under 260 characters, may start with a **CAPITAL WORD OR TWO**, soft nudge to DM

@@ -45,7 +45,8 @@ def history():
         d = load_json(f, None)
         if isinstance(d, dict) and d.get("date"):
             merged[(d["date"], d.get("topic") or "")] = {"date": d["date"], "service": d.get("service"), "topic": d.get("topic"),
-                                                         "hook_style": d.get("hook_style"), "status": d.get("status")}
+                                                         "hook_style": d.get("hook_style"), "status": d.get("status"),
+                                                         "idea_id": d.get("idea_id")}
     return [merged[k] for k in sorted(merged)]
 
 

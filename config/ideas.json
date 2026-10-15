@@ -1,0 +1,231 @@
+{
+  "_comment": "Idea bank fed to the research and analysis agents. Hook patterns and structure are ADAPTED from vidIQ's public guidance (vidIQ is YouTube-focused, so entertainment topics are deliberately not copied: only hook mechanics and formats that fit the brand rules in services.json). Edit freely. 'ideas' are used in file order; an idea is skipped once a draft used it (draft.idea_id).",
+  "sources": [
+    "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)'",
+    "vidIQ, '9 Video Ideas to Go Viral with YouTube Shorts'",
+    "vidIQ, '80 Best YouTube Niches for 2026' (AI-tool tutorials and trending-topic commentary rank among the most shared formats)"
+  ],
+  "hook_library": [
+    {
+      "style": "comparison",
+      "pattern": "X vs Y: which one ___?",
+      "note": "this-or-that sparks a verdict; keep both sides fair"
+    },
+    {
+      "style": "top3",
+      "pattern": "3 things / mistakes / questions about ___",
+      "note": "listicle: viewers expect quick, practical value"
+    },
+    {
+      "style": "value",
+      "pattern": "Try this to ___ / A simple way to ___",
+      "note": "a small action the reader can do today"
+    },
+    {
+      "style": "faq",
+      "pattern": "Questions owners ask about ___",
+      "note": "answers a real repeat question; never imply the owner has many clients"
+    },
+    {
+      "style": "myth",
+      "pattern": "Myth: ___. Fact: ___",
+      "note": "set the record straight; only with facts you can stand behind"
+    },
+    {
+      "style": "pov",
+      "pattern": "POV: ___",
+      "note": "caption-first, works on mute; one relatable moment"
+    },
+    {
+      "style": "curiosity",
+      "pattern": "Did you know ___? / Have you ever wondered ___?",
+      "note": "only with true, general facts; no invented statistics"
+    },
+    {
+      "style": "controversy",
+      "pattern": "Stop doing ___ / Why I'd skip ___",
+      "note": "an honest opinion that breaks the usual advice; explain why"
+    },
+    {
+      "style": "payoff-first",
+      "pattern": "Show the result, then explain how",
+      "note": "open on the outcome, not the setup"
+    },
+    {
+      "style": "wait-for-it",
+      "pattern": "Wait for it / Watch what changes at 0:07",
+      "note": "only if the payoff really arrives; never bait and switch"
+    }
+  ],
+  "reel_rules": [
+    "The hook lands in about 1 second, not 3: people decide before the first sentence ends.",
+    "Stack three things in the first frame: a visual that shows the payoff (not the setup), 3-7 words of bold on-screen text in the top third, and a spoken line of 5-10 words.",
+    "One idea, one specific promise, and make clear who it is for (a small business owner) at once.",
+    "No greeting or brand intro ('Hello guys', 'Welcome back'): the first words are the problem or the result.",
+    "Deliver on the hook; the rest of the reel builds on the promise.",
+    "Make it work on mute: the on-screen text must carry the message without sound.",
+    "End so the last line or frame hands back to the first (for example, end on the question the opening line answers) so a replay feels natural."
+  ],
+  "ideas": [
+    {
+      "id": "web-trust-compare",
+      "service": "website",
+      "format": "any",
+      "hook_style": "comparison",
+      "hook": "Instagram page vs website: which one earns trust?",
+      "topic": "Instagram page vs website: what each can and cannot do for a small business",
+      "angle": "A page is easy to find; a website answers 'is this business real?' with services, location and a contact button in one place.",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (hook 12)"
+    },
+    {
+      "id": "web-three-checks",
+      "service": "website",
+      "format": "any",
+      "hook_style": "top3",
+      "hook": "3 things customers look for before they message you",
+      "topic": "The 3 things a customer checks on your page before messaging",
+      "angle": "What you sell, where you are, how to reach you. If one is missing, some visitors leave.",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (hook 15)"
+    },
+    {
+      "id": "web-mobile-test",
+      "service": "website",
+      "format": "reel",
+      "hook_style": "value",
+      "hook": "Try this: open your own website on mobile data",
+      "topic": "A quick mobile test for your own website",
+      "angle": "On mobile data, can you find the call button without scrolling, and does the page load before you lose patience?",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (hook 10)"
+    },
+    {
+      "id": "bot-repeat-questions",
+      "service": "chatbot",
+      "format": "any",
+      "hook_style": "faq",
+      "hook": "3 questions every customer asks. Could a bot answer them?",
+      "topic": "The repeat questions a chatbot can handle: price, location, timings",
+      "angle": "Repeat questions eat the day. A bot handles those so the owner can spend time on real conversations.",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (hooks 7 and 15)"
+    },
+    {
+      "id": "bot-unanswered",
+      "service": "chatbot",
+      "format": "image",
+      "hook_style": "comparison",
+      "hook": "Chatbot vs unanswered message: what does the customer see?",
+      "topic": "What a customer experiences when a message goes unanswered versus getting a quick first reply",
+      "angle": "A quick first reply keeps the conversation alive; the owner follows up on the rest. Use a clearly labelled example conversation.",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (hook 12)"
+    },
+    {
+      "id": "bot-myth-robotic",
+      "service": "chatbot",
+      "format": "any",
+      "hook_style": "myth",
+      "hook": "Myth: chatbots sound robotic. Fact: it depends on setup",
+      "topic": "Chatbot myths: robotic tone and no human handover",
+      "angle": "Tone comes from the instructions it is given, and a good setup hands over to the owner when it cannot answer.",
+      "source": "vidIQ, '9 Video Ideas to Go Viral with YouTube Shorts' (myth-busting)"
+    },
+    {
+      "id": "ads-first-second",
+      "service": "animated_ads",
+      "format": "reel",
+      "hook_style": "payoff-first",
+      "hook": "The first second of your ad decides if it gets seen",
+      "topic": "Planning the first second of an ad: payoff first, 3-7 words of text, no logo intro",
+      "angle": "Open on the result, put a short line of text in the top third, and save the brand for the end.",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (visual + text + verbal hook)"
+    },
+    {
+      "id": "ads-static-vs-motion",
+      "service": "animated_ads",
+      "format": "any",
+      "hook_style": "comparison",
+      "hook": "Static post vs short animated ad: which stops the scroll?",
+      "topic": "Why movement in the first second changes how people react to an ad",
+      "angle": "Movement can catch the eye before words are read. One message, big text, one next step.",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (hook 12)"
+    },
+    {
+      "id": "ads-pov-feed",
+      "service": "animated_ads",
+      "format": "image",
+      "hook_style": "pov",
+      "hook": "POV: your ad is the fourth one they scrolled past",
+      "topic": "Standing out in a crowded feed: one message, big text, movement",
+      "angle": "People scroll fast; an ad that is clear in a glance has a chance.",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (caption-first formats)"
+    },
+    {
+      "id": "leads-where",
+      "service": "lead_gen",
+      "format": "any",
+      "hook_style": "top3",
+      "hook": "3 places to spot businesses that need your service",
+      "topic": "Where freelancers and agencies look for businesses to pitch",
+      "angle": "Map listings with no website, outdated sites, pages with no contact details. The daily sheet is built from signals like these.",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (hook 15)"
+    },
+    {
+      "id": "leads-pov-search",
+      "service": "lead_gen",
+      "format": "image",
+      "hook_style": "pov",
+      "hook": "POV: you've spent hours searching and have 5 leads",
+      "topic": "The time cost of searching for leads by hand",
+      "angle": "Cold-searching eats the time you could spend pitching. Do not state a price.",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (caption-first formats)"
+    },
+    {
+      "id": "script-hello-guys",
+      "service": "reel_scripts",
+      "format": "reel",
+      "hook_style": "controversy",
+      "hook": "Stop starting reels with 'Hello guys'",
+      "topic": "Why a reel's first line should be the problem, not a greeting",
+      "angle": "The opening words decide if people stay. Lead with the problem or the result, not a welcome.",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' ('never start with filler')"
+    },
+    {
+      "id": "script-three-lines",
+      "service": "reel_scripts",
+      "format": "any",
+      "hook_style": "value",
+      "hook": "A reel script in 3 lines: problem, proof, one step",
+      "topic": "A simple structure for a short reel script",
+      "angle": "Problem first, one proof point, one clear next step (a DM keyword).",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (hook 18)"
+    },
+    {
+      "id": "script-weak-vs-strong",
+      "service": "reel_scripts",
+      "format": "image",
+      "hook_style": "comparison",
+      "hook": "Weak vs strong first line for a reel",
+      "topic": "Side-by-side: a weak and a strong opening line for the same reel",
+      "angle": "Same idea, two openings: one greeting, one that names the problem. Clearly labelled as an example.",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (hook 12)"
+    },
+    {
+      "id": "blog-customer-questions",
+      "service": "seo_blogs",
+      "format": "any",
+      "hook_style": "faq",
+      "hook": "Questions customers type into Google about your business",
+      "topic": "Turning repeat customer questions into blog posts",
+      "angle": "Every repeat question is a blog post that can answer it before the customer has to message you.",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (hook 7)"
+    },
+    {
+      "id": "blog-vs-post",
+      "service": "seo_blogs",
+      "format": "any",
+      "hook_style": "comparison",
+      "hook": "Instagram post vs blog post: which one lasts longer?",
+      "topic": "Why a blog post can keep working after a social post has scrolled away",
+      "angle": "Posts move down the feed; a blog page can be found later through search.",
+      "source": "vidIQ, '18 Viral Hooks for YouTube Shorts (2026 Guide)' (hook 12)"
+    }
+  ]
+}

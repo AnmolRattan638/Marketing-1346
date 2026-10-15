@@ -71,6 +71,13 @@ Good to know:
 - `data/analytics.json` is public like everything in `data/`. It only changes (and only creates a commit) when a number changed or a new day starts.
 - Manual stats in `data/metrics.json` still matter for what no API gives you (DMs, WhatsApp enquiries, LinkedIn without Zernio).
 
+## Idea bank (hooks that stop the scroll)
+`config/ideas.json` holds a **hook library**, **reel rules** and 16 **post ideas** (2-3 per service), adapted from vidIQ's public guidance (its "18 Viral Hooks for YouTube Shorts" and "9 Video Ideas to Go Viral" guides, and its 2026 niche list where AI-tool explainers rank among the most-shared formats). vidIQ is YouTube-focused, so its entertainment topics are deliberately *not* copied: only hook mechanics and formats that fit the brand rules in `services.json` (no demos, no invented results, no single niche, no absolute claims). I could only use vidIQ's public pages; its dashboard needs a login.
+- **Research** is offered up to 4 unused ideas for today's service and must adapt at least 2; it returns the `idea_id`. **Analysis** writes hooks from the hook library. The chosen `idea_id` is saved in the draft, and an idea is not offered again once a draft used it.
+- **Reel scripts** now follow vidIQ's reel rules: the hook lands in about 1 second (not 3), the first frame stacks a payoff visual + 3-7 words of on-screen text + a 5-10 word spoken line, no greeting, works on mute, and the ending hands back to the opening so a replay feels natural.
+- Add your own ideas to the `ideas` list (copy an existing entry; `hook` must be 12 words or fewer). Ideas are used in file order.
+- Honest limit: vidIQ says viral is not the same as profitable. These formats are a better *starting point* for attention; whether they bring DMs is something your analytics will show.
+
 ## Tests
 `tests/*_test.py` run offline (no keys, no network): `for t in tests/*_test.py; do python $t; done`. The **CI** workflow runs pyflakes and these tests on every push and pull request.
 

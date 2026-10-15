@@ -2,6 +2,64 @@
   "posts": [
     {
       "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mxvq47mfbt2e",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mxvq47mfbt2e",
+      "published_at": "2026-10-15T09:17:29.670Z",
+      "text": "𝗦𝗧𝗢𝗣 𝗦𝗘𝗔𝗥𝗖𝗛𝗜𝗡𝗚 𝗙𝗢𝗥 𝗖𝗟𝗜𝗘𝗡𝗧𝗦 𝗠𝗔𝗡𝗨𝗔𝗟𝗟𝗬\n\n→ Check 𝗠𝗔𝗣 𝗟𝗜𝗦𝗧𝗜𝗡𝗚𝗦 with no website.\n→ Sites with missing phone numbers.\n→ Filtered into a daily 𝗦𝗣𝗥𝗘𝗔𝗗𝗦𝗛𝗘𝗘𝗧.\n\nDM 𝗟𝗘𝗔𝗗𝗦 to",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-15",
+        "service": "lead_gen",
+        "hook_style": "top3",
+        "topic": "3 places to spot businesses that need your service"
+      }
+    },
+    {
+      "platform": "instagram",
+      "id": "18077188733727625",
+      "url": "https://www.instagram.com/p/Degne_wkaW0/",
+      "published_at": "2026-10-15T09:17:23.000Z",
+      "text": "𝟯 𝗝𝗔𝗚𝗔𝗛 𝗝𝗔𝗛𝗔𝗔𝗡 𝗖𝗟𝗜𝗘𝗡𝗧𝗦 𝗔𝗣𝗞𝗜 𝗦𝗘𝗥𝗩𝗜𝗖𝗘 𝗞𝗔 𝗪𝗔𝗜𝗧 𝗞𝗔𝗥 𝗥𝗔𝗛𝗘 𝗛𝗔𝗜𝗡\n\n→ 𝗚𝗢𝗢𝗚𝗟𝗘 𝗠𝗔𝗣𝗦 par bina website waale businesses check karo.\n\n→ Outdated sites jahan contact details a",
+      "format": "image",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 5,
+        "reach": 2,
+        "views": 5,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-15",
+        "service": "lead_gen",
+        "hook_style": "top3",
+        "topic": "3 places to spot businesses that need your service"
+      }
+    },
+    {
+      "platform": "bluesky",
       "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mxsp6ba7xm2p",
       "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mxsp6ba7xm2p",
       "published_at": "2026-10-14T04:22:44.634863+00:00",
@@ -38,9 +96,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 221,
-        "reach": 95,
-        "views": 221,
+        "impressions": 226,
+        "reach": 98,
+        "views": 226,
         "likes": 9,
         "comments": 0,
         "shares": 1,
@@ -125,8 +183,8 @@
       "format": "text",
       "source": "zernio",
       "metrics": {
-        "impressions": 116,
-        "reach": 77,
+        "impressions": 117,
+        "reach": 78,
         "views": null,
         "likes": 0,
         "comments": 0,
@@ -254,7 +312,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 3
+      "posts": 4
     }
   },
   "coverage": {
@@ -311,5 +369,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-15T03:59:58+00:00"
+  "updated_at": "2026-10-15T11:31:45+00:00"
 }

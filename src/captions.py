@@ -75,11 +75,49 @@ def finalize(text, bold_on=None):
     return text.strip()
 
 
+def unstyle(text):
+    """Mathematical Sans-Serif Bold letters/digits -> plain ASCII (undo bold() if a model or the fact-checker produced it)."""
+    out = []
+    for ch in text or "":
+        o = ord(ch)
+        if 0x1D5D4 <= o <= 0x1D5ED:
+            out.append(chr(65 + o - 0x1D5D4))
+        elif 0x1D5EE <= o <= 0x1D607:
+            out.append(chr(97 + o - 0x1D5EE))
+        elif 0x1D7EC <= o <= 0x1D7F5:
+            out.append(chr(48 + o - 0x1D7EC))
+        else:
+            out.append(ch)
+    return "".join(out)
+
+
+def finalize_linkedin(text):
+    """LinkedIn only: plain text. No Unicode bold, no arrows/bullets, no ALL-CAPS lines (those looked like shouting and
+    hurt readability). The DM keyword (e.g. DM SCRIPT) keeps its capitals. Safe to run twice."""
+    text = unstyle((text or "").replace("\r\n", "\n").replace("\r", "\n"))
+    text = text.replace("**", "")
+    text = re.sub(r"(?<![\w*])\*(?![\s*])([^*\n]+?)\*(?!\w)", r"\1", text)
+    text = re.sub(r"(?m)^[ \t]*(?:→|[*•\-])[ \t]+", "", text)
+    lines = []
+    for ln in text.split("\n"):
+        letters = [c for c in ln if c.isalpha()]
+        if len(ln.split()) >= 3 and len(letters) >= 10 and ln == ln.upper() and not ln.lstrip().startswith("DM "):
+            ln = ln.lower()
+            ln = ln[:1].upper() + ln[1:]
+        lines.append(ln)
+    text = "\n".join(lines)
+    text = re.sub(r"[ \t]+\n", "\n", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
 def finalize_posts(posts, bold_on=None):
     out = dict(posts)
-    for k in ("instagram", "linkedin", "bluesky"):
+    for k in ("instagram", "bluesky"):          # unchanged: Unicode bold + arrows
         if isinstance(out.get(k), str):
             out[k] = finalize(out[k], bold_on)
+    if isinstance(out.get("linkedin"), str):    # LinkedIn has its own plain-text format
+        out["linkedin"] = finalize_linkedin(out["linkedin"])
     if isinstance(out.get("bluesky"), str):
         out["bluesky"] = out["bluesky"][:BLUESKY_MAX]
     return out

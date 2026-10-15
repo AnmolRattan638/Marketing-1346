@@ -4,7 +4,7 @@ import os, secrets
 import sys, traceback
 import requests
 from . import analytics, captions, config, llm, tg
-from .agents import analysis, factcheck, image, research, strategist, video, writer
+from .agents import analysis, factcheck, image, linkedin_edit, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
 WARNINGS = []
@@ -64,6 +64,14 @@ def stage(name, fn, fallback=None):
         return fallback
 
 
+def polish_linkedin(posts, focus, brand):
+    """LinkedIn only: readability edit (plain, clear English). Instagram, Bluesky and the reply drafts are never touched."""
+    res = stage("linkedin_edit", lambda: linkedin_edit.run(posts.get("linkedin", ""), focus, brand), fallback={})
+    if res.get("post"):
+        posts["linkedin"] = res["post"]
+    return posts
+
+
 def main():
     force = "--force" in sys.argv
     path = config.DRAFTS / f"{today}.json"
@@ -101,6 +109,7 @@ def main():
                                   "angle": focus["pitch"], "why_it_matters": "fallback topic"}])
         plan = stage("analysis", lambda: analysis.run(topics, focus, g('analysis'), history))
         posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer'), ig_mode=ig_mode))
+        posts = polish_linkedin(posts, focus, brand)
         fc = stage("factcheck", lambda: factcheck.run(posts, focus, brand), fallback={"ok": None, "issues": ["fact-check unavailable"], "revised": {}})
         for k, v in (fc.get("revised") or {}).items():
             if k in posts and v:
@@ -108,6 +117,7 @@ def main():
         rv = stage("strategist.review", lambda: strategist.review(posts), fallback={"ad_score": None, "notes": ""})
         if (rv.get("ad_score") or 0) >= 7:
             posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), rv.get("notes", ""), ig_mode=ig_mode), fallback=posts)
+            posts = polish_linkedin(posts, focus, brand)
             fc2 = stage("factcheck.2", lambda: factcheck.run(posts, focus, brand), fallback={"ok": None, "issues": [], "revised": {}})
             for k, v in (fc2.get("revised") or {}).items():
                 if k in posts and v:

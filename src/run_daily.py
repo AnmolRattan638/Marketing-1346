@@ -3,7 +3,7 @@ import datetime as dt
 import os, secrets
 import sys, traceback
 import requests
-from . import analytics, captions, config, llm, tg
+from . import analytics, captions, config, ideas, llm, tg
 from .agents import analysis, factcheck, image, linkedin_edit, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
@@ -104,7 +104,7 @@ def main():
             return guidance + (f"\n\nSTRATEGIST BRIEF (current Instagram state: {state.get('stage')}): {note}" if note else "")
 
         used = [h.get("topic") for h in history]
-        topics = stage("research", lambda: research.run(brand, focus, used, g('research'), today),
+        topics = stage("research", lambda: research.run(brand, focus, used, g('research'), today, ideas.ideas_text(ideas.for_service(focus['id'], ideas.used_ids(history)))),
                        fallback=[{"topic": f"A practical tip about {focus['name']} for local businesses",
                                   "angle": focus["pitch"], "why_it_matters": "fallback topic"}])
         plan = stage("analysis", lambda: analysis.run(topics, focus, g('analysis'), history))
@@ -132,7 +132,7 @@ def main():
         tg.send(f"Marketing pipeline failed on {today}: {e}\nNothing was posted. Check the Actions log.")
         raise
 
-    draft = {"id": f"{today}-{secrets.token_hex(3)}", "date": today, "status": "pending", "service": focus["id"], "topic": plan["topic"],
+    draft = {"id": f"{today}-{secrets.token_hex(3)}", "date": today, "status": "pending", "service": focus["id"], "topic": plan["topic"], "idea_id": ideas.valid_id(plan.get("idea_id")),
              "hooks": plan["hooks"], "chosen_hook": plan.get("chosen_hook", 0),
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),

@@ -1,6 +1,6 @@
 {
   "note": "Entered by hand from the Instagram and LinkedIn insight screens (LinkedIn has no usable analytics API for personal profiles). Update every week or two.",
-  "as_of": "2026-10-14",
+  "as_of": "2026-10-15",
   "linkedin": {
     "as_of": "2026-10-14",
     "source": "LinkedIn 'Content analytics' screen, last 7 days (Oct 8 to Oct 14), entered by hand",
@@ -9,7 +9,7 @@
       "in_network_followers_and_connections": 27,
       "out_of_network": 73
     },
-    "reactions_7d": 1,
+    "reactions_7d": 0,
     "comments_7d": 0,
     "reposts_7d": 0,
     "saves_7d": 0,
@@ -18,14 +18,21 @@
       {
         "what": "Text-only post 'Google Maps gets you discovered, but a missing website loses trust.' (website)",
         "impressions": 112,
-        "engagements": 0
+        "engagements": 0,
+        "published": "2026-10-10",
+        "format": "text only"
       },
       {
         "what": "Chat-card image post 'Small businesses across India spend hours each day answering the same...' (chatbot)",
         "impressions": 32,
-        "engagements": 1
+        "engagements": 0,
+        "engagements_note": "LinkedIn listed 1 engagement: it was the owner's own reaction",
+        "published": "2026-10-12",
+        "format": "image (chat card)"
       }
-    ]
+    ],
+    "own_reactions_excluded_7d": 1,
+    "caveat": "LinkedIn showed 1 reaction/engagement, but it was the owner's own reaction, so real audience engagement is 0. Only 2 posts so far: any difference between them (text-only vs image) is not yet meaningful."
   },
   "instagram": {
     "followers": 8,

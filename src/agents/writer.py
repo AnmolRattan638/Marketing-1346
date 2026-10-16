@@ -5,7 +5,12 @@ from .. import captions, llm
 SYS = "You write social posts in the author's own voice. Follow the voice guide strictly."
 
 
-def run(plan, focus, brand, voice, guidance, rewrite_notes="", ig_mode="auto_image"):
+def run(plan, focus, brand, voice, guidance, rewrite_notes="", ig_mode="auto_image", linkedin_format="image"):
+    li_block = ""
+    if linkedin_format == "text":
+        li_block = ("- TODAY THE LINKEDIN POST HAS NO PICTURE (text only). It must stand on its words alone: never refer to an image, card, screenshot or 'above'. "
+                    "LinkedIn shows only the first 2-3 lines before 'see more', so the first line carries the whole hook and the second gives the reason to keep reading. "
+                    "Prefer one concrete observation or common mistake, then what the owner can do about it.\n")
     lead_gen_block = ""
     if focus.get("id") == "lead_gen":     # only the lead-gen service has this audience; other services are untouched
         lead_gen_block = (
@@ -42,7 +47,7 @@ LINKEDIN FORMAT (linkedin only; plain text, written like a person talking to a b
 - Then 3-5 short lines, one or two sentences each with a blank line between them. Each adds one concrete detail, reason or example; one of them says what the owner can do about it.
 - Last line: a soft DM invite using exactly the keyword '{focus.get('dm_keyword', 'HI')}', for example: DM {focus.get('dm_keyword', 'HI')} and tell me what you sell. Vary the wording.
 - All the HARD RULES above still apply (no demo claims, no invented numbers, no single niche, not an advertisement).
-{lead_gen_block}Write one post per platform:
+{li_block}{lead_gen_block}Write one post per platform:
 - instagram: {'REEL caption, 25-45 words in total' if ig_mode == 'manual_reel' else 'IMAGE caption, 35-60 words in total'} (hashtags not counted), in the format above, then a blank line and 3-5 hashtags
 - linkedin: follow the LINKEDIN FORMAT below
 - bluesky: ONE punchy thought under 260 characters, may start with a **CAPITAL WORD OR TWO**, soft nudge to DM

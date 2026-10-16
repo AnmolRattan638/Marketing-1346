@@ -1,7 +1,6 @@
 """Weekly learning review: updates the results table and the problem bank from the latest analytics and screenshots, writes
 data/learning_notes.md, and sends you a short Telegram summary (what was tested, what the data says, what is planned next, and which
 numbers are missing). It changes data files only. It never edits prompts, rules or code, and every post still needs your approval."""
-import datetime as dt
 
 from . import analytics, config, learning, tg
 

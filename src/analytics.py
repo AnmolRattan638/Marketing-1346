@@ -262,6 +262,8 @@ def match_drafts(rows, drafts):
             peers = [x for x in rows if x["platform"] == r["platform"] and _ts(x.get("published_at")) and t and _ts(x["published_at"]).date() == t.date()]
             d = same[0] if len(same) == 1 and len(peers) == 1 else None
         r["matched"] = {k: d.get(k) for k in ("date", "service", "hook_style", "topic")} if d else None
+        if d and r["platform"] == "linkedin" and d.get("linkedin_format"):
+            r["format"] = d["linkedin_format"]                   # the format we chose, not the platform's own label
     return rows
 
 

@@ -8,7 +8,6 @@
 3. refresh_bank: keeps a bank of audience problems with a status: untested, testing, promising, winner or dud.
 4. next_experiment: change ONE variable at a time, mostly repeat what works, test a new problem about 1 post in 3.
 The agents only ever receive its conclusions as guidance text; a human still approves every post."""
-import datetime as dt
 import json
 import re
 import statistics
@@ -75,6 +74,11 @@ def cta_of(text):
     return "dm" if re.search(r"\bDM\b", captions.unstyle(text or "")) else "none"
 
 
+def row_format(d, platform, reported):
+    """The format the pipeline decided (LinkedIn alternates text-only and image); the platform's own label is only a fallback."""
+    return (d.get("linkedin_format") if platform == "linkedin" else None) or reported
+
+
 def _attrs(d, platform, fmt):
     exp = d.get("experiment") or {}
     return {"date": d["date"], "platform": platform, "service": d.get("service"), "problem_id": d.get("problem_id"),
@@ -99,7 +103,7 @@ def manual_rows(drafts, now):
             d = max(hit, key=lambda x: x["date"])
             pub = f"{d['date']}T09:00:00+00:00"       # the exact minute is unknown; the date is what the screenshot proves
             age = (cap - analytics._ts(pub)).total_seconds() / 3600
-            out.append({"platform": plat, "date": d["date"], "format": "image", "published_at": pub, "url": None, "source": "screenshot",
+            out.append({"platform": plat, "date": d["date"], "format": row_format(d, plat, "image"), "published_at": pub, "url": None, "source": "screenshot",
                         "metrics": {k: v for k, v in item["metrics"].items() if v is not None}, "age_h": age})
     return out
 
@@ -116,7 +120,7 @@ def update_results(data, now=None):
         d = drafts.get(mt.get("date")) if mt else None
         if not d or not _publish_ok(d, r["platform"]):
             continue
-        row = {"platform": r["platform"], "date": d["date"], "format": r.get("format"), "published_at": r.get("published_at"), "url": r.get("url"),
+        row = {"platform": r["platform"], "date": d["date"], "format": row_format(d, r["platform"], r.get("format")), "published_at": r.get("published_at"), "url": r.get("url"),
                "source": r.get("source"), "metrics": {k: v for k, v in (r.get("metrics") or {}).items() if v is not None},
                "age_h": analytics._age_h(r, now)}
         rows.append(row)

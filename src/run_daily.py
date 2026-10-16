@@ -3,7 +3,7 @@ import datetime as dt
 import os, secrets
 import sys, traceback
 import requests
-from . import analytics, captions, config, ideas, learning, llm, tg
+from . import analytics, captions, config, formats, ideas, learning, llm, tg
 from .agents import analysis, factcheck, image, linkedin_edit, problems as problems_agent, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
@@ -106,6 +106,10 @@ def main():
     exp = None
     focus = pick_focus(brand, history)
     ig_mode = "manual_reel" if dt.date.today().weekday() in brand.get("instagram", {}).get("manual_reel_weekdays", [2]) else "auto_image"
+    try:
+        li_fmt = formats.linkedin_format(today)        # alternate text-only and image posts on LinkedIn
+    except Exception:
+        li_fmt = "image"
 
     try:
         state = stage("strategist.guide",
@@ -129,7 +133,7 @@ def main():
                        fallback=[{"topic": f"A practical tip about {focus['name']} for local businesses",
                                   "angle": focus["pitch"], "why_it_matters": "fallback topic"}])
         plan = stage("analysis", lambda: analysis.run(topics, focus, g('analysis'), history))
-        posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer'), ig_mode=ig_mode))
+        posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer'), ig_mode=ig_mode, linkedin_format=li_fmt))
         posts = polish_linkedin(posts, focus, brand)
         fc = stage("factcheck", lambda: factcheck.run(posts, focus, brand), fallback={"ok": None, "issues": ["fact-check unavailable"], "revised": {}})
         for k, v in (fc.get("revised") or {}).items():
@@ -137,7 +141,7 @@ def main():
                 posts[k] = v[:300] if k == "bluesky" else v
         rv = stage("strategist.review", lambda: strategist.review(posts), fallback={"ad_score": None, "notes": ""})
         if (rv.get("ad_score") or 0) >= 7:
-            posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), rv.get("notes", ""), ig_mode=ig_mode), fallback=posts)
+            posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), rv.get("notes", ""), ig_mode=ig_mode, linkedin_format=li_fmt), fallback=posts)
             posts = polish_linkedin(posts, focus, brand)
             fc2 = stage("factcheck.2", lambda: factcheck.run(posts, focus, brand), fallback={"ok": None, "issues": [], "revised": {}})
             for k, v in (fc2.get("revised") or {}).items():
@@ -164,13 +168,13 @@ def main():
              "hooks": plan["hooks"], "chosen_hook": plan.get("chosen_hook", 0),
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),
-             "image": img, "instagram_mode": ig_mode, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score"),
+             "image": img, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score"),
              "llm": {"answered": list(dict.fromkeys(llm.LOG)), "failures": llm.FAILURES[:20]}}
     config.save_json(path, draft)
 
     tg.send(("WARNINGS (a step failed and a fallback was used):\n- " + "\n- ".join(WARNINGS) + "\n\n" if WARNINGS else "") +
             f"Draft for {today}\nService: {focus['name']}\nTopic: {plan['topic']}\n{exp_line}"
-            f"Instagram today: {'MANUAL reel (post it yourself)' if ig_mode == 'manual_reel' else 'auto-posted image + caption'}\nFact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n\n"
+            f"Instagram today: {'MANUAL reel (post it yourself)' if ig_mode == 'manual_reel' else 'auto-posted image + caption'}\nLinkedIn today: {'TEXT ONLY (no image)' if li_fmt == 'text' else 'with the image'}\nFact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n\n"
             f"Account check ({state.get('stage')}): {state.get('summary')}" +
             (("\nLive weak spots: " + "; ".join(f"[{s['platform']}] {s['detail']}" for s in live_signals[:2])) if live_signals else "") +
             "\n\nModels that answered: " + (" | ".join(dict.fromkeys(llm.LOG))[:700] or "n/a") +

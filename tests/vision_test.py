@@ -2,7 +2,7 @@
 obeyed, the bot says what it read, and nothing unreadable is saved."""
 import json, pathlib, sys, tempfile
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
-from src import config, learning, process_approvals as pa, tg, vision
+from src import config, process_approvals as pa, tg, vision
 
 tmp = pathlib.Path(tempfile.mkdtemp())
 for n in ("drafts", "media"):

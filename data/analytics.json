@@ -38,9 +38,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 144,
-        "reach": 64,
-        "views": 144,
+        "impressions": 162,
+        "reach": 70,
+        "views": 162,
         "likes": 5,
         "comments": 0,
         "shares": 0,
@@ -365,9 +365,17 @@
         "linkedin": 1,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-10-16",
+      "followers": {
+        "instagram": 9,
+        "linkedin": 1,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-15T21:24:26+00:00"
+  "updated_at": "2026-10-16T04:33:50+00:00"
 }

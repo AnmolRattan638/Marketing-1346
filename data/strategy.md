@@ -1,6 +1,6 @@
-- Rotate hook styles: try 'Contrast' or 'Myth Bust' for lead gen (last used: Question, Story).
-- Avoid repeating 'same 5 questions' or 'blank screen' phrasing; they've appeared recently.
-- Keep posts reading like a developer sharing real work, never an ad.
-- High skip rates (63–75%) mean first 3 seconds need stronger visual/verbal hooks.
-- Shares drive reach (51% share rate on clock reel); craft share-worthy insights.
-- No demos, free audits, or niche targeting — only 'pay after approval' or a short DM conversation.
+- High skip rates (≈70%) show the first 3 seconds need a stronger hook; start with a bold question or contrast.
+- Rotate hook styles (question, contrast, story, myth‑bust) instead of reusing the same style repeatedly.
+- Topics that repeat (e.g., “same 5 questions”) should be varied; try “What if your customers could get answers instantly?”
+- Keep captions developer‑focused, showing real work, not ad‑like language.
+- Use national hashtags only (#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia).
+- Keep reels under 30 s, aim for avg watch >10 s, and add a clear CTA to DM for a quick advice chat.

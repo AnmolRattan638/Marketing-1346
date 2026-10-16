@@ -1,0 +1,113 @@
+{
+  "id": "2026-10-16-194c31",
+  "date": "2026-10-16",
+  "status": "pending",
+  "service": "chatbot",
+  "topic": "The 'Wait Till Morning' Friction",
+  "idea_id": null,
+  "problem_id": "missing-enquiries-during-non-business-ho",
+  "angle_type": null,
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "missing-enquiries-during-non-business-ho",
+    "angle_type": null,
+    "hook_style": null
+  },
+  "hooks": [
+    {
+      "style": "comparison",
+      "text": "Night‑shoppers: instant replies vs morning silence—choose instant."
+    },
+    {
+      "style": "myth",
+      "text": "Small biz owners: myth busted—bots sound warm, not robotic."
+    },
+    {
+      "style": "value",
+      "text": "Shop owners: try this—auto‑reply at 11 PM, capture sales."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "comparison",
+  "posts": {
+    "instagram": "𝗥𝗔𝗔𝗧 𝗞𝗢 𝗘𝗡𝗤𝗨𝗜𝗥𝗬 𝗔𝗔𝗬𝗜 𝗔𝗨𝗥 𝗥𝗘𝗣𝗟𝗬 𝗦𝗨𝗕𝗛𝗔 𝗚𝗔𝗬𝗔?\n\n→ 11 PM ka customer morning tak wait nahi karta.\n→ Simple 𝗔𝗜 𝗖𝗛𝗔𝗧𝗕𝗢𝗧 off-hours me instant polite jawab deta hai.\n→ 𝗣𝗔𝗬 𝗔𝗙𝗧𝗘𝗥 𝗔𝗣𝗣𝗥𝗢𝗩𝗔𝗟 setup hai taaki koi risk na rahe.\n\nDM 𝗕𝗢𝗧 aur bataiye aapka kya business hai.\n\n#SmallBusinessIndia #CustomerSupport #ChatbotIndia #FreelanceIndia #BusinessIndia",
+    "linkedin": "Late-night customer messages often go unanswered, and you lose sales.\n\nMany shoppers look at services after work, and they expect an immediate reply to questions about price or timing.\n\nIf a reply takes several hours, the prospect usually contacts another provider.\n\nAn AI chatbot can answer common questions instantly, using your brand’s tone, collect contact details, and record the inquiry.\n\nYou only pay after you approve the work and it has been tested.\n\nDM BOT",
+    "bluesky": "𝗡𝗜𝗚𝗛𝗧 𝗠𝗘𝗦𝗦𝗔𝗚𝗘𝗦 usually go cold by morning. A simple AI chatbot can answer basic questions instantly while you sleep, keeping potential customers engaged. Pay only after approval.\n\nDM 𝗕𝗢𝗧 and tell me what you sell."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does a chatbot cost?",
+      "reply": "Setup is INR 2,999 or INR 4,999 depending on how many questions and flows you need, plus INR 299/month for maintenance. You only pay after you test and approve the work. Quick question: what are the 2 or 3 questions customers ask you most often?"
+    },
+    {
+      "if_they_say": "Will it sound robotic to my customers?",
+      "reply": "No, we write custom instructions using everyday language and your specific tone, so it feels like a polite staff member rather than an automated IVR menu. What kind of business do you run?"
+    },
+    {
+      "if_they_say": "Do you set this up for my kind of business?",
+      "reply": "Yes, it works for any business that gets repeated questions about timings, pricing, or bookings. Tell me what service or product you offer, and I will tell you honestly whether a bot is worth it for you."
+    }
+  ],
+  "image": {
+    "prompt": null,
+    "path": "data/media/2026-10-16.jpg",
+    "engine": "designed_card",
+    "style": "chat",
+    "ai_generated": false,
+    "spec": {
+      "problem_id": "missing-enquiries-during-non-business-ho",
+      "angle_type": "contrast",
+      "style": "chat",
+      "headline": "Are night enquiries lost by morning?",
+      "highlight": [
+        "night enquiries"
+      ],
+      "sub": "Silence until the morning.",
+      "chat": [
+        {
+          "side": "left",
+          "text": "Is this still available?",
+          "time": "11:15 PM"
+        },
+        {
+          "side": "left",
+          "text": "Can I book one?",
+          "time": "11:16 PM"
+        }
+      ],
+      "cta": "DM \"BOT\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": []
+  },
+  "instagram_mode": "auto_image",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**RAAT KO ENQUIRY AAYI AUR REPLY SUBHA GAYA?**\n\n→ 11 PM ka customer morning tak wait nahi karta.\n→ Simple **AI CHATBOT** off-hours me instant polite jawab deta hai.\n→ **PAY AFTER APPROVAL** setup hai taaki koi risk na rahe.\n\nDM **BOT** aur bataiye aapka kya business hai.\n\n#SmallBusinessIndia #CustomerSupport #ChatbotIndia #FreelanceIndia #BusinessIndia",
+      "linkedin": "Late-night customer messages often go unanswered, and you lose sales.\n\nMany shoppers look at services after work, and they expect an immediate reply to questions about price or timing.\n\nIf a reply takes several hours, the prospect usually contacts another provider.\n\nAn AI chatbot can answer common questions instantly, using your brand’s tone, collect contact details, and record the inquiry.\n\nYou only pay after you approve the work and it has been tested.\n\nDM BOT",
+      "bluesky": "**NIGHT MESSAGES** usually go cold by morning. A simple AI chatbot can answer basic questions instantly while you sleep, keeping potential customers engaged. Pay only after approval.\n\nDM **BOT** and tell me what you sell."
+    }
+  },
+  "ad_score": 9,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "google:gemma-4-26b-a4b-it",
+      "google:gemini-3.8-flash"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 220.6,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    ]
+  }
+}

@@ -1,20 +1,20 @@
 {
-  "date": "2026-10-15",
+  "date": "2026-10-16",
   "stage": "brand new under 100 followers",
-  "followers": 9,
-  "summary": "Account is brand new (9 IG, 1 LI, 1 BS followers). Only 5 posts in 30 days — too little data for patterns. Instagram bio violates brand rules: names specific niches (hotels, cafes, gyms, homestays), region (Himachal), promises '24 hrs' delivery, and offers free site check outside website posts.",
-  "guidance": "- Rotate hook styles: try 'Contrast' or 'Myth Bust' for lead gen (last used: Question, Story).\n- Avoid repeating 'same 5 questions' or 'blank screen' phrasing; they've appeared recently.\n- Keep posts reading like a developer sharing real work, never an ad.\n- High skip rates (63–75%) mean first 3 seconds need stronger visual/verbal hooks.\n- Shares drive reach (51% share rate on clock reel); craft share-worthy insights.\n- No demos, free audits, or niche targeting — only 'pay after approval' or a short DM conversation.",
+  "followers": 8,
+  "summary": "Very low engagement and zero DMs; Instagram bio mentions niche, price and free site check, which conflicts with brand rules.",
+  "guidance": "- High skip rates (≈70%) show the first 3 seconds need a stronger hook; start with a bold question or contrast.\n- Rotate hook styles (question, contrast, story, myth‑bust) instead of reusing the same style repeatedly.\n- Topics that repeat (e.g., “same 5 questions”) should be varied; try “What if your customers could get answers instantly?”\n- Keep captions developer‑focused, showing real work, not ad‑like language.\n- Use national hashtags only (#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia).\n- Keep reels under 30 s, aim for avg watch >10 s, and add a clear CTA to DM for a quick advice chat.",
   "instructions": {
-    "research": "Find 2-3 common lead-generation pain points Indian small businesses mention in public forums (e.g. WhatsApp Business queries, IndiaMART, Justdial reviews) — no niche focus.",
-    "analysis": "Compare the two published chatbot posts (Question hook) vs the website Myth Bust post: note which format (image vs text) got any profile visits or follows, even if tiny.",
-    "writer": "Write one lead-gen post using 'Contrast' hook: contrast manual lead tracking (notebooks, spreadsheets, missed follow-ups) with a simple automated sheet — no tool names, no guarantees, end with 'pay after approval' CTA.",
-    "image": "Create a single static image: split screen — left side messy notebook/spreadsheet, right side clean lead sheet with columns (Name, Source, Status, Next Action). Minimal text, developer aesthetic.",
-    "video": "Skip video today; static image fits Contrast hook faster and avoids high skip-rate risk."
+    "research": "Identify 2‑3 common customer queries that small businesses across India (e.g., cafes, gyms, clinics) receive daily.",
+    "analysis": "Select one query and outline how an AI chatbot can answer it, noting the ease it brings to the business.",
+    "writer": "Write a 40‑word post using a question hook, mention \"pay after approval\", invite DMs for a quick fit check, and include an \"Example\" conversation labeled as such.",
+    "image": "Create a simple graphic showing a chat bubble exchange (text only) illustrating the example conversation.",
+    "video": "Film a 15‑second text‑overlay video: first 3 seconds show a bold question, next 10 seconds summarize the chatbot benefit, end with \"DM for a quick chat\"."
   },
   "manual_tips": [
-    "Update Instagram bio to: 'Websites, AI chatbots, animated ads & lead systems for small businesses across India. Pay after approval. DM for honest advice.'",
-    "Comment thoughtfully on 3 posts by Indian small business owners (any industry) discussing lead follow-up struggles — no pitching, just empathy.",
-    "Reply to the 1 comment on your chatbot post (if any) with a genuine question about their current process."
+    "Update the Instagram bio to remove niche, price and free‑check claims; keep it generic per brand rules.",
+    "Leave thoughtful comments on 5 recent posts from Indian small‑business pages using relevant hashtags to attract attention.",
+    "Reply to any likes or comments on recent reels with a personal thank‑you and a brief prompt to DM for more info."
   ],
   "weak_signals": []
 }

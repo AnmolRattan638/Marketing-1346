@@ -82,7 +82,7 @@ def _commit(msg):
 
 
 def handle_message(msg):
-    """A photo/image file sent to the bot becomes today's post image (e.g. a design made in Adobe Express)."""
+    """A photo/image file sent to the bot becomes today's post image (e.g. a design made in Adobe Express). With the caption 'stats' it is an analytics screenshot instead."""
     if not authorized(msg["chat"], msg.get("from")):
         return
     file_id = None
@@ -92,6 +92,8 @@ def handle_message(msg):
         file_id = msg["document"]["file_id"]
     if not file_id:
         return
+    if (msg.get("caption") or "").strip().lower().startswith("stats"):
+        return handle_stats(file_id, msg["caption"].strip())
     today = _today()
     path = config.DRAFTS / f"{today}.json"
     draft = config.load_json(path, None)
@@ -106,6 +108,20 @@ def handle_message(msg):
     config.save_json(path, draft)
     _commit(f"image: {today}")
     tg.send("Image received and saved for today's draft. Tap Approve and it will be used.")
+
+
+def handle_stats(file_id, caption):
+    """Analytics screenshot (caption 'stats' or 'stats linkedin'): read the numbers, save them for the learning loop, say what was read."""
+    from . import vision
+    try:
+        entry = vision.read_screenshot(tg.download_file(file_id), caption)
+    except Exception as e:
+        tg.send(f"I could not read that screenshot ({str(e)[:160]}). Nothing was saved.")
+        return
+    if entry["posts"] or entry["account"]:
+        vision.save(entry)
+        _commit(f"stats screenshot: {_today()}")
+    tg.send(vision.summary(entry))
 
 
 def _today():

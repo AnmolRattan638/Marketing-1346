@@ -3,8 +3,8 @@ import datetime as dt
 import os, secrets
 import sys, traceback
 import requests
-from . import analytics, captions, config, ideas, llm, tg
-from .agents import analysis, factcheck, image, linkedin_edit, research, strategist, video, writer
+from . import analytics, captions, config, ideas, learning, llm, tg
+from .agents import analysis, factcheck, image, linkedin_edit, problems as problems_agent, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
 WARNINGS = []
@@ -72,6 +72,19 @@ def polish_linkedin(posts, focus, brand):
     return posts
 
 
+def plan_experiment(focus, learned, brand, guidance, history):
+    """Learning loop: top up the problem bank when it runs low, then pick today's experiment (None = no directive today)."""
+    bank = learned["bank"]
+    if learning.needs_research(bank, focus["id"]):
+        try:
+            items = problems_agent.run(brand, focus, learning.problem_texts(bank, focus["id"]), guidance)
+            if learning.add_problems(bank, focus["id"], items, today):
+                learning.save_bank(bank)
+        except Exception as e:
+            WARNINGS.append(f"problem research: {str(e)[:120]}")
+    return learning.next_experiment(focus["id"], bank, learned["scored"], learning.service_post_count(history, focus["id"]), learning.recent_problem_ids())
+
+
 def main():
     force = "--force" in sys.argv
     path = config.DRAFTS / f"{today}.json"
@@ -87,6 +100,10 @@ def main():
     # Read-only: the Analytics sync workflow (every 6 hours) owns data/analytics.json. This long-running job must never write it,
     # or its end-of-run commit could overwrite a newer sync.
     live_digest, live_signals = analytics.load_digest()
+    learned = stage("learning", learning.snapshot, fallback={"scored": [], "bank": {"problems": []}, "accounts": {}, "digest": ""})
+    if learned["digest"]:
+        live_digest = f"{live_digest}\n\n{learned['digest']}" if live_digest else learned["digest"]
+    exp = None
     focus = pick_focus(brand, history)
     ig_mode = "manual_reel" if dt.date.today().weekday() in brand.get("instagram", {}).get("manual_reel_weekdays", [2]) else "auto_image"
 
@@ -98,6 +115,10 @@ def main():
         guidance = state.get("guidance") or "Teach first, never sound like an ad."
         (config.DATA / "strategy.md").write_text(guidance, encoding="utf-8")
         config.save_json(config.DATA / "account_state.json", {"date": today, **state, "weak_signals": live_signals})
+
+        exp = stage("learning.experiment", lambda: plan_experiment(focus, learned, brand, guidance, history), fallback={}) or None
+        if exp:
+            guidance = guidance + "\n\n" + learning.directive_text(exp)
 
         def g(agent):
             note = (state.get("instructions") or {}).get(agent)
@@ -132,7 +153,14 @@ def main():
         tg.send(f"Marketing pipeline failed on {today}: {e}\nNothing was posted. Check the Actions log.")
         raise
 
+    pid = learning.valid_problem_id(plan.get("problem_id"))
+    followed = bool(exp) and pid == exp["problem_id"]
+    if exp and not followed:
+        WARNINGS.append("learning loop: the analysis step did not follow today's experiment problem, so this post is not counted as a test of it.")
+    exp_line = f"Experiment: {learning.label(exp)}\n" if followed else ""
     draft = {"id": f"{today}-{secrets.token_hex(3)}", "date": today, "status": "pending", "service": focus["id"], "topic": plan["topic"], "idea_id": ideas.valid_id(plan.get("idea_id")),
+             "problem_id": pid if followed else None, "angle_type": plan.get("angle_type") if plan.get("angle_type") in learning.ANGLE_TYPES else None,
+             "experiment": {k: exp.get(k) for k in ("mode", "variable", "problem_id", "angle_type", "hook_style")} if followed else None,
              "hooks": plan["hooks"], "chosen_hook": plan.get("chosen_hook", 0),
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),
@@ -141,7 +169,7 @@ def main():
     config.save_json(path, draft)
 
     tg.send(("WARNINGS (a step failed and a fallback was used):\n- " + "\n- ".join(WARNINGS) + "\n\n" if WARNINGS else "") +
-            f"Draft for {today}\nService: {focus['name']}\nTopic: {plan['topic']}\n"
+            f"Draft for {today}\nService: {focus['name']}\nTopic: {plan['topic']}\n{exp_line}"
             f"Instagram today: {'MANUAL reel (post it yourself)' if ig_mode == 'manual_reel' else 'auto-posted image + caption'}\nFact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n\n"
             f"Account check ({state.get('stage')}): {state.get('summary')}" +
             (("\nLive weak spots: " + "; ".join(f"[{s['platform']}] {s['detail']}" for s in live_signals[:2])) if live_signals else "") +

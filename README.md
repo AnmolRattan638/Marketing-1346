@@ -88,6 +88,12 @@ Trade-off: LinkedIn only reports posts published through Zernio, so LinkedIn pos
 - Add your own ideas to the `ideas` list (copy an existing entry; `hook` must be 12 words or fewer). Ideas are used in file order.
 - Honest limit: vidIQ says viral is not the same as profitable. These formats are a better *starting point* for attention; whether they bring DMs is something your analytics will show.
 
+## LinkedIn: alternate text-only and image posts
+LinkedIn alternates a **text-only** post and a post **with the image** (your first, text-only post reached more people than the later image posts). The format is decided when the draft is made: it flips the last LinkedIn post that actually went out (a failed or unapproved post does not count), is saved in the draft as `linkedin_format`, and shows in the Telegram message ("LinkedIn today: TEXT ONLY (no image)").
+- On a text day the writer is told there is no picture: no "see the image", and the first line must carry the whole hook because LinkedIn hides the rest behind "see more". The publisher then leaves the picture off LinkedIn **only**; Instagram and Bluesky still get it.
+- Pin it with the variable `LINKEDIN_FORMAT` = `text` or `image` (default `alternate`).
+- The learning loop and the analytics digest label each LinkedIn post with this format, so a text post is compared with other text posts and an image post with other image posts. Two posts are not enough to prove text beats image (they also differed in topic and age); a few weeks of alternating will show whether it holds.
+
 ## Tests
 `tests/*_test.py` run offline (no keys, no network): `for t in tests/*_test.py; do python $t; done`. The **CI** workflow runs pyflakes and these tests on every push and pull request.
 

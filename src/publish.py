@@ -196,12 +196,13 @@ def publish_draft(draft):
         if p == "instagram" and not image_url:
             results[p] = {"ok": False, "detail": "Instagram needs an image and none was generated"}
             continue
+        img_url, img_path = (None, None) if (p == "linkedin" and draft.get("linkedin_format") == "text") else (image_url, image_path)
         errors = []
         for prov in (choose_linkedin_order(provs, order) if p == "linkedin" else order):
             if getattr(prov, "platforms", None) and p not in prov.platforms:
                 continue
             try:
-                results[p] = {"ok": True, "detail": f"{prov.name}: {prov.post(p, draft['posts'][p], image_url, image_path)}"}
+                results[p] = {"ok": True, "detail": f"{prov.name}: {prov.post(p, draft['posts'][p], img_url, img_path)}"}
                 break
             except Exception as e:
                 errors.append(f"{prov.name}: {str(e)[:120]}")

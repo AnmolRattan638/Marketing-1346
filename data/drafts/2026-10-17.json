@@ -1,7 +1,7 @@
 {
   "id": "2026-10-17-82758d",
   "date": "2026-10-17",
-  "status": "pending",
+  "status": "published",
   "service": "website",
   "topic": "WhatsApp DM replies vs a one-page site: the real time cost",
   "idea_id": "web-trust-compare",
@@ -107,5 +107,19 @@
         "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6ad32d6abfb856bfd1fc1c6c"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6ad32d76769b4579346aa5f1 (due 2026-10-17T08:10:30.321Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3my2ncesz6n2g"
+    }
   }
 }

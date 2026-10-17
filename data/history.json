@@ -26,5 +26,12 @@
     "topic": "3 places to spot businesses that need your service",
     "hook_style": "top3",
     "status": "published"
+  },
+  {
+    "date": "2026-10-17",
+    "service": "website",
+    "topic": "WhatsApp DM replies vs a one-page site: the real time cost",
+    "hook_style": "contrast",
+    "status": "published"
   }
 ]

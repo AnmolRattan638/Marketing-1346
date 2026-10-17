@@ -38,9 +38,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 186,
-        "reach": 80,
-        "views": 186,
+        "impressions": 188,
+        "reach": 82,
+        "views": 188,
         "likes": 6,
         "comments": 0,
         "shares": 0,
@@ -183,8 +183,8 @@
       "format": "text",
       "source": "zernio",
       "metrics": {
-        "impressions": 123,
-        "reach": 81,
+        "impressions": 124,
+        "reach": 82,
         "views": null,
         "likes": 0,
         "comments": 0,
@@ -373,9 +373,17 @@
         "linkedin": 1,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-10-17",
+      "followers": {
+        "instagram": 9,
+        "linkedin": 1,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-16T21:10:49+00:00"
+  "updated_at": "2026-10-17T04:28:53+00:00"
 }

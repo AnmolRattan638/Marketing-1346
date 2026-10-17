@@ -1,6 +1,64 @@
 {
   "posts": [
     {
+      "platform": "instagram",
+      "id": "18078130643437883",
+      "url": "https://www.instagram.com/p/Delpa8TiEep/",
+      "published_at": "2026-10-17T08:10:36.000Z",
+      "text": "𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 𝗣𝗔𝗥 𝗕𝗔𝗥-𝗕𝗔𝗥 𝗥𝗔𝗧𝗘 𝗟𝗜𝗦𝗧 𝗕𝗛𝗘𝗝𝗧𝗘 𝗕𝗛𝗘𝗝𝗧𝗘 𝗧𝗛𝗔𝗞 𝗚𝗔𝗬𝗘?\n\n→ Typing rates manually on chat wastes 𝗛𝗢𝗨𝗥𝗦 every single day.\n→ One clean 𝗢𝗡𝗘-𝗣𝗔𝗚𝗘 link shows your ser",
+      "format": "image",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 6,
+        "reach": 2,
+        "views": 6,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-17",
+        "service": "website",
+        "hook_style": "contrast",
+        "topic": "WhatsApp DM replies vs a one-page site: the real time cost"
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3my2ncesz6n2g",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3my2ncesz6n2g",
+      "published_at": "2026-10-17T08:10:32.873950+00:00",
+      "text": "𝗧𝗜𝗥𝗘𝗗 𝗢𝗙 𝗧𝗬𝗣𝗜𝗡𝗚 the same price list into WhatsApp chats all day?\n\nA simple one-page site puts your services, rates, and direct contact on one link you can share",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-17",
+        "service": "website",
+        "hook_style": "contrast",
+        "topic": "WhatsApp DM replies vs a one-page site: the real time cost"
+      }
+    },
+    {
       "platform": "bluesky",
       "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mxvq47mfbt2e",
       "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mxvq47mfbt2e",
@@ -38,9 +96,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 188,
-        "reach": 82,
-        "views": 188,
+        "impressions": 202,
+        "reach": 86,
+        "views": 202,
         "likes": 6,
         "comments": 0,
         "shares": 0,
@@ -96,9 +154,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 245,
-        "reach": 104,
-        "views": 245,
+        "impressions": 248,
+        "reach": 105,
+        "views": 248,
         "likes": 9,
         "comments": 0,
         "shares": 1,
@@ -312,7 +370,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 4
+      "posts": 5
     }
   },
   "coverage": {
@@ -385,5 +443,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-17T04:28:53+00:00"
+  "updated_at": "2026-10-17T10:46:27+00:00"
 }

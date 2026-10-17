@@ -56,9 +56,9 @@
         }
       },
       "latest": {
-        "impressions": 245,
-        "reach": 104,
-        "views": 245,
+        "impressions": 248,
+        "reach": 105,
+        "views": 248,
         "likes": 9,
         "comments": 0,
         "shares": 1,
@@ -157,7 +157,73 @@
         "saves": 0,
         "clicks": 0
       }
+    },
+    "2026-10-15|bluesky": {
+      "date": "2026-10-15",
+      "platform": "bluesky",
+      "service": "lead_gen",
+      "problem_id": null,
+      "angle_type": null,
+      "hook_style": "top3",
+      "format": "text",
+      "cta": "dm",
+      "mode": null,
+      "variable": null,
+      "published_at": "2026-10-15T09:17:29.670Z",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mxvq47mfbt2e",
+      "snap": {
+        "48h": {
+          "age_h": 49.5,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
+    },
+    "2026-10-15|instagram": {
+      "date": "2026-10-15",
+      "platform": "instagram",
+      "service": "lead_gen",
+      "problem_id": null,
+      "angle_type": null,
+      "hook_style": "top3",
+      "format": "image",
+      "cta": "dm",
+      "mode": null,
+      "variable": null,
+      "published_at": "2026-10-15T09:17:23.000Z",
+      "url": "https://www.instagram.com/p/Degne_wkaW0/",
+      "snap": {
+        "48h": {
+          "age_h": 49.5,
+          "source": "zernio",
+          "impressions": 202,
+          "reach": 86,
+          "views": 202,
+          "likes": 6,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 202,
+        "reach": 86,
+        "views": 202,
+        "likes": 6,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
     }
   },
-  "updated_at": "2026-10-17T04:28:54+00:00"
+  "updated_at": "2026-10-17T10:46:28+00:00"
 }

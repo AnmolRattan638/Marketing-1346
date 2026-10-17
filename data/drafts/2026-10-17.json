@@ -1,0 +1,111 @@
+{
+  "id": "2026-10-17-82758d",
+  "date": "2026-10-17",
+  "status": "pending",
+  "service": "website",
+  "topic": "WhatsApp DM replies vs a one-page site: the real time cost",
+  "idea_id": "web-trust-compare",
+  "problem_id": "repeatedly-answering-the-same-basic-ques",
+  "angle_type": null,
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "repeatedly-answering-the-same-basic-ques",
+    "angle_type": null,
+    "hook_style": null
+  },
+  "hooks": [
+    {
+      "style": "contrast",
+      "text": "Entrepreneurs: WhatsApp chats vs one‑page site—save 30 minutes daily"
+    },
+    {
+      "style": "question",
+      "text": "Tired of typing rates repeatedly? What if a link answered them?"
+    },
+    {
+      "style": "story",
+      "text": "I stopped copy‑pasting rates and reclaimed my afternoons—here’s how"
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "contrast",
+  "posts": {
+    "instagram": "𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 𝗣𝗔𝗥 𝗕𝗔𝗥-𝗕𝗔𝗥 𝗥𝗔𝗧𝗘 𝗟𝗜𝗦𝗧 𝗕𝗛𝗘𝗝𝗧𝗘 𝗕𝗛𝗘𝗝𝗧𝗘 𝗧𝗛𝗔𝗞 𝗚𝗔𝗬𝗘?\n\n→ Typing rates manually on chat wastes 𝗛𝗢𝗨𝗥𝗦 every single day.\n→ One clean 𝗢𝗡𝗘-𝗣𝗔𝗚𝗘 link shows your services, prices, and contact.\n→ Send the link once in chats, Instagram bio, or status.\n\nDM 𝗦𝗜𝗧𝗘 to get a clean layout. You pay only after approval.\n\n#SmallBusinessIndia #IndianEntrepreneurs #OnlinePresence #SmallBusinessTips",
+    "linkedin": "Answering the same service questions on WhatsApp wastes hours each week.\n\nIf you run a clinic, a salon, or a coaching centre, prospects often ask for your services, starting prices, and contact details before deciding.\n\nTyping the same reply in every chat slows you down and can cause miscommunication.\n\nA single, fast‑loading one‑page website lets you list all services, basic pricing, and a contact link in one place.\n\nWhen a prospect asks, you simply share the link. Updating a price means editing the page once, not retyping messages all day.\n\nSend me a DM with the word SITE and I’ll give you an honest opinion on how a one‑page site could work for your business.",
+    "bluesky": "𝗧𝗜𝗥𝗘𝗗 𝗢𝗙 𝗧𝗬𝗣𝗜𝗡𝗚 the same price list into WhatsApp chats all day?\n\nA simple one-page site puts your services, rates, and direct contact on one link you can share in seconds.\n\nDM 𝗦𝗜𝗧𝗘 and tell me what you sell—happy to share how the layout works."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does a one-page site cost?",
+      "reply": "Hi! Packages start at INR 1,499 for a basic setup up to INR 3,599 for a full bundle, and domain setup is INR 800. You pay only after you approve the finished work. What kind of business do you run, and what is the main action you want visitors to take?"
+    },
+    {
+      "if_they_say": "Will this work for my type of business?",
+      "reply": "Hi! Yes, I build clean one-page sites for all kinds of small businesses across India, including salons, clinics, coaching centres, and local shops. What do you sell, and what questions do customers usually ask you on chat before buying?"
+    },
+    {
+      "if_they_say": "I will think about it and let you know.",
+      "reply": "Of course, take your time. I keep the scope simple and you pay only after you approve the site, so there is no upfront risk. Quick question to help: is the hesitation mainly budget, timing, or whether a single page will actually save you time?"
+    }
+  ],
+  "image": {
+    "prompt": "Commercial lifestyle photography of a modern smartphone resting on a polished wooden café table in the upper frame. The glowing mobile screen displays a clean, minimalist web interface with warm yellow accent cards. Soft morning sunlight streams across the scene, creating shallow depth of field with a blurred ceramic mug. The lower wooden surface remains calm, open, and beautifully lit. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, professional commercial lighting, rich natural colour, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-10-17.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "repeatedly-answering-the-same-basic-ques",
+      "angle_type": "contrast",
+      "style": "bold",
+      "headline": "One simple link beats typing your prices daily",
+      "highlight": [
+        "One simple link"
+      ],
+      "sub": "Put your services and rates where clients see them instantly.",
+      "chat": [],
+      "cta": "DM \"SITE\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": []
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Instagram caption includes prohibited hashtag #WebsiteDevelopment."
+    ],
+    "revised": {
+      "instagram": "**WHATSAPP PAR BAR-BAR RATE LIST BHEJTE BHEJTE THAK GAYE?**\n\n→ Typing rates manually on chat wastes **HOURS** every single day.\n→ One clean **ONE-PAGE** link shows your services, prices, and contact.\n→ Send the link once in chats, Instagram bio, or status.\n\nDM **SITE** to get a clean layout. You pay only after approval.\n\n#SmallBusinessIndia #IndianEntrepreneurs #OnlinePresence #SmallBusinessTips",
+      "linkedin": "Answering the same service questions on WhatsApp wastes hours each week.\n\nIf you run a clinic, a salon, or a coaching centre, prospects often ask for your services, starting prices, and contact details before deciding.\n\nTyping the same reply in every chat slows you down and can cause miscommunication.\n\nA single, fast‑loading one‑page website lets you list all services, basic pricing, and a contact link in one place.\n\nWhen a prospect asks, you simply share the link. Updating a price means editing the page once, not retyping messages all day.\n\nSend me a DM with the word SITE and I’ll give you an honest opinion on how a one‑page site could work for your business.",
+      "bluesky": "**TIRED OF TYPING** the same price list into WhatsApp chats all day?\n\nA simple one-page site puts your services, rates, and direct contact on one link you can share in seconds.\n\nDM **SITE** and tell me what you sell—happy to share how the layout works."
+    }
+  },
+  "ad_score": 9,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "FAILED google:gemma-4-26b-a4b-it (HTTP 500)",
+      "google:gemini-3.8-flash"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 83.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "500",
+        "seconds": 3.6,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

@@ -1,20 +1,26 @@
 {
-  "date": "2026-10-16",
+  "date": "2026-10-17",
   "stage": "brand new under 100 followers",
   "followers": 8,
-  "summary": "Very low engagement and zero DMs; Instagram bio mentions niche, price and free site check, which conflicts with brand rules.",
-  "guidance": "- High skip rates (≈70%) show the first 3 seconds need a stronger hook; start with a bold question or contrast.\n- Rotate hook styles (question, contrast, story, myth‑bust) instead of reusing the same style repeatedly.\n- Topics that repeat (e.g., “same 5 questions”) should be varied; try “What if your customers could get answers instantly?”\n- Keep captions developer‑focused, showing real work, not ad‑like language.\n- Use national hashtags only (#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia).\n- Keep reels under 30 s, aim for avg watch >10 s, and add a clear CTA to DM for a quick advice chat.",
+  "summary": "Engagement is weakest on Bluesky (zero likes/comments) and overall Instagram reels have high skip rates; bio also narrows niche and promises a free check, which breaches brand rules.",
+  "guidance": "- High skip rates (63‑77%) show the first 3 seconds lose viewers; start with bold visual or text that promises a concrete benefit.\n- Reels get few comments/shares; add a clear DM call‑to‑action and ask a question to spark replies.\n- Rotate hook styles: try \"Story\" or \"Contrast\" after the recent \"Question\" and \"Myth‑Bust\" to keep content fresh.\n- Avoid repeating the same phrasing (e.g., \"same five questions\") across posts.\n- Keep tone that you’re a developer showing real work, not an ad; use generic mockups, not client claims.\n- Use a mix of feed (image) and reels; feed posts currently get lower reach.",
   "instructions": {
-    "research": "Identify 2‑3 common customer queries that small businesses across India (e.g., cafes, gyms, clinics) receive daily.",
-    "analysis": "Select one query and outline how an AI chatbot can answer it, noting the ease it brings to the business.",
-    "writer": "Write a 40‑word post using a question hook, mention \"pay after approval\", invite DMs for a quick fit check, and include an \"Example\" conversation labeled as such.",
-    "image": "Create a simple graphic showing a chat bubble exchange (text only) illustrating the example conversation.",
-    "video": "Film a 15‑second text‑overlay video: first 3 seconds show a bold question, next 10 seconds summarize the chatbot benefit, end with \"DM for a quick chat\"."
+    "research": "Identify two hook styles (e.g., Story, Contrast) that performed well for similar small‑business accounts this week.",
+    "analysis": "Review the 44‑second presenter reel (highest avg watch) to note which visual or audio element kept viewers past the first 5 seconds.",
+    "writer": "Draft a website post titled \"The Missing Website Trust Gap\" with three quick fixes and a DM CTA; no guarantees, no free audit outside the post.",
+    "image": "Create a generic website screenshot (no branding) with overlay text highlighting the three fixes.",
+    "video": "Produce a 15‑second reel: first 3 seconds show bold text \"No website? Trust drops 40%\" then a fast cut to the 3 fixes and end with \"DM for a free 3‑point look\"."
   },
   "manual_tips": [
-    "Update the Instagram bio to remove niche, price and free‑check claims; keep it generic per brand rules.",
-    "Leave thoughtful comments on 5 recent posts from Indian small‑business pages using relevant hashtags to attract attention.",
-    "Reply to any likes or comments on recent reels with a personal thank‑you and a brief prompt to DM for more info."
+    "Comment thoughtfully on at least five posts from local businesses across different Indian cities to increase visibility.",
+    "Respond promptly to any DMs received today, offering honest advice and the \"pay after approval\" option.",
+    "Edit the Instagram bio to remove specific industries, region, and the free‑check promise; keep it generic and compliant."
   ],
-  "weak_signals": []
+  "weak_signals": [
+    {
+      "id": "zero_engagement_streak",
+      "platform": "bluesky",
+      "detail": "the last 3 settled posts got zero likes, comments, shares and saves"
+    }
+  ]
 }

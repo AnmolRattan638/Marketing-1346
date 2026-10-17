@@ -1,6 +1,6 @@
-- High skip rates (≈70%) show the first 3 seconds need a stronger hook; start with a bold question or contrast.
-- Rotate hook styles (question, contrast, story, myth‑bust) instead of reusing the same style repeatedly.
-- Topics that repeat (e.g., “same 5 questions”) should be varied; try “What if your customers could get answers instantly?”
-- Keep captions developer‑focused, showing real work, not ad‑like language.
-- Use national hashtags only (#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia).
-- Keep reels under 30 s, aim for avg watch >10 s, and add a clear CTA to DM for a quick advice chat.
+- High skip rates (63‑77%) show the first 3 seconds lose viewers; start with bold visual or text that promises a concrete benefit.
+- Reels get few comments/shares; add a clear DM call‑to‑action and ask a question to spark replies.
+- Rotate hook styles: try "Story" or "Contrast" after the recent "Question" and "Myth‑Bust" to keep content fresh.
+- Avoid repeating the same phrasing (e.g., "same five questions") across posts.
+- Keep tone that you’re a developer showing real work, not an ad; use generic mockups, not client claims.
+- Use a mix of feed (image) and reels; feed posts currently get lower reach.

@@ -1,7 +1,7 @@
 {
   "id": "2026-10-18-ee2fea",
   "date": "2026-10-18",
-  "status": "pending",
+  "status": "published",
   "service": "animated_ads",
   "topic": "Static vs Motion: Why your photos are being ignored",
   "idea_id": "ads-static-vs-motion",
@@ -103,5 +103,19 @@
         "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6ad49b41a2aff5706bd270ab"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6ad49b45769b457934b9358a (due 2026-10-18T10:11:17.618Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3my5ejjl3dn2l"
+    }
   }
 }

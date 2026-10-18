@@ -1,0 +1,107 @@
+{
+  "id": "2026-10-18-ee2fea",
+  "date": "2026-10-18",
+  "status": "pending",
+  "service": "animated_ads",
+  "topic": "Static vs Motion: Why your photos are being ignored",
+  "idea_id": "ads-static-vs-motion",
+  "problem_id": "static-images-get-scrolled-past-without-",
+  "angle_type": "question",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "static-images-get-scrolled-past-without-",
+    "angle_type": null,
+    "hook_style": null
+  },
+  "hooks": [
+    {
+      "style": "curiosity",
+      "text": "Café owners: Why does a moving photo stop scrolling instantly?"
+    },
+    {
+      "style": "myth",
+      "text": "Gym owners: Myth—high‑res photos win. Fact—motion grabs attention."
+    },
+    {
+      "style": "value",
+      "text": "Shopkeepers: Add a 2‑second loop, watch pause rates rise."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "curiosity",
+  "posts": {
+    "instagram": "𝗞𝗬𝗨𝗡 𝗘𝗞 𝗠𝗢𝗩𝗜𝗡𝗚 𝗣𝗛𝗢𝗧𝗢 𝗙𝗘𝗘𝗗 𝗠𝗘𝗜𝗡 𝗦𝗖𝗥𝗢𝗟𝗟 𝗥𝗢𝗞 𝗗𝗘𝗧𝗜 𝗛𝗔𝗜?\n\n→ Static photo fast feed mein aasaani se blend ho jaati hai.\n→ 𝗠𝗢𝗧𝗜𝗢𝗡 aate hi human eye instinctively pause karti hai.\n→ AI se simple product photos ko 𝗔𝗡𝗜𝗠𝗔𝗧𝗘 kiya.\n\nDM 𝗔𝗗𝗦 aur apna business batayein. You pay only after you approve.\n\n#SmallBusinessIndia #IndianEntrepreneurs #LocalBusinessIndia #ContentCreationIndia",
+    "linkedin": "A tiny animation can help pause a scrolling thumb.\n\nIn a fast mobile feed, static photos are often skimmed over.\n\nWhether it’s a clinic, a retail shop, or a café, plain images blend into the background.\n\nA subtle looping animation can create a natural pause, catching the viewer’s eye before they scroll away.\n\nInstead of costly video production, a simple photo can be turned into a short five‑second animated ad.\n\nYou only pay after you approve the final result.\n\nMessage ADS to discuss your needs.",
+    "bluesky": "𝗠𝗢𝗧𝗜𝗢𝗡 𝗦𝗧𝗢𝗣𝗦 𝗦𝗖𝗥𝗢𝗟𝗟𝗦. The eye scans past still photos in a busy feed, but pauses on subtle movement. Adding a clean motion loop to a still photo helps small businesses get noticed. DM 𝗔𝗗𝗦 to see how it works for what you sell."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does it cost?",
+      "reply": "Hi! The packages are INR 999, 1,499, and 2,199 depending on the format and duration. You pay only after you approve the final work. Quick question: what kind of product or service do you want to promote?"
+    },
+    {
+      "if_they_say": "Do you do this for my kind of business?",
+      "reply": "Hi! Motion loops work well across most categories—retail products, food items, clinics, or local services—as long as you have a clear photo. What do you sell? I will tell you honestly if an animated ad makes sense for it."
+    },
+    {
+      "if_they_say": "Can you send a demo or sample for my business first?",
+      "reply": "I don't make pre-made samples for specific businesses, but the process is straightforward: we take your existing still image, turn key elements into a short loop, and you only pay after you approve the final output. What kind of business do you run?"
+    }
+  ],
+  "image": {
+    "prompt": "Premium commercial photography of a single ceramic coffee cup on a rustic wooden table within a sunlit, bustling café. Delicate, swirling plumes of steam rise from the hot liquid, capturing fluid motion. The background features a soft, cinematic bokeh of warm amber lights and golden sunlight. The bottom portion of the frame is a calm, dark, out-of-focus wooden surface. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, professional commercial lighting, rich natural colour, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-10-18.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "static-images-get-scrolled-past-without-",
+      "angle_type": "question",
+      "style": "bold",
+      "headline": "Why do people scroll past your photos?",
+      "highlight": [
+        "scroll past"
+      ],
+      "sub": "Cafés, gyms, clinics, shops. Motion gets more attention.",
+      "chat": [],
+      "cta": "DM \"ADS\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": []
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "image",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "LinkedIn caption contained an absolute outcome claim ('can pause a scrolling thumb instantly') which should be softened.",
+      "LinkedIn caption used definitive language ('creates a natural pause') that could be interpreted as a guarantee."
+    ],
+    "revised": {
+      "instagram": "**KYUN EK MOVING PHOTO FEED MEIN SCROLL ROK DETI HAI?**\n\n→ Static photo fast feed mein aasaani se blend ho jaati hai.\n→ **MOTION** aate hi human eye instinctively pause karti hai.\n→ AI se simple product photos ko **ANIMATE** kiya.\n\nDM **ADS** aur apna business batayein. You pay only after you approve.\n\n#SmallBusinessIndia #IndianEntrepreneurs #LocalBusinessIndia #ContentCreationIndia",
+      "linkedin": "A tiny animation can help pause a scrolling thumb.\n\nIn a fast mobile feed, static photos are often skimmed over.\n\nWhether it’s a clinic, a retail shop, or a café, plain images blend into the background.\n\nA subtle looping animation can create a natural pause, catching the viewer’s eye before they scroll away.\n\nInstead of costly video production, a simple photo can be turned into a short five‑second animated ad.\n\nYou only pay after you approve the final result.\n\nMessage ADS to discuss your needs.",
+      "bluesky": "**MOTION STOPS SCROLLS.** The eye scans past still photos in a busy feed, but pauses on subtle movement. Adding a clean motion loop to a still photo helps small businesses get noticed. DM **ADS** to see how it works for what you sell."
+    }
+  },
+  "ad_score": 9,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "google:gemini-3.8-flash",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "google:gemma-4-26b-a4b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 52.9,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

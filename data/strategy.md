@@ -1,6 +1,5 @@
-- High skip rates (63‑77%) show the first 3 seconds lose viewers; start with bold visual or text that promises a concrete benefit.
-- Reels get few comments/shares; add a clear DM call‑to‑action and ask a question to spark replies.
-- Rotate hook styles: try "Story" or "Contrast" after the recent "Question" and "Myth‑Bust" to keep content fresh.
-- Avoid repeating the same phrasing (e.g., "same five questions") across posts.
-- Keep tone that you’re a developer showing real work, not an ad; use generic mockups, not client claims.
-- Use a mix of feed (image) and reels; feed posts currently get lower reach.
+- Rotate hook styles: try Story or Question next (Contrast used last animated_ads post).
+- Avoid repeating "busy to visible" phrasing; don't reuse Contrast for same service twice.
+- Keep voice: developer showing real work, never ad copy.
+- First 3 seconds must show motion or problem visually — high skip rates mean static intros fail.
+- Mention only broad Indian business types (cafés, gyms, clinics, shops) in one line max.

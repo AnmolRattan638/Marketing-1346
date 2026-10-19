@@ -50,25 +50,10 @@
     }
   ],
   "image": {
-    "prompt": "Premium commercial photography of a freelancer seen from behind, hunched over a glowing laptop in a dimly lit room. The screen displays a bright, colorful map view. A steaming ceramic mug sits beside the computer. Golden amber light from a desk lamp provides warm yellow accents. Shallow depth of field with a clean, dark, blurred surface in the lower foreground. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, professional commercial lighting, rich natural colour, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "prompt": null,
     "path": "data/media/2026-10-19.jpg",
-    "engine": "visual:cloudflare",
-    "style": "visual",
-    "ai_generated": true,
-    "spec": {
-      "problem_id": "manual-lead-searching-exhaustion",
-      "angle_type": "problem",
-      "style": "bold",
-      "headline": "Scrolling Maps instead of doing client work",
-      "highlight": [
-        "Scrolling Maps"
-      ],
-      "sub": "Ready-made lists for your morning outreach.",
-      "chat": [],
-      "cta": "DM \"LEADS\"",
-      "tag": "FOR FREELANCERS & AGENCIES"
-    },
-    "errors": []
+    "engine": "user_upload",
+    "ai_generated": false
   },
   "instagram_mode": "auto_image",
   "linkedin_format": "text",

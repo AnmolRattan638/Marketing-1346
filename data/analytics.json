@@ -38,9 +38,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 7,
-        "reach": 5,
-        "views": 7,
+        "impressions": 11,
+        "reach": 6,
+        "views": 11,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -67,17 +67,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 41,
-        "reach": 28,
-        "views": 41,
+        "impressions": 44,
+        "reach": 29,
+        "views": 44,
         "likes": 2,
         "comments": 0,
         "shares": 0,
         "saves": 1,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 75.9,
-        "avg_watch_s": 6.721,
+        "skip_rate": 76.7,
+        "avg_watch_s": 6.615,
         "duration_s": 26
       },
       "matched": null
@@ -178,9 +178,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 266,
+        "impressions": 271,
         "reach": 105,
-        "views": 266,
+        "views": 271,
         "likes": 7,
         "comments": 0,
         "shares": 0,
@@ -323,8 +323,8 @@
       "format": "text",
       "source": "zernio",
       "metrics": {
-        "impressions": 127,
-        "reach": 83,
+        "impressions": 133,
+        "reach": 84,
         "views": null,
         "likes": 0,
         "comments": 0,
@@ -352,17 +352,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 148,
+        "impressions": 149,
         "reach": 100,
-        "views": 148,
+        "views": 149,
         "likes": 8,
         "comments": 2,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 73.1,
-        "avg_watch_s": 5.864,
+        "skip_rate": 73.4,
+        "avg_watch_s": 5.859,
         "duration_s": 40
       },
       "matched": null
@@ -424,17 +424,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 794,
-        "reach": 392,
-        "views": 794,
+        "impressions": 797,
+        "reach": 395,
+        "views": 797,
         "likes": 34,
         "comments": 7,
         "shares": 2,
         "saves": 1,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 75,
-        "avg_watch_s": 7.747,
+        "skip_rate": 74.9,
+        "avg_watch_s": 7.72,
         "duration_s": 62
       },
       "matched": null
@@ -541,5 +541,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-19T13:19:09+00:00"
+  "updated_at": "2026-10-19T22:22:38+00:00"
 }

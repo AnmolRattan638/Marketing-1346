@@ -53,6 +53,18 @@
           "shares": 1,
           "saves": 0,
           "clicks": 0
+        },
+        "7d": {
+          "age_h": 169.0,
+          "source": "zernio",
+          "impressions": 264,
+          "reach": 110,
+          "views": 264,
+          "likes": 9,
+          "comments": 0,
+          "shares": 1,
+          "saves": 0,
+          "clicks": 0
         }
       },
       "latest": {
@@ -82,6 +94,13 @@
       "snap": {
         "48h": {
           "age_h": 99.2,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        },
+        "7d": {
+          "age_h": 169.0,
           "source": "bluesky",
           "likes": 0,
           "comments": 0,
@@ -241,7 +260,73 @@
         "saves": 0,
         "clicks": 0
       }
+    },
+    "2026-10-17|instagram": {
+      "date": "2026-10-17",
+      "platform": "instagram",
+      "service": "website",
+      "problem_id": "repeatedly-answering-the-same-basic-ques",
+      "angle_type": null,
+      "hook_style": "contrast",
+      "format": "image",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "published_at": "2026-10-17T08:10:36.000Z",
+      "url": "https://www.instagram.com/p/Delpa8TiEep/",
+      "snap": {
+        "48h": {
+          "age_h": 49.1,
+          "source": "zernio",
+          "impressions": 15,
+          "reach": 6,
+          "views": 15,
+          "likes": 1,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 15,
+        "reach": 6,
+        "views": 15,
+        "likes": 1,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
+    },
+    "2026-10-17|bluesky": {
+      "date": "2026-10-17",
+      "platform": "bluesky",
+      "service": "website",
+      "problem_id": "repeatedly-answering-the-same-basic-ques",
+      "angle_type": null,
+      "hook_style": "contrast",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "published_at": "2026-10-17T08:10:32.873950+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3my2ncesz6n2g",
+      "snap": {
+        "48h": {
+          "age_h": 49.1,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-10-19T04:42:44+00:00"
+  "updated_at": "2026-10-19T09:14:44+00:00"
 }

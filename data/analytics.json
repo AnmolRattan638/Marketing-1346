@@ -38,9 +38,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 6,
-        "reach": 4,
-        "views": 6,
+        "impressions": 7,
+        "reach": 5,
+        "views": 7,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -178,9 +178,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 263,
-        "reach": 103,
-        "views": 263,
+        "impressions": 266,
+        "reach": 105,
+        "views": 266,
         "likes": 7,
         "comments": 0,
         "shares": 0,
@@ -236,9 +236,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 264,
-        "reach": 110,
-        "views": 264,
+        "impressions": 266,
+        "reach": 111,
+        "views": 266,
         "likes": 9,
         "comments": 0,
         "shares": 1,
@@ -541,5 +541,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-19T04:42:43+00:00"
+  "updated_at": "2026-10-19T13:19:09+00:00"
 }

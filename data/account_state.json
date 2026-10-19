@@ -1,26 +1,36 @@
 {
-  "date": "2026-10-18",
+  "date": "2026-10-19",
   "stage": "brand new under 100 followers",
-  "followers": 9,
-  "summary": "Account is brand new (9 IG, 1 LI, 1 BS followers). Only 7 posts in 30 days — too little data for patterns. IG reels get 600–780 views but 63–75% skip rates (first 3 seconds fail). Chatbot question hook got best engagement (12). Bio violates rules: niche/region lock, 24-hr claim, permanent free offer.",
-  "guidance": "- Rotate hook styles: try Story or Question next (Contrast used last animated_ads post).\n- Avoid repeating \"busy to visible\" phrasing; don't reuse Contrast for same service twice.\n- Keep voice: developer showing real work, never ad copy.\n- First 3 seconds must show motion or problem visually — high skip rates mean static intros fail.\n- Mention only broad Indian business types (cafés, gyms, clinics, shops) in one line max.",
+  "followers": 10,
+  "summary": "Account is brand new (<100 followers). Weakest: Reel hooks lose 76% viewers in first 3 seconds; Bluesky posts get zero engagement. Instagram bio violates rules (niche, region, timeframe, free offer).",
+  "guidance": "- Hook style to try next: open with a blunt, relatable pain point in plain Hinglish/English (e.g., \"You're missing calls while you work\") — avoid question hooks (used 2026-10-12) and contrast hooks (used 2026-10-17).\n- Topics to avoid: \"24-hour delivery\", \"Rs 1,499 price\", \"free site check\" — these are bio claims, not post topics, and repeat across recent posts.\n- Remember: every post must read like a developer showing real work, never an ad. No demos, no guaranteed results, no niche targeting.",
   "instructions": {
-    "research": "Find 3–4 public examples of AI-generated animated ads used by Indian small businesses (café, gym, clinic, shop) — note visual style, length, platform.",
-    "analysis": "Compare today's animated_ads hook to 2026-10-12 chatbot question hook (12 engagement). Note: question hooks outperformed contrast on IG; avoid absolute outcome words.",
-    "writer": "Write one IG post (image/carousel) for AI animated ads using Question hook. Open with a relatable question any Indian business owner asks. Mention pay-after-approval. No niche targeting, no demos, no guarantees. End with \"DM me — happy to advise if this fits.\"",
-    "image": "Create a simple split graphic: left side static poster, right side same poster with subtle motion arrows (text: \"Static vs AI-animated\"). No client logos, no business names. Clean, developer-made look.",
-    "video": "Not needed today — static image post aligns with current format mix and avoids reel skip-rate risk."
+    "research": "Find 3 recent Google Maps searches for \"newly opened\" + service type (cafe, gym, clinic) in different Indian cities; note common missing contact details.",
+    "analysis": "Compare the lead sheet columns (name, phone, website, review count, place_id) against what a freelancer actually needs to pitch — identify one gap to mention in the post.",
+    "writer": "Write a lead-gen post for freelancers/agencies: start with \"Freelancers, agencies, anyone selling a service —\" then describe the sheet in general terms (Google Places data, contact details, review counts, website check, newly opened). End with \"DM me\" and pay-after-approval line.",
+    "image": "Create a simple screenshot-style graphic: a blurred spreadsheet header showing columns (Business, Phone, Website, Reviews, Place ID) with \"Sample data\" watermark. No logos, no brand colors.",
+    "video": "Skip video today — Reel hook failure rate is 76%; focus on static image post to test copy first."
   },
   "manual_tips": [
-    "Update Instagram bio: remove niches (hotels, cafes, gyms, homestays), region (Himachal), timeframe (24 hrs), and permanent free offer. Replace with: \"Websites, AI chatbots, animated ads & lead gen for small businesses across India. Pay after approval. DM to chat.\"",
-    "Comment thoughtfully on 5 posts from Indian small business owners (any city) discussing marketing struggles — no self-promo, just genuine replies.",
-    "Share today's published post to 2–3 relevant LinkedIn groups for Indian freelancers/agencies (organic, no spam)."
+    "Update Instagram bio to: \"Websites, chatbots, animated ads & lead sheets for small businesses across India. Pay after approval. DM for honest advice.\" (removes niche, region, timeframe, free offer).",
+    "Comment on 5 posts by Indian freelancers/agencies discussing client acquisition — add value, don't pitch.",
+    "Reply to any story mentions or tags from collaborators (editorxyz_official, shiven_xyz) with a genuine thank-you, no self-promo."
   ],
   "weak_signals": [
     {
+      "id": "high_skip_rate",
+      "platform": "instagram",
+      "detail": "reels lose 76% of viewers in the first 3 seconds across 1 reels: the hook is not stopping the scroll"
+    },
+    {
       "id": "zero_engagement_streak",
       "platform": "bluesky",
-      "detail": "the last 3 settled posts got zero likes, comments, shares and saves"
+      "detail": "the last 4 settled posts got zero likes, comments, shares and saves"
+    },
+    {
+      "id": "follower_stall",
+      "platform": "bluesky",
+      "detail": "5 posts in 7 days and followers changed by +0"
     }
   ]
 }

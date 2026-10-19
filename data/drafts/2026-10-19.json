@@ -1,0 +1,104 @@
+{
+  "id": "2026-10-19-51a848",
+  "date": "2026-10-19",
+  "status": "pending",
+  "service": "lead_gen",
+  "topic": "Manual lead hunting exhaustion",
+  "idea_id": null,
+  "problem_id": "manual-lead-searching-exhaustion",
+  "angle_type": null,
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "manual-lead-searching-exhaustion",
+    "angle_type": null,
+    "hook_style": null
+  },
+  "hooks": [
+    {
+      "style": "pov",
+      "text": "POV: Scrolling Google Maps all day while clients wait for proposals."
+    },
+    {
+      "style": "myth",
+      "text": "Myth: More leads = more sales. Fact: Quality beats quantity every time."
+    },
+    {
+      "style": "value",
+      "text": "Try this: Add email column now, start pitching within minutes."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "pov",
+  "posts": {
+    "instagram": "𝗣𝗢𝗢𝗥𝗔 𝗗𝗜𝗡 𝗚𝗢𝗢𝗚𝗟𝗘 𝗠𝗔𝗣𝗦 𝗣𝗔𝗥 𝗟𝗘𝗔𝗗𝗦 𝗗𝗛𝗢𝗢𝗡𝗗𝗡𝗘 𝗠𝗘𝗜𝗡 𝗡𝗜𝗞𝗔𝗟 𝗚𝗔𝗬𝗔?\n\n→ Freelancers aur agencies, whatever you sell to local businesses.\n→ Script pulls 𝗟𝗢𝗖𝗔𝗟 𝗕𝗨𝗦𝗜𝗡𝗘𝗦𝗦𝗘𝗦 with phone, reviews and website status.\n→ Stop manual searching and start pitching every morning.\n\nDM 𝗟𝗘𝗔𝗗𝗦 to see how it works. You 𝗣𝗔𝗬 𝗔𝗙𝗧𝗘𝗥 𝗔𝗣𝗣𝗥𝗢𝗩𝗔𝗟.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+    "linkedin": "Manual Google Maps lead hunting steals time you could spend on billable work.\n\nFreelancers, agencies, and anyone selling a service often waste hours copying phone numbers by hand.\n\nI created a script that extracts new and existing local businesses from Google Places, including phone numbers, review counts, and website status.\n\nWhether you offer marketing, video editing, accounting, or any other service, having a clean list each morning lets you start pitching right away.\n\nYou receive the spreadsheet first, and you only pay after you approve it.\n\nDM LEADS if you want to see how it works for your business.",
+    "bluesky": "𝗧𝗜𝗥𝗘𝗗 𝗢𝗙 𝗦𝗖𝗥𝗢𝗟𝗟𝗜𝗡𝗚 𝗚𝗢𝗢𝗚𝗟𝗘 𝗠𝗔𝗣𝗦 𝗔𝗟𝗟 𝗠𝗢𝗥𝗡𝗜𝗡𝗚?\n→ Freelancers and agencies, whatever you sell to local businesses.\n→ I pull 𝗟𝗢𝗖𝗔𝗟 𝗕𝗨𝗦𝗜𝗡𝗘𝗦𝗦𝗘𝗦 with contact details and review counts.\n→ Start pitching instead of searching.\nDM 𝗟𝗘𝗔𝗗𝗦 to chat."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does the lead sheet cost?",
+      "reply": "Thanks for messaging! The pricing depends on the target area and volume, and you pay only after you approve the work. Quick question: what service do you sell, and which city are you targeting?"
+    },
+    {
+      "if_they_say": "Will this list work for my specific service?",
+      "reply": "Yes, it pulls local businesses from Google Places with phone numbers, review counts, and website status, so it works whatever you sell—design, ads, video, or accounts. What service are you pitching right now?"
+    },
+    {
+      "if_they_say": "Can you send a sample sheet or demo?",
+      "reply": "I don't keep static sample files since business data changes constantly. I can explain the exact structure and check availability for your target location. Which business category and city are you planning to reach?"
+    }
+  ],
+  "image": {
+    "prompt": "Premium commercial photography of a freelancer seen from behind, hunched over a glowing laptop in a dimly lit room. The screen displays a bright, colorful map view. A steaming ceramic mug sits beside the computer. Golden amber light from a desk lamp provides warm yellow accents. Shallow depth of field with a clean, dark, blurred surface in the lower foreground. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, professional commercial lighting, rich natural colour, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-10-19.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "manual-lead-searching-exhaustion",
+      "angle_type": "problem",
+      "style": "bold",
+      "headline": "Scrolling Maps instead of doing client work",
+      "highlight": [
+        "Scrolling Maps"
+      ],
+      "sub": "Ready-made lists for your morning outreach.",
+      "chat": [],
+      "cta": "DM \"LEADS\"",
+      "tag": "FOR FREELANCERS & AGENCIES"
+    },
+    "errors": []
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**POORA DIN GOOGLE MAPS PAR LEADS DHOONDNE MEIN NIKAL GAYA?**\n\n→ Freelancers aur agencies, whatever you sell to local businesses.\n→ Script pulls **LOCAL BUSINESSES** with phone, reviews and website status.\n→ Stop manual searching and start pitching every morning.\n\nDM **LEADS** to see how it works. You **PAY AFTER APPROVAL**.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+      "linkedin": "Manual Google Maps lead hunting steals time you could spend on billable work.\n\nFreelancers, agencies, and anyone selling a service often waste hours copying phone numbers by hand.\n\nI created a script that extracts new and existing local businesses from Google Places, including phone numbers, review counts, and website status.\n\nWhether you offer marketing, video editing, accounting, or any other service, having a clean list each morning lets you start pitching right away.\n\nYou receive the spreadsheet first, and you only pay after you approve it.\n\nDM LEADS if you want to see how it works for your business.",
+      "bluesky": "**TIRED OF SCROLLING GOOGLE MAPS ALL MORNING?**\n→ Freelancers and agencies, whatever you sell to local businesses.\n→ I pull **LOCAL BUSINESSES** with contact details and review counts.\n→ Start pitching instead of searching.\nDM **LEADS** to chat."
+    }
+  },
+  "ad_score": 8,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "google:gemma-4-26b-a4b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "google:gemini-3.8-flash"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 4.5,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

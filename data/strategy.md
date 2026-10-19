@@ -1,5 +1,3 @@
-- Rotate hook styles: try Story or Question next (Contrast used last animated_ads post).
-- Avoid repeating "busy to visible" phrasing; don't reuse Contrast for same service twice.
-- Keep voice: developer showing real work, never ad copy.
-- First 3 seconds must show motion or problem visually — high skip rates mean static intros fail.
-- Mention only broad Indian business types (cafés, gyms, clinics, shops) in one line max.
+- Hook style to try next: open with a blunt, relatable pain point in plain Hinglish/English (e.g., "You're missing calls while you work") — avoid question hooks (used 2026-10-12) and contrast hooks (used 2026-10-17).
+- Topics to avoid: "24-hour delivery", "Rs 1,499 price", "free site check" — these are bio claims, not post topics, and repeat across recent posts.
+- Remember: every post must read like a developer showing real work, never an ad. No demos, no guaranteed results, no niche targeting.

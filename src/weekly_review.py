@@ -52,11 +52,11 @@ def build(now=None):
         lines.append("\nTHIS WEEK (1.0x = the account's median)")
         for p in week:
             prob = next((b["problem"][:45] for b in bank["problems"] if b["id"] == p["problem_id"]), "free topic")
-            lines.append(f"- {p['date']} {p['service']} | {prob} | angle {p['angle_type'] or '-'} | hook {p['hook_style'] or '-'} | " +
+            lines.append(f"- {p['date']} {p['service']} | {prob} | angle {p['angle_type'] or '-'} | hook {p['hook_style'] or '-'} | image {p['image_style'] or '-'} | " +
                          " ; ".join(f"{SHORT.get(k, k)} {_x(v)}" for k, v in p["platforms"].items()))
     else:
         lines.append("\nNo post is old enough with numbers yet (a post needs 48 hours). Nothing to learn from this week.")
-    for field, name in (("hook_style", "Hook styles"), ("angle_type", "Angle types"), ("service", "Services")):
+    for field, name in (("hook_style", "Hook styles"), ("angle_type", "Angle types"), ("image_style", "Image styles"), ("service", "Services")):
         ls = learning.lessons(posts, field)
         if ls:
             lines.append(f"{name}: " + ", ".join(f"{k} {v}x (n={n})" for k, v, n in ls[:5]))

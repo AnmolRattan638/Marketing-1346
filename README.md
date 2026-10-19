@@ -71,6 +71,9 @@ Good to know:
 - `data/analytics.json` is public like everything in `data/`. It only changes (and only creates a commit) when a number changed or a new day starts.
 - Manual stats in `data/metrics.json` still matter for what no API gives you (DMs, WhatsApp enquiries, LinkedIn without Zernio).
 
+## Image style (consistent look, never a copy)
+`config/image_style.json` holds a shared `style_dna` and five visual families (`variants`) written from reference images, as abstract style only: no reference image, text or artwork is stored. Each picture uses ONE family (never the same one twice in a row, otherwise the least used), takes at most two of its elements, and must add ONE new element from that day's topic, so pictures match in style but are never copies. The AI picture contains no text; the headline is added in real fonts. If the model's prompt is unusable, a concrete scene for the service is used with the same style. The family is saved on the draft (`image.style_id`) and compared in the weekly learning review ("Image styles"). To change the look, edit that file: keep it positive, with no text, numbers or layout words in it.
+
 ## Learning loop (what to test next, from your own results)
 Deterministic code in `src/learning.py`; the agents only receive its conclusions as guidance, and nothing edits prompts, rules or code. You still approve every post.
 1. **Join and freeze.** Every 6 hours the analytics sync stores each published post's numbers once it is 48 hours old (and again at 7 days) in `data/post_results.json`, with what was tested: problem, angle type, hook style, format, CTA.

@@ -29,8 +29,11 @@ def clean_prompt(text, limit=900):
     return out.strip('" ')[:limit]
 
 
-DEFAULT_SUFFIX = ("Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, professional commercial lighting, "
-                  "rich natural colour, high dynamic range, premium polished finish, vertical 4:5 composition.")
+OLD_LOOK = "premium commercial photography or a polished 3D render, one strong focal subject in the upper two thirds, shallow depth of field, dramatic but natural light, rich colour with warm yellow as the accent, calm and uncluttered in the lower 40% (the headline goes there)."
+
+
+DEFAULT_SUFFIX = ("Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, "
+                  "cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.")
 
 
 def style():
@@ -152,31 +155,60 @@ def _card(plan, path):
 LAYOUT_WORDS = re.compile(r"\b(?:left|right|top|bottom)\s*:|\bpanels?\b|\bdivided\b|\bsections?\b|\bgrid\b|\bsplit[- ]?screen\b|\bcollage\b|"
                           r"\bcolumns?\b|\binfographic\b|\bdiagram\b|\bflowchart\b|\b(?:two|three|four|five|six|2|3|4|5|6)\s+(?:equal\s+)?(?:parts|sections|panels|columns|boxes|cards|steps)\b", re.I)
 
-SCENES = {      # a concrete, topic-specific picture used when the model's prompt is unusable; no text, brands or faces
-    "lead_gen": "A laptop on a wooden desk showing a bright city map covered in glowing yellow location pins over small shopfronts, a cup of tea beside it, warm window light",
-    "chatbot": "A smartphone on a cafe counter at night, its screen lit by a stack of unread chat bubbles, warm lamp light",
-    "animated_ads": "A smartphone propped on a cafe counter playing a short colourful animated ad, warm afternoon light",
-    "website": "A laptop on a tidy desk showing a clean mobile-friendly landing page, beside a cup of tea in warm window light",
-    "reel_scripts": "A smartphone on a small tripod beside an open notebook and pen on a wooden desk, soft window light",
+SCENES = {      # a concrete, topic-specific object for when the model's prompt is unusable; no text, brands or faces; the style family sets the light
+    "lead_gen": "A laptop showing a bright city map covered in glowing location pins over small shopfronts, with a cup of tea beside it",
+    "chatbot": "A smartphone on a cafe counter at night, its screen lit by a stack of unread chat bubbles",
+    "animated_ads": "A smartphone propped on a cafe counter playing a short colourful animated ad",
+    "website": "A laptop showing a clean mobile-friendly landing page, beside a cup of tea",
+    "reel_scripts": "A smartphone on a small tripod beside an open notebook and pen on a desk",
     "seo_blogs": "An open laptop beside a notebook and a cup of tea on a desk, a search results page glowing on the screen",
 }
 
 
-def scene_fallback(focus):
-    scene = SCENES.get((focus or {}).get("id"), "A laptop on a wooden desk beside a cup of tea in warm window light")
-    return enhance(f"{scene}. Premium commercial photography, one strong focal subject in the upper two thirds, shallow depth of field, "
-                   "rich colour with a warm yellow accent, calm and uncluttered in the lower 40%.")
+def pick_variant(date):
+    """Visual family for this post: never the one used in the last two posts, otherwise the least used so far (so every family gets tested)."""
+    vs = [v for v in (style().get("variants") or []) if v.get("id")]
+    if not vs:
+        return None
+    used = []
+    for f in sorted(config.DRAFTS.glob("*.json")):
+        d = config.load_json(f, None)
+        sid = ((d or {}).get("image") or {}).get("style_id") if isinstance(d, dict) and str(d.get("date", "")) < str(date) else None
+        if sid:
+            used.append(sid)
+    pool = [v for v in vs if v["id"] not in used[-2:]] or vs
+    return min(pool, key=lambda v: (used.count(v["id"]), vs.index(v)))
 
 
-def picture_prompt(plan, focus, spec, guidance=""):
+def look_text(variant, topic=""):
+    """The 'Look' paragraph of the picture prompt: shared style DNA + one visual family; at most two of its elements plus ONE new element from the topic."""
+    dna = (style().get("style_dna") or "").strip()
+    if not variant:
+        return "Look: " + (dna or OLD_LOOK)
+    return (f"Look (apply to the whole picture): {dna} Today's visual family, {variant['name']}: {variant['look']}. "
+            f"Use at most two of these elements: {variant['elements']}. Then add ONE new element that shows today's topic ({topic}), so this picture looks like none of the others. "
+            f"Accent colour: {variant['accent']}. Copy no existing artwork.")
+
+
+
+
+def scene_fallback(focus, variant=None):
+    scene = SCENES.get((focus or {}).get("id"), "A laptop on a desk beside a cup of tea")
+    dna = (style().get("style_dna") or "").strip() or "Premium commercial photography, one strong focal subject, calm and uncluttered in the lower 40%."
+    fam = f" {variant['look'][:1].upper()}{variant['look'][1:]}, with {variant['elements']}. Accent colour: {variant['accent']}." if variant else ""
+    return enhance(f"{scene}. {dna}{fam}")
+
+
+def picture_prompt(plan, focus, spec, guidance="", variant=None):
     """Ask Gemma for ONE concrete, topic-specific scene (not an empty abstract background). The headline is added afterwards in real fonts."""
     headline = (spec or {}).get("headline") or plan["hooks"][plan.get("chosen_hook", 0)]["text"]
+    look = look_text(variant, plan["topic"])
     prompt = f"""Write ONE image-generation prompt (45-70 words) for the PICTURE behind a social media post. The headline is added later as text, so the picture itself contains no text.
 Headline: {headline} | Topic: {plan['topic']} | Service: {focus['name']} | Idea: {plan.get('image_idea')}
 Strategist note: {guidance}
 
 The picture must show ONE concrete, specific scene that makes the headline visible at a glance: a real object in a real situation, for example a phone playing a short animated ad on a cafe counter, a shop owner's phone lighting up with unanswered messages late at night, a laptop showing a clean booking page beside a cup of tea. Generic, not a real brand and not a claim about real client work.
-Look: premium commercial photography or a polished 3D render, one strong focal subject in the upper two thirds, shallow depth of field, dramatic but natural light, rich colour with warm yellow as the accent, calm and uncluttered in the lower 40% (the headline goes there).
+{look}
 Write ONLY what should be visible, in positive wording (do not use the words no, not, without, avoid). Do not mention signs, screens with words, labels, logos, watermarks or any text. No close-up faces.
 ONE subject in ONE scene. NEVER describe a layout: no left/right halves, panels, sections, grids, collages, split screens, diagrams or counts of parts. If the Idea describes a layout, keep only its object and situation.
 Return ONLY the final prompt wrapped in <prompt></prompt> tags. No notes, no drafts, no explanation."""
@@ -190,7 +222,7 @@ Return ONLY the final prompt wrapped in <prompt></prompt> tags. No notes, no dra
         if len(text.split()) >= 12 and not LAYOUT_WORDS.search(text):
             return enhance(text)
         print(f"[image] picture prompt rejected (layout or too short): {text[:90]}")
-    return scene_fallback(focus)
+    return scene_fallback(focus, variant)
 
 
 def _engines():
@@ -198,14 +230,14 @@ def _engines():
             + ([_gemini] if os.getenv("GEMINI_API_KEY") else []) + [_pollinations])
 
 
-def _ai_picture(plan, focus, spec, guidance, out_path, errors):
+def _ai_picture(plan, focus, spec, guidance, out_path, errors, variant=None):
     """Write an AI picture to out_path with the first engine that works. Returns {prompt, engine}; raises if none does."""
-    img_prompt = picture_prompt(plan, focus, spec, guidance)
+    img_prompt = picture_prompt(plan, focus, spec, guidance, variant)
     for engine in _engines():
         for _ in range(2):
             try:
                 engine(img_prompt, out_path)
-                return {"prompt": img_prompt, "engine": engine.__name__.strip("_")}
+                return {"prompt": img_prompt, "engine": engine.__name__.strip("_"), "style_id": (variant or {}).get("id")}
             except Exception as e:
                 print(f"[image] {engine.__name__} failed: {e}")
                 errors.append(f"{engine.__name__.strip('_')}: {str(e)[:110]}")
@@ -216,16 +248,16 @@ def visuals_enabled():
     return os.getenv("IMAGE_VISUALS", "1") != "0"
 
 
-def _visual_card(plan, focus, spec, guidance, path, errors):
+def _visual_card(plan, focus, spec, guidance, path, errors, variant=None):
     """AI picture + the hook, tag and DM pill in real fonts, 1080x1350, marked as AI-generated."""
     from . import cards
     with tempfile.TemporaryDirectory() as td:
         bg = pathlib.Path(td) / "picture.jpg"
-        info = _ai_picture(plan, focus, spec, guidance, bg, errors)
+        info = _ai_picture(plan, focus, spec, guidance, bg, errors, variant)
         im = cards.compose_visual(spec, bg)
     _write_jpeg(im, path, ai=True)
     return {"prompt": info["prompt"], "path": str(path.relative_to(config.ROOT)), "engine": "visual:" + info["engine"], "style": "visual",
-            "ai_generated": True, "spec": spec, "errors": errors[-4:]}
+            "ai_generated": True, "spec": spec, "errors": errors[-4:], "style_id": info.get("style_id")}
 
 
 def run(plan, focus, date, guidance=""):
@@ -233,6 +265,7 @@ def run(plan, focus, date, guidance=""):
     2) designed card  3) plain AI picture, only if 1 did not already try the engines  4) plain text card."""
     path = config.MEDIA / f"{date}.jpg"
     errors, spec, ai_tried = [], None, False
+    variant = pick_variant(date)
     try:
         from . import cards
         spec = cards.make_spec(plan, focus, guidance)
@@ -242,7 +275,7 @@ def run(plan, focus, date, guidance=""):
     if spec and spec.get("style") != "chat" and visuals_enabled():
         ai_tried = True
         try:
-            return _visual_card(plan, focus, spec, guidance, path, errors)
+            return _visual_card(plan, focus, spec, guidance, path, errors, variant)
         except Exception as e:
             print(f"[image] visual card failed: {e}")
             errors.append(f"visual_card: {str(e)[:110]}")
@@ -258,8 +291,8 @@ def run(plan, focus, date, guidance=""):
     img_prompt = None
     if not ai_tried:
         try:
-            info = _ai_picture(plan, focus, spec, guidance, path, errors)
-            return {"prompt": info["prompt"], "path": str(path.relative_to(config.ROOT)), "engine": info["engine"], "errors": errors[-4:]}
+            info = _ai_picture(plan, focus, spec, guidance, path, errors, variant)
+            return {"prompt": info["prompt"], "path": str(path.relative_to(config.ROOT)), "engine": info["engine"], "errors": errors[-4:], "style_id": info.get("style_id")}
         except Exception as e:
             img_prompt = None
             errors.append(f"ai_picture: {str(e)[:110]}")

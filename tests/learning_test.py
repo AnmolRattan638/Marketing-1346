@@ -15,7 +15,7 @@ config.DATA, config.DRAFTS, config.MEDIA = tmp, tmp / "drafts", tmp / "media"
 
 def draft(date, problem, angle="how_to", hook="question", exp=None):
     d = {"id": f"{date}-x", "date": date, "status": "published", "service": "lead_gen", "topic": f"t {date}", "problem_id": problem, "angle_type": angle,
-         "hook_style": hook, "experiment": exp,
+         "hook_style": hook, "experiment": exp, "image": {"style_id": "network"},
          "posts": {"instagram": f"Instagram caption for {date} about lead hunting every morning", "linkedin": f"LinkedIn post for {date}: a plain sentence about finding clients",
                    "bluesky": f"Bluesky text for {date}"},
          "results": {p: {"ok": True} for p in ("instagram", "linkedin", "bluesky")}}
@@ -42,7 +42,7 @@ now_a = dt.datetime(2026, 10, 12, 6, tzinfo=UTC)
 res = learning.update_results(data, now_a)
 assert sorted(k.split("|")[0] for k in res["posts"]) == [p[0] for p in PLAN[:8]], "the 10-11 post is only 21 hours old: not judged yet"
 r1 = res["posts"]["2026-10-01|instagram"]
-assert r1["problem_id"] == "p-01" and r1["angle_type"] == "how_to" and r1["hook_style"] == "question" and r1["cta"] == "none" and r1["snap"]["48h"]["likes"] == 5
+assert r1["image_style"] == "network" and r1["problem_id"] == "p-01" and r1["angle_type"] == "how_to" and r1["hook_style"] == "question" and r1["cta"] == "none" and r1["snap"]["48h"]["likes"] == 5
 assert "7d" in res["posts"]["2026-10-04|instagram"]["snap"] and "7d" not in res["posts"]["2026-10-05|instagram"]["snap"]
 before = (tmp / "post_results.json").read_text()
 learning.update_results(data, now_a)
@@ -132,7 +132,7 @@ learning.MAX_PROBLEMS = old
 
 # ---- 7. the digest the strategist reads
 d = learning.digest_text(scored, bank, accounts)
-assert d.startswith("LEARNING LOOP") and "low confidence" in d and "Hook styles" in d and len(d) <= 1100, d
+assert "Image styles: network" in d and d.startswith("LEARNING LOOP") and "low confidence" in d and "Hook styles" in d and len(d) <= 1100, d
 assert learning.digest_text([], bank, accounts) == ""
 
 # ---- 8. weekly review: summary, notes file, missing numbers, no prompt or rule is touched

@@ -40,5 +40,12 @@
     "topic": "Static vs Motion: Why your photos are being ignored",
     "hook_style": "curiosity",
     "status": "published"
+  },
+  {
+    "date": "2026-10-20",
+    "service": "chatbot",
+    "topic": "Why do your customers stop messaging you after 9 PM?",
+    "hook_style": "question",
+    "status": "published"
   }
 ]

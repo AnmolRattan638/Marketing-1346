@@ -1,7 +1,7 @@
 {
   "id": "2026-10-20-97f13d",
   "date": "2026-10-20",
-  "status": "pending",
+  "status": "published",
   "service": "chatbot",
   "topic": "Why do your customers stop messaging you after 9 PM?",
   "idea_id": "bot-unanswered",
@@ -138,5 +138,19 @@
         "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6ad720f3dc83cfd671db89f6"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6ad720fded43fb48e28c9bec (due 2026-10-20T08:06:21.821Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3myc6hovdhd2o"
+    }
   }
 }

@@ -1,6 +1,64 @@
 {
   "posts": [
     {
+      "platform": "instagram",
+      "id": "17993804046108451",
+      "url": "https://www.instagram.com/p/DetXVa6CFxH/",
+      "published_at": "2026-10-20T08:06:27.000Z",
+      "text": "𝗥𝗔𝗔𝗧 𝗞𝗢 𝗘𝗡𝗤𝗨𝗜𝗥𝗬 𝗔𝗔𝗬𝗜 𝗣𝗔𝗥 𝗥𝗘𝗣𝗟𝗬 𝗡𝗔𝗛𝗜 𝗗𝗘 𝗣𝗔𝗔𝗬𝗘?\n\n→ Customer raat 10 baje poochhta hai, subah tak bhool jaata hai.\n→ Ek AI chatbot turant basic details dekar 𝗟𝗘𝗔𝗗𝗦",
+      "format": "image",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 3,
+        "reach": 1,
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-20",
+        "service": "chatbot",
+        "hook_style": "question",
+        "topic": "Why do your customers stop messaging you after 9 PM?"
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3myc6hovdhd2o",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3myc6hovdhd2o",
+      "published_at": "2026-10-20T08:06:23.206706+00:00",
+      "text": "𝗪𝗛𝗬 𝗗𝗢 𝗟𝗘𝗔𝗗𝗦 𝗩𝗔𝗡𝗜𝗦𝗛 𝗔𝗙𝗧𝗘𝗥 𝟵 𝗣𝗠?\n\n→ Late‑night buyers lose interest if nobody replies.\n→ A simple chatbot answers instantly and helps retain the enquiry.\n\nDM 𝗕𝗢𝗧",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-20",
+        "service": "chatbot",
+        "hook_style": "question",
+        "topic": "Why do your customers stop messaging you after 9 PM?"
+      }
+    },
+    {
       "platform": "bluesky",
       "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3my5ejjl3dn2l",
       "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3my5ejjl3dn2l",
@@ -77,7 +135,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 76.7,
-        "avg_watch_s": 6.615,
+        "avg_watch_s": 6.463,
         "duration_s": 26
       },
       "matched": null
@@ -178,9 +236,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 274,
-        "reach": 107,
-        "views": 274,
+        "impressions": 280,
+        "reach": 110,
+        "views": 280,
         "likes": 7,
         "comments": 0,
         "shares": 0,
@@ -236,9 +294,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 266,
-        "reach": 111,
-        "views": 266,
+        "impressions": 288,
+        "reach": 118,
+        "views": 288,
         "likes": 9,
         "comments": 0,
         "shares": 1,
@@ -452,7 +510,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 6
+      "posts": 7
     }
   },
   "coverage": {
@@ -549,5 +607,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-20T04:53:19+00:00"
+  "updated_at": "2026-10-20T11:39:42+00:00"
 }

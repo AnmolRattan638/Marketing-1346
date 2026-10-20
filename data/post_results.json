@@ -68,9 +68,9 @@
         }
       },
       "latest": {
-        "impressions": 266,
-        "reach": 111,
-        "views": 266,
+        "impressions": 288,
+        "reach": 118,
+        "views": 288,
         "likes": 9,
         "comments": 0,
         "shares": 1,
@@ -251,9 +251,9 @@
         }
       },
       "latest": {
-        "impressions": 274,
-        "reach": 107,
-        "views": 274,
+        "impressions": 280,
+        "reach": 110,
+        "views": 280,
         "likes": 7,
         "comments": 0,
         "shares": 0,
@@ -326,7 +326,75 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-10-18|bluesky": {
+      "date": "2026-10-18",
+      "platform": "bluesky",
+      "service": "animated_ads",
+      "problem_id": "static-images-get-scrolled-past-without-",
+      "angle_type": "question",
+      "hook_style": "curiosity",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": null,
+      "published_at": "2026-10-18T10:11:28.293833+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3my5ejjl3dn2l",
+      "snap": {
+        "48h": {
+          "age_h": 49.5,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
+    },
+    "2026-10-18|instagram": {
+      "date": "2026-10-18",
+      "platform": "instagram",
+      "service": "animated_ads",
+      "problem_id": "static-images-get-scrolled-past-without-",
+      "angle_type": "question",
+      "hook_style": "curiosity",
+      "format": "image",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": null,
+      "published_at": "2026-10-18T10:11:23.000Z",
+      "url": "https://www.instagram.com/p/DeocDJHjN3x/",
+      "snap": {
+        "48h": {
+          "age_h": 49.5,
+          "source": "zernio",
+          "impressions": 11,
+          "reach": 6,
+          "views": 11,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 11,
+        "reach": 6,
+        "views": 11,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
     }
   },
-  "updated_at": "2026-10-20T04:53:20+00:00"
+  "updated_at": "2026-10-20T11:39:43+00:00"
 }

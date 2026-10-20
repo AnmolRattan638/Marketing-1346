@@ -1,3 +1,5 @@
-- Hook style to try next: open with a blunt, relatable pain point in plain Hinglish/English (e.g., "You're missing calls while you work") — avoid question hooks (used 2026-10-12) and contrast hooks (used 2026-10-17).
-- Topics to avoid: "24-hour delivery", "Rs 1,499 price", "free site check" — these are bio claims, not post topics, and repeat across recent posts.
-- Remember: every post must read like a developer showing real work, never an ad. No demos, no guaranteed results, no niche targeting.
+- Hook style to try next: **Question** (only style with proven engagement: "Your customers ask the same 5 questions..."). Avoid Curiosity and Contrast — both scored 0.
+- Topics to avoid repeating: "Static vs Motion", "Missing Website Trust Gap" — already posted, no engagement.
+- Posts must read as a developer showing real work, never an ad. No demos, no free audits, no niche targeting.
+- Use national hashtags only (#SmallBusinessIndia #FreelanceIndia #AIChatbot).
+- Lead with the problem, not the service.

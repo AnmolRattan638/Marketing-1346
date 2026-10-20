@@ -1,0 +1,142 @@
+{
+  "id": "2026-10-20-97f13d",
+  "date": "2026-10-20",
+  "status": "pending",
+  "service": "chatbot",
+  "topic": "Why do your customers stop messaging you after 9 PM?",
+  "idea_id": "bot-unanswered",
+  "problem_id": "missing-enquiries-during-non-business-ho",
+  "angle_type": "question",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "missing-enquiries-during-non-business-ho",
+    "angle_type": null,
+    "hook_style": null
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "Night‑time shop owners: Why do leads vanish after 9 PM?"
+    },
+    {
+      "style": "myth",
+      "text": "Myth‑busting for night‑shift owners: Bots don’t freeze sales."
+    },
+    {
+      "style": "top3",
+      "text": "Top 3 midnight questions costing sales—automate answers now."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "posts": {
+    "instagram": "𝗥𝗔𝗔𝗧 𝗞𝗢 𝗘𝗡𝗤𝗨𝗜𝗥𝗬 𝗔𝗔𝗬𝗜 𝗣𝗔𝗥 𝗥𝗘𝗣𝗟𝗬 𝗡𝗔𝗛𝗜 𝗗𝗘 𝗣𝗔𝗔𝗬𝗘?\n\n→ Customer raat 10 baje poochhta hai, subah tak bhool jaata hai.\n→ Ek AI chatbot turant basic details dekar 𝗟𝗘𝗔𝗗𝗦 capture karne mein madad karta hai.\n→ Aap so rahe hain, fir bhi 𝗔𝗨𝗧𝗢𝗠𝗔𝗧𝗜𝗖 replies jaate hain.\n\nDM 𝗕𝗢𝗧 kijiye aur bataiye aapka kya business hai. Setup pasand aane par hi pay kijiye.\n\n#SmallBusinessIndia #AIChatbot #FreelanceIndia #LocalBusinessIndia",
+    "linkedin": "Customers stop messaging after 9 PM because they get no reply.\n\nMost people browse services after dinner when they finally have free time.\n\nIf they send a message and wait eight hours, the initial buying momentum fades.\n\nBy the next morning they may forget why they reached out or choose a competitor who replied faster.\n\nAn AI chatbot on your website or WhatsApp can answer basic questions like pricing, timing, or services instantly.\n\nIt can help capture the enquiry while the prospect’s intent is highest, without disturbing your evening.\n\nYou can set one up and pay only after you approve the work.\n\nDM BOT to get honest advice on whether a chatbot fits your business.",
+    "bluesky": "𝗪𝗛𝗬 𝗗𝗢 𝗟𝗘𝗔𝗗𝗦 𝗩𝗔𝗡𝗜𝗦𝗛 𝗔𝗙𝗧𝗘𝗥 𝟵 𝗣𝗠?\n\n→ Late‑night buyers lose interest if nobody replies.\n→ A simple chatbot answers instantly and helps retain the enquiry.\n\nDM 𝗕𝗢𝗧 and let us see if it fits your business. Pay after approval."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does it cost?",
+      "reply": "A basic chatbot setup is either INR 2,999 or INR 4,999 depending on requirements, plus INR 299/month for maintenance. You pay only after you approve the work. Quick question: what do customers usually ask you about first?"
+    },
+    {
+      "if_they_say": "Will it sound too robotic to my customers?",
+      "reply": "It uses natural, polite everyday language tailored to your business, answering common questions like timings, prices, or locations. What kind of business do you run?"
+    },
+    {
+      "if_they_say": "I'll think about it.",
+      "reply": "Fair enough, take your time. I keep the scope focused and you pay only after you approve the work, so there is no upfront risk. Feel free to ping here whenever you are ready."
+    }
+  ],
+  "image": {
+    "prompt": null,
+    "path": "data/media/2026-10-20.jpg",
+    "engine": "designed_card",
+    "style": "chat",
+    "ai_generated": false,
+    "spec": {
+      "style": "chat",
+      "headline": "Why do night messages go unanswered?",
+      "highlight": [
+        "night messages"
+      ],
+      "sub": "No reply by morning.",
+      "chat": [
+        {
+          "side": "left",
+          "text": "Are you still open?",
+          "time": "1:47 AM"
+        },
+        {
+          "side": "left",
+          "text": "Please reply when you can",
+          "time": "2:03 AM"
+        }
+      ],
+      "problem_id": "missing-enquiries-during-non-business-ho",
+      "angle_type": "question",
+      "cta": "DM \"BOT\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": []
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [
+      "Instagram caption used absolute claim \"captures leads\"; softened to \"capture karne mein madad karta hai\".",
+      "LinkedIn post used absolute claim \"captures the enquiry\"; softened to \"can help capture the enquiry\".",
+      "Bluesky post used absolute claim \"saves the enquiry\"; softened to \"helps retain the enquiry\"."
+    ],
+    "revised": {
+      "instagram": "**RAAT KO ENQUIRY AAYI PAR REPLY NAHI DE PAAYE?**\n\n→ Customer raat 10 baje poochhta hai, subah tak bhool jaata hai.\n→ Ek AI chatbot turant basic details dekar **LEADS** capture karne mein madad karta hai.\n→ Aap so rahe hain, fir bhi **AUTOMATIC** replies jaate hain.\n\nDM **BOT** kijiye aur bataiye aapka kya business hai. Setup pasand aane par hi pay kijiye.\n\n#SmallBusinessIndia #AIChatbot #FreelanceIndia #LocalBusinessIndia",
+      "linkedin": "Customers stop messaging after 9 PM because they get no reply.\n\nMost people browse services after dinner when they finally have free time.\n\nIf they send a message and wait eight hours, the initial buying momentum fades.\n\nBy the next morning they may forget why they reached out or choose a competitor who replied faster.\n\nAn AI chatbot on your website or WhatsApp can answer basic questions like pricing, timing, or services instantly.\n\nIt can help capture the enquiry while the prospect’s intent is highest, without disturbing your evening.\n\nYou can set one up and pay only after you approve the work.\n\nDM BOT to get honest advice on whether a chatbot fits your business.",
+      "bluesky": "**WHY DO LEADS VANISH AFTER 9 PM?**\n\n→ Late‑night buyers lose interest if nobody replies.\n→ A simple chatbot answers instantly and helps retain the enquiry.\n\nDM **BOT** and let us see if it fits your business. Pay after approval."
+    }
+  },
+  "ad_score": 9,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (ProviderDown)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "google:gemini-3.8-flash",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "FAILED google:gemma-4-26b-a4b-it (ProviderDown)",
+      "FAILED gemma: all its models"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 9.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "ProviderDown",
+        "seconds": 252.6,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 39.3,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "ProviderDown",
+        "seconds": 248.2,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      }
+    ]
+  }
+}

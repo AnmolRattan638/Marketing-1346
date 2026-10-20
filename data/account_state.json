@@ -1,36 +1,36 @@
 {
-  "date": "2026-10-19",
+  "date": "2026-10-20",
   "stage": "brand new under 100 followers",
   "followers": 10,
-  "summary": "Account is brand new (<100 followers). Weakest: Reel hooks lose 76% viewers in first 3 seconds; Bluesky posts get zero engagement. Instagram bio violates rules (niche, region, timeframe, free offer).",
-  "guidance": "- Hook style to try next: open with a blunt, relatable pain point in plain Hinglish/English (e.g., \"You're missing calls while you work\") — avoid question hooks (used 2026-10-12) and contrast hooks (used 2026-10-17).\n- Topics to avoid: \"24-hour delivery\", \"Rs 1,499 price\", \"free site check\" — these are bio claims, not post topics, and repeat across recent posts.\n- Remember: every post must read like a developer showing real work, never an ad. No demos, no guaranteed results, no niche targeting.",
+  "summary": "Account is brand new (10 IG, 1 LI, 1 BS followers). IG reels lose 77% viewers in first 3s — hook failure. Only 1 chatbot post got traction (12 engagements). Bio violates rules: niche/region targeting, 24hr promise, free audit offer. No meaningful pattern yet — too few posts.",
+  "guidance": "- Hook style to try next: **Question** (only style with proven engagement: \"Your customers ask the same 5 questions...\"). Avoid Curiosity and Contrast — both scored 0.\n- Topics to avoid repeating: \"Static vs Motion\", \"Missing Website Trust Gap\" — already posted, no engagement.\n- Posts must read as a developer showing real work, never an ad. No demos, no free audits, no niche targeting.\n- Use national hashtags only (#SmallBusinessIndia #FreelanceIndia #AIChatbot).\n- Lead with the problem, not the service.",
   "instructions": {
-    "research": "Find 3 recent Google Maps searches for \"newly opened\" + service type (cafe, gym, clinic) in different Indian cities; note common missing contact details.",
-    "analysis": "Compare the lead sheet columns (name, phone, website, review count, place_id) against what a freelancer actually needs to pitch — identify one gap to mention in the post.",
-    "writer": "Write a lead-gen post for freelancers/agencies: start with \"Freelancers, agencies, anyone selling a service —\" then describe the sheet in general terms (Google Places data, contact details, review counts, website check, newly opened). End with \"DM me\" and pay-after-approval line.",
-    "image": "Create a simple screenshot-style graphic: a blurred spreadsheet header showing columns (Business, Phone, Website, Reviews, Place ID) with \"Sample data\" watermark. No logos, no brand colors.",
-    "video": "Skip video today — Reel hook failure rate is 76%; focus on static image post to test copy first."
+    "research": "Find 3 real questions small Indian businesses (cafe, clinic, gym, shop, coaching) get daily on WhatsApp/Instagram DM. Quote them verbatim. No made-up examples.",
+    "analysis": "Compare the chatbot post that got 12 engagements vs the 0-engagement posts. Note: it used a Question hook, plain chat-card image, no video. Replicate that format.",
+    "writer": "Write a Question-hook post: \"Your customers ask the same 5 questions every day. Your phone doesn't.\" List 3 generic example questions (e.g. 'Price?', 'Timings?', 'Location?'). End with: \"Pay after approval. DM for honest advice if a chatbot fits.\" No demo offer.",
+    "image": "Create a simple chat-card graphic: 3 bubbles showing example questions. Clean, developer-style, no branding. Text readable on mobile. No 'demo' or 'sample' labels.",
+    "video": "Do not produce video today. Reels skip rate 77% — hook not fixed. Focus on static image post that already worked."
   },
   "manual_tips": [
-    "Update Instagram bio to: \"Websites, chatbots, animated ads & lead sheets for small businesses across India. Pay after approval. DM for honest advice.\" (removes niche, region, timeframe, free offer).",
-    "Comment on 5 posts by Indian freelancers/agencies discussing client acquisition — add value, don't pitch.",
-    "Reply to any story mentions or tags from collaborators (editorxyz_official, shiven_xyz) with a genuine thank-you, no self-promo."
+    "Update Instagram bio to: 'AI chatbots, animated ads, lead gen & websites for small businesses across India. Pay after approval. DM for honest advice.' Remove niche, region, timeframe, free audit.",
+    "Comment on 5 posts by Indian small business owners (cafe, clinic, gym, shop, coaching) discussing customer queries or WhatsApp overload. Add value, don't pitch.",
+    "Reply to the 1 comment on your chatbot post (if any) with a genuine follow-up question about their FAQ volume."
   ],
   "weak_signals": [
     {
       "id": "high_skip_rate",
       "platform": "instagram",
-      "detail": "reels lose 76% of viewers in the first 3 seconds across 1 reels: the hook is not stopping the scroll"
+      "detail": "reels lose 77% of viewers in the first 3 seconds across 1 reels: the hook is not stopping the scroll"
     },
     {
       "id": "zero_engagement_streak",
       "platform": "bluesky",
-      "detail": "the last 4 settled posts got zero likes, comments, shares and saves"
+      "detail": "the last 5 settled posts got zero likes, comments, shares and saves"
     },
     {
       "id": "follower_stall",
       "platform": "bluesky",
-      "detail": "5 posts in 7 days and followers changed by +0"
+      "detail": "4 posts in 7 days and followers changed by +0"
     }
   ]
 }

@@ -135,7 +135,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 76.7,
-        "avg_watch_s": 6.463,
+        "avg_watch_s": 6.326,
         "duration_s": 26
       },
       "matched": null
@@ -236,9 +236,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 291,
+        "impressions": 294,
         "reach": 115,
-        "views": 291,
+        "views": 294,
         "likes": 7,
         "comments": 0,
         "shares": 0,
@@ -482,17 +482,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 797,
-        "reach": 395,
-        "views": 797,
+        "impressions": 800,
+        "reach": 397,
+        "views": 800,
         "likes": 34,
         "comments": 7,
         "shares": 2,
         "saves": 1,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 74.9,
-        "avg_watch_s": 7.72,
+        "skip_rate": 75.1,
+        "avg_watch_s": 7.679,
         "duration_s": 62
       },
       "matched": null
@@ -603,9 +603,17 @@
         "linkedin": 1,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-10-21",
+      "followers": {
+        "instagram": 10,
+        "linkedin": 1,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-20T21:38:50+00:00"
+  "updated_at": "2026-10-21T04:50:11+00:00"
 }

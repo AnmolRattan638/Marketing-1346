@@ -1,20 +1,20 @@
 {
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "stage": "brand new under 100 followers",
   "followers": 10,
-  "summary": "Account is brand new (10 IG, 1 LI, 1 BS followers). IG reels lose 77% viewers in first 3s — hook failure. Only 1 chatbot post got traction (12 engagements). Bio violates rules: niche/region targeting, 24hr promise, free audit offer. No meaningful pattern yet — too few posts.",
-  "guidance": "- Hook style to try next: **Question** (only style with proven engagement: \"Your customers ask the same 5 questions...\"). Avoid Curiosity and Contrast — both scored 0.\n- Topics to avoid repeating: \"Static vs Motion\", \"Missing Website Trust Gap\" — already posted, no engagement.\n- Posts must read as a developer showing real work, never an ad. No demos, no free audits, no niche targeting.\n- Use national hashtags only (#SmallBusinessIndia #FreelanceIndia #AIChatbot).\n- Lead with the problem, not the service.",
+  "summary": "All platforms under 100 followers. Instagram reels lose 77% viewers in first 3 seconds — hooks fail to stop scroll. Curiosity hook got 0 engagement. Bluesky last 5 posts zero engagement. Instagram bio violates rules: niche/region targeting, timeframe claim, free offer outside website posts.",
+  "guidance": "- Rotate hook styles: question (2.84x) and top3 (2.29x) led on tiny n=1; avoid curiosity (0.04x).\n- Drop animated_ads posts for now (0.04x service multiplier).\n- Every post must read like a developer showing real work, never an ad.\n- No demos, samples, guarantees, or niche/region language.\n- Only offers: pay after approval + short DM conversation.",
   "instructions": {
-    "research": "Find 3 real questions small Indian businesses (cafe, clinic, gym, shop, coaching) get daily on WhatsApp/Instagram DM. Quote them verbatim. No made-up examples.",
-    "analysis": "Compare the chatbot post that got 12 engagements vs the 0-engagement posts. Note: it used a Question hook, plain chat-card image, no video. Replicate that format.",
-    "writer": "Write a Question-hook post: \"Your customers ask the same 5 questions every day. Your phone doesn't.\" List 3 generic example questions (e.g. 'Price?', 'Timings?', 'Location?'). End with: \"Pay after approval. DM for honest advice if a chatbot fits.\" No demo offer.",
-    "image": "Create a simple chat-card graphic: 3 bubbles showing example questions. Clean, developer-style, no branding. Text readable on mobile. No 'demo' or 'sample' labels.",
-    "video": "Do not produce video today. Reels skip rate 77% — hook not fixed. Focus on static image post that already worked."
+    "research": "List 5 common SEO blog writing pain points for Indian small businesses (e.g., no time to write, don't know keywords, inconsistent posting, low traffic, can't measure ROI).",
+    "analysis": "Compare question vs top3 hook performance on the two chatbot/lead-gen posts that got engagement; note structure difference.",
+    "writer": "Write today's SEO blog writing post using a question hook. Open with a relatable pain point for any small business. Include pay-after-approval and DM-for-advice offers only. No niche examples — mention 2-3 varied types in one line max.",
+    "image": "Create a clean static graphic: simple 3-step visual (Research → Write → Publish) with minimal text. No logos, no client names, no 'demo' labels.",
+    "video": "Skip video today. If you post a reel later, script first 3 seconds as a direct question to camera/text overlay — no branding intro."
   },
   "manual_tips": [
-    "Update Instagram bio to: 'AI chatbots, animated ads, lead gen & websites for small businesses across India. Pay after approval. DM for honest advice.' Remove niche, region, timeframe, free audit.",
-    "Comment on 5 posts by Indian small business owners (cafe, clinic, gym, shop, coaching) discussing customer queries or WhatsApp overload. Add value, don't pitch.",
-    "Reply to the 1 comment on your chatbot post (if any) with a genuine follow-up question about their FAQ volume."
+    "Update Instagram bio: remove 'hotels, cafes, gyms & homestays in Himachal', 'Rs 1499', '24 hrs', 'Free 2-min site check'. Replace with: 'Websites, AI chatbots, animated ads, lead gen & SEO blogs for small businesses across India. Pay after approval. DM to chat.'",
+    "Comment thoughtfully on 5 posts by Indian small business owners (any niche) discussing content, SEO, or online growth — no pitching.",
+    "Reply to every story mention or comment on your own posts within 2 hours."
   ],
   "weak_signals": [
     {

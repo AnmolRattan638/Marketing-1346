@@ -1,0 +1,138 @@
+{
+  "id": "2026-10-21-5ee5f7",
+  "date": "2026-10-21",
+  "status": "pending",
+  "service": "seo_blogs",
+  "topic": "Turning repeat customer questions into automated answers",
+  "idea_id": "blog-customer-questions",
+  "problem_id": "lack-of-time-to-create-content",
+  "angle_type": "question",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "lack-of-time-to-create-content",
+    "angle_type": null,
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "Busy answering the same 5 WhatsApp questions? Let a blog answer them."
+    },
+    {
+      "style": "value",
+      "text": "Save hours weekly by turning FAQs into evergreen SEO posts."
+    },
+    {
+      "style": "myth",
+      "text": "Myth: Blogs need constant writing. Fact: One post answers dozens daily."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "posts": {
+    "instagram": "𝗥𝗢𝗭 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 𝗣𝗔𝗥 𝗦𝗔𝗠𝗘 𝟱 𝗦𝗔𝗪𝗔𝗟 𝗔𝗡𝗦𝗪𝗘𝗥 𝗞𝗔𝗥 𝗥𝗔𝗛𝗘 𝗛𝗔𝗜𝗡?\n\n→ Business ke beech 𝗖𝗢𝗡𝗧𝗘𝗡𝗧 likhne ka time nahi milta.\n→ Wahi repeat questions simple 𝗦𝗘𝗢 𝗕𝗟𝗢𝗚𝗦 ban sakte hain.\n\nDM 𝗕𝗟𝗢𝗚 aur batayein aapka business. Pay only after approval.\n\n#SmallBusinessIndia #IndianBusiness #ContentStrategy #LocalBusinessIndia",
+    "linkedin": "Tired of answering the same customer questions on WhatsApp every day?\n\nMany small businesses know their website needs fresh content, but daily tasks leave no time to write.\n\nThose repeat queries—service details, pricing, availability—can become short SEO blog posts that answer prospects before they reach out.\n\nYou don’t need to manage a writer. I turn common questions into clear articles that improve your visibility on Google.\n\nYou only pay after you approve the work.\n\nDM BLOG to share the questions your customers ask most.",
+    "bluesky": "𝗦𝗧𝗜𝗟𝗟 𝗔𝗡𝗦𝗪𝗘𝗥𝗜𝗡𝗚 𝗧𝗛𝗘 𝗦𝗔𝗠𝗘 𝟱 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 𝗤𝗨𝗘𝗦𝗧𝗜𝗢𝗡𝗦?\n\n→ No 𝗧𝗜𝗠𝗘 to write website articles between daily work.\n→ Turn repeat queries into simple 𝗦𝗘𝗢 𝗕𝗟𝗢𝗚𝗦.\n\nDM 𝗕𝗟𝗢𝗚 to discuss. Pay after approval."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does this cost per month?",
+      "reply": "Monthly plans range from INR 1,499 to 3,999 depending on how many articles you need, and you pay only after you approve the work. Quick question: what are 2 or 3 questions your customers ask most often?"
+    },
+    {
+      "if_they_say": "Do you write for my type of business?",
+      "reply": "Yes. The posts focus on answering the exact questions your customers ask before buying, which works for almost any business. What kind of business do you run, and do you already have a website?"
+    },
+    {
+      "if_they_say": "I don't have time to manage a writer or give briefs.",
+      "reply": "Totally understandable. You don't need to write briefs or review endless drafts. You can just drop a quick voice note with the questions people ask, and I handle the research and writing. What is one question you get asked every week?"
+    }
+  ],
+  "image": {
+    "prompt": null,
+    "path": "data/media/2026-10-21.jpg",
+    "engine": "designed_card",
+    "style": "chat",
+    "ai_generated": false,
+    "spec": {
+      "problem_id": "lack-of-time-to-create-content",
+      "angle_type": "question",
+      "style": "chat",
+      "headline": "Too busy answering repeat questions?",
+      "highlight": [
+        "repeat questions"
+      ],
+      "sub": "Losing hours to repetitive replies.",
+      "chat": [
+        {
+          "side": "left",
+          "text": "What are your opening hours?",
+          "time": "10:05 AM"
+        },
+        {
+          "side": "left",
+          "text": "Do you offer home delivery?",
+          "time": "10:07 AM"
+        }
+      ],
+      "cta": "DM \"BLOG\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": []
+  },
+  "instagram_mode": "manual_reel",
+  "linkedin_format": "image",
+  "video": {
+    "problem_id": "lack-of-time-to-create-content",
+    "angle_type": "efficiency-via-repurposing",
+    "hook_first_3s": "Stop repeating yourself on WhatsApp + Busy answering the same five WhatsApp questions?",
+    "continuity": "A 28-year-old man with short dark hair, wearing a plain navy blue crewneck t-shirt. Setting is a minimalist home office with a wooden desk, soft warm ambient lighting, and a blurred bookshelf in the background. Camera style is handheld with natural, slight movement, creating an authentic, non-studio feel. Color palette: warm wood tones, navy, and soft whites.",
+    "parts": [
+      {
+        "time": "0-10s",
+        "voiceover": "Busy answering the same five WhatsApp questions?",
+        "flow_prompt": "A 28-year-old man with short dark hair, wearing a plain navy blue crewneck t-shirt. Setting is a minimalist home office with a wooden desk, soft warm ambient lighting, and a blurred bookshelf in the background. Camera style is handheld with natural, slight movement, creating an authentic, non-studio feel. Color palette: warm wood tones, navy, and soft whites.\n\nHandheld medium shot of a man in a navy t-shirt sitting at a wooden desk. He looks relaxed. The camera immediately shows a laptop screen with a finished, clean blog post. He looks directly at the lens. \"Busy answering the same five WhatsApp questions?\""
+      },
+      {
+        "time": "10-20s",
+        "voiceover": "I turn those chat answers into SEO blogs.",
+        "flow_prompt": "A 28-year-old man with short dark hair, wearing a plain navy blue crewneck t-shirt. Setting is a minimalist home office with a wooden desk, soft warm ambient lighting, and a blurred bookshelf in the background. Camera style is handheld with natural, slight movement, creating an authentic, non-studio feel. Color palette: warm wood tones, navy, and soft whites.\n\nClose-up shot of hands typing on a laptop on a wooden desk. The screen shows a text editor with a blog being structured from text. Natural, soft lighting. \"I turn those chat answers into SEO blogs.\""
+      },
+      {
+        "time": "20-30s",
+        "voiceover": "Pay after approval. DM 'BLOG' to start. Are you...",
+        "flow_prompt": "A 28-year-old man with short dark hair, wearing a plain navy blue crewneck t-shirt. Setting is a minimalist home office with a wooden desk, soft warm ambient lighting, and a blurred bookshelf in the background. Camera style is handheld with natural, slight movement, creating an authentic, non-studio feel. Color palette: warm wood tones, navy, and soft whites.\n\nMedium shot, same man in navy t-shirt in the home office. He looks at the camera with a calm, helpful expression. Handheld camera style with slight natural movement. \"Pay after approval. DM 'BLOG' to start. Are you...\""
+      }
+    ],
+    "voiceover": "Busy answering the same five WhatsApp questions? I turn those chat answers into SEO blogs. Pay after approval. DM 'BLOG' to start. Are you..."
+  },
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**ROZ WHATSAPP PAR SAME 5 SAWAL ANSWER KAR RAHE HAIN?**\n\n→ Business ke beech **CONTENT** likhne ka time nahi milta.\n→ Wahi repeat questions simple **SEO BLOGS** ban sakte hain.\n\nDM **BLOG** aur batayein aapka business. Pay only after approval.\n\n#SmallBusinessIndia #IndianBusiness #ContentStrategy #LocalBusinessIndia",
+      "linkedin": "Tired of answering the same customer questions on WhatsApp every day?\n\nMany small businesses know their website needs fresh content, but daily tasks leave no time to write.\n\nThose repeat queries—service details, pricing, availability—can become short SEO blog posts that answer prospects before they reach out.\n\nYou don’t need to manage a writer. I turn common questions into clear articles that improve your visibility on Google.\n\nYou only pay after you approve the work.\n\nDM BLOG to share the questions your customers ask most.",
+      "bluesky": "**STILL ANSWERING THE SAME 5 WHATSAPP QUESTIONS?**\n\n→ No **TIME** to write website articles between daily work.\n→ Turn repeat queries into simple **SEO BLOGS**.\n\nDM **BLOG** to discuss. Pay after approval."
+    }
+  },
+  "ad_score": 8,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "google:gemini-3.8-flash",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "google:gemma-4-26b-a4b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 41.4,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

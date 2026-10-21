@@ -1,5 +1,5 @@
-- Hook style to try next: **Question** (only style with proven engagement: "Your customers ask the same 5 questions..."). Avoid Curiosity and Contrast — both scored 0.
-- Topics to avoid repeating: "Static vs Motion", "Missing Website Trust Gap" — already posted, no engagement.
-- Posts must read as a developer showing real work, never an ad. No demos, no free audits, no niche targeting.
-- Use national hashtags only (#SmallBusinessIndia #FreelanceIndia #AIChatbot).
-- Lead with the problem, not the service.
+- Rotate hook styles: question (2.84x) and top3 (2.29x) led on tiny n=1; avoid curiosity (0.04x).
+- Drop animated_ads posts for now (0.04x service multiplier).
+- Every post must read like a developer showing real work, never an ad.
+- No demos, samples, guarantees, or niche/region language.
+- Only offers: pay after approval + short DM conversation.

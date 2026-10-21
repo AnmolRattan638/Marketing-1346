@@ -3,7 +3,7 @@ import datetime as dt
 import os, secrets
 import sys, traceback
 import requests
-from . import analytics, captions, config, formats, ideas, learning, llm, tg
+from . import analytics, captions, config, diagrams, formats, ideas, learning, llm, tg
 from .agents import analysis, factcheck, image, linkedin_edit, problems as problems_agent, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
@@ -70,6 +70,16 @@ def polish_linkedin(posts, focus, brand):
     if res.get("post"):
         posts["linkedin"] = res["post"]
     return posts
+
+
+def send_explainer(focus):
+    """Service explainer diagram as a separate Telegram image: not the thumbnail and never posted automatically (use it as a 2nd slide, a comment
+    image or a story). It is drawn from the config and the date, so it goes to a temp file and nothing is stored in the repo."""
+    import pathlib, tempfile
+    with tempfile.TemporaryDirectory() as td:
+        info = diagrams.render_for(focus, today, pathlib.Path(td) / f"{today}-explainer.jpg")
+        tg.send_photo(info["path"], f"[SERVICE EXPLAINER] Not the thumbnail and never posted automatically. Use it as a 2nd slide, a comment image or a story. Layout: {info['layout']}.")
+    return {"layout": info["layout"], "palette": info["palette"]}
 
 
 def plan_experiment(focus, learned, brand, guidance, history):
@@ -192,6 +202,7 @@ def main():
             tg.send(f"[FLOW PROMPT {i}/{len(parts)} | {part.get('time')}]\nSpoken line: {part.get('voiceover')}\n\n{part.get('flow_prompt')}")
     if draft["replies"]:
         tg.send("[REPLY DRAFTS]\n" + "\n\n".join(f"If: {r['if_they_say']}\n-> {r['reply']}" for r in draft["replies"]))
+    stage("explainer", lambda: send_explainer(focus), fallback={})
     tg.send(("Approve posting to LinkedIn and Bluesky? (Wednesday: Instagram is your manual reel.)" if ig_mode == "manual_reel" else "Approve posting to Instagram, LinkedIn and Bluesky?") + " It posts within seconds of your tap. Want your own image (e.g. from Adobe Express)? Send it to this chat as a photo first; add the caption 'ai' if it is AI-made.",
             buttons=[{"text": "Approve", "callback_data": f"approve:{draft['id']}"},
                      {"text": "Reject", "callback_data": f"reject:{draft['id']}"}])

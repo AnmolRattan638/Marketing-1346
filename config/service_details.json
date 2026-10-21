@@ -1,0 +1,89 @@
+{
+  "_comment": "Owner-provided facts only, copied from anmolrattan.netlify.app (to be updated later by the owner). Feature lines only: no prices, no delivery times and no payment wording are ever drawn. A service with no entry here only gets the steps and timeline layouts. lead_gen has no packages: it only shows how to enquire. Keep each line under 46 characters.",
+  "website": {
+    "tiers": [
+      {
+        "name": "Basic",
+        "includes": [
+          "Simple informative website",
+          "Mobile responsive design",
+          "30 days of edits included"
+        ]
+      },
+      {
+        "name": "Standard",
+        "includes": [
+          "Up to 5 pages architecture",
+          "WhatsApp floating button sync"
+        ]
+      },
+      {
+        "name": "Bundle Pro",
+        "includes": [
+          "Full Website + AI Chatbot",
+          "Google Business Profile setup"
+        ]
+      }
+    ]
+  },
+  "chatbot": {
+    "tiers": [
+      {
+        "name": "Basic FAQ Bot",
+        "includes": [
+          "24/7 automated rule replies",
+          "Answers top 20 business questions",
+          "WhatsApp lead redirection"
+        ]
+      },
+      {
+        "name": "Smart AI Bot",
+        "includes": [
+          "Powered by ChatGPT/Claude",
+          "Trained on business catalogue",
+          "Auto lead collection"
+        ]
+      }
+    ]
+  },
+  "reel_scripts": {
+    "tiers": [
+      {
+        "name": "Reels & Shorts",
+        "includes": [
+          "High retention 3-second hook",
+          "30-60 seconds punchy script",
+          "Clear conversion CTA"
+        ]
+      },
+      {
+        "name": "YouTube Script",
+        "includes": [
+          "5 to 10 min structured story",
+          "Retention cues & B-roll ideas"
+        ]
+      }
+    ]
+  },
+  "seo_blogs": {
+    "tiers": [
+      {
+        "name": "Single Article",
+        "includes": [
+          "1,000+ words in-depth article",
+          "Keyword density & meta tags"
+        ]
+      },
+      {
+        "name": "Growth Bundle",
+        "includes": [
+          "3 High-intent ranking articles",
+          "Competitor keyword gap study"
+        ]
+      }
+    ]
+  },
+  "lead_gen": {
+    "inquiry_only": true
+  }
+}

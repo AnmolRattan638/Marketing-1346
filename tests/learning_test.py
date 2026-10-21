@@ -151,7 +151,7 @@ assert {f: hashlib.sha256((ROOT / f).read_bytes()).hexdigest() for f in guard} =
 # ---- 9. a full daily run: research tops up the bank, the experiment reaches the analysis prompt, the draft records it
 for f in list(tmp.glob("*.json")) + list(config.DRAFTS.glob("*.json")):
     f.unlink()
-seen, sent, mode = {}, [], {"echo": True}
+seen, sent, mode, events = {}, [], {"echo": True}, []
 PROBLEMS = {"problems": [{"problem": t, "frustration": "f", "desired_outcome": "o", "audience_phrase": "ap", "common_mistake": "cm", "objection": "ob", "emotional_reason": "er"}
                          for t in ("Customers message at night and nobody replies", "Leads go cold because follow up takes days", "Nobody knows what to post every week")]}
 
@@ -182,8 +182,8 @@ def gemma(p, s="", **k):
 
 llm.groq, llm.gemma = groq, gemma
 llm.gemini = lambda p, s="", **k: json.dumps({"instagram": "ig", "linkedin": "li", "bluesky": "bs", "replies": []})
-tg.send = lambda text, buttons=None: sent.append(text)
-tg.send_photo = lambda *a, **k: None
+tg.send = lambda text, buttons=None: (sent.append(text), events.append(("text", text)))
+tg.send_photo = lambda path, caption="": events.append(("photo", caption))
 tg.chat_id = lambda: "1"
 import src.agents.image as image_mod
 image_mod.run = lambda plan, focus, date, guidance="": {"prompt": "p", "path": None}
@@ -198,6 +198,7 @@ exp = dr["experiment"]
 assert exp["mode"] == "explore" and exp["variable"] == "problem" and dr["problem_id"] == exp["problem_id"] and dr["problem_id"] in {p["id"] for p in bank["problems"]}, dr
 assert dr["angle_type"] == "story" and "EXPERIMENT" in seen["analysis"] and "Change ONLY" in seen["analysis"] and "EXPERIMENT" in seen["research"]
 assert any("Experiment: explore (changing only: problem)" in t for t in sent), "the Telegram draft says what is being tested"
+assert events[-1][0] == "text" and "Approve" in events[-1][1] and events[-2][0] == "photo" and events[-2][1].startswith("[SERVICE EXPLAINER]"), "the explainer image comes right before the Approve message"
 dpath.unlink()                                                   # a second run does not research again, and a post that ignores the experiment is not counted
 sent.clear(); seen.clear(); mode["echo"] = False
 run_daily.main()

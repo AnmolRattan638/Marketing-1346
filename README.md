@@ -71,6 +71,12 @@ Good to know:
 - `data/analytics.json` is public like everything in `data/`. It only changes (and only creates a commit) when a number changed or a new day starts.
 - Manual stats in `data/metrics.json` still matter for what no API gives you (DMs, WhatsApp enquiries, LinkedIn without Zernio).
 
+## Service explainer diagrams (a supporting image, never the thumbnail)
+`src/diagrams.py` draws a colourful, structured diagram of the day's service in code (crisp text, no AI picture) and sends it to Telegram as its own image before the Approve message. It is never posted automatically: use it as a 2nd slide, a comment image or a story. It is drawn into a temp file, so nothing is stored in the repo.
+- **Facts only.** The content comes from `config/services.json` and `config/service_details.json` (the packages, copied from the website for now; edit that file to change them). No prices, no payment wording, no "free", no delivery times and no brand line are ever drawn; the only thing at the bottom is the DM button. A layout that needs package details is refused when there are none, so nothing can be invented.
+- **Layouts rotate by date, with a different colour palette every day:** stacked steps, a timeline, a hub, a checklist and package cards. Package cards (and the hub and checklist) only appear for services with details. `animated_ads` has no packages on the site, so it uses the steps and timeline layouts.
+- **Lead generation has no packages:** its diagram only says to send a message to enquire (`"inquiry_only": true`).
+
 ## Image style (consistent look, never a copy)
 `config/image_style.json` holds a shared `style_dna` and five visual families (`variants`) written from reference images, as abstract style only: no reference image, text or artwork is stored. Each picture uses ONE family (never the same one twice in a row, otherwise the least used), takes at most two of its elements, and must add ONE new element from that day's topic, so pictures match in style but are never copies. The AI picture contains no text; the headline is added in real fonts. If the model's prompt is unusable, a concrete scene for the service is used with the same style. The family is saved on the draft (`image.style_id`) and compared in the weekly learning review ("Image styles"). To change the look, edit that file: keep it positive, with no text, numbers or layout words in it.
 

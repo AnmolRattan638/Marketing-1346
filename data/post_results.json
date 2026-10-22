@@ -75,9 +75,9 @@
         }
       },
       "latest": {
-        "impressions": 294,
-        "reach": 121,
-        "views": 294,
+        "impressions": 299,
+        "reach": 123,
+        "views": 299,
         "likes": 9,
         "comments": 0,
         "shares": 1,
@@ -222,6 +222,13 @@
           "likes": 0,
           "comments": 0,
           "shares": 0
+        },
+        "7d": {
+          "age_h": 170.6,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
         }
       },
       "latest": {
@@ -251,6 +258,18 @@
           "reach": 86,
           "views": 202,
           "likes": 6,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        },
+        "7d": {
+          "age_h": 170.6,
+          "source": "zernio",
+          "impressions": 301,
+          "reach": 118,
+          "views": 301,
+          "likes": 7,
           "comments": 0,
           "shares": 0,
           "saves": 0,
@@ -401,7 +420,75 @@
         "saves": 0,
         "clicks": 0
       }
+    },
+    "2026-10-20|instagram": {
+      "date": "2026-10-20",
+      "platform": "instagram",
+      "service": "chatbot",
+      "problem_id": "missing-enquiries-during-non-business-ho",
+      "angle_type": "question",
+      "hook_style": "question",
+      "format": "image",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": null,
+      "published_at": "2026-10-20T08:06:27.000Z",
+      "url": "https://www.instagram.com/p/DetXVa6CFxH/",
+      "snap": {
+        "48h": {
+          "age_h": 51.8,
+          "source": "zernio",
+          "impressions": 15,
+          "reach": 4,
+          "views": 15,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 15,
+        "reach": 4,
+        "views": 15,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
+    },
+    "2026-10-20|bluesky": {
+      "date": "2026-10-20",
+      "platform": "bluesky",
+      "service": "chatbot",
+      "problem_id": "missing-enquiries-during-non-business-ho",
+      "angle_type": "question",
+      "hook_style": "question",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": null,
+      "published_at": "2026-10-20T08:06:23.206706+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3myc6hovdhd2o",
+      "snap": {
+        "48h": {
+          "age_h": 51.8,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-10-21T17:14:18+00:00"
+  "updated_at": "2026-10-22T11:55:08+00:00"
 }

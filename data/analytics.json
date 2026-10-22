@@ -294,9 +294,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 294,
-        "reach": 121,
-        "views": 294,
+        "impressions": 299,
+        "reach": 123,
+        "views": 299,
         "likes": 9,
         "comments": 0,
         "shares": 1,
@@ -623,5 +623,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-22T04:49:15+00:00"
+  "updated_at": "2026-10-22T11:55:07+00:00"
 }

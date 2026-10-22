@@ -482,9 +482,9 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 800,
+        "impressions": 804,
         "reach": 397,
-        "views": 800,
+        "views": 804,
         "likes": 34,
         "comments": 7,
         "shares": 2,
@@ -492,7 +492,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 75.1,
-        "avg_watch_s": 7.679,
+        "avg_watch_s": 7.648,
         "duration_s": 62
       },
       "matched": null
@@ -611,9 +611,17 @@
         "linkedin": 1,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-10-22",
+      "followers": {
+        "instagram": 10,
+        "linkedin": 1,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-21T17:14:17+00:00"
+  "updated_at": "2026-10-22T04:49:15+00:00"
 }

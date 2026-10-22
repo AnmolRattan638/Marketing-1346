@@ -9,10 +9,10 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 15,
-        "reach": 4,
-        "views": 15,
-        "likes": 0,
+        "impressions": 40,
+        "reach": 10,
+        "views": 40,
+        "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -135,7 +135,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 76.7,
-        "avg_watch_s": 6.326,
+        "avg_watch_s": 6.653,
         "duration_s": 26
       },
       "matched": null
@@ -623,5 +623,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-22T11:55:07+00:00"
+  "updated_at": "2026-10-22T21:37:32+00:00"
 }

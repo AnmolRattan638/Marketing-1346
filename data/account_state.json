@@ -1,20 +1,20 @@
 {
-  "date": "2026-10-21",
+  "date": "2026-10-22",
   "stage": "brand new under 100 followers",
   "followers": 10,
-  "summary": "All platforms under 100 followers. Instagram reels lose 77% viewers in first 3 seconds — hooks fail to stop scroll. Curiosity hook got 0 engagement. Bluesky last 5 posts zero engagement. Instagram bio violates rules: niche/region targeting, timeframe claim, free offer outside website posts.",
-  "guidance": "- Rotate hook styles: question (2.84x) and top3 (2.29x) led on tiny n=1; avoid curiosity (0.04x).\n- Drop animated_ads posts for now (0.04x service multiplier).\n- Every post must read like a developer showing real work, never an ad.\n- No demos, samples, guarantees, or niche/region language.\n- Only offers: pay after approval + short DM conversation.",
+  "summary": "Weakest area: reels lose 77% viewers in first 3 seconds (hook fails). Instagram bio violates rules: niche/region focus, '24 hrs' claim, permanent free offer.",
+  "guidance": "- Next hook style: try \"question\" or \"top3\" (performed 2.84x, 2.29x vs curiosity 0.04x). Rotate away from curiosity.\n- Avoid repeating \"same 5 questions\" chatbot phrasing; for animated ads, don't reuse static vs motion curiosity angle.\n- Posts must read as a developer sharing real work, never like an ad. No demos, samples, or guaranteed results.\n- Use national hashtags (#SmallBusinessIndia #AIAds #FreelanceIndia), varied industry examples (café, gym, clinic, shop).",
   "instructions": {
-    "research": "List 5 common SEO blog writing pain points for Indian small businesses (e.g., no time to write, don't know keywords, inconsistent posting, low traffic, can't measure ROI).",
-    "analysis": "Compare question vs top3 hook performance on the two chatbot/lead-gen posts that got engagement; note structure difference.",
-    "writer": "Write today's SEO blog writing post using a question hook. Open with a relatable pain point for any small business. Include pay-after-approval and DM-for-advice offers only. No niche examples — mention 2-3 varied types in one line max.",
-    "image": "Create a clean static graphic: simple 3-step visual (Research → Write → Publish) with minimal text. No logos, no client names, no 'demo' labels.",
-    "video": "Skip video today. If you post a reel later, script first 3 seconds as a direct question to camera/text overlay — no branding intro."
+    "research": "Find 2-3 Indian small business types (e.g., café, gym, clinic) where short animated ads could replace static posts; note common pain points like low engagement.",
+    "analysis": "Compare last animated_ads post (curiosity hook, 0.04x) with top-performing chatbot post (question hook, 2.84x); extract hook structure difference.",
+    "writer": "Draft animated_ads post using question hook: 'What happens when your ad moves but your competitor's doesn't?' Keep under 130 words, end with 'pay after approval' CTA.",
+    "image": "Create a simple split graphic: static photo vs 3-second animated version for a generic café menu; no client branding, label 'concept'.",
+    "video": "Record 5-second screen capture of the animated ad concept looping; add text overlay 'Made for Indian small businesses'."
   },
   "manual_tips": [
-    "Update Instagram bio: remove 'hotels, cafes, gyms & homestays in Himachal', 'Rs 1499', '24 hrs', 'Free 2-min site check'. Replace with: 'Websites, AI chatbots, animated ads, lead gen & SEO blogs for small businesses across India. Pay after approval. DM to chat.'",
-    "Comment thoughtfully on 5 posts by Indian small business owners (any niche) discussing content, SEO, or online growth — no pitching.",
-    "Reply to every story mention or comment on your own posts within 2 hours."
+    "Update Instagram bio: remove niche list, region, '24 hrs', and free offer; replace with 'AI chatbots, animated ads, lead gen, websites for Indian small businesses. Pay after approval. DM for advice.'",
+    "Comment on 5 posts by Indian small business owners (cafés, gyms, clinics) about their marketing challenges; no self-promo.",
+    "Reply to any story mentions or tags from followers with genuine advice, not a pitch."
   ],
   "weak_signals": [
     {
@@ -25,7 +25,7 @@
     {
       "id": "zero_engagement_streak",
       "platform": "bluesky",
-      "detail": "the last 5 settled posts got zero likes, comments, shares and saves"
+      "detail": "the last 6 settled posts got zero likes, comments, shares and saves"
     },
     {
       "id": "follower_stall",

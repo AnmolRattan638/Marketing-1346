@@ -1,5 +1,4 @@
-- Rotate hook styles: question (2.84x) and top3 (2.29x) led on tiny n=1; avoid curiosity (0.04x).
-- Drop animated_ads posts for now (0.04x service multiplier).
-- Every post must read like a developer showing real work, never an ad.
-- No demos, samples, guarantees, or niche/region language.
-- Only offers: pay after approval + short DM conversation.
+- Next hook style: try "question" or "top3" (performed 2.84x, 2.29x vs curiosity 0.04x). Rotate away from curiosity.
+- Avoid repeating "same 5 questions" chatbot phrasing; for animated ads, don't reuse static vs motion curiosity angle.
+- Posts must read as a developer sharing real work, never like an ad. No demos, samples, or guaranteed results.
+- Use national hashtags (#SmallBusinessIndia #AIAds #FreelanceIndia), varied industry examples (café, gym, clinic, shop).

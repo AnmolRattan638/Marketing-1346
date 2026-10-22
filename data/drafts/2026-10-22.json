@@ -1,0 +1,108 @@
+{
+  "id": "2026-10-22-3e7ca8",
+  "date": "2026-10-22",
+  "status": "pending",
+  "service": "animated_ads",
+  "topic": "Do your customers actually read your Instagram captions?",
+  "idea_id": null,
+  "problem_id": "long-captions-are-ignored-by-customers",
+  "angle_type": "question",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "long-captions-are-ignored-by-customers",
+    "angle_type": null,
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "Business owners: Are your Instagram captions being ignored?"
+    },
+    {
+      "style": "top3",
+      "text": "3 reasons your captions get zero clicks."
+    },
+    {
+      "style": "mistake",
+      "text": "Mistake: Hiding offers in long captions kills sales."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "posts": {
+    "instagram": "𝗞𝗬𝗔 𝗔𝗔𝗣𝗞𝗘 𝗖𝗨𝗦𝗧𝗢𝗠𝗘𝗥𝗦 𝗜𝗡𝗦𝗧𝗔𝗚𝗥𝗔𝗠 𝗖𝗔𝗣𝗧𝗜𝗢𝗡𝗦 𝗜𝗚𝗡𝗢𝗥𝗘 𝗞𝗔𝗥 𝗥𝗔𝗛𝗘 𝗛𝗔𝗜𝗡?\n\n→ Log feed scroll karte waqt lamba text nahi padhte.\n→ Ek 6-second 𝗔𝗡𝗜𝗠𝗔𝗧𝗜𝗢𝗡 se offer turant dikh jata hai.\n→ Cafe, clinic ya gym: visual message seedha samajh aata hai.\n\nDM 𝗔𝗗𝗦 and tell me what you sell. Pay only after approval.\n\n#SmallBusinessIndia #InstagramMarketing #AIAds #LocalBusinessIndia",
+    "linkedin": "Your Instagram captions are being skipped in seconds.\n\nMost people glance at their phones and read only a couple of lines.\n\nLong paragraphs about your services often get ignored.\n\nA six‑second animated visual can place your main offer in front of them before they scroll away.\n\nMotion can help catch attention more quickly than a block of text.\n\nInstead of lengthy posts, focus on one strong offer shown in a short moving graphic.\n\nMessage me with the word ADS and tell me what you sell. You pay only after you approve the work.",
+    "bluesky": "𝗠𝗮𝗻𝘆 𝗰𝘂𝘀𝘁𝗼𝗺𝗲𝗿𝘀 skip long captions entirely. A 6‑second moving graphic can show your offer before they scroll away.\n\nDM 𝗔𝗗𝗦 with your business type. Pay only after approval."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does this cost?",
+      "reply": "Packages are INR 999, 1,499, and 2,199, and you pay only after you approve the work. Quick question: what kind of business do you run, and what offer do you want to highlight?"
+    },
+    {
+      "if_they_say": "Do you make these for my kind of business?",
+      "reply": "I make them for all types of local businesses, from clinics and cafes to gyms and retail shops. What do you sell, and what is the main message you want customers to notice?"
+    },
+    {
+      "if_they_say": "Can a short video really explain my whole service?",
+      "reply": "A short ad works best when it highlights just one specific offer or hook rather than everything. It gets attention so people reach out. What is your most popular service or product right now?"
+    }
+  ],
+  "image": {
+    "prompt": "Cinematic shot of a coffee shop owner's hands holding a glowing smartphone in a bustling, moody café. Deep navy atmosphere with electric cyan neon rim lighting. Floating translucent glass interface cards with glowing blank bars and round icons hover in soft perspective. A polished floor reflects the cyan light. The lower forty percent of the frame is a large, calm, dark area. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-10-22.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "long-captions-are-ignored-by-customers",
+      "angle_type": "problem",
+      "style": "bold",
+      "headline": "Are customers ignoring your long captions?",
+      "highlight": [
+        "ignoring",
+        "long captions"
+      ],
+      "sub": "Visuals deliver your message in seconds.",
+      "chat": [],
+      "cta": "DM \"ADS\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "glass-ui"
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "image",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Bluesky post contains an absolute claim/statistic ('MOST CUSTOMERS') that is not verified.",
+      "LinkedIn post contains an absolute outcome claim ('Motion catches attention faster than a block of text') that should be softened."
+    ],
+    "revised": {
+      "instagram": "**KYA AAPKE CUSTOMERS INSTAGRAM CAPTIONS IGNORE KAR RAHE HAIN?**\n\n→ Log feed scroll karte waqt lamba text nahi padhte.\n→ Ek 6-second **ANIMATION** se offer turant dikh jata hai.\n→ Cafe, clinic ya gym: visual message seedha samajh aata hai.\n\nDM **ADS** and tell me what you sell. Pay only after approval.\n\n#SmallBusinessIndia #InstagramMarketing #AIAds #LocalBusinessIndia",
+      "linkedin": "Your Instagram captions are being skipped in seconds.\n\nMost people glance at their phones and read only a couple of lines.\n\nLong paragraphs about your services often get ignored.\n\nA six‑second animated visual can place your main offer in front of them before they scroll away.\n\nMotion can help catch attention more quickly than a block of text.\n\nInstead of lengthy posts, focus on one strong offer shown in a short moving graphic.\n\nMessage me with the word ADS and tell me what you sell. You pay only after you approve the work.",
+      "bluesky": "**Many customers** skip long captions entirely. A 6‑second moving graphic can show your offer before they scroll away.\n\nDM **ADS** with your business type. Pay only after approval."
+    }
+  },
+  "ad_score": 10,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "google:gemma-4-26b-a4b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "google:gemini-3.8-flash"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 66.5,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    ]
+  }
+}

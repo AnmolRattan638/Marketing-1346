@@ -2,6 +2,7 @@
 
 The LLM only supplies the words; the layout is deterministic, so the result is always readable and on brand.
 """
+import contextlib
 import pathlib
 import re
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -10,6 +11,19 @@ from .. import llm
 W, H = 1080, 1350
 BG, PANEL, WHITE, MUTED = (9, 12, 20), (21, 27, 40), (255, 255, 255), (168, 176, 192)
 ACCENT = (255, 214, 10)
+
+
+@contextlib.contextmanager
+def accent(rgb):
+    """Render cards with another accent colour (the day's visual family); always restored afterwards. None keeps the current one."""
+    global ACCENT
+    old = ACCENT
+    if rgb:
+        ACCENT = tuple(int(x) for x in rgb)
+    try:
+        yield
+    finally:
+        ACCENT = old
 FONTS = pathlib.Path(__file__).resolve().parents[2] / "assets" / "fonts"
 
 
@@ -168,7 +182,7 @@ def render_chat(spec, path):
     d.text((120, top + 34), "C", font=font("SemiBold", 32), fill=WHITE)
     d.text((183, top + 22), spec.get("chat_name") or "Customer", font=font("SemiBold", 30), fill=WHITE)
     d.text((183, top + 58), "typing...", font=font("Medium", 23), fill=(120, 200, 150))
-    d.rounded_rectangle([W - 110 - 150, top + 32, W - 110, top + 72], radius=20, fill=(60, 52, 10))
+    d.rounded_rectangle([W - 110 - 150, top + 32, W - 110, top + 72], radius=20, fill=tuple(int(PANEL[i] * 0.78 + ACCENT[i] * 0.22) for i in range(3)))   # a soft tint of the accent
     d.text((W - 110 - 150 + 24, top + 39), "EXAMPLE", font=font("SemiBold", 21), fill=ACCENT)
     msgs = [m for m in (spec.get("chat") or []) if m.get("text")][:4]
     avail = bottom - (top + 108) - 14
@@ -226,6 +240,8 @@ Return JSON: {{"style": "bold|chat", "headline": "...", "highlight": ["..."], "s
     if not spec.get("highlight"):
         words = [w for w in str(spec["headline"]).split() if len(re.sub(r"\W", "", w)) > 3]
         spec["highlight"] = words[-1:]
+    if spec.get("style") == "chat" and focus.get("id") != "chatbot":     # a chat mock-up reads as a chatbot ad: never on another service's post
+        spec["style"], spec["chat"] = "bold", []
     spec["cta"] = f'DM "{kw}"'
     spec["tag"] = "FOR EVERY SMALL BUSINESS" if focus.get("id") != "lead_gen" else "FOR FREELANCERS & AGENCIES"
     return spec

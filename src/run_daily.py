@@ -4,7 +4,7 @@ import os, secrets
 import sys, traceback
 import requests
 from . import analytics, captions, config, diagrams, formats, ideas, learning, llm, tg
-from .agents import analysis, factcheck, image, linkedin_edit, problems as problems_agent, research, strategist, video, writer
+from .agents import analysis, factcheck, fit as fit_agent, image, linkedin_edit, problems as problems_agent, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
 WARNINGS = []
@@ -70,6 +70,31 @@ def polish_linkedin(posts, focus, brand):
     if res.get("post"):
         posts["linkedin"] = res["post"]
     return posts
+
+
+def ensure_fit(plan, topics, focus, brand, guidance, history):
+    """A post must sell the service in focus. If the topic or hook reads like another service, re-run the analysis once with a correction, then
+    fall back to the curated idea for this service; if it still drifts, say so in Telegram instead of letting it through silently."""
+    def fits(p):
+        return (stage("service_fit", lambda: fit_agent.check(p, focus, brand), fallback={}) or {"fits": True})
+    v = fits(plan)
+    if v.get("fits", True):
+        return plan
+    other = next((s["name"] for s in brand["services"] if s["id"] == v.get("picked")), v.get("picked"))
+    note = (f"SERVICE FIT: your last topic ('{plan['topic']}') reads like an ad for {other}, not for {focus['name']}. Choose a topic and hook where "
+            f"{focus['name']} itself is the answer, and do not describe {other}'s way of solving it.")
+    plan2 = stage("analysis.fit", lambda: analysis.run(topics, focus, guidance + "\n\n" + note, history), fallback=plan)
+    if plan2 is not plan and fits(plan2).get("fits", True):
+        return plan2
+    pool = ideas.for_service(focus["id"], ideas.used_ids(history), limit=1)
+    if pool:
+        i = pool[0]
+        only = [{"topic": i["topic"], "angle": i["angle"], "why_it_matters": "", "idea_id": i["id"]}]
+        plan3 = stage("analysis.idea", lambda: analysis.run(only, focus, guidance + "\n\n" + note, history), fallback=plan2)
+        if plan3 is not plan2 and fits(plan3).get("fits", True):
+            return plan3
+    WARNINGS.append(f"service fit: this post may read like {other} instead of {focus['name']}. Check the headline before approving.")
+    return plan2
 
 
 def send_explainer(focus):
@@ -143,6 +168,7 @@ def main():
                        fallback=[{"topic": f"A practical tip about {focus['name']} for local businesses",
                                   "angle": focus["pitch"], "why_it_matters": "fallback topic"}])
         plan = stage("analysis", lambda: analysis.run(topics, focus, g('analysis'), history))
+        plan = ensure_fit(plan, topics, focus, brand, g('analysis'), history)
         posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer'), ig_mode=ig_mode, linkedin_format=li_fmt))
         posts = polish_linkedin(posts, focus, brand)
         fc = stage("factcheck", lambda: factcheck.run(posts, focus, brand), fallback={"ok": None, "issues": ["fact-check unavailable"], "revised": {}})

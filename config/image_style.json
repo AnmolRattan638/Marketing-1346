@@ -1,5 +1,5 @@
 {
-  "_comment": "quality_suffix is appended to EVERY image-generation prompt (Cloudflare FLUX, Gemini, Pollinations); it is never skipped. Keep everything positive (say what you want): image models draw whatever the prompt names. style_dna is the look every picture shares. variants are visual families built from reference images you liked: each picture uses ONE family (rotated, never the same one twice in a row), takes at most two of its elements, and must add one new element from that day's topic, so pictures match in style but never copy a reference. The chosen family is saved on the draft as image.style_id and compared in the weekly learning review. Do not put text, numbers, brand names or layout words (panel, grid, section, column, diagram) in here.",
+  "_comment": "quality_suffix is appended to EVERY image-generation prompt (Cloudflare FLUX, Gemini, Pollinations); it is never skipped. Keep everything positive (say what you want): image models draw whatever the prompt names. style_dna is the look every picture shares. variants are visual families built from reference images you liked: each picture uses ONE family (rotated, never the same one twice in a row), takes at most two of its elements, and must add one new element from that day's topic, so pictures match in style but never copy a reference. The chosen family is saved on the draft as image.style_id and compared in the weekly learning review. Do not put text, numbers, brand names or layout words (panel, grid, section, column, diagram) in here. accent_rgb colours the headline highlight, glow and DM button of the card, including the designed chat card, so the family shows on every post.",
   "quality_suffix": "Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
   "style_dna": "Premium, polished, high-contrast technology look with one clear glowing accent colour, clean modern shapes, a cinematic feel, and a large calm area across the lower 40% of the frame.",
   "variants": [
@@ -8,35 +8,60 @@
       "name": "glass interface cards",
       "look": "a near-black or deep navy background with soft neon rim light and a gentle glow",
       "elements": "a few floating glass-like interface cards in soft perspective, showing only blank bars, simple glowing line charts and round icons, with a glowing reflection on the floor below",
-      "accent": "electric cyan"
+      "accent": "electric cyan",
+      "accent_rgb": [
+        0,
+        212,
+        255
+      ]
     },
     {
       "id": "silhouette",
       "name": "person and glowing intelligence",
       "look": "a deep indigo darkness with soft blue and violet light and drifting particles",
       "elements": "a person in profile as a dark silhouette at a desk, facing softly glowing translucent shapes, drifting light particles and thin network lines",
-      "accent": "deep blue with violet"
+      "accent": "deep blue with violet",
+      "accent_rgb": [
+        139,
+        125,
+        255
+      ]
     },
     {
       "id": "network",
       "name": "glowing network",
       "look": "a pure black background with crisp white and cyan light",
       "elements": "a constellation of bright nodes joined by thin lines, flowing light waves, and sharp angled geometric shapes in white and the accent colour, with generous dark empty space",
-      "accent": "cyan and white"
+      "accent": "cyan and white",
+      "accent_rgb": [
+        34,
+        211,
+        238
+      ]
     },
     {
       "id": "desk-glow",
       "name": "moody desk scene",
       "look": "a dark, quiet room lit by one warm lamp, rich shadows and a subtle glow",
       "elements": "a laptop with a softly glowing dark screen on a dark desk, a black ceramic mug, a closed notebook and pen, a warm lamp glow and a leafy plant fading into the dark background",
-      "accent": "warm gold"
+      "accent": "warm gold",
+      "accent_rgb": [
+        245,
+        176,
+        65
+      ]
     },
     {
       "id": "bright-desk",
       "name": "bright minimal desk",
       "look": "soft natural daylight from a window, calm neutral tones, shallow depth of field",
       "elements": "a light wooden desk, a laptop with a dark glowing interface, a white ceramic mug, an open notebook with a pen, a small plant and a soft window glow",
-      "accent": "soft blue"
+      "accent": "soft blue",
+      "accent_rgb": [
+        96,
+        165,
+        250
+      ]
     }
   ]
 }

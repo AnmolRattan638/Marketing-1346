@@ -261,11 +261,18 @@ def _visual_card(plan, focus, spec, guidance, path, errors, variant=None):
 
 
 def run(plan, focus, date, guidance=""):
+    """Today's visual family decides the look of EVERY card type: the AI picture's style and the card's accent colour (highlight, glow, DM button)."""
+    from . import cards
+    variant = pick_variant(date)
+    with cards.accent((variant or {}).get("accent_rgb")):
+        return _run(plan, focus, date, guidance, variant)
+
+
+def _run(plan, focus, date, guidance, variant):
     """1) AI picture + hook text (skipped for chat cards, which are already a specific visual, or when IMAGE_VISUALS=0)
     2) designed card  3) plain AI picture, only if 1 did not already try the engines  4) plain text card."""
     path = config.MEDIA / f"{date}.jpg"
     errors, spec, ai_tried = [], None, False
-    variant = pick_variant(date)
     try:
         from . import cards
         spec = cards.make_spec(plan, focus, guidance)
@@ -284,7 +291,8 @@ def run(plan, focus, date, guidance=""):
             from . import cards
             cards.render(spec, path)
             return {"prompt": None, "path": str(path.relative_to(config.ROOT)), "engine": "designed_card",
-                    "style": spec.get("style"), "ai_generated": False, "spec": spec, "errors": errors[-4:]}
+                    "style": spec.get("style"), "ai_generated": False, "spec": spec, "errors": errors[-4:],
+                    "style_id": (variant or {}).get("id")}
         except Exception as e:
             print(f"[image] designed card failed: {e}")
             errors.append(f"designed_card: {str(e)[:110]}")

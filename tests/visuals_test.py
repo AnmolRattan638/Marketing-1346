@@ -144,9 +144,13 @@ out_path = config.ROOT / res["path"]
 im = Image.open(out_path); assert im.size == (1080, 1350) and out_path.stat().st_size < 900_000
 assert b"trainedAlgorithmicMedia" in out_path.read_bytes(), "picture cards carry the IPTC AI-generated marker"
 
+fc_bot = dict(fc, id="chatbot", name="AI chatbot development", dm_keyword="BOT")
 eng.update(n=0); SPEC["json"] = SPEC_CHAT                                                  # 2. chat cards are already a specific visual: no AI call
-res = image.run(plan, fc, "2026-10-15")
+res = image.run(plan, fc_bot, "2026-10-15")
 assert res["engine"] == "designed_card" and res["style"] == "chat" and eng["n"] == 0, res
+res = image.run(plan, fc, "2026-10-15")                                                    # 2b. a chat mock-up reads as a chatbot ad: any other service gets the AI picture card
+assert res["style"] == "visual" and res["engine"].startswith("visual") and eng["n"] == 1 and res["spec"]["style"] == "bold" and res["spec"]["chat"] == [], res
+eng.update(n=0)
 
 SPEC["json"] = SPEC_BOLD; os.environ["IMAGE_VISUALS"] = "0"                                # 3. switch off
 res = image.run(plan, fc, "2026-10-16")
@@ -165,7 +169,7 @@ res = image.run(plan, fc, "2026-10-18")
 assert res["engine"] == "text_card" and eng["n"] == 2 and (config.ROOT / res["path"]).exists(), (res["engine"], eng["n"])
 
 eng.update(n=0, fail=False); SPEC["json"] = SPEC_CHAT                                      # 6. chat card breaks: a plain AI picture still rescues the post
-res = image.run(plan, fc, "2026-10-19")
+res = image.run(plan, fc_bot, "2026-10-19")
 assert res["engine"] == "fake" and eng["n"] == 1 and (config.ROOT / res["path"]).exists(), res
 cards.render = real_render
 print("visuals test passed: bold/CAPS captions, limits, writer retry, suffix on every engine, picture+text card, fallback order")

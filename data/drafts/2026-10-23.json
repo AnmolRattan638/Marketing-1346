@@ -1,0 +1,113 @@
+{
+  "id": "2026-10-23-2945cf",
+  "date": "2026-10-23",
+  "status": "pending",
+  "service": "lead_gen",
+  "topic": "3 things that happen when you spend 4 hours on Google Maps for 5 leads",
+  "idea_id": "leads-pov-search",
+  "problem_id": "manual-lead-searching-exhaustion",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "manual-lead-searching-exhaustion",
+    "angle_type": null,
+    "hook_style": "top3"
+  },
+  "hooks": [
+    {
+      "style": "top3",
+      "text": "Freelancers: 3 ways Google Maps wastes your billable hours"
+    },
+    {
+      "style": "question",
+      "text": "Freelancers, still scrolling leads at 9 am? Why?"
+    },
+    {
+      "style": "myth",
+      "text": "Freelancers: Myth – more searching = more clients. Fact: It’s opposite."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "top3",
+  "posts": {
+    "instagram": "𝗙𝗥𝗘𝗘𝗟𝗔𝗡𝗖𝗘𝗥𝗦: 𝟯 𝗪𝗔𝗬𝗦 𝗚𝗢𝗢𝗚𝗟𝗘 𝗠𝗔𝗣𝗦 𝗪𝗔𝗦𝗧𝗘𝗦 𝗬𝗢𝗨𝗥 𝗕𝗜𝗟𝗟𝗔𝗕𝗟𝗘 𝗛𝗢𝗨𝗥𝗦\n\n→ Poora din Google Maps par leads dhoondne mein chala jaata hai.\n→ Pitching ke waqt tak saari 𝗙𝗢𝗖𝗨𝗦 aur energy khatam ho jaati hai.\n→ Ek structured sheet se aap subah seedha 𝗖𝗔𝗟𝗟𝗦 shuru kar sakte ho.\n\nAgencies ya freelancers, whatever you sell, DM 𝗟𝗘𝗔𝗗𝗦 for a 1-minute explanation.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+    "linkedin": "Freelancers waste billable hours searching for local business leads on Google Maps.\n\nEach morning you open Maps, type a category, click every pin, and copy phone numbers into a document.\n\nBy midday you have a few names and no pitches, and the mental fatigue reduces the time you could spend on client work.\n\nI created an automated script that extracts newly opened local businesses from Google Places, including phone numbers, review counts, and website status, and places them in a simple spreadsheet.\n\nWhether you offer marketing, video, design, accounting, or any other service, the ready list lets you start outreach right away.\n\nMessage me with the word LEADS and tell me what you sell to local businesses.",
+    "bluesky": "𝗠𝗔𝗡𝗨𝗔𝗟 𝗦𝗘𝗔𝗥𝗖𝗛𝗜𝗡𝗚 on Google Maps eats your billable hours before you send one pitch.\n\nI pull local business data via Google Places into a clean sheet. Whatever you sell, start pitching at 9 am.\n\nDM 𝗟𝗘𝗔𝗗𝗦 for a 1-minute explanation."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does the lead sheet cost?",
+      "reply": "Hi! Thanks for reaching out. The pricing depends on your target location and how frequently you need fresh lists. Quick question: what service do you sell, and which cities are you targeting?"
+    },
+    {
+      "if_they_say": "Do you provide leads for my specific service or niche?",
+      "reply": "The script pulls local businesses found via Google Places across any category you choose, including their phone numbers, review counts, and website status. What service do you offer, and who is your ideal local business client?"
+    },
+    {
+      "if_they_say": "Can you share a free sample sheet to test?",
+      "reply": "I don't provide custom sample files, but I can share a quick 1-minute explanation of exactly what columns and data points the sheet includes. Tell me what service you sell, and I will let you know honestly if this setup fits your outreach."
+    }
+  ],
+  "image": {
+    "prompt": "Cinematic shot of a dark silhouette profile at a desk, facing a glowing laptop displaying abstract blue map shapes. Beside the laptop sits a ceramic coffee cup and a thick stack of paper documents. The atmosphere is deep indigo with violet light and drifting light particles. The lower forty percent of the frame is a large, calm, dark area. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-10-23.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "manual-lead-searching-exhaustion",
+      "angle_type": "top3",
+      "style": "bold",
+      "headline": "3 ways Google Maps wastes hours",
+      "highlight": [
+        "wastes hours"
+      ],
+      "sub": "Stop searching and start pitching instead.",
+      "chat": [],
+      "cta": "DM \"LEADS\"",
+      "tag": "FOR FREELANCERS & AGENCIES"
+    },
+    "errors": [],
+    "style_id": "silhouette"
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "image",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**FREELANCERS: 3 WAYS GOOGLE MAPS WASTES YOUR BILLABLE HOURS**\n\n→ Poora din Google Maps par leads dhoondne mein chala jaata hai.\n→ Pitching ke waqt tak saari **FOCUS** aur energy khatam ho jaati hai.\n→ Ek structured sheet se aap subah seedha **CALLS** shuru kar sakte ho.\n\nAgencies ya freelancers, whatever you sell, DM **LEADS** for a 1-minute explanation.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+      "linkedin": "Freelancers waste billable hours searching for local business leads on Google Maps.\n\nEach morning you open Maps, type a category, click every pin, and copy phone numbers into a document.\n\nBy midday you have a few names and no pitches, and the mental fatigue reduces the time you could spend on client work.\n\nI created an automated script that extracts newly opened local businesses from Google Places, including phone numbers, review counts, and website status, and places them in a simple spreadsheet.\n\nWhether you offer marketing, video, design, accounting, or any other service, the ready list lets you start outreach right away.\n\nMessage me with the word LEADS and tell me what you sell to local businesses.",
+      "bluesky": "**MANUAL SEARCHING** on Google Maps eats your billable hours before you send one pitch.\n\nI pull local business data via Google Places into a clean sheet. Whatever you sell, start pitching at 9 am.\n\nDM **LEADS** for a 1-minute explanation."
+    }
+  },
+  "ad_score": 8,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "google:gemini-3.8-flash",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "google:gemini-3.7-flash",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "google:gemma-4-26b-a4b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 134.2,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 23.0,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

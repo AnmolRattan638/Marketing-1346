@@ -1,4 +1,4 @@
-- Next hook style: try "question" or "top3" (performed 2.84x, 2.29x vs curiosity 0.04x). Rotate away from curiosity.
-- Avoid repeating "same 5 questions" chatbot phrasing; for animated ads, don't reuse static vs motion curiosity angle.
-- Posts must read as a developer sharing real work, never like an ad. No demos, samples, or guaranteed results.
-- Use national hashtags (#SmallBusinessIndia #AIAds #FreelanceIndia), varied industry examples (café, gym, clinic, shop).
+- Rotate hook styles: try top3, contrast, question; avoid curiosity (0.07x).
+- Stop repeating chatbot FAQ angles (multiple posts on same 5 questions, 2am leaks, after-9pm drops).
+- Keep posts reading like a developer sharing real work, never an ad.
+- Use broad national hashtags only (#FreelanceIndia #LeadGeneration #GetClients #SmallBusinessIndia).

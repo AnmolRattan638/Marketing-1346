@@ -9,9 +9,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 40,
-        "reach": 10,
-        "views": 40,
+        "impressions": 92,
+        "reach": 32,
+        "views": 92,
         "likes": 1,
         "comments": 0,
         "shares": 0,
@@ -381,8 +381,8 @@
       "format": "text",
       "source": "zernio",
       "metrics": {
-        "impressions": 134,
-        "reach": 85,
+        "impressions": 139,
+        "reach": 87,
         "views": null,
         "likes": 0,
         "comments": 0,
@@ -410,17 +410,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 149,
-        "reach": 100,
-        "views": 149,
+        "impressions": 151,
+        "reach": 101,
+        "views": 151,
         "likes": 8,
         "comments": 2,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 73.4,
-        "avg_watch_s": 5.859,
+        "skip_rate": 72.7,
+        "avg_watch_s": 5.861,
         "duration_s": 40
       },
       "matched": null
@@ -434,9 +434,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 135,
-        "reach": 35,
-        "views": 135,
+        "impressions": 138,
+        "reach": 36,
+        "views": 138,
         "likes": 3,
         "comments": 0,
         "shares": 0,
@@ -482,9 +482,9 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 804,
-        "reach": 397,
-        "views": 804,
+        "impressions": 805,
+        "reach": 398,
+        "views": 805,
         "likes": 34,
         "comments": 7,
         "shares": 2,
@@ -492,7 +492,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 75.1,
-        "avg_watch_s": 7.648,
+        "avg_watch_s": 7.635,
         "duration_s": 62
       },
       "matched": null
@@ -619,9 +619,17 @@
         "linkedin": 1,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-10-23",
+      "followers": {
+        "instagram": 10,
+        "linkedin": 1,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-22T21:37:32+00:00"
+  "updated_at": "2026-10-23T04:51:54+00:00"
 }

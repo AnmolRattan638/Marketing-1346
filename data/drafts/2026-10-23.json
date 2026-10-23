@@ -1,7 +1,7 @@
 {
   "id": "2026-10-23-2945cf",
   "date": "2026-10-23",
-  "status": "pending",
+  "status": "published",
   "service": "lead_gen",
   "topic": "3 things that happen when you spend 4 hours on Google Maps for 5 leads",
   "idea_id": "leads-pov-search",
@@ -109,5 +109,19 @@
         "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6adb1b65e2989dd1fe540587"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6adb1b6ae2b536ff313d7c19 (due 2026-10-23T08:31:39.035Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3myjrbycw7u25"
+    }
   }
 }

@@ -75,9 +75,9 @@
         }
       },
       "latest": {
-        "impressions": 299,
-        "reach": 123,
-        "views": 299,
+        "impressions": 304,
+        "reach": 127,
+        "views": 304,
         "likes": 9,
         "comments": 0,
         "shares": 1,
@@ -277,9 +277,9 @@
         }
       },
       "latest": {
-        "impressions": 301,
-        "reach": 118,
-        "views": 301,
+        "impressions": 306,
+        "reach": 120,
+        "views": 306,
         "likes": 7,
         "comments": 0,
         "shares": 0,
@@ -450,10 +450,10 @@
         }
       },
       "latest": {
-        "impressions": 92,
-        "reach": 32,
-        "views": 92,
-        "likes": 1,
+        "impressions": 159,
+        "reach": 51,
+        "views": 159,
+        "likes": 2,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -490,5 +490,5 @@
       }
     }
   },
-  "updated_at": "2026-10-23T04:51:55+00:00"
+  "updated_at": "2026-10-23T11:41:06+00:00"
 }

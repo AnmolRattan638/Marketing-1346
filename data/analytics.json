@@ -1,6 +1,64 @@
 {
   "posts": [
     {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3myjrbycw7u25",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3myjrbycw7u25",
+      "published_at": "2026-10-23T08:31:50.870716+00:00",
+      "text": "𝗠𝗔𝗡𝗨𝗔𝗟 𝗦𝗘𝗔𝗥𝗖𝗛𝗜𝗡𝗚 on Google Maps eats your billable hours before you send one pitch.\n\nI pull local business data via Google Places into a clean sheet. Whatever y",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-23",
+        "service": "lead_gen",
+        "hook_style": "top3",
+        "topic": "3 things that happen when you spend 4 hours on Google Maps for 5 leads"
+      }
+    },
+    {
+      "platform": "instagram",
+      "id": "18211376089363305",
+      "url": "https://www.instagram.com/p/De1InrBjTUl/",
+      "published_at": "2026-10-23T08:31:44.000Z",
+      "text": "𝗙𝗥𝗘𝗘𝗟𝗔𝗡𝗖𝗘𝗥𝗦: 𝟯 𝗪𝗔𝗬𝗦 𝗚𝗢𝗢𝗚𝗟𝗘 𝗠𝗔𝗣𝗦 𝗪𝗔𝗦𝗧𝗘𝗦 𝗬𝗢𝗨𝗥 𝗕𝗜𝗟𝗟𝗔𝗕𝗟𝗘 𝗛𝗢𝗨𝗥𝗦\n\n→ Poora din Google Maps par leads dhoondne mein chala jaata hai.\n→ Pitching ke waqt tak saari 𝗙𝗢𝗖𝗨𝗦 ",
+      "format": "image",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 12,
+        "reach": 2,
+        "views": 12,
+        "likes": 0,
+        "comments": 1,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-23",
+        "service": "lead_gen",
+        "hook_style": "top3",
+        "topic": "3 things that happen when you spend 4 hours on Google Maps for 5 leads"
+      }
+    },
+    {
       "platform": "instagram",
       "id": "17993804046108451",
       "url": "https://www.instagram.com/p/DetXVa6CFxH/",
@@ -9,10 +67,10 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 92,
-        "reach": 32,
-        "views": 92,
-        "likes": 1,
+        "impressions": 159,
+        "reach": 51,
+        "views": 159,
+        "likes": 2,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -135,7 +193,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 76.7,
-        "avg_watch_s": 6.653,
+        "avg_watch_s": 6.562,
         "duration_s": 26
       },
       "matched": null
@@ -236,9 +294,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 301,
-        "reach": 118,
-        "views": 301,
+        "impressions": 306,
+        "reach": 120,
+        "views": 306,
         "likes": 7,
         "comments": 0,
         "shares": 0,
@@ -294,9 +352,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 299,
-        "reach": 123,
-        "views": 299,
+        "impressions": 304,
+        "reach": 127,
+        "views": 304,
         "likes": 9,
         "comments": 0,
         "shares": 1,
@@ -510,7 +568,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 7
+      "posts": 8
     }
   },
   "coverage": {
@@ -631,5 +689,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-23T04:51:54+00:00"
+  "updated_at": "2026-10-23T11:41:05+00:00"
 }

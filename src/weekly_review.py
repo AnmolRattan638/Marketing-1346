@@ -74,7 +74,7 @@ def build(now=None):
         lines.append("\nNEXT EXPERIMENTS (planned; they may change when new numbers arrive)\n" + "\n".join(plan[:6]))
     gaps = data_gaps(learning._published(), res, now)
     if gaps:
-        lines.append("\nMISSING NUMBERS (send the screenshot to this chat)\n" + "\n".join(f"- {g}" for g in gaps))
+        lines.append("\nMISSING NUMBERS (send the screenshot to this chat; with the caption shown it is read straight away, otherwise the bot asks what it is)\n" + "\n".join(f"- {g}" for g in gaps))
     text = "\n".join(lines)
     notes = text + "\n\nALL SCORED POSTS\n" + "\n".join(
         f"{s['date']} {s['platform']:9} {s['service']} problem={s['problem_id']} angle={s['angle_type']} hook={s['hook_style']} fmt={s['format']} cta={s['cta']} "

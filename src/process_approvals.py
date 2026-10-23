@@ -34,6 +34,8 @@ def authorized(chat, sender):
 def handle(cb):
     if not authorized(cb["message"]["chat"], cb.get("from")):
         return
+    if str(cb.get("data", "")).startswith(("imgpost:", "imgstats:")):
+        return handle_image_choice(cb)
     action, _, key = cb["data"].partition(":")
     date = key[:10]
     path = config.DRAFTS / f"{date}.json"
@@ -81,33 +83,76 @@ def _commit(msg):
     subprocess.run(["bash", "scripts/commit_state.sh", msg], cwd=config.ROOT, check=False)
 
 
-def handle_message(msg):
-    """A photo/image file sent to the bot becomes today's post image (e.g. a design made in Adobe Express). With the caption 'stats' it is an analytics screenshot instead."""
-    if not authorized(msg["chat"], msg.get("from")):
-        return
-    file_id = None
+def _image_file_id(msg):
     if msg.get("photo"):
-        file_id = msg["photo"][-1]["file_id"]
-    elif str((msg.get("document") or {}).get("mime_type", "")).startswith("image/"):
-        file_id = msg["document"]["file_id"]
-    if not file_id:
-        return
-    if (msg.get("caption") or "").strip().lower().startswith("stats"):
-        return handle_stats(file_id, msg["caption"].strip())
+        return msg["photo"][-1]["file_id"]
+    if str((msg.get("document") or {}).get("mime_type", "")).startswith("image/"):
+        return msg["document"]["file_id"]
+    return None
+
+
+def _pending_draft():
+    return config.load_json(config.DRAFTS / f"{_today()}.json", None)
+
+
+def save_post_image(file_id, ai=False):
+    """Today's POST image from an upload the owner confirmed (caption 'post'/'ai' or the button). Only for a pending draft."""
     today = _today()
     path = config.DRAFTS / f"{today}.json"
     draft = config.load_json(path, None)
     if not draft or draft.get("status") != "pending":
         tg.send("There is no pending draft to attach this image to, so I ignored it.")
-        return
+        return False
     from .agents import image
-    ai = "ai" in (msg.get("caption") or "").lower().split()      # caption "ai" marks it as AI-generated
     dest = config.MEDIA / f"{today}.jpg"
     image._save(tg.download_file(file_id), dest, ai=ai)
     draft["image"] = {"prompt": None, "path": str(dest.relative_to(config.ROOT)), "engine": "user_upload", "ai_generated": ai}
     config.save_json(path, draft)
     _commit(f"image: {today}")
-    tg.send("Image received and saved for today's draft. Tap Approve and it will be used.")
+    tg.send("Image received and saved as today's POST image. Tap Approve and it will be used.")
+    return True
+
+
+def handle_message(msg):
+    """A photo or image file. Caption 'stats' (e.g. 'stats linkedin') = analytics screenshot; caption 'post' or 'ai' = today's post image ('ai' also marks it
+    AI-generated). Anything else is ambiguous, so the bot asks with two buttons and saves nothing (and commits nothing) until you answer."""
+    if not authorized(msg["chat"], msg.get("from")):
+        return
+    file_id = _image_file_id(msg)
+    if not file_id:
+        return
+    cap = (msg.get("caption") or "").strip()
+    words = cap.lower().split()
+    if cap.lower().startswith("stats"):
+        return handle_stats(file_id, cap)
+    if "post" in words or "ai" in words:
+        return save_post_image(file_id, ai="ai" in words)
+    draft = _pending_draft()
+    if not draft or draft.get("status") != "pending":      # no post is waiting for an image, so this can only be analytics
+        return handle_stats(file_id, cap)
+    key = draft.get("id") or _today()
+    tg.send("What is this image?", [{"text": "Use as today's post image", "callback_data": f"imgpost:{key}"},
+                                    {"text": "It's analytics", "callback_data": f"imgstats:{key}"}], reply_to=msg.get("message_id"))
+
+
+def handle_image_choice(cb):
+    """The answer to 'What is this image?'. The photo is read from the message the question replied to, so nothing was stored before the answer."""
+    action, _, key = cb["data"].partition(":")
+    file_id = _image_file_id(cb["message"].get("reply_to_message") or {})
+    if not file_id:
+        tg.answer(cb["id"], "I can no longer find that image")
+        tg.send("I could not find that image any more. Send it again with the caption 'post' (today's post image) or 'stats' (analytics).")
+        return
+    if action == "imgstats":
+        tg.answer(cb["id"], "Reading it as analytics...")
+        return handle_stats(file_id, "stats")
+    draft = config.load_json(config.DRAFTS / f"{key[:10]}.json", None)
+    if not draft or draft.get("status") != "pending" or (draft.get("id") and draft["id"] != key):
+        tg.answer(cb["id"], "That draft is no longer waiting for an image")
+        tg.send("That draft is no longer waiting for an image, so nothing was changed.")
+        return
+    tg.answer(cb["id"], "Saving...")
+    save_post_image(file_id, ai=False)
 
 
 def handle_stats(file_id, caption):

@@ -38,8 +38,15 @@ buf = io.BytesIO(); Image.new("RGBA", (1500, 1500), (200, 30, 30, 255)).save(buf
 tg.download_file = lambda fid: buf.getvalue()
 commits, sent2 = [], []
 pa._commit = lambda m: commits.append(m)
-tg.send = lambda text, buttons=None: sent2.append(text)
-pa.handle_message({"chat": {"id": 1}, "photo": [{"file_id": "small"}, {"file_id": "big"}], "caption": "design from Adobe"})
+asks = []
+def send2(text, buttons=None, reply_to=None):
+    sent2.append(text)
+    asks.append((text, buttons, reply_to))
+tg.send = send2
+pa.handle_message({"chat": {"id": 1}, "message_id": 77, "photo": [{"file_id": "small"}, {"file_id": "big"}], "caption": "design from Adobe"})
+assert config.load_json(config.DRAFTS / f"{today}.json", {})["image"] == {"path": None} and not commits, "a photo without a clear purpose saves and commits nothing"
+assert asks[-1][0] == "What is this image?" and asks[-1][2] == 77 and [b["text"] for b in asks[-1][1]] == ["Use as today's post image", "It's analytics"]
+pa.handle_message({"chat": {"id": 1}, "photo": [{"file_id": "small"}, {"file_id": "big"}], "caption": "post"})
 d = config.load_json(config.DRAFTS / f"{today}.json", {})
 assert d["image"]["engine"] == "user_upload" and d["image"]["ai_generated"] is False, d["image"]
 raw = (config.ROOT / d["image"]["path"]).read_bytes()
@@ -50,7 +57,7 @@ d = config.load_json(config.DRAFTS / f"{today}.json", {})
 assert d["image"]["ai_generated"] is True and b"trainedAlgorithmicMedia" in (config.ROOT / d["image"]["path"]).read_bytes()
 pa.handle_message({"chat": {"id": 999}, "photo": [{"file_id": "x"}]})        # other chats are ignored
 pa.handle_message({"chat": {"id": 1}, "text": "hello"})                          # plain text is ignored
-print("upload test passed: photo -> today's image (not AI-marked), caption 'ai' -> AI-marked")
+print("upload test passed: unclear photo asks first, caption 'post' -> today's image (not AI-marked), caption 'ai' -> AI-marked")
 
 # ---- a stale button (older message / legacy date-only data) must not approve a newer draft
 config.save_json(config.DRAFTS / f"{today}.json", {"id": f"{today}-abc123", "date": today, "status": "pending", "service": "chatbot", "topic": "t",

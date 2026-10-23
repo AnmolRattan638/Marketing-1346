@@ -20,11 +20,13 @@ def chat_id():
     return os.environ["TELEGRAM_CHAT_ID"]
 
 
-def send(text, buttons=None):
+def send(text, buttons=None, reply_to=None):
     chunks = [text[i:i + 3900] for i in range(0, len(text), 3900)] or [""]
     res = None
     for i, c in enumerate(chunks):
         payload = {"chat_id": chat_id(), "text": c}
+        if reply_to and i == 0:
+            payload["reply_to_message_id"] = reply_to
         if buttons and i == len(chunks) - 1:
             payload["reply_markup"] = {"inline_keyboard": [buttons]}
         res = _api("sendMessage", json=payload)

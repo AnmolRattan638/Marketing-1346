@@ -181,7 +181,7 @@ tmp = pathlib.Path(__import__("tempfile").mkdtemp())
 config.DATA = tmp
 msgs, state = [], {"pending": True, "calls": 0}
 tg.send = lambda text, buttons=None: msgs.append(text)
-pa.pending_today = lambda: state["pending"]
+pa.pending_recent = lambda hours=23.5: state["pending"]
 
 def flaky_poll(st, timeout):                        # three network blips, then the owner taps Approve
     state["calls"] += 1

@@ -450,9 +450,9 @@
         }
       },
       "latest": {
-        "impressions": 192,
-        "reach": 67,
-        "views": 192,
+        "impressions": 197,
+        "reach": 68,
+        "views": 197,
         "likes": 4,
         "comments": 0,
         "shares": 0,
@@ -490,5 +490,5 @@
       }
     }
   },
-  "updated_at": "2026-10-23T21:25:50+00:00"
+  "updated_at": "2026-10-24T04:38:49+00:00"
 }

@@ -1,4 +1,5 @@
-"""Poll Telegram for Approve/Reject taps and publish approved drafts (the Daily draft run waits for the tap; the safety-net workflow polls every 10 minutes)."""
+"""Poll Telegram for Approve/Reject taps and publish approved drafts. The Daily draft run waits for the tap; when it ends, follow-up runs of the Approve workflow keep
+listening (a chain, because GitHub runs scheduled workflows only every few hours, however often the schedule says)."""
 import datetime as dt
 import os, subprocess, sys, time
 from . import config, publish, tg
@@ -200,13 +201,30 @@ def _notify(text):
         print(f"[wait] could not send Telegram message: {e}")
 
 
-def wait(seconds):
+def pending_recent(hours=23.5):
+    """Is a draft still waiting for a tap that Telegram will still deliver? (Telegram keeps taps for 24 hours.) Uses the draft's created_at; drafts
+    from before that field existed count from 03:00 UTC on their date."""
+    now = dt.datetime.now(dt.timezone.utc)
+    for f in sorted(config.DRAFTS.glob("*.json"))[-3:]:
+        d = config.load_json(f, None)
+        if not isinstance(d, dict) or d.get("status") != "pending":
+            continue
+        try:
+            made = dt.datetime.fromisoformat(d["created_at"])
+        except (KeyError, ValueError, TypeError):
+            made = dt.datetime.fromisoformat(f"{d.get('date', f.stem)}T03:00:00+00:00")
+        if now - made < dt.timedelta(hours=hours):
+            return True
+    return False
+
+
+def wait(seconds, quiet=False):
     """Stay alive after the draft is sent and publish the moment you tap Approve (checks every few seconds).
     Any error (network blip, non-JSON reply, Telegram outage) is logged and retried with a growing pause. If errors never stop,
-    the job ends normally and the 'Approve and publish' safety-net workflow (every 10 minutes) takes over: the run does not fail."""
+    the job ends normally and the next follow-up run takes over: the run does not fail. quiet=True skips the 'no decision yet' reminder (used by the follow-up runs)."""
     state = config.load_json(config.DATA / "tg_state.json", {"offset": 0})
     deadline, conflicts, errors = time.time() + seconds, 0, 0
-    while time.time() < deadline and pending_today():
+    while time.time() < deadline and pending_recent():
         try:
             poll(state, 25)
             conflicts = errors = 0
@@ -231,15 +249,17 @@ def wait(seconds):
             print(f"[wait] unexpected {type(e).__name__}: {e}")
             time.sleep(min(15 * errors, 120))
         if errors >= 20:
-            _notify("Telegram kept failing for this run, so the live wait for your Approve tap ended early. Nothing is lost: your draft is saved and posts within about 10 minutes of you tapping Approve.")
+            _notify("Telegram kept failing for this run, so the live wait for your Approve tap ended early. Your draft is saved: tap Approve within 24 hours.")
             return
-    if pending_today():
-        _notify(f"No decision on today's draft after {seconds // 3600}h {seconds % 3600 // 60}m. It stays saved: tap Approve within 24 hours and it will post within about 10 minutes.")
+    if pending_recent() and not quiet:
+        _notify(f"No decision on today's draft after {seconds // 3600}h {seconds % 3600 // 60}m. It stays saved: tap Approve within 24 hours.")
 
 
 def main():
+    if "--still-pending" in sys.argv:                        # exit code 0 = a draft is still waiting for a tap (used to chain the follow-up runs)
+        sys.exit(0 if pending_recent() else 1)
     if "--wait" in sys.argv:
-        return wait(int(sys.argv[sys.argv.index("--wait") + 1]))
+        return wait(int(sys.argv[sys.argv.index("--wait") + 1]), quiet="--quiet" in sys.argv)
     state = config.load_json(config.DATA / "tg_state.json", {"offset": 0})
     try:
         poll(state, 0)

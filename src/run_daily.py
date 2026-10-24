@@ -198,7 +198,7 @@ def main():
     if exp and not followed:
         WARNINGS.append("learning loop: the analysis step did not follow today's experiment problem, so this post is not counted as a test of it.")
     exp_line = f"Experiment: {learning.label(exp)}\n" if followed else ""
-    draft = {"id": f"{today}-{secrets.token_hex(3)}", "date": today, "status": "pending", "service": focus["id"], "topic": plan["topic"], "idea_id": ideas.valid_id(plan.get("idea_id")),
+    draft = {"id": f"{today}-{secrets.token_hex(3)}", "date": today, "created_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "status": "pending", "service": focus["id"], "topic": plan["topic"], "idea_id": ideas.valid_id(plan.get("idea_id")),
              "problem_id": pid if followed else None, "angle_type": plan.get("angle_type") if plan.get("angle_type") in learning.ANGLE_TYPES else None,
              "experiment": {k: exp.get(k) for k in ("mode", "variable", "problem_id", "angle_type", "hook_style")} if followed else None,
              "hooks": plan["hooks"], "chosen_hook": plan.get("chosen_hook", 0),

@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write
+  actions: write              # to start the follow-up run that keeps listening for your tap
 
 jobs:
   draft:
@@ -72,6 +73,16 @@ jobs:
         if: always()
         run: |
           bash scripts/commit_state.sh "result: $(date -u +%FT%TZ)"
+
+      - name: Keep listening for your tap (follow-up run)
+        if: always() && steps.gen.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if python -m src.process_approvals --still-pending; then
+            gh workflow run approve-publish.yml -R "$GITHUB_REPOSITORY" -f hop=1
+          fi
 
       - name: Alert if the run failed
         if: failure()

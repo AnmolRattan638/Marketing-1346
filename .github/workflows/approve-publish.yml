@@ -1,15 +1,22 @@
 name: Approve and publish
 
-# Safety net. Normally the Daily draft run waits for your tap and publishes instantly.
-# This one catches taps made after that run ended (within Telegram's 24 hours).
+# Listens for your Approve / Reject tap after the Daily draft run has ended (Telegram keeps taps for 24 hours).
+# GitHub runs SCHEDULED workflows only every few hours on this repo, however often the schedule says, so the schedule below is a last resort.
+# The real mechanism is a chain: Daily draft starts follow-up run 1 when its own wait ends; each follow-up run waits for your tap
+# (up to 5.5 hours) and, if the draft is still undecided, starts the next one (up to 4). A tap is handled within seconds while a run is active.
+# You can also start it by hand (Actions > Approve and publish > Run workflow): it handles any tap that is waiting.
 on:
   schedule:
     - cron: "*/10 * * * *"
   workflow_dispatch:
+    inputs:
+      hop:
+        description: "Follow-up number (set automatically; leave as 0 when starting it by hand)"
+        default: "0"
 
 permissions:
   contents: write
-  actions: read
+  actions: write
 
 concurrency:
   group: approvals
@@ -18,7 +25,7 @@ concurrency:
 jobs:
   approvals:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 350        # a follow-up run waits for your tap for up to 5.5 hours
     env:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -42,7 +49,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          n=$(gh run list -R "$GITHUB_REPOSITORY" --workflow daily-draft.yml --status in_progress --json databaseId --jq 'length')
+          # a run started by Daily draft's last step may begin while that job is still finishing: give it up to 3 minutes
+          for i in $(seq 1 18); do
+            n=$(gh run list -R "$GITHUB_REPOSITORY" --workflow daily-draft.yml --status in_progress --json databaseId --jq 'length')
+            if [ "${n:-0}" -eq 0 ] || [ "${{ github.event_name }}" != "workflow_dispatch" ]; then break; fi
+            sleep 10
+          done
           if [ "${n:-0}" -gt 0 ]; then
             echo "Daily draft is running and handles approvals itself; skipping."
             echo "skip=true" >> "$GITHUB_OUTPUT"
@@ -60,8 +72,26 @@ jobs:
         if: steps.gate.outputs.skip != 'true'
       - name: Process approvals and publish
         if: steps.gate.outputs.skip != 'true'
-        run: python -m src.process_approvals
+        env:
+          HOP: ${{ inputs.hop || '0' }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            quiet=""; [ "${HOP}" -lt 4 ] && quiet="--quiet"       # only the last follow-up repeats the 'no decision yet' reminder
+            python -m src.process_approvals --wait 19800 $quiet
+          else
+            python -m src.process_approvals
+          fi
       - name: Commit state
         if: always() && steps.gate.outputs.skip != 'true'
         run: |
           bash scripts/commit_state.sh "state: $(date -u +%FT%TZ)"
+      - name: Keep listening (next follow-up run)
+        if: always() && github.event_name == 'workflow_dispatch' && steps.gate.outputs.skip != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HOP: ${{ inputs.hop || '0' }}
+        run: |
+          if [ "${HOP}" -lt 4 ] && python -m src.process_approvals --still-pending; then
+            gh workflow run approve-publish.yml -R "$GITHUB_REPOSITORY" -f hop=$((HOP + 1))
+          fi

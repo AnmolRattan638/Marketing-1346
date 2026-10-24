@@ -1,20 +1,20 @@
 {
-  "date": "2026-10-23",
+  "date": "2026-10-24",
   "stage": "brand new under 100 followers",
   "followers": 10,
-  "summary": "High reel skip rate (77% in first 3s) shows hooks fail; Bluesky zero engagement. Instagram bio violates rules: niche (hotels/cafes/gyms/homestays), region (Himachal), timeframe (24 hrs), free site check offer outside website posts.",
-  "guidance": "- Rotate hook styles: try top3, contrast, question; avoid curiosity (0.07x).\n- Stop repeating chatbot FAQ angles (multiple posts on same 5 questions, 2am leaks, after-9pm drops).\n- Keep posts reading like a developer sharing real work, never an ad.\n- Use broad national hashtags only (#FreelanceIndia #LeadGeneration #GetClients #SmallBusinessIndia).",
+  "summary": "First 3-second hook fails on Reels (77% drop); zero engagement on LinkedIn/Bluesky; no DMs yet. Bio violates rules: niche/region targeting, 24hr claim, free offer outside website posts.",
+  "guidance": "- Rotate hook styles: try \"top3\" or \"contrast\" next; avoid \"curiosity\" (0.07x) and repeated \"question\" angles on chatbots.\n- Stop repeating \"same 5 questions\" / \"2 AM leads\" chatbot tropes; they've appeared 4+ times.\n- Keep posts sounding like a developer sharing real work: show code snippets, config decisions, or site structure — never \"buy my service\" language.\n- Use varied Indian business examples (cafe in Kochi, gym in Jaipur, clinic in Guwahati) in one line max.\n- Only offer \"pay after approval\" + a short DM conversation; free 3-point site check only in website posts.",
   "instructions": {
-    "research": "Find 3 diverse Indian small-business types (e.g. salon in Jaipur, coaching centre in Kochi, gym in Indore) that lack websites but have Google Places listings with reviews.",
-    "analysis": "Compare the lead-gen sheet columns (name, phone, website yes/no, review count, newly opened flag) against the research list to confirm coverage.",
-    "writer": "Draft a lead-gen post opening with 'Freelancers, agencies, anyone selling a service' describing the sheet in general terms, using a top3 hook: '3 places to spot local businesses that need your service'.",
-    "image": "Create a simple carousel slide showing a blurred Google Maps screenshot with overlay text: 'Business name • Phone • Website? • Reviews • New?' — no real data, just illustration.",
-    "video": "Skip video today; focus on a static carousel for higher retention."
+    "research": "Find 3 common website trust gaps for Indian small businesses (e.g., missing contact page, no SSL, slow mobile load) without naming specific clients.",
+    "analysis": "Compare today's website post idea against the last website post (WhatsApp vs one-page site) to avoid repeating the same contrast hook.",
+    "writer": "Write a Myth Bust hook for website development: bust the myth 'My WhatsApp Business profile is enough' using a contrast structure, end with 'pay after approval' CTA.",
+    "image": "Create a simple split graphic: left side WhatsApp chat screen, right side a clean one-page site wireframe; no branding, just UI patterns.",
+    "video": "Skip video today; static image performs better for website topics per current data."
   },
   "manual_tips": [
-    "Update Instagram bio to remove niche, region, timeframe, and free site check; replace with national, service-agnostic description and 'pay after approval' offer.",
-    "Comment thoughtfully on 5 posts by Indian freelancers/agencies discussing client acquisition, using your personal account.",
-    "Reply to any existing DM or comment on your own posts within 2 hours to boost algorithm signals."
+    "Update Instagram bio to remove niche/region claims, 24hr promise, and free offer; keep only \"Websites for small businesses across India. Pay after approval. DM for a quick 3-point check.\"",
+    "Comment thoughtfully on 5 posts by Indian small business owners (cafes, gyms, clinics) about their online presence — no pitching.",
+    "Reply to any existing DMs or comments on your posts within 2 hours."
   ],
   "weak_signals": [
     {
@@ -30,7 +30,7 @@
     {
       "id": "follower_stall",
       "platform": "bluesky",
-      "detail": "3 posts in 7 days and followers changed by +0"
+      "detail": "4 posts in 7 days and followers changed by +0"
     }
   ]
 }

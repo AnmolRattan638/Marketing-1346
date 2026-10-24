@@ -1,4 +1,5 @@
-- Rotate hook styles: try top3, contrast, question; avoid curiosity (0.07x).
-- Stop repeating chatbot FAQ angles (multiple posts on same 5 questions, 2am leaks, after-9pm drops).
-- Keep posts reading like a developer sharing real work, never an ad.
-- Use broad national hashtags only (#FreelanceIndia #LeadGeneration #GetClients #SmallBusinessIndia).
+- Rotate hook styles: try "top3" or "contrast" next; avoid "curiosity" (0.07x) and repeated "question" angles on chatbots.
+- Stop repeating "same 5 questions" / "2 AM leads" chatbot tropes; they've appeared 4+ times.
+- Keep posts sounding like a developer sharing real work: show code snippets, config decisions, or site structure — never "buy my service" language.
+- Use varied Indian business examples (cafe in Kochi, gym in Jaipur, clinic in Guwahati) in one line max.
+- Only offer "pay after approval" + a short DM conversation; free 3-point site check only in website posts.

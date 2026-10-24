@@ -1,0 +1,121 @@
+{
+  "id": "2026-10-24-8c72fd",
+  "date": "2026-10-24",
+  "status": "pending",
+  "service": "website",
+  "topic": "3 ways a professional URL beats a social media bio",
+  "idea_id": null,
+  "problem_id": "customers-hesitating-to-book-or-pay-due-",
+  "angle_type": "comparison",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "customers-hesitating-to-book-or-pay-due-",
+    "angle_type": null,
+    "hook_style": "top3"
+  },
+  "hooks": [
+    {
+      "style": "top3",
+      "text": "Top 3 reasons a custom domain beats any Instagram bio."
+    },
+    {
+      "style": "value",
+      "text": "Get instant credibility: switch from social handle to .com today."
+    },
+    {
+      "style": "myth",
+      "text": "Myth: Social page is enough. Fact: Only a website proves legitimacy."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "top3",
+  "posts": {
+    "instagram": "𝗧𝗢𝗣 𝟯 𝗥𝗘𝗔𝗦𝗢𝗡𝗦 𝗔 𝗖𝗨𝗦𝗧𝗢𝗠 𝗗𝗢𝗠𝗔𝗜𝗡 𝗖𝗔𝗡 𝗢𝗨𝗧𝗣𝗘𝗥𝗙𝗢𝗥𝗠 𝗔𝗡 𝗜𝗡𝗦𝗧𝗔𝗚𝗥𝗔𝗠 𝗕𝗜𝗢 𝗟𝗜𝗡𝗞.\n→ Instagram bio link kabhi break ho sakta hai, apna 𝗗𝗢𝗠𝗔𝗜𝗡 nahi.\n→ 𝗘𝗠𝗔𝗜𝗟 se customers ko trust jaldi milta hai.\n→ SEO aur content par aapka full control hota hai, algorithm ka nahi.\nDM 𝗦𝗜𝗧𝗘 aur batayiye aap kya bechte hain.\n\n#SmallBusinessIndia #WebsiteIndia #DigitalIndia",
+    "linkedin": "A custom domain can give you control that an Instagram bio link may lack.\n\nIf Instagram changes its rules, the link in your bio may stop working or disappear.\n\nYour own domain stays under your control for as long as you need it.\n\nA professional email address such as info@yourbusiness.com often looks more trustworthy than a generic handle.\n\nYou also control search visibility, website content, and security without relying on any platform algorithm.\n\nMessage me with the word SITE and tell me what you sell.",
+    "bluesky": "𝗖𝗨𝗦𝗧𝗢𝗠 𝗗𝗢𝗠𝗔𝗜𝗡 can outpace a bio link. You own the address, email, and SEO. Platforms change rules; your site stays yours. DM SITE to talk."
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I build mobile-first websites for small businesses anywhere in India. What do you want customers to do—call, WhatsApp, or fill a form? Website packages start at INR 1,499 and go up to INR 3,599, with domain setup at INR 800. You pay only after you approve the work. I can give a fixed-price scope once I know what you need."
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for reaching out. I work with any small business in India—shops, clinics, salons, coaching centres—that wants more direct enquiries. What kind of business do you run, and what should customers do when they visit? DM SITE and tell me what you sell."
+    },
+    {
+      "if_they_say": "is WhatsApp Business enough?",
+      "reply": "Hi, thanks for asking. WhatsApp is good for messages, but a custom domain gives you a permanent web address and a professional email like info@yourdomain.com. That builds trust with first-time customers. It works with WhatsApp, not against it. DM SITE and tell me what you sell."
+    }
+  ],
+  "image": {
+    "prompt": "A sleek, modern laptop resting on a dark polished cafe table in Kochi, its screen emitting a soft glow. The scene is set against a pure black background featuring a constellation of bright cyan nodes connected by thin white lines. High-contrast cinematic lighting creates a polished look with a large, calm, dark empty space across the lower 40 percent of the frame. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-10-24.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "customers-hesitating-to-book-or-pay-due-",
+      "angle_type": "top3",
+      "style": "bold",
+      "headline": "3 reasons a domain beats a bio",
+      "highlight": [
+        "beats a bio"
+      ],
+      "sub": "For a Kochi cafe or Jaipur gym. Free 3-point check.",
+      "chat": [],
+      "cta": "DM \"SITE\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "network"
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Absolute comparative claim 'beats' used in all drafts; softened to non‑absolute wording."
+    ],
+    "revised": {
+      "instagram": "**TOP 3 REASONS A CUSTOM DOMAIN CAN OUTPERFORM AN INSTAGRAM BIO LINK.**\n→ Instagram bio link kabhi break ho sakta hai, apna **DOMAIN** nahi.\n→ **EMAIL** se customers ko trust jaldi milta hai.\n→ SEO aur content par aapka full control hota hai, algorithm ka nahi.\nDM **SITE** aur batayiye aap kya bechte hain.\n\n#SmallBusinessIndia #WebsiteIndia #DigitalIndia",
+      "linkedin": "A custom domain can give you control that an Instagram bio link may lack.\n\nIf Instagram changes its rules, the link in your bio may stop working or disappear.\n\nYour own domain stays under your control for as long as you need it.\n\nA professional email address such as info@yourbusiness.com often looks more trustworthy than a generic handle.\n\nYou also control search visibility, website content, and security without relying on any platform algorithm.\n\nMessage me with the word SITE and tell me what you sell.",
+      "bluesky": "**CUSTOM DOMAIN** can outpace a bio link. You own the address, email, and SEO. Platforms change rules; your site stays yours. DM SITE to talk."
+    }
+  },
+  "ad_score": 8,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemini-3.8-flash (ProviderDown)"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 10.5,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 10.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 245.1,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      }
+    ]
+  }
+}

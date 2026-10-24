@@ -1,7 +1,7 @@
 {
   "id": "2026-10-24-8c72fd",
   "date": "2026-10-24",
-  "status": "pending",
+  "status": "published",
   "service": "website",
   "topic": "3 ways a professional URL beats a social media bio",
   "idea_id": null,
@@ -117,5 +117,19 @@
         "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6adc88eb736a79e1c0d549df"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6adc88f18b3d437ddcb29f47 (due 2026-10-24T10:31:13.543Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mymigg2cyf2e"
+    }
   }
 }

@@ -2,6 +2,35 @@
   "posts": [
     {
       "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mymigg2cyf2e",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mymigg2cyf2e",
+      "published_at": "2026-10-24T10:31:15.130457+00:00",
+      "text": "𝗖𝗨𝗦𝗧𝗢𝗠 𝗗𝗢𝗠𝗔𝗜𝗡 can outpace a bio link. You own the address, email, and SEO. Platforms change rules; your site stays yours. DM SITE to talk.",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-24",
+        "service": "website",
+        "hook_style": "top3",
+        "topic": "3 ways a professional URL beats a social media bio"
+      }
+    },
+    {
+      "platform": "bluesky",
       "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3myjrbycw7u25",
       "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3myjrbycw7u25",
       "published_at": "2026-10-23T08:31:50.870716+00:00",
@@ -67,9 +96,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 197,
-        "reach": 68,
-        "views": 197,
+        "impressions": 201,
+        "reach": 69,
+        "views": 201,
         "likes": 4,
         "comments": 0,
         "shares": 0,
@@ -294,9 +323,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 306,
+        "impressions": 307,
         "reach": 120,
-        "views": 306,
+        "views": 307,
         "likes": 7,
         "comments": 0,
         "shares": 0,
@@ -558,17 +587,17 @@
   ],
   "accounts": {
     "instagram": {
-      "followers": 10,
+      "followers": 9,
       "username": "ar__designerx"
     },
     "linkedin": {
-      "followers": 1,
+      "followers": 2,
       "username": "Anmol Rattan"
     },
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 8
+      "posts": 9
     }
   },
   "coverage": {
@@ -689,13 +718,13 @@
     {
       "date": "2026-10-24",
       "followers": {
-        "instagram": 10,
-        "linkedin": 1,
+        "instagram": 9,
+        "linkedin": 2,
         "bluesky": 1
       }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-24T04:38:48+00:00"
+  "updated_at": "2026-10-24T11:03:10+00:00"
 }

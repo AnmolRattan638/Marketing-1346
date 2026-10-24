@@ -277,9 +277,9 @@
         }
       },
       "latest": {
-        "impressions": 306,
+        "impressions": 307,
         "reach": 120,
-        "views": 306,
+        "views": 307,
         "likes": 7,
         "comments": 0,
         "shares": 0,
@@ -303,6 +303,18 @@
       "snap": {
         "48h": {
           "age_h": 49.1,
+          "source": "zernio",
+          "impressions": 15,
+          "reach": 6,
+          "views": 15,
+          "likes": 1,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        },
+        "7d": {
+          "age_h": 170.9,
           "source": "zernio",
           "impressions": 15,
           "reach": 6,
@@ -341,6 +353,13 @@
       "snap": {
         "48h": {
           "age_h": 49.1,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        },
+        "7d": {
+          "age_h": 170.9,
           "source": "bluesky",
           "likes": 0,
           "comments": 0,
@@ -450,9 +469,9 @@
         }
       },
       "latest": {
-        "impressions": 197,
-        "reach": 68,
-        "views": 197,
+        "impressions": 201,
+        "reach": 69,
+        "views": 201,
         "likes": 4,
         "comments": 0,
         "shares": 0,
@@ -490,5 +509,5 @@
       }
     }
   },
-  "updated_at": "2026-10-24T04:38:49+00:00"
+  "updated_at": "2026-10-24T11:03:11+00:00"
 }

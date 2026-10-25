@@ -1,6 +1,64 @@
 {
   "posts": [
     {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3myp5uau7db2m",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3myp5uau7db2m",
+      "published_at": "2026-10-25T12:00:07.671283+00:00",
+      "text": "𝗥𝗘𝗣𝗘𝗧𝗜𝗧𝗜𝗩𝗘 𝗤𝗨𝗘𝗦𝗧𝗜𝗢𝗡𝗦 A chatbot can answer price, location, and hours automatically so you stop typing the same replies all day. No demo, just a straightforward ",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-25",
+        "service": "chatbot",
+        "hook_style": "top3",
+        "topic": "3 questions every customer asks. Could a bot answer them?"
+      }
+    },
+    {
+      "platform": "instagram",
+      "id": "17932440366164648",
+      "url": "https://www.instagram.com/p/De6qCY2iJjn/",
+      "published_at": "2026-10-25T12:00:02.000Z",
+      "text": "𝗕𝗨𝗦𝗬 𝗦𝗠𝗔𝗟𝗟 𝗕𝗨𝗦𝗜𝗡𝗘𝗦𝗦 𝗢𝗪𝗡𝗘𝗥𝗦: 𝟯 𝗖𝗢𝗠𝗠𝗢𝗡 𝗤𝗨𝗘𝗦𝗧𝗜𝗢𝗡𝗦 𝗕𝗢𝗧𝗦 𝗔𝗡𝗦𝗪𝗘𝗥 𝗜𝗡𝗦𝗧𝗔𝗡𝗧𝗟𝗬, 𝗡𝗢 𝗧𝗬𝗣𝗜𝗡𝗚.\n\n→ 𝗣𝗥𝗜𝗖𝗘, 𝗟𝗢𝗖𝗔𝗧𝗜𝗢𝗡 aur 𝗛𝗢𝗨𝗥𝗦 ke sawal baar‑baar aate hain.\n→ Bot turant jawab d",
+      "format": "image",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 2,
+        "reach": 1,
+        "views": 2,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-25",
+        "service": "chatbot",
+        "hook_style": "top3",
+        "topic": "3 questions every customer asks. Could a bot answer them?"
+      }
+    },
+    {
       "platform": "instagram",
       "id": "18000709817973261",
       "url": "https://www.instagram.com/p/De37GRWjXP8/",
@@ -9,9 +67,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 11,
-        "reach": 3,
-        "views": 11,
+        "impressions": 14,
+        "reach": 4,
+        "views": 14,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -125,9 +183,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 213,
-        "reach": 74,
-        "views": 213,
+        "impressions": 229,
+        "reach": 78,
+        "views": 229,
         "likes": 4,
         "comments": 0,
         "shares": 0,
@@ -410,10 +468,10 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 311,
-        "reach": 129,
-        "views": 311,
-        "likes": 9,
+        "impressions": 320,
+        "reach": 133,
+        "views": 320,
+        "likes": 10,
         "comments": 0,
         "shares": 1,
         "saves": 0,
@@ -626,7 +684,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 9
+      "posts": 10
     }
   },
   "coverage": {
@@ -763,5 +821,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-25T11:32:26+00:00"
+  "updated_at": "2026-10-25T16:22:38+00:00"
 }

@@ -75,10 +75,10 @@
         }
       },
       "latest": {
-        "impressions": 311,
-        "reach": 129,
-        "views": 311,
-        "likes": 9,
+        "impressions": 320,
+        "reach": 133,
+        "views": 320,
+        "likes": 10,
         "comments": 0,
         "shares": 1,
         "saves": 0,
@@ -488,9 +488,9 @@
         }
       },
       "latest": {
-        "impressions": 213,
-        "reach": 74,
-        "views": 213,
+        "impressions": 229,
+        "reach": 78,
+        "views": 229,
         "likes": 4,
         "comments": 0,
         "shares": 0,
@@ -596,5 +596,5 @@
       }
     }
   },
-  "updated_at": "2026-10-25T11:32:27+00:00"
+  "updated_at": "2026-10-25T16:22:40+00:00"
 }

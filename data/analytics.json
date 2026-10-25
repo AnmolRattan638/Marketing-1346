@@ -38,9 +38,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 2,
-        "reach": 1,
-        "views": 2,
+        "impressions": 5,
+        "reach": 2,
+        "views": 5,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -183,9 +183,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 229,
-        "reach": 78,
-        "views": 229,
+        "impressions": 231,
+        "reach": 79,
+        "views": 231,
         "likes": 4,
         "comments": 0,
         "shares": 0,
@@ -821,5 +821,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-25T16:22:38+00:00"
+  "updated_at": "2026-10-25T20:52:15+00:00"
 }

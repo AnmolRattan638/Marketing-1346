@@ -1,5 +1,3 @@
-- Rotate hook styles: try "top3" or "contrast" next; avoid "curiosity" (0.07x) and repeated "question" angles on chatbots.
-- Stop repeating "same 5 questions" / "2 AM leads" chatbot tropes; they've appeared 4+ times.
-- Keep posts sounding like a developer sharing real work: show code snippets, config decisions, or site structure — never "buy my service" language.
-- Use varied Indian business examples (cafe in Kochi, gym in Jaipur, clinic in Guwahati) in one line max.
-- Only offer "pay after approval" + a short DM conversation; free 3-point site check only in website posts.
+- Rotate hook styles: try **contrast** or **top3** next (question and curiosity underperform).
+- Avoid repeating "same 5 questions" or "2 AM/after 9 PM" phrasing – used in last two chatbot posts.
+- Keep posts reading like a developer sharing real work, never an ad; no demos, no guarantees, no niche targeting.

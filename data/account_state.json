@@ -1,31 +1,46 @@
 {
-  "date": "2026-10-24",
+  "date": "2026-10-25",
   "stage": "brand new under 100 followers",
-  "followers": 10,
-  "summary": "First 3-second hook fails on Reels (77% drop); zero engagement on LinkedIn/Bluesky; no DMs yet. Bio violates rules: niche/region targeting, 24hr claim, free offer outside website posts.",
-  "guidance": "- Rotate hook styles: try \"top3\" or \"contrast\" next; avoid \"curiosity\" (0.07x) and repeated \"question\" angles on chatbots.\n- Stop repeating \"same 5 questions\" / \"2 AM leads\" chatbot tropes; they've appeared 4+ times.\n- Keep posts sounding like a developer sharing real work: show code snippets, config decisions, or site structure — never \"buy my service\" language.\n- Use varied Indian business examples (cafe in Kochi, gym in Jaipur, clinic in Guwahati) in one line max.\n- Only offer \"pay after approval\" + a short DM conversation; free 3-point site check only in website posts.",
+  "followers": 9,
+  "summary": "Account is brand new (<100 followers). Weakest: Instagram reels lose 77% viewers in first 3 seconds – hook fails. Bio violates rules: niches, region, 24hr claim, free offer outside website posts.",
+  "guidance": "- Rotate hook styles: try **contrast** or **top3** next (question and curiosity underperform).\n- Avoid repeating \"same 5 questions\" or \"2 AM/after 9 PM\" phrasing – used in last two chatbot posts.\n- Keep posts reading like a developer sharing real work, never an ad; no demos, no guarantees, no niche targeting.",
   "instructions": {
-    "research": "Find 3 common website trust gaps for Indian small businesses (e.g., missing contact page, no SSL, slow mobile load) without naming specific clients.",
-    "analysis": "Compare today's website post idea against the last website post (WhatsApp vs one-page site) to avoid repeating the same contrast hook.",
-    "writer": "Write a Myth Bust hook for website development: bust the myth 'My WhatsApp Business profile is enough' using a contrast structure, end with 'pay after approval' CTA.",
-    "image": "Create a simple split graphic: left side WhatsApp chat screen, right side a clean one-page site wireframe; no branding, just UI patterns.",
-    "video": "Skip video today; static image performs better for website topics per current data."
+    "research": "Find 2-3 common customer questions that any Indian small business (cafe, gym, clinic, shop) gets repeatedly – keep it generic, not niche-specific.",
+    "analysis": "Compare the two published chatbot posts (Oct 12 & Oct 20): note which hook style (question) got 12 engagement vs median 4, but reach only 29. Use that to inform a contrast-style hook today.",
+    "writer": "Write a single Instagram caption (under 125 chars) using a **contrast** hook: e.g., \"You answer calls all day. A chatbot answers while you sleep.\" End with \"DM for a quick chat – pay after approval.\" No demo offer.",
+    "image": "Create a simple static graphic: split screen – left side \"You at 11 PM\" (phone buzzing), right side \"Chatbot at 11 PM\" (auto-reply). Use brand colors, no logos, no client names.",
+    "video": "Skip video today; static image performs better for chatbot topic per current data."
   },
   "manual_tips": [
-    "Update Instagram bio to remove niche/region claims, 24hr promise, and free offer; keep only \"Websites for small businesses across India. Pay after approval. DM for a quick 3-point check.\"",
-    "Comment thoughtfully on 5 posts by Indian small business owners (cafes, gyms, clinics) about their online presence — no pitching.",
-    "Reply to any existing DMs or comments on your posts within 2 hours."
+    "Update Instagram bio: remove niches, region, \"24 hrs\", and free site check. Replace with: \"AI chatbots, animated ads, lead gen & websites for Indian small businesses. Pay after approval. DM to discuss.\"",
+    "Comment thoughtfully on 5 posts from Indian small business pages (cafes, gyms, clinics) – ask about their customer query volume, don't pitch.",
+    "Reply to any story mentions or tags from collaborators (editorxyz_official, shiven_xyz) to maintain relationship."
   ],
   "weak_signals": [
+    {
+      "id": "follower_stall",
+      "platform": "instagram",
+      "detail": "4 posts in 7 days and followers changed by -1"
+    },
     {
       "id": "high_skip_rate",
       "platform": "instagram",
       "detail": "reels lose 77% of viewers in the first 3 seconds across 1 reels: the hook is not stopping the scroll"
     },
     {
+      "id": "weak_service",
+      "platform": "instagram",
+      "detail": "by service, 'chatbot' earns 26% of what 'lead_gen' earns per person reached"
+    },
+    {
+      "id": "weak_hook_style",
+      "platform": "instagram",
+      "detail": "by hook style, 'question' earns 26% of what 'top3' earns per person reached"
+    },
+    {
       "id": "zero_engagement_streak",
       "platform": "bluesky",
-      "detail": "the last 6 settled posts got zero likes, comments, shares and saves"
+      "detail": "the last 7 settled posts got zero likes, comments, shares and saves"
     },
     {
       "id": "follower_stall",

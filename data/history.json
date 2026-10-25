@@ -61,5 +61,12 @@
     "topic": "3 ways a professional URL beats a social media bio",
     "hook_style": "top3",
     "status": "published"
+  },
+  {
+    "date": "2026-10-25",
+    "service": "chatbot",
+    "topic": "3 questions every customer asks. Could a bot answer them?",
+    "hook_style": "top3",
+    "status": "published"
   }
 ]

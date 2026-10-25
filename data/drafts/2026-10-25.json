@@ -2,7 +2,7 @@
   "id": "2026-10-25-02cdad",
   "date": "2026-10-25",
   "created_at": "2026-10-25T07:56:09+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "chatbot",
   "topic": "3 questions every customer asks. Could a bot answer them?",
   "idea_id": "bot-repeat-questions",
@@ -136,5 +136,19 @@
         "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6addef315d442eaf2b1e3268"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6addef3c0b5343d070cdb927 (due 2026-10-25T11:59:56.435Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3myp5uau7db2m"
+    }
   }
 }

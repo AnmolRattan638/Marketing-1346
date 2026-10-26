@@ -1,3 +1,5 @@
-- Rotate hook styles: try **contrast** or **top3** next (question and curiosity underperform).
-- Avoid repeating "same 5 questions" or "2 AM/after 9 PM" phrasing – used in last two chatbot posts.
-- Keep posts reading like a developer sharing real work, never an ad; no demos, no guarantees, no niche targeting.
+- Hook style: use **top3** or **contrast** for animated ads; avoid curiosity (0.5x) and question (underperforms for this service).
+- Topic: show a real problem small businesses face with static creatives (low attention, scroll past) — relatable to any business running ads.
+- Format: static image or carousel (silhouette style 2.33x) over reel until hook retention improves.
+- Tone: developer sharing observation, not selling. End with "pay after approval" + "DM for a quick chat on fit".
+- Avoid: niche examples, guaranteed results, demo offers, timeframes, "free audit" language.

@@ -1,0 +1,129 @@
+{
+  "id": "2026-10-26-44e752",
+  "date": "2026-10-26",
+  "created_at": "2026-10-26T08:17:57+00:00",
+  "status": "pending",
+  "service": "animated_ads",
+  "topic": "Top 3 reasons your detailed caption is being ignored",
+  "idea_id": "ads-pov-feed",
+  "problem_id": "long-captions-are-ignored-by-customers",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "long-captions-are-ignored-by-customers",
+    "angle_type": null,
+    "hook_style": "top3"
+  },
+  "hooks": [
+    {
+      "style": "top3",
+      "text": "Small business owners: 3 reasons your long caption gets ignored"
+    },
+    {
+      "style": "comparison",
+      "text": "Caption vs animation: which grabs scrolling customers faster?"
+    },
+    {
+      "style": "myth",
+      "text": "Myth: longer captions sell more. Fact: motion drives clicks."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "top3",
+  "posts": {
+    "instagram": "SMALL BUSINESS OWNERS: 3 REASONS AAPKA LONG CAPTION IGNORED HO RAHA HAI\n\n→ Log do line ke baad 𝗦𝗖𝗥𝗢𝗟𝗟 kar dete hain\n→ 𝗔𝗡𝗜𝗠𝗔𝗧𝗜𝗢𝗡 pehle offer dikhati hai, padhne se pehle\n→ Same static layout har ad jaisa lagta hai\n\nDM 𝗔𝗗𝗦 aur batayein aapka offer kya hai. Pay after you approve.\n\n#SmallBusinessIndia #AnimatedAds #MotionAds #IndiaBusiness",
+    "linkedin": "Static ads with long captions are often ignored before anyone reads the offer.\n\nI see three problems: large image files slow down the feed, the ad has no motion to attract attention, and the design looks like dozens of other ads.\n\nA short animated video can show the main offer within the first few seconds, keeping the viewer before they scroll away.\n\nTry using a simple motion video for your next campaign instead of a long static caption.\n\nYou only pay after you approve the final ad.\n\nMessage me with the word ADS and tell me what you sell.",
+    "bluesky": "𝗟𝗢𝗡𝗚 𝗖𝗔𝗣𝗧𝗜𝗢𝗡𝗦 get scrolled. A short animation shows your offer before the user decides to read. DM ADS if you want to see if motion fits your offer."
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I make short animated ads for Instagram and Facebook. Quick question: what do you want customers to do—call, WhatsApp, or visit your page? I can share the fixed price range and explain how it works. You pay only after you approve the work."
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for reaching out. Animated ads work for any small business that uses Instagram or Facebook, whatever you sell. What kind of business do you run, and what is your main offer? I can tell you honestly if motion ads fit."
+    },
+    {
+      "if_they_say": "can I see a demo?",
+      "reply": "Hi, thanks for asking. I don't share demo links or custom samples. I can explain how a short animated ad is built and what goes into it. Tell me what you sell, and I'll give an honest take on whether it helps your business."
+    }
+  ],
+  "image": {
+    "prompt": "A bright minimal desk beside a window, soft natural daylight, calm neutral tones, shallow depth of field, large calm lower area. A light wooden desk holds an open notebook with a pen. A long blank paper scroll curls from the notebook across the desk to the floor. Soft blue glow accents the scene. Premium polished high-contrast technology look, clean modern shapes, cinematic feel. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-10-26.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "long-captions-are-ignored-by-customers",
+      "angle_type": "top3",
+      "style": "bold",
+      "headline": "3 reasons long captions get ignored",
+      "highlight": [
+        "long captions"
+      ],
+      "sub": "Attention is captured by motion, not text.",
+      "chat": [],
+      "cta": "DM \"ADS\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "bright-desk"
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**SMALL BUSINESS OWNERS: 3 REASONS AAPKA LONG CAPTION IGNORED HO RAHA HAI\n\n→ Log do line ke baad **SCROLL** kar dete hain\n→ **ANIMATION** pehle offer dikhati hai, padhne se pehle\n→ Same static layout har ad jaisa lagta hai\n\nDM **ADS** aur batayein aapka offer kya hai. Pay after you approve.\n\n#SmallBusinessIndia #AnimatedAds #MotionAds #IndiaBusiness",
+      "linkedin": "Static ads with long captions are often ignored before anyone reads the offer.\n\nI see three problems: large image files slow down the feed, the ad has no motion to attract attention, and the design looks like dozens of other ads.\n\nA short animated video can show the main offer within the first few seconds, keeping the viewer before they scroll away.\n\nTry using a simple motion video for your next campaign instead of a long static caption.\n\nYou only pay after you approve the final ad.\n\nMessage me with the word ADS and tell me what you sell.",
+      "bluesky": "**LONG CAPTIONS** get scrolled. A short animation shows your offer before the user decides to read. DM ADS if you want to see if motion fits your offer."
+    }
+  },
+  "ad_score": 8,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "google:gemini-3.8-flash",
+      "FAILED google:gemini-3.8-flash (ProviderDown)",
+      "FAILED google:gemini-3.7-flash (ProviderDown)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "FAILED google:gemma-4-26b-a4b-it (HTTP 500)",
+      "FAILED gemma: all its models"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 244.6,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "ProviderDown",
+        "seconds": 244.3,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 128.3,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "500",
+        "seconds": 128.1,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

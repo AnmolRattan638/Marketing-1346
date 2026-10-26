@@ -1,20 +1,20 @@
 {
-  "date": "2026-10-25",
+  "date": "2026-10-26",
   "stage": "brand new under 100 followers",
   "followers": 9,
-  "summary": "Account is brand new (<100 followers). Weakest: Instagram reels lose 77% viewers in first 3 seconds – hook fails. Bio violates rules: niches, region, 24hr claim, free offer outside website posts.",
-  "guidance": "- Rotate hook styles: try **contrast** or **top3** next (question and curiosity underperform).\n- Avoid repeating \"same 5 questions\" or \"2 AM/after 9 PM\" phrasing – used in last two chatbot posts.\n- Keep posts reading like a developer sharing real work, never an ad; no demos, no guarantees, no niche targeting.",
+  "summary": "Account is brand new (9 IG, 2 LI, 1 BS followers). Animated ads is the worst-performing service (0.5x). Reels lose 77% viewers in first 3 seconds — hooks fail. Bio violates rules: niche/region targeting, timeframe claim, free offer outside website posts. Top3 hooks outperform (2.31x); curiosity hooks underperform (0.5x). Lead gen outperforms other services (2.31x). Data too thin for strong patterns (<3 posts per style).",
+  "guidance": "- Hook style: use **top3** or **contrast** for animated ads; avoid curiosity (0.5x) and question (underperforms for this service).\n- Topic: show a real problem small businesses face with static creatives (low attention, scroll past) — relatable to any business running ads.\n- Format: static image or carousel (silhouette style 2.33x) over reel until hook retention improves.\n- Tone: developer sharing observation, not selling. End with \"pay after approval\" + \"DM for a quick chat on fit\".\n- Avoid: niche examples, guaranteed results, demo offers, timeframes, \"free audit\" language.",
   "instructions": {
-    "research": "Find 2-3 common customer questions that any Indian small business (cafe, gym, clinic, shop) gets repeatedly – keep it generic, not niche-specific.",
-    "analysis": "Compare the two published chatbot posts (Oct 12 & Oct 20): note which hook style (question) got 12 engagement vs median 4, but reach only 29. Use that to inform a contrast-style hook today.",
-    "writer": "Write a single Instagram caption (under 125 chars) using a **contrast** hook: e.g., \"You answer calls all day. A chatbot answers while you sleep.\" End with \"DM for a quick chat – pay after approval.\" No demo offer.",
-    "image": "Create a simple static graphic: split screen – left side \"You at 11 PM\" (phone buzzing), right side \"Chatbot at 11 PM\" (auto-reply). Use brand colors, no logos, no client names.",
-    "video": "Skip video today; static image performs better for chatbot topic per current data."
+    "research": "Find 2-3 public examples of Indian small businesses (different industries/cities) running static image ads that likely get scrolled past — note the visual sameness, no motion hook.",
+    "analysis": "Compare the scroll-stop potential of motion vs static for those examples; identify one concrete visual difference (e.g., product demo motion, price reveal animation, map pin drop) to reference in the post.",
+    "writer": "Write a top3-style post: \"3 reasons static ad creatives get scrolled past\" — each reason a developer observation (file size, no motion cue, same layout as 50 others). No niche names. End: \"Pay after you approve. DM if you want a quick take on whether motion helps your offer.\"",
+    "image": "Create a split-frame carousel: left frame static ad (generic), right frame same ad with one motion element highlighted (arrow, fade, slide). Label \"Static\" / \"With motion cue\". No client branding. Silhouette/flat style.",
+    "video": "Skip reel today. If you record, first 3 seconds must show the motion cue side-by-side with static — no talking head, no logo intro. Caption mirrors the top3 post."
   },
   "manual_tips": [
-    "Update Instagram bio: remove niches, region, \"24 hrs\", and free site check. Replace with: \"AI chatbots, animated ads, lead gen & websites for Indian small businesses. Pay after approval. DM to discuss.\"",
-    "Comment thoughtfully on 5 posts from Indian small business pages (cafes, gyms, clinics) – ask about their customer query volume, don't pitch.",
-    "Reply to any story mentions or tags from collaborators (editorxyz_official, shiven_xyz) to maintain relationship."
+    "Update Instagram bio to: \"Websites, AI chatbots, animated ads & lead gen for small businesses across India. Pay after approval. DM for a quick fit check.\" (removes niche, region, timeframe, free offer).",
+    "Comment on 5 posts from Indian small business owners (any industry) discussing ad creative struggles — add a developer observation, not a pitch.",
+    "Reply to the 1 comment on your best-performing chatbot post (Oct 12) with a follow-up tip: \"Same logic applies to ad creatives — motion cues stop the scroll.\""
   ],
   "weak_signals": [
     {
@@ -30,17 +30,17 @@
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 26% of what 'lead_gen' earns per person reached"
+      "detail": "by service, 'chatbot' earns 27% of what 'lead_gen' earns per person reached"
     },
     {
       "id": "weak_hook_style",
       "platform": "instagram",
-      "detail": "by hook style, 'question' earns 26% of what 'top3' earns per person reached"
+      "detail": "by hook style, 'question' earns 40% of what 'top3' earns per person reached"
     },
     {
       "id": "zero_engagement_streak",
       "platform": "bluesky",
-      "detail": "the last 7 settled posts got zero likes, comments, shares and saves"
+      "detail": "the last 8 settled posts got zero likes, comments, shares and saves"
     },
     {
       "id": "follower_stall",

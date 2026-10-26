@@ -277,9 +277,9 @@
         }
       },
       "latest": {
-        "impressions": 312,
-        "reach": 123,
-        "views": 312,
+        "impressions": 317,
+        "reach": 125,
+        "views": 317,
         "likes": 7,
         "comments": 0,
         "shares": 0,
@@ -488,9 +488,9 @@
         }
       },
       "latest": {
-        "impressions": 239,
+        "impressions": 240,
         "reach": 80,
-        "views": 239,
+        "views": 240,
         "likes": 4,
         "comments": 0,
         "shares": 0,
@@ -594,7 +594,75 @@
         "saves": 0,
         "clicks": 0
       }
+    },
+    "2026-10-24|instagram": {
+      "date": "2026-10-24",
+      "platform": "instagram",
+      "service": "website",
+      "problem_id": "customers-hesitating-to-book-or-pay-due-",
+      "angle_type": "comparison",
+      "hook_style": "top3",
+      "format": "image",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "network",
+      "published_at": "2026-10-24T10:31:19.000Z",
+      "url": "https://www.instagram.com/p/De37GRWjXP8/",
+      "snap": {
+        "48h": {
+          "age_h": 50.6,
+          "source": "zernio",
+          "impressions": 14,
+          "reach": 4,
+          "views": 14,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 14,
+        "reach": 4,
+        "views": 14,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
+    },
+    "2026-10-24|bluesky": {
+      "date": "2026-10-24",
+      "platform": "bluesky",
+      "service": "website",
+      "problem_id": "customers-hesitating-to-book-or-pay-due-",
+      "angle_type": "comparison",
+      "hook_style": "top3",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "network",
+      "published_at": "2026-10-24T10:31:15.130457+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mymigg2cyf2e",
+      "snap": {
+        "48h": {
+          "age_h": 50.6,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-10-26T04:49:30+00:00"
+  "updated_at": "2026-10-26T13:05:54+00:00"
 }

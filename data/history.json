@@ -68,5 +68,12 @@
     "topic": "3 questions every customer asks. Could a bot answer them?",
     "hook_style": "top3",
     "status": "published"
+  },
+  {
+    "date": "2026-10-26",
+    "service": "animated_ads",
+    "topic": "Top 3 reasons your detailed caption is being ignored",
+    "hook_style": "top3",
+    "status": "published"
   }
 ]

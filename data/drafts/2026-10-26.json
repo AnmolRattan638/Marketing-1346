@@ -2,7 +2,7 @@
   "id": "2026-10-26-44e752",
   "date": "2026-10-26",
   "created_at": "2026-10-26T08:17:57+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "animated_ads",
   "topic": "Top 3 reasons your detailed caption is being ignored",
   "idea_id": "ads-pov-feed",
@@ -125,5 +125,19 @@
         "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6adf0d7a04e05cf507b382ad"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6adf0d7f4664ad1208c2d91e (due 2026-10-26T08:21:19.847Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3myrc3yj4ue2k"
+    }
   }
 }

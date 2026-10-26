@@ -38,9 +38,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 5,
-        "reach": 2,
-        "views": 5,
+        "impressions": 6,
+        "reach": 3,
+        "views": 6,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -183,9 +183,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 231,
-        "reach": 79,
-        "views": 231,
+        "impressions": 239,
+        "reach": 80,
+        "views": 239,
         "likes": 4,
         "comments": 0,
         "shares": 0,
@@ -309,7 +309,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 76.7,
-        "avg_watch_s": 6.562,
+        "avg_watch_s": 6.445,
         "duration_s": 26
       },
       "matched": null
@@ -555,7 +555,7 @@
       "format": "text",
       "source": "zernio",
       "metrics": {
-        "impressions": 139,
+        "impressions": 141,
         "reach": 87,
         "views": null,
         "likes": 0,
@@ -632,9 +632,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 412,
-        "reach": 159,
-        "views": 412,
+        "impressions": 414,
+        "reach": 160,
+        "views": 414,
         "likes": 9,
         "comments": 7,
         "shares": 0,
@@ -817,9 +817,17 @@
         "linkedin": 2,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-10-26",
+      "followers": {
+        "instagram": 9,
+        "linkedin": 2,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-25T20:52:15+00:00"
+  "updated_at": "2026-10-26T04:49:29+00:00"
 }

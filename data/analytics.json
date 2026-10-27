@@ -1,6 +1,64 @@
 {
   "posts": [
     {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3myttsie4ao23",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3myttsie4ao23",
+      "published_at": "2026-10-27T08:43:30.415Z",
+      "text": "FREELANCERS: stop spray-and-pray hunting on Google Maps. Qualified sheet gives contact, reviews and website status for local businesses—including newly opened o",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 1,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-27",
+        "service": "lead_gen",
+        "hook_style": "comparison",
+        "topic": "The 'Spray and Pray' Method vs. The 'Surgical' Approach"
+      }
+    },
+    {
+      "platform": "instagram",
+      "id": "18139302175731594",
+      "url": "https://www.instagram.com/p/De_dIOhijet/",
+      "published_at": "2026-10-27T08:43:24.000Z",
+      "text": "𝗙𝗥𝗘𝗘𝗟𝗔𝗡𝗖𝗘𝗥𝗦: 𝗦𝗣𝗥𝗔𝗬-𝗔𝗡𝗗-𝗣𝗥𝗔𝗬 𝗩𝗦 𝗦𝗨𝗥𝗚𝗜𝗖𝗔𝗟 𝗟𝗘𝗔𝗗𝗦—𝗖𝗛𝗢𝗢𝗦𝗘 𝗘𝗙𝗙𝗜𝗖𝗜𝗘𝗡𝗖𝗬\n\n→ Google Maps par ghanton khoj ke baad bhi dead-end 𝗟𝗘𝗔𝗗𝗦 milte hain.\n\n→ 𝗦𝗛𝗘𝗘𝗧 mein contact, re",
+      "format": "image",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 4,
+        "reach": 2,
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-27",
+        "service": "lead_gen",
+        "hook_style": "comparison",
+        "topic": "The 'Spray and Pray' Method vs. The 'Surgical' Approach"
+      }
+    },
+    {
       "platform": "instagram",
       "id": "18129906883843490",
       "url": "https://www.instagram.com/p/De810oujj1N/",
@@ -742,7 +800,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 11
+      "posts": 12
     }
   },
   "coverage": {
@@ -895,5 +953,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-27T05:07:31+00:00"
+  "updated_at": "2026-10-27T12:14:23+00:00"
 }

@@ -1,5 +1,7 @@
-- Hook style: use **top3** or **contrast** for animated ads; avoid curiosity (0.5x) and question (underperforms for this service).
-- Topic: show a real problem small businesses face with static creatives (low attention, scroll past) — relatable to any business running ads.
-- Format: static image or carousel (silhouette style 2.33x) over reel until hook retention improves.
-- Tone: developer sharing observation, not selling. End with "pay after approval" + "DM for a quick chat on fit".
-- Avoid: niche examples, guaranteed results, demo offers, timeframes, "free audit" language.
+- Rotate hook styles: try **contrast** or **question** next; pause **top3** (used 4 of last 6 posts).
+- Focus on **lead_gen** service — it earns 2.46x median per reach.
+- First 3 seconds must stop scroll: open with a sharp pain point, no preamble.
+- Speak to **freelancers, agencies, anyone selling a service** — never to one profession.
+- Describe the sheet only in general terms: local businesses from Google Places with contact details, review counts, website checks, including newly opened ones.
+- Posts must read as a developer showing real work, never like an ad.
+- Use only broad hashtags: #FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia.

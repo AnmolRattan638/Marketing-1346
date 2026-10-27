@@ -1,26 +1,26 @@
 {
-  "date": "2026-10-26",
+  "date": "2026-10-27",
   "stage": "brand new under 100 followers",
-  "followers": 9,
-  "summary": "Account is brand new (9 IG, 2 LI, 1 BS followers). Animated ads is the worst-performing service (0.5x). Reels lose 77% viewers in first 3 seconds — hooks fail. Bio violates rules: niche/region targeting, timeframe claim, free offer outside website posts. Top3 hooks outperform (2.31x); curiosity hooks underperform (0.5x). Lead gen outperforms other services (2.31x). Data too thin for strong patterns (<3 posts per style).",
-  "guidance": "- Hook style: use **top3** or **contrast** for animated ads; avoid curiosity (0.5x) and question (underperforms for this service).\n- Topic: show a real problem small businesses face with static creatives (low attention, scroll past) — relatable to any business running ads.\n- Format: static image or carousel (silhouette style 2.33x) over reel until hook retention improves.\n- Tone: developer sharing observation, not selling. End with \"pay after approval\" + \"DM for a quick chat on fit\".\n- Avoid: niche examples, guaranteed results, demo offers, timeframes, \"free audit\" language.",
+  "followers": 12,
+  "summary": "Account is brand new (<100 followers total). Lead gen outperforms other services 2.46x. Reels lose 77% viewers in 3s — hooks fail. Instagram bio violates brand rules (niche, region, timeframe, free offer). Bluesky and LinkedIn have near-zero engagement. Top3 hook overused recently.",
+  "guidance": "- Rotate hook styles: try **contrast** or **question** next; pause **top3** (used 4 of last 6 posts).\n- Focus on **lead_gen** service — it earns 2.46x median per reach.\n- First 3 seconds must stop scroll: open with a sharp pain point, no preamble.\n- Speak to **freelancers, agencies, anyone selling a service** — never to one profession.\n- Describe the sheet only in general terms: local businesses from Google Places with contact details, review counts, website checks, including newly opened ones.\n- Posts must read as a developer showing real work, never like an ad.\n- Use only broad hashtags: #FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia.",
   "instructions": {
-    "research": "Find 2-3 public examples of Indian small businesses (different industries/cities) running static image ads that likely get scrolled past — note the visual sameness, no motion hook.",
-    "analysis": "Compare the scroll-stop potential of motion vs static for those examples; identify one concrete visual difference (e.g., product demo motion, price reveal animation, map pin drop) to reference in the post.",
-    "writer": "Write a top3-style post: \"3 reasons static ad creatives get scrolled past\" — each reason a developer observation (file size, no motion cue, same layout as 50 others). No niche names. End: \"Pay after you approve. DM if you want a quick take on whether motion helps your offer.\"",
-    "image": "Create a split-frame carousel: left frame static ad (generic), right frame same ad with one motion element highlighted (arrow, fade, slide). Label \"Static\" / \"With motion cue\". No client branding. Silhouette/flat style.",
-    "video": "Skip reel today. If you record, first 3 seconds must show the motion cue side-by-side with static — no talking head, no logo intro. Caption mirrors the top3 post."
+    "research": "List 5 common lead-gen pain points Indian freelancers/agencies mention in public posts (e.g. 'hours on Google Maps', 'outdated contacts', 'no website flag').",
+    "analysis": "Compare the two lead_gen posts' reach/engagement vs the median; note which hook style each used.",
+    "writer": "Write a lead_gen post using a **contrast** hook. Open with 'Freelancers' or 'Agencies'. Describe the sheet in general terms. End with 'pay after approval' + DM for honest fit check. No niche, no region, no demo offer.",
+    "image": "Create a clean, text-light graphic: a simple spreadsheet silhouette with column headers (Business, Phone, Reviews, Website?) — no real data, no logos.",
+    "video": "Skip video today; static image post fits the hook and avoids the 3-second reel drop-off."
   },
   "manual_tips": [
-    "Update Instagram bio to: \"Websites, AI chatbots, animated ads & lead gen for small businesses across India. Pay after approval. DM for a quick fit check.\" (removes niche, region, timeframe, free offer).",
-    "Comment on 5 posts from Indian small business owners (any industry) discussing ad creative struggles — add a developer observation, not a pitch.",
-    "Reply to the 1 comment on your best-performing chatbot post (Oct 12) with a follow-up tip: \"Same logic applies to ad creatives — motion cues stop the scroll.\""
+    "Rewrite Instagram bio to: 'Websites, AI chatbots, animated ads & lead sheets for small businesses across India. Pay after approval. DM for honest advice.' (removes niche, region, timeframe, free offer).",
+    "Comment thoughtfully on 5 posts by Indian freelancers/agencies discussing client acquisition — add value, don't pitch.",
+    "Check LinkedIn notifications; reply to any connection requests or comments from the past week."
   ],
   "weak_signals": [
     {
       "id": "follower_stall",
       "platform": "instagram",
-      "detail": "4 posts in 7 days and followers changed by -1"
+      "detail": "5 posts in 7 days and followers changed by -1"
     },
     {
       "id": "high_skip_rate",
@@ -30,22 +30,17 @@
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 27% of what 'lead_gen' earns per person reached"
-    },
-    {
-      "id": "weak_hook_style",
-      "platform": "instagram",
-      "detail": "by hook style, 'question' earns 40% of what 'top3' earns per person reached"
+      "detail": "by service, 'chatbot' earns 17% of what 'lead_gen' earns per person reached"
     },
     {
       "id": "zero_engagement_streak",
       "platform": "bluesky",
-      "detail": "the last 8 settled posts got zero likes, comments, shares and saves"
+      "detail": "the last 9 settled posts got zero likes, comments, shares and saves"
     },
     {
       "id": "follower_stall",
       "platform": "bluesky",
-      "detail": "4 posts in 7 days and followers changed by +0"
+      "detail": "5 posts in 7 days and followers changed by +0"
     }
   ]
 }

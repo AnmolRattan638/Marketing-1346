@@ -1,0 +1,121 @@
+{
+  "id": "2026-10-27-a10de6",
+  "date": "2026-10-27",
+  "created_at": "2026-10-27T08:23:50+00:00",
+  "status": "pending",
+  "service": "lead_gen",
+  "topic": "The 'Spray and Pray' Method vs. The 'Surgical' Approach",
+  "idea_id": null,
+  "problem_id": "contacting-unqualified-businesses",
+  "angle_type": null,
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "contacting-unqualified-businesses",
+    "angle_type": null,
+    "hook_style": "contrast"
+  },
+  "hooks": [
+    {
+      "style": "comparison",
+      "text": "Freelancers: Spray‑and‑pray hunting vs. surgical qualified leads—choose efficiency."
+    },
+    {
+      "style": "myth",
+      "text": "Myth: Random cold calls work. Fact: Qualified lists close deals faster."
+    },
+    {
+      "style": "payoff-first",
+      "text": "Closed three deals today after skipping hours of unqualified scouting."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "comparison",
+  "posts": {
+    "instagram": "𝗙𝗥𝗘𝗘𝗟𝗔𝗡𝗖𝗘𝗥𝗦: 𝗦𝗣𝗥𝗔𝗬-𝗔𝗡𝗗-𝗣𝗥𝗔𝗬 𝗩𝗦 𝗦𝗨𝗥𝗚𝗜𝗖𝗔𝗟 𝗟𝗘𝗔𝗗𝗦—𝗖𝗛𝗢𝗢𝗦𝗘 𝗘𝗙𝗙𝗜𝗖𝗜𝗘𝗡𝗖𝗬\n\n→ Google Maps par ghanton khoj ke baad bhi dead-end 𝗟𝗘𝗔𝗗𝗦 milte hain.\n\n→ 𝗦𝗛𝗘𝗘𝗧 mein contact, reviews aur website status pehle se hota hai.\n\n→ Growth signals wale businesses par focus karo, kam thakavat.\n\nDM 𝗟𝗘𝗔𝗗𝗦 and tell me what you sell. You pay only after you approve the work.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+    "linkedin": "Freelancers spend too much time finding unqualified leads on Google Maps.\n\nI offer a pre‑qualified sheet that lists local businesses from Google Places, with phone numbers, email addresses, review counts and website status, including newly opened shops.\n\nWith this list you can reach businesses that already show growth signals, instead of chasing dead ends.\n\nStop cold‑searching and start pitching to prospects that have reviews and an active website, whatever you sell.\n\nDM LEADS to get an honest fit check and pay only after you approve the work.",
+    "bluesky": "FREELANCERS: stop spray-and-pray hunting on Google Maps. Qualified sheet gives contact, reviews and website status for local businesses—including newly opened ones—so you pitch growth signals, not dead ends. Sell anything? DM LEADS for a fit check."
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "I don't quote a price before understanding scope. What do you want customers to do when they see your pitch—call, WhatsApp, book or fill a form?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "It works for any service sold to local businesses, whatever you sell—marketing, design, SEO, coaching, accounting and more. What kind of business do you sell to?"
+    },
+    {
+      "if_they_say": "is the data real or random?",
+      "reply": "It uses Google Places data with contact details, review counts and website checks, including newly opened businesses. It does not guess budgets. What is your main frustration with lead lists right now?"
+    }
+  ],
+  "image": {
+    "prompt": "A cinematic, high-contrast scene of a sleek laptop on a dark desk, displaying a clean spreadsheet with organized data bars, review icons, and website status symbols. A warm cup of tea sits nearby. The atmosphere features a deep navy background, electric cyan glowing accents, and floating glass interface cards. Soft neon rim lighting illuminates the scene, creating a gentle glow on the polished tabletop surface. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-10-27.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "contacting-unqualified-businesses",
+      "angle_type": "contrast",
+      "style": "bold",
+      "headline": "Spray-and-pray hunting vs. surgical leads",
+      "highlight": [
+        "surgical leads"
+      ],
+      "sub": "Stop pitching to businesses with no digital presence.",
+      "cta": "DM \"LEADS\"",
+      "tag": "FOR FREELANCERS & AGENCIES"
+    },
+    "errors": [],
+    "style_id": "glass-ui"
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "image",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**FREELANCERS: SPRAY-AND-PRAY VS SURGICAL LEADS—CHOOSE EFFICIENCY**\n\n→ Google Maps par ghanton khoj ke baad bhi dead-end **LEADS** milte hain.\n\n→ **SHEET** mein contact, reviews aur website status pehle se hota hai.\n\n→ Growth signals wale businesses par focus karo, kam thakavat.\n\nDM **LEADS** and tell me what you sell. You pay only after you approve the work.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+      "linkedin": "Freelancers spend too much time finding unqualified leads on Google Maps.\n\nI offer a pre‑qualified sheet that lists local businesses from Google Places, with phone numbers, email addresses, review counts and website status, including newly opened shops.\n\nWith this list you can reach businesses that already show growth signals, instead of chasing dead ends.\n\nStop cold‑searching and start pitching to prospects that have reviews and an active website, whatever you sell.\n\nDM LEADS to get an honest fit check and pay only after you approve the work.",
+      "bluesky": "FREELANCERS: stop spray-and-pray hunting on Google Maps. Qualified sheet gives contact, reviews and website status for local businesses—including newly opened ones—so you pitch growth signals, not dead ends. Sell anything? DM LEADS for a fit check."
+    }
+  },
+  "ad_score": 8,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "google:gemini-3.8-flash",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (ProviderDown)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "google:gemma-4-26b-a4b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 12.3,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "ProviderDown",
+        "seconds": 245.1,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 90.8,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    ]
+  }
+}

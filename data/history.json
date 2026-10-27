@@ -75,5 +75,12 @@
     "topic": "Top 3 reasons your detailed caption is being ignored",
     "hook_style": "top3",
     "status": "published"
+  },
+  {
+    "date": "2026-10-27",
+    "service": "lead_gen",
+    "topic": "The 'Spray and Pray' Method vs. The 'Surgical' Approach",
+    "hook_style": "comparison",
+    "status": "published"
   }
 ]

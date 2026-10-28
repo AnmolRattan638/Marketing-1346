@@ -31,6 +31,22 @@
         }
       ],
       "notes": ""
+    },
+    {
+      "captured_at": "2026-10-28T11:38:29+00:00",
+      "platform": "linkedin",
+      "screen": "post",
+      "period": null,
+      "account": {},
+      "posts": [
+        {
+          "post_hint": "Freelancers spend too much time finding unqualified leads on Google Maps.",
+          "metrics": {
+            "impressions": 15
+          }
+        }
+      ],
+      "notes": ""
     }
   ]
 }

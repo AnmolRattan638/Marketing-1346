@@ -56,7 +56,7 @@ def build(now=None):
                          " ; ".join(f"{SHORT.get(k, k)} {_x(v)}" for k, v in p["platforms"].items()))
     else:
         lines.append("\nNo post is old enough with numbers yet (a post needs 48 hours). Nothing to learn from this week.")
-    for field, name in (("hook_style", "Hook styles"), ("angle_type", "Angle types"), ("image_style", "Image styles"), ("service", "Services")):
+    for field, name in (("hook_style", "Hook styles"), ("angle_type", "Angle types"), ("image_style", "Image styles"), ("carousel_flavor", "Carousel tastes"), ("service", "Services")):
         ls = learning.lessons(posts, field)
         if ls:
             lines.append(f"{name}: " + ", ".join(f"{k} {v}x (n={n})" for k, v, n in ls[:5]))

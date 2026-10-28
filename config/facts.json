@@ -1,0 +1,4 @@
+{
+  "_comment": "Verified facts the 'factual-source' carousel taste may open with, e.g. 'Google says ...'. A model must NEVER make up who said what, so the taste only runs when a fact is listed here. Add only facts you have checked yourself, with the exact claim wording, the source's name and a link. Example entry (delete the word EXAMPLE when real): {\"id\": \"example\", \"claim\": \"exact wording of the claim\", \"source_name\": \"Name of the source\", \"source_url\": \"https://...\", \"as_of\": \"2026-10-26\", \"services\": [\"chatbot\"]}. Leave services empty to allow every service.",
+  "facts": []
+}

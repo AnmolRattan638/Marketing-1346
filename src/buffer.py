@@ -38,7 +38,8 @@ def create_post(channel_id, text, image_url=None):
     """Publish NOW, not "add to queue": addToQueue waits for the next slot in the channel's Buffer posting
     schedule, and if that channel has no schedule slots the post sits there for ever (it was reported as
     "queued" and never appeared on LinkedIn). Try shareNow first; if the API rejects it, schedule 2 minutes ahead."""
-    assets = f", assets: [{{ image: {{ url: {_s(image_url)} }} }}]" if image_url else ""
+    urls = list(image_url) if isinstance(image_url, (list, tuple)) else ([image_url] if image_url else [])      # several images = a carousel, in this order
+    assets = ", assets: [" + ", ".join(f"{{ image: {{ url: {_s(u)} }} }}" for u in urls) + "]" if urls else ""
     modes = ["mode: shareNow", f"mode: customScheduled, dueAt: {_s(_due_soon())}"]
     last = None
     for m in modes:

@@ -1,3 +1,4 @@
+import json
 import os
 import requests
 
@@ -31,6 +32,22 @@ def send(text, buttons=None, reply_to=None):
             payload["reply_markup"] = {"inline_keyboard": [buttons]}
         res = _api("sendMessage", json=payload)
     return res
+
+
+def send_media_group(paths, caption=""):
+    """Send up to 10 images as one album (the carousel for your review). The caption goes on the first image."""
+    media, files = [], {}
+    for i, p in enumerate(list(paths)[:10]):
+        files[f"f{i}"] = open(p, "rb")
+        item = {"type": "photo", "media": f"attach://f{i}"}
+        if i == 0 and caption:
+            item["caption"] = caption[:1000]
+        media.append(item)
+    try:
+        return _api("sendMediaGroup", data={"chat_id": chat_id(), "media": json.dumps(media)}, files=files)
+    finally:
+        for f in files.values():
+            f.close()
 
 
 def send_photo(path, caption=""):

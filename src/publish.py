@@ -6,22 +6,22 @@ from . import buffer, config, direct
 
 
 class Buffer:
-    name, secrets = "buffer", ["BUFFER_API_KEY"]
+    name, secrets, multi_image = "buffer", ["BUFFER_API_KEY"], True
 
     def __init__(self):
         self._ch = None
 
-    def post(self, platform, text, image_url, image_path):
+    def post(self, platform, text, image_url, image_path, images=None):
         if self._ch is None:
             self._ch = buffer.channel_map()
         if platform not in self._ch:
             raise RuntimeError("channel not connected")
-        p = buffer.create_post(self._ch[platform], text, image_url)
+        p = buffer.create_post(self._ch[platform], text, [i["url"] for i in images] if images else image_url)
         return f"sent to Buffer {p.get('id')} (due {p.get('dueAt') or 'now'})"
 
 
 class Zernio:
-    name, secrets = "zernio", ["ZERNIO_API_KEY"]
+    name, secrets, multi_image = "zernio", ["ZERNIO_API_KEY"], True
     base = "https://zernio.com/api/v1"
 
     def __init__(self):
@@ -30,7 +30,7 @@ class Zernio:
     def _h(self):
         return {"Authorization": f"Bearer {os.environ['ZERNIO_API_KEY']}"}
 
-    def post(self, platform, text, image_url, image_path):
+    def post(self, platform, text, image_url, image_path, images=None):
         if self._acc is None:
             r = requests.get(f"{self.base}/accounts", headers=self._h(), timeout=60)
             r.raise_for_status()
@@ -41,7 +41,9 @@ class Zernio:
         if platform not in self._acc:
             raise RuntimeError("account not connected")
         body = {"content": text, "publishNow": True, "platforms": [{"platform": platform, "accountId": self._acc[platform]}]}
-        if image_url:
+        if images:                                           # a carousel: the order of mediaItems is the slide order
+            body["mediaItems"] = [{"url": i["url"], "type": "image"} for i in images]
+        elif image_url:
             body["mediaItems"] = [{"url": image_url, "type": "image"}]
         r = requests.post(f"{self.base}/posts", headers=self._h(), json=body, timeout=120)
         if not r.ok:
@@ -127,10 +129,11 @@ class SocialAPI:
 
 class BlueskyDirect:
     name, secrets, platforms = "bluesky-direct", ["BLUESKY_HANDLE", "BLUESKY_APP_PASSWORD"], ("bluesky",)
+    multi_image = True
     alt = None      # set by publish_draft before posting
 
-    def post(self, platform, text, image_url, image_path):
-        return direct.bluesky(text, image_path, alt=self.alt)
+    def post(self, platform, text, image_url, image_path, images=None):
+        return direct.bluesky(text, image_path, alt=self.alt, images=[{"path": i["path"], "alt": i["alt"]} for i in images] if images else None)
 
 
 PROVIDERS = [Buffer, Zernio, UploadPost, LimeSocial, SocialAPI, BlueskyDirect]
@@ -190,6 +193,17 @@ def publish_draft(draft):
     image_url = f"https://raw.githubusercontent.com/{config.REPO}/{config.BRANCH}/{image_path}" if image_path else None
     results = {}
     manual_ig = draft.get("instagram_mode") == "manual_reel"
+    car = draft.get("carousel") or {}
+    raw = lambda rel: f"https://raw.githubusercontent.com/{config.REPO}/{config.BRANCH}/{rel}"
+
+    def slides_for(p):
+        """Every slide for Instagram and LinkedIn; Bluesky allows 4 images, so it gets the planned subset. None = a normal single-image post."""
+        paths, alts = car.get("paths") or [], car.get("alts") or []
+        if len(paths) < 2:
+            return None
+        idx = (car.get("bluesky") or list(range(min(4, len(paths))))) if p == "bluesky" else list(range(len(paths)))
+        return [{"url": raw(paths[i]), "path": paths[i], "alt": alts[i] if i < len(alts) else image_alt(draft)} for i in idx if i < len(paths)]
+
     for p in config.PLATFORMS:
         if p == "instagram" and manual_ig:      # Wednesday: you post the reel yourself
             continue
@@ -197,15 +211,27 @@ def publish_draft(draft):
             results[p] = {"ok": False, "detail": "Instagram needs an image and none was generated"}
             continue
         img_url, img_path = (None, None) if (p == "linkedin" and draft.get("linkedin_format") == "text") else (image_url, image_path)
-        errors = []
-        for prov in (choose_linkedin_order(provs, order) if p == "linkedin" else order):
-            if getattr(prov, "platforms", None) and p not in prov.platforms:
-                continue
-            try:
-                results[p] = {"ok": True, "detail": f"{prov.name}: {prov.post(p, draft['posts'][p], img_url, img_path)}"}
-                break
-            except Exception as e:
-                errors.append(f"{prov.name}: {str(e)[:120]}")
-        else:
-            results[p] = {"ok": False, "detail": " | ".join(errors)[:400]}
+        multi = slides_for(p) if img_url else None
+
+        def attempt(images):
+            errors = []
+            for prov in (choose_linkedin_order(provs, order) if p == "linkedin" else order):
+                if getattr(prov, "platforms", None) and p not in prov.platforms:
+                    continue
+                if images and not getattr(prov, "multi_image", False):
+                    continue                                  # this tool cannot post several images
+                try:
+                    done = prov.post(p, draft["posts"][p], img_url, img_path, images=images) if images else prov.post(p, draft["posts"][p], img_url, img_path)
+                    return f"{prov.name}: {done}" + (f" ({len(images)} slides)" if images else ""), errors
+                except Exception as e:
+                    errors.append(f"{prov.name}: {str(e)[:120]}")
+            return None, errors
+
+        detail, errors = attempt(multi)
+        if detail is None and multi:                          # the carousel could not go out: the post still goes out as the single hook image
+            single, more = attempt(None)
+            if single:
+                detail = f"{single} (single image; carousel failed: {' | '.join(errors)[:160] or 'no tool that can post several images'})"
+            errors += more
+        results[p] = {"ok": True, "detail": detail} if detail else {"ok": False, "detail": " | ".join(errors)[:400] or "no publisher available"}
     return results

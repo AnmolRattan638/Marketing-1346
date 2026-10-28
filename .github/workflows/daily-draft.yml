@@ -47,6 +47,7 @@ jobs:
       GEMMA_MODEL: ${{ vars.GEMMA_MODEL }}
       GROQ_MODEL: ${{ vars.GROQ_MODEL }}
       GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+      CAROUSEL: ${{ vars.CAROUSEL }}            # set the repository variable to 0 to go back to one image per post
       GEMINI_IMAGE_MODEL: ${{ vars.GEMINI_IMAGE_MODEL }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1

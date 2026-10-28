@@ -84,7 +84,8 @@ def _attrs(d, platform, fmt):
     return {"date": d["date"], "platform": platform, "service": d.get("service"), "problem_id": d.get("problem_id"),
             "angle_type": d.get("angle_type"), "hook_style": d.get("hook_style"), "format": fmt or "image",
             "cta": cta_of((d.get("posts") or {}).get(platform, "")), "mode": exp.get("mode"), "variable": exp.get("variable"),
-            "image_style": (d.get("image") or {}).get("style_id")}
+            "image_style": (d.get("image") or {}).get("style_id"), "carousel_flavor": (d.get("carousel") or {}).get("flavor"),
+            "slides": len((d.get("carousel") or {}).get("paths") or []) or 1}
 
 
 # ---------------------------------------------------------------- 1. join + freeze
@@ -208,7 +209,7 @@ def score_all(results, accounts=None):
     out = []
     for r in recs:
         peers = [p for p in recs if p["key"] != r["key"] and p["platform"] == r["platform"] and p["format"] == r["format"]]
-        item = {k: r.get(k) for k in ("date", "platform", "service", "problem_id", "angle_type", "hook_style", "format", "cta", "mode", "variable", "image_style")}
+        item = {k: r.get(k) for k in ("date", "platform", "service", "problem_id", "angle_type", "hook_style", "format", "cta", "mode", "variable", "image_style", "carousel_flavor", "slides")}
         item["key"], item["peers"] = r["key"], len(peers)
         fol = ((accounts or {}).get(r["platform"]) or {}).get("followers")
         item["confidence"] = "low" if (len(peers) < 5 or (fol is not None and fol < FOLLOWER_FLOOR)) else "ok"
@@ -234,7 +235,7 @@ def per_post(scored):
         comps = [i["composite"] for i in items if i.get("composite") is not None]
         first = items[0]
         out.append({"date": date, "service": first["service"], "problem_id": first["problem_id"], "angle_type": first["angle_type"],
-                    "hook_style": first["hook_style"], "variable": first["variable"], "mode": first["mode"], "image_style": first.get("image_style"),
+                    "hook_style": first["hook_style"], "variable": first["variable"], "mode": first["mode"], "image_style": first.get("image_style"), "carousel_flavor": first.get("carousel_flavor"),
                     "composite": round(statistics.mean(comps), 2) if comps else None,
                     "diagnoses": [i["diagnosis"] for i in items if i.get("diagnosis")], "platforms": {i["platform"]: i for i in items}})
     return out
@@ -398,7 +399,7 @@ def digest_text(scored, bank, accounts=None, limit=1100):
     small = bool(fol) and max(fol) < FOLLOWER_FLOOR
     parts = [f"LEARNING LOOP (the account's own results; 1.0 = its median){' - low confidence: under 100 followers, treat as hints' if small else ''}",
              f"Scored posts: {len(posts)}."]
-    for field, name in (("hook_style", "Hook styles"), ("angle_type", "Angle types"), ("image_style", "Image styles"), ("service", "Services")):
+    for field, name in (("hook_style", "Hook styles"), ("angle_type", "Angle types"), ("image_style", "Image styles"), ("carousel_flavor", "Carousel tastes"), ("service", "Services")):
         ls = lessons(posts, field)
         if ls:
             parts.append(f"{name}: " + ", ".join(f"{k} {v}x (n={n})" for k, v, n in ls[:5]))

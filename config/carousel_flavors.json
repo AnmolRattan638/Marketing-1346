@@ -1,0 +1,115 @@
+{
+  "_comment": "Every carousel follows the SAME order, enforced by code (src/agents/carousel.py): 1 hook slide, 1-2 problem slides, 2-3 solution slides, 1 CTA slide. A 'taste' only changes HOW each part is told. Tastes rotate (never the same one in the last two carousels, otherwise the least used) and the taste is saved on the draft, so the weekly review can compare them. needs_fact tastes run only when config/facts.json has a verified fact for the service. diagram: true adds the service explainer diagram as a solution slide. Edit the wording freely; keep every rule positive and free of prices, payment words and statistics.",
+  "flavors": [
+    {
+      "id": "bold-slow-reveal",
+      "name": "Strong hook, slow reveal",
+      "needs_fact": false,
+      "diagram": false,
+      "taste": "A bold, curiosity-sparking opening that does not name the problem yet; the problem is revealed gradually.",
+      "hook": "A bold statement or short question that creates curiosity WITHOUT naming the problem.",
+      "problem": "Slide 1 of the problem only hints at it. If there is a second problem slide, it names the problem plainly.",
+      "solution": "Two or three simple moves, one idea per slide.",
+      "cta": "A calm invitation to message."
+    },
+    {
+      "id": "factual-source",
+      "name": "Factual hook from a verified source",
+      "needs_fact": true,
+      "diagram": false,
+      "taste": "Opens with a verified, sourced statement from the FACT block, then explains why it matters to a small business.",
+      "hook": "Open with the source and the claim, e.g. '<source> says <claim>. Here is why that matters.' Use the claim wording from the FACT block and nothing else as the source.",
+      "problem": "Why that fact matters for a small business that does not act on it. No new statistics.",
+      "solution": "How the service in focus helps, in two or three plain steps.",
+      "cta": "A calm invitation to message."
+    },
+    {
+      "id": "myth-bust",
+      "name": "Myth bust",
+      "needs_fact": false,
+      "diagram": false,
+      "taste": "Names a common belief and shows why it holds small businesses back.",
+      "hook": "Start with 'Myth:' and a belief many small businesses hold about this topic.",
+      "problem": "Why that belief hurts a small business, in plain words.",
+      "solution": "What is true instead and what to do about it, one idea per slide.",
+      "cta": "A calm invitation to message."
+    },
+    {
+      "id": "common-mistake",
+      "name": "Common mistake",
+      "needs_fact": false,
+      "diagram": false,
+      "taste": "Points at one easy-to-make mistake and its fix.",
+      "hook": "Name one common mistake related to the topic, without claiming how many people make it.",
+      "problem": "What the mistake looks like day to day and what it quietly causes.",
+      "solution": "The fix, in two or three small steps.",
+      "cta": "A calm invitation to message."
+    },
+    {
+      "id": "scenario-story",
+      "name": "Short scene",
+      "needs_fact": false,
+      "diagram": false,
+      "taste": "A tiny, clearly imaginary scene that the reader recognises.",
+      "hook": "A one-line scene that starts with 'Imagine' and puts the reader in a familiar moment.",
+      "problem": "What usually happens next in that moment. It must stay clearly hypothetical, never a real client or customer.",
+      "solution": "What changes when the service is in place, with no promised results.",
+      "cta": "A calm invitation to message."
+    },
+    {
+      "id": "question-hook",
+      "name": "Direct question",
+      "needs_fact": false,
+      "diagram": false,
+      "taste": "A pointed question the reader answers in their head.",
+      "hook": "A short, direct question about a daily struggle.",
+      "problem": "What staying with the struggle quietly takes from the day, with no numbers.",
+      "solution": "A clear way out, in two or three steps.",
+      "cta": "A calm invitation to message."
+    },
+    {
+      "id": "self-test-signs",
+      "name": "Signs you need it",
+      "needs_fact": false,
+      "diagram": false,
+      "taste": "A quick self-test the reader can run in ten seconds.",
+      "hook": "Promise a quick check, e.g. 'Three signs you need X'.",
+      "problem": "The signs, one short line each, written as things the reader will recognise.",
+      "solution": "One calm next step for a reader who recognised the signs.",
+      "cta": "A calm invitation to message."
+    },
+    {
+      "id": "contrarian",
+      "name": "Stop doing this",
+      "needs_fact": false,
+      "diagram": false,
+      "taste": "A firm 'stop this, do that' stance, kept honest.",
+      "hook": "'Stop <habit>. Start <better habit>.' in one line.",
+      "problem": "Why the old habit keeps small businesses stuck.",
+      "solution": "How to do the better habit, two or three steps.",
+      "cta": "A calm invitation to message."
+    },
+    {
+      "id": "before-after-example",
+      "name": "Before and after example",
+      "needs_fact": false,
+      "diagram": false,
+      "taste": "A clearly labelled example of life before and after, with no results promised.",
+      "hook": "A contrast in one line, e.g. 'Before: X. After: Y.' It is an example, not a case study.",
+      "problem": "The 'before' picture, labelled as an example.",
+      "solution": "The 'after' picture and the steps between, with no promised outcomes.",
+      "cta": "A calm invitation to message."
+    },
+    {
+      "id": "how-it-works",
+      "name": "How it works",
+      "needs_fact": false,
+      "diagram": true,
+      "taste": "Explains the service step by step, with the explainer diagram as one slide.",
+      "hook": "'Here is how <service idea> works' in one line.",
+      "problem": "The gap this fills for a small business.",
+      "solution": "The steps in plain words, one per slide. The explainer diagram slide follows these.",
+      "cta": "A calm invitation to message."
+    }
+  ]
+}

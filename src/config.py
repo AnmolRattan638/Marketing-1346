@@ -56,3 +56,7 @@ def services():
 
 def voice():
     return read(ROOT / "config" / "voice.md")
+
+
+# Carousel posts (hook -> problem -> solution -> CTA slides). Set the repository variable CAROUSEL to 0 to go back to one image per post.
+CAROUSEL = os.getenv("CAROUSEL", "1").strip() != "0"

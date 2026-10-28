@@ -3,8 +3,8 @@ import datetime as dt
 import os, secrets
 import sys, traceback
 import requests
-from . import analytics, captions, config, diagrams, formats, ideas, learning, llm, tg
-from .agents import analysis, factcheck, fit as fit_agent, image, linkedin_edit, problems as problems_agent, research, strategist, video, writer
+from . import analytics, captions, carousel, config, diagrams, formats, ideas, learning, llm, tg
+from .agents import analysis, carousel as carousel_agent, factcheck, fit as fit_agent, image, linkedin_edit, problems as problems_agent, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
 WARNINGS = []
@@ -139,6 +139,7 @@ def main():
     if learned["digest"]:
         live_digest = f"{live_digest}\n\n{learned['digest']}" if live_digest else learned["digest"]
     exp = None
+    car, car_data = None, None
     focus = pick_focus(brand, history)
     ig_mode = "manual_reel" if dt.date.today().weekday() in brand.get("instagram", {}).get("manual_reel_weekdays", [2]) else "auto_image"
     try:
@@ -169,6 +170,15 @@ def main():
                                   "angle": focus["pitch"], "why_it_matters": "fallback topic"}])
         plan = stage("analysis", lambda: analysis.run(topics, focus, g('analysis'), history))
         plan = ensure_fit(plan, topics, focus, brand, g('analysis'), history)
+        if config.CAROUSEL:
+            # hook -> problem -> solution -> CTA, told in one of the rotating tastes; the carousel's hook becomes the post's hook, so captions and the first slide agree
+            car, why = stage("carousel", lambda: carousel_agent.build(plan, focus, brand, g('writer'), today), fallback=(None, "the carousel step failed"))
+            if car:
+                plan["hooks"][plan.get("chosen_hook", 0)]["text"] = car["slides"][0]["headline"]
+                if not car.get("checked"):
+                    WARNINGS.append("carousel: the fact-check was unavailable, so read every slide before approving.")
+            else:
+                WARNINGS.append(f"carousel skipped (single image instead): {why}")
         posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer'), ig_mode=ig_mode, linkedin_format=li_fmt))
         posts = polish_linkedin(posts, focus, brand)
         fc = stage("factcheck", lambda: factcheck.run(posts, focus, brand), fallback={"ok": None, "issues": ["fact-check unavailable"], "revised": {}})
@@ -188,6 +198,13 @@ def main():
         img = stage("image", lambda: image.run(plan, focus, today, g('image')), fallback={"prompt": None, "path": None})
         if img.get("engine") == "text_card" or not img.get("path"):
             WARNINGS.append(("image: AI engines failed, used a plain text card. " if img.get("path") else "image: no image at all. ") + " | ".join(dict.fromkeys(img.get("errors", [])))[:400])
+        if car and img.get("path"):
+            fact = next((x for x in carousel_agent.facts_for(focus["id"]) if x.get("id") == car.get("fact_id")), None) if car.get("fact_id") else None
+            car_data = stage("carousel.render", lambda: carousel.render(car, focus, today, img["path"], img.get("style_id"), fact), fallback={}) or None
+            if not car_data:
+                WARNINGS.append("carousel: the slides could not be drawn, so this goes out as a single image.")
+        elif car:
+            WARNINGS.append("carousel: there is no hook image, so this goes out without a carousel.")
         vid = stage("video", lambda: video.run(plan, focus, posts, g('video')), fallback={}) if ig_mode == "manual_reel" else {}
     except Exception as e:
         tg.send(f"Marketing pipeline failed on {today}: {e}\nNothing was posted. Check the Actions log.")
@@ -204,7 +221,7 @@ def main():
              "hooks": plan["hooks"], "chosen_hook": plan.get("chosen_hook", 0),
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),
-             "image": img, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score"),
+             "image": img, "carousel": car_data, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score"),
              "llm": {"answered": list(dict.fromkeys(llm.LOG)), "failures": llm.FAILURES[:20]}}
     config.save_json(path, draft)
 
@@ -215,7 +232,13 @@ def main():
             (("\nLive weak spots: " + "; ".join(f"[{s['platform']}] {s['detail']}" for s in live_signals[:2])) if live_signals else "") +
             "\n\nModels that answered: " + (" | ".join(dict.fromkeys(llm.LOG))[:700] or "n/a") +
             ("\nManual tips:\n- " + "\n- ".join(map(str, state.get("manual_tips") or [])) if state.get("manual_tips") else ""))
-    if img.get("path"):
+    if car_data:
+        names = {t["id"]: t["name"] for t in carousel_agent.flavors()}
+        tg.send_media_group([config.ROOT / x for x in car_data["paths"]],
+                            f"[CAROUSEL, {len(car_data['paths'])} slides | taste: {names.get(car_data['flavor'], car_data['flavor'])}] Order: hook, problem, solution, CTA. "
+                            f"Instagram and LinkedIn get every slide; Bluesky gets 4 (slides {', '.join(str(i + 1) for i in car_data['bluesky'])}). "
+                            f"Hook image prompt: {(img.get('prompt') or '')[:420]}")
+    elif img.get("path"):
         tg.send_photo(config.ROOT / img["path"], img.get("prompt") or "")
     for p in config.PLATFORMS:
         tg.send(f"[{p.upper()}{' CAPTION FOR YOUR REEL' if p == 'instagram' and ig_mode == 'manual_reel' else (' CAPTION, auto-posted with the image' if p == 'instagram' else '')}]\n{posts[p]}")
@@ -228,7 +251,8 @@ def main():
             tg.send(f"[FLOW PROMPT {i}/{len(parts)} | {part.get('time')}]\nSpoken line: {part.get('voiceover')}\n\n{part.get('flow_prompt')}")
     if draft["replies"]:
         tg.send("[REPLY DRAFTS]\n" + "\n\n".join(f"If: {r['if_they_say']}\n-> {r['reply']}" for r in draft["replies"]))
-    stage("explainer", lambda: send_explainer(focus), fallback={})
+    if not (car_data and "diagram" in car_data["roles"]):          # a carousel with the diagram slide already shows it
+        stage("explainer", lambda: send_explainer(focus), fallback={})
     tg.send(("Approve posting to LinkedIn and Bluesky? (Wednesday: Instagram is your manual reel.)" if ig_mode == "manual_reel" else "Approve posting to Instagram, LinkedIn and Bluesky?") + " It posts within seconds of your tap. Want your own image (e.g. from Adobe Express)? Send it to this chat as a photo first; add the caption 'ai' if it is AI-made.",
             buttons=[{"text": "Approve", "callback_data": f"approve:{draft['id']}"},
                      {"text": "Reject", "callback_data": f"reject:{draft['id']}"}])

@@ -47,6 +47,22 @@
         }
       ],
       "notes": ""
+    },
+    {
+      "captured_at": "2026-10-28T11:49:31+00:00",
+      "platform": "linkedin",
+      "screen": "post",
+      "period": null,
+      "account": {},
+      "posts": [
+        {
+          "post_hint": "Static ads with long captions are often ignored before anyone reads the offer.",
+          "metrics": {
+            "impressions": 52
+          }
+        }
+      ],
+      "notes": ""
     }
   ]
 }

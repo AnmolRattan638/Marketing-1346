@@ -2,6 +2,35 @@
   "posts": [
     {
       "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mywidaikrl2p",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mywidaikrl2p",
+      "published_at": "2026-10-28T09:56:06.094772+00:00",
+      "text": "𝗖𝗔𝗠𝗘𝗥𝗔 confidence can be boosted by a good script, not a fancy setup. One hook, one benefit, one ask—write it in hinglish, keep lines under eight words, and rec",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-28",
+        "service": "reel_scripts",
+        "hook_style": "contrast",
+        "topic": "Practical Reel script tip for local businesses: Hinglish/English scripts that flow naturally"
+      }
+    },
+    {
+      "platform": "bluesky",
       "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3myttsie4ao23",
       "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3myttsie4ao23",
       "published_at": "2026-10-27T08:43:30.415Z",
@@ -38,9 +67,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 5,
-        "reach": 3,
-        "views": 5,
+        "impressions": 6,
+        "reach": 4,
+        "views": 6,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -154,9 +183,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 7,
+        "impressions": 8,
         "reach": 4,
-        "views": 7,
+        "views": 8,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -183,9 +212,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 14,
-        "reach": 4,
-        "views": 14,
+        "impressions": 15,
+        "reach": 5,
+        "views": 15,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -772,17 +801,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 808,
-        "reach": 398,
-        "views": 808,
+        "impressions": 809,
+        "reach": 401,
+        "views": 809,
         "likes": 34,
         "comments": 7,
         "shares": 2,
         "saves": 1,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 75,
-        "avg_watch_s": 7.599,
+        "skip_rate": 74.9,
+        "avg_watch_s": 7.593,
         "duration_s": 62
       },
       "matched": null
@@ -790,7 +819,7 @@
   ],
   "accounts": {
     "instagram": {
-      "followers": 9,
+      "followers": 10,
       "username": "ar__designerx"
     },
     "linkedin": {
@@ -800,7 +829,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 12
+      "posts": 14
     }
   },
   "coverage": {
@@ -953,7 +982,7 @@
     {
       "date": "2026-10-28",
       "followers": {
-        "instagram": 9,
+        "instagram": 10,
         "linkedin": 2,
         "bluesky": 1
       }
@@ -961,5 +990,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-28T05:44:21+00:00"
+  "updated_at": "2026-10-28T12:57:16+00:00"
 }

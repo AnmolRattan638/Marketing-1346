@@ -643,9 +643,9 @@
         }
       },
       "latest": {
-        "impressions": 14,
-        "reach": 4,
-        "views": 14,
+        "impressions": 15,
+        "reach": 5,
+        "views": 15,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -740,16 +740,139 @@
         }
       },
       "latest": {
-        "impressions": 7,
+        "impressions": 8,
         "reach": 4,
-        "views": 7,
+        "views": 8,
         "likes": 0,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0
       }
+    },
+    "2026-10-26|instagram": {
+      "date": "2026-10-26",
+      "platform": "instagram",
+      "service": "animated_ads",
+      "problem_id": "long-captions-are-ignored-by-customers",
+      "angle_type": "mistake",
+      "hook_style": "top3",
+      "format": "image",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "bright-desk",
+      "published_at": "2026-10-26T08:21:25.000Z",
+      "url": "https://www.instagram.com/p/De810oujj1N/",
+      "snap": {
+        "48h": {
+          "age_h": 52.6,
+          "source": "zernio",
+          "impressions": 9,
+          "reach": 4,
+          "views": 9,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 9,
+        "reach": 4,
+        "views": 9,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
+    },
+    "2026-10-26|bluesky": {
+      "date": "2026-10-26",
+      "platform": "bluesky",
+      "service": "animated_ads",
+      "problem_id": "long-captions-are-ignored-by-customers",
+      "angle_type": "mistake",
+      "hook_style": "top3",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "bright-desk",
+      "published_at": "2026-10-26T08:21:21.186954+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3myrc3yj4ue2k",
+      "snap": {
+        "48h": {
+          "age_h": 52.6,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
+    },
+    "2026-10-18|linkedin": {
+      "date": "2026-10-18",
+      "platform": "linkedin",
+      "service": "animated_ads",
+      "problem_id": "static-images-get-scrolled-past-without-",
+      "angle_type": "question",
+      "hook_style": "curiosity",
+      "format": "image",
+      "cta": "none",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": null,
+      "published_at": "2026-10-18T09:00:00+00:00",
+      "url": null,
+      "snap": {
+        "48h": {
+          "age_h": 242.6,
+          "source": "screenshot",
+          "impressions": 57
+        },
+        "7d": {
+          "age_h": 242.6,
+          "source": "screenshot",
+          "impressions": 57
+        }
+      },
+      "latest": {
+        "impressions": 57
+      }
+    },
+    "2026-10-26|linkedin": {
+      "date": "2026-10-26",
+      "platform": "linkedin",
+      "service": "animated_ads",
+      "problem_id": "long-captions-are-ignored-by-customers",
+      "angle_type": "mistake",
+      "hook_style": "top3",
+      "format": "text",
+      "cta": "none",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "bright-desk",
+      "published_at": "2026-10-26T09:00:00+00:00",
+      "url": null,
+      "snap": {
+        "48h": {
+          "age_h": 50.8,
+          "source": "screenshot",
+          "impressions": 52
+        }
+      },
+      "latest": {
+        "impressions": 52
+      }
     }
   },
-  "updated_at": "2026-10-28T05:44:22+00:00"
+  "updated_at": "2026-10-28T12:57:17+00:00"
 }

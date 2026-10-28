@@ -1,0 +1,161 @@
+{
+  "id": "2026-10-28-c25fda",
+  "date": "2026-10-28",
+  "created_at": "2026-10-28T09:07:47+00:00",
+  "status": "pending",
+  "service": "reel_scripts",
+  "topic": "Practical Reel script tip for local businesses: Hinglish/English scripts that flow naturally",
+  "idea_id": null,
+  "problem_id": "not-knowing-what-to-say-on-camera-and-st",
+  "angle_type": "comparison",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "not-knowing-what-to-say-on-camera-and-st",
+    "angle_type": null,
+    "hook_style": "contrast"
+  },
+  "hooks": [
+    {
+      "style": "contrast",
+      "text": "Hindi script vs English script: which keeps your camera confidence?"
+    },
+    {
+      "style": "value",
+      "text": "Small biz owners, record confidently with a 5‑minute script."
+    },
+    {
+      "style": "myth",
+      "text": "Myth: You need fancy copy. Fact: Simple Hinglish works."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "contrast",
+  "posts": {
+    "instagram": "𝗛𝗜𝗡𝗗𝗜 𝗦𝗖𝗥𝗜𝗣𝗧 𝗩𝗦 𝗘𝗡𝗚𝗟𝗜𝗦𝗛 𝗦𝗖𝗥𝗜𝗣𝗧: 𝗪𝗛𝗜𝗖𝗛 𝗞𝗘𝗘𝗣𝗦 𝗬𝗢𝗨𝗥 𝗖𝗔𝗠𝗘𝗥𝗔 𝗖𝗢𝗡𝗙𝗜𝗗𝗘𝗡𝗖𝗘?\n\n→ 𝗛𝗜𝗡𝗚𝗟𝗜𝗦𝗛 mix bolne se script natural lag sakta hai\n→ Ek hook, ek benefit, ek clear 𝗖𝗧𝗔\n→ Chhote lines se blank screen par stare nahi karna padta\n\nDM 𝗦𝗖𝗥𝗜𝗣𝗧 aur batayein aap kya bechte hain.\n\n#SmallBusinessIndia #ReelScript #HinglishMarketing #LocalBusinessIndia #ContentTips",
+    "linkedin": "Many business owners feel stuck when they have to speak on camera.\n\nA short reel script can give you an opening line, a clear benefit, and a simple call to action.\n\nWriting in hinglish can make the tone sound natural and easy to follow.\n\nKeep each line under eight words so you can record it in one confident take.\n\nStart by stating your core message, then split it into a hook, a benefit, and a call to action.\n\nThis approach can work for any local business that talks to customers, whether a shop, a clinic, or an online service.\n\nMessage me with SCRIPT and tell me what you sell.",
+    "bluesky": "𝗖𝗔𝗠𝗘𝗥𝗔 confidence can be boosted by a good script, not a fancy setup. One hook, one benefit, one ask—write it in hinglish, keep lines under eight words, and record in one take. DM SCRIPT to talk about your reel script."
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I write hinglish reel scripts for small businesses so owners can record confidently in one take. What do you want viewers to do after watching—call, WhatsApp, or visit your shop? Scripts are priced at INR 299, 499 or 999 depending on length, and you pay only after approving the work. Want to tell me your business type?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for messaging. I write reel scripts for any local business that talks to customers, not just one niche. What does your business do and who are you trying to reach? Once I know that, I can tell you honestly if a script fits your goal."
+    },
+    {
+      "if_they_say": "can you write a script for me?",
+      "reply": "Hi, thanks for reaching out. I help small business owners write short hinglish reel scripts they can record without staring at a blank screen. What is the one action you want viewers to take after watching? I will explain how it works and give a fixed price. You pay only after you approve the work."
+    }
+  ],
+  "image": {
+    "prompt": "A cinematic profile silhouette of a shop owner holding a glowing smartphone inside a small store, immersed in deep indigo darkness. Soft blue and violet light highlights floating translucent shapes and thin network lines orbiting the phone. Drifting light particles fill the atmosphere, leaving the bottom forty percent of the frame as a calm, open expanse of dark indigo. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-10-28.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "style": "bold",
+      "headline": "Stiff English or natural Hinglish?",
+      "highlight": [
+        "natural Hinglish"
+      ],
+      "sub": "Stop staring at a blank screen.",
+      "problem_id": "not-knowing-what-to-say-on-camera-and-st",
+      "angle_type": "contrast",
+      "cta": "DM \"SCRIPT\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "silhouette"
+  },
+  "instagram_mode": "manual_reel",
+  "linkedin_format": "text",
+  "video": {
+    "problem_id": "not-knowing-what-to-say-on-camera-and-st",
+    "angle_type": "contrast",
+    "hook_first_3s": "Stiff English vs Natural Hinglish | Stiff English scripts kill your camera confidence.",
+    "continuity": "Top-down aesthetic macro shots of a silver MacBook on a clean wooden desk. Warm desk lamp lighting creating soft shadows. Minimalist white workspace. 4K cinematic style, high frame rate for smooth cursor movements.",
+    "parts": [
+      {
+        "time": "0-10s",
+        "voiceover": "Stiff English scripts kill your camera confidence.",
+        "flow_prompt": "Top-down aesthetic macro shots of a silver MacBook on a clean wooden desk. Warm desk lamp lighting creating soft shadows. Minimalist white workspace. 4K cinematic style, high frame rate for smooth cursor movements.\n\nTop-down macro shot of a laptop screen. A cursor is rapidly typing a script that blends English and Hindi naturally. The lighting is warm and focused on the screen. The action shows a completed, easy-to-read script outline. Voiceover: 'Stiff English scripts kill your camera confidence.'"
+      },
+      {
+        "time": "10-20s",
+        "voiceover": "Write how you actually talk to your customers. It removes the fear of sounding fake.",
+        "flow_prompt": "Top-down aesthetic macro shots of a silver MacBook on a clean wooden desk. Warm desk lamp lighting creating soft shadows. Minimalist white workspace. 4K cinematic style, high frame rate for smooth cursor movements.\n\nExtreme close-up of the screen. A formal, robotic English sentence is highlighted and deleted, then replaced with a conversational Hinglish phrase. The movement is smooth and deliberate. Voiceover: 'Write how you actually talk to your customers. It removes the fear of sounding fake.'"
+      },
+      {
+        "time": "20-30s",
+        "voiceover": "Get a script you can record in one take. DM 'FLOW' for help. Now, which one keeps your confidence?",
+        "flow_prompt": "Top-down aesthetic macro shots of a silver MacBook on a clean wooden desk. Warm desk lamp lighting creating soft shadows. Minimalist white workspace. 4K cinematic style, high frame rate for smooth cursor movements.\n\nA wide shot of the minimalist desk. A hand enters the frame and gently closes the laptop lid. The lighting remains warm and consistent. The shot is clean and professional. Voiceover: 'Get a script you can record in one take. DM 'FLOW' for help. Now, which one keeps your confidence?'"
+      }
+    ],
+    "voiceover": "Stiff English scripts kill your camera confidence. Write how you actually talk to your customers. It removes the fear of sounding fake. Get a script you can record in one take. DM 'FLOW' for help. Now, which one keeps your confidence?"
+  },
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "LinkedIn copy contains absolute claims like \"makes the tone sound natural\" and \"This approach works for any local business\" which should be softened.",
+      "Bluesky copy contains an absolute claim \"confidence comes from a script\" which should be softened.",
+      "LinkedIn copy could be more neutral about effectiveness."
+    ],
+    "revised": {
+      "instagram": "**HINDI SCRIPT VS ENGLISH SCRIPT: WHICH KEEPS YOUR CAMERA CONFIDENCE?**\n\n→ **HINGLISH** mix bolne se script natural lag sakta hai\n→ Ek hook, ek benefit, ek clear **CTA**\n→ Chhote lines se blank screen par stare nahi karna padta\n\nDM **SCRIPT** aur batayein aap kya bechte hain.\n\n#SmallBusinessIndia #ReelScript #HinglishMarketing #LocalBusinessIndia #ContentTips",
+      "linkedin": "Many business owners feel stuck when they have to speak on camera.\n\nA short reel script can give you an opening line, a clear benefit, and a simple call to action.\n\nWriting in hinglish can make the tone sound natural and easy to follow.\n\nKeep each line under eight words so you can record it in one confident take.\n\nStart by stating your core message, then split it into a hook, a benefit, and a call to action.\n\nThis approach can work for any local business that talks to customers, whether a shop, a clinic, or an online service.\n\nMessage me with SCRIPT and tell me what you sell.",
+      "bluesky": "**CAMERA** confidence can be boosted by a good script, not a fancy setup. One hook, one benefit, one ask—write it in hinglish, keep lines under eight words, and record in one take. DM SCRIPT to talk about your reel script."
+    }
+  },
+  "ad_score": 8,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "FAILED google:gemma-4-26b-a4b-it (HTTP 500)",
+      "FAILED google:gemini-3.8-flash (ProviderDown)",
+      "FAILED gemma: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.7-flash (ProviderDown)",
+      "FAILED gemini: all its models",
+      "FAILED google:gemini-3.8-flash (HTTP 503)"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 99.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "500",
+        "seconds": 8.0,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 243.7,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "ProviderDown",
+        "seconds": 243.3,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 9.6,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    ]
+  }
+}

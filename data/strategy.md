@@ -1,7 +1,3 @@
-- Rotate hook styles: try **contrast** or **question** next; pause **top3** (used 4 of last 6 posts).
-- Focus on **lead_gen** service — it earns 2.46x median per reach.
-- First 3 seconds must stop scroll: open with a sharp pain point, no preamble.
-- Speak to **freelancers, agencies, anyone selling a service** — never to one profession.
-- Describe the sheet only in general terms: local businesses from Google Places with contact details, review counts, website checks, including newly opened ones.
-- Posts must read as a developer showing real work, never like an ad.
-- Use only broad hashtags: #FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia.
+- Try contrast or question hooks (limited data shows 1.75x/1.67x), rotate away from overused "top3" (5 of last 6 posts).
+- Avoid "3 reasons", "3 ways", "3 questions" phrasing — pattern is exhausted.
+- Write as a developer sharing real work, not selling; no demos, guarantees, or niche targeting.

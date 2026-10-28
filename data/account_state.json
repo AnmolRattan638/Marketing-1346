@@ -1,22 +1,27 @@
 {
-  "date": "2026-10-27",
+  "date": "2026-10-28",
   "stage": "brand new under 100 followers",
-  "followers": 12,
-  "summary": "Account is brand new (<100 followers total). Lead gen outperforms other services 2.46x. Reels lose 77% viewers in 3s — hooks fail. Instagram bio violates brand rules (niche, region, timeframe, free offer). Bluesky and LinkedIn have near-zero engagement. Top3 hook overused recently.",
-  "guidance": "- Rotate hook styles: try **contrast** or **question** next; pause **top3** (used 4 of last 6 posts).\n- Focus on **lead_gen** service — it earns 2.46x median per reach.\n- First 3 seconds must stop scroll: open with a sharp pain point, no preamble.\n- Speak to **freelancers, agencies, anyone selling a service** — never to one profession.\n- Describe the sheet only in general terms: local businesses from Google Places with contact details, review counts, website checks, including newly opened ones.\n- Posts must read as a developer showing real work, never like an ad.\n- Use only broad hashtags: #FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia.",
+  "followers": 9,
+  "summary": "Weakest: hooks fail — reels lose 77% viewers in first 3s, last 4 posts zero engagement. Bio violates rules: niche/region focus, '24 hrs' claim, free site check offer.",
+  "guidance": "- Try contrast or question hooks (limited data shows 1.75x/1.67x), rotate away from overused \"top3\" (5 of last 6 posts).\n- Avoid \"3 reasons\", \"3 ways\", \"3 questions\" phrasing — pattern is exhausted.\n- Write as a developer sharing real work, not selling; no demos, guarantees, or niche targeting.",
   "instructions": {
-    "research": "List 5 common lead-gen pain points Indian freelancers/agencies mention in public posts (e.g. 'hours on Google Maps', 'outdated contacts', 'no website flag').",
-    "analysis": "Compare the two lead_gen posts' reach/engagement vs the median; note which hook style each used.",
-    "writer": "Write a lead_gen post using a **contrast** hook. Open with 'Freelancers' or 'Agencies'. Describe the sheet in general terms. End with 'pay after approval' + DM for honest fit check. No niche, no region, no demo offer.",
-    "image": "Create a clean, text-light graphic: a simple spreadsheet silhouette with column headers (Business, Phone, Reviews, Website?) — no real data, no logos.",
-    "video": "Skip video today; static image post fits the hook and avoids the 3-second reel drop-off."
+    "research": "Find 2-3 real examples of small Indian businesses (varied industries) struggling with reel scripts — e.g., a Jaipur jeweller, a Kerala homestay, a Pune gym — note their actual pain points.",
+    "analysis": "Compare last 3 reel-script posts' hooks vs retention; identify which opening line kept viewers past 3s.",
+    "writer": "Draft a reel script hook using contrast: 'Most reels get skipped in 3 seconds. Here's how a script changes that.' Keep under 15 words, no promises.",
+    "image": "Create a simple split-screen graphic: left side 'Before script' (chaotic), right side 'After script' (clear flow). No logos, no demo UI.",
+    "video": "Record a 15-second reel: you typing a script outline on laptop, voiceover explaining one hook technique. No face required."
   },
   "manual_tips": [
-    "Rewrite Instagram bio to: 'Websites, AI chatbots, animated ads & lead sheets for small businesses across India. Pay after approval. DM for honest advice.' (removes niche, region, timeframe, free offer).",
-    "Comment thoughtfully on 5 posts by Indian freelancers/agencies discussing client acquisition — add value, don't pitch.",
-    "Check LinkedIn notifications; reply to any connection requests or comments from the past week."
+    "Update Instagram bio to remove niche list, region, '24 hrs', and free offer; replace with national, service-agnostic description.",
+    "Comment thoughtfully on 5 posts from Indian small-business owners (any industry) about their content struggles.",
+    "Reply to any existing DM or comment with a genuine question about their reel challenges."
   ],
   "weak_signals": [
+    {
+      "id": "zero_engagement_streak",
+      "platform": "instagram",
+      "detail": "the last 4 settled posts got zero likes, comments, shares and saves"
+    },
     {
       "id": "follower_stall",
       "platform": "instagram",
@@ -30,12 +35,7 @@
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 17% of what 'lead_gen' earns per person reached"
-    },
-    {
-      "id": "zero_engagement_streak",
-      "platform": "bluesky",
-      "detail": "the last 9 settled posts got zero likes, comments, shares and saves"
+      "detail": "by service, 'animated_ads' earns 0% of what 'lead_gen' earns per person reached"
     },
     {
       "id": "follower_stall",

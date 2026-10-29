@@ -1,3 +1,4 @@
-- Try contrast or question hooks (limited data shows 1.75x/1.67x), rotate away from overused "top3" (5 of last 6 posts).
-- Avoid "3 reasons", "3 ways", "3 questions" phrasing — pattern is exhausted.
-- Write as a developer sharing real work, not selling; no demos, guarantees, or niche targeting.
+- Hook: try **contrast** (1.75x, n=1) or **question** (1.7x, n=2) — rotate away from top3 (overused, 5 posts).
+- Avoid: "Top 3 reasons…" phrasing (repeated 3× in 7 days), lead-gen comparison posts (0 engagement), animated ads (0.57x).
+- Post must read like a developer sharing real work, not an ad. No demos, samples, or niche targeting.
+- First 3 seconds must stop scroll: open with a relatable pain point (e.g., "Customer asks at 11 PM, you reply at 9 AM") not a list.

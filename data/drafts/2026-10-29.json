@@ -1,0 +1,154 @@
+{
+  "id": "2026-10-29-974a8d",
+  "date": "2026-10-29",
+  "created_at": "2026-10-29T09:03:58+00:00",
+  "status": "pending",
+  "service": "chatbot",
+  "topic": "The conflict between the walk-in customer and the WhatsApp lead",
+  "idea_id": null,
+  "problem_id": "inability-to-respond-during-peak-service",
+  "angle_type": "comparison",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "inability-to-respond-during-peak-service",
+    "angle_type": null,
+    "hook_style": "contrast"
+  },
+  "hooks": [
+    {
+      "style": "contrast",
+      "text": "Walk‑in line full, phone buzzing—bot answers while you serve."
+    },
+    {
+      "style": "question",
+      "text": "Ever lost a sale because you were stuck behind a checkout?"
+    },
+    {
+      "style": "myth",
+      "text": "Myth: Bots are cold. Fact: Silence kills more sales."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "contrast",
+  "posts": {
+    "instagram": "𝗪𝗔𝗟𝗞-𝗜𝗡 𝗟𝗜𝗡𝗘 𝗙𝗨𝗟𝗟, 𝗣𝗛𝗢𝗡𝗘 𝗕𝗨𝗭𝗭𝗜𝗡𝗚—𝗕𝗢𝗧 𝗔𝗡𝗦𝗪𝗘𝗥𝗦 𝗪𝗛𝗜𝗟𝗘 𝗬𝗢𝗨 𝗦𝗘𝗥𝗩𝗘\n→ ग्राहक सामने खड़ा है, 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 मैसेज ढेर लगे हैं.\n→ 𝗖𝗛𝗔𝗧𝗕𝗢𝗧 बार-बार पूछे जाने वाले सवालों का जवाब देता है.\n→ आप स्टोर पर ध्यान दें, बॉट डिजिटल 𝗟𝗘𝗔𝗗𝗦 संभाले.\nDM 𝗕𝗢𝗧 और बताएं आपके ग्राहक सबसे ज्यादा क्या पूछते हैं.\n\n#SmallBusinessIndia #WhatsAppBusiness #ChatbotIndia #LocalBusiness #IndiaSmallBusiness",
+    "linkedin": "Your walk-in client waits while WhatsApp messages keep ringing unanswered.\n\nDuring busy periods many small businesses juggle a customer at the desk and repeated online questions.\n\nAn AI chatbot can answer the same queries automatically, letting you focus on the person in front of you.\n\nIt also works overnight, helping reduce the time messages sit unanswered.\n\nYou can add a simple chatbot to your existing WhatsApp number without stopping any face‑to‑face service.\n\nMessage BOT to see if this fits your business.",
+    "bluesky": "𝗪𝗔𝗟𝗞-𝗜𝗡 𝘃𝘀 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 — you can't serve the customer in front of you and answer every ping at once. A chatbot handles the digital queue while you handle the physical one. DM BOT for an honest take on whether it fits your business."
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Thanks for asking. I build AI chatbots that answer common questions and capture WhatsApp enquiries. Quick question: what do you want customers to do, call, WhatsApp, or fill a form? Based on that, chatbot pricing is INR 2,999 or INR 4,999 plus INR 299 per month maintenance, and you pay only after you approve the work. Prefer a quick WhatsApp chat or details here?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "I work with any small business that talks to customers, shops, clinics, studios, or service providers. What do you sell, and what is the one question your customers ask most?"
+    },
+    {
+      "if_they_say": "will it answer after hours?",
+      "reply": "Yes, it replies even when you are closed or busy with walk-in customers. It captures the enquiry and lets you reply when you can. DM BOT and tell me what your customers ask most."
+    }
+  ],
+  "image": {
+    "prompt": null,
+    "path": "data/media/2026-10-29.jpg",
+    "engine": "designed_card",
+    "style": "chat",
+    "ai_generated": false,
+    "spec": {
+      "problem_id": "inability-to-respond-during-peak-service",
+      "angle_type": "contrast",
+      "style": "chat",
+      "headline": "Serving walk-ins, missing the chat.",
+      "highlight": [
+        "missing the chat"
+      ],
+      "sub": "No reply by morning.",
+      "chat": [
+        {
+          "side": "left",
+          "text": "Are you open right now?",
+          "time": "23:12"
+        },
+        {
+          "side": "right",
+          "text": "We are closed, but I can help.",
+          "time": "23:12"
+        },
+        {
+          "side": "left",
+          "text": "Can I book for tomorrow?",
+          "time": "23:13"
+        }
+      ],
+      "cta": "DM \"BOT\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "network"
+  },
+  "carousel": null,
+  "instagram_mode": "auto_image",
+  "linkedin_format": "image",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "LinkedIn draft contained an absolute outcome claim: \"so messages do not sit unanswered until morning.\""
+    ],
+    "revised": {
+      "instagram": "**WALK-IN LINE FULL, PHONE BUZZING—BOT ANSWERS WHILE YOU SERVE**\n→ ग्राहक सामने खड़ा है, **WHATSAPP** मैसेज ढेर लगे हैं.\n→ **CHATBOT** बार-बार पूछे जाने वाले सवालों का जवाब देता है.\n→ आप स्टोर पर ध्यान दें, बॉट डिजिटल **LEADS** संभाले.\nDM **BOT** और बताएं आपके ग्राहक सबसे ज्यादा क्या पूछते हैं.\n\n#SmallBusinessIndia #WhatsAppBusiness #ChatbotIndia #LocalBusiness #IndiaSmallBusiness",
+      "linkedin": "Your walk-in client waits while WhatsApp messages keep ringing unanswered.\n\nDuring busy periods many small businesses juggle a customer at the desk and repeated online questions.\n\nAn AI chatbot can answer the same queries automatically, letting you focus on the person in front of you.\n\nIt also works overnight, helping reduce the time messages sit unanswered.\n\nYou can add a simple chatbot to your existing WhatsApp number without stopping any face‑to‑face service.\n\nMessage BOT to see if this fits your business.",
+      "bluesky": "**WALK-IN vs WHATSAPP** — you can't serve the customer in front of you and answer every ping at once. A chatbot handles the digital queue while you handle the physical one. DM BOT for an honest take on whether it fits your business."
+    }
+  },
+  "ad_score": 9,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (ProviderDown)",
+      "FAILED google:gemini-3.7-flash (ProviderDown)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "google:gemini-3.8-flash",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "google:gemma-4-26b-a4b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 245.1,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "ProviderDown",
+        "seconds": 243.7,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 135.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 10.6,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 45.7,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

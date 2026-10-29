@@ -89,5 +89,12 @@
     "topic": "Practical Reel script tip for local businesses: Hinglish/English scripts that flow naturally",
     "hook_style": "contrast",
     "status": "published"
+  },
+  {
+    "date": "2026-10-29",
+    "service": "chatbot",
+    "topic": "The conflict between the walk-in customer and the WhatsApp lead",
+    "hook_style": "contrast",
+    "status": "rejected"
   }
 ]

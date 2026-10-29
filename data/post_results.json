@@ -500,9 +500,9 @@
         }
       },
       "latest": {
-        "impressions": 246,
-        "reach": 82,
-        "views": 246,
+        "impressions": 249,
+        "reach": 84,
+        "views": 249,
         "likes": 4,
         "comments": 0,
         "shares": 0,
@@ -872,7 +872,79 @@
       "latest": {
         "impressions": 52
       }
+    },
+    "2026-10-27|bluesky": {
+      "date": "2026-10-27",
+      "platform": "bluesky",
+      "service": "lead_gen",
+      "problem_id": "contacting-unqualified-businesses",
+      "angle_type": null,
+      "hook_style": "comparison",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "glass-ui",
+      "carousel_flavor": null,
+      "slides": 1,
+      "published_at": "2026-10-27T08:43:30.415Z",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3myttsie4ao23",
+      "snap": {
+        "48h": {
+          "age_h": 52.3,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 1,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 1,
+        "shares": 0
+      }
+    },
+    "2026-10-27|instagram": {
+      "date": "2026-10-27",
+      "platform": "instagram",
+      "service": "lead_gen",
+      "problem_id": "contacting-unqualified-businesses",
+      "angle_type": null,
+      "hook_style": "comparison",
+      "format": "image",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "glass-ui",
+      "carousel_flavor": null,
+      "slides": 1,
+      "published_at": "2026-10-27T08:43:24.000Z",
+      "url": "https://www.instagram.com/p/De_dIOhijet/",
+      "snap": {
+        "48h": {
+          "age_h": 52.3,
+          "source": "zernio",
+          "impressions": 7,
+          "reach": 4,
+          "views": 7,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 7,
+        "reach": 4,
+        "views": 7,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
     }
   },
-  "updated_at": "2026-10-28T22:36:46+00:00"
+  "updated_at": "2026-10-29T13:03:58+00:00"
 }

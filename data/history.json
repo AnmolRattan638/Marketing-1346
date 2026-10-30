@@ -96,5 +96,12 @@
     "topic": "The conflict between the walk-in customer and the WhatsApp lead",
     "hook_style": "contrast",
     "status": "rejected"
+  },
+  {
+    "date": "2026-10-30",
+    "service": "animated_ads",
+    "topic": "Want high-end video ads but don't have the budget for a camera crew?",
+    "hook_style": "question",
+    "status": "published"
   }
 ]

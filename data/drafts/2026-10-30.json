@@ -2,7 +2,7 @@
   "id": "2026-10-30-832e64",
   "date": "2026-10-30",
   "created_at": "2026-10-30T09:05:50+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "animated_ads",
   "topic": "Want high-end video ads but don't have the budget for a camera crew?",
   "idea_id": null,
@@ -206,5 +206,19 @@
         "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6ae46063b07064841095eb60 (7 slides)"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6ae46096c2427e8527c87bd1 (due 2026-10-30T09:17:10.394Z) (7 slides)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mz3h3ue6dq2p (4 slides)"
+    }
   }
 }

@@ -2,6 +2,64 @@
   "posts": [
     {
       "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mz3h3ue6dq2p",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mz3h3ue6dq2p",
+      "published_at": "2026-10-30T09:17:21.068588+00:00",
+      "text": "𝗡𝗢 𝗕𝗨𝗗𝗚𝗘𝗧 for a video shoot? A single clear photo from your phone can turn into a subtle, scrolling-stopping animated ad for your business.\n\nPlans start at INR ",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-30",
+        "service": "animated_ads",
+        "hook_style": "question",
+        "topic": "Want high-end video ads but don't have the budget for a camera crew?"
+      }
+    },
+    {
+      "platform": "instagram",
+      "id": "17977547352157130",
+      "url": "https://www.instagram.com/p/DfHPZJXDAXL/",
+      "published_at": "2026-10-30T09:17:16.000Z",
+      "text": "𝗩𝗜𝗗𝗘𝗢 𝗦𝗛𝗢𝗢𝗧 𝗞𝗔 𝗕𝗨𝗗𝗚𝗘𝗧 𝗡𝗔𝗛𝗜 𝗛𝗔𝗜 𝗣𝗔𝗥 𝗙𝗘𝗘𝗗 𝗠𝗘𝗜𝗡 𝗦𝗧𝗔𝗡𝗗 𝗢𝗨𝗧 𝗞𝗔𝗥𝗡𝗔 𝗛𝗔𝗜?\n\n→ Ek simple 𝗣𝗛𝗢𝗡𝗘 𝗣𝗛𝗢𝗧𝗢 se smooth motion layers bante hain.\n→ Heavy camera setup ke bina 𝗖𝗟𝗘𝗔",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 9,
+        "reach": 2,
+        "views": 9,
+        "likes": 1,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-30",
+        "service": "animated_ads",
+        "hook_style": "question",
+        "topic": "Want high-end video ads but don't have the budget for a camera crew?"
+      }
+    },
+    {
+      "platform": "bluesky",
       "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mywidaikrl2p",
       "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mywidaikrl2p",
       "published_at": "2026-10-28T09:56:06.094772+00:00",
@@ -70,7 +128,7 @@
         "impressions": 7,
         "reach": 4,
         "views": 7,
-        "likes": 0,
+        "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -99,7 +157,7 @@
         "impressions": 10,
         "reach": 4,
         "views": 10,
-        "likes": 0,
+        "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -186,7 +244,7 @@
         "impressions": 8,
         "reach": 4,
         "views": 8,
-        "likes": 0,
+        "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -215,7 +273,7 @@
         "impressions": 16,
         "reach": 5,
         "views": 16,
-        "likes": 0,
+        "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -328,10 +386,10 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 249,
+        "impressions": 254,
         "reach": 84,
-        "views": 249,
-        "likes": 4,
+        "views": 254,
+        "likes": 5,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -777,9 +835,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 420,
-        "reach": 162,
-        "views": 420,
+        "impressions": 421,
+        "reach": 163,
+        "views": 421,
         "likes": 9,
         "comments": 7,
         "shares": 0,
@@ -801,9 +859,9 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 811,
+        "impressions": 812,
         "reach": 402,
-        "views": 811,
+        "views": 812,
         "likes": 34,
         "comments": 7,
         "shares": 2,
@@ -811,7 +869,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 75,
-        "avg_watch_s": 7.567,
+        "avg_watch_s": 7.557,
         "duration_s": 62
       },
       "matched": null
@@ -829,7 +887,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 14
+      "posts": 15
     }
   },
   "coverage": {
@@ -1006,5 +1064,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-30T05:50:58+00:00"
+  "updated_at": "2026-10-30T12:58:04+00:00"
 }

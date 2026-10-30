@@ -500,10 +500,10 @@
         }
       },
       "latest": {
-        "impressions": 249,
+        "impressions": 254,
         "reach": 84,
-        "views": 249,
-        "likes": 4,
+        "views": 254,
+        "likes": 5,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -567,6 +567,13 @@
           "likes": 0,
           "comments": 0,
           "shares": 0
+        },
+        "7d": {
+          "age_h": 172.4,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
         }
       },
       "latest": {
@@ -596,6 +603,18 @@
           "impressions": 12,
           "reach": 4,
           "views": 12,
+          "likes": 0,
+          "comments": 1,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        },
+        "7d": {
+          "age_h": 172.4,
+          "source": "zernio",
+          "impressions": 13,
+          "reach": 4,
+          "views": 13,
           "likes": 0,
           "comments": 1,
           "shares": 0,
@@ -646,7 +665,7 @@
         "impressions": 16,
         "reach": 5,
         "views": 16,
-        "likes": 0,
+        "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -743,7 +762,7 @@
         "impressions": 8,
         "reach": 4,
         "views": 8,
-        "likes": 0,
+        "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -782,7 +801,7 @@
         "impressions": 10,
         "reach": 4,
         "views": 10,
-        "likes": 0,
+        "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -938,13 +957,44 @@
         "impressions": 7,
         "reach": 4,
         "views": 7,
-        "likes": 0,
+        "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0
       }
+    },
+    "2026-10-28|bluesky": {
+      "date": "2026-10-28",
+      "platform": "bluesky",
+      "service": "reel_scripts",
+      "problem_id": "not-knowing-what-to-say-on-camera-and-st",
+      "angle_type": "comparison",
+      "hook_style": "contrast",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "silhouette",
+      "carousel_flavor": null,
+      "slides": 1,
+      "published_at": "2026-10-28T09:56:06.094772+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mywidaikrl2p",
+      "snap": {
+        "48h": {
+          "age_h": 51.0,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-10-29T22:46:32+00:00"
+  "updated_at": "2026-10-30T12:58:06+00:00"
 }

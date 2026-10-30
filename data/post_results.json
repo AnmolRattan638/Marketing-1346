@@ -449,10 +449,10 @@
         }
       },
       "latest": {
-        "impressions": 13,
-        "reach": 6,
-        "views": 13,
-        "likes": 0,
+        "impressions": 24,
+        "reach": 11,
+        "views": 24,
+        "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -996,5 +996,5 @@
       }
     }
   },
-  "updated_at": "2026-10-30T12:58:06+00:00"
+  "updated_at": "2026-10-30T22:22:28+00:00"
 }

@@ -1,0 +1,210 @@
+{
+  "id": "2026-10-30-832e64",
+  "date": "2026-10-30",
+  "created_at": "2026-10-30T09:05:50+00:00",
+  "status": "pending",
+  "service": "animated_ads",
+  "topic": "Want high-end video ads but don't have the budget for a camera crew?",
+  "idea_id": null,
+  "problem_id": "lack-of-budget-for-professional-video-sh",
+  "angle_type": null,
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "lack-of-budget-for-professional-video-sh",
+    "angle_type": null,
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "One photo. Moving on screen."
+    },
+    {
+      "style": "myth",
+      "text": "Myth: Only big budgets create motion; Fact: One phone photo does it."
+    },
+    {
+      "style": "value",
+      "text": "Try this: Turn a single snapshot into a pro‑grade animated ad."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "posts": {
+    "instagram": "𝗩𝗜𝗗𝗘𝗢 𝗦𝗛𝗢𝗢𝗧 𝗞𝗔 𝗕𝗨𝗗𝗚𝗘𝗧 𝗡𝗔𝗛𝗜 𝗛𝗔𝗜 𝗣𝗔𝗥 𝗙𝗘𝗘𝗗 𝗠𝗘𝗜𝗡 𝗦𝗧𝗔𝗡𝗗 𝗢𝗨𝗧 𝗞𝗔𝗥𝗡𝗔 𝗛𝗔𝗜?\n\n→ Ek simple 𝗣𝗛𝗢𝗡𝗘 𝗣𝗛𝗢𝗧𝗢 se smooth motion layers bante hain.\n→ Heavy camera setup ke bina 𝗖𝗟𝗘𝗔𝗡 𝗠𝗢𝗧𝗜𝗢𝗡 timeline ready hoti hai.\n→ Cafe, clinic ya retail store, ad scroll rokne mein 𝗛𝗘𝗟𝗣 karta hai.\n\nDM 𝗔𝗗𝗦 aur bataiye kya sell karte hain. Pay only after approval.\n\n#SmallBusinessIndia #AIAdvertising #DigitalMarketingIndia #SocialMediaMarketing",
+    "linkedin": "You can create professional video ads using only a phone photo.\n\nMany small businesses assume they need costly lighting, models, and a film crew for quality ads.\n\nI start with a single clear phone image of your product or location and add layered motion on a timeline.\n\nThe gentle depth and movement catch the eye without looking fake.\n\nThe service costs INR 999 to 2,199, and you only pay after you approve the final animation.\n\nMessage ADS to tell me what you sell and get a style suggestion.",
+    "bluesky": "𝗡𝗢 𝗕𝗨𝗗𝗚𝗘𝗧 for a video shoot? A single clear photo from your phone can turn into a subtle, scrolling-stopping animated ad for your business.\n\nPlans start at INR 999, pay only after you approve. DM ADS to see what fits."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does it cost?",
+      "reply": "Pricing is INR 999, 1,499, or 2,199 depending on the complexity and duration, and you pay only after you approve the work. Quick question: what do you sell, and are you planning to run this as a paid ad or a regular post?"
+    },
+    {
+      "if_they_say": "Do you do this for my kind of business?",
+      "reply": "Yes, it works well across various businesses like clinics, retail shops, or cafés where a clear photo of your space or product can be given motion. What does your business sell, and do you already have a photo to start with?"
+    },
+    {
+      "if_they_say": "Will AI make it look fake?",
+      "reply": "Fair question. I keep the motion subtle and realistic—clean depth, lighting shifts, and text transitions—rather than distorted effects. What kind of product or service do you want to feature?"
+    }
+  ],
+  "image": {
+    "prompt": "Cinematic, moody wooden desk scene in a dark room featuring a warm gold lamp glow and a laptop displaying a visual animation timeline on a softly glowing screen. Beside the laptop, a smartphone displays a vibrant, high-end animated video. Rich shadows create a high-contrast look, with a wide, calm, dark space occupying the lower portion of the frame. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-10-30.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "lack-of-budget-for-professional-video-sh",
+      "angle_type": "question",
+      "style": "bold",
+      "headline": "Need a crew for professional ads?",
+      "highlight": [
+        "crew"
+      ],
+      "sub": "Animate a single photo using AI.",
+      "chat": [],
+      "cta": "DM \"ADS\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "desk-glow"
+  },
+  "carousel": {
+    "flavor": "bold-slow-reveal",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-10-30.jpg",
+      "data/media/2026-10-30-s2.jpg",
+      "data/media/2026-10-30-s3.jpg",
+      "data/media/2026-10-30-s4.jpg",
+      "data/media/2026-10-30-s5.jpg",
+      "data/media/2026-10-30-s6.jpg",
+      "data/media/2026-10-30-s7.jpg"
+    ],
+    "alts": [
+      "One photo. Moving on screen.",
+      "Slide 2 of 7: Big setups need many people and days.. You wait for dates, locations, and a full team before anything moves.",
+      "Slide 3 of 7: High-end video ads need a camera crew.. Most small shops cannot book a crew just for a short Instagram ad.",
+      "Slide 4 of 7: Start with one phone photo.. Upload a single image from your gallery. The timeline reads it as the base layer.",
+      "Slide 5 of 7: AI builds the movement.. Set keyframes on the timeline. The tool fills in motion between frames automatically.",
+      "Slide 6 of 7: Export a scroll-stopping video.. The final file works on Instagram and Facebook. It looks like a produced ad without a shoot. #SmallBusinessIndia",
+      "Slide 7 of 7: DM ADS. Message me to see if animated ads fit your business. I will reply with honest advice. #IndiaBusiness"
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "One photo. Moving on screen.",
+        "body": "Watch a still image build into motion frame by frame."
+      },
+      {
+        "role": "problem",
+        "headline": "Big setups need many people and days.",
+        "body": "You wait for dates, locations, and a full team before anything moves."
+      },
+      {
+        "role": "problem",
+        "headline": "High-end video ads need a camera crew.",
+        "body": "Most small shops cannot book a crew just for a short Instagram ad."
+      },
+      {
+        "role": "solution",
+        "headline": "Start with one phone photo.",
+        "body": "Upload a single image from your gallery. The timeline reads it as the base layer."
+      },
+      {
+        "role": "solution",
+        "headline": "AI builds the movement.",
+        "body": "Set keyframes on the timeline. The tool fills in motion between frames automatically."
+      },
+      {
+        "role": "solution",
+        "headline": "Export a scroll-stopping video.",
+        "body": "The final file works on Instagram and Facebook. It looks like a produced ad without a shoot. #SmallBusinessIndia"
+      },
+      {
+        "role": "cta",
+        "headline": "DM ADS",
+        "body": "Message me to see if animated ads fit your business. I will reply with honest advice. #IndiaBusiness"
+      }
+    ]
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "image",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**VIDEO SHOOT KA BUDGET NAHI HAI PAR FEED MEIN STAND OUT KARNA HAI?**\n\n→ Ek simple **PHONE PHOTO** se smooth motion layers bante hain.\n→ Heavy camera setup ke bina **CLEAN MOTION** timeline ready hoti hai.\n→ Cafe, clinic ya retail store, ad scroll rokne mein **HELP** karta hai.\n\nDM **ADS** aur bataiye kya sell karte hain. Pay only after approval.\n\n#SmallBusinessIndia #AIAdvertising #DigitalMarketingIndia #SocialMediaMarketing",
+      "linkedin": "You can create professional video ads using only a phone photo.\n\nMany small businesses assume they need costly lighting, models, and a film crew for quality ads.\n\nI start with a single clear phone image of your product or location and add layered motion on a timeline.\n\nThe gentle depth and movement catch the eye without looking fake.\n\nThe service costs INR 999 to 2,199, and you only pay after you approve the final animation.\n\nMessage ADS to tell me what you sell and get a style suggestion.",
+      "bluesky": "**NO BUDGET** for a video shoot? A single clear photo from your phone can turn into a subtle, scrolling-stopping animated ad for your business.\n\nPlans start at INR 999, pay only after you approve. DM ADS to see what fits."
+    }
+  },
+  "ad_score": 4,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "google:gemma-4-26b-a4b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (ProviderDown)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "google:gemini-3.8-flash",
+      "google:gemma-4-31b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 51.2,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 244.3,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 135.8,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 11.8,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 50.7,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

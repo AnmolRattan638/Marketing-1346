@@ -1,4 +1,5 @@
-- Hook: try **contrast** (1.75x, n=1) or **question** (1.7x, n=2) — rotate away from top3 (overused, 5 posts).
-- Avoid: "Top 3 reasons…" phrasing (repeated 3× in 7 days), lead-gen comparison posts (0 engagement), animated ads (0.57x).
-- Post must read like a developer sharing real work, not an ad. No demos, samples, or niche targeting.
-- First 3 seconds must stop scroll: open with a relatable pain point (e.g., "Customer asks at 11 PM, you reply at 9 AM") not a list.
+- Hook style: try question or contrast hooks (highest relative engagement) instead of top3/curiosity used recently.
+- Avoid repeating "static vs motion" or "captions ignored" angles; they've appeared twice with low response.
+- Keep skip rate low: front-load visual motion + a clear pain point in first 2 seconds (e.g., "Your ad pauses the scroll because it moves").
+- Posts must read like a developer sharing a real build, not an ad — show code snippet or timeline, not promises.
+- Use national hashtags only (#SmallBusinessIndia #AIAdvertising #DigitalMarketingIndia).

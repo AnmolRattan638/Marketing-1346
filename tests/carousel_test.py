@@ -77,8 +77,11 @@ assert any("one of" in p for p in broken(lambda s: s[1].update(role="intro")))
 assert any("over 14 words" in p for p in broken(lambda s: s[1].update(headline=" ".join(["word"] * 15))))
 assert any("too long" in p for p in broken(lambda s: s[1].update(body=" ".join(["word"] * 41))))
 assert any("too long" in p for p in broken(lambda s: s[0].update(body=" ".join(["word"] * 15))))
-for bad in ("Only INR 999", "It is free", "Save 40% today", "Get 10x leads", "Delivered in 24 hours", "We guarantee it", "Pay after approval", "A proven method", "The price is low", "No cost"):
+for bad in ("Only INR 999", "It is free", "Save 40% today", "Get 10x leads", "Delivered in 24 hours", "We guarantee it", "Pay after approval", "A proven method", "Lowest price in town", "No cost", "No hidden costs"):
     assert any("not allowed" in p for p in broken(lambda s: s[1].update(body=bad))), bad
+for fine in ("Customers keep asking about pricing.", "Costs add up when you answer the same question daily.", "A costly delay for the owner.", "Explain your services and rates clearly."):
+    assert not [p for p in broken(lambda s: s[1].update(body=fine)) if "not allowed" in p], fine
+assert any("slide 2" in p and "Never write:" in p for p in broken(lambda s: s[1].update(body="It is free")))
 for bad in ("According to a study, owners lose leads", "A survey found this", "Experts say chatbots help", "Research shows it works", "As reported last week"):
     assert any("verified source" in p for p in broken(lambda s: s[1].update(body=bad))), bad
 assert ca.validate(norm(GOOD), bot, fl[0], None) == [] and not [p for p in broken(lambda s: s[1].update(body="Imagine a customer messaging at night."))]
@@ -115,9 +118,9 @@ replies[:] = [bad, G()]; verdicts[:] = [{"ok": True, "issues": []}]; prompts.cle
 car, why = ca.build(plan, bot, brand, "g", "2026-11-30")
 assert car and len(prompts) == 2 and "FIX THESE PROBLEMS" in prompts[1] and "not allowed" in prompts[1]
 
-replies[:] = [bad, bad]; prompts.clear()
+replies[:] = [bad] * ca.ATTEMPTS; prompts.clear()
 car, why = ca.build(plan, bot, brand, "g", "2026-11-30")
-assert car is None and "not allowed" in why and len(prompts) == 2, "two failures: no carousel, the post goes out as a single image"
+assert car is None and "not allowed" in why and len(prompts) == ca.ATTEMPTS, "two failures: no carousel, the post goes out as a single image"
 
 replies[:] = [G(), G()]; verdicts[:] = [{"ok": False, "issues": ["slide 3: invents a client"]}, {"ok": True, "issues": []}]; prompts.clear()
 car, why = ca.build(plan, bot, brand, "g", "2026-11-30")
@@ -126,7 +129,7 @@ assert car and "slide 3: invents a client" in prompts[1], "the second model's is
 replies[:] = [G()]; verdicts[:] = [RuntimeError("model down")]
 car, why = ca.build(plan, bot, brand, "g", "2026-11-30")
 assert car and car["checked"] is False, "a down fact-checker never blocks; the draft says it was not machine-checked"
-replies[:] = [[]] * 2
+replies[:] = [[]] * ca.ATTEMPTS
 assert ca.build(plan, bot, brand, "g", "2026-11-30")[0] is None
 
 # the factual taste: a model-made attribution can never pass, the fact is quoted exactly

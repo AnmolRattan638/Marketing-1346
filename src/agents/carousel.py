@@ -2,7 +2,7 @@
     1 hook slide -> 1-2 problem slides -> 2-3 solution slides -> 1 CTA slide   (5 to 7 slides; the service diagram may add one solution slide).
 A 'taste' (config/carousel_flavors.json) only changes HOW the parts are told: a bold hook with a slow reveal, a myth bust, a short imaginary scene, a verified
 fact from a named source, and so on. Tastes rotate, and the one used is saved on the draft so the weekly review can compare them.
-Safety: no prices, payment words, delivery times, percentages or multipliers, guarantees or invented attributions. The 'factual-source' taste is only used
+Safety: no prices, payment words, delivery times, percentages or multipliers, guarantees or invented attributions (the exact list is BANNED_RULES below). The 'factual-source' taste is only used
 when config/facts.json holds a fact YOU verified, and the slides must quote it exactly; a model never makes up who said what."""
 import json
 import re
@@ -12,8 +12,24 @@ from .problems import audience
 
 ORDER = ["hook", "problem", "solution", "cta"]
 LIMITS = {"hook": (1, 1), "problem": (1, 2), "solution": (2, 3), "cta": (1, 1)}
+ATTEMPTS = 3
 MAX_WORDS = {"headline": 14, "body": 40, "hook_body": 14}
-BANNED = re.compile(r"(?i)(%|\b\d+\s?x\b|₹|\brs\.?\s*\d|\binr\b|\$|\bprice|\bpricing|\bcost|\bpay\b|\bpaid\b|\bpayment|\bfree\b|\bdiscount|\bguarantee|\bproven\b|\b\d+\s*hours?\b)")
+# ONE source of truth: the validator regex AND the wording the model is shown are both built from this list, so the model is always told exactly what will be rejected.
+# Talking about cost or pricing as a TOPIC is allowed; only concrete amounts, offers and promises about them are not.
+BANNED_RULES = [
+    (r"%", "percentages"),
+    (r"\b\d+\s?x\b", "multipliers like 10x"),
+    (r"₹|\brs\.?\s*\d|\binr\b|\$", "amounts or currency (₹, Rs, INR, $)"),
+    (r"\b(?:no|zero|without|low|lowest|extra|hidden|additional)[\s-]+(?:(?:extra|hidden|additional)\s+)?(?:cost|price|pricing)s?\b", "promises about cost (no cost, low cost, no hidden cost)"),
+    (r"\bpay\b|\bpaid\b|\bpayments?\b", "payment words (pay, paid, payment)"),
+    (r"\bfree\b", "free"),
+    (r"\bdiscounts?\b", "discounts"),
+    (r"\bguarantee[sd]?\b", "guarantees"),
+    (r"\bproven\b", "proven"),
+    (r"\b\d+\s*hours?\b", "delivery times in hours"),
+]
+BANNED = re.compile("(?i)(" + "|".join(r for r, _ in BANNED_RULES) + ")")
+BANNED_TEXT = "; ".join(d for _, d in BANNED_RULES)
 INVENTED_SOURCE = re.compile(r"(?i)\b(according to|studies show|a study|survey|research (shows|says|finds)|experts? (say|says|agree)|reported|announced)\b")
 SYS = "You write honest, simple carousel posts for small-business owners in India. You never invent statistics, clients, quotes or sources."
 
@@ -89,9 +105,10 @@ def validate(slides, focus, taste, fact):
             probs.append(f"slide {i} headline is over {MAX_WORDS['headline']} words")
         if _words(s["body"]) > (MAX_WORDS["hook_body"] if s["role"] == "hook" else MAX_WORDS["body"]):
             probs.append(f"slide {i} body is too long")
-    bad = BANNED.search(text)
-    if bad:
-        probs.append(f"'{bad.group(0)}' is not allowed (no prices, payment words, delivery times, percentages, multipliers or guarantees)")
+    for i, s in enumerate(slides, 1):
+        bad = BANNED.search(f"{s['headline']} {s['body']}")
+        if bad:
+            probs.append(f"slide {i}: '{bad.group(0)}' is not allowed. Never write: {BANNED_TEXT}. Rewrite that slide without it; you may talk about cost or pricing in general terms")
     if fact is None and INVENTED_SOURCE.search(text):
         probs.append("do not attribute anything to a study, survey, expert or report; there is no verified source for this carousel")
     if fact is not None:
@@ -125,7 +142,7 @@ STRICT ORDER, never change it: 1 hook slide, then 1-2 problem slides, then 2-3 s
 {fact_block}
 Brand rules that always apply: {json.dumps(brand['facts_rules'], ensure_ascii=False)}
 Slide rules: each slide has "headline" (max {MAX_WORDS['headline']} words) and "body" (max {MAX_WORDS['body']} words; the hook body max {MAX_WORDS['hook_body']}). Plain words a busy owner understands. One idea per slide.
-Never write prices, payment words, "free", delivery times, percentages, multipliers like 10x, guarantees, invented numbers, clients, testimonials or demos. Any scene must be clearly imaginary
+Never write: {BANNED_TEXT}. Also no invented numbers, clients, testimonials or demos. You MAY discuss cost or pricing as a topic in general words (for example, "pricing questions"), but never state an amount, an offer or a promise about it. Any scene must be clearly imaginary
 ("Imagine...", "Example"). Never say a person, company, study or report said something unless it is the FACT above.
 {notes}
 Return JSON: {{"slides": [{{"role": "hook|problem|solution|cta", "headline": "...", "body": "..."}}]}}"""
@@ -155,7 +172,7 @@ def build(post_plan, focus, brand, guidance, date):
     if not taste:
         return None, "no carousel taste is available"
     notes = ""
-    for _ in range(2):
+    for attempt in range(1, ATTEMPTS + 1):
         slides = plan(post_plan, focus, brand, taste, fact, guidance, notes)
         probs = validate(slides, focus, taste, fact)
         checked = False
@@ -166,5 +183,6 @@ def build(post_plan, focus, brand, guidance, date):
                 print(f"[carousel] fact-check unavailable: {e}")
         if not probs:
             return {"flavor": taste["id"], "fact_id": fact.get("id") if fact else None, "slides": slides, "checked": checked, "diagram": bool(taste.get("diagram"))}, None
-        notes = "FIX THESE PROBLEMS and keep the strict order: " + "; ".join(probs)
+        print(f"[carousel] attempt {attempt}/{ATTEMPTS} rejected (taste {taste['id']}, topic {post_plan.get('topic', '')!r}): " + "; ".join(probs)[:400])
+        notes = "FIX THESE PROBLEMS and keep the strict order. Change only what is wrong and keep every slide that was fine: " + "; ".join(probs)
     return None, "; ".join(probs)[:300]

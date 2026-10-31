@@ -103,5 +103,12 @@
     "topic": "Want high-end video ads but don't have the budget for a camera crew?",
     "hook_style": "question",
     "status": "published"
+  },
+  {
+    "date": "2026-10-31",
+    "service": "website",
+    "topic": "The 3 things a customer checks on your page before messaging",
+    "hook_style": "comparison",
+    "status": "published"
   }
 ]

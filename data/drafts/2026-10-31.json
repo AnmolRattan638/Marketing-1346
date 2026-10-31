@@ -2,7 +2,7 @@
   "id": "2026-10-31-bb7809",
   "date": "2026-10-31",
   "created_at": "2026-10-31T09:04:43+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "website",
   "topic": "The 3 things a customer checks on your page before messaging",
   "idea_id": "web-three-checks",
@@ -148,5 +148,19 @@
         "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6ae5af5d6c6fef4b99e3b8f3"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6ae5af62a11457434996801f (due 2026-10-31T09:05:38.873Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mz5wvzd5n32g"
+    }
   }
 }

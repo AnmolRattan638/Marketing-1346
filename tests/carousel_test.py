@@ -342,6 +342,7 @@ state["carousel"] = "bad"
 run_daily.main()
 dr = config.load_json(dpath, {})
 assert dr["carousel"] is None and any("carousel skipped (single image instead)" in w for w in WARN)
+assert set((dr.get("virality") or {}).get("platforms", {})) == set(config.PLATFORMS) and not any(w.startswith("virality") for w in WARN)     # the advisory hint is saved on every draft
 assert any(e[0] == "photo" and e[2] == "hook prompt" for e in events) and not any(e[0] == "album" for e in events)
 assert learning._attrs(dr, "instagram", "image")["slides"] == 1
 

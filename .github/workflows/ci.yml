@@ -22,6 +22,8 @@ jobs:
       - run: pip install -r requirements.txt pyflakes
       - name: Lint (pyflakes)
         run: python -m pyflakes src tests
+      - name: ViralSim tests (vendored package)
+        run: python -m unittest discover -s viralsim/tests -t viralsim
       - name: Offline tests (no secrets, no network)
         run: |
           for t in tests/*_test.py; do

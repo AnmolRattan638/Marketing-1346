@@ -1,6 +1,64 @@
 {
   "posts": [
     {
+      "platform": "instagram",
+      "id": "18021243776953895",
+      "url": "https://www.instagram.com/p/DfJy3o_kbgb/",
+      "published_at": "2026-10-31T09:05:44.000Z",
+      "text": "𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 𝗖𝗛𝗔𝗧𝗦 𝗩𝗦 𝗔 𝟭-𝗣𝗔𝗚𝗘 𝗪𝗘𝗕𝗦𝗜𝗧𝗘: 𝗪𝗛𝗜𝗖𝗛 𝗦𝗔𝗩𝗘𝗦 𝗠𝗢𝗥𝗘 𝗧𝗜𝗠𝗘?\n\n→ Har customer ko baar‑baar 𝗣𝗥𝗜𝗖𝗜𝗡𝗚 aur service details bhejna band kijiye.\n→ Page par clear rates a",
+      "format": "image",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 12,
+        "reach": 3,
+        "views": 12,
+        "likes": 0,
+        "comments": 1,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-31",
+        "service": "website",
+        "hook_style": "comparison",
+        "topic": "The 3 things a customer checks on your page before messaging"
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mz5wvzd5n32g",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mz5wvzd5n32g",
+      "published_at": "2026-10-31T09:05:40.537181+00:00",
+      "text": "𝗠𝗔𝗡𝗨𝗔𝗟 𝗥𝗘𝗣𝗟𝗜𝗘𝗦 vs a simple 1-page site.\n\nTyping your rates ten times a day wastes hours. A clean page with services, pricing, and location helps customers decid",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-10-31",
+        "service": "website",
+        "hook_style": "comparison",
+        "topic": "The 3 things a customer checks on your page before messaging"
+      }
+    },
+    {
       "platform": "bluesky",
       "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mz3h3ue6dq2p",
       "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mz3h3ue6dq2p",
@@ -360,7 +418,7 @@
         "impressions": 13,
         "reach": 4,
         "views": 13,
-        "likes": 0,
+        "likes": 1,
         "comments": 1,
         "shares": 0,
         "saves": 0,
@@ -512,7 +570,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 76.7,
-        "avg_watch_s": 6.32,
+        "avg_watch_s": 7.058,
         "duration_s": 26
       },
       "matched": null
@@ -758,7 +816,7 @@
       "format": "text",
       "source": "zernio",
       "metrics": {
-        "impressions": 149,
+        "impressions": 157,
         "reach": 87,
         "views": null,
         "likes": 0,
@@ -863,7 +921,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 15
+      "posts": 16
     }
   },
   "coverage": {
@@ -1048,5 +1106,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-31T05:44:27+00:00"
+  "updated_at": "2026-10-31T12:33:38+00:00"
 }

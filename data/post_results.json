@@ -193,7 +193,7 @@
         }
       },
       "latest": {
-        "impressions": 149,
+        "impressions": 157,
         "reach": 87,
         "likes": 0,
         "comments": 0,
@@ -626,7 +626,7 @@
         "impressions": 13,
         "reach": 4,
         "views": 13,
-        "likes": 0,
+        "likes": 1,
         "comments": 1,
         "shares": 0,
         "saves": 0,
@@ -655,6 +655,18 @@
           "reach": 4,
           "views": 14,
           "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        },
+        "7d": {
+          "age_h": 170.0,
+          "source": "zernio",
+          "impressions": 16,
+          "reach": 5,
+          "views": 16,
+          "likes": 1,
           "comments": 0,
           "shares": 0,
           "saves": 0,
@@ -689,6 +701,13 @@
       "snap": {
         "48h": {
           "age_h": 50.6,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        },
+        "7d": {
+          "age_h": 170.0,
           "source": "bluesky",
           "likes": 0,
           "comments": 0,
@@ -996,5 +1015,5 @@
       }
     }
   },
-  "updated_at": "2026-10-30T22:22:28+00:00"
+  "updated_at": "2026-10-31T12:33:39+00:00"
 }

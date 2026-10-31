@@ -3,7 +3,7 @@ import datetime as dt
 import os, secrets
 import sys, traceback
 import requests
-from . import analytics, captions, carousel, config, diagrams, formats, ideas, learning, llm, tg
+from . import analytics, captions, carousel, config, diagrams, formats, ideas, learning, llm, tg, virality
 from .agents import analysis, carousel as carousel_agent, factcheck, fit as fit_agent, image, linkedin_edit, problems as problems_agent, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
@@ -206,6 +206,7 @@ def main():
         elif car:
             WARNINGS.append("carousel: there is no hook image, so this goes out without a carousel.")
         vid = stage("video", lambda: video.run(plan, focus, posts, g('video')), fallback={}) if ig_mode == "manual_reel" else {}
+        vir = stage("virality", lambda: virality.run(posts), fallback={})          # advisory only: never blocks, rewrites or ranks anything
     except Exception as e:
         tg.send(f"Marketing pipeline failed on {today}: {e}\nNothing was posted. Check the Actions log.")
         raise
@@ -221,13 +222,13 @@ def main():
              "hooks": plan["hooks"], "chosen_hook": plan.get("chosen_hook", 0),
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),
-             "image": img, "carousel": car_data, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score"),
+             "image": img, "carousel": car_data, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score"), "virality": vir or None,
              "llm": {"answered": list(dict.fromkeys(llm.LOG)), "failures": llm.FAILURES[:20]}}
     config.save_json(path, draft)
 
     tg.send(("WARNINGS (a step failed and a fallback was used):\n- " + "\n- ".join(WARNINGS) + "\n\n" if WARNINGS else "") +
             f"Draft for {today}\nService: {focus['name']}\nTopic: {plan['topic']}\n{exp_line}"
-            f"Instagram today: {'MANUAL reel (post it yourself)' if ig_mode == 'manual_reel' else 'auto-posted image + caption'}\nLinkedIn today: {'TEXT ONLY (no image)' if li_fmt == 'text' else 'with the image'}\nFact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n\n"
+            f"Instagram today: {'MANUAL reel (post it yourself)' if ig_mode == 'manual_reel' else 'auto-posted image + caption'}\nLinkedIn today: {'TEXT ONLY (no image)' if li_fmt == 'text' else 'with the image'}\nFact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n{virality.telegram_line(vir)}\n"
             f"Account check ({state.get('stage')}): {state.get('summary')}" +
             (("\nLive weak spots: " + "; ".join(f"[{s['platform']}] {s['detail']}" for s in live_signals[:2])) if live_signals else "") +
             "\n\nModels that answered: " + (" | ".join(dict.fromkeys(llm.LOG))[:700] or "n/a") +

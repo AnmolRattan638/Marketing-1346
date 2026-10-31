@@ -849,30 +849,6 @@
         "duration_s": null
       },
       "matched": null
-    },
-    {
-      "platform": "instagram",
-      "id": "17905744611507089",
-      "url": "https://www.instagram.com/reel/DctQakzpOs4/",
-      "published_at": "2026-08-31T14:03:44.000Z",
-      "text": "AR Design website #ardesign #viral #websitedevelopment  #ᴠɪᴅᴇᴏᴇᴅɪᴛ",
-      "format": "reel",
-      "source": "zernio",
-      "metrics": {
-        "impressions": 812,
-        "reach": 402,
-        "views": 812,
-        "likes": 34,
-        "comments": 7,
-        "shares": 2,
-        "saves": 1,
-        "clicks": 0,
-        "reposts": null,
-        "skip_rate": 75,
-        "avg_watch_s": 7.557,
-        "duration_s": 62
-      },
-      "matched": null
     }
   ],
   "accounts": {
@@ -1060,9 +1036,17 @@
         "linkedin": 2,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-10-31",
+      "followers": {
+        "instagram": 10,
+        "linkedin": 2,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-10-30T22:22:23+00:00"
+  "updated_at": "2026-10-31T05:44:27+00:00"
 }

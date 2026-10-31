@@ -1,5 +1,6 @@
-- Hook style: try question or contrast hooks (highest relative engagement) instead of top3/curiosity used recently.
-- Avoid repeating "static vs motion" or "captions ignored" angles; they've appeared twice with low response.
-- Keep skip rate low: front-load visual motion + a clear pain point in first 2 seconds (e.g., "Your ad pauses the scroll because it moves").
-- Posts must read like a developer sharing a real build, not an ad — show code snippet or timeline, not promises.
-- Use national hashtags only (#SmallBusinessIndia #AIAdvertising #DigitalMarketingIndia).
+- Rotate to **top3** or **contrast** hooks (question underperforms per reach)
+- First 3 seconds must stop scroll: open with a visible pain point or bold statement, no generic intros
+- Show developer at work (code, design tool, terminal) — not stock images — so posts read as real work
+- For website posts: include 'pay after approval' and 'DM for a free 3-fix site check' (allowed only here)
+- Avoid niche/region language; use 2–3 varied Indian business examples per post
+- Do not promise speed, rankings, or revenue

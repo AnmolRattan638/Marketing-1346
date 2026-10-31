@@ -1,46 +1,36 @@
 {
-  "date": "2026-10-30",
-  "stage": "brand new under 100 followers",
+  "date": "2026-10-31",
+  "stage": "Brand new under 100 followers across all platforms (10 IG, 2 LI, 1 BS)",
   "followers": 10,
-  "summary": "Animated ads reels lose 77% viewers in first 3 seconds; last 4 posts got zero engagement. Bio incorrectly niches to Himachal/hotels and promises 24hr delivery.",
-  "guidance": "- Hook style: try question or contrast hooks (highest relative engagement) instead of top3/curiosity used recently.\n- Avoid repeating \"static vs motion\" or \"captions ignored\" angles; they've appeared twice with low response.\n- Keep skip rate low: front-load visual motion + a clear pain point in first 2 seconds (e.g., \"Your ad pauses the scroll because it moves\").\n- Posts must read like a developer sharing a real build, not an ad — show code snippet or timeline, not promises.\n- Use national hashtags only (#SmallBusinessIndia #AIAdvertising #DigitalMarketingIndia).",
+  "summary": "Account is brand new with minimal engagement. Instagram bio violates brand rules: targets specific niches (hotels, cafes, gyms, homestays) and region (Himachal), states 'ready in 24 hrs' timeframe, and offers free site check permanently instead of only in website posts. Reels lose 77% viewers in first 3 seconds — hook failing.",
+  "guidance": "- Rotate to **top3** or **contrast** hooks (question underperforms per reach)\n- First 3 seconds must stop scroll: open with a visible pain point or bold statement, no generic intros\n- Show developer at work (code, design tool, terminal) — not stock images — so posts read as real work\n- For website posts: include 'pay after approval' and 'DM for a free 3-fix site check' (allowed only here)\n- Avoid niche/region language; use 2–3 varied Indian business examples per post\n- Do not promise speed, rankings, or revenue",
   "instructions": {
-    "research": "Find 3 Indian small businesses (different cities/industries) running static image ads on Instagram; note their ad format and engagement clues.",
-    "analysis": "Compare the two past animated_ads posts (static-vs-motion, pov-feed) — list exact hook, first 3 seconds visual, and engagement metrics.",
-    "writer": "Draft a question-hook post for animated ads: open with a relatable pain point (e.g., 'Ever boost a post and hear crickets?'), explain how motion grabs attention in feed, end with 'pay after approval' DM invite.",
-    "image": "Create a split-screen static vs animated ad mockup (generic product, no brand) showing motion blur effect; keep it clean, code-editor background visible.",
-    "video": "Record a 15-second screen capture of you animating a simple banner in After Effects/Canva — no narration, just workflow; caption with the same question hook."
+    "research": "List 5 common website trust gaps for small businesses across India (e.g., no professional URL, broken contact forms, outdated info, no mobile view, missing service details) — keep industry-agnostic.",
+    "analysis": "Review the 2 previous website posts (1.38x avg): both used top3/contrast hooks. Note which phrasing got any saves/shares. Avoid repeating '24 hrs' or 'Rs 1499' — not in price_note.",
+    "writer": "Write a top3 or contrast hook post about why a professional website builds trust vs. only a social bio. Mention 2–3 varied business types (e.g., coaching centre, salon, D2C brand). End with: 'Pay after you approve. DM me — I’ll spot 3 things to fix on your current site.' No price, no timeline.",
+    "image": "Capture a real screenshot of your code editor or design file (blurred client data) with a caption like 'Building a clean service page for a coaching centre in Jaipur — mobile-first.' Shows actual work, not a mockup.",
+    "video": "If making a reel: first 3 seconds show you typing a component or fixing a layout bug. Overlay text: '3 reasons a bio link isn’t enough.' No talking head. Keep under 30s."
   },
   "manual_tips": [
-    "Update Instagram bio to remove niche/region references, 24hr claim, and free offer; replace with national, service-agnostic description.",
-    "Comment thoughtfully on 5 posts from Indian small business pages (cafes, gyms, clinics) about their ad struggles — no self-promo.",
-    "Share today's animated ads post to relevant LinkedIn groups for freelancers/agencies with a brief insight, not a pitch."
+    "Update Instagram bio to: 'Websites for small businesses across India. Pay after approval. DM for a free 3-fix site check (website posts only).' Remove niches, region, price, and 24-hr claim.",
+    "Comment thoughtfully on 5–10 posts from Indian small business owners (any industry) — ask about their online presence, don’t pitch.",
+    "Publish today’s website post with the strongest top3/contrast hook and the real-work image/video."
   ],
   "weak_signals": [
-    {
-      "id": "zero_engagement_streak",
-      "platform": "instagram",
-      "detail": "the last 4 settled posts got zero likes, comments, shares and saves"
-    },
-    {
-      "id": "follower_stall",
-      "platform": "instagram",
-      "detail": "4 posts in 7 days and followers changed by +0"
-    },
     {
       "id": "high_skip_rate",
       "platform": "instagram",
       "detail": "reels lose 77% of viewers in the first 3 seconds across 1 reels: the hook is not stopping the scroll"
     },
     {
-      "id": "weak_service",
+      "id": "weak_hook_style",
       "platform": "instagram",
-      "detail": "by service, 'animated_ads' earns 0% of what 'lead_gen' earns per person reached"
+      "detail": "by hook style, 'question' earns 31% of what 'top3' earns per person reached"
     },
     {
       "id": "follower_stall",
       "platform": "bluesky",
-      "detail": "5 posts in 7 days and followers changed by +0"
+      "detail": "6 posts in 7 days and followers changed by +0"
     }
   ]
 }

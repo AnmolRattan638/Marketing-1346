@@ -1,0 +1,152 @@
+{
+  "id": "2026-10-31-bb7809",
+  "date": "2026-10-31",
+  "created_at": "2026-10-31T09:04:43+00:00",
+  "status": "pending",
+  "service": "website",
+  "topic": "The 3 things a customer checks on your page before messaging",
+  "idea_id": "web-three-checks",
+  "problem_id": "repeatedly-answering-the-same-basic-ques",
+  "angle_type": "comparison",
+  "experiment": {
+    "mode": "exploit",
+    "variable": "hook_style",
+    "problem_id": "repeatedly-answering-the-same-basic-ques",
+    "angle_type": null,
+    "hook_style": "comparison"
+  },
+  "hooks": [
+    {
+      "style": "top3",
+      "text": "Shop owners: 3 page details that stop customers from ghosting you"
+    },
+    {
+      "style": "comparison",
+      "text": "Website info vs WhatsApp replies: which saves you more hours?"
+    },
+    {
+      "style": "myth",
+      "text": "Myth: Google listing guarantees calls. Fact: No contact info = lost leads"
+    }
+  ],
+  "chosen_hook": 1,
+  "hook_style": "comparison",
+  "posts": {
+    "instagram": "𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 𝗖𝗛𝗔𝗧𝗦 𝗩𝗦 𝗔 𝟭-𝗣𝗔𝗚𝗘 𝗪𝗘𝗕𝗦𝗜𝗧𝗘: 𝗪𝗛𝗜𝗖𝗛 𝗦𝗔𝗩𝗘𝗦 𝗠𝗢𝗥𝗘 𝗧𝗜𝗠𝗘?\n\n→ Har customer ko baar‑baar 𝗣𝗥𝗜𝗖𝗜𝗡𝗚 aur service details bhejna band kijiye.\n→ Page par clear rates aur 𝗟𝗢𝗖𝗔𝗧𝗜𝗢𝗡 dekh kar log seedha enquire karte hain.\n→ Clinic, salon ya coaching centre: repetitive messages aane kam hote hain.\n\nDM 𝗦𝗜𝗧𝗘 for a free quick look. You pay only after you approve the work.\n\n#SmallBusinessIndia #IndianBusiness #LocalBusinessIndia #DigitalIndia #OnlinePresence",
+    "linkedin": "Sending your rate card via WhatsApp every day wastes more time than you realize.\n\nMost small‑business owners spend hours each week answering the same three questions: what you offer, how much it costs, and where you are located.\n\nPutting those three details on a single mobile page lets customers see the basics instantly and contact you only when they are ready to book.\n\nYou only pay after you approve the work.\n\nDM SITE for a quick review of your current setup and three easy improvements.",
+    "bluesky": "𝗠𝗔𝗡𝗨𝗔𝗟 𝗥𝗘𝗣𝗟𝗜𝗘𝗦 vs a simple 1-page site.\n\nTyping your rates ten times a day wastes hours. A clean page with services, pricing, and location helps customers decide faster.\n\nPay only after approval. DM 𝗦𝗜𝗧𝗘 for 3 quick fixes on your current page."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much do you charge for a website?",
+      "reply": "Hi! Packages range from INR 1,499 for a basic mobile page up to INR 3,599 for a multi-section setup, with domain setup at INR 800. You also pay only after you approve the work. What kind of business do you run, and what do you want visitors to do first (call, message on WhatsApp, or see a rate list)?"
+    },
+    {
+      "if_they_say": "Do you make websites for my type of business?",
+      "reply": "Yes, I build clean, fast pages for small businesses across India like clinics, salons, coaching centres, and local shops. The focus is always making your services, pricing, and contact button instantly clear on mobile. DM me what your customers ask you most often on chat, and I'll tell you how I'd lay it out."
+    },
+    {
+      "if_they_say": "I already have an Instagram page, why do I need a website?",
+      "reply": "Instagram is great for discovery, but customers still have to message you to ask basic things like your address, services, and pricing. A simple one-page site gives them those answers in five seconds so you spend less time typing out the same replies. If you already have a link in bio or site, send it over and I will share three practical things to improve on it."
+    }
+  ],
+  "image": {
+    "prompt": "A cinematic shot of a sleek laptop with a dark glowing interface resting on a light wooden desk. A soft blue light radiates from the screen, showcasing organized rectangular modules and a prominent button. Soft natural daylight creates a shallow depth of field, leaving a large, calm, empty area across the lower portion of the frame. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-10-31.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "repeatedly-answering-the-same-basic-ques",
+      "angle_type": "comparison",
+      "style": "bold",
+      "headline": "Website info vs repetitive WhatsApp chats",
+      "highlight": [
+        "repetitive WhatsApp chats"
+      ],
+      "sub": "Hours wasted on typing.",
+      "chat": [],
+      "cta": "DM \"SITE\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "bright-desk"
+  },
+  "carousel": null,
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Instagram caption contains prohibited profession hashtags (#WebsiteDesign, #FreelanceDeveloper).",
+      "Instagram wording \"free check\" should align with allowed phrasing (free quick look)."
+    ],
+    "revised": {
+      "instagram": "**WHATSAPP CHATS VS A 1-PAGE WEBSITE: WHICH SAVES MORE TIME?**\n\n→ Har customer ko baar‑baar **PRICING** aur service details bhejna band kijiye.\n→ Page par clear rates aur **LOCATION** dekh kar log seedha enquire karte hain.\n→ Clinic, salon ya coaching centre: repetitive messages aane kam hote hain.\n\nDM **SITE** for a free quick look. You pay only after you approve the work.\n\n#SmallBusinessIndia #IndianBusiness #LocalBusinessIndia #DigitalIndia #OnlinePresence",
+      "linkedin": "Sending your rate card via WhatsApp every day wastes more time than you realize.\n\nMost small‑business owners spend hours each week answering the same three questions: what you offer, how much it costs, and where you are located.\n\nPutting those three details on a single mobile page lets customers see the basics instantly and contact you only when they are ready to book.\n\nYou only pay after you approve the work.\n\nDM SITE for a quick review of your current setup and three easy improvements.",
+      "bluesky": "**MANUAL REPLIES** vs a simple 1-page site.\n\nTyping your rates ten times a day wastes hours. A clean page with services, pricing, and location helps customers decide faster.\n\nPay only after approval. DM **SITE** for 3 quick fixes on your current page."
+    }
+  },
+  "ad_score": 9,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "FAILED google:gemma-4-26b-a4b-it (ProviderDown)",
+      "FAILED google:gemini-3.8-flash (ProviderDown)",
+      "FAILED gemma: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.7-flash (ProviderDown)",
+      "FAILED gemini: all its models",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "google:gemini-3.8-flash",
+      "google:gemma-4-26b-a4b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 102.5,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "ProviderDown",
+        "seconds": 244.5,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 244.1,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "ProviderDown",
+        "seconds": 243.8,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 9.4,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 136.6,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 130.1,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

@@ -205,7 +205,7 @@ def _text_slide(slide, n, total, source=None, hook=None, picture=None, word=None
 def _cta_slide(slide, n, total, hook=None):
     im = _backdrop(n, total, hook)
     d = ImageDraw.Draw(im)
-    f, W, H = cards.font, cards.W, cards.H
+    f, W = cards.font, cards.W
     d.text((W // 2, 430), "THE NEXT STEP", font=f("SemiBold", 30), fill=cards.MUTED, anchor="mm")
     lines = diagrams._wrap(d, slide["body"] or "Interested? Send a message to enquire.", f("ExtraBold", 62), W - 2 * M - 40)[:3]
     y = 520

@@ -1,6 +1,6 @@
 """Offline test of the 'tap after the reminder does nothing' fix: GitHub runs scheduled workflows only every few hours, so a chain of follow-up runs now keeps
 listening for the tap. The reminder no longer promises a timing, and a draft counts as waiting only while Telegram still delivers its button."""
-import datetime as dt, json, pathlib, re, shutil, sys, tempfile, types
+import datetime as dt, pathlib, re, shutil, sys, tempfile, types
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 import yaml
 from src import config, process_approvals as pa

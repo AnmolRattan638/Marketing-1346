@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-      - run: pip install -r requirements.txt pyflakes
+      - run: pip install -r requirements.txt pyflakes pyyaml==6.0.3     # pyyaml: relay_test parses the workflows
       - name: Lint (pyflakes)
         run: python -m pyflakes src tests
       - name: Offline tests (no secrets, no network)

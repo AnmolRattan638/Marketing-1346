@@ -6,6 +6,8 @@ import datetime as dt
 import pathlib
 import re
 
+from PIL import Image, ImageChops, ImageDraw, ImageFilter
+
 from . import config, diagrams
 from .agents import cards, image
 
@@ -20,6 +22,74 @@ def _accent_for(style_id):
         if v.get("id") == style_id and v.get("accent_rgb"):
             return v["accent_rgb"]
     return None
+
+
+def _hook_image(hook_path):
+    """The day's hook image, opened once for the backdrops. None when it is missing, so the slides still render."""
+    try:
+        return Image.open(config.ROOT / hook_path).convert("RGB")
+    except Exception:
+        return None
+
+
+def _mix(a, b, t):
+    return tuple(int(a[i] * (1 - t) + b[i] * t) for i in range(3))
+
+
+def _backdrop(n, total, hook=None):
+    """A rich, never-flat background in the day's colour family. The hook photo is blurred and darkened (text smears away) and panned a little further on every slide, so swiping
+    feels like moving through one scene. A soft accent glow travels the same way, then a fine dot grid and a bottom shade keep it designed, not noisy. Text stays code-drawn on top."""
+    W, H = cards.W, cards.H
+    acc = cards.ACCENT
+    t = (n - 1) / max(total - 1, 1)
+    base = Image.new("RGB", (W, H), _mix(cards.BG, acc, 0.07))
+    if hook is not None:
+        zoom = 2.0
+        big = hook.resize((int(W * zoom), int(H * zoom)), Image.LANCZOS)
+        x = int((big.width - W) * (0.12 + 0.76 * t))
+        y = int((big.height - H) * (0.22 if n % 2 else 0.04))
+        crop = big.crop((x, y, x + W, y + H)).filter(ImageFilter.GaussianBlur(46))
+        crop = Image.eval(crop, lambda v: int(v * 0.55))
+        base = ImageChops.screen(base, crop)
+    ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    od = ImageDraw.Draw(ov)
+    cx, cy = int(W * (1.05 - 1.1 * t)), int(H * (0.18 + 0.55 * abs(0.5 - t) * 2))
+    od.ellipse([cx - 520, cy - 520, cx + 520, cy + 520], fill=acc + (70,))
+    od.ellipse([W - cx - 330, H - cy - 330, W - cx + 330, H - cy + 330], fill=acc + (34,))
+    ov = ov.filter(ImageFilter.GaussianBlur(120))
+    im = Image.alpha_composite(base.convert("RGBA"), ov)
+    dots = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    dd = ImageDraw.Draw(dots)
+    for gx in range(36, W, 54):
+        for gy in range(36, H, 54):
+            dd.ellipse([gx - 2, gy - 2, gx + 2, gy + 2], fill=(255, 255, 255, 20))
+    fade = Image.linear_gradient("L").resize((W, H))          # dots fade out towards the bottom
+    dots.putalpha(ImageChops.multiply(dots.getchannel("A"), ImageChops.invert(fade)))
+    im = Image.alpha_composite(im, dots)
+    shade = Image.linear_gradient("L").resize((W, H)).point(lambda v: int(v * 0.55))
+    black = Image.new("RGBA", (W, H), (0, 0, 0, 255))
+    black.putalpha(shade)
+    return Image.alpha_composite(im, black).convert("RGB")
+
+
+def _glass(im, box, radius=44):
+    """A frosted panel behind the text: keeps it readable on any background and gives the slide a card look. Returns the new ImageDraw."""
+    ov = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    od = ImageDraw.Draw(ov)
+    od.rounded_rectangle(box, radius=radius, fill=(8, 11, 20, 150), outline=cards.ACCENT + (90,), width=2)
+    x0, y0, x1, _ = box
+    od.rounded_rectangle([x0 + 40, y0, x0 + 40 + 120, y0 + 6], radius=3, fill=cards.ACCENT + (255,))   # accent tab on the top edge
+    merged = Image.alpha_composite(im.convert("RGBA"), ov).convert("RGB")
+    im.paste(merged)
+    return ImageDraw.Draw(im)
+
+
+def _ghost(im, text):
+    """A huge, faint slide number behind the content: depth without competing with the text."""
+    ov = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    ImageDraw.Draw(ov).text((cards.W - 40, cards.H - 150), text, font=cards.font("ExtraBold", 520), fill=cards.ACCENT + (26,), anchor="rs")
+    im.paste(Image.alpha_composite(im.convert("RGBA"), ov).convert("RGB"))
+    return ImageDraw.Draw(im)
 
 
 def _progress(d, n, total):
@@ -41,8 +111,9 @@ def _headline_size(text):
     return 88 if n <= 5 else 76 if n <= 9 else 64
 
 
-def _text_slide(slide, n, total, source=None):
-    im, d = cards._base()
+def _text_slide(slide, n, total, source=None, hook=None):
+    im = _backdrop(n, total, hook)
+    d = _ghost(im, f"{n:02d}")
     f, W = cards.font, cards.W
     label = LABEL.get(slide["role"])
     if label:
@@ -56,6 +127,8 @@ def _text_slide(slide, n, total, source=None):
     body = diagrams._wrap(d, slide["body"], f("Medium", 42), W - 2 * M)[:9]
     block = len(head) * int(size * 1.16) + 28 + len(body) * 60
     y = 190 + max(40, (cards.H - 230 - 190 - block) // 2)       # the text block sits in the middle of the free space
+    d = _glass(im, [M - 36, y - 56, W - M + 36, y + block + 40])
+    d.text((W - M, 111), f"{n} / {total}", font=f("SemiBold", 30), fill=cards.MUTED, anchor="rm")
     for ln in head:
         d.text((M, y), ln, font=f("ExtraBold", size), fill=cards.WHITE)
         y += int(size * 1.16)
@@ -69,8 +142,9 @@ def _text_slide(slide, n, total, source=None):
     return im
 
 
-def _cta_slide(slide, n, total):
-    im, d = cards._base()
+def _cta_slide(slide, n, total, hook=None):
+    im = _backdrop(n, total, hook)
+    d = ImageDraw.Draw(im)
     f, W, H = cards.font, cards.W, cards.H
     d.text((W // 2, 430), "THE NEXT STEP", font=f("SemiBold", 30), fill=cards.MUTED, anchor="mm")
     lines = diagrams._wrap(d, slide["body"] or "Interested? Send a message to enquire.", f("ExtraBold", 62), W - 2 * M - 40)[:3]
@@ -94,13 +168,14 @@ def render(car, focus, date, hook_path, style_id=None, fact=None):
     rels, alts, roles, record = [hook_path], [slides[0]["headline"]], ["hook"], [dict(slides[0])]
     body = slides[1:-1]
     total = len(slides) + (1 if car.get("diagram") else 0)
+    hook = _hook_image(hook_path)
     with cards.accent(_accent_for(style_id)):
         n = 1
         for s in body:
             n += 1
             show_src = fact["source_name"] if fact and fact["claim"].lower() in s["body"].lower() + " " + s["headline"].lower() else None
             path = config.MEDIA / f"{date}-s{n}.jpg"
-            _text_slide(s, n, total, show_src).save(path, "JPEG", quality=90, optimize=True)
+            _text_slide(s, n, total, show_src, hook).save(path, "JPEG", quality=90, optimize=True)
             rels.append(str(path.relative_to(config.ROOT)))
             alts.append(f"Slide {n} of {total}: {s['headline']}. {s['body']}"[:1000])
             roles.append(s["role"])
@@ -116,7 +191,7 @@ def render(car, focus, date, hook_path, style_id=None, fact=None):
         n += 1
         cta = slides[-1]
         path = config.MEDIA / f"{date}-s{n}.jpg"
-        _cta_slide(cta, n, total).save(path, "JPEG", quality=90, optimize=True)
+        _cta_slide(cta, n, total, hook).save(path, "JPEG", quality=90, optimize=True)
         rels.append(str(path.relative_to(config.ROOT)))
         alts.append(f"Slide {n} of {total}: {cta['headline']}. {cta['body']}"[:1000])
         roles.append("cta")

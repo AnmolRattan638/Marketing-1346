@@ -356,3 +356,14 @@ config.CAROUSEL = True
 config.MEDIA = real_media
 shutil.rmtree(media, ignore_errors=True)
 print("carousel test passed: fixed order, rotating tastes, facts-only 'X said', slides + Bluesky subset, multi-image publishing with fallback, Telegram album, full daily run, kill switch")
+
+# backdrops are never flat, work without a hook image, and change from slide to slide
+import tempfile
+from PIL import Image, ImageStat
+import src.carousel as cr
+bgs = [cr._backdrop(n, 6, cr._hook_image("data/media/2026-11-01.jpg") if pathlib.Path("data/media/2026-11-01.jpg").exists() else None) for n in (2, 3, 4)]
+assert all(sum(ImageStat.Stat(b).stddev) > 12 for b in bgs), "backdrop looks flat"
+assert bgs[0].tobytes() != bgs[1].tobytes() != bgs[2].tobytes()
+assert sum(ImageStat.Stat(cr._backdrop(2, 6, None)).stddev) > 8, "no-hook backdrop looks flat"
+assert cr._hook_image("data/media/does-not-exist.jpg") is None
+print("carousel backdrop tests ok")

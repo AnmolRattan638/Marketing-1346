@@ -110,5 +110,12 @@
     "topic": "The 3 things a customer checks on your page before messaging",
     "hook_style": "comparison",
     "status": "published"
+  },
+  {
+    "date": "2026-11-01",
+    "service": "lead_gen",
+    "topic": "The mistake of treating lead sourcing as part of your billable day.",
+    "hook_style": "comparison",
+    "status": "published"
   }
 ]

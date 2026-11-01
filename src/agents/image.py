@@ -248,6 +248,60 @@ def visuals_enabled():
     return os.getenv("IMAGE_VISUALS", "1") != "0"
 
 
+def slide_pictures_enabled():
+    return visuals_enabled() and os.getenv("SLIDE_PICTURES", "1") != "0"
+
+
+def slide_scene_prompt(slide, focus, variant=None):
+    """Ask Gemma for ONE scene that makes THIS slide's headline visible: a concrete subject doing the thing the headline says, in a rich environment, in today's visual family.
+    A problem slide shows the struggle, a solution slide shows the same situation calm and solved. The picture never contains words, so it never labels itself."""
+    role = slide.get("role")
+    mood = ("the struggle in the headline made visible: someone in the middle of the tedious, messy or stuck situation it describes, with the objects and clutter that go with it"
+            if role == "problem" else
+            "the relief in the headline made visible: the same kind of situation now calm, organised and working, with a clear glowing sign of progress and a person at ease")
+    refs = [r for r in (style().get("slide_reference_prompts") or []) if isinstance(r, str) and r.strip()]
+    ref_block = ("\nReference prompts to match for richness, composition and lighting (style only, never copy their subjects): " + " || ".join(r.strip()[:380] for r in refs[:4])) if refs else ""
+    look = look_text(variant, slide.get("headline", ""))
+    prompt = f"""Write ONE image-generation prompt (60-90 words) for a picture on a swipe-carousel slide. The slide text is added later in real fonts, so the picture contains no text.
+Slide headline: {slide.get('headline')} | Slide body: {slide.get('body')} | Service: {focus['name']}
+
+Show {mood}. Describe the foreground subject and its action (hands, objects, devices, a person seen from behind or in silhouette), then the surrounding environment and background, then the light.
+So the picture reads at a glance: a viewer should understand the headline from the picture alone, e.g. for "looking up contact details by hand": a freelancer at a laptop surrounded by many open browser windows, a messy spreadsheet and sticky notes, searching listing after listing.
+Composition: the main subject sits in the upper 55% of the frame; the lower 45% stays calm and dark because a text card goes there.
+{look}{ref_block}
+Write ONLY what is visible, in positive wording (do not use the words no, not, without, avoid, problem, solution). Do not mention signs, screens with readable words, labels, logos, watermarks or any text. No close-up faces, no real brands, no claims about real clients.
+NEVER describe a layout: no left/right halves, panels, sections, grids, collages, split screens or diagrams.
+Return ONLY the final prompt wrapped in <prompt></prompt> tags."""
+    for attempt in (0, 1):
+        ask = prompt if attempt == 0 else prompt + "\nYOUR LAST PROMPT WAS A LAYOUT OR TOO VAGUE. Describe ONE concrete scene with a clear subject, environment and light."
+        try:
+            text = clean_prompt(llm.gemma(ask), 1100)
+        except Exception as e:
+            print(f"[image] slide prompt failed: {e}")
+            return None
+        if len(text.split()) >= 20 and not LAYOUT_WORDS.search(text):
+            return enhance(text)
+        print(f"[image] slide prompt rejected (layout or too short): {text[:90]}")
+    return None
+
+
+def slide_picture(slide, focus, variant, out_path, errors):
+    """Write a picture for one problem/solution slide to out_path. -> {"prompt", "engine"}, or None when no prompt or engine worked (the slide then keeps the blurred hook background)."""
+    img_prompt = slide_scene_prompt(slide, focus, variant)
+    if not img_prompt:
+        errors.append("slide_prompt: none")
+        return None
+    for engine in _engines():
+        for _ in range(2):
+            try:
+                engine(img_prompt, out_path)
+                return {"prompt": img_prompt, "engine": engine.__name__.strip("_")}
+            except Exception as e:
+                print(f"[image] slide {engine.__name__} failed: {e}")
+                errors.append(f"{engine.__name__.strip('_')}: {str(e)[:110]}")
+    return None
+
+
 def _visual_card(plan, focus, spec, guidance, path, errors, variant=None):
     """AI picture + the hook, tag and DM pill in real fonts, 1080x1350, marked as AI-generated."""
     from . import cards

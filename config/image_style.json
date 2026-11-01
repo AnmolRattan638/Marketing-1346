@@ -63,5 +63,7 @@
         250
       ]
     }
-  ]
+  ],
+  "slide_reference_prompts": [],
+  "_slide_comment": "slide_reference_prompts: paste your favourite image prompts here (plain strings). Every problem/solution slide picture is written in their style: concrete subject, rich environment, lighting and colour. They are style examples only, never copied. Leave the list empty to use the built-in guidance."
 }

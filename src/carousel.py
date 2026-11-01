@@ -5,6 +5,7 @@ Instagram and LinkedIn get every slide; Bluesky allows 4 images, so it gets hook
 import datetime as dt
 import pathlib
 import re
+import tempfile
 
 from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
@@ -12,7 +13,8 @@ from . import config, diagrams
 from .agents import cards, image
 
 M = 84
-LABEL = {"problem": "THE PROBLEM", "solution": "THE FIX"}
+WORD = {"problem": "PROBLEM", "solution": "SOLUTION"}      # shown once, as a huge frosted word, on the FIRST slide of each part only
+PICTURE_ROLES = ("problem", "solution")
 BODY = (214, 220, 232)
 TRACK = (56, 64, 84)
 
@@ -22,6 +24,32 @@ def _accent_for(style_id):
         if v.get("id") == style_id and v.get("accent_rgb"):
             return v["accent_rgb"]
     return None
+
+
+def _variant_for(style_id):
+    for v in image.style().get("variants") or []:
+        if v.get("id") == style_id:
+            return v
+    return None
+
+
+def _slide_picture(slide, focus, variant, errors):
+    """A generated scene for one problem/solution slide, or None (the slide then keeps the blurred hook background). Never raises."""
+    if not image.slide_pictures_enabled():
+        return None, None
+    try:
+        with tempfile.TemporaryDirectory() as td:
+            out = pathlib.Path(td) / "slide.jpg"
+            info = image.slide_picture(slide, focus, variant, out, errors)
+            if not info:
+                return None, None
+            pic = Image.open(out)
+            pic.load()
+            return pic, info
+    except Exception as e:
+        print(f"[carousel] slide picture failed: {e}")
+        errors.append(f"slide_picture: {str(e)[:110]}")
+        return None, None
 
 
 def _hook_image(hook_path):
@@ -36,12 +64,21 @@ def _mix(a, b, t):
     return tuple(int(a[i] * (1 - t) + b[i] * t) for i in range(3))
 
 
-def _backdrop(n, total, hook=None):
+def _backdrop(n, total, hook=None, picture=None):
     """A rich, never-flat background in the day's colour family. The hook photo is blurred and darkened (text smears away) and panned a little further on every slide, so swiping
     feels like moving through one scene. A soft accent glow travels the same way, then a fine dot grid and a bottom shade keep it designed, not noisy. Text stays code-drawn on top."""
     W, H = cards.W, cards.H
     acc = cards.ACCENT
     t = (n - 1) / max(total - 1, 1)
+    if picture is not None:                                  # a generated scene: full bleed, vivid on top, shaded towards the text card at the bottom
+        im = picture.convert("RGB").resize((W, H), Image.LANCZOS)
+        glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        ImageDraw.Draw(glow).ellipse([W // 2 - 600, -380, W // 2 + 600, 520], fill=acc + (46,))
+        im = Image.alpha_composite(im.convert("RGBA"), glow.filter(ImageFilter.GaussianBlur(130)))
+        shade = Image.linear_gradient("L").resize((W, H)).point(lambda v: int(max(0, v - 70) * 1.15) if v > 70 else 0)
+        black = Image.new("RGBA", (W, H), (4, 7, 14, 255))
+        black.putalpha(shade)
+        return Image.alpha_composite(im, black).convert("RGB")
     base = Image.new("RGB", (W, H), _mix(cards.BG, acc, 0.07))
     if hook is not None:
         zoom = 2.0
@@ -72,11 +109,11 @@ def _backdrop(n, total, hook=None):
     return Image.alpha_composite(im, black).convert("RGB")
 
 
-def _glass(im, box, radius=44):
+def _glass(im, box, radius=44, alpha=150):
     """A frosted panel behind the text: keeps it readable on any background and gives the slide a card look. Returns the new ImageDraw."""
     ov = Image.new("RGBA", im.size, (0, 0, 0, 0))
     od = ImageDraw.Draw(ov)
-    od.rounded_rectangle(box, radius=radius, fill=(8, 11, 20, 150), outline=cards.ACCENT + (90,), width=2)
+    od.rounded_rectangle(box, radius=radius, fill=(8, 11, 20, alpha), outline=cards.ACCENT + (90,), width=2)
     x0, y0, x1, _ = box
     od.rounded_rectangle([x0 + 40, y0, x0 + 40 + 120, y0 + 6], radius=3, fill=cards.ACCENT + (255,))   # accent tab on the top edge
     merged = Image.alpha_composite(im.convert("RGBA"), ov).convert("RGB")
@@ -89,6 +126,26 @@ def _ghost(im, text):
     ov = Image.new("RGBA", im.size, (0, 0, 0, 0))
     ImageDraw.Draw(ov).text((cards.W - 40, cards.H - 150), text, font=cards.font("ExtraBold", 520), fill=cards.ACCENT + (26,), anchor="rs")
     im.paste(Image.alpha_composite(im.convert("RGBA"), ov).convert("RGB"))
+    return ImageDraw.Draw(im)
+
+
+def _ghost_word(im, word):
+    """PROBLEM / SOLUTION as one huge frosted word across the upper part of the slide (frosted white glass, soft edge)."""
+    W = cards.W
+    size = 300
+    while size > 120 and cards.font("ExtraBold", size).getlength(word) > W - 70:
+        size -= 6
+    fnt = cards.font("ExtraBold", size)
+    mask = Image.new("L", im.size, 0)
+    ImageDraw.Draw(mask).text((W // 2, 330), word, font=fnt, fill=255, anchor="mm")
+    soft = mask.filter(ImageFilter.GaussianBlur(2))
+    frost = Image.new("RGBA", im.size, (255, 255, 255, 0))
+    frost.putalpha(soft.point(lambda v: int(v * 0.24)))                           # translucent white body
+    rim = ImageChops.subtract(soft, mask.filter(ImageFilter.GaussianBlur(7)))     # a thin bright rim: the frosted-glass edge
+    rimlay = Image.new("RGBA", im.size, (255, 255, 255, 0))
+    rimlay.putalpha(rim.point(lambda v: min(255, int(v * 1.6))))
+    merged = Image.alpha_composite(Image.alpha_composite(im.convert("RGBA"), frost), rimlay).convert("RGB")
+    im.paste(merged)
     return ImageDraw.Draw(im)
 
 
@@ -111,33 +168,36 @@ def _headline_size(text):
     return 88 if n <= 5 else 76 if n <= 9 else 64
 
 
-def _text_slide(slide, n, total, source=None, hook=None):
-    im = _backdrop(n, total, hook)
-    d = _ghost(im, f"{n:02d}")
-    f, W = cards.font, cards.W
-    label = LABEL.get(slide["role"])
-    if label:
-        fnt = f("SemiBold", 28)
-        w = int(d.textlength(label, font=fnt)) + 56
-        d.rounded_rectangle([M, 84, M + w, 84 + 54], radius=27, outline=cards.ACCENT, width=3)
-        d.text((M + 28, 84 + 27), label, font=fnt, fill=cards.ACCENT, anchor="lm")
-    d.text((W - M, 111), f"{n} / {total}", font=f("SemiBold", 30), fill=cards.MUTED, anchor="rm")
+def _text_slide(slide, n, total, source=None, hook=None, picture=None, word=None):
+    im = _backdrop(n, total, hook, picture)
+    d = _ghost_word(im, word) if word else _ghost(im, f"{n:02d}")
+    f, W, H = cards.font, cards.W, cards.H
     size = _headline_size(slide["headline"])
+    bsize, blh = 42, 60
+    anchored = picture is not None or bool(word)            # the picture / the big frosted word needs room above the text card
+    if picture is not None:
+        size, bsize, blh = max(52, size - 16), 38, 54
     head = diagrams._wrap(d, slide["headline"], f("ExtraBold", size), W - 2 * M)[:5]
-    body = diagrams._wrap(d, slide["body"], f("Medium", 42), W - 2 * M)[:9]
-    block = len(head) * int(size * 1.16) + 28 + len(body) * 60
-    y = 190 + max(40, (cards.H - 230 - 190 - block) // 2)       # the text block sits in the middle of the free space
-    d = _glass(im, [M - 36, y - 56, W - M + 36, y + block + 40])
+    body = diagrams._wrap(d, slide["body"], f("Medium", bsize), W - 2 * M)[:9]
+    block = len(head) * int(size * 1.16) + 28 + len(body) * blh
+    if anchored:                                             # card sits at the bottom, just above the progress bar
+        bottom = H - 188
+        top = bottom - block - 112
+        y = top + 64
+        d = _glass(im, [M - 36, top, W - M + 36, bottom], alpha=205 if picture is not None else 150)
+    else:
+        y = 190 + max(40, (H - 230 - 190 - block) // 2)       # the text block sits in the middle of the free space
+        d = _glass(im, [M - 36, y - 56, W - M + 36, y + block + 40])
     d.text((W - M, 111), f"{n} / {total}", font=f("SemiBold", 30), fill=cards.MUTED, anchor="rm")
     for ln in head:
         d.text((M, y), ln, font=f("ExtraBold", size), fill=cards.WHITE)
         y += int(size * 1.16)
     y += 28
     for ln in body:
-        d.text((M, y), ln, font=f("Medium", 42), fill=BODY)
-        y += 60
+        d.text((M, y), ln, font=f("Medium", bsize), fill=BODY)
+        y += blh
     if source:
-        d.text((M, cards.H - 150), f"Source: {source}", font=f("Medium", 27), fill=cards.MUTED, anchor="ls")
+        d.text((M, H - 150), f"Source: {source}", font=f("Medium", 27), fill=cards.MUTED, anchor="ls")
     _progress(d, n, total)
     return im
 
@@ -169,13 +229,19 @@ def render(car, focus, date, hook_path, style_id=None, fact=None):
     body = slides[1:-1]
     total = len(slides) + (1 if car.get("diagram") else 0)
     hook = _hook_image(hook_path)
+    variant, errors, scenes, seen = _variant_for(style_id), [], {}, set()
     with cards.accent(_accent_for(style_id)):
         n = 1
         for s in body:
             n += 1
+            word = WORD.get(s["role"]) if s["role"] not in seen else None    # the label appears once per part, on its first slide
+            seen.add(s["role"])
+            pic, info = _slide_picture(s, focus, variant, errors) if s["role"] in PICTURE_ROLES else (None, None)
+            if info:
+                scenes[n] = info["prompt"]
             show_src = fact["source_name"] if fact and fact["claim"].lower() in s["body"].lower() + " " + s["headline"].lower() else None
             path = config.MEDIA / f"{date}-s{n}.jpg"
-            _text_slide(s, n, total, show_src, hook).save(path, "JPEG", quality=90, optimize=True)
+            _text_slide(s, n, total, show_src, hook, pic, word).save(path, "JPEG", quality=90, optimize=True)
             rels.append(str(path.relative_to(config.ROOT)))
             alts.append(f"Slide {n} of {total}: {s['headline']}. {s['body']}"[:1000])
             roles.append(s["role"])
@@ -198,7 +264,7 @@ def render(car, focus, date, hook_path, style_id=None, fact=None):
         record.append(dict(cta))
     first = lambda r: roles.index(r)
     return {"flavor": car["flavor"], "fact_id": car.get("fact_id"), "checked": car.get("checked", False), "paths": rels, "alts": alts, "roles": roles,
-            "bluesky": [0, first("problem"), first("solution"), len(roles) - 1], "slides": record}
+            "bluesky": [0, first("problem"), first("solution"), len(roles) - 1], "slides": record, "scene_prompts": scenes, "picture_errors": errors[-4:]}
 
 
 def prune_media(today, days=30):

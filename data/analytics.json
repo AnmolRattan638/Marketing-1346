@@ -12,7 +12,7 @@
         "impressions": null,
         "reach": null,
         "views": null,
-        "likes": 0,
+        "likes": 1,
         "comments": 1,
         "shares": 0,
         "saves": null,
@@ -38,9 +38,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 3,
-        "reach": 1,
-        "views": 3,
+        "impressions": 21,
+        "reach": 4,
+        "views": 21,
         "likes": 1,
         "comments": 0,
         "shares": 0,
@@ -502,9 +502,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 259,
-        "reach": 86,
-        "views": 259,
+        "impressions": 266,
+        "reach": 88,
+        "views": 266,
         "likes": 6,
         "comments": 0,
         "shares": 0,
@@ -903,17 +903,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 153,
-        "reach": 103,
-        "views": 153,
+        "impressions": 154,
+        "reach": 104,
+        "views": 154,
         "likes": 8,
         "comments": 2,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 72.3,
-        "avg_watch_s": 5.828,
+        "skip_rate": 71.7,
+        "avg_watch_s": 6.074,
         "duration_s": 40
       },
       "matched": null
@@ -1172,5 +1172,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-01T13:26:47+00:00"
+  "updated_at": "2026-11-01T22:03:41+00:00"
 }

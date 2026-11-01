@@ -60,3 +60,7 @@ def voice():
 
 # Carousel posts (hook -> problem -> solution -> CTA slides). Set the repository variable CAROUSEL to 0 to go back to one image per post.
 CAROUSEL = os.getenv("CAROUSEL", "1").strip() != "0"
+# Virality hint: the strategist reads the predictor's report and can ask for ONE rewrite (VIRALITY_REVIEW=0 keeps the report but never rewrites);
+# VIRALITY_LLM=0 keeps the predictor fully offline (no Groq calls).
+VIRALITY_REVIEW = os.getenv("VIRALITY_REVIEW", "1").strip() != "0"
+VIRALITY_LLM = os.getenv("VIRALITY_LLM", "1").strip() != "0"

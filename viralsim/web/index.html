@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ViralSim</title>
+<style>
+:root{--bg:#fff;--fg:#1a1a1a;--mut:#666;--card:#f5f5f7;--acc:#5b4bdb;--bad:#c0392b;--good:#1e8e5a}
+@media(prefers-color-scheme:dark){:root{--bg:#141416;--fg:#ececec;--mut:#9a9aa3;--card:#202024;--acc:#8f84ff;--bad:#ff7b6b;--good:#5fd39a}}
+body{font:16px/1.5 system-ui,sans-serif;background:var(--bg);color:var(--fg);max-width:860px;margin:0 auto;padding:20px}
+textarea,input,select{width:100%;box-sizing:border-box;padding:10px;border-radius:8px;border:1px solid var(--mut);background:var(--card);color:var(--fg);font:inherit}
+button{background:var(--acc);color:#fff;border:0;border-radius:8px;padding:10px 18px;font:inherit;cursor:pointer;margin:8px 8px 8px 0}
+.card{background:var(--card);border-radius:12px;padding:16px;margin:14px 0}.big{font-size:56px;font-weight:700;color:var(--acc)}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.mut{color:var(--mut);font-size:14px}
+.bad{color:var(--bad)}.good{color:var(--good)}.bar{height:10px;background:var(--acc);border-radius:5px}
+</style></head><body>
+<h1>ViralSim</h1><p class="mut">Forecast how a post spreads before you publish. Estimates, not guarantees.</p>
+<textarea id="t" rows="5" placeholder="Paste your post…"></textarea>
+<div class="row"><label>Followers<input id="f" type="number" value="5000"></label><label>Monthly reach<input id="r" type="number" value="20000"></label>
+<label>Posts / month<input id="p" type="number" value="12"></label></div>
+<button onclick="go()">Analyze</button><button onclick="ab()" title="Uses the post above as A and the box below as B">A/B vs variant B</button>
+<textarea id="b" rows="3" placeholder="Variant B (optional, for A/B)"></textarea>
+<div id="out"></div>
+<script>
+const $=id=>document.getElementById(id),n=x=>Math.round(x).toLocaleString();
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const creator=()=>({followers:+$('f').value,monthly_reach:+$('r').value,posting_freq:+$('p').value});
+async function post(u,b){const r=await fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});const j=await r.json();if(!r.ok)throw new Error(j.error||r.status);return j}
+async function go(){$('out').innerHTML='<p class="mut">Simulating…</p>';try{const r=await post('/api/analyze',{text:$('t').value,creator:creator()}),f=r.forecast;
+let h=`<div class="card"><div class="big">${r.viral_score}<span class="mut">/100</span></div>
+<div class="row"><div>Reach p10–p90<br><b>${n(f.reach_p10)} – ${n(f.reach_p90)}</b></div><div>Breakout prob.<br><b>${(f.viral_probability*100).toFixed(1)}%</b></div><div>Backlash risk<br><b class="${r.risk.level=='none'?'good':'bad'}">${esc(r.risk.level)}</b></div></div></div>`;
+const s=r.suggestions;if(s){h+='<div class="card"><b>What to change</b><ul>'+s.counterfactual.map(x=>`<li><b>${esc(x.title)}</b> (+${x.lift_pct}% reach): ${esc(x.hint)}</li>`).join('')+s.text_edits.slice(0,4).map(x=>`<li>${esc(x.title)}: ${esc(x.description)}</li>`).join('')+'</ul></div>'}
+h+='<div class="card mut">'+r.caveats.map(esc).join('<br>')+'</div>';$('out').innerHTML=h}catch(e){$('out').innerHTML='<p class="bad">'+esc(e.message)+'</p>'}}
+async function ab(){$('out').innerHTML='<p class="mut">Simulating…</p>';try{const r=await post('/api/ab',{a:$('t').value,b:$('b').value,creator:creator()});
+$('out').innerHTML=`<div class="card"><div class="big">${esc(r.winner)}</div><p>P(B beats A) = ${(r.p_b_beats_a*100).toFixed(1)}% · decisive: ${r.decisive?'yes':'no (too close to call)'}</p><p class="mut">Mean reach A ${n(r.mean_reach.A)} · B ${n(r.mean_reach.B)}</p></div>`}catch(e){$('out').innerHTML='<p class="bad">'+esc(e.message)+'</p>'}}
+</script></body></html>

@@ -47,6 +47,8 @@ jobs:
       GEMMA_MODEL: ${{ vars.GEMMA_MODEL }}
       GROQ_MODEL: ${{ vars.GROQ_MODEL }}
       GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+      VIRALITY_REVIEW: ${{ vars.VIRALITY_REVIEW }}   # 0 = keep the virality report but never let it trigger the rewrite
+      VIRALITY_LLM: ${{ vars.VIRALITY_LLM }}         # 0 = predictor fully offline (no Groq calls)
       CAROUSEL: ${{ vars.CAROUSEL }}            # set the repository variable to 0 to go back to one image per post
       GEMINI_IMAGE_MODEL: ${{ vars.GEMINI_IMAGE_MODEL }}
     steps:

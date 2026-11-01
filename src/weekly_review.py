@@ -72,6 +72,11 @@ def build(now=None):
             plan.append(f"- {s['id']}: {learning.label(exp)}")
     if plan:
         lines.append("\nNEXT EXPERIMENTS (planned; they may change when new numbers arrive)\n" + "\n".join(plan[:6]))
+    try:
+        from . import virality
+        lines.append("\nVIRALITY HINT: DOES IT MATCH REAL REACH?\n" + "\n".join(virality.review_lines()))
+    except Exception as e:
+        lines.append(f"\nVirality track record unavailable: {str(e)[:120]}")
     gaps = data_gaps(learning._published(), res, now)
     if gaps:
         lines.append("\nMISSING NUMBERS (send the screenshot to this chat; with the caption shown it is read straight away, otherwise the bot asks what it is)\n" + "\n".join(f"- {g}" for g in gaps))

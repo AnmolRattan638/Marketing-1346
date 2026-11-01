@@ -13,6 +13,12 @@ def main():
         learning.update_results(data)        # learning loop: freeze each post's 48h / 7d numbers (never breaks the sync)
     except Exception as e:
         print(f"[learning] results not updated: {e}")
+    try:
+        from . import virality
+        live = virality.live_forecast()       # Hawkes fit on real Bluesky engagement times (advisory; never breaks the sync)
+        print(f"[virality] {sum(1 for v in live.values() if v.get('status') == 'ok')} of {len(live)} recent Bluesky posts had enough events to forecast")
+    except Exception as e:
+        print(f"[virality] live forecast skipped: {e}")
     text, signals = analytics.digest(data)
     print(f"{len(data['posts'])} posts, {len(signals)} weak signals")
     print(text)

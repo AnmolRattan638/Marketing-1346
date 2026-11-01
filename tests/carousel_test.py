@@ -345,6 +345,7 @@ state["carousel"] = "bad"
 run_daily.main()
 dr = config.load_json(dpath, {})
 assert dr["carousel"] is None and any("carousel skipped (single image instead)" in w for w in WARN)
+assert set((dr.get("virality") or {}).get("platforms", {})) == set(config.PLATFORMS) and not any(w.startswith("virality") for w in WARN)     # the advisory hint is saved on every draft
 assert any(e[0] == "photo" and e[2] == "hook prompt" for e in events) and not any(e[0] == "album" for e in events)
 assert learning._attrs(dr, "instagram", "image")["slides"] == 1
 
@@ -353,9 +354,82 @@ config.CAROUSEL = False
 run_daily.main()
 assert not any("STRICT ORDER" in p for p in seen) and config.load_json(dpath, {})["carousel"] is None and not any(e[0] == "album" for e in events) and not [w for w in WARN if "carousel" in w]
 config.CAROUSEL = True
+
+# ---- 11. virality report -> strategist -> AT MOST ONE rewrite (ad-score and virality reasons merged), Groq for the predictor, kill switches
+config.CAROUSEL = False
+writes, groq_prompts, vstate = [], [], {}
+real_writer_run, real_groq = run_daily.writer.run, groq
+def counted_writer(plan, focus, brand, voice, guidance, rewrite_notes="", **kw):
+    writes.append(rewrite_notes)
+    out = real_writer_run(plan, focus, brand, voice, guidance, rewrite_notes, **kw)
+    return {k: (v + " v2" if rewrite_notes and isinstance(v, str) else v) for k, v in out.items()}      # a real rewrite changes the text
+run_daily.writer.run = counted_writer
+def groq3(p, s="", **k):
+    if "A virality predictor analysed" in p:
+        if vstate.get("boom"):
+            raise RuntimeError("strategist model down")
+        return json.dumps(vstate["vrev"])
+    if "Score how much each draft sounds like an advertisement" in p:
+        return json.dumps({"ad_score": vstate["ad"], "notes": "make it less salesy" if vstate["ad"] >= 7 else ""})
+    return real_groq(p, s, **k)
+llm.groq = groq3
+fix = {"rewrite": True, "reason": "weak first line", "changes": ["instagram: open with the one concrete moment the owner loses a customer"], "keep": "the DM keyword"}
+def scenario(ad, vrev, boom=False):
+    if dpath.exists():
+        dpath.unlink()
+    WARN.clear(); events.clear(); writes.clear()
+    vstate.update(ad=ad, vrev=vrev, boom=boom)
+    run_daily.main()
+    return config.load_json(dpath, {})
+dr = scenario(8, fix)                                                       # both reasons fire: still exactly one rewrite
+assert len(writes) == 2 and writes[0] == "", "the first draft + ONE rewrite is the whole budget"
+assert "make it less salesy" in writes[1] and "VIRALITY REPORT FIXES" in writes[1] and "concrete moment" in writes[1] and "the DM keyword" in writes[1], writes[1]
+r = dr["virality_review"]
+assert r["rewrote"] and r["reasons"] == ["it read like an ad", "the virality report named weak spots"] and r["changes"] == fix["changes"] and r["before"] and set(r["after"]) == set(r["before"])
+assert set(dr["virality"]["platforms"]) == set(config.PLATFORMS) and dr["virality"]["ab"] is None     # this fixture plan has a single hook, so there is nothing to A/B
+assert any("Rewritten ONCE" in e[1] for e in events if e[0] == "text") and not [w for w in WARN if w.startswith(("virality", "strategist.virality"))]
+dr = scenario(3, fix)                                                       # only the report asks: one rewrite
+assert len(writes) == 2 and "VIRALITY REPORT FIXES" in writes[1] and "salesy" not in writes[1] and dr["virality_review"]["reasons"] == ["the virality report named weak spots"]
+dr = scenario(8, {"rewrite": False, "reason": "fine", "changes": []})        # only the ad score asks
+assert len(writes) == 2 and "VIRALITY REPORT FIXES" not in writes[1] and dr["virality_review"]["reasons"] == ["it read like an ad"]
+dr = scenario(3, {"rewrite": False, "reason": "already good", "changes": []})  # nothing asks: the first draft stands, no rewrite call at all
+assert len(writes) == 1 and dr["virality_review"]["rewrote"] is False and any("No rewrite" in e[1] for e in events if e[0] == "text") and dr["virality"]
+dr = scenario(3, {"rewrite": True, "reason": "vague", "changes": []})        # 'rewrite' without a single concrete change is not a reason
+assert len(writes) == 1 and not dr["virality_review"]["rewrote"]
+dr = scenario(3, None, boom=True)                                           # strategist fails: warning, the draft still goes out, no rewrite
+assert len(writes) == 1 and any(w.startswith("strategist.virality") for w in WARN) and dr["status"] == "pending" and dr["virality"]
+config.VIRALITY_REVIEW = False                                              # kill switch: the report is kept, but it can never trigger a rewrite
+dr = scenario(3, fix)
+assert len(writes) == 1 and dr["virality"] and not dr["virality_review"]["rewrote"] and not any("A virality predictor analysed" in p for p in groq_prompts)
+config.VIRALITY_REVIEW = True
+
+# Groq runs the predictor's rubric scoring and backlash audit; its failures fall back to the offline rules without a warning, and the call budget holds
+os.environ["GROQ_API_KEY"] = "k"
+groq_calls = []
+def fake_groq(prompt, system="", model=None, temperature=0.6):
+    groq_calls.append(prompt)
+    if "Rubric" in prompt:
+        return json.dumps({"dims": {d: 6 for d in ("humor", "curiosity", "educational", "novelty", "controversy", "emotional_intensity", "relatability", "practical_value")}, "topics": ["business"], "entities": []})
+    return json.dumps({"issues": []})
+llm._groq = fake_groq
+dr = scenario(3, {"rewrite": False, "reason": "fine", "changes": []})
+assert {d["scorer"] for d in dr["virality"]["platforms"].values()} == {"llm"} and 6 <= len(groq_calls) <= 16 and not any(c.startswith("Content you just saw") for c in groq_calls), (len(groq_calls), dr["virality"]["platforms"]["instagram"]["scorer"])
+groq_calls.clear()
+config.VIRALITY_LLM = False                                                 # kill switch: fully offline
+dr = scenario(3, {"rewrite": False, "reason": "fine", "changes": []})
+assert not groq_calls and {d["scorer"] for d in dr["virality"]["platforms"].values()} == {"heuristic"}
+config.VIRALITY_LLM = True
+def dead_groq(*a, **k):
+    raise RuntimeError("groq 503")
+llm._groq = dead_groq
+dr = scenario(3, {"rewrite": False, "reason": "fine", "changes": []})        # Groq down: heuristic, nothing breaks
+assert {d["scorer"] for d in dr["virality"]["platforms"].values()} == {"heuristic"} and dr["status"] == "pending" and not [w for w in WARN if w.startswith("virality")]
+del os.environ["GROQ_API_KEY"]
+run_daily.writer.run, llm.groq = real_writer_run, real_groq
+config.CAROUSEL = True
 config.MEDIA = real_media
 shutil.rmtree(media, ignore_errors=True)
-print("carousel test passed: fixed order, rotating tastes, facts-only 'X said', slides + Bluesky subset, multi-image publishing with fallback, Telegram album, full daily run, kill switch")
+print("carousel test passed (incl. virality: one rewrite max, merged reasons, Groq, kill switches): fixed order, rotating tastes, facts-only 'X said', slides + Bluesky subset, multi-image publishing with fallback, Telegram album, full daily run, kill switch")
 
 # backdrops are never flat, work without a hook image, and change from slide to slide
 import tempfile

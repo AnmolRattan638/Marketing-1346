@@ -1,0 +1,181 @@
+{
+  "id": "2026-11-01-bd54e1",
+  "date": "2026-11-01",
+  "created_at": "2026-11-01T09:40:02+00:00",
+  "status": "pending",
+  "service": "lead_gen",
+  "topic": "The mistake of treating lead sourcing as part of your billable day.",
+  "idea_id": null,
+  "problem_id": "manual-lead-searching-exhaustion",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "exploit",
+    "variable": "hook_style",
+    "problem_id": "manual-lead-searching-exhaustion",
+    "angle_type": "mistake",
+    "hook_style": "comparison"
+  },
+  "hooks": [
+    {
+      "style": "comparison",
+      "text": "Myth: Searching for business contacts counts as billable working time."
+    },
+    {
+      "style": "myth",
+      "text": "Freelancers: Myth: More leads equal revenue. Fact: Quality beats quantity."
+    },
+    {
+      "style": "value",
+      "text": "Freelancers: Try this: Spend 15 mins prepping leads, reclaim 2 billable hours."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "comparison",
+  "posts": {
+    "instagram": "𝗦𝗘𝗔𝗥𝗖𝗛𝗜𝗡𝗚 𝗖𝗢𝗡𝗧𝗔𝗖𝗧𝗦 𝗜𝗦 𝗡𝗢𝗧 𝗕𝗜𝗟𝗟𝗔𝗕𝗟𝗘 𝗖𝗟𝗜𝗘𝗡𝗧 𝗪𝗢𝗥𝗞.\n\n→ Freelancers, agencies: manual hunting par 𝗕𝗜𝗟𝗟𝗔𝗕𝗟𝗘 time waste mat karo.\n→ Sheet data: business name, direct phone, 𝗥𝗘𝗩𝗜𝗘𝗪 𝗖𝗢𝗨𝗡𝗧, website check.\n→ Pitch whatever you sell instead of hunting. Pay after approval.\n\nDM 𝗟𝗘𝗔𝗗𝗦 to check if it fits your service.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+    "linkedin": "Finding local leads on Google shouldn’t eat up your billable hours.\n\nFreelancers and agency owners often spend their mornings searching maps instead of delivering work.\n\nManual prospecting can drain the energy needed for real deliverables, no matter if you offer video editing, design, SEO, or accounting.\n\nI have a workflow that pulls local businesses from Google Places into an Excel sheet, adding direct phone numbers, review counts, website checks, and newly opened dates.\n\nYou only pay after you review and approve the list.\n\nMessage me with LEADS to see if this matches what you sell.",
+    "bluesky": "𝗠𝗔𝗡𝗨𝗔𝗟 𝗦𝗢𝗨𝗥𝗖𝗜𝗡𝗚 is not billable client work. Freelancers and agencies: stop wasting mornings hunting Google Places. I pull active local contacts, review counts, and website checks into a clean sheet. DM LEADS and pitch whatever you sell."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does the lead sheet cost?",
+      "reply": "Thanks for asking! It depends on the volume and criteria you need. Quick question: what service do you sell, and which city or business type are you targeting? Also, you only pay after you review and approve the sheet."
+    },
+    {
+      "if_they_say": "Will this work for my specific service?",
+      "reply": "LocalSignal pulls active local businesses across India from Google Places, so it works for pitching almost any service to local owners. What do you sell, and who is your ideal client?"
+    },
+    {
+      "if_they_say": "Are the contact details verified?",
+      "reply": "The workflow pulls live data from Google Places, checking direct phone numbers, review counts, and website status. You inspect the sheet first, and you only pay after you approve the work."
+    }
+  ],
+  "image": {
+    "prompt": "A sleek laptop rests open on a dark coffee table beside a neat stack of paper invoices. The scene features a deep navy atmosphere with cinematic electric cyan rim lighting. Floating glass interface cards with glowing line charts and blank bars hover in soft perspective, casting a gentle neon reflection onto the wide, polished dark floor below. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-01.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "manual-lead-searching-exhaustion",
+      "angle_type": "mistake",
+      "style": "bold",
+      "headline": "Mistake: Sourcing leads vs. billable work",
+      "highlight": [
+        "Mistake"
+      ],
+      "sub": "Focus your billable hours on clients.",
+      "chat": [],
+      "cta": "DM \"LEADS\"",
+      "tag": "FOR FREELANCERS & AGENCIES"
+    },
+    "errors": [],
+    "style_id": "glass-ui"
+  },
+  "carousel": {
+    "flavor": "myth-bust",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-01.jpg",
+      "data/media/2026-11-01-s2.jpg",
+      "data/media/2026-11-01-s3.jpg",
+      "data/media/2026-11-01-s4.jpg",
+      "data/media/2026-11-01-s5.jpg",
+      "data/media/2026-11-01-s6.jpg"
+    ],
+    "alts": [
+      "Myth: Searching for business contacts counts as billable working time.",
+      "Slide 2 of 6: Looking up contact details is an administrative chore, not delivery.. When you spend your morning searching for local businesses to pitch, you use up your best energy on basic data entry. That time produces zero client output and earns nothing.",
+      "Slide 3 of 6: Treating setup tasks as productive work quietly caps your capacity.. Whether you offer video, bookkeeping, or consulting, your income depends on active outreach and actual client delivery. Sourcing contacts eats into the hours you should spend doing real work.",
+      "Slide 4 of 6: Separating setup tasks leaves your day open for pitching.. Treat contact gathering as raw preparation. When your contact list arrives ready in an Excel file, your work day starts directly with reaching out and talking to decision-makers.",
+      "Slide 5 of 6: Pre-qualified data puts relevant local businesses right in front of you.. We gather local business listings from Google Places and check their websites daily. You receive clean contact details, review counts, and active status so you can focus on outreach.",
+      "Slide 6 of 6: DM LEADS. If you sell services to local businesses and want a daily sheet of verified leads, send a message. We can discuss if this fits your current workflow."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      5
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Myth: Searching for business contacts counts as billable working time.",
+        "body": "Client work brings revenue. Sourcing contact details just delays it."
+      },
+      {
+        "role": "problem",
+        "headline": "Looking up contact details is an administrative chore, not delivery.",
+        "body": "When you spend your morning searching for local businesses to pitch, you use up your best energy on basic data entry. That time produces zero client output and earns nothing."
+      },
+      {
+        "role": "problem",
+        "headline": "Treating setup tasks as productive work quietly caps your capacity.",
+        "body": "Whether you offer video, bookkeeping, or consulting, your income depends on active outreach and actual client delivery. Sourcing contacts eats into the hours you should spend doing real work."
+      },
+      {
+        "role": "solution",
+        "headline": "Separating setup tasks leaves your day open for pitching.",
+        "body": "Treat contact gathering as raw preparation. When your contact list arrives ready in an Excel file, your work day starts directly with reaching out and talking to decision-makers."
+      },
+      {
+        "role": "solution",
+        "headline": "Pre-qualified data puts relevant local businesses right in front of you.",
+        "body": "We gather local business listings from Google Places and check their websites daily. You receive clean contact details, review counts, and active status so you can focus on outreach."
+      },
+      {
+        "role": "cta",
+        "headline": "DM LEADS",
+        "body": "If you sell services to local businesses and want a daily sheet of verified leads, send a message. We can discuss if this fits your current workflow."
+      }
+    ]
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "image",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**SEARCHING CONTACTS IS NOT BILLABLE CLIENT WORK.**\n\n→ Freelancers, agencies: manual hunting par **BILLABLE** time waste mat karo.\n→ Sheet data: business name, direct phone, **REVIEW COUNT**, website check.\n→ Pitch whatever you sell instead of hunting. Pay after approval.\n\nDM **LEADS** to check if it fits your service.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+      "linkedin": "Finding local leads on Google shouldn’t eat up your billable hours.\n\nFreelancers and agency owners often spend their mornings searching maps instead of delivering work.\n\nManual prospecting can drain the energy needed for real deliverables, no matter if you offer video editing, design, SEO, or accounting.\n\nI have a workflow that pulls local businesses from Google Places into an Excel sheet, adding direct phone numbers, review counts, website checks, and newly opened dates.\n\nYou only pay after you review and approve the list.\n\nMessage me with LEADS to see if this matches what you sell.",
+      "bluesky": "**MANUAL SOURCING** is not billable client work. Freelancers and agencies: stop wasting mornings hunting Google Places. I pull active local contacts, review counts, and website checks into a clean sheet. DM LEADS and pitch whatever you sell."
+    }
+  },
+  "ad_score": 8,
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "google:gemini-3.8-flash",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "google:gemini-3.7-flash",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "google:gemma-4-26b-a4b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 8.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 4.1,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

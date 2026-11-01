@@ -1,20 +1,20 @@
 {
-  "date": "2026-10-31",
-  "stage": "Brand new under 100 followers across all platforms (10 IG, 2 LI, 1 BS)",
+  "date": "2026-11-01",
+  "stage": "brand new under 100 followers",
   "followers": 10,
-  "summary": "Account is brand new with minimal engagement. Instagram bio violates brand rules: targets specific niches (hotels, cafes, gyms, homestays) and region (Himachal), states 'ready in 24 hrs' timeframe, and offers free site check permanently instead of only in website posts. Reels lose 77% viewers in first 3 seconds — hook failing.",
-  "guidance": "- Rotate to **top3** or **contrast** hooks (question underperforms per reach)\n- First 3 seconds must stop scroll: open with a visible pain point or bold statement, no generic intros\n- Show developer at work (code, design tool, terminal) — not stock images — so posts read as real work\n- For website posts: include 'pay after approval' and 'DM for a free 3-fix site check' (allowed only here)\n- Avoid niche/region language; use 2–3 varied Indian business examples per post\n- Do not promise speed, rankings, or revenue",
+  "summary": "Account is brand new (10 IG followers). Weakest area: 77% reel drop-off in first 3 seconds and near-zero engagement across platforms — hooks aren't stopping the scroll. Bio violates brand rules (niche, region, timeframe, unauthorized free offer).",
+  "guidance": "- Hook style to try next: rotate to **contrast** (1.75x in learning loop) or **top3** (1.5x, n=5); avoid **question** (only 39% of comparison per reach on IG) and **comparison** (1.0x, low IG engagement).\n- Topics to avoid: repeating \"manual lead hunting exhaustion\" or \"hours on Google Maps\" — three recent lead_gen posts already cover this pain point.\n- Reminder: every post must read like a developer showing real work, never an ad; no demos, samples, guarantees, or niche/region targeting.",
   "instructions": {
-    "research": "List 5 common website trust gaps for small businesses across India (e.g., no professional URL, broken contact forms, outdated info, no mobile view, missing service details) — keep industry-agnostic.",
-    "analysis": "Review the 2 previous website posts (1.38x avg): both used top3/contrast hooks. Note which phrasing got any saves/shares. Avoid repeating '24 hrs' or 'Rs 1499' — not in price_note.",
-    "writer": "Write a top3 or contrast hook post about why a professional website builds trust vs. only a social bio. Mention 2–3 varied business types (e.g., coaching centre, salon, D2C brand). End with: 'Pay after you approve. DM me — I’ll spot 3 things to fix on your current site.' No price, no timeline.",
-    "image": "Capture a real screenshot of your code editor or design file (blurred client data) with a caption like 'Building a clean service page for a coaching centre in Jaipur — mobile-first.' Shows actual work, not a mockup.",
-    "video": "If making a reel: first 3 seconds show you typing a component or fixing a layout bug. Overlay text: '3 reasons a bio link isn’t enough.' No talking head. Keep under 30s."
+    "research": "List 3 fresh angles for lead-gen that speak to freelancers/agencies/any service seller (not web devs) — e.g., \"newly opened businesses have no vendor yet\", \"review count signals budget\", \"website check reveals tech maturity\".",
+    "analysis": "Compare the two published lead_gen posts: 10-23 (top3, \"3 things that happen...\") vs 10-27 (comparison, \"Spray and Pray vs Surgical\"). Note which hook style and angle type earned more DMs/profile visits.",
+    "writer": "Write a lead_gen post using a **contrast** hook. Open with \"Freelancers, agencies, anyone selling a service...\". Describe LocalSignal sheet only in general terms: local businesses from Google Places with contact details, review counts, website checks, newly opened ones. End with \"pay after approval\" offer and invite DM for honest fit advice.",
+    "image": "Create a clean silhouette-style graphic (silhouette 1.5x in learning loop): outline of India with scattered pins, one highlighted row of a spreadsheet showing business name, phone, reviews, website yes/no. No logos, no niche icons.",
+    "video": "Not required for today's lead_gen post; focus on static image/carousel."
   },
   "manual_tips": [
-    "Update Instagram bio to: 'Websites for small businesses across India. Pay after approval. DM for a free 3-fix site check (website posts only).' Remove niches, region, price, and 24-hr claim.",
-    "Comment thoughtfully on 5–10 posts from Indian small business owners (any industry) — ask about their online presence, don’t pitch.",
-    "Publish today’s website post with the strongest top3/contrast hook and the real-work image/video."
+    "Update Instagram bio: remove \"hotels, cafes, gyms & homestays in Himachal\", \"ready in 24 hrs\", and \"Free 2-min site check\". Replace with: \"Websites, AI chatbots, animated ads & lead sheets for small businesses across India. Pay after approval. DM for honest advice.\"",
+    "Leave 5 thoughtful comments on posts by Indian freelancers/agencies discussing client acquisition (not self-promo).",
+    "Share today's published post to 2-3 relevant LinkedIn groups or X/Twitter threads where service sellers ask for lead sources."
   ],
   "weak_signals": [
     {
@@ -23,9 +23,19 @@
       "detail": "reels lose 77% of viewers in the first 3 seconds across 1 reels: the hook is not stopping the scroll"
     },
     {
+      "id": "weak_service",
+      "platform": "instagram",
+      "detail": "by service, 'chatbot' earns 39% of what 'lead_gen' earns per person reached"
+    },
+    {
       "id": "weak_hook_style",
       "platform": "instagram",
-      "detail": "by hook style, 'question' earns 31% of what 'top3' earns per person reached"
+      "detail": "by hook style, 'question' earns 39% of what 'comparison' earns per person reached"
+    },
+    {
+      "id": "zero_engagement_streak",
+      "platform": "bluesky",
+      "detail": "the last 3 settled posts got zero likes, comments, shares and saves"
     },
     {
       "id": "follower_stall",

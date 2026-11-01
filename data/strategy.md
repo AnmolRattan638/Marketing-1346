@@ -1,6 +1,3 @@
-- Rotate to **top3** or **contrast** hooks (question underperforms per reach)
-- First 3 seconds must stop scroll: open with a visible pain point or bold statement, no generic intros
-- Show developer at work (code, design tool, terminal) — not stock images — so posts read as real work
-- For website posts: include 'pay after approval' and 'DM for a free 3-fix site check' (allowed only here)
-- Avoid niche/region language; use 2–3 varied Indian business examples per post
-- Do not promise speed, rankings, or revenue
+- Hook style to try next: rotate to **contrast** (1.75x in learning loop) or **top3** (1.5x, n=5); avoid **question** (only 39% of comparison per reach on IG) and **comparison** (1.0x, low IG engagement).
+- Topics to avoid: repeating "manual lead hunting exhaustion" or "hours on Google Maps" — three recent lead_gen posts already cover this pain point.
+- Reminder: every post must read like a developer showing real work, never an ad; no demos, samples, guarantees, or niche/region targeting.

@@ -1,6 +1,64 @@
 {
   "posts": [
     {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mzajqui7ds2x",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzajqui7ds2x",
+      "published_at": "2026-11-01T09:48:12.790200+00:00",
+      "text": "𝗠𝗔𝗡𝗨𝗔𝗟 𝗦𝗢𝗨𝗥𝗖𝗜𝗡𝗚 is not billable client work. Freelancers and agencies: stop wasting mornings hunting Google Places. I pull active local contacts, review counts,",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 1,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-01",
+        "service": "lead_gen",
+        "hook_style": "comparison",
+        "topic": "The mistake of treating lead sourcing as part of your billable day."
+      }
+    },
+    {
+      "platform": "instagram",
+      "id": "18118418069470173",
+      "url": "https://www.instagram.com/p/DfMcgZQgkzm/",
+      "published_at": "2026-11-01T09:48:08.000Z",
+      "text": "𝗦𝗘𝗔𝗥𝗖𝗛𝗜𝗡𝗚 𝗖𝗢𝗡𝗧𝗔𝗖𝗧𝗦 𝗜𝗦 𝗡𝗢𝗧 𝗕𝗜𝗟𝗟𝗔𝗕𝗟𝗘 𝗖𝗟𝗜𝗘𝗡𝗧 𝗪𝗢𝗥𝗞.\n\n→ Freelancers, agencies: manual hunting par 𝗕𝗜𝗟𝗟𝗔𝗕𝗟𝗘 time waste mat karo.\n→ Sheet data: business name, direct p",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 3,
+        "reach": 1,
+        "views": 3,
+        "likes": 1,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-01",
+        "service": "lead_gen",
+        "hook_style": "comparison",
+        "topic": "The mistake of treating lead sourcing as part of your billable day."
+      }
+    },
+    {
       "platform": "instagram",
       "id": "18021243776953895",
       "url": "https://www.instagram.com/p/DfJy3o_kbgb/",
@@ -921,7 +979,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 16
+      "posts": 17
     }
   },
   "coverage": {
@@ -1114,5 +1172,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-01T06:08:08+00:00"
+  "updated_at": "2026-11-01T13:26:47+00:00"
 }

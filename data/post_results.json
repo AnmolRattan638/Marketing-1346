@@ -741,6 +741,13 @@
           "likes": 0,
           "comments": 0,
           "shares": 0
+        },
+        "7d": {
+          "age_h": 169.4,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
         }
       },
       "latest": {
@@ -771,6 +778,18 @@
           "reach": 4,
           "views": 7,
           "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        },
+        "7d": {
+          "age_h": 169.4,
+          "source": "zernio",
+          "impressions": 8,
+          "reach": 4,
+          "views": 8,
+          "likes": 1,
           "comments": 0,
           "shares": 0,
           "saves": 0,
@@ -1013,7 +1032,79 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-10-30|bluesky": {
+      "date": "2026-10-30",
+      "platform": "bluesky",
+      "service": "animated_ads",
+      "problem_id": "lack-of-budget-for-professional-video-sh",
+      "angle_type": null,
+      "hook_style": "question",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "desk-glow",
+      "carousel_flavor": "bold-slow-reveal",
+      "slides": 7,
+      "published_at": "2026-10-30T09:17:21.068588+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mz3h3ue6dq2p",
+      "snap": {
+        "48h": {
+          "age_h": 52.2,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
+    },
+    "2026-10-30|instagram": {
+      "date": "2026-10-30",
+      "platform": "instagram",
+      "service": "animated_ads",
+      "problem_id": "lack-of-budget-for-professional-video-sh",
+      "angle_type": null,
+      "hook_style": "question",
+      "format": "carousel",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "desk-glow",
+      "carousel_flavor": "bold-slow-reveal",
+      "slides": 7,
+      "published_at": "2026-10-30T09:17:16.000Z",
+      "url": "https://www.instagram.com/p/DfHPZJXDAXL/",
+      "snap": {
+        "48h": {
+          "age_h": 52.2,
+          "source": "zernio",
+          "impressions": 30,
+          "reach": 8,
+          "views": 30,
+          "likes": 3,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 30,
+        "reach": 8,
+        "views": 30,
+        "likes": 3,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
     }
   },
-  "updated_at": "2026-10-31T21:36:54+00:00"
+  "updated_at": "2026-11-01T13:26:48+00:00"
 }

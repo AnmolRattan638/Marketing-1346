@@ -186,8 +186,25 @@ def main():
             if k in posts and v:
                 posts[k] = v[:300] if k == "bluesky" else v
         rv = stage("strategist.review", lambda: strategist.review(posts), fallback={"ad_score": None, "notes": ""})
+        # virality: the predictor reads the first draft, the strategist turns its report into concrete fixes, and the two reasons to rewrite (ad-like,
+        # weak per the report) are MERGED into one rewrite. There is no other rewrite below: one regeneration per day, whatever fired, to protect credits.
+        groq_client = virality.make_llm()
+        bt = stage("virality.backtest", virality.backtest, fallback={})                                                       # how well the score has matched real reach so far
+        vir = stage("virality", lambda: virality.run(posts, plan["hooks"], plan.get("chosen_hook", 0), llm=groq_client), fallback={})   # advisory: never blocks or ranks anything
+        vrev = stage("strategist.virality", lambda: strategist.virality_review(posts, virality.digest(vir, bt), brand.get("facts_rules")), fallback={}) if (vir and config.VIRALITY_REVIEW) else {}
+        reasons, notes = [], []
         if (rv.get("ad_score") or 0) >= 7:
-            posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), rv.get("notes", ""), ig_mode=ig_mode, linkedin_format=li_fmt), fallback=posts)
+            reasons.append("it read like an ad")
+            notes.append(rv.get("notes", ""))
+        if vrev.get("rewrite") and vrev.get("changes"):
+            reasons.append("the virality report named weak spots")
+            notes.append("VIRALITY REPORT FIXES (apply every one, change nothing else, keep the house style and the brand rules; keep: " + str(vrev.get("keep", ""))[:200] + "): " +
+                         " | ".join(str(c)[:240] for c in vrev["changes"][:5]))
+        vsum = {"rewrote": False, "reasons": [], "changes": []}
+        if reasons:
+            first_draft = dict(posts)
+            posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), "\n".join(n for n in notes if n), ig_mode=ig_mode, linkedin_format=li_fmt), fallback=posts)
+            vsum = {"rewrote": posts != first_draft, "reasons": reasons, "changes": [str(c)[:240] for c in (vrev.get("changes") or [])[:5]]}
             posts = polish_linkedin(posts, focus, brand)
             fc2 = stage("factcheck.2", lambda: factcheck.run(posts, focus, brand), fallback={"ok": None, "issues": [], "revised": {}})
             for k, v in (fc2.get("revised") or {}).items():
@@ -206,8 +223,11 @@ def main():
         elif car:
             WARNINGS.append("carousel: there is no hook image, so this goes out without a carousel.")
         vid = stage("video", lambda: video.run(plan, focus, posts, g('video')), fallback={}) if ig_mode == "manual_reel" else {}
-        vir = stage("virality", lambda: virality.run(posts, plan["hooks"], plan.get("chosen_hook", 0)), fallback={})        # advisory only: never blocks, rewrites or ranks anything
-        bt = stage("virality.backtest", virality.backtest, fallback={})                                                       # how well the score has matched real reach so far
+        vir_after = vir
+        if vsum["rewrote"] and vir:        # the rewritten captions get their own report (no A/B again, same hooks) so you can see what the one rewrite did; it never triggers another rewrite
+            vir_after = stage("virality.after", lambda: virality.run(posts, None, 0, llm=groq_client), fallback={}) or vir
+            vir_after["ab"] = vir.get("ab")
+        vsum = virality.review_summary(vsum, vir, vir_after) if vir else None
     except Exception as e:
         tg.send(f"Marketing pipeline failed on {today}: {e}\nNothing was posted. Check the Actions log.")
         raise
@@ -223,13 +243,13 @@ def main():
              "hooks": plan["hooks"], "chosen_hook": plan.get("chosen_hook", 0),
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),
-             "image": img, "carousel": car_data, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score"), "virality": vir or None,
+             "image": img, "carousel": car_data, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score"), "virality": vir_after or None, "virality_review": vsum,
              "llm": {"answered": list(dict.fromkeys(llm.LOG)), "failures": llm.FAILURES[:20]}}
     config.save_json(path, draft)
 
     tg.send(("WARNINGS (a step failed and a fallback was used):\n- " + "\n- ".join(WARNINGS) + "\n\n" if WARNINGS else "") +
             f"Draft for {today}\nService: {focus['name']}\nTopic: {plan['topic']}\n{exp_line}"
-            f"Instagram today: {'MANUAL reel (post it yourself)' if ig_mode == 'manual_reel' else 'auto-posted image + caption'}\nLinkedIn today: {'TEXT ONLY (no image)' if li_fmt == 'text' else 'with the image'}\nFact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n{virality.telegram_line(vir, bt)}\n"
+            f"Instagram today: {'MANUAL reel (post it yourself)' if ig_mode == 'manual_reel' else 'auto-posted image + caption'}\nLinkedIn today: {'TEXT ONLY (no image)' if li_fmt == 'text' else 'with the image'}\nFact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n{virality.telegram_line(vir_after, bt, vsum)}\n"
             f"Account check ({state.get('stage')}): {state.get('summary')}" +
             (("\nLive weak spots: " + "; ".join(f"[{s['platform']}] {s['detail']}" for s in live_signals[:2])) if live_signals else "") +
             "\n\nModels that answered: " + (" | ".join(dict.fromkeys(llm.LOG))[:700] or "n/a") +

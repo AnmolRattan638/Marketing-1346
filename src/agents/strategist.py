@@ -33,6 +33,22 @@ Return JSON: {{"stage": "...", "followers": <number or null>, "summary": "<=60 w
     return llm.ask_json(llm.strategist_model, prompt, SYS)
 
 
+def virality_review(posts, digest, brand_rules=None):
+    """The virality report -> concrete fixes. Asks for a rewrite only when something specific and fixable is weak (the caller allows ONE rewrite per day,
+    so a vague wish is worth nothing). The predictor's signal tips are generic social-media heuristics and the caption format is fixed house style.
+    -> {"rewrite": bool, "reason": str, "changes": [str], "keep": str}"""
+    prompt = f"""A virality predictor analysed today's three drafts. Decide whether ONE rewrite would clearly improve them, and if so say exactly what to change.
+BRAND RULES (binding: no change you ask for may break any of them; if a rule forbids something, do not suggest it): {json.dumps(brand_rules or [], ensure_ascii=False)}
+HOUSE STYLE IS FIXED, do not ask to change it: the CAPITAL hook line, the short "->" lines, the DM line with its keyword, the hashtag count, the Hinglish on Instagram, LinkedIn as plain sentences, Bluesky under 260 characters.
+Only ask for CONTENT fixes: a sharper first line, a more concrete example, a clearer reason to care, a relatable detail, wording that sounds less like an ad. Never ask for invented numbers, results, clients, prices, urgency or guarantees.
+The predictor's signal tips are generic (made for X/Twitter) and its scores are coarse, so ignore any tip that contradicts the house style or the brand rules, and do not rewrite just to move a score.
+{digest}
+Drafts: {json.dumps(posts, ensure_ascii=False)}
+Set "rewrite" to true ONLY if you can name 1-5 specific, fixable weaknesses that a rewrite would remove. If the drafts are already good, set it to false and leave "changes" empty.
+Return JSON: {{"rewrite": true|false, "reason": "<=30 words", "changes": ["<platform>: <one concrete instruction>", ...], "keep": "<what must stay exactly as it is>"}}"""
+    return llm.ask_json(llm.strategist_model, prompt, SYS)
+
+
 def review(posts):
     prompt = f"""Score how much each draft sounds like an advertisement (1 = a developer genuinely showing real work, 10 = pure ad). Score 7+ if it does not show a specific, concrete piece of work or reads like a sales pitch. IGNORE the required caption format: a CAPITAL hook line, a few CAPITAL **bold-marked** keywords, short \"→\" lines and a keyword DM line are the house style, NOT a sign of advertising.
 Drafts: {json.dumps(posts, ensure_ascii=False)}

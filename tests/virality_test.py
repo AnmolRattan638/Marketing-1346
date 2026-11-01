@@ -2,7 +2,7 @@
 the backtest against real reach, the Hawkes forecast from Bluesky timestamps (fake API), and nothing here can block a post."""
 import datetime as dt, json, pathlib, sys, tempfile
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
-from src import config, virality
+from src import config, llm, virality
 
 tmp = pathlib.Path(tempfile.mkdtemp()); (tmp / "drafts").mkdir()
 config.DATA, config.DRAFTS = tmp, tmp / "drafts"
@@ -88,5 +88,44 @@ assert virality.telegram_line({}) == "" and virality.telegram_line(None) == ""
 assert virality.run({"instagram": "", "linkedin": "", "bluesky": ""})["platforms"] == {}
 rl = "\n".join(virality.review_lines())
 assert "Track record" in rl or "too early" in rl or "No published" in rl, rl
+
+# ---- Groq client: only scoring + backlash audit, budget, two-failure breaker, honest labels, never raises anything but ValueError
+import os
+calls = []
+llm._groq = lambda prompt, system="", model=None, temperature=0.6: calls.append(system) or json.dumps({"dims": {d: 7 for d in ("humor", "curiosity", "educational", "novelty", "controversy", "emotional_intensity", "relatability", "practical_value")}, "topics": ["business"], "entities": [], "issues": []})
+g = virality.GroqClient(budget=3)
+def refused(fn):
+    try: fn()
+    except ValueError: return True
+    return False
+assert refused(lambda: g.complete("You act as a user", "x")) and not calls and g.left == 3            # crowd-agent calls are refused without spending anything
+assert g.complete("You are a calibrated content-analysis engine.", "x") and g.complete("You are a cultural sensitivity analyst.", "x") and g.log == ["score", "risk"]
+assert g.complete("You are a calibrated content-analysis engine.", "x") and refused(lambda: g.complete("You are a calibrated content-analysis engine.", "x")), "budget of 3 holds"
+def dead(*a, **k): raise RuntimeError("groq 503")
+llm._groq = dead
+g2 = virality.GroqClient()
+assert all(refused(lambda: g2.complete("You are a calibrated content-analysis engine.", "x")) for _ in range(3)) and g2.fails == 2 and g2.left == 14, "breaker stops calling after two failures"
+v2 = virality.run(posts, hooks, 1, llm=g2)
+assert {d["scorer"] for d in v2["platforms"].values()} == {"heuristic"}, "a client that never answered must not be reported as an LLM score"
+llm._groq = lambda prompt, system="", model=None, temperature=0.6: json.dumps({"dims": {d: 7 for d in ("humor", "curiosity", "educational", "novelty", "controversy", "emotional_intensity", "relatability", "practical_value")}, "topics": ["business"], "entities": [], "issues": []})
+g3 = virality.GroqClient()
+v3 = virality.run(posts, hooks, 1, llm=g3)
+assert {d["scorer"] for d in v3["platforms"].values()} == {"llm"} and g3.calls == 6 and g3.left == 10, (g3.calls, g3.left)   # 3 platforms x (rubric + backlash audit), agents untouched
+os.environ.pop("GROQ_API_KEY", None); assert virality.make_llm() is None
+os.environ["GROQ_API_KEY"] = "k"; assert isinstance(virality.make_llm(), virality.GroqClient)
+config.VIRALITY_LLM = False; assert virality.make_llm() is None; config.VIRALITY_LLM = True
+os.environ.pop("GROQ_API_KEY")
+
+# ---- the report the strategist reads, and the Telegram wording of the one rewrite
+dg = virality.digest(v3, {"instagram": {"n": 11, "spearman": 0.36, "p_value": 0.27, "verdict": "no signal"}})
+assert dg.startswith("VIRALITY REPORT") and "instagram: score" in dg and "weakest dimensions" in dg and "hook A/B" in dg and "no signal" in dg and "own judgement" in dg, dg
+assert "has not been checked" in virality.digest(v3, {}) and virality.digest({}, {}) == ""
+s = virality.review_summary({"rewrote": True, "reasons": ["it read like an ad"], "changes": ["instagram: sharper first line"]}, {"platforms": {"instagram": {"score": 10.2}}}, {"platforms": {"instagram": {"score": 12.6}}})
+assert s["before"] == {"instagram": 10.2} and s["after"] == {"instagram": 12.6}
+t = virality.telegram_line(v3, None, s)
+assert "Rewritten ONCE" in t and "instagram 10.2 -> 12.6" in t and "sharper first line" in t, t
+assert "No rewrite: the strategist saw nothing" in virality.telegram_line(v3, None, {"rewrote": False, "reasons": [], "changes": [], "before": {}, "after": {}})
+assert "came back unchanged" in virality.telegram_line(v3, None, {"rewrote": False, "reasons": ["it read like an ad"], "changes": [], "before": {}, "after": {}})
+assert "Rewritten" not in virality.telegram_line(v3, None, None) and "No rewrite" not in virality.telegram_line(v3, None, None)
 
 print("virality test passed: real account size, bold normalised, agents + cascade, hook A/B, backtest verdicts, Hawkes (fit, too few events, dead API), Telegram block, review text")

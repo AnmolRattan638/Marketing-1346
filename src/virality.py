@@ -8,13 +8,16 @@ Four parts, all ADVISORY. Nothing here blocks a post, rewrites a caption, picks 
   3. live_forecast(): Hawkes fit on the real like/reply timestamps of recent Bluesky posts (run by the Analytics sync). Needs 5+ events per post,
      so on a tiny account most posts say "too few events". Writes data/virality_live.json. Instagram and LinkedIn give no event timestamps.
   4. review_lines(): the weekly review section for 2 and 3.
+  5. digest() + the strategist: the report is read by the strategist (agents/strategist.virality_review), which names concrete fixes. run_daily
+     merges them with the ad-score notes into AT MOST ONE rewrite per day. The predictor's LLM parts (rubric scoring, backlash audit) use Groq.
 The offline model is a coarse lexical heuristic (viralsim/README.md, "Read this before trusting a number"), and its simulated reach is in model
 units, far above what this account really gets. Until backtest() shows a real signal, read the score as a rough hint and the levers as writing tips."""
 import math
+import os
 import statistics
 import unicodedata
 
-from . import config
+from . import config, llm as llm_mod
 
 VERSION = 2
 RUNS = 500                      # Monte-Carlo runs per platform: about half a second each
@@ -54,6 +57,36 @@ def creator_for(platform, analytics):
     return Creator(followers=max(followers, 1.0), following=float(acc.get("following") or 50), posting_freq=freq,
                    monthly_reach=(per_post * freq) if per_post is not None else max(followers, 1.0) * 3,
                    account_age_days=60, niche="small-business marketing")
+
+
+# ---------------------------------------------------------------- Groq for the predictor's LLM parts
+class GroqClient:
+    """viralsim LLMClient on the repo's own Groq call (GROQ_API_KEY is already a secret). Used for the rubric scoring and the backlash audit only
+    (about 6 calls per pass); the crowd agents stay rule-based, because LLM agents would need ~70 calls. Every failure becomes a ValueError, which
+    viralsim answers by falling back to its offline rules, so a Groq outage can never break a run. A call budget and a 2-failure breaker keep credits safe."""
+    def __init__(self, budget=16):
+        self.left, self.fails, self.calls, self.log = budget, 0, 0, []         # log: what each successful call was for ('score' or 'risk')
+
+    def complete(self, system, user, *, json_mode=False, temperature=0.0, max_tokens=800):
+        kind = "score" if "content-analysis" in system else "risk" if "cultural" in system else None
+        if kind is None:                                       # viralsim also offers LLM crowd agents (~70 calls); those stay on their offline rules
+            raise ValueError("groq is reserved for the rubric scoring and the backlash audit")
+        if self.left <= 0 or self.fails >= 2:
+            raise ValueError("groq skipped (call budget used or two failures)")
+        self.left -= 1
+        try:
+            out = llm_mod._groq(user, system, temperature=temperature)
+        except Exception as e:
+            self.fails += 1
+            raise ValueError(f"groq failed: {str(e)[:80]}") from e
+        self.calls += 1
+        self.log.append(kind)
+        return out
+
+
+def make_llm():
+    """A GroqClient when the key exists and VIRALITY_LLM is not 0, else None (fully offline)."""
+    return GroqClient() if config.VIRALITY_LLM and os.environ.get("GROQ_API_KEY") else None
 
 
 # ---------------------------------------------------------------- 1. the daily forecast
@@ -97,7 +130,7 @@ def ab_hooks(hooks, chosen, creator):
     return {"chosen": chosen, "vs_chosen": vs, "better": best["hook"] if best["p_beats_chosen"] > 0.5 else None, "advisory": True}
 
 
-def run(posts, hooks=None, chosen=0):
+def run(posts, hooks=None, chosen=0, llm=None):
     """-> {"version", "platforms": {name: {...}}, "ab": {...} or None, "note"}. Raises on a real failure so the caller's stage() can report it."""
     from viralsim.pipeline import analyze
     analytics = config.load_json(config.DATA / "analytics.json", {}) or {}
@@ -106,18 +139,20 @@ def run(posts, hooks=None, chosen=0):
         text = plain(posts.get(name))
         if not text:
             continue
+        used = len(getattr(llm, "log", []))
         r = analyze(text, creator=creator_for(name, analytics), platform=PLATFORM_MAP.get(name, "generic"), runs=RUNS, with_agents=True,
-                    with_network=True, with_levers=(name == "instagram"), has_image=(name != "linkedin"))
+                    with_network=True, with_levers=(name == "instagram"), has_image=(name != "linkedin"), llm=llm)
         f = r["forecast"]
         levers = (r.get("suggestions") or {}).get("counterfactual") or []
         edits = (r.get("suggestions") or {}).get("text_edits") or []
         out[name] = {"score": r["viral_score"], "breakout_probability": round(f["viral_probability"], 3),
                      "reach_p10": f["reach_p10"], "reach_p50": f["reach_p50"], "reach_p90": f["reach_p90"],
                      "risk": r["risk"]["level"], "risk_issues": [str(i)[:120] for i in r["risk"]["issues"][:3]],
+                     "dims": r["content"]["dims"], "tips": [{"title": x["title"], "impact": x.get("impact")} for x in (r["signals"].get("insights") or [])[:5]],
                      "agents": _agents(r.get("agents") or {}), "network": _network(r.get("network") or {}),
                      "levers": [{"title": x["title"], "lift_pct": x["lift_pct"]} for x in levers[:3]],
                      "edits": [{"title": x["title"], "impact": x.get("impact")} for x in edits[:3]],
-                     "scorer": r["scorer"]}
+                     "scorer": "llm" if "score" in getattr(llm, "log", [])[used:] else "heuristic"}           # what really scored it: viralsim says 'llm' whenever a client is passed, even if every call failed
     ab = None
     try:                                                       # the A/B is a bonus: its failure must not lose the forecast above
         ab = ab_hooks(hooks, chosen, creator_for("instagram", analytics))
@@ -162,12 +197,13 @@ def backtest(runs=300, write=True):
                 r = analyze(plain(d["posts"][p]), creator=creator_for(p, analytics), platform=PLATFORM_MAP.get(p, "generic"), runs=runs,
                             with_agents=False, with_network=False, with_levers=False)
                 pred = {"score": r["viral_score"], "reach_p50": r["forecast"]["reach_p50"]}
-            rows[p].append((pred["score"], pred["reach_p50"], actual))
+            rows[p].append((pred["score"], pred["reach_p50"], actual, pred.get("scorer") == "llm"))
     out = {}
     for p, rs in rows.items():
         if not rs:
             continue
         sc, pr, ac = [r[0] for r in rs], [r[1] for r in rs], [r[2] for r in rs]
+        llm_n = sum(1 for r in rs if r[3])
         rho, pv = _spearman(sc, ac)
         spread = max(sc) - min(sc)
         if len(rs) < MIN_BACKTEST:
@@ -179,7 +215,7 @@ def backtest(runs=300, write=True):
         else:
             verdict = "no signal"
         out[p] = {"n": len(rs), "spearman": None if rho is None else round(rho, 2), "p_value": None if pv is None else round(pv, 2),
-                  "score_spread": round(spread, 1), "median_actual_reach": statistics.median(ac), "median_predicted_reach": statistics.median(pr),
+                  "score_spread": round(spread, 1), "llm_scored": llm_n, "median_actual_reach": statistics.median(ac), "median_predicted_reach": statistics.median(pr),
                   "reach_ratio": round(statistics.median(ac) / statistics.median(pr), 3) if statistics.median(pr) else None, "verdict": verdict}
     if write:
         config.save_json(config.DATA / BACKTEST_FILE, {"platforms": out, "note": "rank correlation of the score with real reach; needs 8+ posts and p<0.1 to count"})
@@ -249,8 +285,36 @@ def live_forecast(get=None, now=None, max_age_days=14, write=True):
     return out
 
 
+# ---------------------------------------------------------------- 5. the report the strategist reads
+def digest(v, bt=None):
+    """The predictor's report as compact text for the strategist: per platform the score, weakest content dimensions, risks, levers and tips,
+    the hook A/B, and how far the score can be trusted (the backtest)."""
+    pl = (v or {}).get("platforms") or {}
+    if not pl:
+        return ""
+    out = ["VIRALITY REPORT (0-100 scores are coarse; dimensions are 0-10)"]
+    for n, d in pl.items():
+        weak = sorted((d.get("dims") or {}).items(), key=lambda kv: kv[1])[:3]
+        out.append(f"- {n}: score {d['score']:.0f} ({d.get('scorer')} scorer); weakest dimensions: " + ", ".join(f"{k} {x:g}" for k, x in weak) +
+                   (f"; backlash risk {d['risk']}: " + "; ".join(d.get("risk_issues") or []) if d.get("risk") not in (None, "none") else "; no backlash risk") +
+                   ("; levers: " + ", ".join(f"{x['title']} (+{x['lift_pct']}%)" for x in d.get("levers") or []) if d.get("levers") else "") +
+                   ("; generic tips: " + ", ".join(x["title"] for x in d.get("tips") or []) if d.get("tips") else ""))
+    ab = v.get("ab")
+    if ab:
+        out.append("- hook A/B (simulation, advisory): " + ", ".join(f"hook {x['hook'] + 1} ({x['style']}) beats the chosen one with p={x['p_beats_chosen']}" for x in ab["vs_chosen"]))
+    out.append((track_line(bt).strip() or "Track record: none yet, so this score has not been checked against real reach.") +
+               " If the track record says 'no signal' or 'no spread', rely on your own judgement of the drafts and ask for a rewrite only for weaknesses you can name.")
+    return "\n".join(out)
+
+
+def review_summary(review, before, after):
+    """What the one rewrite changed, for Telegram and the draft: {"rewrote", "reasons", "changes", "before", "after"}. Scores per platform."""
+    sc = lambda v: {n: d["score"] for n, d in ((v or {}).get("platforms") or {}).items()}
+    return {"rewrote": bool(review.get("rewrote")), "reasons": review.get("reasons") or [], "changes": review.get("changes") or [], "before": sc(before), "after": sc(after)}
+
+
 # ---------------------------------------------------------------- 4. Telegram and weekly review text
-def telegram_line(v, bt=None):
+def telegram_line(v, bt=None, review=None):
     """The block for the daily draft message ('' when there is nothing)."""
     pl = (v or {}).get("platforms") or {}
     if not pl:
@@ -268,6 +332,13 @@ def telegram_line(v, bt=None):
         out += f"Crowd sim (Instagram): {a['engagement_rate'] * 100:.1f}% of viewers react, cascade R={n.get('r_effective')}, polarisation {n.get('polarization')}\n"
     risk = [f"{k}: {d['risk']}" for k, d in pl.items() if d.get("risk") not in (None, "none")]
     hints = "; ".join(x["title"] for x in (ig.get("levers") or [])[:2] + (ig.get("edits") or [])[:1])
+    if review and review.get("rewrote"):
+        moved = ", ".join(f"{n} {review['before'].get(n, '?'):g} -> {s:g}" for n, s in (review.get("after") or {}).items() if isinstance(review["before"].get(n), (int, float)))
+        out += "Rewritten ONCE after the strategist read the report" + (f" (scores {moved})" if moved else "") + ": " + "; ".join(review.get("changes") or review.get("reasons") or ["see the draft"])[:420] + "\n"
+    elif review is not None and review.get("reasons"):
+        out += "A rewrite was asked for (" + " and ".join(review["reasons"]) + ") but the text came back unchanged, so the first draft stands.\n"
+    elif review is not None:
+        out += "No rewrite: " + ("the strategist saw nothing specific worth fixing.\n" if config.VIRALITY_REVIEW else "virality review is switched off.\n")
     return out + (f"Backlash risk: {'; '.join(risk)}\n" if risk else "") + (f"Could lift Instagram: {hints}\n" if hints else "") + track_line(bt)
 
 

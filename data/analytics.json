@@ -1,6 +1,64 @@
 {
   "posts": [
     {
+      "platform": "instagram",
+      "id": "18098556053533108",
+      "url": "https://www.instagram.com/p/DfPFT8riK5h/",
+      "published_at": "2026-11-02T10:23:07.000Z",
+      "text": "𝗠𝗬𝗧𝗛: 𝗧𝗨𝗥𝗔𝗡𝗧 𝗝𝗔𝗪𝗔𝗕 𝗞𝗘 𝗟𝗜𝗬𝗘 𝗧𝗘𝗔𝗠 𝗖𝗛𝗔𝗛𝗜𝗬𝗘\n→ Peak hours mein 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 pe walk-ins ko serve karna zaroori hai.\n→ AI bot common questions ka jawab deta hai: location",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 9,
+        "reach": 2,
+        "views": 9,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-02",
+        "service": "chatbot",
+        "hook_style": "question",
+        "topic": "What happens to your WhatsApp enquiries when you're busy serving the customer standing right in front of you?"
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mzd462bf5d2k",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzd462bf5d2k",
+      "published_at": "2026-11-02T10:23:04.424Z",
+      "text": "𝗠𝗬𝗧𝗛 you need staff for instant WhatsApp replies. A bot can acknowledge messages, answer common questions like location and timing, and alert you only when huma",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-02",
+        "service": "chatbot",
+        "hook_style": "question",
+        "topic": "What happens to your WhatsApp enquiries when you're busy serving the customer standing right in front of you?"
+      }
+    },
+    {
       "platform": "bluesky",
       "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mzajqui7ds2x",
       "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzajqui7ds2x",
@@ -38,11 +96,11 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 21,
+        "impressions": 22,
         "reach": 4,
-        "views": 21,
-        "likes": 1,
-        "comments": 0,
+        "views": 22,
+        "likes": 2,
+        "comments": 1,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
@@ -502,9 +560,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 266,
-        "reach": 88,
-        "views": 266,
+        "impressions": 271,
+        "reach": 90,
+        "views": 271,
         "likes": 6,
         "comments": 0,
         "shares": 0,
@@ -874,7 +932,7 @@
       "format": "text",
       "source": "zernio",
       "metrics": {
-        "impressions": 157,
+        "impressions": 159,
         "reach": 87,
         "views": null,
         "likes": 0,
@@ -955,7 +1013,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 17
+      "posts": 18
     }
   },
   "coverage": {
@@ -1156,5 +1214,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-02T06:07:00+00:00"
+  "updated_at": "2026-11-02T15:56:42+00:00"
 }

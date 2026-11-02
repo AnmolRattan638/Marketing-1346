@@ -64,6 +64,10 @@
       ]
     }
   ],
-  "slide_reference_prompts": [],
+  "slide_reference_prompts": [
+    "A sleek creator studio desk with a high-end cinema camera lens and glowing holographic video timelines hovering over an open matte black laptop, shallow depth of field, dramatic rim lighting in amber gold and deep cyan, the subject clustered on the right third with generous calm dark space across the lower part, hyper-detailed, 35mm lens at f/1.8, premium commercial tech photography",
+    "Minimalist 3D isometric composition of floating translucent frosted-glass message bubbles with glowing emerald green and soft cyan internal lights, fine digital particles connecting them, a dark obsidian reflective slate surface below, sharp focus, clean studio lighting with soft specular highlights, a deep charcoal and navy gradient background, a spacious calm upper half, ultra-clean modern product design look, ray-traced render",
+    "Cinematic medium shot of a stylish young professional seen from behind in a contemporary moodily-lit creative studio, lit by the warm glow of a notebook and a tablet, electric violet neon accents and soft warm tungsten in the background, rim-lit silhouette, a calm dark atmospheric lower area, cinematic colour grading, Kodak Portra warmth, 85mm lens at f/1.4"
+  ],
   "_slide_comment": "slide_reference_prompts: paste your favourite image prompts here (plain strings). Every problem/solution slide picture is written in their style: concrete subject, rich environment, lighting and colour. They are style examples only, never copied. Leave the list empty to use the built-in guidance."
 }

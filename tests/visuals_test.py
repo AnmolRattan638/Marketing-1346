@@ -115,11 +115,15 @@ gemma_prompts = []
 SPEC_BOLD = json.dumps({"style": "bold", "headline": "While you hustle, motion works", "highlight": ["motion"], "sub": "Motion adds visibility fast"})
 SPEC_CHAT = json.dumps({"style": "chat", "headline": "Customer messages at 11 pm", "highlight": ["11"], "sub": "No reply by morning.",
                         "chat": [{"side": "left", "text": "Are you open?", "time": "11:02 PM"}]})
+LONG = ("A phone playing a short animated ad on a cafe counter of matte oak, a ceramic cup and brushed steel espresso machine in the middle ground, "
+        "a blurred street window behind, warm 3200K pendant light with a thin rim light on the phone edge against cool blue dusk, navy and amber palette with one glowing yellow accent, "
+        "85mm lens at f/1.8, shallow depth of field, calm lower area, relaxed mood")
 def gemma(prompt, system="", **k):
     gemma_prompts.append(prompt)
-    return SPEC["json"] if "Design copy" in prompt else "<prompt>A phone playing a short animated ad on a cafe counter, warm light</prompt>"
+    return SPEC["json"] if "Design copy" in prompt else "<prompt>" + LONG + "</prompt>"
 SPEC = {"json": SPEC_BOLD}
 llm.gemma = gemma
+llm.groq = gemma                      # Groq now writes the picture prompts
 config.ROOT = tmp; config.MEDIA = tmp / "data" / "media"; config.MEDIA.mkdir(parents=True)
 pp = image.picture_prompt(plan, {"name": "Animated ads"}, json.loads(SPEC_BOLD), "g")
 req = gemma_prompts[-1]

@@ -1,4 +1,4 @@
-"""Agent 4: the post image. A topic-specific AI picture (Gemma writes the prompt, config/image_style.json adds the permanent quality
+"""Agent 4: the post image. A topic-specific AI picture (Groq writes the detailed prompt, config/image_style.json adds the permanent quality
 suffix) with the hook in real fonts on top; if no AI engine works, the designed text card; last, a plain card."""
 import base64, io, json, os, pathlib, random, re, tempfile, urllib.parse
 import requests
@@ -25,8 +25,29 @@ def clean_prompt(text, limit=900):
         else:
             paras = [p for p in re.split(r"\n\s*\n", text.strip()) if p.strip()]
             out = paras[-1] if paras else text
+    out = re.sub(r"\s--[a-z]+(?:\s+[\w.:]+)?", " ", out)           # Midjourney flags (--ar 4:5 --v 6.1 --style raw) mean nothing to FLUX/Gemini
     out = re.sub(r"^[\s*\-\d.)]+", "", re.sub(r"\s+", " ", out).strip())
     return out.strip('" ')[:limit]
+
+
+DETAIL = """Write it as ONE flowing paragraph, in this order, naming every element concretely:
+1. the subject and its action (hands, objects, devices, a person seen from behind or in silhouette),
+2. materials and textures (for example brushed aluminium, frosted glass, matte ceramic, oak, fabric),
+3. the environment in layers: foreground, middle ground, background,
+4. the light: its direction, a rim light or specular highlights, the colour temperatures (for example warm 3200K lamp against a cool blue screen glow),
+5. the colour palette in 2-3 named colours, with one glowing accent,
+6. the camera: lens in mm, aperture, depth of field, angle,
+7. the mood in a few words.
+Never write vague words like 'beautiful', 'nice' or 'high quality' on their own."""
+
+
+def ask_prompt(text, limit):
+    """Groq writes the detailed prompt; Gemma is the backup if Groq is down."""
+    try:
+        return clean_prompt(llm.groq(text), limit)
+    except Exception as e:
+        print(f"[image] groq prompt writer failed ({str(e)[:80]}), trying gemma")
+        return clean_prompt(llm.gemma(text), limit)
 
 
 OLD_LOOK = "premium commercial photography or a polished 3D render, one strong focal subject in the upper two thirds, shallow depth of field, dramatic but natural light, rich colour with warm yellow as the accent, calm and uncluttered in the lower 40% (the headline goes there)."
@@ -200,26 +221,27 @@ def scene_fallback(focus, variant=None):
 
 
 def picture_prompt(plan, focus, spec, guidance="", variant=None):
-    """Ask Gemma for ONE concrete, topic-specific scene (not an empty abstract background). The headline is added afterwards in real fonts."""
+    """Ask Groq for ONE concrete, topic-specific scene (not an empty abstract background). The headline is added afterwards in real fonts."""
     headline = (spec or {}).get("headline") or plan["hooks"][plan.get("chosen_hook", 0)]["text"]
     look = look_text(variant, plan["topic"])
-    prompt = f"""Write ONE image-generation prompt (45-70 words) for the PICTURE behind a social media post. The headline is added later as text, so the picture itself contains no text.
+    prompt = f"""Write ONE image-generation prompt (90-140 words) for the PICTURE behind a social media post. The headline is added later as text, so the picture itself contains no text.
 Headline: {headline} | Topic: {plan['topic']} | Service: {focus['name']} | Idea: {plan.get('image_idea')}
 Strategist note: {guidance}
 
 The picture must show ONE concrete, specific scene that makes the headline visible at a glance: a real object in a real situation, for example a phone playing a short animated ad on a cafe counter, a shop owner's phone lighting up with unanswered messages late at night, a laptop showing a clean booking page beside a cup of tea. Generic, not a real brand and not a claim about real client work.
 {look}
+{DETAIL}
 Write ONLY what should be visible, in positive wording (do not use the words no, not, without, avoid). Do not mention signs, screens with words, labels, logos, watermarks or any text. No close-up faces.
 ONE subject in ONE scene. NEVER describe a layout: no left/right halves, panels, sections, grids, collages, split screens, diagrams or counts of parts. If the Idea describes a layout, keep only its object and situation.
 Return ONLY the final prompt wrapped in <prompt></prompt> tags. No notes, no drafts, no explanation."""
     for attempt in (0, 1):
         ask = prompt if attempt == 0 else prompt + "\nYOUR LAST PROMPT DESCRIBED A LAYOUT OR WAS TOO VAGUE. Describe ONE real object in ONE real place instead."
         try:
-            text = clean_prompt(llm.gemma(ask))
+            text = ask_prompt(ask, 1100)
         except Exception as e:
             print(f"[image] picture prompt failed: {e}")
             break
-        if len(text.split()) >= 12 and not LAYOUT_WORDS.search(text):
+        if len(text.split()) >= 40 and not LAYOUT_WORDS.search(text):
             return enhance(text)
         print(f"[image] picture prompt rejected (layout or too short): {text[:90]}")
     return scene_fallback(focus, variant)
@@ -253,7 +275,7 @@ def slide_pictures_enabled():
 
 
 def slide_scene_prompt(slide, focus, variant=None):
-    """Ask Gemma for ONE scene that makes THIS slide's headline visible: a concrete subject doing the thing the headline says, in a rich environment, in today's visual family.
+    """Ask Groq for ONE scene that makes THIS slide's headline visible: a concrete subject doing the thing the headline says, in a rich environment, in today's visual family.
     A problem slide shows the struggle, a solution slide shows the same situation calm and solved. The picture never contains words, so it never labels itself."""
     role = slide.get("role")
     mood = ("the struggle in the headline made visible: someone in the middle of the tedious, messy or stuck situation it describes, with the objects and clutter that go with it"
@@ -262,24 +284,25 @@ def slide_scene_prompt(slide, focus, variant=None):
     refs = [r for r in (style().get("slide_reference_prompts") or []) if isinstance(r, str) and r.strip()]
     ref_block = ("\nReference prompts to match for richness, composition and lighting (style only, never copy their subjects): " + " || ".join(r.strip()[:380] for r in refs[:4])) if refs else ""
     look = look_text(variant, slide.get("headline", ""))
-    prompt = f"""Write ONE image-generation prompt (60-90 words) for a picture on a swipe-carousel slide. The slide text is added later in real fonts, so the picture contains no text.
+    prompt = f"""Write ONE image-generation prompt (90-140 words) for a picture on a swipe-carousel slide. The slide text is added later in real fonts, so the picture contains no text.
 Slide headline: {slide.get('headline')} | Slide body: {slide.get('body')} | Service: {focus['name']}
 
 Show {mood}. Describe the foreground subject and its action (hands, objects, devices, a person seen from behind or in silhouette), then the surrounding environment and background, then the light.
 So the picture reads at a glance: a viewer should understand the headline from the picture alone, e.g. for "looking up contact details by hand": a freelancer at a laptop surrounded by many open browser windows, a messy spreadsheet and sticky notes, searching listing after listing.
 Composition: the main subject sits in the upper 55% of the frame; the lower 45% stays calm and dark because a text card goes there.
 {look}{ref_block}
+{DETAIL}
 Write ONLY what is visible, in positive wording (do not use the words no, not, without, avoid, problem, solution). Do not mention signs, screens with readable words, labels, logos, watermarks or any text. No close-up faces, no real brands, no claims about real clients.
 NEVER describe a layout: no left/right halves, panels, sections, grids, collages, split screens or diagrams.
 Return ONLY the final prompt wrapped in <prompt></prompt> tags."""
     for attempt in (0, 1):
         ask = prompt if attempt == 0 else prompt + "\nYOUR LAST PROMPT WAS A LAYOUT OR TOO VAGUE. Describe ONE concrete scene with a clear subject, environment and light."
         try:
-            text = clean_prompt(llm.gemma(ask), 1100)
+            text = ask_prompt(ask, 1200)
         except Exception as e:
             print(f"[image] slide prompt failed: {e}")
             return None
-        if len(text.split()) >= 20 and not LAYOUT_WORDS.search(text):
+        if len(text.split()) >= 50 and not LAYOUT_WORDS.search(text):
             return enhance(text)
         print(f"[image] slide prompt rejected (layout or too short): {text[:90]}")
     return None

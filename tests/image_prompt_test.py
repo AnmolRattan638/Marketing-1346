@@ -7,7 +7,9 @@ from src.agents import image
 bad = ("Left: laptop open on reclaimed wood table in the upper left, blank clean page, ceramic mug, warm window light, shallow depth of field, yellow rim highlighted. "
        "Right: narrow vertical panel divided into four equal sections, minimalist grid, lower 40% calm uncluttered, warm tone, premium photography style.")
 good = ("A laptop on a wooden desk showing a bright city map with glowing yellow location pins over small shopfronts, a ceramic mug beside it, "
-        "warm window light, shallow depth of field, calm lower area")
+        "brushed aluminium body and a matte oak surface, a blurred cafe window in the middle ground and soft shelves in the background, "
+        "warm 3200K window light against a cool blue screen glow with a thin rim light on the edge of the laptop, deep navy and warm amber palette with one glowing yellow accent, "
+        "85mm lens at f/1.8, shallow depth of field, slightly raised angle, calm uncluttered lower area, focused and hopeful mood")
 assert image.LAYOUT_WORDS.search(bad) and not image.LAYOUT_WORDS.search(good)
 for ok in ("A phone on a cafe counter at night lit by unread chat bubbles, warm lamp light, shallow depth of field, calm uncluttered lower area",
            "Laptop in the upper left of the frame beside a mug, warm light, shallow depth of field, calm lower area on a wooden table"):
@@ -24,7 +26,8 @@ def ask(*replies):
         r = next(it)
         if isinstance(r, Exception): raise r
         return f"<prompt>{r}</prompt>"
-    llm.gemma = gemma
+    llm.groq = gemma                                   # Groq writes the prompts now; Gemma is only the backup
+    llm.gemma = lambda *a, **k: (_ for _ in ()).throw(RuntimeError("gemma backup down"))
 
 ask(good)                                              # good first time: one call, kept
 p = image.picture_prompt(plan, focus, {}, "")
@@ -44,4 +47,13 @@ p = image.picture_prompt(plan, {"id": "chatbot", "name": "Chatbot"}, {}, "")
 assert "smartphone" in p and "chat bubbles" in p
 ask(bad, bad)
 assert "laptop" in image.picture_prompt(plan, {"id": "unknown", "name": "X"}, {}, "").lower()
+# detailed prompts: the request asks for the fixed element order, Midjourney flags are stripped, Gemma is the backup when Groq is down
+ask(good)
+image.picture_prompt(plan, focus, {}, "")
+for need in ("90-140 words", "materials and textures", "colour temperatures", "the camera: lens in mm"):
+    assert need in calls[0], need
+assert image.clean_prompt("<prompt>A desk with a lamp --ar 4:5 --v 6.1 --style raw</prompt>") == "A desk with a lamp"
+llm.groq = lambda *a, **k: (_ for _ in ()).throw(RuntimeError("groq down"))
+llm.gemma = lambda p, s="", **k: f"<prompt>{good}</prompt>"
+assert image.picture_prompt(plan, focus, {}, "").startswith(good)
 print("image prompt test passed: layout prompts rejected, one retry, concrete scene fallback per service")

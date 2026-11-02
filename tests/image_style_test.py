@@ -43,8 +43,10 @@ assert image_style_saved == seq[2]
 plan = {"hooks": [{"text": "Stop hunting leads. Start spotting them."}], "chosen_hook": 0, "topic": "finding local businesses that need clients", "image_idea": "a map"}
 focus = {"id": "lead_gen", "name": "Lead generation (LocalSignal)"}
 seen = []
-good = "A laptop showing a glowing city map with bright location pins over small shopfronts, a cup of tea beside it, deep blue light, calm dark lower area"
-llm.gemma = lambda p, s="", **k: seen.append(p) or f"<prompt>{good}</prompt>"
+good = ("A laptop showing a glowing city map with bright location pins over small shopfronts, a cup of tea beside it on a matte oak desk, "
+        "a blurred street in the middle ground and shelves far behind, deep blue screen light against a warm 3200K lamp with a thin rim light, "
+        "navy and amber palette with one glowing yellow accent, 85mm lens at f/1.8, shallow depth of field, calm dark lower area, focused mood")
+llm.groq = lambda p, s="", **k: seen.append(p) or f"<prompt>{good}</prompt>"
 v = vs[0]
 out = image.picture_prompt(plan, focus, {}, "", v)
 q = seen[0]
@@ -58,7 +60,7 @@ assert image.OLD_LOOK in seen[0] and "ONE new element" not in seen[0]
 image.style = lambda: cfg
 
 # ---- 4. the fallback scene carries the style too
-llm.gemma = lambda p, s="", **k: "<prompt>Left: a laptop. Right: a panel divided into four sections, grid, minimalist.</prompt>"
+llm.groq = llm.gemma = lambda p, s="", **k: "<prompt>Left: a laptop. Right: a panel divided into four sections, grid, minimalist.</prompt>"
 fb = image.picture_prompt(plan, focus, {}, "", v)
 assert "city map" in fb and cfg["style_dna"] in fb and v["elements"] in fb and "Accent colour: electric cyan" in fb and fb.endswith(cfg["quality_suffix"]), fb
 assert not image.LAYOUT_WORDS.search(fb.split("Ultra-sharp")[0])

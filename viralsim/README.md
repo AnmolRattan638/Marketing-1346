@@ -23,7 +23,7 @@ viralsim backtest                  # measure the model against 50 known campaign
 | Follower-graph cascade: fatigue, saturation, backlash, social proof, moderation, opinion dynamics, polarisation | `sim/network.py` | SocialNetSim |
 | Hawkes self-exciting fit + "how big will it get" forecast from early events | `sim/hawkes.py` | SocialNetSim |
 | Hybrid agents: LLM-driven core agents with memory + many persona-grounded ordinary agents, role incentives, crowd pulse, interviews | `agents.py` | HiSim, PhantomCrowd, Viralix |
-| Platform-signal heuristics (reply/link/hook/negative-signal risk) | `signals.py` | x-virality-predictor |
+| Platform-signal heuristics (reply/link/hook/bait/hype risk, writing tips) | `signals.py` | original work for this repo |
 | 8-dimension content scoring: offline heuristic or LLM rubric | `dimensions.py` | Content-diffusion |
 | Backlash/controversy detection (rules, optionally LLM), discourse tension | `risk.py` | PhantomCrowd, Viralix |
 | A/B: paired Monte Carlo, proper z-test, LLM-persona voting | `ab.py` | viral-predictor |
@@ -53,7 +53,7 @@ print(r["viral_score"], r["forecast"]["reach_p50"], r["suggestions"]["counterfac
 * The simulators are internally consistent models (verified: Python port matches the original C++
   simulator within Monte-Carlo noise; Hawkes fitting recovers known parameters), but their constants are
   hand-set, not fitted to real platform data. `confidence` is a reliability heuristic, not a calibrated probability.
-* The platform-signal weights are estimates, not X's production weights.
+* `signals.py` is an original, hand-set rule table about what usually helps or hurts a short post. It is not any platform's real ranking weights, and nothing in it is fitted to data.
 * The web UI and the LLM prompts (`openai` client against a real provider) were not exercised against
   live services in the build environment; the HTTP client is tested against a local fake server.
 
@@ -69,4 +69,4 @@ docs/ARCHITECTURE.md   design, provenance, what was deliberately left out
 
 Run tests: `PYTHONPATH=src python -m unittest discover -s tests -t .`
 
-Licences and attributions: see `NOTICE.md` (one source repo has no licence file; action item there).
+Licences and attributions: see `NOTICE.md`.

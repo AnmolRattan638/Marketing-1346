@@ -10,8 +10,8 @@ Please keep this file when redistributing.
 | SocialNetSim (M. Lakhili) | MIT | Interest/ideology-weighted attachment, SIR-style diffusion with fatigue/saturation/backlash, Hawkes process, bounded-confidence opinion dynamics, moderation, early-signal ML idea. Re-implemented. |
 | social_simulation / HiSim (X. Mou et al.) | MIT | Core-LLM + ordinary-ABM hybrid agent design (paper: arXiv:2402.16333). Concept only; the repo ships a project web page, not the simulator. |
 | Viralix | Apache-2.0 | Role-based agents (public/influencer/brand/academic/competitor), declared-vs-text sentiment "discourse tension", cascade metrics idea, grounded-report idea. Re-implemented; no code copied. |
-| viral-predictor | README says MIT, **no LICENSE file** | A/B-test-by-simulated-users concept and statistical-confidence display. Re-implemented (and statistically corrected). |
-| x-virality-predictor | **No licence file** | Signal-weight heuristics (`signals.py`: weights, hook/CTA patterns). Constants and patterns were adapted. **Action needed:** confirm permission with the author or replace `signals.py` before commercial redistribution. |
+| viral-predictor | README says MIT, **no LICENSE file** | Only the idea of an A/B test by simulated users and a statistical-confidence display. Re-implemented (and statistically corrected); no code copied. |
+| x-virality-predictor | **Not used** | Nothing. An earlier version of `signals.py` adapted constants from this unlicensed project; it was replaced by an original rule table (rules, constants and tip texts written for this repo) and that project is no longer a source. |
 
 Data: the persona pool derives from NVIDIA Nemotron-Personas-USA (CC BY 4.0), mapped to the persona schema by the Content-diffusion authors; attribution required.
 Taxonomy note: the 24-topic list comes from Content-diffusion. Its IAB-taxonomy-based trend-graph tagging was not ported.

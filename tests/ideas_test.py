@@ -49,7 +49,11 @@ state = {"idea": "bot-unanswered"}
 def groq(p, s="", **k):
     if "REEL RULES" in p and "Google Flow generates" in p:       # the reel plan runs on Groq for now (gemma is too small for detailed prompts)
         seen["reel"] = p
-        return json.dumps({"voiceover": "v", "shots": ["s"], "flow_prompt": "f"})
+        return json.dumps({"hook_first_3s": "h", "parts": [{"goal": "g", "voiceover": "v", "end_frame": "e", "audio_motif": "a"}] * 3})
+    if "Write clip" in p:
+        w = "word " * 30
+        return json.dumps({"beats": [{"start": i, "end": i + 1, "visual": w, "feel": "f", "camera": "c", "audio": "a"} for i in range(9)],
+                           "paste": [{"start": 0, "end": 5, "text": w}] * 4, "sync": "s"})
     if "Hook library" in p:
         seen["analysis"] = p
         return json.dumps(plan(state["idea"]))

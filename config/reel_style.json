@@ -1,0 +1,80 @@
+{
+  "_comment": "The film style of the 30-second reel, extracted from the owner's own 3-clip script (Stiff English scripts kill your camera confidence). src/agents/video.py reads this file: the look, the world and the rules are constant across every reel, only the story objects change per service. Edit values here, not in code. Everything stays positive and concrete: real lenses, real colour temperatures, real materials. No prices, timeframes, results or real app logos anywhere.",
+  "film_look": "a deeply relatable, non-commercial indie-film style cinematic micro-story for 'AR Designs', shot on ARRI Alexa Mini LF with {lens}, 4K resolution, 60fps, Kodak Vision3 500T film emulation with rich halation, warm tungsten highlights and tactile natural textures",
+  "lenses": ["100mm Macro Anamorphic lens", "85mm Anamorphic lens", "50mm Anamorphic lens", "85mm Macro lens at f/1.4"],
+  "world": {
+    "desk": "a minimalist Nordic oak wood desk in a clean white minimalist workspace",
+    "laptop": "a Space Silver MacBook Pro with a brushed aluminium body and a glass Retina display",
+    "lamp": "a warm 3200K architectural desk lamp casting soft diffused shadows",
+    "air": "volumetric dust motes floating in the golden lamp light",
+    "cold_light": "the cold blue-white glow of the laptop screen",
+    "emblem": "a small minimalist 'AR Designs' emblem in a corner of the dark-mode screen"
+  },
+  "light_turn": "Cold blue screen glow means the problem. The moment the old way is removed, the warm 3200K tungsten lamp glow takes over and the whole scene turns golden: that colour change is the emotional turning point of the reel.",
+  "acts": [
+    {"time": "0-10s", "name": "Problem to turning point to solution", "beats": "cold open on the frustration (hesitating fingers, a slow press of Backspace), the problem on screen, the decisive removal of the old way, the flow state beginning, the solution in action, structure and clarity, the human relief seen only in a reflection, a hero payoff frame"},
+    {"time": "10-20s", "name": "The new way, in detail", "beats": "a match-cut entry from the previous hero frame into one detail on the screen, a deliberate rejection of the fake or stiff version, a clean slate, doing it the new way, small cues that make it feel human, the connection (the creator quietly trying it out loud, seen in a glass reflection), a transition that shows readiness"},
+    {"time": "20-30s", "name": "Ready, one next step, loop", "beats": "a seamless entry from the previous clip, a smooth reveal to a wide calm composition, a deliberate power move (for example closing the laptop lid), a tactile satisfying sound, the creator stepping into the spotlight, a locked-off final wide frame with clean empty space for the DM keyword, ending on a question that hands back to the very first frame"}
+  ],
+  "camera_moves": ["micro-dolly push-in", "slow tilt-up", "rack-focus from the screen to its glass reflection", "horizontal slider tracking shot alongside the cursor", "gimbal ease-out into a locked composition", "crane-style pull-back", "probe-lens macro glide at a 25 to 35 degree angle", "smooth top-down overhead", "locked-off wide shot"],
+  "texture": ["brushed aluminium", "glass reflections", "pixel-level detail on the screen", "halation around the lamp", "soft lens flare on the edge of the glass", "creamy bokeh", "shallow depth of field"],
+  "audio": {
+    "timeline": "Write the sound as a timeline: a tense silence, a single heavy click, rhythmic ASMR keystrokes that stop at a stated timestamp, a warm ambient pad or lo-fi swell, one tactile 'thock', a soft studio-light click, then a lo-fi or vinyl tail that fades back towards the opening silence so a replay feels natural.",
+    "voiceover": "intimate, grounded and conversational, like a friend sharing a secret, never an announcer; use ellipses for pauses"
+  },
+  "rules": [
+    "The creator is never shown as a full face: only hands, a blurred reflection in the glass, or a silhouette.",
+    "Text exists only as in-scene screen UI (a selection box, underlines, small tags such as [Pause] or [Smile], the small AR Designs emblem). Never a text overlay on the video: captions are added later.",
+    "Only generic interface designs: no real app logos, brand names or trademarks on screen.",
+    "Show the benefit as a physical action the viewer can see. Never explain it as a claim, and never state prices, timeframes, results or guarantees.",
+    "Story Feel is ONE short line of inner feeling in Roman-script Hinglish (English letters only, no Devanagari). Everything else is in English. Words typed on a screen may be Hinglish in Roman script.",
+    "Every clip opens from the previous clip's final frame and ends on a frame that sets up the next one. The very last frame hands back to the first.",
+    "Name specific things: exact objects, materials, colour temperatures, lenses, apertures, camera moves, angles. Never write 'cinematic' or 'beautiful' on their own."
+  ],
+  "services": {
+    "_default": {
+      "screen": "a dark-mode workspace on the laptop",
+      "metaphor": "the old, clumsy way of doing the task is selected and removed in one decisive action, and the clean new way takes its place",
+      "hero_prop": "a sleek studio microphone beside the laptop",
+      "closing_action": "the laptop lid closes calmly and a soft warm key-light switches on in the background"
+    },
+    "reel_scripts": {
+      "screen": "a dark-mode script document",
+      "metaphor": "a stiff, robotic English corporate sentence is highlighted and deleted, then a natural conversational Hinglish line is typed in its place, with small pause cues such as [Pause] and [Smile] appearing beside it",
+      "hero_prop": "a sleek studio microphone beside the laptop",
+      "closing_action": "the creator closes the laptop lid and a warm studio key-light with a tiny red recording tally light switches on in the background"
+    },
+    "chatbot": {
+      "screen": "a dark-mode inbox with a stack of customer messages",
+      "metaphor": "a smartphone on the oak desk keeps lighting up with unanswered customer messages, then a calm automatic reply appears by itself while the owner keeps working",
+      "hero_prop": "a smartphone showing a stack of generic chat bubbles",
+      "closing_action": "the phone goes quiet and rests face-down while the laptop shows a tidy, fully answered inbox"
+    },
+    "animated_ads": {
+      "screen": "a dark-mode animation timeline with a single product photo as its base layer",
+      "metaphor": "one still product photo on the timeline gets keyframes and begins to move, turning into a short, smooth animated ad",
+      "hero_prop": "a smartphone propped upright playing the finished animated ad",
+      "closing_action": "the finished ad loops on the propped phone while the laptop lid closes behind it"
+    },
+    "lead_gen": {
+      "screen": "a dark-mode map of a neighbourhood with small glowing pins",
+      "metaphor": "a hand-typed spreadsheet of contacts is cleared away and replaced by a clean map where nearby local businesses appear as glowing pins, ready to be contacted",
+      "hero_prop": "a small notebook with a pen beside the laptop",
+      "closing_action": "the notebook closes and the map keeps glowing softly on the screen"
+    },
+    "website": {
+      "screen": "a dark-mode mobile page preview with a clear call button and a location line",
+      "metaphor": "a cluttered one-line social bio link is replaced by a clean one-page mobile site where the call button and the location are visible at a glance",
+      "hero_prop": "a smartphone showing the finished one-page site",
+      "closing_action": "the smartphone is placed beside the laptop, its screen glowing softly with the finished page"
+    },
+    "seo_blogs": {
+      "screen": "a dark-mode document that grows from a blank page into a helpful article",
+      "metaphor": "a blank page turns into a clear, helpful article with a heading and short paragraphs, then a simple search result card for it appears",
+      "hero_prop": "a ceramic mug of tea and a closed notebook beside the laptop",
+      "closing_action": "the laptop lid closes and the lamp light settles on the mug and the notebook"
+    }
+  },
+  "example_beat": "Visual: Extreme macro top-down shot of a creator's fingers hesitating over a Space Silver MacBook Pro keyboard. The room is dim, lit only by the cold, harsh blue glow of the laptop screen and a warm 3200K architectural desk lamp on a Nordic oak desk. A single finger presses the Backspace key slowly.\nStory Feel: Camera ke samne bolne se pehle jo darr aur confusion hota hai, wo dikhta hai.\nCamera & Lens: 85mm Macro lens, f/1.4, razor-thin depth of field focused strictly on the Backspace key.\nAudio Cue: tense silence, then a single heavy backspace click.",
+  "example_paste_beat": "Extreme macro probe-lens tracking shot gliding smoothly across the glowing screen at a 35-degree angle. Crisp pixel detail and subtle glass reflections. A fluid glowing cursor rapidly types a natural, conversational Hinglish script in Roman letters. As the words appear, key hooks softly illuminate in warm amber and teal tags, structuring into a clean, easy-to-read outline."
+}

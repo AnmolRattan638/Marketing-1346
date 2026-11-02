@@ -117,5 +117,12 @@
     "topic": "The mistake of treating lead sourcing as part of your billable day.",
     "hook_style": "comparison",
     "status": "published"
+  },
+  {
+    "date": "2026-11-02",
+    "service": "chatbot",
+    "topic": "What happens to your WhatsApp enquiries when you're busy serving the customer standing right in front of you?",
+    "hook_style": "question",
+    "status": "published"
   }
 ]

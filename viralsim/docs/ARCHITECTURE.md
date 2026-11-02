@@ -37,7 +37,6 @@ text/media ─► content vector (8 dims, topics, entities) ─┐   creator sco
 |---|---|
 | viral-predictor ran a z-test with the wrong sample sizes and treated all actions as one total | Per-metric one-sided two-proportion z-test with degenerate-case handling; paired simulation alternative |
 | viral-predictor sent the same prompt to every "user" | Each simulated user is a sampled persona |
-| x-virality: comments said "-400% link tax" but code applied x0.25; exactly 3 hashtags were never penalised | Consistent 0.25 multiplier in text; 3+ hashtags penalised |
 | Viralix "structural virality" was out-degree variance | True definition: mean pairwise distance (Wiener index), unit-tested on known trees |
 | Content-diffusion Jaccard counted duplicate tokens | Set-based Jaccard |
 | PhantomCrowd rule agents ignored persona and content | Persona-driven behaviour model |

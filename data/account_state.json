@@ -1,20 +1,20 @@
 {
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "stage": "brand new under 100 followers",
   "followers": 10,
-  "summary": "Account is brand new (10 IG followers). Weakest area: 77% reel drop-off in first 3 seconds and near-zero engagement across platforms — hooks aren't stopping the scroll. Bio violates brand rules (niche, region, timeframe, unauthorized free offer).",
-  "guidance": "- Hook style to try next: rotate to **contrast** (1.75x in learning loop) or **top3** (1.5x, n=5); avoid **question** (only 39% of comparison per reach on IG) and **comparison** (1.0x, low IG engagement).\n- Topics to avoid: repeating \"manual lead hunting exhaustion\" or \"hours on Google Maps\" — three recent lead_gen posts already cover this pain point.\n- Reminder: every post must read like a developer showing real work, never an ad; no demos, samples, guarantees, or niche/region targeting.",
+  "summary": "Account is brand new (10 IG, 2 LI, 1 BS followers). Data too thin for reliable patterns; weak signals show reels lose 77% viewers in first 3s, chatbot posts earn 39% of lead_gen per reach, question hooks earn 39% of comparison hooks. Instagram bio violates brand rules: names niches (hotels, cafes, gyms, homestays), region (Himachal), promises 24hr delivery, offers free site check outside website posts.",
+  "guidance": "- Fix the hook: first 3 seconds must stop scroll; avoid generic openings.\n- Rotate hook styles: try comparison or contrast next (question hooks underperform).\n- Vary chatbot angles: don't repeat 'same questions' framing; show varied business types in one line.\n- Posts must read as a developer sharing real work, never as an ad; no demo claims, no invented results.\n- Only offers: pay after approval, or DM for honest fit advice.",
   "instructions": {
-    "research": "List 3 fresh angles for lead-gen that speak to freelancers/agencies/any service seller (not web devs) — e.g., \"newly opened businesses have no vendor yet\", \"review count signals budget\", \"website check reveals tech maturity\".",
-    "analysis": "Compare the two published lead_gen posts: 10-23 (top3, \"3 things that happen...\") vs 10-27 (comparison, \"Spray and Pray vs Surgical\"). Note which hook style and angle type earned more DMs/profile visits.",
-    "writer": "Write a lead_gen post using a **contrast** hook. Open with \"Freelancers, agencies, anyone selling a service...\". Describe LocalSignal sheet only in general terms: local businesses from Google Places with contact details, review counts, website checks, newly opened ones. End with \"pay after approval\" offer and invite DM for honest fit advice.",
-    "image": "Create a clean silhouette-style graphic (silhouette 1.5x in learning loop): outline of India with scattered pins, one highlighted row of a spreadsheet showing business name, phone, reviews, website yes/no. No logos, no niche icons.",
-    "video": "Not required for today's lead_gen post; focus on static image/carousel."
+    "research": "List 5-7 common customer questions shared by varied Indian small businesses (e.g. clinic, salon, coaching centre, shop, D2C brand) that a chatbot could handle.",
+    "analysis": "Compare the last 3 chatbot posts' hook styles and engagement vs lead_gen posts; note which hook style (comparison/contrast) aligns with higher per-reach earnings.",
+    "writer": "Write a comparison-style post contrasting manual reply workload vs chatbot handling for 2-3 example business types; use soft wording ('can reduce', 'helps'), no demo claims, end with DM for honest advice or pay after approval.",
+    "image": "Create a clean silhouette or desk-glow style graphic showing a split scene: business owner overwhelmed by messages vs calm with chatbot; no brand logos, no specific business names.",
+    "video": "Not needed for today's chatbot image/carousel post."
   },
   "manual_tips": [
-    "Update Instagram bio: remove \"hotels, cafes, gyms & homestays in Himachal\", \"ready in 24 hrs\", and \"Free 2-min site check\". Replace with: \"Websites, AI chatbots, animated ads & lead sheets for small businesses across India. Pay after approval. DM for honest advice.\"",
-    "Leave 5 thoughtful comments on posts by Indian freelancers/agencies discussing client acquisition (not self-promo).",
-    "Share today's published post to 2-3 relevant LinkedIn groups or X/Twitter threads where service sellers ask for lead sources."
+    "Update Instagram bio: remove niches, region, timeframe, and free site check; replace with national, multi-industry description and only allowed offers (pay after approval, DM for advice).",
+    "Comment thoughtfully on 5 posts from Indian small business owners in different industries (clinic, salon, coaching, shop, D2C) about handling repeat customer queries.",
+    "Reply to any existing DMs/comments with honest advice on whether a chatbot fits their business; mention pay after approval."
   ],
   "weak_signals": [
     {
@@ -40,7 +40,7 @@
     {
       "id": "follower_stall",
       "platform": "bluesky",
-      "detail": "6 posts in 7 days and followers changed by +0"
+      "detail": "5 posts in 7 days and followers changed by +0"
     }
   ]
 }

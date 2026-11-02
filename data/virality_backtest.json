@@ -1,0 +1,27 @@
+{
+  "platforms": {
+    "instagram": {
+      "n": 11,
+      "spearman": 0.57,
+      "p_value": 0.07,
+      "score_spread": 2.7,
+      "llm_scored": 0,
+      "median_actual_reach": 6.0,
+      "median_predicted_reach": 718.0,
+      "reach_ratio": 0.008,
+      "verdict": "no spread (the scores barely differ between posts)"
+    },
+    "linkedin": {
+      "n": 3,
+      "spearman": -0.87,
+      "p_value": 0.33,
+      "score_spread": 0.3,
+      "llm_scored": 0,
+      "median_actual_reach": 57.0,
+      "median_predicted_reach": 829.0,
+      "reach_ratio": 0.069,
+      "verdict": "too early"
+    }
+  },
+  "note": "rank correlation of the score with real reach; needs 8+ posts and p<0.1 to count"
+}

@@ -1,3 +1,5 @@
-- Hook style to try next: rotate to **contrast** (1.75x in learning loop) or **top3** (1.5x, n=5); avoid **question** (only 39% of comparison per reach on IG) and **comparison** (1.0x, low IG engagement).
-- Topics to avoid: repeating "manual lead hunting exhaustion" or "hours on Google Maps" — three recent lead_gen posts already cover this pain point.
-- Reminder: every post must read like a developer showing real work, never an ad; no demos, samples, guarantees, or niche/region targeting.
+- Fix the hook: first 3 seconds must stop scroll; avoid generic openings.
+- Rotate hook styles: try comparison or contrast next (question hooks underperform).
+- Vary chatbot angles: don't repeat 'same questions' framing; show varied business types in one line.
+- Posts must read as a developer sharing real work, never as an ad; no demo claims, no invented results.
+- Only offers: pay after approval, or DM for honest fit advice.

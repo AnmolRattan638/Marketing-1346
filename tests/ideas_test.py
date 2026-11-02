@@ -47,6 +47,9 @@ def plan(idea_id):
             "image_idea": "i", "ok": True, "issues": [], "revised": {}, "ad_score": 3, "notes": ""}
 state = {"idea": "bot-unanswered"}
 def groq(p, s="", **k):
+    if "REEL RULES" in p and "Google Flow generates" in p:       # the reel plan runs on Groq for now (gemma is too small for detailed prompts)
+        seen["reel"] = p
+        return json.dumps({"voiceover": "v", "shots": ["s"], "flow_prompt": "f"})
     if "Hook library" in p:
         seen["analysis"] = p
         return json.dumps(plan(state["idea"]))
@@ -55,8 +58,6 @@ def gemma(p, s="", **k):
     if "Propose 5 post topics" in p:
         seen["research"] = p
         return json.dumps({"topics": [{"topic": "t", "angle": "a", "why_it_matters": "w", "idea_id": state["idea"]}]})
-    if "REEL RULES" in p:
-        seen["reel"] = p
     return json.dumps({"topics": [{"topic": "t", "angle": "a", "why_it_matters": "w"}], "voiceover": "v", "shots": ["s"], "flow_prompt": "f"}) if "JSON" in p else "img prompt"
 llm.groq, llm.gemma = groq, gemma
 llm.gemini = lambda p, s="", **k: json.dumps({"instagram": "ig", "linkedin": "li", "bluesky": "bs", "replies": []})

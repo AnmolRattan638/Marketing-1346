@@ -47,9 +47,6 @@ def plan(idea_id):
             "image_idea": "i", "ok": True, "issues": [], "revised": {}, "ad_score": 3, "notes": ""}
 state = {"idea": "bot-unanswered"}
 def groq(p, s="", **k):
-    if "REEL RULES" in p and "Google Flow generates" in p:       # the reel plan runs on Groq for now (gemma is too small for detailed prompts)
-        seen["reel"] = p
-        return json.dumps({"voiceover": "v", "shots": ["s"], "flow_prompt": "f"})
     if "Hook library" in p:
         seen["analysis"] = p
         return json.dumps(plan(state["idea"]))
@@ -60,6 +57,12 @@ def gemma(p, s="", **k):
         return json.dumps({"topics": [{"topic": "t", "angle": "a", "why_it_matters": "w", "idea_id": state["idea"]}]})
     return json.dumps({"topics": [{"topic": "t", "angle": "a", "why_it_matters": "w"}], "voiceover": "v", "shots": ["s"], "flow_prompt": "f"}) if "JSON" in p else "img prompt"
 llm.groq, llm.gemma = groq, gemma
+def prompt_writer(p, s="", **k):                                  # the reel and image prompt writers (Groq first, Gemma fallback)
+    if "REEL RULES" in p and "Google Flow generates" in p:
+        seen["reel"] = p
+        return json.dumps({"hook_first_3s": "h", "concept": "c", "parts": [{"time": "0-10s", "voiceover": "v", "story": "s"}] * 3})
+    return json.dumps({})                                         # an unusable clip: the plain fallback clip is used
+llm.prompt_writer = prompt_writer
 llm.gemini = lambda p, s="", **k: json.dumps({"instagram": "ig", "linkedin": "li", "bluesky": "bs", "replies": []})
 tg.send = lambda text, buttons=None: None
 tg.send_photo = lambda *a, **k: None
@@ -88,8 +91,9 @@ assert config.load_json(config.DRAFTS / f"{run_daily.today}.json", None)["idea_i
 # ------------------------------------------------------------------ reel prompt: 1-second hook, stacked first frame, loop ending
 from src.agents import video
 vp = {"topic": "t", "hooks": [{"text": "Hook?"}], "chosen_hook": 0}
-video.run(vp, {"name": "Chatbot"}, {})
+vres = video.run(vp, {"name": "Chatbot"}, {})
 rp = seen["reel"]
+assert len(vres["parts"]) == 3 and vres["warnings"], "unusable clips fall back to plain clips with a warning"
 assert "FIRST SECOND" in rp and "3-7 words" in rp and "hands back to the opening" in rp and "REEL RULES" in rp and "within 3 seconds" not in rp
 # research without an idea pool must not mention the bank
 from src.agents import research

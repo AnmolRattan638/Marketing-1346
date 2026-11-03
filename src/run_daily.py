@@ -222,7 +222,8 @@ def main():
                 WARNINGS.append("carousel: the slides could not be drawn, so this goes out as a single image.")
         elif car:
             WARNINGS.append("carousel: there is no hook image, so this goes out without a carousel.")
-        vid = stage("video", lambda: video.run(plan, focus, posts, g('video')), fallback={}) if ig_mode == "manual_reel" else {}
+        vid = stage("video", lambda: video.run(plan, focus, posts, g('video'), brand), fallback={}) if ig_mode == "manual_reel" else {}
+        WARNINGS.extend((vid or {}).get("warnings") or [])
         vir_after = vir
         if vsum["rewrote"] and vir:        # the rewritten captions get their own report (no A/B again, same hooks) so you can see what the one rewrite did; it never triggers another rewrite
             vir_after = stage("virality.after", lambda: virality.run(posts, None, 0, llm=groq_client), fallback={}) or vir
@@ -271,6 +272,8 @@ def main():
                 "\n\nThe 3 prompts follow, one message each. Generate them in order, join the clips in any editor (e.g. CapCut), add captions, then post.")
         for i, part in enumerate(parts, 1):
             tg.send(f"[FLOW PROMPT {i}/{len(parts)} | {part.get('time')}]\nSpoken line: {part.get('voiceover')}\n\n{part.get('flow_prompt')}")
+            if part.get("beat_sheet"):
+                tg.send(f"[BEAT SHEET {i}/{len(parts)} | {part.get('time')}] (the director's version, for reference or to rebuild a clip beat by beat)\n\n{part['beat_sheet']}")
     if draft["replies"]:
         tg.send("[REPLY DRAFTS]\n" + "\n\n".join(f"If: {r['if_they_say']}\n-> {r['reply']}" for r in draft["replies"]))
     if not (car_data and "diagram" in car_data["roles"]):          # a carousel with the diagram slide already shows it

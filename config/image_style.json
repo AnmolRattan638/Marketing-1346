@@ -13,7 +13,10 @@
         0,
         212,
         255
-      ]
+      ],
+      "lighting": "a cool cyan rim light from behind and a soft violet fill from the left, with long glossy reflections on the floor",
+      "materials": "frosted glass, brushed metal edges and a polished reflective floor",
+      "camera": "an 85mm lens at f/1.8 with a shallow depth of field"
     },
     {
       "id": "silhouette",
@@ -25,7 +28,10 @@
         139,
         125,
         255
-      ]
+      ],
+      "lighting": "a soft blue window glow behind the person with a violet rim light and a faint warm lamp on the desk",
+      "materials": "matte dark fabric, glass and drifting light particles in hazy air",
+      "camera": "a 50mm lens at f/2.0 with gentle haze and a shallow depth of field"
     },
     {
       "id": "network",
@@ -37,19 +43,25 @@
         34,
         211,
         238
-      ]
+      ],
+      "lighting": "crisp white and cyan point lights with a faint blue bloom around each node",
+      "materials": "polished black glass, thin glowing wires and fine light dust",
+      "camera": "a 35mm lens at f/2.8 with razor-sharp focus on the central nodes and creamy bokeh in the distance"
     },
     {
       "id": "desk-glow",
       "name": "moody desk scene",
-      "look": "a dark, quiet room lit by one warm lamp, rich shadows and a subtle glow",
+      "look": "a calm, softly lit evening workspace with one warm lamp, rich shadows and a subtle glow",
       "elements": "a laptop with a softly glowing dark screen on a dark desk, a black ceramic mug, a closed notebook and pen, a warm lamp glow and a leafy plant fading into the dark background",
       "accent": "warm gold",
       "accent_rgb": [
         245,
         176,
         65
-      ]
+      ],
+      "lighting": "one warm 3200K lamp from the upper right, a soft amber pool on the desk and a gentle cool glow from the laptop screen",
+      "materials": "dark walnut wood, brushed aluminium, matte ceramic and a few dust motes in the lamp light",
+      "camera": "a 100mm macro lens at f/2.0 with creamy bokeh and a slight halation around the lamp"
     },
     {
       "id": "bright-desk",
@@ -61,9 +73,16 @@
         96,
         165,
         250
-      ]
+      ],
+      "lighting": "soft diffused daylight from a window on the left, gentle long shadows and a faint cool glow from the screen",
+      "materials": "light oak wood, white ceramic, linen and brushed aluminium",
+      "camera": "a 50mm lens at f/2.2 with a shallow depth of field and a clean airy feel"
     }
   ],
-  "slide_reference_prompts": [],
-  "_slide_comment": "slide_reference_prompts: paste your favourite image prompts here (plain strings). Every problem/solution slide picture is written in their style: concrete subject, rich environment, lighting and colour. They are style examples only, never copied. Leave the list empty to use the built-in guidance."
+  "slide_reference_prompts": [
+    "A cinematic wide shot of a creator's studio at night: a matte-black desk with a laptop showing a glowing holographic timeline of video clips floating above it, a studio microphone on a boom arm, a warm amber desk lamp casting a soft pool of light, soft cool blue neon strips along the back wall, fine haze in the air, a polished floor with glossy reflections, deep blue and amber palette with an energetic focused mood, 50mm lens at f/2.0, shallow depth of field, crisp surface texture.",
+    "A hero 3D render of three frosted-glass message bubbles floating in soft perspective above a dark glossy surface, the nearest bubble sharp and glowing with a warm green rim light, the others fading into creamy bokeh, thin light trails linking them, subtle particles in the air, deep navy background with one teal accent, calm and satisfying mood, macro lens at f/1.8, high-end product-render finish, empty soft space in the lower 40%.",
+    "A professional seen from behind at a wide dark desk, facing a large monitor that glows violet, a warm tungsten desk lamp on the right, a rim light tracing the shoulders, a city skyline blurred through a tall window in the background, a matte desk with a notebook and a ceramic mug in the foreground, deep violet and warm gold palette with a quiet determined mood, 35mm lens at f/2.8, fine dust in the light beams, cinematic depth."
+  ],
+  "_slide_comment": "slide_reference_prompts: your favourite image prompts as plain strings. Both the hook picture and every problem/solution slide picture are written in their style (subject, composition, lighting, environment, colour and mood, camera and texture). They are style examples only, never copied. Each variant also has lighting, materials and camera words used by the fallback prompt."
 }

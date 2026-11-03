@@ -146,3 +146,8 @@ LinkedIn alternates a **text-only** post and a post **with the image** (your fir
 
 ## Using your own design (e.g. Adobe Express)
 Send a photo (or an image file) to the bot while a draft is pending. It becomes today's image for Instagram, LinkedIn and Bluesky; then tap Approve. Add the caption `ai` if the image is AI-generated so the AI marker is embedded.
+
+## Detailed prompts (reels and pictures)
+- **Reels:** `config/reel_style.json` holds the cinematic style extracted from your Google Flow scripts (camera, lens, stock, the desk world per service, vocabulary, rules). `src/agents/video.py` plans the story, then writes each 10 s clip twice: a **beat sheet** (1-2 s beats with frame numbers, Visual / Story Feel / Camera & Lens / Audio Cue) and the **paste version** for Flow (same film header on all 3 clips, 4 beats, one audio line with the voiceover). Telegram sends `[FLOW PROMPT]` and `[BEAT SHEET]` per clip. A clip that fails its checks twice becomes a plain fallback clip and a warning.
+- **Pictures:** hook and slide prompts follow six parts (subject, composition, lighting, environment, colour and mood, camera and texture). Each style family in `config/image_style.json` has lighting, materials and camera words; `slide_reference_prompts` holds style examples (add yours).
+- **Model:** both use `llm.prompt_writer` (Groq first, Gemma fallback). `PROMPT_WRITER=gemma` turns Groq off for these steps.

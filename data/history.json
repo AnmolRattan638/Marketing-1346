@@ -124,5 +124,12 @@
     "topic": "What happens to your WhatsApp enquiries when you're busy serving the customer standing right in front of you?",
     "hook_style": "question",
     "status": "published"
+  },
+  {
+    "date": "2026-11-03",
+    "service": "animated_ads",
+    "topic": "Why do some brands look high-end on Instagram without owning a single professional camera?",
+    "hook_style": "myth",
+    "status": "published"
   }
 ]

@@ -1,6 +1,64 @@
 {
   "posts": [
     {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mzfnd7lysi2c",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzfnd7lysi2c",
+      "published_at": "2026-11-03T10:35:27.147310+00:00",
+      "text": "𝗣𝗛𝗢𝗧𝗢 𝘃𝘀 𝗥𝗘𝗘𝗟 AI motion gives small businesses a studio look without cameras, fast and affordable. No crew, no studio, just better ads for Instagram and Faceboo",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-03",
+        "service": "animated_ads",
+        "hook_style": "myth",
+        "topic": "Why do some brands look high-end on Instagram without owning a single professional camera?"
+      }
+    },
+    {
+      "platform": "instagram",
+      "id": "18340664626260629",
+      "url": "https://www.instagram.com/p/DfRrgn4jh0C/",
+      "published_at": "2026-11-03T10:35:20.000Z",
+      "text": "KYA PHONE VIDEO STUDIO LOOK JAISE DEKHAI DEGA?\n→ 𝗔𝗜 𝗠𝗢𝗧𝗜𝗢𝗡 se chhote business ke liye tez banaya ja sakta hai.\n→ Camera, studio ya crew ki zaroorat nahi padti.\n",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 10,
+        "reach": 1,
+        "views": 10,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-03",
+        "service": "animated_ads",
+        "hook_style": "myth",
+        "topic": "Why do some brands look high-end on Instagram without owning a single professional camera?"
+      }
+    },
+    {
       "platform": "instagram",
       "id": "18098556053533108",
       "url": "https://www.instagram.com/p/DfPFT8riK5h/",
@@ -932,7 +990,7 @@
       "format": "text",
       "source": "zernio",
       "metrics": {
-        "impressions": 159,
+        "impressions": 177,
         "reach": 87,
         "views": null,
         "likes": 0,
@@ -1007,13 +1065,13 @@
       "username": "ar__designerx"
     },
     "linkedin": {
-      "followers": 2,
+      "followers": 4,
       "username": "Anmol Rattan"
     },
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 18
+      "posts": 19
     }
   },
   "coverage": {
@@ -1215,12 +1273,12 @@
       "date": "2026-11-03",
       "followers": {
         "instagram": 10,
-        "linkedin": 2,
+        "linkedin": 4,
         "bluesky": 1
       }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-03T00:59:16+00:00"
+  "updated_at": "2026-11-03T14:17:31+00:00"
 }

@@ -193,7 +193,7 @@
         }
       },
       "latest": {
-        "impressions": 159,
+        "impressions": 177,
         "reach": 87,
         "likes": 0,
         "comments": 0,
@@ -972,6 +972,13 @@
           "likes": 0,
           "comments": 1,
           "shares": 0
+        },
+        "7d": {
+          "age_h": 173.6,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 1,
+          "shares": 0
         }
       },
       "latest": {
@@ -1004,6 +1011,18 @@
           "reach": 4,
           "views": 7,
           "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        },
+        "7d": {
+          "age_h": 173.6,
+          "source": "zernio",
+          "impressions": 7,
+          "reach": 4,
+          "views": 7,
+          "likes": 1,
           "comments": 0,
           "shares": 0,
           "saves": 0,
@@ -1195,7 +1214,79 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-11-01|bluesky": {
+      "date": "2026-11-01",
+      "platform": "bluesky",
+      "service": "lead_gen",
+      "problem_id": "manual-lead-searching-exhaustion",
+      "angle_type": "mistake",
+      "hook_style": "comparison",
+      "format": "text",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "hook_style",
+      "image_style": "glass-ui",
+      "carousel_flavor": "myth-bust",
+      "slides": 6,
+      "published_at": "2026-11-01T09:48:12.790200+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzajqui7ds2x",
+      "snap": {
+        "48h": {
+          "age_h": 52.5,
+          "source": "bluesky",
+          "likes": 1,
+          "comments": 1,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 1,
+        "comments": 1,
+        "shares": 0
+      }
+    },
+    "2026-11-01|instagram": {
+      "date": "2026-11-01",
+      "platform": "instagram",
+      "service": "lead_gen",
+      "problem_id": "manual-lead-searching-exhaustion",
+      "angle_type": "mistake",
+      "hook_style": "comparison",
+      "format": "carousel",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "hook_style",
+      "image_style": "glass-ui",
+      "carousel_flavor": "myth-bust",
+      "slides": 6,
+      "published_at": "2026-11-01T09:48:08.000Z",
+      "url": "https://www.instagram.com/p/DfMcgZQgkzm/",
+      "snap": {
+        "48h": {
+          "age_h": 52.5,
+          "source": "zernio",
+          "impressions": 22,
+          "reach": 4,
+          "views": 22,
+          "likes": 2,
+          "comments": 1,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 22,
+        "reach": 4,
+        "views": 22,
+        "likes": 2,
+        "comments": 1,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
     }
   },
-  "updated_at": "2026-11-02T15:56:44+00:00"
+  "updated_at": "2026-11-03T14:17:33+00:00"
 }

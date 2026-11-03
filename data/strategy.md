@@ -1,5 +1,3 @@
-- Fix the hook: first 3 seconds must stop scroll; avoid generic openings.
-- Rotate hook styles: try comparison or contrast next (question hooks underperform).
-- Vary chatbot angles: don't repeat 'same questions' framing; show varied business types in one line.
-- Posts must read as a developer sharing real work, never as an ad; no demo claims, no invented results.
-- Only offers: pay after approval, or DM for honest fit advice.
+- Hook style to try next: **contrast** (1.75× in learning loop) or **question** (1.75×); avoid **top3** (used 10‑26) and **comparison** (0.94×).
+- Topics to avoid: repeating “caption ignored” or “budget vs crew” angles already posted 10‑26 and 10‑30.
+- Reminder: every post must read like a developer sharing real work, never an ad. Offer only “pay after approval” + a short DM conversation. No demos, free audits, or guarantees.

@@ -1,0 +1,543 @@
+{
+  "id": "2026-11-03-5988be",
+  "date": "2026-11-03",
+  "created_at": "2026-11-03T10:26:50+00:00",
+  "status": "pending",
+  "service": "animated_ads",
+  "topic": "Why do some brands look high-end on Instagram without owning a single professional camera?",
+  "idea_id": null,
+  "problem_id": "lack-of-budget-for-professional-video-sh",
+  "angle_type": "question",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "lack-of-budget-for-professional-video-sh",
+    "angle_type": null,
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "Entrepreneurs, why settle for phone pics when AI can make you look premium?"
+    },
+    {
+      "style": "myth",
+      "text": "Imagine a shop reel that looks like a studio shoot"
+    },
+    {
+      "style": "value",
+      "text": "Entrepreneurs: Get studio‑grade visuals without equipment—AI creates in minutes."
+    }
+  ],
+  "chosen_hook": 1,
+  "hook_style": "myth",
+  "posts": {
+    "instagram": "KYA PHONE VIDEO STUDIO LOOK JAISE DEKHAI DEGA?\n→ 𝗔𝗜 𝗠𝗢𝗧𝗜𝗢𝗡 se chhote business ke liye tez banaya ja sakta hai.\n→ Camera, studio ya crew ki zaroorat nahi padti.\n→ 𝗦𝗧𝗨𝗗𝗜𝗢 𝗟𝗢𝗢𝗞 INR 999 / 1,499 / 2,199 mein.\nDM 𝗔𝗗𝗦 aur batayein aap kya bechte hain. Kaam approve karne ke baad payment.\n\n#SmallBusinessIndia #AIAnimatedAds #IndiaBusiness #FreelanceIndia #GetClients",
+    "linkedin": "Turn phone videos into polished ads without a camera.\n\nMany small businesses avoid video because a shoot requires equipment, crew, and time. I create simple animated ads with AI that mimic studio lighting and composition, keeping production fast and costs low for shops, clinics and other service providers across India.\n\nThe ads work on Instagram and Facebook and give a more professional look without needing a camera. Prices are INR 999, 1,499 or 2,199, and you pay only after you approve the work.\n\nDM ADS with a brief description of what you sell, and I’ll share honest advice on whether this approach fits your business.",
+    "bluesky": "𝗣𝗛𝗢𝗧𝗢 𝘃𝘀 𝗥𝗘𝗘𝗟 AI motion gives small businesses a studio look without cameras, fast and affordable. No crew, no studio, just better ads for Instagram and Facebook. DM ADS if you want to see if it fits your business."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much?",
+      "reply": "Hi, thanks for messaging. I make AI animated ads for small businesses. Quick question: what do you want customers to do after seeing it—call, WhatsApp, or visit? Pricing is INR 999, 1,499, or 2,199, and you pay only after you approve the work."
+    },
+    {
+      "if_they_say": "Do you do this for my kind of business?",
+      "reply": "Thanks for asking. I work with any small business that talks to customers, whatever you sell. Quick question: what is the main goal—more calls, more WhatsApp messages, or more footfall?"
+    },
+    {
+      "if_they_say": "Will AI look too fake for my business?",
+      "reply": "Good question. AI motion copies studio lighting and composition, so it looks polished rather than fake. What kind of business do you run? I can tell you honestly if it fits."
+    }
+  ],
+  "image": {
+    "prompt": "A smartphone rests on a coffee shop table beside an open laptop, both glowing cyan, steam rises from a cup, faint motion trails float above the screen, pure black background, crisp white and cyan light, constellation of bright nodes joined by thin lines, flowing light waves, generous dark empty space, large calm lower area, premium high-contrast technology look, cinematic silhouette style, a small studio softbox silhouette hovers above the phone. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-03.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "lack-of-budget-for-professional-video-sh",
+      "angle_type": "question",
+      "style": "bold",
+      "headline": "Can phone photos look like a studio shoot?",
+      "highlight": [
+        "studio shoot"
+      ],
+      "sub": "High-end visuals without a professional camera.",
+      "chat": [],
+      "cta": "DM \"ADS\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "network"
+  },
+  "carousel": {
+    "flavor": "scenario-story",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-03.jpg",
+      "data/media/2026-11-03-s2.jpg",
+      "data/media/2026-11-03-s3.jpg",
+      "data/media/2026-11-03-s4.jpg",
+      "data/media/2026-11-03-s5.jpg",
+      "data/media/2026-11-03-s6.jpg",
+      "data/media/2026-11-03-s7.jpg"
+    ],
+    "alts": [
+      "Imagine a shop reel that looks like a studio shoot",
+      "Slide 2 of 7: Most phone videos look flat next to studio ads. Without lights or a crew, the product can get lost in a plain background.",
+      "Slide 3 of 7: Hiring a studio crew is not always possible. A small team may not have time or space for a full shoot.",
+      "Slide 4 of 7: AI motion can copy studio lighting and composition. The tool adds movement and depth to simple photos without a camera setup.",
+      "Slide 5 of 7: Simple images can look more polished on screen. AI-generated motion gives a brand a cleaner visual feel without a shoot.",
+      "Slide 6 of 7: No cameras, studios, or crews are needed. A business can turn product photos into short reels and ads.",
+      "Slide 7 of 7: DM ADS. Message me to discuss if this fits your business. I reply with honest advice."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Imagine a shop reel that looks like a studio shoot",
+        "body": "A small business posts a video shot on a phone."
+      },
+      {
+        "role": "problem",
+        "headline": "Most phone videos look flat next to studio ads",
+        "body": "Without lights or a crew, the product can get lost in a plain background."
+      },
+      {
+        "role": "problem",
+        "headline": "Hiring a studio crew is not always possible",
+        "body": "A small team may not have time or space for a full shoot."
+      },
+      {
+        "role": "solution",
+        "headline": "AI motion can copy studio lighting and composition",
+        "body": "The tool adds movement and depth to simple photos without a camera setup."
+      },
+      {
+        "role": "solution",
+        "headline": "Simple images can look more polished on screen",
+        "body": "AI-generated motion gives a brand a cleaner visual feel without a shoot."
+      },
+      {
+        "role": "solution",
+        "headline": "No cameras, studios, or crews are needed",
+        "body": "A business can turn product photos into short reels and ads."
+      },
+      {
+        "role": "cta",
+        "headline": "DM ADS",
+        "body": "Message me to discuss if this fits your business. I reply with honest advice."
+      }
+    ],
+    "scene_prompts": {
+      "2": "A person seen from behind holds a smartphone horizontally in the upper frame above a cluttered desk, hands steady, recording a small product. Tangled cables, open notebooks, stacked papers crowd the surface. Pure black background with crisp white and cyan light, a constellation of bright nodes joined by thin lines, sharp angled geometric shapes in white and cyan, generous dark empty space. A glowing translucent studio softbox frame hovers above the phone, emitting clean cyan light. Cinematic high-contrast lighting, cyan rim light on hands and device, calm dark lower area. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "3": "A solo creator seen from behind, kneeling amid tangled cables, cameras on tripods, lighting stands, and reflectors in a cramped room, hands adjusting a lens while production gear fills every surface. Pure black background with crisp white and cyan light, flowing light waves and sharp angled geometric shapes, generous dark empty space. Oversized studio equipment crowds the lone figure, showing a full shoot compressed into one small space. High-contrast cinematic look, subject in the upper portion, lower area calm and dark. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "4": "A person seen from behind sits at ease before a floating product, hands resting on a smooth control slab. Pure black background holds a constellation of bright nodes joined by thin cyan lines and sharp angled geometric shapes in white and cyan. Crisp white and cyan light beams shape the object like a soft studio rig, with gentle motion trails circling it. Generous dark empty space fills the lower area. Cinematic high contrast, polished technology look, glowing accent colour, subject high in the frame, calm dark space below. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "5": "A person seen from behind, seated near the top, hands gently cradling a floating framed picture with crisp cyan edges and a soft white glow, posture relaxed and at ease. Around them, a pure black background holds a constellation of bright white nodes connected by thin cyan lines and slow flowing light waves. Generous dark empty space beneath. Premium high-contrast cinematic lighting, one glowing cyan accent, clean modern shapes. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "6": "A silhouette of a relaxed person seen from behind, resting hands on a sleek, glowing surface. Floating in the air are luminous holographic product forms that dissolve into elegant, flowing cyan light waves. A delicate constellation of bright cyan nodes and thin white lines surrounds these shapes. This cinematic, high-contrast scene features crisp white and cyan light against a pure black background, with the radiant energy and subject occupying the upper area, transitioning into a vast, dark, and tranquil space below. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": []
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "image",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**KYA PHONE VIDEO STUDIO LOOK JAISE DEKHAI DEGA?\n→ **AI MOTION** se chhote business ke liye tez banaya ja sakta hai.\n→ Camera, studio ya crew ki zaroorat nahi padti.\n→ **STUDIO LOOK** INR 999 / 1,499 / 2,199 mein.\nDM **ADS** aur batayein aap kya bechte hain. Kaam approve karne ke baad payment.\n\n#SmallBusinessIndia #AIAnimatedAds #IndiaBusiness #FreelanceIndia #GetClients",
+      "linkedin": "Turn phone videos into polished ads without a camera.\n\nMany small businesses avoid video because a shoot requires equipment, crew, and time. I create simple animated ads with AI that mimic studio lighting and composition, keeping production fast and costs low for shops, clinics and other service providers across India.\n\nThe ads work on Instagram and Facebook and give a more professional look without needing a camera. Prices are INR 999, 1,499 or 2,199, and you pay only after you approve the work.\n\nDM ADS with a brief description of what you sell, and I’ll share honest advice on whether this approach fits your business.",
+      "bluesky": "**PHOTO vs REEL** AI motion gives small businesses a studio look without cameras, fast and affordable. No crew, no studio, just better ads for Instagram and Facebook. DM ADS if you want to see if it fits your business."
+    }
+  },
+  "ad_score": 8,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 8.1,
+        "breakout_probability": 0.0,
+        "reach_p10": 345.0,
+        "reach_p50": 699.0,
+        "reach_p90": 1459.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'exclusion', 'severity': 'low', 'description': \"The content is primarily in Hindi with mixed English, which"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 3.0,
+          "educational": 4.0,
+          "novelty": 5.0,
+          "controversy": 0,
+          "emotional_intensity": 0,
+          "relatability": 5.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 376,
+            "share": 2,
+            "like": 1,
+            "reply": 1
+          },
+          "engagement_rate": 0.0105,
+          "by_role": {
+            "public": {
+              "n": 4,
+              "avg_sentiment": 0.5,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 3.2
+          },
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 3.2
+          },
+          {
+            "title": "Open a stronger curiosity gap",
+            "lift_pct": 3.0
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 422.0,
+        "reach_p50": 856.0,
+        "reach_p90": 1861.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'class', 'severity': 'low', 'description': 'The copy emphasizes ultra‑low pricing (INR\\u202f999‑2,199) and ",
+          "{'category': 'tone-deafness', 'severity': 'low', 'description': 'The statement that AI‑generated ads can “mimic studio l",
+          "{'category': 'exclusion', 'severity': 'low', 'description': 'The marketing only mentions Instagram and Facebook as distr"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 5.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 6.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 356,
+            "share": 4,
+            "reply": 3,
+            "like": 4
+          },
+          "engagement_rate": 0.03,
+          "by_role": {
+            "public": {
+              "n": 11,
+              "avg_sentiment": 0.546,
+              "share_rate": 0.364
+            }
+          },
+          "cascade_size": 5,
+          "r_effective": 1.6667,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 214.0,
+        "reach_p50": 449.0,
+        "reach_p90": 977.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'class', 'severity': 'low', 'description': 'The phrasing \"fast and affordable\" and emphasis on eliminating ",
+          "{'category': 'tone-deafness', 'severity': 'low', 'description': 'Suggesting that \"no crew, no studio\" is sufficient for "
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 5.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 5.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 356,
+            "share": 3,
+            "like": 5,
+            "reply": 2
+          },
+          "engagement_rate": 0.0273,
+          "by_role": {
+            "public": {
+              "n": 10,
+              "avg_sentiment": 0.65,
+              "share_rate": 0.3
+            }
+          },
+          "cascade_size": 4,
+          "r_effective": 1.25,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 1,
+      "vs_chosen": [
+        {
+          "hook": 0,
+          "style": "question",
+          "p_beats_chosen": 0.99,
+          "lift_pct": 30.3,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "value",
+          "p_beats_chosen": 0.98,
+          "lift_pct": 17.2,
+          "decisive": true
+        }
+      ],
+      "better": 0,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Replace hook with a sharper value-driven line; change 'BUDGET FRIENDLY chhote business ke liye tez' to 'Affordable for small businesses across India, quick turnaround.'",
+      "linkedin: Sharpen first line to 'AI motion can turn phone videos into studio-quality ads without cameras.'; add illustrative example: 'Example: a bakery, clinic, or service can turn phone clips into polished ads with AI motion.'",
+      "bluesky: Sharpen hook to 'PHOTO vs REEL — AI motion gives small businesses a studio look without cameras, fast and affordable.'"
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 10.4,
+      "bluesky": 5.0
+    },
+    "after": {
+      "instagram": 8.1,
+      "linkedin": 0.0,
+      "bluesky": 0.0
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "google:gemma-4-26b-a4b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemma-4-26b-a4b-it (HTTP 500)",
+      "FAILED gemma: all its models"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 5.0,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 11.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 7.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 18.1,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 37.3,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 7.5,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 83.1,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 27.5,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "500",
+        "seconds": 5.7,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 4.8,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 5.7,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 87.2,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 73.6,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 84.7,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 58.9,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

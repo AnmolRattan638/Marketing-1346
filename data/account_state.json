@@ -1,20 +1,20 @@
 {
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "stage": "brand new under 100 followers",
   "followers": 10,
-  "summary": "Account is brand new (10 IG, 2 LI, 1 BS followers). Data too thin for reliable patterns; weak signals show reels lose 77% viewers in first 3s, chatbot posts earn 39% of lead_gen per reach, question hooks earn 39% of comparison hooks. Instagram bio violates brand rules: names niches (hotels, cafes, gyms, homestays), region (Himachal), promises 24hr delivery, offers free site check outside website posts.",
-  "guidance": "- Fix the hook: first 3 seconds must stop scroll; avoid generic openings.\n- Rotate hook styles: try comparison or contrast next (question hooks underperform).\n- Vary chatbot angles: don't repeat 'same questions' framing; show varied business types in one line.\n- Posts must read as a developer sharing real work, never as an ad; no demo claims, no invented results.\n- Only offers: pay after approval, or DM for honest fit advice.",
+  "summary": "Weakest area: Instagram reels lose 77% of viewers in the first 3 seconds — hooks fail to stop the scroll. Animated ads posts perform at 0.62× median. Bio violates rules: niche/region targeting, 24‑hr promise, free offer outside website posts.",
+  "guidance": "- Hook style to try next: **contrast** (1.75× in learning loop) or **question** (1.75×); avoid **top3** (used 10‑26) and **comparison** (0.94×).\n- Topics to avoid: repeating “caption ignored” or “budget vs crew” angles already posted 10‑26 and 10‑30.\n- Reminder: every post must read like a developer sharing real work, never an ad. Offer only “pay after approval” + a short DM conversation. No demos, free audits, or guarantees.",
   "instructions": {
-    "research": "List 5-7 common customer questions shared by varied Indian small businesses (e.g. clinic, salon, coaching centre, shop, D2C brand) that a chatbot could handle.",
-    "analysis": "Compare the last 3 chatbot posts' hook styles and engagement vs lead_gen posts; note which hook style (comparison/contrast) aligns with higher per-reach earnings.",
-    "writer": "Write a comparison-style post contrasting manual reply workload vs chatbot handling for 2-3 example business types; use soft wording ('can reduce', 'helps'), no demo claims, end with DM for honest advice or pay after approval.",
-    "image": "Create a clean silhouette or desk-glow style graphic showing a split scene: business owner overwhelmed by messages vs calm with chatbot; no brand logos, no specific business names.",
-    "video": "Not needed for today's chatbot image/carousel post."
+    "research": "List 3 common video‑ad pain points for small businesses across India (e.g., high production cost, low watch time, hard to update) without naming a single niche.",
+    "analysis": "Compare the two published animated‑ads posts (10‑26 top3, 10‑30 question) — note hook, format, engagement — and identify why both fell below median.",
+    "writer": "Write one Instagram post for AI animated ads using a **contrast hook** (e.g., ‘Static image vs. motion: what actually stops the scroll?’). Keep it developer‑voice, mention pay‑after‑approval, invite DM for honest fit advice. No demo claims, no niche targeting.",
+    "image": "Create a single static image in **silhouette style** (best image style 1.5×) showing a split frame: left side a flat product photo, right side the same product with subtle motion lines. No text overlay; caption carries the message.",
+    "video": "If making a Reel, front‑load the contrast in the first 2 seconds (static → animated cut). Keep total length ≤15 s. Add captions for sound‑off viewing. Do not show a client project — use a generic product example."
   },
   "manual_tips": [
-    "Update Instagram bio: remove niches, region, timeframe, and free site check; replace with national, multi-industry description and only allowed offers (pay after approval, DM for advice).",
-    "Comment thoughtfully on 5 posts from Indian small business owners in different industries (clinic, salon, coaching, shop, D2C) about handling repeat customer queries.",
-    "Reply to any existing DMs/comments with honest advice on whether a chatbot fits their business; mention pay after approval."
+    "Update Instagram bio to remove niche list, region, 24‑hr promise, and free site check. Replace with: ‘Websites, AI chatbots, animated ads & lead gen for small businesses across India. Pay after approval. DM for honest advice.’",
+    "Comment thoughtfully on 5 posts from Indian small‑business accounts (cafes, gyms, D2C brands) about their video content struggles — no self‑promotion.",
+    "Reply to any existing DM or comment on your own posts within 2 hours to signal responsiveness."
   ],
   "weak_signals": [
     {
@@ -25,17 +25,17 @@
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 39% of what 'lead_gen' earns per person reached"
+      "detail": "by service, 'chatbot' earns 27% of what 'lead_gen' earns per person reached"
     },
     {
       "id": "weak_hook_style",
       "platform": "instagram",
-      "detail": "by hook style, 'question' earns 39% of what 'comparison' earns per person reached"
+      "detail": "by hook style, 'question' earns 28% of what 'comparison' earns per person reached"
     },
     {
-      "id": "zero_engagement_streak",
-      "platform": "bluesky",
-      "detail": "the last 3 settled posts got zero likes, comments, shares and saves"
+      "id": "weak_format",
+      "platform": "instagram",
+      "detail": "by format, 'image' earns 37% of what 'carousel' earns per person reached"
     },
     {
       "id": "follower_stall",

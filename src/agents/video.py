@@ -21,7 +21,7 @@ Google Flow generates ONE 10-second clip per prompt, so write THREE standalone p
 - "continuity": ONE short block (max 60 words) describing the same fictional presenter (not a real person), outfit, setting, lighting, colour palette and camera style, so the three clips look like one video.
 - Each "flow_prompt": 60-110 words: camera, action, what is on screen, and the exact spoken line in quotes. No text overlays inside the video (captions are added later).
 Return JSON: {{"hook_first_3s": "on-screen text (3-7 words, top third) + spoken line (5-10 words)", "continuity": "...", "parts": [{{"time": "0-10s", "voiceover": "...", "flow_prompt": "..."}}, {{"time": "10-20s", "voiceover": "...", "flow_prompt": "..."}}, {{"time": "20-30s", "voiceover": "...", "flow_prompt": "..."}}]}}"""
-    out = llm.ask_json(llm.gemma, prompt, "You write short, honest, non-salesy reel scripts for Google Flow.")
+    out = llm.ask_json(llm.groq, prompt, "You write short, honest, non-salesy reel scripts for Google Flow.")      # Groq (GPT-OSS 120B) for now: gemma is too small for detailed prompts; swap here when another free model is found
     cont = (out.get("continuity") or "").strip()
     parts = out.get("parts") or [{"time": "0-10s", "voiceover": out.get("voiceover", ""), "flow_prompt": out.get("flow_prompt", "")}]
     for i, p in enumerate(parts):

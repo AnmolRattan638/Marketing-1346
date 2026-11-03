@@ -8,8 +8,8 @@ REPO = (os.getenv("GITHUB_REPOSITORY") or "AnmolRattan638/Marketing-1346")
 BRANCH = (os.getenv("GITHUB_REF_NAME") or "main")
 
 # Override any of these with repo Variables / env if the model IDs change.
-GEMMA_MODEL = (os.getenv("GEMMA_MODEL") or "gemma-4-31b-it")      # research / images / video (set to the Gemma 4 ID from AI Studio)
-GROQ_MODEL = (os.getenv("GROQ_MODEL") or "openai/gpt-oss-120b")    # analysis, fact-check, strategist
+GEMMA_MODEL = (os.getenv("GEMMA_MODEL") or "gemma-4-31b-it")      # research / image prompts (set to the Gemma 4 ID from AI Studio)
+GROQ_MODEL = (os.getenv("GROQ_MODEL") or "openai/gpt-oss-120b")    # analysis, fact-check, strategist, reel scripts (for now)
 GEMINI_MODEL = (os.getenv("GEMINI_MODEL") or "gemini-3.5-flash")   # final post writing
 
 NVIDIA_MODEL = (os.getenv("NVIDIA_MODEL") or "nvidia/nemotron-3-ultra-550b-a55b:free")   # strategist. A ":free" ID is OpenRouter-style and is called via OpenRouter

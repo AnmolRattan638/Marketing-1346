@@ -70,6 +70,8 @@ assert json.loads((pathlib.Path(__file__).resolve().parent.parent / "config" / "
 
 buf = io.BytesIO(); Image.new("RGB", (1024, 1024), (200, 120, 40)).save(buf, "PNG"); PNG = buf.getvalue()
 tmp = pathlib.Path(tempfile.mkdtemp())
+config.DRAFTS = tmp / "drafts"                      # no real drafts: the chat-card cooldown must not depend on repo history
+config.DRAFTS.mkdir()
 os.environ.update(CLOUDFLARE_ACCOUNT_ID="acc", CLOUDFLARE_API_TOKEN="tok", GEMINI_API_KEY="gk")
 
 class R:

@@ -1,6 +1,6 @@
 """Agent 4: the post image. A topic-specific AI picture (Gemma writes the prompt, config/image_style.json adds the permanent quality
 suffix) with the hook in real fonts on top; if no AI engine works, the designed text card; last, a plain card."""
-import base64, io, json, os, pathlib, random, re, tempfile, urllib.parse
+import base64, datetime, io, json, os, pathlib, random, re, tempfile, urllib.parse
 import requests
 from PIL import Image
 from .. import config, llm
@@ -178,6 +178,73 @@ ANATOMY = """Write the prompt as ONE flowing paragraph that covers all six parts
 6. CAMERA AND TEXTURE: the lens and aperture (for example an 85mm lens at f/1.8), the depth of field, and tactile surface detail such as brushed metal, glass reflections, fine dust in the light."""
 
 
+# ---------------------------------------------------------------- never the same post twice in a new colour
+CHAT_CARD_COOLDOWN_DAYS = 7      # the designed chat card (bubbles on a dark panel) may appear at most once a week, whatever the accent colour
+RECENT_DAYS = 21
+
+
+def _recent_drafts(date, days=RECENT_DAYS):
+    """Drafts of the last `days` days before `date`, oldest first."""
+    try:
+        today = datetime.date.fromisoformat(str(date))
+    except ValueError:
+        return []
+    out = []
+    for f in sorted(pathlib.Path(config.DRAFTS).glob("*.json")):
+        d = config.load_json(f, None)
+        if not isinstance(d, dict):
+            continue
+        try:
+            age = (today - datetime.date.fromisoformat(str(d.get("date", f.stem)))).days
+        except ValueError:
+            continue
+        if 0 < age <= days:
+            out.append((age, d))
+    return out
+
+
+def _norm(text):
+    return re.sub(r"[^a-z0-9 ]", "", str(text).lower()).strip()
+
+
+def chat_card_recently_used(date):
+    """True when the designed chat card (the template itself, not its colours) ran in the last CHAT_CARD_COOLDOWN_DAYS days."""
+    for age, d in _recent_drafts(date, CHAT_CARD_COOLDOWN_DAYS):
+        img = d.get("image") or {}
+        if img.get("engine") == "designed_card" and (img.get("spec") or {}).get("style") == "chat":
+            return True
+    return False
+
+
+def recent_chat_texts(date):
+    """The customer messages shown in recent posts (chat cards and chat bubbles alike), newest last."""
+    seen = []
+    for _, d in _recent_drafts(date):
+        for m in ((d.get("image") or {}).get("spec") or {}).get("chat") or []:
+            if m.get("text"):
+                seen.append(str(m["text"]).strip())
+    return seen
+
+
+def recent_scenes(date, n=6):
+    """The opening of the last few AI picture prompts, so a new one picks a clearly different object, place and angle."""
+    out = [" ".join(str((d.get("image") or {}).get("prompt") or "").split()[:22]) for _, d in _recent_drafts(date)]
+    return [x for x in out if x][-n:]
+
+
+def drop_repeated_messages(spec, date):
+    """Remove chat messages that already ran recently; with fewer than two left the post is no chat post at all (a plain bold card or picture)."""
+    if spec.get("style") != "chat" or not spec.get("chat"):
+        return spec
+    seen = {_norm(t) for t in recent_chat_texts(date)}
+    keep = [m for m in spec["chat"] if m.get("text") and _norm(m["text"]) not in seen]
+    if len(keep) == len([m for m in spec["chat"] if m.get("text")]):
+        return spec                                   # nothing repeated: leave it exactly as written
+    if len(keep) < 2:
+        return dict(spec, style="bold", chat=[])
+    return dict(spec, chat=keep)
+
+
 def pick_variant(date):
     """Visual family for this post: never the one used in the last two posts, otherwise the least used so far (so every family gets tested)."""
     vs = [v for v in (style().get("variants") or []) if v.get("id")]
@@ -234,7 +301,7 @@ def _ref_block():
     return ("\nReference prompts to match for richness, structure and lighting (style only, never copy their subjects): " + " || ".join(r.strip()[:380] for r in refs[:3])) if refs else ""
 
 
-def picture_prompt(plan, focus, spec, guidance="", variant=None):
+def picture_prompt(plan, focus, spec, guidance="", variant=None, recent=()):
     """Ask Gemma for ONE concrete, topic-specific scene (not an empty abstract background). The headline is added afterwards in real fonts."""
     headline = (spec or {}).get("headline") or plan["hooks"][plan.get("chosen_hook", 0)]["text"]
     look = look_text(variant, plan["topic"])
@@ -242,6 +309,7 @@ def picture_prompt(plan, focus, spec, guidance="", variant=None):
     prompt = f"""Write ONE image-generation prompt (90-125 words) for the PICTURE behind a social media post. The headline is added later as text, so the picture itself contains no text.
 Headline: {headline} | Topic: {plan['topic']} | Service: {focus['name']} | Idea: {plan.get('image_idea')}
 Strategist note: {guidance}
+Scenes used in recent posts (choose a clearly different object, place and camera angle): {' | '.join(recent) or 'none'}
 
 The picture must show ONE concrete, specific scene that makes the headline visible at a glance: a real object in a real situation, for example a phone playing a short animated ad on a cafe counter, a shop owner's phone lighting up with unanswered messages late at night, a laptop showing a clean booking page beside a cup of tea. Generic, not a real brand and not a claim about real client work.
 {ANATOMY}
@@ -267,9 +335,9 @@ def _engines():
             + ([_gemini] if os.getenv("GEMINI_API_KEY") else []) + [_pollinations])
 
 
-def _ai_picture(plan, focus, spec, guidance, out_path, errors, variant=None):
+def _ai_picture(plan, focus, spec, guidance, out_path, errors, variant=None, recent=()):
     """Write an AI picture to out_path with the first engine that works. Returns {prompt, engine}; raises if none does."""
-    img_prompt = picture_prompt(plan, focus, spec, guidance, variant)
+    img_prompt = picture_prompt(plan, focus, spec, guidance, variant, recent)
     for engine in _engines():
         for _ in range(2):
             try:
@@ -339,12 +407,12 @@ def slide_picture(slide, focus, variant, out_path, errors):
     return None
 
 
-def _visual_card(plan, focus, spec, guidance, path, errors, variant=None):
+def _visual_card(plan, focus, spec, guidance, path, errors, variant=None, recent=()):
     """AI picture + the hook, tag and DM pill in real fonts, 1080x1350, marked as AI-generated."""
     from . import cards
     with tempfile.TemporaryDirectory() as td:
         bg = pathlib.Path(td) / "picture.jpg"
-        info = _ai_picture(plan, focus, spec, guidance, bg, errors, variant)
+        info = _ai_picture(plan, focus, spec, guidance, bg, errors, variant, recent)
         im = cards.compose_visual(spec, bg)
     _write_jpeg(im, path, ai=True)
     return {"prompt": info["prompt"], "path": str(path.relative_to(config.ROOT)), "engine": "visual:" + info["engine"], "style": "visual",
@@ -364,24 +432,30 @@ def _run(plan, focus, date, guidance, variant):
     2) designed card  3) plain AI picture, only if 1 did not already try the engines  4) plain text card."""
     path = config.MEDIA / f"{date}.jpg"
     errors, spec, ai_tried = [], None, False
+    recent = recent_scenes(date)
     try:
         from . import cards
-        spec = cards.make_spec(plan, focus, guidance)
+        cards.AVOID_CHAT = tuple(recent_chat_texts(date))
+        spec = drop_repeated_messages(cards.make_spec(plan, focus, guidance), date)
+        if spec.get("style") == "chat" and ("chat" in recent_card_styles(date) or chat_card_recently_used(date)):
+            # The chat card ran in the last two posts (a forced re-run counts too) or this week. Never repeat it in another colour:
+            # keep the chat idea as a few floating bubbles on a fresh AI scene instead.
+            spec["chat_overlay"] = True
     except Exception as e:
         print(f"[image] card copy failed: {e}")
         errors.append(f"card_copy: {str(e)[:110]}")
-    if spec and spec.get("style") == "chat" and "chat" in recent_card_styles(date):
-        spec["style"], spec["chat"] = "bold", []      # the same chat mock-up twice in a row looks like the same hero image: this time a fresh AI picture
-    if spec and spec.get("style") != "chat" and visuals_enabled():
+    if spec and (spec.get("style") != "chat" or spec.get("chat_overlay")) and visuals_enabled():
         ai_tried = True
         try:
-            return _visual_card(plan, focus, spec, guidance, path, errors, variant)
+            return _visual_card(plan, focus, spec, guidance, path, errors, variant, recent)
         except Exception as e:
             print(f"[image] visual card failed: {e}")
             errors.append(f"visual_card: {str(e)[:110]}")
     if spec:
         try:
             from . import cards
+            if spec.pop("chat_overlay", False):          # the AI picture failed: a bold card, still not the chat card again
+                spec = dict(spec, style="bold", chat=[])
             cards.render(spec, path)
             return {"prompt": None, "path": str(path.relative_to(config.ROOT)), "engine": "designed_card",
                     "style": spec.get("style"), "ai_generated": False, "spec": spec, "errors": errors[-4:],
@@ -392,7 +466,7 @@ def _run(plan, focus, date, guidance, variant):
     img_prompt = None
     if not ai_tried:
         try:
-            info = _ai_picture(plan, focus, spec, guidance, path, errors, variant)
+            info = _ai_picture(plan, focus, spec, guidance, path, errors, variant, recent)
             return {"prompt": info["prompt"], "path": str(path.relative_to(config.ROOT)), "engine": info["engine"], "errors": errors[-4:], "style_id": info.get("style_id")}
         except Exception as e:
             img_prompt = None

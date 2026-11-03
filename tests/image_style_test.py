@@ -43,7 +43,7 @@ assert image_style_saved == seq[2]
 plan = {"hooks": [{"text": "Stop hunting leads. Start spotting them."}], "chosen_hook": 0, "topic": "finding local businesses that need clients", "image_idea": "a map"}
 focus = {"id": "lead_gen", "name": "Lead generation (LocalSignal)"}
 seen = []
-good = "A laptop showing a glowing city map with bright location pins over small shopfronts, a cup of tea beside it, deep blue light, calm dark lower area"
+good = "A laptop showing a glowing city map with bright location pins over small shopfronts, a cup of tea beside it, deep blue light, calm dark lower area." + ' The subject sits in the upper two thirds at a slightly raised eye level, with soft calm uncluttered space across the lower forty percent. A warm key light from the upper right and a cool cyan rim glow create gentle shadows, while the foreground shows brushed aluminium and glass reflections, the midground a ceramic mug and a notebook, and the background a softly hazy room with creamy bokeh. The palette is deep navy with one warm gold accent and a calm, focused mood. Shot with an 85mm lens at f/1.8, shallow depth of field, fine dust in the light.'
 llm.gemma = lambda p, s="", **k: seen.append(p) or f"<prompt>{good}</prompt>"
 v = vs[0]
 out = image.picture_prompt(plan, focus, {}, "", v)
@@ -60,7 +60,7 @@ image.style = lambda: cfg
 # ---- 4. the fallback scene carries the style too
 llm.gemma = lambda p, s="", **k: "<prompt>Left: a laptop. Right: a panel divided into four sections, grid, minimalist.</prompt>"
 fb = image.picture_prompt(plan, focus, {}, "", v)
-assert "city map" in fb and cfg["style_dna"] in fb and v["elements"] in fb and "Accent colour: electric cyan" in fb and fb.endswith(cfg["quality_suffix"]), fb
+assert "city map" in fb and v["elements"] in fb and "Accent colour: electric cyan" in fb and v["lighting"] in fb and v["camera"] in fb and fb.endswith(cfg["quality_suffix"]), fb
 assert not image.LAYOUT_WORDS.search(fb.split("Ultra-sharp")[0])
 
 # ---- 5. the family is returned by the engine step and by run(), so it lands on the draft

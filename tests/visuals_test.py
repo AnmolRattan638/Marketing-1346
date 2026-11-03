@@ -117,7 +117,7 @@ SPEC_CHAT = json.dumps({"style": "chat", "headline": "Customer messages at 11 pm
                         "chat": [{"side": "left", "text": "Are you open?", "time": "11:02 PM"}]})
 def gemma(prompt, system="", **k):
     gemma_prompts.append(prompt)
-    return SPEC["json"] if "Design copy" in prompt else "<prompt>A phone playing a short animated ad on a cafe counter, warm light</prompt>"
+    return SPEC["json"] if "Design copy" in prompt else "<prompt>A phone playing a short animated ad on a cafe counter, warm light. The subject sits in the upper two thirds at a slightly raised eye level, with soft calm uncluttered space across the lower forty percent. A warm key light from the upper right and a cool cyan rim glow create gentle shadows, while the foreground shows brushed aluminium and glass reflections, the midground a ceramic mug and a notebook, and the background a softly hazy room with creamy bokeh. The palette is deep navy with one warm gold accent and a calm, focused mood. Shot with an 85mm lens at f/1.8, shallow depth of field, fine dust in the light.</prompt>"
 SPEC = {"json": SPEC_BOLD}
 llm.gemma = gemma
 config.ROOT = tmp; config.MEDIA = tmp / "data" / "media"; config.MEDIA.mkdir(parents=True)

@@ -4,10 +4,11 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 from src import llm
 from src.agents import image
 
+PAD = ' The subject sits in the upper two thirds at a slightly raised eye level, with soft calm uncluttered space across the lower forty percent. A warm key light from the upper right and a cool cyan rim glow create gentle shadows, while the foreground shows brushed aluminium and glass reflections, the midground a ceramic mug and a notebook, and the background a softly hazy room with creamy bokeh. The palette is deep navy with one warm gold accent and a calm, focused mood. Shot with an 85mm lens at f/1.8, shallow depth of field, fine dust in the light.'
 bad = ("Left: laptop open on reclaimed wood table in the upper left, blank clean page, ceramic mug, warm window light, shallow depth of field, yellow rim highlighted. "
        "Right: narrow vertical panel divided into four equal sections, minimalist grid, lower 40% calm uncluttered, warm tone, premium photography style.")
 good = ("A laptop on a wooden desk showing a bright city map with glowing yellow location pins over small shopfronts, a ceramic mug beside it, "
-        "warm window light, shallow depth of field, calm lower area")
+        "warm window light, shallow depth of field, calm lower area." + PAD)
 assert image.LAYOUT_WORDS.search(bad) and not image.LAYOUT_WORDS.search(good)
 for ok in ("A phone on a cafe counter at night lit by unread chat bubbles, warm lamp light, shallow depth of field, calm uncluttered lower area",
            "Laptop in the upper left of the frame beside a mug, warm light, shallow depth of field, calm lower area on a wooden table"):
@@ -29,11 +30,11 @@ def ask(*replies):
 ask(good)                                              # good first time: one call, kept
 p = image.picture_prompt(plan, focus, {}, "")
 assert len(calls) == 1 and p.startswith(good) and "Ultra-sharp 4K" in p
-assert "NEVER describe a layout" in calls[0]           # the instruction is in the request
+assert "NEVER describe a layout" in calls[0] and "SUBJECT" in calls[0] and "CAMERA AND TEXTURE" in calls[0]           # the instruction is in the request
 
 ask(bad, good)                                         # layout first, usable second: retried once with a correction
 p = image.picture_prompt(plan, focus, {}, "")
-assert len(calls) == 2 and "DESCRIBED A LAYOUT" in calls[1] and p.startswith(good)
+assert len(calls) == 2 and "DESCRIBED A LAYOUT" in calls[1] and "six parts" in calls[1] and p.startswith(good)
 
 ask(bad, bad)                                          # unusable twice: concrete lead-gen scene, never a layout
 p = image.picture_prompt(plan, focus, {}, "")

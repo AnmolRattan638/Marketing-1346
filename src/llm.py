@@ -294,6 +294,18 @@ def _nvidia(prompt, system="", model=None, temperature=0.6):
 gemini, gemma, groq, nvidia = map(_with_fallback, (_gemini, _gemma, _groq, _nvidia))
 
 
+def prompt_writer(prompt, system="", **kw):
+    """The model for the agents that write LONG, detailed prompts (the reel's Flow clips and the image scenes). Groq (GPT-OSS 120B) first when
+    GROQ_API_KEY exists, because Gemma is too small to follow a detailed structure; if Groq fails (limit, outage) Gemma answers instead, so a
+    prompt is never lost. PROMPT_WRITER=gemma switches Groq off for these agents (keeps its free quota for the others)."""
+    if (os.getenv("PROMPT_WRITER") or "groq").strip().lower() != "gemma" and os.getenv("GROQ_API_KEY"):
+        try:
+            return groq(prompt, system, **kw)
+        except Exception as e:
+            print(f"[llm] prompt writer: Groq failed ({str(e)[:120]}), using Gemma")
+    return gemma(prompt, system, **kw)
+
+
 def strategist_model(prompt, system="", **kw):
     """Nemotron for the strategist. A ':free' model ID goes through OpenRouter; any other ID goes to NVIDIA.
     If that fails for any reason, GPT-OSS on Groq answers instead."""

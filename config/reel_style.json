@@ -1,0 +1,120 @@
+{
+  "_comment": "The cinematic indie-film style of the Google Flow reel prompts, extracted from the owner's own scripts. src/agents/video.py reads this file: the 'film' block builds the same header for all three clips, 'worlds' says what is on the desk for each service (the default is the owner's oak desk and silver MacBook), 'vocabulary' is the camera/lens/texture/sound words the clips draw from, and 'rules' is the style guide the model must follow. Edit any text here; no code change needed. Every clip is written twice: a beat sheet (the director's version, 1-2 second beats with frame numbers) and a paste version (the header + 4 beats + one audio line) that goes into Flow.",
+  "film": {
+    "genre": "non-commercial indie-film style cinematic micro-story",
+    "brand": "AR Designs",
+    "camera": "ARRI Alexa Mini LF",
+    "capture": "4K resolution, 60fps",
+    "stock": "Kodak Vision3 500T film emulation with rich halation",
+    "lens": {
+      "1": "100mm Macro Anamorphic lens",
+      "2": "100mm Macro Anamorphic lens",
+      "3": "50mm Anamorphic lens"
+    },
+    "opening": {
+      "1": "A deeply relatable",
+      "2": "Continuing the",
+      "3": "The final act of a"
+    }
+  },
+  "worlds": {
+    "default": {
+      "set": "a minimalist white workspace with a Nordic oak wood desk",
+      "light": "a warm 3200K tungsten architectural desk lamp casting soft diffused shadows",
+      "cold": "the cold, harsh blue glow of the laptop screen",
+      "hero": "a Space Silver MacBook Pro",
+      "screen": "a sleek dark-mode interface with a subtle 'AR Designs' emblem in the top corner",
+      "props": "a matte-white architectural lamp and a sleek studio microphone",
+      "texture": "brushed aluminium, crisp glass reflections and volumetric dust motes floating in the golden lamp light",
+      "person": "only hands, a fingertip, or a soft blurred reflection in the screen glass, never a clear face",
+      "signature": "a single deliberate physical action that proves the idea, such as deleting one stiff sentence or closing the laptop lid with a soft magnetic thock"
+    },
+    "services": {
+      "reel_scripts": {
+        "screen": "a script document where a stiff, robotic English sentence is replaced by a natural, conversational Hinglish line, with soft amber and teal pacing tags",
+        "signature": "deleting the stiff sentence in one clean sweep, then closing the laptop lid when the script is ready"
+      },
+      "chatbot": {
+        "hero": "a Space Grey smartphone standing upright on the desk beside the laptop",
+        "screen": "a chat window where unanswered message bubbles pile up in the cold blue glow, then tidy automatic replies appear one by one in warm green and white bubbles",
+        "signature": "the phone stops buzzing and settles face-down on the oak desk"
+      },
+      "animated_ads": {
+        "hero": "a Space Silver MacBook Pro showing a motion timeline, beside a single ceramic mug on the desk",
+        "screen": "one still product photograph on a dark-mode timeline that gains soft keyframes and begins to glide, loop and glow like a finished animated ad",
+        "signature": "a still photograph on the screen starting to move"
+      },
+      "website": {
+        "hero": "a Space Silver MacBook Pro beside a Space Grey smartphone on the desk",
+        "screen": "a cluttered, confusing page that is rebuilt into a clean mobile-friendly page with a clear call button, shown on both the laptop and the phone",
+        "signature": "a thumb tapping a clear call button on the phone screen"
+      },
+      "lead_gen": {
+        "screen": "a bright city map covered with small glowing location pins over shopfronts, next to a spreadsheet whose rows fill in one by one in teal and amber",
+        "signature": "a spreadsheet row being added with each glowing pin"
+      },
+      "seo_blogs": {
+        "screen": "a blog draft with clear headings and short paragraphs taking shape on the dark-mode page, beside a clean search results page",
+        "signature": "a heading being typed and the paragraph under it tidying itself into place"
+      }
+    }
+  },
+  "vocabulary": {
+    "camera_moves": [
+      "micro-dolly push-in",
+      "slow gimbal ease-out",
+      "rack-focus from the screen pixels to the glass reflection",
+      "horizontal slider tracking shot alongside the cursor",
+      "crane-style pull-back",
+      "slight tilt-up with the centre in razor-sharp focus",
+      "overhead top-down glide",
+      "macro probe-lens tracking shot",
+      "dolly zoom-out",
+      "locked-off architectural wide shot"
+    ],
+    "lenses": [
+      "85mm macro lens at f/1.4",
+      "100mm macro anamorphic lens at f/2.0",
+      "50mm anamorphic lens at f/2.0",
+      "35mm anamorphic lens at f/2.8"
+    ],
+    "texture": [
+      "rich halation around the lamp",
+      "brushed aluminium",
+      "crisp glass reflections",
+      "volumetric dust motes",
+      "soft lens flare on the edge of the glass",
+      "creamy bokeh",
+      "tactile key presses and soft moving shadows"
+    ],
+    "sound": [
+      "a tense silence",
+      "a single heavy key click",
+      "rhythmic ASMR mechanical keystrokes",
+      "a crisp trackpad swipe",
+      "a decisive delete-key thud",
+      "a satisfying magnetic lid-close thock",
+      "a subtle studio light-switch click",
+      "a warm lo-fi ambient synth pad",
+      "a relieved exhale",
+      "a lingering vinyl tail"
+    ]
+  },
+  "rules": [
+    "Show the benefit as ONE physical action the viewer can see (deleting a stiff sentence, closing the laptop lid). Never state it as a claim.",
+    "The person is only hands, a fingertip, the back of a head or a soft blurred reflection in the glass. Never a clear face, so the clips need no face consistency.",
+    "Name every object with its material, colour and state (Space Silver MacBook Pro, Nordic oak desk, 3200K lamp, matte-white lamp). Never vague words such as nice, modern or cool.",
+    "Light carries the emotion: the cold blue glow of the screen is the problem, the warm tungsten gold of the lamp is the relief. Switch from one to the other at the turning point.",
+    "Every beat has texture: halation, brushed metal, glass reflections, dust motes, bokeh.",
+    "Every beat names ONE camera move and ONE lens from the vocabulary. Clip 1 opens on the problem; the last frame of each clip sets up the first frame of the next.",
+    "Text on screen exists only inside the scene (a selection box, a short pacing tag, a small emblem) and is at most 6 words. It is an illustrative example sentence, never a claim about the owner's work, clients, prices or results. No caption or subtitle overlays: those are added later in an editor.",
+    "Audio is a timeline: silence, a first sound, a rhythm, a stop, a pad, a final tail. Few words are spoken; the visuals carry the rest. The voice is warm and conversational, like a friend sharing a secret, not an announcer.",
+    "The last clip ends on a locked, clean frame with empty space for typography and on the question the first line answers, and its sound fades back into the silence the first clip opens with, so a replay feels natural.",
+    "Story Feel is ONE line of inner feeling in Roman Hinglish (English letters only, never Devanagari)."
+  ],
+  "arc": {
+    "1": "Tension and turning point: the problem is visible in the first second, then one decisive action changes the light from cold blue to warm gold and the flow begins.",
+    "2": "How it works: spot the problem, reject it with a deliberate action, a clean slate, then the better way appears and the person relaxes.",
+    "3": "Result and next step: the payoff, the one next step spoken naturally (DM keyword), a calm power move, and a lingering question that loops back to the opening."
+  }
+}

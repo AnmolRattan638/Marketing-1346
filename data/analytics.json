@@ -2,6 +2,35 @@
   "posts": [
     {
       "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mziqqtoeas2x",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mziqqtoeas2x",
+      "published_at": "2026-11-04T16:14:45.423990+00:00",
+      "text": "𝗥𝗘𝗘𝗟 𝗗𝗜𝗘𝗦 𝗜𝗡 𝟮𝟰𝗛, 𝗕𝗟𝗢𝗚 𝗖𝗔𝗡 𝗞𝗘𝗘𝗣 𝗥𝗔𝗡𝗞𝗜𝗡𝗚 I write SEO blogs for small businesses. You approve topics, I handle the rest. DM BLOG to talk.",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 1,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-04",
+        "service": "seo_blogs",
+        "hook_style": "question",
+        "topic": "Why spend 2 hours on a Reel that disappears in 24 hours, when a blog post works for 2 years?"
+      }
+    },
+    {
+      "platform": "bluesky",
       "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mzfnd7lysi2c",
       "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzfnd7lysi2c",
       "published_at": "2026-11-03T10:35:27.147310+00:00",
@@ -38,9 +67,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 11,
-        "reach": 1,
-        "views": 11,
+        "impressions": 17,
+        "reach": 2,
+        "views": 17,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -1061,17 +1090,17 @@
   ],
   "accounts": {
     "instagram": {
-      "followers": 10,
+      "followers": 9,
       "username": "ar__designerx"
     },
     "linkedin": {
-      "followers": 4,
+      "followers": 5,
       "username": "Anmol Rattan"
     },
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 19
+      "posts": 20
     }
   },
   "coverage": {
@@ -1280,13 +1309,13 @@
     {
       "date": "2026-11-04",
       "followers": {
-        "instagram": 10,
-        "linkedin": 4,
+        "instagram": 9,
+        "linkedin": 5,
         "bluesky": 1
       }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-04T06:25:02+00:00"
+  "updated_at": "2026-11-04T19:47:06+00:00"
 }

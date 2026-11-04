@@ -1063,6 +1063,13 @@
           "likes": 0,
           "comments": 0,
           "shares": 0
+        },
+        "7d": {
+          "age_h": 177.9,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
         }
       },
       "latest": {
@@ -1286,7 +1293,79 @@
         "saves": 0,
         "clicks": 0
       }
+    },
+    "2026-11-02|instagram": {
+      "date": "2026-11-02",
+      "platform": "instagram",
+      "service": "chatbot",
+      "problem_id": "inability-to-respond-during-peak-service",
+      "angle_type": "question",
+      "hook_style": "question",
+      "format": "carousel",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "silhouette",
+      "carousel_flavor": "common-mistake",
+      "slides": 6,
+      "published_at": "2026-11-02T10:23:07.000Z",
+      "url": "https://www.instagram.com/p/DfPFT8riK5h/",
+      "snap": {
+        "48h": {
+          "age_h": 57.4,
+          "source": "zernio",
+          "impressions": 9,
+          "reach": 2,
+          "views": 9,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 9,
+        "reach": 2,
+        "views": 9,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
+    },
+    "2026-11-02|bluesky": {
+      "date": "2026-11-02",
+      "platform": "bluesky",
+      "service": "chatbot",
+      "problem_id": "inability-to-respond-during-peak-service",
+      "angle_type": "question",
+      "hook_style": "question",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "silhouette",
+      "carousel_flavor": "common-mistake",
+      "slides": 6,
+      "published_at": "2026-11-02T10:23:04.424Z",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzd462bf5d2k",
+      "snap": {
+        "48h": {
+          "age_h": 57.4,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-11-03T23:24:49+00:00"
+  "updated_at": "2026-11-04T19:47:07+00:00"
 }

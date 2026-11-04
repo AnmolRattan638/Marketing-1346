@@ -1,0 +1,508 @@
+{
+  "id": "2026-11-04-4cdfab",
+  "date": "2026-11-04",
+  "created_at": "2026-11-04T09:53:16+00:00",
+  "status": "pending",
+  "service": "seo_blogs",
+  "topic": "Why spend 2 hours on a Reel that disappears in 24 hours, when a blog post works for 2 years?",
+  "idea_id": "blog-vs-post",
+  "problem_id": "lack-of-time-to-create-content",
+  "angle_type": "question",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "lack-of-time-to-create-content",
+    "angle_type": null,
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "Where does your Reel go after a day?"
+    },
+    {
+      "style": "comparison",
+      "text": "Reel vs Blog: 2 hours vs 2 years of traffic."
+    },
+    {
+      "style": "value",
+      "text": "Gain lasting leads while you focus on customers."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "posts": {
+    "instagram": "𝗥𝗘𝗘𝗟 𝟮𝟰 𝗚𝗛𝗔𝗡𝗧𝗘, 𝗕𝗟𝗢𝗚 𝗟𝗔𝗠𝗕𝗘 𝗦𝗔𝗠𝗔𝗬 𝗧𝗔𝗞\n\n→ Reel 24 ghante baad kam ho jata hai, 𝗕𝗟𝗢𝗚 lambe samay tak traffic la sakta hai\n→ 𝗦𝗘𝗢 likhne ka time aapke paas nahi bacha, main likhta hoon\n→ Aap bas topics 𝗔𝗣𝗣𝗥𝗢𝗩𝗘 karein, baaki main sambhalta hoon\n\nDM 𝗕𝗟𝗢𝗚 aur batayein aap kya bechte hain.\n\n#SmallBusinessIndia #IndiaBusiness",
+    "linkedin": "Reels often fade within a day, while a well‑written blog can continue attracting visitors for months.\n\nMany owners spend hours on videos that get little attention after the first week.\n\nI write SEO‑optimized blogs that can help keep your website visible in local Google searches and may bring inquiries from customers already looking for what you offer.\n\nYou review and approve each topic before it goes live.\n\nDM BLOG and tell me what you sell.",
+    "bluesky": "𝗥𝗘𝗘𝗟 𝗗𝗜𝗘𝗦 𝗜𝗡 𝟮𝟰𝗛, 𝗕𝗟𝗢𝗚 𝗖𝗔𝗡 𝗞𝗘𝗘𝗣 𝗥𝗔𝗡𝗞𝗜𝗡𝗚 I write SEO blogs for small businesses. You approve topics, I handle the rest. DM BLOG to talk."
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I help small businesses get more enquiries through monthly SEO blogs. Quick question: do you want customers to call you, WhatsApp you, or fill a form on your site? I'll explain how it works and we can fix a scope. You pay only after you approve the work."
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for messaging. I write SEO blogs for any small business that talks to customers online, shops, clinics, service providers and more. What kind of business do you run, and what do you want customers to do when they find you?"
+    },
+    {
+      "if_they_say": "will this bring customers?",
+      "reply": "Hi, thanks for messaging. A blog helps people find you on Google when they search for what you sell. It works alongside your existing enquiry channels. Can you tell me what your customers usually ask before they buy or book?"
+    }
+  ],
+  "image": {
+    "prompt": "<prompt>Subject: a matte‑black laptop with a glowing screen showing a clean blog article, a warm ceramic coffee mug, and a sleek smartphone displaying a faint Reel icon with a tiny hourglass; Composition: the laptop occupies the upper two‑thirds, eye‑level above, mug left, phone right, leaving lower 40 % for headline; Lighting: a amber desk lamp from the right casts key light on the laptop and a subtle gold rim highlights the phone, creating shadows; Environment: walnut wood desk foreground, laptop midground, dim background with a leafy plant silhouette and faint haze; Colour and Mood: walnut, soft cream, warm gold accent for a focused, productive feel; Camera and Texture: 85 mm lens at f/1.8, shallow depth of field, brushed metal laptop, glossy mug, dust motes in light.</prompt. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-04.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "lack-of-time-to-create-content",
+      "angle_type": "comparison",
+      "style": "bold",
+      "headline": "Why spend hours on disappearing content?",
+      "highlight": [
+        "disappearing content"
+      ],
+      "sub": "Build assets that stay on your website.",
+      "chat": [],
+      "cta": "DM \"BLOG\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "desk-glow"
+  },
+  "carousel": {
+    "flavor": "question-hook",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-04.jpg",
+      "data/media/2026-11-04-s2.jpg",
+      "data/media/2026-11-04-s3.jpg",
+      "data/media/2026-11-04-s4.jpg",
+      "data/media/2026-11-04-s5.jpg",
+      "data/media/2026-11-04-s6.jpg"
+    ],
+    "alts": [
+      "Where does your Reel go after a day?",
+      "Slide 2 of 6: You spend an evening on a Reel. By morning, new content buries it. The effort disappears without building anything lasting for your business.",
+      "Slide 3 of 6: Customers searching for you find nothing. You answer the same questions daily. If it is not written and searchable, you repeat yourself forever.",
+      "Slide 4 of 6: Let a blog answer while you work. We write monthly posts based on what your customers search. You approve before anything goes live.",
+      "Slide 5 of 6: You run the business. We handle the writing.. One post per month, written for your customers and search engines. No extra work on your plate.",
+      "Slide 6 of 6: DM BLOG. Message us. We will tell you honestly if monthly blog writing fits your business."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      5
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Where does your Reel go after a day?",
+        "body": "It disappears. A blog post stays searchable."
+      },
+      {
+        "role": "problem",
+        "headline": "You spend an evening on a Reel",
+        "body": "By morning, new content buries it. The effort disappears without building anything lasting for your business."
+      },
+      {
+        "role": "problem",
+        "headline": "Customers searching for you find nothing",
+        "body": "You answer the same questions daily. If it is not written and searchable, you repeat yourself forever."
+      },
+      {
+        "role": "solution",
+        "headline": "Let a blog answer while you work",
+        "body": "We write monthly posts based on what your customers search. You approve before anything goes live."
+      },
+      {
+        "role": "solution",
+        "headline": "You run the business. We handle the writing.",
+        "body": "One post per month, written for your customers and search engines. No extra work on your plate."
+      },
+      {
+        "role": "cta",
+        "headline": "DM BLOG",
+        "body": "Message us. We will tell you honestly if monthly blog writing fits your business."
+      }
+    ],
+    "scene_prompts": {
+      "2": "A matte-black smartphone with a softly glowing warm‑gold reel icon, held by slender hands, thumb scrolling. The phone occupies the upper 55% of the frame, angled slightly from above, while the lower 45% remains a calm dark space for text. A warm amber desk lamp from the right casts a gentle rim light on the hands, with key light creating subtle shadows and the gold glow reflecting. The environment shows a dark walnut desk with brushed metal edge, a black ceramic mug, a closed leather notebook with a silver pen, a small leafy plant receding into a dim background, and a faint haze of dust motes. Colour and mood: deep navy and charcoal base with warm‑gold accent, feeling of fleeting effort. Camera and texture: 85mm lens at f/1.8, shallow depth of field, glossy screen reflections, fine dust particles catching light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "4": "Subject: a matte‑black laptop with a softly glowing dark screen, hands typing on a brushed‑metal keyboard, a warm‑gold pen hovering over a closed notebook; Composition: laptop fills the upper half, shot slightly above eye level, leaving the lower area clear; Lighting: a warm amber desk lamp on the left casts a gentle key light on the laptop, with a subtle golden rim outlining the hands and pen, creating soft shadows; Environment: dark walnut desk, black ceramic mug, small leafy plant in a muted pot, and a blurred deep‑charcoal wall fading into faint haze; Colour and Mood: deep charcoal base with a warm‑gold accent, evoking calm confidence and quiet progress; Camera and Texture: 85 mm lens at f/1.8, shallow depth of field showing brushed metal, glass reflections and fine dust in the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": [
+      "slide_prompt: none",
+      "slide_prompt: none"
+    ]
+  },
+  "instagram_mode": "manual_reel",
+  "linkedin_format": "text",
+  "video": {
+    "hook_first_3s": "Blog ya Reel? | Kaam itna hai ki blog likhne ka time nahi milta?",
+    "concept": "A frazzled hand watches a Reel icon vanish, then types a SEO blog that glows warm, lasting years; ends with a DM invite.",
+    "parts": [
+      {
+        "time": "0-10s",
+        "voiceover": "Kaam itna hai ki blog likhne ka time nahi milta?",
+        "story": "Reel icon fades on the MacBook screen as cold blue light; a blog draft appears, light shifts to warm gold, showing lasting content.",
+        "flow_prompt": "A deeply relatable non-commercial indie-film style cinematic micro-story for 'AR Designs', shot on ARRI Alexa Mini LF with a 100mm Macro Anamorphic lens, 4K resolution, 60fps, Kodak Vision3 500T film emulation with rich halation, a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, in a minimalist white workspace with a Nordic oak wood desk, featuring a Space Silver MacBook Pro.\n[00:00-00:05 / Story 0-5s] Reel icon fades on the MacBook screen as cold blue light; a blog draft appears, light shifts to warm gold, showing lasting content. A slow micro-dolly push-in on a Space Silver MacBook Pro in a minimalist white workspace with a Nordic oak wood desk, shot on a 100mm Macro Anamorphic lens, lit by a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, with brushed aluminium, crisp glass reflections and volumetric dust motes floating in the golden lamp light.\n[00:05-00:10 / Story 5-10s] The screen shows a blog draft with clear headings and short paragraphs taking shape on the dark-mode page, beside a clean search results page. A heading being typed and the paragraph under it tidying itself into place, then the camera settles into a calm, balanced composition with a matte-white architectural lamp and a sleek studio microphone in soft focus.\nAudio & Voiceover Sync: Soft room tone, rhythmic key presses and a warm ambient pad that settles under the voiceover. Warm, conversational voiceover: \"Kaam itna hai ki blog likhne ka time nahi milta?\"",
+        "beat_sheet": ""
+      },
+      {
+        "time": "10-20s",
+        "voiceover": "Ek SEO blog likho, do saal tak traffic milta rahega.",
+        "story": "Hands type a heading; SEO suggestions pop, paragraphs settle neatly; the screen shows a \"2 years\" badge, warm light fills the desk.",
+        "flow_prompt": "Continuing the non-commercial indie-film style cinematic micro-story for 'AR Designs', shot on ARRI Alexa Mini LF with a 100mm Macro Anamorphic lens, 4K resolution, 60fps, Kodak Vision3 500T film emulation with rich halation, a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, in a minimalist white workspace with a Nordic oak wood desk, featuring a Space Silver MacBook Pro.\n[00:00-00:05 / Story 10-15s] Hands type a heading; SEO suggestions pop, paragraphs settle neatly; the screen shows a \"2 years\" badge, warm light fills the desk. A slow micro-dolly push-in on a Space Silver MacBook Pro in a minimalist white workspace with a Nordic oak wood desk, shot on a 100mm Macro Anamorphic lens, lit by a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, with brushed aluminium, crisp glass reflections and volumetric dust motes floating in the golden lamp light.\n[00:05-00:10 / Story 15-20s] The screen shows a blog draft with clear headings and short paragraphs taking shape on the dark-mode page, beside a clean search results page. A heading being typed and the paragraph under it tidying itself into place, then the camera settles into a calm, balanced composition with a matte-white architectural lamp and a sleek studio microphone in soft focus.\nAudio & Voiceover Sync: Soft room tone, rhythmic key presses and a warm ambient pad that settles under the voiceover. Warm, conversational voiceover: \"Ek SEO blog likho, do saal tak traffic milta rahega.\"",
+        "beat_sheet": ""
+      },
+      {
+        "time": "20-30s",
+        "voiceover": "DM 'BLOG' for a quick draft, aur socho—Reel ek din baad kahan jaata hai?",
+        "story": "Final frame shows a DM prompt on screen, hands hover over keyboard, then zooms out to the opening question, looping back to the hook.",
+        "flow_prompt": "The final act of a non-commercial indie-film style cinematic micro-story for 'AR Designs', shot on ARRI Alexa Mini LF with a 50mm Anamorphic lens, 4K resolution, 60fps, Kodak Vision3 500T film emulation with rich halation, a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, in a minimalist white workspace with a Nordic oak wood desk, featuring a Space Silver MacBook Pro.\n[00:00-00:05 / Story 20-25s] Final frame shows a DM prompt on screen, hands hover over keyboard, then zooms out to the opening question, looping back to the hook. A slow micro-dolly push-in on a Space Silver MacBook Pro in a minimalist white workspace with a Nordic oak wood desk, shot on a 50mm Anamorphic lens, lit by a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, with brushed aluminium, crisp glass reflections and volumetric dust motes floating in the golden lamp light.\n[00:05-00:10 / Story 25-30s] The screen shows a blog draft with clear headings and short paragraphs taking shape on the dark-mode page, beside a clean search results page. A heading being typed and the paragraph under it tidying itself into place, then the camera settles into a calm, balanced composition with a matte-white architectural lamp and a sleek studio microphone in soft focus.\nAudio & Voiceover Sync: Soft room tone, rhythmic key presses and a warm ambient pad that settles under the voiceover. Warm, conversational voiceover: \"DM 'BLOG' for a quick draft, aur socho—Reel ek din baad kahan jaata hai?\"",
+        "beat_sheet": ""
+      }
+    ],
+    "voiceover": "Kaam itna hai ki blog likhne ka time nahi milta? Ek SEO blog likho, do saal tak traffic milta rahega. DM 'BLOG' for a quick draft, aur socho—Reel ek din baad kahan jaata hai?",
+    "warnings": [
+      "reel clip 1: the model could not write a checked clip (the model failed: no JSON found in model reply), so a plain fallback clip is used. Read it before you generate.",
+      "reel clip 2: the model could not write a checked clip (reply with ONE JSON object), so a plain fallback clip is used. Read it before you generate.",
+      "reel clip 3: the model could not write a checked clip ('beats' needs 6-10 beats of 1-2 seconds, got 0; 'flow_beats' needs 4 beats of 2-3 seconds, got 0; 'audio' is too thin (1), so a plain fallback clip is used. Read it before you generate."
+    ]
+  },
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Instagram caption claimed \"BLOG saal bhar chalta hai\" – absolute outcome claim; softened to \"BLOG lambe samay tak traffic la sakta hai\".",
+      "Instagram used prohibited hashtag #SEOIndia; removed.",
+      "LinkedIn caption said \"This brings inquiries\" – absolute outcome claim; softened to \"may bring inquiries\".",
+      "Bluesky caption claimed \"BLOG RANKS FOR YEARS\" – absolute outcome claim; softened to \"BLOG CAN KEEP RANKING\"."
+    ],
+    "revised": {
+      "instagram": "**REEL 24 GHANTE, BLOG LAMBE SAMAY TAK**\n\n→ Reel 24 ghante baad kam ho jata hai, **BLOG** lambe samay tak traffic la sakta hai\n→ **SEO** likhne ka time aapke paas nahi bacha, main likhta hoon\n→ Aap bas topics **APPROVE** karein, baaki main sambhalta hoon\n\nDM **BLOG** aur batayein aap kya bechte hain.\n\n#SmallBusinessIndia #IndiaBusiness",
+      "linkedin": "Reels often fade within a day, while a well‑written blog can continue attracting visitors for months.\n\nMany owners spend hours on videos that get little attention after the first week.\n\nI write SEO‑optimized blogs that can help keep your website visible in local Google searches and may bring inquiries from customers already looking for what you offer.\n\nYou review and approve each topic before it goes live.\n\nDM BLOG and tell me what you sell.",
+      "bluesky": "**REEL DIES IN 24H, BLOG CAN KEEP RANKING** I write SEO blogs for small businesses. You approve topics, I handle the rest. DM BLOG to talk."
+    }
+  },
+  "ad_score": 10,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 329.0,
+        "reach_p50": 663.0,
+        "reach_p90": 1353.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'culture (language)', 'severity': 'medium', 'description': \"The copy is primarily in Hindi with occasional ",
+          "{'category': 'class', 'severity': 'low', 'description': \"The messaging assumes the reader is a small business owner who ",
+          "{'category': 'exclusion', 'severity': 'low', 'description': 'By directing the call‑to‑action only to those who can \"appr"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 3.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 4.0,
+          "practical_value": 3.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 370,
+            "share": 1,
+            "like": 1,
+            "reply": 1
+          },
+          "engagement_rate": 0.008,
+          "by_role": {
+            "public": {
+              "n": 3,
+              "avg_sentiment": 0.867,
+              "share_rate": 0.333
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 8,
+          "reach_fraction": 0.013,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 3.1
+          },
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 2.9
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 2.8
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 10.2,
+        "breakout_probability": 0.0,
+        "reach_p10": 389.0,
+        "reach_p50": 786.0,
+        "reach_p90": 1588.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 3.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 4.0,
+          "practical_value": 3.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 357,
+            "share": 2,
+            "like": 1,
+            "dislike": 1
+          },
+          "engagement_rate": 0.0111,
+          "by_role": {
+            "public": {
+              "n": 4,
+              "avg_sentiment": 0.367,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 5,
+          "reach_fraction": 0.007,
+          "r_effective": 0.0,
+          "polarization": 0.481,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 10.2,
+        "breakout_probability": 0.0,
+        "reach_p10": 206.0,
+        "reach_p50": 422.0,
+        "reach_p90": 906.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 4.0,
+          "curiosity": 4.0,
+          "educational": 3.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 3.0,
+          "practical_value": 3.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 380,
+            "share": 2,
+            "like": 1,
+            "reply": 1
+          },
+          "engagement_rate": 0.0104,
+          "by_role": {
+            "public": {
+              "n": 4,
+              "avg_sentiment": 0.66,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 12,
+          "reach_fraction": 0.019,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "comparison",
+          "p_beats_chosen": 0.14,
+          "lift_pct": -0.9,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "value",
+          "p_beats_chosen": 0.06,
+          "lift_pct": -3.3,
+          "decisive": true
+        }
+      ],
+      "better": null,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Replace 'maula' with neutral word (e.g., 'bas') and add brief English context; sharpen hook to 'REEL 24 HOURS, BLOG 2 YEARS TRAFFIC'",
+      "linkedin: Make first line all caps: 'A SHORT REEL FADES FAST, A BLOG BRINGS TRAFFIC FOR YEARS'; add concrete detail: 'I write and publish 4 SEO blogs per month'",
+      "bluesky: Sharpen hook to 'REEL DIES IN 24H, BLOG RANKS FOR YEARS'; add concrete detail: '4 SEO blogs/month, you just approve topics'"
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 10.3,
+      "bluesky": 10.5
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 10.2,
+      "bluesky": 10.2
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "google:gemma-4-26b-a4b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 4.6,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 7.0,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 7.8,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 7.0,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 6.8,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 56.5,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    ]
+  }
+}

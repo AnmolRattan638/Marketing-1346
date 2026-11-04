@@ -1,3 +1,4 @@
-- Hook style to try next: **contrast** (1.75× in learning loop) or **question** (1.75×); avoid **top3** (used 10‑26) and **comparison** (0.94×).
-- Topics to avoid: repeating “caption ignored” or “budget vs crew” angles already posted 10‑26 and 10‑30.
-- Reminder: every post must read like a developer sharing real work, never an ad. Offer only “pay after approval” + a short DM conversation. No demos, free audits, or guarantees.
+- Rotate to **comparison** or **contrast** hooks (question hooks underperform 4.7x vs comparison)
+- Avoid "same 5 questions" phrasing — used 3× recently (chatbot posts 10/21, 10/25, 11/02)
+- Lead-gen and chatbot topics outperform animated_ads 2.7x per reach; website posts steady
+- Posts must read as a developer showing real work, never an ad; no demos, samples, or niche targeting

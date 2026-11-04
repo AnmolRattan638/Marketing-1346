@@ -1,24 +1,24 @@
 {
   "platforms": {
     "instagram": {
-      "n": 12,
-      "spearman": 0.19,
-      "p_value": 0.56,
-      "score_spread": 3.6,
+      "n": 13,
+      "spearman": 0.23,
+      "p_value": 0.46,
+      "score_spread": 3.0,
       "llm_scored": 0,
-      "median_actual_reach": 5.5,
-      "median_predicted_reach": 710.0,
-      "reach_ratio": 0.008,
+      "median_actual_reach": 5.0,
+      "median_predicted_reach": 686.0,
+      "reach_ratio": 0.007,
       "verdict": "no signal"
     },
     "linkedin": {
       "n": 3,
       "spearman": -0.87,
       "p_value": 0.33,
-      "score_spread": 0.3,
+      "score_spread": 0.4,
       "llm_scored": 0,
       "median_actual_reach": 57.0,
-      "median_predicted_reach": 829.0,
+      "median_predicted_reach": 823.0,
       "reach_ratio": 0.069,
       "verdict": "too early"
     }

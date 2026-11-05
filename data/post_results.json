@@ -193,7 +193,7 @@
         }
       },
       "latest": {
-        "impressions": 177,
+        "impressions": 178,
         "reach": 87,
         "likes": 0,
         "comments": 0,
@@ -1325,9 +1325,9 @@
         }
       },
       "latest": {
-        "impressions": 9,
-        "reach": 2,
-        "views": 9,
+        "impressions": 11,
+        "reach": 3,
+        "views": 11,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -1365,7 +1365,79 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-11-03|bluesky": {
+      "date": "2026-11-03",
+      "platform": "bluesky",
+      "service": "animated_ads",
+      "problem_id": "lack-of-budget-for-professional-video-sh",
+      "angle_type": "question",
+      "hook_style": "myth",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "network",
+      "carousel_flavor": "scenario-story",
+      "slides": 7,
+      "published_at": "2026-11-03T10:35:27.147310+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzfnd7lysi2c",
+      "snap": {
+        "48h": {
+          "age_h": 57.4,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
+    },
+    "2026-11-03|instagram": {
+      "date": "2026-11-03",
+      "platform": "instagram",
+      "service": "animated_ads",
+      "problem_id": "lack-of-budget-for-professional-video-sh",
+      "angle_type": "question",
+      "hook_style": "myth",
+      "format": "carousel",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "network",
+      "carousel_flavor": "scenario-story",
+      "slides": 7,
+      "published_at": "2026-11-03T10:35:20.000Z",
+      "url": "https://www.instagram.com/p/DfRrgn4jh0C/",
+      "snap": {
+        "48h": {
+          "age_h": 57.4,
+          "source": "zernio",
+          "impressions": 17,
+          "reach": 2,
+          "views": 17,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 17,
+        "reach": 2,
+        "views": 17,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
     }
   },
-  "updated_at": "2026-11-04T19:47:07+00:00"
+  "updated_at": "2026-11-05T19:58:17+00:00"
 }

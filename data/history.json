@@ -138,5 +138,12 @@
     "topic": "Why spend 2 hours on a Reel that disappears in 24 hours, when a blog post works for 2 years?",
     "hook_style": "question",
     "status": "published"
+  },
+  {
+    "date": "2026-11-05",
+    "service": "lead_gen",
+    "topic": "The 'Search-First' Morning vs. the 'Pitch-First' Morning",
+    "hook_style": "comparison",
+    "status": "published"
   }
 ]

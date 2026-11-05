@@ -1,26 +1,26 @@
 {
-  "date": "2026-11-04",
-  "stage": "brand new under 100 followers",
-  "followers": 10,
-  "summary": "All platforms under 100 followers; Instagram reels lose 77% viewers in first 3 seconds. Question hooks earn 21% of comparison hooks per reach. Bio violates brand rules: niches (hotels, cafes, gyms, homestays), region (Himachal), timeframe (24 hrs), and permanent free offer.",
-  "guidance": "- Rotate to **comparison** or **contrast** hooks (question hooks underperform 4.7x vs comparison)\n- Avoid \"same 5 questions\" phrasing — used 3× recently (chatbot posts 10/21, 10/25, 11/02)\n- Lead-gen and chatbot topics outperform animated_ads 2.7x per reach; website posts steady\n- Posts must read as a developer showing real work, never an ad; no demos, samples, or niche targeting",
+  "date": "2026-11-05",
+  "stage": "Brand new (under 100 followers across all platforms)",
+  "followers": 9,
+  "summary": "Instagram bio violates brand rules: niches (hotels, cafes, gyms, homestays), region (Himachal), timeframe (24 hrs), and permanent free offer. Reels lose 77% viewers in first 3s — hooks failing. Lead_gen shows best relative signal (1.67x median, n=3) but data is thin.",
+  "guidance": "- Weakest area: Instagram hook/retention (77% skip rate) + non-compliant bio.\n- Rotate to **comparison** or **contrast** hooks for lead_gen; question hooks earn only 21% of comparison per reach.\n- Pause animated_ads (0.62x median); double down on lead_gen and chatbot topics.\n- Never write like an ad: show a developer's real screen, code, or sheet logic.\n- Use only broad hashtags (#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia).",
   "instructions": {
-    "research": "Find 3 real Indian small-business search queries (e.g. \"best gym management software Jaipur\", \"cafe POS system Bangalore\", \"clinic appointment booking Delhi\") that show local intent and low-quality results — use these as concrete examples in the post.",
-    "analysis": "Compare the top 3 ranking pages for each query: note word count, structure, local signals (address, phone, map embed), and gaps a freelancer could fill. Keep notes private; do not publish competitor names.",
-    "writer": "Write one Instagram carousel post (5–7 slides) for SEO blog writing service. Hook: comparison — \"Posting daily on Instagram vs. publishing one search-optimised blog: what a Delhi gym and a Bangalore cafe actually get from each.\" Use the 3 researched queries as varied examples. End with pay-after-approval offer and DM-for-advice CTA. No niche targeting, no guarantees.",
-    "image": "Create a clean carousel template: slide 1 hook text on neutral background; slides 2–4 each show one query + screenshot of weak SERP (blur brand names); slide 5 \"What a proper blog post adds\" (bullet list); slide 6 pay-after-approval + DM CTA. No logos, no client names.",
-    "video": "Skip video today — reel skip rate 77% indicates hook/format mismatch. Revisit after 3 comparison-hook carousels show engagement."
+    "research": "Find one relatable pain point: freelancers/agencies wasting billable hours manually searching Google Maps for local business leads.",
+    "analysis": "Lead_gen posts outperform other services 1.67x (n=3). Comparison hooks near median (0.94x) but question hooks severely underperform (0.21x). Use comparison/contrast.",
+    "writer": "Open with 'Freelancers' or 'Agencies'. Describe the sheet only in general terms: local businesses from Google Places with contact details, review counts, website checks, including newly opened ones. No niche examples. End with 'pay after approval' + DM for honest fit check.",
+    "image": "Clean screenshot of a generic spreadsheet view (column headers only: Business Name, Phone, Reviews, Website Yes/No, Date Added). Blur any real data. Caption overlay: 'LocalSignal — leads you can actually call.'",
+    "video": "Not required for today's lead_gen post."
   },
   "manual_tips": [
-    "Update Instagram bio to: \"Websites, AI chatbots, animated ads & SEO blogs for small businesses across India. Pay after approval. DM for honest advice.\" (removes niches, region, timeframe, permanent free offer)",
-    "Comment thoughtfully on 5 posts by Indian freelancers/agencies discussing client acquisition or content marketing — ask a genuine question, don't pitch.",
-    "Reply to any story replies or comments on your last 3 posts within 2 hours to boost algorithm signal."
+    "Rewrite Instagram bio to: 'Websites, AI chatbots, animated ads & lead sheets for small businesses across India. Pay after approval. DM for honest advice.' Remove niches, region, timeframes, and free offers.",
+    "Comment thoughtfully on 5 posts from Indian freelancers/agencies discussing client acquisition or local lead challenges — no self-promo.",
+    "Check and reply to any DMs/comments within 2 hours; move promising conversations to WhatsApp."
   ],
   "weak_signals": [
     {
       "id": "follower_stall",
       "platform": "instagram",
-      "detail": "5 posts in 7 days and followers changed by +0"
+      "detail": "5 posts in 7 days and followers changed by -1"
     },
     {
       "id": "high_skip_rate",

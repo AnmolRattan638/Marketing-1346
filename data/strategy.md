@@ -1,4 +1,5 @@
-- Rotate to **comparison** or **contrast** hooks (question hooks underperform 4.7x vs comparison)
-- Avoid "same 5 questions" phrasing — used 3× recently (chatbot posts 10/21, 10/25, 11/02)
-- Lead-gen and chatbot topics outperform animated_ads 2.7x per reach; website posts steady
-- Posts must read as a developer showing real work, never an ad; no demos, samples, or niche targeting
+- Weakest area: Instagram hook/retention (77% skip rate) + non-compliant bio.
+- Rotate to **comparison** or **contrast** hooks for lead_gen; question hooks earn only 21% of comparison per reach.
+- Pause animated_ads (0.62x median); double down on lead_gen and chatbot topics.
+- Never write like an ad: show a developer's real screen, code, or sheet logic.
+- Use only broad hashtags (#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia).

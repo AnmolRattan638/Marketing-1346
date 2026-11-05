@@ -1,0 +1,481 @@
+{
+  "id": "2026-11-05-a2c616",
+  "date": "2026-11-05",
+  "created_at": "2026-11-05T09:56:59+00:00",
+  "status": "pending",
+  "service": "lead_gen",
+  "topic": "The 'Search-First' Morning vs. the 'Pitch-First' Morning",
+  "idea_id": null,
+  "problem_id": "manual-lead-searching-exhaustion",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "exploit",
+    "variable": "hook_style",
+    "problem_id": "manual-lead-searching-exhaustion",
+    "angle_type": "mistake",
+    "hook_style": "comparison"
+  },
+  "hooks": [
+    {
+      "style": "comparison",
+      "text": "Search-first versus pitch-first: three signs to check"
+    },
+    {
+      "style": "myth",
+      "text": "Freelancers: Myth— scrolling Google Maps finds clients. Fact— it wastes billable hours."
+    },
+    {
+      "style": "value",
+      "text": "Freelancers: Try a pre‑qualified list; pitch now, earn today."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "comparison",
+  "posts": {
+    "instagram": "𝗙𝗥𝗘𝗘𝗟𝗔𝗡𝗖𝗘𝗥𝗦: 𝗦𝗘𝗔𝗥𝗖𝗛-𝗙𝗜𝗥𝗦𝗧 𝗩𝗦 𝗣𝗜𝗧𝗖𝗛-𝗙𝗜𝗥𝗦𝗧, 𝟯 𝗦𝗜𝗚𝗡𝗦 𝗖𝗛𝗘𝗖𝗞 𝗞𝗔𝗥𝗘𝗜𝗡\n\n→ Google Maps par ghante bitana, pitching mein der\n→ 𝗚𝗢𝗢𝗚𝗟𝗘 𝗣𝗟𝗔𝗖𝗘𝗦 se milne wale local businesses: contact, review count, website check\n→ Naye khule business bhi shamil hain, whatever you sell\n\nDM 𝗟𝗘𝗔𝗗𝗦 and tell me what you sell. Pay only after you approve the work. Honest fit check first.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+    "linkedin": "Finding local leads on Google Maps wastes valuable morning time.\n\nFreelancers and agencies often spend hours scrolling through maps instead of reaching out to prospects.\n\nI can provide a simple spreadsheet that pulls local businesses from Google Places, showing phone numbers, email when available, review counts and whether a website exists, including newly opened shops.\n\nYou can start the day by messaging the list rather than building it, giving you more time for pitches and meetings.\n\nDM me with the word LEADS and tell me what you sell; I will check if the sheet fits your needs and you pay only after you approve the work.",
+    "bluesky": "𝗦𝗘𝗔𝗥𝗖𝗛 𝘃𝘀 𝗣𝗜𝗧𝗖𝗛 Stop scrolling Google Maps. A sheet from Google Places gives contact details, review counts and website checks, including newly opened ones. Whatever you sell, start pitching sooner. DM LEADS for honest fit check. Pay after approval."
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I build simple lead sheets of local businesses from Google Places so freelancers can pitch sooner, whatever they sell. Quick question: what do you want customers to do when you reach out—call, WhatsApp, email or book a meeting?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for reaching out. The sheet covers local businesses found through Google Places with contact details, review counts and website checks, including newly opened ones. It is not tied to one profession. What service do you offer to local businesses?"
+    },
+    {
+      "if_they_say": "i'll think about it",
+      "reply": "Of course. I can send a one-page summary: what is included, timeline and how it works. Is the hesitation budget, timing, or whether it will actually bring enquiries? You pay only after you approve the work, so there is no big upfront commitment."
+    }
+  ],
+  "image": {
+    "prompt": "A laptop showing a bright city map covered in glowing location pins over small shopfronts, with a cup of tea beside it, in the upper two thirds of the frame. Soft natural daylight from a window, calm neutral tones, shallow depth of field. Lit by soft diffused daylight from a window on the left, gentle long shadows and a faint cool glow from the screen. With a light wooden desk, a laptop with a dark glowing interface, a white ceramic mug, an open notebook with a pen, a small plant and a soft window glow. Surfaces: light oak wood, white ceramic, linen and brushed aluminium. Accent colour: soft blue. Shot with a 50mm lens at f/2.2 with a shallow depth of field and a clean airy feel. Soft, calm, uncluttered space across the lower 40% of the frame. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-05.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "manual-lead-searching-exhaustion",
+      "angle_type": "mistake",
+      "style": "bold",
+      "headline": "Mistake: searching instead of pitching",
+      "highlight": [
+        "searching instead"
+      ],
+      "sub": "Shift from finding data to making calls.",
+      "chat": [],
+      "cta": "DM \"LEADS\"",
+      "tag": "FOR FREELANCERS & AGENCIES"
+    },
+    "errors": [],
+    "style_id": "bright-desk"
+  },
+  "carousel": {
+    "flavor": "self-test-signs",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-05.jpg",
+      "data/media/2026-11-05-s2.jpg",
+      "data/media/2026-11-05-s3.jpg",
+      "data/media/2026-11-05-s4.jpg",
+      "data/media/2026-11-05-s5.jpg",
+      "data/media/2026-11-05-s6.jpg",
+      "data/media/2026-11-05-s7.jpg"
+    ],
+    "alts": [
+      "Search-first versus pitch-first: three signs to check",
+      "Slide 2 of 7: Hours lost scrolling Google Maps for leads. You open Maps, scroll listings, copy details, and the morning ends before one message is sent.",
+      "Slide 3 of 7: Irrelevant leads waste billable time. Many listings are closed, wrong category, or have no website, so you chase dead ends instead of clients.",
+      "Slide 4 of 7: Start with a pre-qualified list. A daily sheet lists local businesses found through Google Places, with contact details, review counts and website checks, including newly opened ones.",
+      "Slide 5 of 7: Pitch first, build momentum early. With names and details ready, you can message businesses before your day fills up and start real conversations.",
+      "Slide 6 of 7: Spend your morning pitching, not searching. The sheet helps you skip manual searching so you reach out to relevant local businesses and focus on your service.",
+      "Slide 7 of 7: DM LEADS. Message us for an honest conversation about whether this lead sheet fits your service."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Search-first versus pitch-first: three signs to check",
+        "body": "See if your morning starts with scrolling instead of pitching."
+      },
+      {
+        "role": "problem",
+        "headline": "Hours lost scrolling Google Maps for leads",
+        "body": "You open Maps, scroll listings, copy details, and the morning ends before one message is sent."
+      },
+      {
+        "role": "problem",
+        "headline": "Irrelevant leads waste billable time",
+        "body": "Many listings are closed, wrong category, or have no website, so you chase dead ends instead of clients."
+      },
+      {
+        "role": "solution",
+        "headline": "Start with a pre-qualified list",
+        "body": "A daily sheet lists local businesses found through Google Places, with contact details, review counts and website checks, including newly opened ones."
+      },
+      {
+        "role": "solution",
+        "headline": "Pitch first, build momentum early",
+        "body": "With names and details ready, you can message businesses before your day fills up and start real conversations."
+      },
+      {
+        "role": "solution",
+        "headline": "Spend your morning pitching, not searching",
+        "body": "The sheet helps you skip manual searching so you reach out to relevant local businesses and focus on your service."
+      },
+      {
+        "role": "cta",
+        "headline": "DM LEADS",
+        "body": "Message us for an honest conversation about whether this lead sheet fits your service."
+      }
+    ],
+    "scene_prompts": {
+      "2": "A matte‑black laptop with a soft‑blue Google Maps interface rests under hands scrolling the trackpad, a smartphone beside it showing map pins; the devices occupy the upper 55 % of the frame, viewed from slightly above eye level, while the lower 45 % stays calm and dark for overlay. Warm natural daylight streams from a window on the left, casting gentle shadows and a cool blue rim glow around the screen. A light‑finished wooden desk holds a white ceramic mug, an open notebook with a bronze pen, and a small green plant; behind, a blurred city window adds depth. The palette is muted neutrals with a soft‑blue accent, conveying focused determination. Shot with an 85 mm lens at f/1.8, shallow depth of field renders brushed‑metal laptop texture and fine dust catching the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "5": "A matte‑black laptop with a soft‑glowing amber interface sits on a light‑stained wood desk, a thin soft‑blue progress bar rising across the keyboard; relaxed hands with rolled‑up sleeves hover, fingertips poised. The laptop fills the upper 55% of the frame, seen from a slightly elevated eye‑level view, while the lower 45% fades into a smooth dark area for text. Warm natural daylight pours from a nearby window, casting gentle shadows and a cool blue rim light around the hands. In the midground a white ceramic mug, an open notebook with a silver pen, and a small jade‑green succulent add depth. Muted neutrals with a soft‑blue accent convey calm confidence. Shot with an 85 mm lens at f/1.8, shallow depth of field renders brushed wood grain and glass reflections. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "6": "An matte‑black laptop with a softly glowing soft‑blue interface sits on a light‑stained wooden desk, a right hand of warm‑toned skin gently placing a pristine white business card that emits a faint blue halo onto the keyboard, while a sleek white ceramic mug and a tiny green succulent rest nearby; the laptop and hand occupy the upper 55 % of the frame, shot from an eye‑level angle leaving the lower 45 % calm for overlay, bathed in natural daylight from a window on the left, casting warm amber shadows and a subtle cool‑blue rim from the screen; the palette is muted greige‑taupe with a single blue accent, conveying focused ease; captured with an 85 mm lens at f/1.8, shallow depth of field renders the brushed‑metal desk surface and dust motes in the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": [
+      "slide_prompt: none",
+      "slide_prompt: none"
+    ]
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "image",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Instagram draft has a typo: 'LEANS' should be 'LEADS'.",
+      "LinkedIn draft implies the owner has already created a specific spreadsheet, which could be seen as a demo/sample claim. Rephrase to a general offering."
+    ],
+    "revised": {
+      "instagram": "**FREELANCERS: SEARCH-FIRST VS PITCH-FIRST, 3 SIGNS CHECK KAREIN**\n\n→ Google Maps par ghante bitana, pitching mein der\n→ **GOOGLE PLACES** se milne wale local businesses: contact, review count, website check\n→ Naye khule business bhi shamil hain, whatever you sell\n\nDM **LEADS** and tell me what you sell. Pay only after you approve the work. Honest fit check first.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+      "linkedin": "Finding local leads on Google Maps wastes valuable morning time.\n\nFreelancers and agencies often spend hours scrolling through maps instead of reaching out to prospects.\n\nI can provide a simple spreadsheet that pulls local businesses from Google Places, showing phone numbers, email when available, review counts and whether a website exists, including newly opened shops.\n\nYou can start the day by messaging the list rather than building it, giving you more time for pitches and meetings.\n\nDM me with the word LEADS and tell me what you sell; I will check if the sheet fits your needs and you pay only after you approve the work.",
+      "bluesky": "**SEARCH vs PITCH** Stop scrolling Google Maps. A sheet from Google Places gives contact details, review counts and website checks, including newly opened ones. Whatever you sell, start pitching sooner. DM LEADS for honest fit check. Pay after approval."
+    }
+  },
+  "ad_score": 9,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 338.0,
+        "reach_p50": 675.0,
+        "reach_p90": 1429.0,
+        "risk": "high",
+        "risk_issues": [
+          "{'category': 'language_exclusion', 'severity': 'medium', 'description': 'The post mixes English with Hindi (e.g., \"Googl",
+          "{'category': 'potential_spam_encouragement', 'severity': 'high', 'description': 'Phrases like \"whatever you sell DM LEAD",
+          "{'category': 'class_sensitivity', 'severity': 'low', 'description': 'The focus on “spending hours on Google Maps” and “p"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 3.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 5.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 371,
+            "share": 2,
+            "like": 2
+          },
+          "engagement_rate": 0.0107,
+          "by_role": {
+            "public": {
+              "n": 4,
+              "avg_sentiment": 0.758,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 9,
+          "reach_fraction": 0.0135,
+          "r_effective": 0.4667,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Open a stronger curiosity gap",
+            "lift_pct": 3.2
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.2
+          },
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 3.2
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 10.1,
+        "breakout_probability": 0.0,
+        "reach_p10": 398.0,
+        "reach_p50": 811.0,
+        "reach_p90": 1689.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 3.0,
+          "educational": 3.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 5.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 373,
+            "share": 2,
+            "like": 1,
+            "reply": 1,
+            "dislike": 1
+          },
+          "engagement_rate": 0.0132,
+          "by_role": {
+            "public": {
+              "n": 5,
+              "avg_sentiment": 0.334,
+              "share_rate": 0.4
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 9,
+          "reach_fraction": 0.0135,
+          "r_effective": 0.4667,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 9.8,
+        "breakout_probability": 0.0,
+        "reach_p10": 209.0,
+        "reach_p50": 436.0,
+        "reach_p90": 967.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 4.0,
+          "educational": 5.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 3.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 363,
+            "share": 2,
+            "like": 1,
+            "reply": 1
+          },
+          "engagement_rate": 0.0109,
+          "by_role": {
+            "public": {
+              "n": 4,
+              "avg_sentiment": 0.545,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 12,
+          "reach_fraction": 0.019,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "myth",
+          "p_beats_chosen": 0.89,
+          "lift_pct": 1.9,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "value",
+          "p_beats_chosen": 0.37,
+          "lift_pct": 0.1,
+          "decisive": false
+        }
+      ],
+      "better": 1,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Change hook line 'TEEN SIGNS CHECK KAREIN' to '3 SIGNS CHECK KAREIN' to avoid age misinterpretation",
+      "linkedin: Rewrite opening to 'Searching Google Maps for local leads eats up morning hours.' and list only three example services (e.g., design, accounting, coaching)",
+      "bluesky: Replace 'pre-qualified sheet' with 'sheet of local businesses from Google Places' to avoid invented qualifier"
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 0.0
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 10.1,
+      "bluesky": 9.8
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "google:gemma-4-26b-a4b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 103.5,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 13.4,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 7.4,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 10.2,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 22.7,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

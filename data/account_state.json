@@ -1,20 +1,20 @@
 {
-  "date": "2026-11-05",
-  "stage": "Brand new (under 100 followers across all platforms)",
+  "date": "2026-11-06",
+  "stage": "brand new under 100 followers",
   "followers": 9,
-  "summary": "Instagram bio violates brand rules: niches (hotels, cafes, gyms, homestays), region (Himachal), timeframe (24 hrs), and permanent free offer. Reels lose 77% viewers in first 3s — hooks failing. Lead_gen shows best relative signal (1.67x median, n=3) but data is thin.",
-  "guidance": "- Weakest area: Instagram hook/retention (77% skip rate) + non-compliant bio.\n- Rotate to **comparison** or **contrast** hooks for lead_gen; question hooks earn only 21% of comparison per reach.\n- Pause animated_ads (0.62x median); double down on lead_gen and chatbot topics.\n- Never write like an ad: show a developer's real screen, code, or sheet logic.\n- Use only broad hashtags (#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia).",
+  "summary": "Reel hooks lose 77% viewers in first 3 seconds; chatbot posts earn 1/5 of lead_gen per reach. Instagram bio violates brand rules (niche, region, timeframe, permanent free offer).",
+  "guidance": "- Hook style: try **contrast** or **comparison** (avoid question — Instagram data shows 21% of comparison performance).\n- Angle: use **mistake** framing (1.33x in learning loop) — e.g., \"The mistake of assuming a chatbot replaces human touch.\"\n- Avoid repeating \"same 5 questions\" or \"busy with walk-in\" — used in last two chatbot posts.\n- Image style: **desk-glow** or **glass-ui** (top performers).\n- Posts must read as a developer showing real work, never an ad. No demos, no niche targeting, no guaranteed outcomes.",
   "instructions": {
-    "research": "Find one relatable pain point: freelancers/agencies wasting billable hours manually searching Google Maps for local business leads.",
-    "analysis": "Lead_gen posts outperform other services 1.67x (n=3). Comparison hooks near median (0.94x) but question hooks severely underperform (0.21x). Use comparison/contrast.",
-    "writer": "Open with 'Freelancers' or 'Agencies'. Describe the sheet only in general terms: local businesses from Google Places with contact details, review counts, website checks, including newly opened ones. No niche examples. End with 'pay after approval' + DM for honest fit check.",
-    "image": "Clean screenshot of a generic spreadsheet view (column headers only: Business Name, Phone, Reviews, Website Yes/No, Date Added). Blur any real data. Caption overlay: 'LocalSignal — leads you can actually call.'",
-    "video": "Not required for today's lead_gen post."
+    "research": "Find 2-3 common chatbot misconceptions Indian small businesses have (cost, complexity, language) — cite generic sources, no client specifics.",
+    "analysis": "Compare last 3 chatbot posts' hooks/angles; note which got any engagement (even low) to avoid repetition.",
+    "writer": "Write a contrast/comparison post: mistake angle, 2-3 example business types max, soft wording (\"can reduce\", \"helps\"), offer pay-after-approval + DM for honest fit check. No demo claims.",
+    "image": "Create a desk-glow or glass-ui static image: split screen showing \"Before bot: missed WhatsApp at 10 PM\" vs \"After bot: auto-reply + lead captured\" — no brand logos, generic UI.",
+    "video": "Skip reel today; static image performs better for chatbot topic. If video later, hook in first 1s: \"Most bots fail because...\" (contrast)."
   },
   "manual_tips": [
-    "Rewrite Instagram bio to: 'Websites, AI chatbots, animated ads & lead sheets for small businesses across India. Pay after approval. DM for honest advice.' Remove niches, region, timeframes, and free offers.",
-    "Comment thoughtfully on 5 posts from Indian freelancers/agencies discussing client acquisition or local lead challenges — no self-promo.",
-    "Check and reply to any DMs/comments within 2 hours; move promising conversations to WhatsApp."
+    "Update Instagram bio to: \"Websites, AI chatbots, animated ads & lead gen for small businesses across India. Pay after approval. DM for honest advice.\"",
+    "Comment on 5 posts by Indian freelancers/agencies discussing client acquisition — add value, no self-promo.",
+    "Reply to any story/reel about small business operations (WhatsApp overload, after-hours queries) with a genuine observation, no pitch."
   ],
   "weak_signals": [
     {

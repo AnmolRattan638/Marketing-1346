@@ -1,5 +1,5 @@
-- Weakest area: Instagram hook/retention (77% skip rate) + non-compliant bio.
-- Rotate to **comparison** or **contrast** hooks for lead_gen; question hooks earn only 21% of comparison per reach.
-- Pause animated_ads (0.62x median); double down on lead_gen and chatbot topics.
-- Never write like an ad: show a developer's real screen, code, or sheet logic.
-- Use only broad hashtags (#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia).
+- Hook style: try **contrast** or **comparison** (avoid question — Instagram data shows 21% of comparison performance).
+- Angle: use **mistake** framing (1.33x in learning loop) — e.g., "The mistake of assuming a chatbot replaces human touch."
+- Avoid repeating "same 5 questions" or "busy with walk-in" — used in last two chatbot posts.
+- Image style: **desk-glow** or **glass-ui** (top performers).
+- Posts must read as a developer showing real work, never an ad. No demos, no niche targeting, no guaranteed outcomes.

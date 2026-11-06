@@ -1101,6 +1101,13 @@
           "likes": 0,
           "comments": 0,
           "shares": 0
+        },
+        "7d": {
+          "age_h": 178.1,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
         }
       },
       "latest": {
@@ -1128,6 +1135,18 @@
       "snap": {
         "48h": {
           "age_h": 52.2,
+          "source": "zernio",
+          "impressions": 30,
+          "reach": 8,
+          "views": 30,
+          "likes": 3,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        },
+        "7d": {
+          "age_h": 178.1,
           "source": "zernio",
           "impressions": 30,
           "reach": 8,
@@ -1325,9 +1344,9 @@
         }
       },
       "latest": {
-        "impressions": 11,
-        "reach": 3,
-        "views": 11,
+        "impressions": 13,
+        "reach": 4,
+        "views": 13,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -1437,7 +1456,38 @@
         "saves": 0,
         "clicks": 0
       }
+    },
+    "2026-11-04|bluesky": {
+      "date": "2026-11-04",
+      "platform": "bluesky",
+      "service": "seo_blogs",
+      "problem_id": "lack-of-time-to-create-content",
+      "angle_type": "question",
+      "hook_style": "question",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "desk-glow",
+      "carousel_flavor": "question-hook",
+      "slides": 6,
+      "published_at": "2026-11-04T16:14:45.423990+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mziqqtoeas2x",
+      "snap": {
+        "48h": {
+          "age_h": 51.2,
+          "source": "bluesky",
+          "likes": 2,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 2,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-11-06T06:50:01+00:00"
+  "updated_at": "2026-11-06T19:25:53+00:00"
 }

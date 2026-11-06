@@ -186,7 +186,7 @@ def pick_variant(date):
     used = []
     for f in sorted(config.DRAFTS.glob("*.json")):
         d = config.load_json(f, None)
-        sid = ((d or {}).get("image") or {}).get("style_id") if isinstance(d, dict) and str(d.get("date", "")) <= str(date) else None
+        sid = ((d or {}).get("image") or {}).get("style_id") if isinstance(d, dict) and str(d.get("date", "")) < str(date) else None
         if sid:
             used.append(sid)
     pool = [v for v in vs if v["id"] not in used[-2:]] or vs

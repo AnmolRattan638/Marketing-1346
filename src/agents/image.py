@@ -26,7 +26,9 @@ def clean_prompt(text, limit=900):
             paras = [p for p in re.split(r"\n\s*\n", text.strip()) if p.strip()]
             out = paras[-1] if paras else text
     out = re.sub(r"^[\s*\-\d.)]+", "", re.sub(r"\s+", " ", out).strip())
-    out = out.strip('" ')
+    out = re.sub(r"</?prompt>", " ", out, flags=re.I)                      # a stray tag or the six part labels must never reach the image engine
+    out = re.sub(r"\b(?:subject|composition|lighting|environment|colou?r and mood|camera and texture)\s*[:\u2013\u2014-]\s*", "", out, flags=re.I)
+    out = re.sub(r"\s+", " ", out).strip().strip('" ')
     if len(out) > limit:                      # cut at a word boundary, never mid-word
         out = out[:limit].rsplit(" ", 1)[0].rstrip(",;: ")
     return out
@@ -189,6 +191,17 @@ def pick_variant(date):
             used.append(sid)
     pool = [v for v in vs if v["id"] not in used[-2:]] or vs
     return min(pool, key=lambda v: (used.count(v["id"]), vs.index(v)))
+
+
+def recent_card_styles(date, n=2):
+    """Card style ('chat', 'bold', or a picture card) of the last n drafts before this date, oldest first."""
+    out = []
+    for f in sorted(config.DRAFTS.glob("*.json")):
+        d = config.load_json(f, None)
+        if isinstance(d, dict) and str(d.get("date", "")) < str(date) and (d.get("image") or {}).get("engine"):
+            im = d["image"]
+            out.append("chat" if im.get("engine") == "designed_card" and im.get("style") == "chat" else "other")
+    return out[-n:]
 
 
 def look_text(variant, topic=""):
@@ -357,6 +370,8 @@ def _run(plan, focus, date, guidance, variant):
     except Exception as e:
         print(f"[image] card copy failed: {e}")
         errors.append(f"card_copy: {str(e)[:110]}")
+    if spec and spec.get("style") == "chat" and "chat" in recent_card_styles(date):
+        spec["style"], spec["chat"] = "bold", []      # the same chat mock-up twice in a row looks like the same hero image: this time a fresh AI picture
     if spec and spec.get("style") != "chat" and visuals_enabled():
         ai_tried = True
         try:

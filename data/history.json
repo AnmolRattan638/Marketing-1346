@@ -145,5 +145,12 @@
     "topic": "The 'Search-First' Morning vs. the 'Pitch-First' Morning",
     "hook_style": "comparison",
     "status": "published"
+  },
+  {
+    "date": "2026-11-06",
+    "service": "animated_ads",
+    "topic": "Will AI-generated animations look too 'fake' for a local business?",
+    "hook_style": "question",
+    "status": "published"
   }
 ]

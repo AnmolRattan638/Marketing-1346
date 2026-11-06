@@ -1,0 +1,33 @@
+{
+  "video": {
+    "id": "example-video",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "title": "Example Video"
+  },
+  "audio": {
+    "music": null
+  },
+  "scenes": [
+    {
+      "id": "S1_example",
+      "component": "sequences/ExampleScene",
+      "duration": 6,
+      "narration": null,
+      "sfx": [],
+      "props": {
+        "title": "Hello, Remotion",
+        "subtitle": "Edit manifest.json to customize"
+      }
+    },
+    {
+      "id": "S2_kitchen_sink",
+      "component": "sequences/KitchenSink",
+      "duration": 20,
+      "narration": null,
+      "sfx": [],
+      "props": {}
+    }
+  ]
+}

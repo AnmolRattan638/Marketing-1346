@@ -1,0 +1,306 @@
+{
+  "video": {
+    "id": "daily",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "title": "Why local shops need a website"
+  },
+  "audio": {
+    "music": null
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "component": "sequences/FootageScene",
+      "duration": 3.9333,
+      "narration": "assets/run/narration/s1.mp3",
+      "sfx": [
+        {
+          "src": "assets/run/sfx/pop.mp3",
+          "atSecond": 1.41,
+          "volume": 0.7
+        }
+      ],
+      "props": {
+        "clip": "assets/run/footage/s1.mp4",
+        "clipSeconds": 8.0,
+        "words": [
+          {
+            "text": "Most",
+            "start": 0.0,
+            "end": 0.321
+          },
+          {
+            "text": "customers",
+            "start": 0.321,
+            "end": 0.962
+          },
+          {
+            "text": "search",
+            "start": 0.962,
+            "end": 1.411
+          },
+          {
+            "text": "online",
+            "start": 1.411,
+            "end": 1.86
+          },
+          {
+            "text": "before",
+            "start": 1.86,
+            "end": 2.309
+          },
+          {
+            "text": "they",
+            "start": 2.309,
+            "end": 2.63
+          },
+          {
+            "text": "visit",
+            "start": 2.63,
+            "end": 3.015
+          },
+          {
+            "text": "a",
+            "start": 3.015,
+            "end": 3.143
+          },
+          {
+            "text": "shop.",
+            "start": 3.143,
+            "end": 3.528
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2",
+      "component": "sequences/FootageScene",
+      "duration": 5.1,
+      "narration": "assets/run/narration/s2.mp3",
+      "sfx": [
+        {
+          "src": "assets/run/sfx/whoosh.mp3",
+          "atSecond": 0.0,
+          "volume": 0.55
+        }
+      ],
+      "props": {
+        "clip": "assets/run/footage/s2.mp4",
+        "clipSeconds": 8.0,
+        "words": [
+          {
+            "text": "If",
+            "start": 0.0,
+            "end": 0.27
+          },
+          {
+            "text": "you",
+            "start": 0.27,
+            "end": 0.63
+          },
+          {
+            "text": "do",
+            "start": 0.63,
+            "end": 0.9
+          },
+          {
+            "text": "not",
+            "start": 0.9,
+            "end": 1.26
+          },
+          {
+            "text": "show",
+            "start": 1.26,
+            "end": 1.71
+          },
+          {
+            "text": "up,",
+            "start": 1.71,
+            "end": 2.07
+          },
+          {
+            "text": "they",
+            "start": 2.07,
+            "end": 2.52
+          },
+          {
+            "text": "walk",
+            "start": 2.52,
+            "end": 2.97
+          },
+          {
+            "text": "into",
+            "start": 2.97,
+            "end": 3.42
+          },
+          {
+            "text": "the",
+            "start": 3.42,
+            "end": 3.78
+          },
+          {
+            "text": "next",
+            "start": 3.78,
+            "end": 4.23
+          },
+          {
+            "text": "one.",
+            "start": 4.23,
+            "end": 4.68
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3",
+      "component": "sequences/FootageScene",
+      "duration": 5.1,
+      "narration": "assets/run/narration/s3.mp3",
+      "sfx": [
+        {
+          "src": "assets/run/sfx/whoosh.mp3",
+          "atSecond": 0.0,
+          "volume": 0.55
+        },
+        {
+          "src": "assets/run/sfx/riser.mp3",
+          "atSecond": 2.53,
+          "volume": 0.5
+        }
+      ],
+      "props": {
+        "clip": "assets/run/footage/s3.mp4",
+        "clipSeconds": 8.0,
+        "words": [
+          {
+            "text": "A",
+            "start": 0.0,
+            "end": 0.136
+          },
+          {
+            "text": "simple",
+            "start": 0.136,
+            "end": 0.61
+          },
+          {
+            "text": "website",
+            "start": 0.61,
+            "end": 1.153
+          },
+          {
+            "text": "shows",
+            "start": 1.153,
+            "end": 1.56
+          },
+          {
+            "text": "your",
+            "start": 1.56,
+            "end": 1.899
+          },
+          {
+            "text": "hours,",
+            "start": 1.899,
+            "end": 2.374
+          },
+          {
+            "text": "your",
+            "start": 2.374,
+            "end": 2.713
+          },
+          {
+            "text": "location",
+            "start": 2.713,
+            "end": 3.323
+          },
+          {
+            "text": "and",
+            "start": 3.323,
+            "end": 3.595
+          },
+          {
+            "text": "your",
+            "start": 3.595,
+            "end": 3.934
+          },
+          {
+            "text": "best",
+            "start": 3.934,
+            "end": 4.273
+          },
+          {
+            "text": "work.",
+            "start": 4.273,
+            "end": 4.68
+          }
+        ]
+      }
+    },
+    {
+      "id": "s4",
+      "component": "sequences/FootageScene",
+      "duration": 3.5667,
+      "narration": "assets/run/narration/s4.mp3",
+      "sfx": [
+        {
+          "src": "assets/run/sfx/whoosh.mp3",
+          "atSecond": 0.0,
+          "volume": 0.55
+        },
+        {
+          "src": "assets/run/sfx/click.mp3",
+          "atSecond": 0.84,
+          "volume": 0.6
+        }
+      ],
+      "props": {
+        "clip": "assets/run/footage/s4.mp4",
+        "clipSeconds": 8.0,
+        "words": [
+          {
+            "text": "Message",
+            "start": 0.0,
+            "end": 0.613
+          },
+          {
+            "text": "us",
+            "start": 0.613,
+            "end": 0.844
+          },
+          {
+            "text": "today",
+            "start": 0.844,
+            "end": 1.304
+          },
+          {
+            "text": "and",
+            "start": 1.304,
+            "end": 1.61
+          },
+          {
+            "text": "we",
+            "start": 1.61,
+            "end": 1.84
+          },
+          {
+            "text": "will",
+            "start": 1.84,
+            "end": 2.224
+          },
+          {
+            "text": "plan",
+            "start": 2.224,
+            "end": 2.607
+          },
+          {
+            "text": "yours.",
+            "start": 2.607,
+            "end": 3.144
+          }
+        ],
+        "overlayText": "Message us today"
+      }
+    }
+  ]
+}

@@ -2,19 +2,19 @@
   "date": "2026-11-06",
   "stage": "brand new under 100 followers",
   "followers": 9,
-  "summary": "Reel hooks lose 77% viewers in first 3 seconds; chatbot posts earn 1/5 of lead_gen per reach. Instagram bio violates brand rules (niche, region, timeframe, permanent free offer).",
-  "guidance": "- Hook style: try **contrast** or **comparison** (avoid question — Instagram data shows 21% of comparison performance).\n- Angle: use **mistake** framing (1.33x in learning loop) — e.g., \"The mistake of assuming a chatbot replaces human touch.\"\n- Avoid repeating \"same 5 questions\" or \"busy with walk-in\" — used in last two chatbot posts.\n- Image style: **desk-glow** or **glass-ui** (top performers).\n- Posts must read as a developer showing real work, never an ad. No demos, no niche targeting, no guaranteed outcomes.",
+  "summary": "Instagram bio violates brand rules (niche/region focus, free offer outside website posts). Reels lose 77% viewers in first 3s; hook failure is the weakest area. Too little data for reliable patterns (n<3 per style).",
+  "guidance": "- Hook style to try next: **contrast** (1.75x median, n=1) or **comparison** (1.29x, n=3) — rotate away from **question** (weak signal: earns 24% of comparison per reach).\n- Avoid repeating \"high-end video ads without camera crew\" and \"why brands look high-end\" — both animated_ads posts used similar budget-angle; vary the pain point.\n- Posts must read as a developer showing real work: share a code snippet, a frame from an actual render, or a brief technical decision — never promise outcomes or use ad copy.",
   "instructions": {
-    "research": "Find 2-3 common chatbot misconceptions Indian small businesses have (cost, complexity, language) — cite generic sources, no client specifics.",
-    "analysis": "Compare last 3 chatbot posts' hooks/angles; note which got any engagement (even low) to avoid repetition.",
-    "writer": "Write a contrast/comparison post: mistake angle, 2-3 example business types max, soft wording (\"can reduce\", \"helps\"), offer pay-after-approval + DM for honest fit check. No demo claims.",
-    "image": "Create a desk-glow or glass-ui static image: split screen showing \"Before bot: missed WhatsApp at 10 PM\" vs \"After bot: auto-reply + lead captured\" — no brand logos, generic UI.",
-    "video": "Skip reel today; static image performs better for chatbot topic. If video later, hook in first 1s: \"Most bots fail because...\" (contrast)."
+    "research": "Find 2-3 Indian small-business Instagram reels (any industry) that use motion graphics/text animation instead of footage; note their first 3 seconds.",
+    "analysis": "Compare the skip-rate of your last animated_ads reel (77%) to the reference reels; identify one visual or audio cue they use in the first second that you didn't.",
+    "writer": "Write a 90-120 word carousel caption using a **contrast** hook: show a static poster vs. the same offer as an animated ad, explain the technical difference (e.g., Lottie vs. MP4), end with \"Pay after you approve the final file.\"",
+    "image": "Create a 2-slide carousel: slide 1 = static poster (any generic festival sale), slide 2 = the same poster with subtle motion (price badge pulse, CTA arrow slide). Export as 1080x1080 PNGs.",
+    "video": "Do not shoot video today. Prepare a 5-second screen-record of the animation timeline in your editor (After Effects / Rive / CSS) for a future reel."
   },
   "manual_tips": [
-    "Update Instagram bio to: \"Websites, AI chatbots, animated ads & lead gen for small businesses across India. Pay after approval. DM for honest advice.\"",
-    "Comment on 5 posts by Indian freelancers/agencies discussing client acquisition — add value, no self-promo.",
-    "Reply to any story/reel about small business operations (WhatsApp overload, after-hours queries) with a genuine observation, no pitch."
+    "Update Instagram bio to: \"AI chatbots, animated ads, lead sheets & websites for small businesses across India. Pay after approval. DM for a quick chat.\"",
+    "Comment thoughtfully on 3 posts from Indian freelancers/agencies discussing client acquisition or ad creative — no self-promo.",
+    "Reply to every story mention or tag within 2 hours; keep replies conversational, not salesy."
   ],
   "weak_signals": [
     {
@@ -30,12 +30,12 @@
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 20% of what 'lead_gen' earns per person reached"
+      "detail": "by service, 'chatbot' earns 22% of what 'lead_gen' earns per person reached"
     },
     {
       "id": "weak_hook_style",
       "platform": "instagram",
-      "detail": "by hook style, 'question' earns 21% of what 'comparison' earns per person reached"
+      "detail": "by hook style, 'question' earns 24% of what 'comparison' earns per person reached"
     },
     {
       "id": "follower_stall",

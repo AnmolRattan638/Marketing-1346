@@ -1,5 +1,3 @@
-- Hook style: try **contrast** or **comparison** (avoid question — Instagram data shows 21% of comparison performance).
-- Angle: use **mistake** framing (1.33x in learning loop) — e.g., "The mistake of assuming a chatbot replaces human touch."
-- Avoid repeating "same 5 questions" or "busy with walk-in" — used in last two chatbot posts.
-- Image style: **desk-glow** or **glass-ui** (top performers).
-- Posts must read as a developer showing real work, never an ad. No demos, no niche targeting, no guaranteed outcomes.
+- Hook style to try next: **contrast** (1.75x median, n=1) or **comparison** (1.29x, n=3) — rotate away from **question** (weak signal: earns 24% of comparison per reach).
+- Avoid repeating "high-end video ads without camera crew" and "why brands look high-end" — both animated_ads posts used similar budget-angle; vary the pain point.
+- Posts must read as a developer showing real work: share a code snippet, a frame from an actual render, or a brief technical decision — never promise outcomes or use ad copy.

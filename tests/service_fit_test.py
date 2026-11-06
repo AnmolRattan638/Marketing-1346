@@ -97,6 +97,7 @@ assert count(tmp / "cyan.jpg", (0, 212, 255)) > 1500 and count(tmp / "cyan.jpg",
 assert count(tmp / "yellow.jpg", (255, 214, 10)) > 1500
 
 # ---- 5. image.run: every card type is rendered inside the day's family colour, and the family is recorded
+config.DRAFTS = pathlib.Path(tempfile.mkdtemp())      # no earlier drafts: the chat card is allowed (it alternates with pictures, see chat_card_test)
 seen = []
 cards.make_spec = lambda plan, focus, guidance="": {"style": "chat" if focus["id"] == "chatbot" else "bold", "headline": "H", "highlight": [], "sub": "", "chat": [], "cta": 'DM "X"', "tag": "T"}
 cards.render = lambda spec, path: seen.append(("designed", cards.ACCENT))

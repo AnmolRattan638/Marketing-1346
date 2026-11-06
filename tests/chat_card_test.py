@@ -17,6 +17,9 @@ image._visual_card = lambda plan, focus, spec, guidance, path, errors, variant=N
 config.ROOT = tmp; config.MEDIA = tmp / "media"
 
 assert image.recent_card_styles("2026-11-06") == []
+draft("2026-11-06", "designed_card", "chat")
+assert image.recent_card_styles("2026-11-06") == ["chat"], "a forced re-run sees today's old chat card"
+(tmp / "2026-11-06.json").unlink()
 image.run(plan, focus, "2026-11-06", ""); assert seen[-1] == "chat-card", "no recent chat card: chat is fine"
 draft("2026-11-06", "designed_card", "chat")
 image.run(plan, focus, "2026-11-07", ""); assert seen[-1] == "ai-picture", "yesterday was a chat card: use an AI picture"

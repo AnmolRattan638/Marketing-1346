@@ -186,7 +186,7 @@ def pick_variant(date):
     used = []
     for f in sorted(config.DRAFTS.glob("*.json")):
         d = config.load_json(f, None)
-        sid = ((d or {}).get("image") or {}).get("style_id") if isinstance(d, dict) and str(d.get("date", "")) < str(date) else None
+        sid = ((d or {}).get("image") or {}).get("style_id") if isinstance(d, dict) and str(d.get("date", "")) <= str(date) else None
         if sid:
             used.append(sid)
     pool = [v for v in vs if v["id"] not in used[-2:]] or vs
@@ -194,11 +194,11 @@ def pick_variant(date):
 
 
 def recent_card_styles(date, n=2):
-    """Card style ('chat', 'bold', or a picture card) of the last n drafts before this date, oldest first."""
+    """Card style ('chat', 'bold', or a picture card) of the last n drafts up to this date (today's old draft counts, so a forced re-run does not repeat it), oldest first."""
     out = []
     for f in sorted(config.DRAFTS.glob("*.json")):
         d = config.load_json(f, None)
-        if isinstance(d, dict) and str(d.get("date", "")) < str(date) and (d.get("image") or {}).get("engine"):
+        if isinstance(d, dict) and str(d.get("date", "")) <= str(date) and (d.get("image") or {}).get("engine"):
             im = d["image"]
             out.append("chat" if im.get("engine") == "designed_card" and im.get("style") == "chat" else "other")
     return out[-n:]

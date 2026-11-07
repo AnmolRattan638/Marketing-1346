@@ -1,0 +1,459 @@
+{
+  "id": "2026-11-07-f2ccbe",
+  "date": "2026-11-07",
+  "created_at": "2026-11-07T09:17:52+00:00",
+  "status": "pending",
+  "service": "website",
+  "topic": "A website isn't a digital brochure; it's an automated FAQ engine.",
+  "idea_id": null,
+  "problem_id": "repeatedly-answering-the-same-basic-ques",
+  "angle_type": "myth_bust",
+  "experiment": {
+    "mode": "exploit",
+    "variable": "angle_type",
+    "problem_id": "repeatedly-answering-the-same-basic-ques",
+    "angle_type": "myth_bust",
+    "hook_style": "contrast"
+  },
+  "hooks": [
+    {
+      "style": "contrast",
+      "text": "Before: typing pricing on chat daily. After: your page answers instantly."
+    },
+    {
+      "style": "myth",
+      "text": "Myth: Websites are just brochures. Fact: They auto‑reply 24/7."
+    },
+    {
+      "style": "value",
+      "text": "Try this: add a structured pricing section, stop manual repeats."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "contrast",
+  "posts": {
+    "instagram": "CHAT PE RATES TYPING DAILY. PAGE INSTANT JAWAB DEGA.\n\n→ Ek 𝗖𝗔𝗙𝗘 ya 𝗚𝗬𝗠 ka 𝗣𝗔𝗚𝗘 jahan 𝗥𝗔𝗧𝗘𝗦 aur hours likhe hon.\n→ Customer message karega toh page se jawab milega, chat mein nahi.\n\nDM 𝗦𝗜𝗧𝗘 aur main aapke site ke 3 fixes bataunga. Pay only after you approve.\n\n#SmallBusinessIndia #WebsiteIndia #SmallBizIndia #FAQPage #BusinessIndia",
+    "linkedin": "Small businesses waste time answering the same questions on chat every day.\n\nA simple one-page website can list your services, rates, and opening hours so customers find answers instantly.\n\nFor example, a café, a gym, or a boutique can show operating hours directly on the page instead of repeating them in WhatsApp.\n\nThis reduces daily chat time and lets you focus on delivering your service rather than typing repetitive replies.\n\nYou can start with a mobile-first page and add a WhatsApp button for any additional questions.\n\ndm SITE and tell me what you sell. Pay only after you approve the work.",
+    "bluesky": "𝗖𝗛𝗔𝗧 PE RATES typing daily? Aapka page instant jawab dega, toh aap baar-baar rates nahi type karte. DM 𝗦𝗜𝗧𝗘 aur main aapke site ke 3 fixes bataunga. Pay after approval. #SmallBusinessIndia #WebsiteIndia"
+  },
+  "replies": [
+    {
+      "if_they_say": "How much?",
+      "reply": "Hi, thanks for messaging. I build mobile-first websites for small businesses anywhere in India. Packages start at INR 1,499 and go up to INR 3,599, plus INR 800 for domain setup. What do you want customers to do—call, WhatsApp, or book? I’ll give a fixed-price scope after that. Pay only after you approve."
+    },
+    {
+      "if_they_say": "Do you do this for my kind of business?",
+      "reply": "Hi, I work with any small business—shops, clinics, cafes, gyms, salons—where customers ask the same questions on chat. What kind of business do you run, and what do people ask you most often?"
+    },
+    {
+      "if_they_say": "Can I see a demo?",
+      "reply": "Hi, I don’t share demos or samples, but I can explain how the page works in general. What’s your main goal—more calls, more WhatsApp messages, or online bookings? You pay only after you approve the work."
+    }
+  ],
+  "image": {
+    "prompt": "a sleek matte‑black smartphone with a brushed metal frame and a glass front rests on a warm walnut desk; its screen glows a soft deep‑blue hue, occupying the upper two‑thirds of the frame, while the lower 40% stays calm and empty for overlay text. the camera looks slightly above eye level, capturing the phone at a gentle three‑quarter angle; a cool key light from the left‑front washes the device, rim‑lighting the edges with a faint violet glow and casting soft shadows. in the foreground a ceramic mug and a thin notebook lie beside the phone; the background fades into a dark indigo wall dotted with drifting violet particles. the palette is deep indigo with a single accent of electric blue, evoking focused efficiency. shot with an 85 mm lens at f/1.8, the shallow depth of field renders the brushed metal texture and glass reflections in crisp detail, while faint translucent question‑mark icons hover above the phone, linked by thin luminous network lines, symbolizing an automated FAQ. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-07.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "repeatedly-answering-the-same-basic-ques",
+      "angle_type": "myth_bust",
+      "style": "bold",
+      "headline": "A website is not a brochure",
+      "highlight": [
+        "brochure"
+      ],
+      "sub": "It answers pricing before they ask.",
+      "chat": [],
+      "cta": "DM \"SITE\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "silhouette"
+  },
+  "carousel": {
+    "flavor": "before-after-example",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-07.jpg",
+      "data/media/2026-11-07-s2.jpg",
+      "data/media/2026-11-07-s3.jpg",
+      "data/media/2026-11-07-s4.jpg",
+      "data/media/2026-11-07-s5.jpg"
+    ],
+    "alts": [
+      "Before: typing pricing on chat daily. After: your page answers instantly.",
+      "Slide 2 of 5: The before picture: answering the same questions every day. Example: whether you run a clinic, gym, or studio, multiple inquiries ask for basic rates. You stop work to retype packages, while customers wait for answers before deciding.",
+      "Slide 3 of 5: Design decision: structured pricing turns a page into an FAQ. A website is not just a digital brochure. Placing clean pricing blocks and clear service details on a fast single page lets visitors find answers on their own.",
+      "Slide 4 of 5: The after picture: clarity before the conversation starts. Customers open the link, review your offerings, and resolve simple doubts immediately. Inquiries that do arrive on chat are already informed and ready to talk.",
+      "Slide 5 of 5: DM SITE. Send your current site link. I will share 3 fixes directly in chat. If we build together, approve the work before you settle."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Before: typing pricing on chat daily. After: your page answers instantly.",
+        "body": "An example of shifting routine questions from chat to a fast website."
+      },
+      {
+        "role": "problem",
+        "headline": "The before picture: answering the same questions every day",
+        "body": "Example: whether you run a clinic, gym, or studio, multiple inquiries ask for basic rates. You stop work to retype packages, while customers wait for answers before deciding."
+      },
+      {
+        "role": "solution",
+        "headline": "Design decision: structured pricing turns a page into an FAQ",
+        "body": "A website is not just a digital brochure. Placing clean pricing blocks and clear service details on a fast single page lets visitors find answers on their own."
+      },
+      {
+        "role": "solution",
+        "headline": "The after picture: clarity before the conversation starts",
+        "body": "Customers open the link, review your offerings, and resolve simple doubts immediately. Inquiries that do arrive on chat are already informed and ready to talk."
+      },
+      {
+        "role": "cta",
+        "headline": "DM SITE",
+        "body": "Send your current site link. I will share 3 fixes directly in chat. If we build together, approve the work before you settle."
+      }
+    ],
+    "scene_prompts": {
+      "3": "A dark silhouette of a person seated at a matte‑black desk, seen from behind, hands on a sleek silver laptop with a softly glowing screen; the figure fills the upper half, leaving the lower area dark for text. A cool blue‑violet rim light sweeps from the left, tracing shoulders and laptop edge, with a faint amber fill. Hovering above the brushed‑metal desk are three translucent pricing cards stacked like FAQ blocks, each edged in deep blue glow. Behind, a deep indigo wall fades into drifting violet particles and thin network lines. Palette: deep indigo with a deep‑blue accent, feeling organized progress. Shot with an 85 mm lens at f/1.8, shallow depth of field shows crisp glass reflections and dust catching the rim light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "4": "A matte‑black laptop with a softly glowing deep‑blue screen sits on a brushed‑metal desk, relaxed hands hovering over the keys, the silhouette of a person seen from behind, shoulders eased, filling the upper 55% of the frame; the view is above eye level, leaving the lower 45% as a calm dark area for text. Cool left‑side key light casts a violet rim around the laptop and shadows, while thin network lines and drifting light particles float nearby. In front, a glass coaster reflects the glow; behind, an indigo wall fades into focus with faint holographic shapes. Palette: deep indigo with a deep‑blue accent and violet highlights, conveying clarity and ease. Shot with an 85 mm lens at f/1.8, shallow depth of field shows brushed‑metal texture and dust particles in light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": [
+      "slide_prompt: none"
+    ]
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "image",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**CHAT PE RATES TYPING DAILY. PAGE INSTANT JAWAB DEGA.\n\n→ Ek **CAFE** ya **GYM** ka **PAGE** jahan **RATES** aur hours likhe hon.\n→ Customer message karega toh page se jawab milega, chat mein nahi.\n\nDM **SITE** aur main aapke site ke 3 fixes bataunga. Pay only after you approve.\n\n#SmallBusinessIndia #WebsiteIndia #SmallBizIndia #FAQPage #BusinessIndia",
+      "linkedin": "Small businesses waste time answering the same questions on chat every day.\n\nA simple one-page website can list your services, rates, and opening hours so customers find answers instantly.\n\nFor example, a café, a gym, or a boutique can show operating hours directly on the page instead of repeating them in WhatsApp.\n\nThis reduces daily chat time and lets you focus on delivering your service rather than typing repetitive replies.\n\nYou can start with a mobile-first page and add a WhatsApp button for any additional questions.\n\ndm SITE and tell me what you sell. Pay only after you approve the work.",
+      "bluesky": "**CHAT** PE RATES typing daily? Aapka page instant jawab dega, toh aap baar-baar rates nahi type karte. DM **SITE** aur main aapke site ke 3 fixes bataunga. Pay after approval. #SmallBusinessIndia #WebsiteIndia"
+    }
+  },
+  "ad_score": 8,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 323.0,
+        "reach_p50": 632.0,
+        "reach_p90": 1380.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'gender', 'severity': 'medium', 'description': 'The Hindi sentences use masculine verb forms (e.g., \"karega",
+          "{'category': 'exclusion', 'severity': 'low', 'description': 'The copy mixes English and Hindi without translation, which"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 3.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 373,
+            "share": 2,
+            "like": 1,
+            "dislike": 1
+          },
+          "engagement_rate": 0.0106,
+          "by_role": {
+            "public": {
+              "n": 4,
+              "avg_sentiment": 0.427,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 6,
+          "reach_fraction": 0.0065,
+          "r_effective": 0.2,
+          "polarization": 0.481,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 2.7
+          },
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 2.6
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 2.6
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 5.2,
+        "breakout_probability": 0.0,
+        "reach_p10": 420.0,
+        "reach_p50": 833.0,
+        "reach_p90": 1745.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'class', 'severity': 'low', 'description': 'The phrasing \"Small businesses waste time\" and the implication "
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 2.0,
+          "educational": 5.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 6.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 369,
+            "share": 2,
+            "like": 1,
+            "reply": 1,
+            "dislike": 1
+          },
+          "engagement_rate": 0.0134,
+          "by_role": {
+            "public": {
+              "n": 5,
+              "avg_sentiment": 0.368,
+              "share_rate": 0.4
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 12,
+          "reach_fraction": 0.019,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 2.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 195.0,
+        "reach_p50": 398.0,
+        "reach_p90": 845.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'language/exclusion', 'severity': 'low', 'description': 'The copy mixes Hindi (e.g., \"Aapka\", \"baar-baar\", ",
+          "{'category': 'class/socio‑economic tone', 'severity': 'low', 'description': 'The phrasing implies that small business ow"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 3.0,
+          "educational": 2.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 3.0,
+          "practical_value": 4.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 355,
+            "share": 1
+          },
+          "engagement_rate": 0.0028,
+          "by_role": {
+            "public": {
+              "n": 1,
+              "avg_sentiment": 1.0,
+              "share_rate": 1.0
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 6,
+          "reach_fraction": 0.0065,
+          "r_effective": 0.2,
+          "polarization": 0.481,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "myth",
+          "p_beats_chosen": 0.91,
+          "lift_pct": 2.9,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "value",
+          "p_beats_chosen": 0.95,
+          "lift_pct": 4.3,
+          "decisive": true
+        }
+      ],
+      "better": 2,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Replace hook line with a myth-busting statement (e.g., 'MYTH: WEBSITES ARE JUST ONLINE BROCHURES.')",
+      "linkedin: Add a capitalized hook line at start; include 'Pay only after you approve the work' in DM line; add 2-3 national hashtags; insert a concrete example question like 'What are your hours?'",
+      "bluesky: Change 'Stops you typing' to 'Reduces how often you type'; add 'Pay after approval' to DM line; append 1-2 national hashtags"
+    ],
+    "before": {
+      "instagram": 6.3,
+      "linkedin": 10.5,
+      "bluesky": 10.3
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 5.2,
+      "bluesky": 2.0
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "google:gemma-4-26b-a4b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "google:gemini-3.8-flash",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemma-4-26b-a4b-it (ProviderDown)",
+      "FAILED gemma: all its models"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 42.0,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 5.9,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 5.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "ProviderDown",
+        "seconds": 244.7,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      }
+    ]
+  }
+}

@@ -1,3 +1,4 @@
-- Hook style to try next: **contrast** (1.75x median, n=1) or **comparison** (1.29x, n=3) — rotate away from **question** (weak signal: earns 24% of comparison per reach).
-- Avoid repeating "high-end video ads without camera crew" and "why brands look high-end" — both animated_ads posts used similar budget-angle; vary the pain point.
-- Posts must read as a developer showing real work: share a code snippet, a frame from an actual render, or a brief technical decision — never promise outcomes or use ad copy.
+- Rotate hook: try contrast or comparison next (avoid top3/question; top3 used 3× recently, question underperforms on Instagram)
+- Avoid listicle "3 things" phrasing; use specific pain-point or before/after contrast
+- Keep posts as developer showing real work: share a code snippet, design decision, or client-agnostic insight, never promotional language
+- For website posts: offer free quick look with 3 fixes only in DM, pay after approval

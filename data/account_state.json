@@ -1,26 +1,26 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "stage": "brand new under 100 followers",
   "followers": 9,
-  "summary": "Instagram bio violates brand rules (niche/region focus, free offer outside website posts). Reels lose 77% viewers in first 3s; hook failure is the weakest area. Too little data for reliable patterns (n<3 per style).",
-  "guidance": "- Hook style to try next: **contrast** (1.75x median, n=1) or **comparison** (1.29x, n=3) — rotate away from **question** (weak signal: earns 24% of comparison per reach).\n- Avoid repeating \"high-end video ads without camera crew\" and \"why brands look high-end\" — both animated_ads posts used similar budget-angle; vary the pain point.\n- Posts must read as a developer showing real work: share a code snippet, a frame from an actual render, or a brief technical decision — never promise outcomes or use ad copy.",
+  "summary": "Weakest area: Reel hooks fail (77% 3-sec drop) and zero DMs; bio violates rules (niche, region, timeframe, free offer).",
+  "guidance": "- Rotate hook: try contrast or comparison next (avoid top3/question; top3 used 3× recently, question underperforms on Instagram)\n- Avoid listicle \"3 things\" phrasing; use specific pain-point or before/after contrast\n- Keep posts as developer showing real work: share a code snippet, design decision, or client-agnostic insight, never promotional language\n- For website posts: offer free quick look with 3 fixes only in DM, pay after approval",
   "instructions": {
-    "research": "Find 2-3 Indian small-business Instagram reels (any industry) that use motion graphics/text animation instead of footage; note their first 3 seconds.",
-    "analysis": "Compare the skip-rate of your last animated_ads reel (77%) to the reference reels; identify one visual or audio cue they use in the first second that you didn't.",
-    "writer": "Write a 90-120 word carousel caption using a **contrast** hook: show a static poster vs. the same offer as an animated ad, explain the technical difference (e.g., Lottie vs. MP4), end with \"Pay after you approve the final file.\"",
-    "image": "Create a 2-slide carousel: slide 1 = static poster (any generic festival sale), slide 2 = the same poster with subtle motion (price badge pulse, CTA arrow slide). Export as 1080x1080 PNGs.",
-    "video": "Do not shoot video today. Prepare a 5-second screen-record of the animation timeline in your editor (After Effects / Rive / CSS) for a future reel."
+    "research": "List 5 common website gaps for Indian small businesses (missing contact, slow load, no CTA, non-mobile, no trust signals) without niche focus.",
+    "analysis": "Compare Oct 24 (top3) vs Oct 31 (comparison) website post engagement to confirm comparison works better.",
+    "writer": "Write a comparison post: business with clear website vs only social bio, use cafe/gym/clinic example, end with DM for free 3-fix check or pay-after-approval.",
+    "image": "Create split-screen graphic (desk-glow style) showing clean website layout vs cluttered social bio.",
+    "video": "Skip video; produce a 3-slide carousel (bold-slow-reveal) for the same comparison."
   },
   "manual_tips": [
-    "Update Instagram bio to: \"AI chatbots, animated ads, lead sheets & websites for small businesses across India. Pay after approval. DM for a quick chat.\"",
-    "Comment thoughtfully on 3 posts from Indian freelancers/agencies discussing client acquisition or ad creative — no self-promo.",
-    "Reply to every story mention or tag within 2 hours; keep replies conversational, not salesy."
+    "Comment on 5 posts by Indian small business owners (cafes, gyms, clinics) about their online presence with genuine insights.",
+    "Update Instagram bio: remove niche list, region, '24 hrs', and free site check offer; keep only 'Websites for small businesses across India. Pay after approval. DM for free 3-fix check.'",
+    "Reply to any story mentions or tags from followers with helpful, non-promotional tips."
   ],
   "weak_signals": [
     {
       "id": "follower_stall",
       "platform": "instagram",
-      "detail": "5 posts in 7 days and followers changed by -1"
+      "detail": "6 posts in 7 days and followers changed by -1"
     },
     {
       "id": "high_skip_rate",
@@ -40,7 +40,7 @@
     {
       "id": "follower_stall",
       "platform": "bluesky",
-      "detail": "6 posts in 7 days and followers changed by +0"
+      "detail": "7 posts in 7 days and followers changed by +0"
     }
   ]
 }

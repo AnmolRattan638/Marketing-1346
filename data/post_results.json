@@ -76,7 +76,7 @@
       },
       "latest": {
         "impressions": 327,
-        "reach": 135,
+        "reach": 136,
         "views": 327,
         "likes": 10,
         "comments": 0,
@@ -1197,6 +1197,18 @@
           "shares": 0,
           "saves": 0,
           "clicks": 0
+        },
+        "7d": {
+          "age_h": 172.0,
+          "source": "zernio",
+          "impressions": 18,
+          "reach": 3,
+          "views": 18,
+          "likes": 0,
+          "comments": 1,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
         }
       },
       "latest": {
@@ -1229,6 +1241,13 @@
       "snap": {
         "48h": {
           "age_h": 50.5,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        },
+        "7d": {
+          "age_h": 172.0,
           "source": "bluesky",
           "likes": 0,
           "comments": 0,
@@ -1487,7 +1506,79 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-11-05|bluesky": {
+      "date": "2026-11-05",
+      "platform": "bluesky",
+      "service": "lead_gen",
+      "problem_id": "manual-lead-searching-exhaustion",
+      "angle_type": "mistake",
+      "hook_style": "comparison",
+      "format": "text",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "hook_style",
+      "image_style": "bright-desk",
+      "carousel_flavor": "self-test-signs",
+      "slides": 7,
+      "published_at": "2026-11-05T10:57:12.553387+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzkphwx47s2k",
+      "snap": {
+        "48h": {
+          "age_h": 50.1,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
+    },
+    "2026-11-05|instagram": {
+      "date": "2026-11-05",
+      "platform": "instagram",
+      "service": "lead_gen",
+      "problem_id": "manual-lead-searching-exhaustion",
+      "angle_type": "mistake",
+      "hook_style": "comparison",
+      "format": "carousel",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "hook_style",
+      "image_style": "bright-desk",
+      "carousel_flavor": "self-test-signs",
+      "slides": 7,
+      "published_at": "2026-11-05T10:57:11.000Z",
+      "url": "https://www.instagram.com/p/DfW3ldcCNIQ/",
+      "snap": {
+        "48h": {
+          "age_h": 50.1,
+          "source": "zernio",
+          "impressions": 25,
+          "reach": 7,
+          "views": 25,
+          "likes": 2,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 25,
+        "reach": 7,
+        "views": 25,
+        "likes": 2,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
     }
   },
-  "updated_at": "2026-11-06T19:25:53+00:00"
+  "updated_at": "2026-11-07T13:04:01+00:00"
 }

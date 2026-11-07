@@ -11,13 +11,13 @@ Posts are read on a phone in two seconds, so a caption is a hook plus a few shor
 - Then 2-3 short lines (12 words max each), each starting with "→". One concrete idea per line.
 - 2-4 KEY WORDS in CAPITALS and bold; at most 6 bold spans; never bold hashtags. No other sentences in capitals.
 - One soft DM line with the keyword in bold. Hashtags last (Instagram only, 3-5).
-- Length: Instagram image 35-60 words, Instagram reel 25-45, Bluesky under 260 characters.
+- Length: Instagram image 35-60 words, Instagram reel 25-45, Bluesky under 260 characters in plain sentence case (a person, not an ad).
 - The writer marks emphasis as **double asterisks**; the pipeline turns it into bold letters at the end.
 
 ## LinkedIn format (LinkedIn only; not the caption format above)
 - Plain text, written like a person talking to a business owner. No bold or fancy letters, no arrows or bullet symbols, no emoji, no hashtags, no lines or words in capitals (except the DM keyword and abbreviations like SEO).
-- 70-120 words, in complete grammatical sentences a stranger understands on the first read. No fragments, no stacked buzzwords.
-- First line: one specific hook sentence in normal sentence case, 15 words or fewer. Then 3-5 short lines (one or two sentences each) with a blank line between, each adding one concrete detail; one says what the owner can do about it.
+- A long explainer of 300-380 words that teaches first and sells last: the situation, what the service is, how it works step by step, how it helps day to day, an honest limit, then one calm close. Complete grammatical sentences a stranger understands on the first read; no fragments, no stacked buzzwords, no hype, no price.
+- First line: one specific hook sentence in normal sentence case, 18 words or fewer.
 - Last line: a soft DM invite with the keyword, e.g. "DM SCRIPT and tell me what you sell."
 
 ## Post shapes (rotate)

@@ -86,7 +86,7 @@ assert c["linkedin"] == (True, "data/media/x.jpg"), "older drafts without the fi
 # ------------------------------------------------------------------ the writer prompt
 from src.agents import writer
 seen = []
-llm.gemini = lambda p, s="", **k: seen.append(p) or json.dumps({"instagram": "**H** ok", "linkedin": "A hook sentence.", "bluesky": "**B**", "replies": []})
+llm.gemini = lambda p, s="", **k: seen.append(p) or json.dumps({"instagram": "**H** ok", "linkedin": "A hook sentence. " + "word " * 320, "bluesky": "**B**", "replies": []})
 plan = {"hooks": [{"text": "Hook text"}], "chosen_hook": 0, "topic": "t", "angle": "a", "key_points": []}
 focus, brand = {"name": "Ads", "dm_keyword": "ADS"}, {"facts_rules": [], "languages": {}}
 writer.run(plan, focus, brand, "VOICE", "g", linkedin_format="text")

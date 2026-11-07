@@ -211,7 +211,7 @@ def chat_card_recently_used(date):
     """True when the designed chat card (the template itself, not its colours) ran in the last CHAT_CARD_COOLDOWN_DAYS days."""
     for age, d in _recent_drafts(date, CHAT_CARD_COOLDOWN_DAYS):
         img = d.get("image") or {}
-        if img.get("engine") == "designed_card" and (img.get("spec") or {}).get("style") == "chat":
+        if img.get("engine") == "designed_card" and "chat" in (img.get("style"), (img.get("spec") or {}).get("style")):
             return True
     return False
 

@@ -13,7 +13,7 @@ focus = {"id": "chatbot", "name": "Chatbot"}
 cards.make_spec = lambda plan, focus, guidance="": {"style": "chat", "headline": "H", "highlight": [], "sub": "", "chat": [{"side": "left", "text": "x"}], "cta": 'DM "BOT"', "tag": "T"}
 seen = []
 cards.render = lambda spec, path: seen.append("chat-card")
-image._visual_card = lambda plan, focus, spec, guidance, path, errors, variant=None: seen.append("ai-picture") or {"engine": "visual:x"}
+image._visual_card = lambda plan, focus, spec, guidance, path, errors, variant=None, recent=(): seen.append("ai-picture") or {"engine": "visual:x"}
 config.ROOT = tmp; config.MEDIA = tmp / "media"
 
 assert image.recent_card_styles("2026-11-06") == []
@@ -26,7 +26,9 @@ image.run(plan, focus, "2026-11-07", ""); assert seen[-1] == "ai-picture", "yest
 draft("2026-11-07", "visual:cloudflare", "bold")
 image.run(plan, focus, "2026-11-08", ""); assert seen[-1] == "ai-picture", "the chat card was two days ago, still in the window"
 draft("2026-11-08", "visual:cloudflare", "bold")
-image.run(plan, focus, "2026-11-09", ""); assert seen[-1] == "chat-card", "two picture days in a row: chat card allowed again"
+image.run(plan, focus, "2026-11-09", ""); assert seen[-1] == "ai-picture", "the chat card ran 3 days ago: the one-week cooldown still blocks it, whatever the colour"
+draft("2026-11-09", "visual:cloudflare", "bold")
+image.run(plan, focus, "2026-11-14", ""); assert seen[-1] == "chat-card", "8 days after the last chat card: allowed again"
 
 assert image.clean_prompt("<prompt>Subject: a matte laptop. Composition: upper two thirds. Lighting: warm lamp") == "a matte laptop. upper two thirds. warm lamp"
 assert "<" not in image.clean_prompt("<prompt>A long scene " + "word " * 300 + "</prompt>", 1000) and len(image.clean_prompt("a " * 600, 1000)) <= 1000

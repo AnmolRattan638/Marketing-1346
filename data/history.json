@@ -152,5 +152,12 @@
     "topic": "Will AI-generated animations look too 'fake' for a local business?",
     "hook_style": "question",
     "status": "published"
+  },
+  {
+    "date": "2026-11-07",
+    "service": "website",
+    "topic": "A website isn't a digital brochure; it's an automated FAQ engine.",
+    "hook_style": "contrast",
+    "status": "published"
   }
 ]

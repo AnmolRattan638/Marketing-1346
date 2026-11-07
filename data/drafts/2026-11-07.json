@@ -2,7 +2,7 @@
   "id": "2026-11-07-f2ccbe",
   "date": "2026-11-07",
   "created_at": "2026-11-07T09:17:52+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "website",
   "topic": "A website isn't a digital brochure; it's an automated FAQ engine.",
   "idea_id": null,
@@ -455,5 +455,19 @@
         "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6aef36533cdc27062dc8f9fe (5 slides)"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6aef367b004e4879a76007e7 (due 2026-11-07T14:32:28.010Z) (5 slides)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mzq4gzgssl2z (4 slides)"
+    }
   }
 }

@@ -9,9 +9,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": null,
-        "reach": null,
-        "views": null,
+        "impressions": 6,
+        "reach": 1,
+        "views": 6,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -1581,5 +1581,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-08T13:26:49+00:00"
+  "updated_at": "2026-11-08T22:07:37+00:00"
 }

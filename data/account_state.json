@@ -1,20 +1,20 @@
 {
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "stage": "brand new under 100 followers",
   "followers": 9,
-  "summary": "Weakest area: Reel hooks fail (77% 3-sec drop) and zero DMs; bio violates rules (niche, region, timeframe, free offer).",
-  "guidance": "- Rotate hook: try contrast or comparison next (avoid top3/question; top3 used 3× recently, question underperforms on Instagram)\n- Avoid listicle \"3 things\" phrasing; use specific pain-point or before/after contrast\n- Keep posts as developer showing real work: share a code snippet, design decision, or client-agnostic insight, never promotional language\n- For website posts: offer free quick look with 3 fixes only in DM, pay after approval",
+  "summary": "Reel hooks fail (77% drop in 3s); chatbot posts earn 24% of lead_gen per reach. Bio violates rules: niche list, region, '24 hrs', free offer outside website posts.",
+  "guidance": "- Try comparison or contrast hooks (lead_gen outperforms; contrast 1.75x, comparison 1.56x) instead of question hooks (0.4x angle, 21% of comparison per reach).\n- Avoid \"Will AI look fake?\" or generic question openings; they've repeated and underperform.\n- Show real dev work: share a code snippet, config logic, or integration flowchart — not a demo link.\n- Keep captions conversational, end with \"DM if this fits your workflow.\"",
   "instructions": {
-    "research": "List 5 common website gaps for Indian small businesses (missing contact, slow load, no CTA, non-mobile, no trust signals) without niche focus.",
-    "analysis": "Compare Oct 24 (top3) vs Oct 31 (comparison) website post engagement to confirm comparison works better.",
-    "writer": "Write a comparison post: business with clear website vs only social bio, use cafe/gym/clinic example, end with DM for free 3-fix check or pay-after-approval.",
-    "image": "Create split-screen graphic (desk-glow style) showing clean website layout vs cluttered social bio.",
-    "video": "Skip video; produce a 3-slide carousel (bold-slow-reveal) for the same comparison."
+    "research": "Find 2-3 common chatbot integration pain points Indian small businesses mention in public forums (e.g., WhatsApp Business API limits, language switching, handoff to human).",
+    "analysis": "Compare last 4 chatbot posts' hook styles vs engagement; note which style (question/comparison/contrast) got most saves/shares.",
+    "writer": "Write a comparison-style caption: contrast manual WhatsApp replies vs a bot handling FAQs while owner serves walk-ins; end with 'DM if this fits your workflow.'",
+    "image": "Create a split-screen graphic: left side 'Manual replies' (cluttered chat), right side 'Bot handles FAQs' (clean flow); use desk-glow style.",
+    "video": "Skip reel today; static image carousel performs better for chatbot topic. If video needed, film a 5-sec timelapse of coding a bot flow (no business-specific logic)."
   },
   "manual_tips": [
-    "Comment on 5 posts by Indian small business owners (cafes, gyms, clinics) about their online presence with genuine insights.",
-    "Update Instagram bio: remove niche list, region, '24 hrs', and free site check offer; keep only 'Websites for small businesses across India. Pay after approval. DM for free 3-fix check.'",
-    "Reply to any story mentions or tags from followers with helpful, non-promotional tips."
+    "Fix Instagram bio: remove niche list, region, '24 hrs', and free site check offer. Replace with: 'AI chatbots, animated ads, lead gen & websites for Indian small businesses. Pay after approval. DM to chat.'",
+    "Comment on 5 posts by Indian small business owners (cafes, gyms, clinics) discussing WhatsApp overload; add value, don't pitch.",
+    "Reply to every story mention or tag within 2 hours to build familiarity."
   ],
   "weak_signals": [
     {
@@ -30,12 +30,12 @@
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 22% of what 'lead_gen' earns per person reached"
+      "detail": "by service, 'chatbot' earns 24% of what 'lead_gen' earns per person reached"
     },
     {
       "id": "weak_hook_style",
       "platform": "instagram",
-      "detail": "by hook style, 'question' earns 24% of what 'comparison' earns per person reached"
+      "detail": "by hook style, 'question' earns 21% of what 'comparison' earns per person reached"
     },
     {
       "id": "follower_stall",

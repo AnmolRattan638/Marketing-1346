@@ -1,4 +1,4 @@
-- Rotate hook: try contrast or comparison next (avoid top3/question; top3 used 3× recently, question underperforms on Instagram)
-- Avoid listicle "3 things" phrasing; use specific pain-point or before/after contrast
-- Keep posts as developer showing real work: share a code snippet, design decision, or client-agnostic insight, never promotional language
-- For website posts: offer free quick look with 3 fixes only in DM, pay after approval
+- Try comparison or contrast hooks (lead_gen outperforms; contrast 1.75x, comparison 1.56x) instead of question hooks (0.4x angle, 21% of comparison per reach).
+- Avoid "Will AI look fake?" or generic question openings; they've repeated and underperform.
+- Show real dev work: share a code snippet, config logic, or integration flowchart — not a demo link.
+- Keep captions conversational, end with "DM if this fits your workflow."

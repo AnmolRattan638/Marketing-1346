@@ -2,7 +2,7 @@
   "id": "2026-11-08-c3f524",
   "date": "2026-11-08",
   "created_at": "2026-11-08T09:37:45+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "chatbot",
   "topic": "The Scrolling Fatigue vs. The Lead List",
   "idea_id": null,
@@ -498,5 +498,19 @@
         "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6af056955c410179bb195a17 (7 slides)"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6af056e39214322f684aabfe (due 2026-11-08T11:02:59.399Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6af056e4229bf05dafa7f72a (due 2026-11-08T11:03:00.905Z) (4 slides)"
+    }
   }
 }

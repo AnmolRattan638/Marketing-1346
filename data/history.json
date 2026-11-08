@@ -159,5 +159,12 @@
     "topic": "A website isn't a digital brochure; it's an automated FAQ engine.",
     "hook_style": "contrast",
     "status": "published"
+  },
+  {
+    "date": "2026-11-08",
+    "service": "chatbot",
+    "topic": "The Scrolling Fatigue vs. The Lead List",
+    "hook_style": "contrast",
+    "status": "published"
   }
 ]

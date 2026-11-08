@@ -1,6 +1,64 @@
 {
   "posts": [
     {
+      "platform": "instagram",
+      "id": "18117467540120725",
+      "url": "https://www.instagram.com/p/Dfemp5kiqFl/",
+      "published_at": "2026-11-08T11:03:10.000Z",
+      "text": "𝗪𝗛𝗬 𝗘𝗡𝗤𝗨𝗜𝗥𝗜𝗘𝗦 𝗚𝗘𝗧 𝗟𝗢𝗦𝗧 𝗜𝗡 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣\n\n→ Manual scrolling buries names, phones and requests under new messages.\n→ AI pulls name, number and request into one search",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-08",
+        "service": "chatbot",
+        "hook_style": "contrast",
+        "topic": "The Scrolling Fatigue vs. The Lead List"
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mzsb6zipct2d",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzsb6zipct2d",
+      "published_at": "2026-11-08T11:03:01.978Z",
+      "text": "𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 chats can bury customer details. An AI chatbot pulls name, phone and request into a searchable list inside WhatsApp. Café, clinic or gym—replies get fa",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-08",
+        "service": "chatbot",
+        "hook_style": "contrast",
+        "topic": "The Scrolling Fatigue vs. The Lead List"
+      }
+    },
+    {
       "platform": "bluesky",
       "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mzq4gzgssl2z",
       "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzq4gzgssl2z",
@@ -38,10 +96,10 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 4,
-        "reach": 1,
-        "views": 4,
-        "likes": 0,
+        "impressions": 9,
+        "reach": 2,
+        "views": 9,
+        "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
@@ -1274,7 +1332,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 23
+      "posts": 24
     }
   },
   "coverage": {
@@ -1523,5 +1581,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-08T06:03:55+00:00"
+  "updated_at": "2026-11-08T13:26:49+00:00"
 }

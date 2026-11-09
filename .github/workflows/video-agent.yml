@@ -53,6 +53,13 @@ jobs:
           # your cloned voice: only when voice_engine is "chatterbox" in config.json and the secret exists
           if grep -q '"voice_engine": "chatterbox"' config.json; then pip install -r requirements-chatterbox.txt || echo "chatterbox install failed, falling back to kokoro"; fi
 
+      - name: Edits folder cache (Google Drive downloads are re-used between runs)
+        uses: actions/cache@v4
+        with:
+          path: video-agent/edits_cache
+          key: edits-${{ github.run_id }}
+          restore-keys: edits-
+
       - name: Node deps
         working-directory: video-agent/template
         run: npm ci
@@ -66,6 +73,7 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          EDITS_DRIVE_URL: ${{ secrets.EDITS_DRIVE_URL }}
           VOICE_REF_B64: ${{ secrets.VOICE_REF_B64 }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

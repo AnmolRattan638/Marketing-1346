@@ -58,14 +58,15 @@ def _call_groq(messages: list[dict], cfg: dict) -> str:
     return r.json()["choices"][0]["message"]["content"]
 
 
-def make_plan(topic: str, cfg: dict) -> dict:
+def make_plan(topic: str, cfg: dict, library: str = "") -> dict:
     lang = cfg["language"]
     user = (
         f"Topic: {topic}\n"
         f"Narration language: {lang}\n"
         f"Brand notes: {cfg['brand']['notes']}\n"
         f"Target length: about {cfg['video']['target_seconds']} seconds in total.\n"
-        "Return only the JSON object described in the rules."
+        + (f"The owner has his own raw clips and photos about: {library}. Prefer a story he can actually show with them (his demos, his desk, his work), and use those words in footage_query where they fit.\n" if library else "")
+        + "Return only the JSON object described in the rules."
     )
     messages = [
         {"role": "system", "content": build_system_prompt(cfg)},

@@ -1,0 +1,471 @@
+{
+  "id": "2026-11-06-16d88c",
+  "date": "2026-11-06",
+  "created_at": "2026-11-06T15:43:40+00:00",
+  "status": "published",
+  "service": "animated_ads",
+  "topic": "Will AI-generated animations look too 'fake' for a local business?",
+  "idea_id": null,
+  "problem_id": "lack-of-budget-for-professional-video-sh",
+  "angle_type": "myth_bust",
+  "experiment": {
+    "mode": "exploit",
+    "variable": "angle_type",
+    "problem_id": "lack-of-budget-for-professional-video-sh",
+    "angle_type": "myth_bust",
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "Stop assuming AI animation looks fake for your shop"
+    },
+    {
+      "style": "myth",
+      "text": "Myth: AI ads are robotic. Fact: They’re clean, purposeful motion."
+    },
+    {
+      "style": "value",
+      "text": "Try this prompt tweak for realistic motion without any camera crew."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "posts": {
+    "instagram": "𝗠𝗬𝗧𝗛: 𝗔𝗜 𝗔𝗡𝗜𝗠𝗔𝗧𝗜𝗢𝗡 𝗛𝗨𝗠𝗘𝗦𝗛𝗔 𝗥𝗢𝗕𝗢𝗧𝗜𝗖 𝗟𝗔𝗚𝗧𝗔 𝗛𝗔𝗜\n\n→ Right 𝗣𝗥𝗢𝗠𝗣𝗧 𝗣𝗔𝗥𝗔𝗠𝗘𝗧𝗘𝗥𝗦 make AI motion feel natural, not robotic.\n→ Works for a cafe, clinic or gym anywhere in India.\n→ I compare 𝗟𝗢𝗧𝗧𝗜𝗘 loops with 𝗠𝗣𝟰 renders to pick lighter files.\n\nDM 𝗔𝗗𝗦 and tell me what you sell.\n\n#SmallBusinessIndia #AIAnimation #MotionGraphics #IndianBusiness",
+    "linkedin": "AI‑generated animation can look natural for any local business.\n\nBy adjusting prompt parameters, the motion stays smooth rather than artificial.\n\nI test both Lottie loops and MP4 renders and pick the lighter file for Instagram and Facebook.\n\nThis approach works for cafés, clinics, gyms, or any storefront without needing a camera crew or a big budget.\n\nPricing starts at INR 999, INR 1,499, or INR 2,199 depending on length and complexity, and you only pay after you approve the final file.\n\nDM ADS to tell me what you sell and see if this fits your business.",
+    "bluesky": "𝗠𝗬𝗧𝗛 AI animation looks robotic for small shops. The right prompt parameters make motion feel natural. I compare Lottie and MP4 renders to keep files light for Instagram and Facebook. Works for any local business. Pay after you approve the final file. DM 𝗔𝗗𝗦 to talk."
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I create short animated ads for Instagram and Facebook. Quick question: what do you want customers to do—call, WhatsApp, or visit your shop? The price range is INR 999 / 1,499 / 2,199 depending on length, and payment is only after you approve the work. I can explain how it would work for you. Prefer WhatsApp or here?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for asking. I work with any local business that talks to customers—cafes, clinics, gyms, shops, whatever you sell. What kind of business do you run, and what do you want the ad to show?"
+    },
+    {
+      "if_they_say": "will it look fake?",
+      "reply": "Hi, good question. AI motion can feel natural with the right prompt parameters; it does not have to look robotic. I choose between Lottie and MP4 renders based on file weight. What does your business do, and where would you run the ad?"
+    }
+  ],
+  "image": {
+    "prompt": "a sleek matte‑black smartphone with a softly glowing electric‑cyan screen rests on a warm walnut café counter, the device positioned in the upper two‑thirds of the frame and captured from a slightly elevated eye‑level angle; the lower forty percent of the image remains calm and uncluttered for overlay text. a cool key light from the left bathes the phone in a subtle blue‑white hue while a faint rim light traces its edges, casting soft shadows on the polished wood. in the foreground a ceramic coffee mug catches a glint, the midground shows a blurred latte art cup, and the background recedes into a dim, deep‑navy café interior with gentle haze. the palette is deep navy with an electric cyan accent, evoking a confident, modern tech mood. shot with a 50mm prime at f/1.8, the shallow depth of field highlights the phone’s glossy glass and fine wood grain, while fine dust particles sparkle in the light, creating a premium, high‑contrast cinematic feel. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-06.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "lack-of-budget-for-professional-video-sh",
+      "angle_type": "myth_bust",
+      "style": "bold",
+      "headline": "Does AI animation look fake for shops?",
+      "highlight": [
+        "look fake"
+      ],
+      "sub": "Comparing a static frame to subtle motion.",
+      "chat": [],
+      "cta": "DM \"ADS\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "glass-ui"
+  },
+  "carousel": {
+    "flavor": "contrarian",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-06.jpg",
+      "data/media/2026-11-06-s2.jpg",
+      "data/media/2026-11-06-s3.jpg",
+      "data/media/2026-11-06-s4.jpg",
+      "data/media/2026-11-06-s5.jpg",
+      "data/media/2026-11-06-s6.jpg",
+      "data/media/2026-11-06-s7.jpg"
+    ],
+    "alts": [
+      "Stop assuming AI animation looks fake for your shop",
+      "Slide 2 of 7: Many local businesses skip AI ads fearing a robotic look. They worry viewers will scroll past, so they stick to static images or skip video entirely.",
+      "Slide 3 of 7: A fake-looking animation can hurt trust more than no ad. Customers notice stiff movement and odd visuals, which makes a neighborhood business feel less genuine.",
+      "Slide 4 of 7: Use natural prompt parameters for AI motion graphics. Adjust motion smoothness, lighting, and camera style so the animation matches your brand tone instead of looking generic.",
+      "Slide 5 of 7: Create video ads using AI scene generation. Text prompts and frame checks let a small business test movement and lighting without booking a shoot.",
+      "Slide 6 of 7: Review one frame before you publish. Check motion and lighting in a still image; tweak the prompt until it feels right for your customers.",
+      "Slide 7 of 7: DM ADS. Message me to discuss whether AI animated ads fit your business and what to ask before starting."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Stop assuming AI animation looks fake for your shop",
+        "body": "Start checking if natural motion comes from the right prompt settings."
+      },
+      {
+        "role": "problem",
+        "headline": "Many local businesses skip AI ads fearing a robotic look",
+        "body": "They worry viewers will scroll past, so they stick to static images or skip video entirely."
+      },
+      {
+        "role": "problem",
+        "headline": "A fake-looking animation can hurt trust more than no ad",
+        "body": "Customers notice stiff movement and odd visuals, which makes a neighborhood business feel less genuine."
+      },
+      {
+        "role": "solution",
+        "headline": "Use natural prompt parameters for AI motion graphics",
+        "body": "Adjust motion smoothness, lighting, and camera style so the animation matches your brand tone instead of looking generic."
+      },
+      {
+        "role": "solution",
+        "headline": "Create video ads using AI scene generation",
+        "body": "Text prompts and frame checks let a small business test movement and lighting without booking a shoot."
+      },
+      {
+        "role": "solution",
+        "headline": "Review one frame before you publish",
+        "body": "Check motion and lighting in a still image; tweak the prompt until it feels right for your customers."
+      },
+      {
+        "role": "cta",
+        "headline": "DM ADS",
+        "body": "Message me to discuss whether AI animated ads fit your business and what to ask before starting."
+      }
+    ],
+    "scene_prompts": {
+      "2": "A matte‑black tablet with a glowing electric‑cyan AI avatar hovers above its surface, held by a pair of hands, fingertips lightly pressing the edge; the tablet occupies the upper 55% of the frame, viewed from above eye level, while the lower 45% remains a calm, dark plane for later text. Cool key light streams from the left, casting a thin cyan rim around the tablet and gentle shadows on the desk; a subtle rim glow outlines the hands. In front, a brushed‑metal desk scattered with paper flyers; behind, a navy backdrop with faint floating glass‑like interface cards lit by the same cyan accent. The mood is cautious yet hopeful, captured with an 85 mm lens at f/1.8, shallow depth of field revealing dust catching the light and a glossy floor reflection. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "3": "A pair of matte‑gray hands clutch a brushed‑aluminum tablet showing a jittery low‑poly animated figure with stiff limbs, its joints rimmed in electric cyan glow; the hands occupy the upper 55 % of the frame, shot from a low eye level leaving the lower 45 % as a calm dark space. A cool key light from the left‑front bathes the scene in blue‑white, while a thin cyan rim light outlines the hands and tablet, casting shadows. Charcoal sketch sheets litter the desk, and two glass‑like interface cards with blank bars float behind a navy wall. The palette of navy, charcoal and electric cyan creates an uneasy, tense mood. Captured with an 85 mm lens at f/1.8, shallow depth of field keeps brushed metal and glass reflections crisp, with fine dust catching the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "4": "a brushed‑metal control console with a matte‑black toggle knob and an electric‑cyan glowing slider, a designer’s hand turning the knob; the console fills the upper 55 % of the frame, shot from eye level, while the lower 45 % remains a dark area for text; a cool key light from the right highlights the slider, a cyan rim light outlines the hand, soft shadows fall on the surface; a polished dark‑navy floor reflects the console, a light haze drifts, and two translucent glass‑like interface cards float behind, displaying blank bars; navy palette with electric cyan accent, calm and confident; 85 mm lens at f/1.8, shallow depth of field, brushed‑metal grain and glass reflections. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "5": "A pair of hands hover over a matte‑black desk, guiding a floating holographic video timeline of translucent frames edged in electric cyan, hovering just above the surface. The hands and hologram fill the upper half of the frame, captured from an eye level, leaving the lower portion a dark space for overlay. A cool cyan key light shines from the right, rim‑lighting the hands, while amber fill adds shadows. In front, brushed‑metal desk reflects faint light; behind, a deep navy wall is streaked with subtle neon strips and a haze, with glass‑like interface cards drifting in perspective. Palette: deep navy with electric cyan accent, calm and organized. Shot with an 85mm lens at f/1.8, shallow depth of field renders desk texture and glass reflections, while fine dust catches the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": [
+      "slide_prompt: none"
+    ]
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**MYTH: AI ANIMATION HUMESHA ROBOTIC LAGTA HAI**\n\n→ Right **PROMPT PARAMETERS** make AI motion feel natural, not robotic.\n→ Works for a cafe, clinic or gym anywhere in India.\n→ I compare **LOTTIE** loops with **MP4** renders to pick lighter files.\n\nDM **ADS** and tell me what you sell.\n\n#SmallBusinessIndia #AIAnimation #MotionGraphics #IndianBusiness",
+      "linkedin": "AI‑generated animation can look natural for any local business.\n\nBy adjusting prompt parameters, the motion stays smooth rather than artificial.\n\nI test both Lottie loops and MP4 renders and pick the lighter file for Instagram and Facebook.\n\nThis approach works for cafés, clinics, gyms, or any storefront without needing a camera crew or a big budget.\n\nPricing starts at INR 999, INR 1,499, or INR 2,199 depending on length and complexity, and you only pay after you approve the final file.\n\nDM ADS to tell me what you sell and see if this fits your business.",
+      "bluesky": "**MYTH** AI animation looks robotic for small shops. The right prompt parameters make motion feel natural. I compare Lottie and MP4 renders to keep files light for Instagram and Facebook. Works for any local business. Pay after you approve the final file. DM **ADS** to talk."
+    }
+  },
+  "ad_score": 8,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 333.0,
+        "reach_p50": 668.0,
+        "reach_p90": 1487.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'language/culture', 'severity': 'low', 'description': 'The copy mixes Hindi phrases (\"HUMESHA\", \"LAGTA HAI\"",
+          "{'category': 'class/economic assumption', 'severity': 'low', 'description': 'The message assumes that all small business",
+          "{'category': 'disability/accessibility', 'severity': 'low', 'description': 'The content does not mention accessibility c"
+        ],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 4.0,
+          "educational": 5.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 3.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 358,
+            "share": 3,
+            "like": 3
+          },
+          "engagement_rate": 0.0165,
+          "by_role": {
+            "public": {
+              "n": 6,
+              "avg_sentiment": 0.637,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 4,
+          "r_effective": 1.25,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 12,
+          "reach_fraction": 0.019,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 2.7
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 2.5
+          },
+          {
+            "title": "Open a stronger curiosity gap",
+            "lift_pct": 2.4
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 10.6,
+        "breakout_probability": 0.0,
+        "reach_p10": 409.0,
+        "reach_p50": 823.0,
+        "reach_p90": 1701.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 4.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 360,
+            "share": 3,
+            "like": 2
+          },
+          "engagement_rate": 0.0137,
+          "by_role": {
+            "public": {
+              "n": 5,
+              "avg_sentiment": 0.65,
+              "share_rate": 0.6
+            }
+          },
+          "cascade_size": 4,
+          "r_effective": 1.25,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 12,
+          "reach_fraction": 0.019,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 10.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 201.0,
+        "reach_p50": 413.0,
+        "reach_p90": 876.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 2.0,
+          "practical_value": 5.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 359,
+            "like": 1,
+            "dislike": 1
+          },
+          "engagement_rate": 0.0055,
+          "by_role": {
+            "public": {
+              "n": 2,
+              "avg_sentiment": 0.18,
+              "share_rate": 0.0
+            }
+          },
+          "cascade_size": 1,
+          "r_effective": 0.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 9,
+          "reach_fraction": 0.0135,
+          "r_effective": 0.4667,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "myth",
+          "p_beats_chosen": 0.2,
+          "lift_pct": -3.0,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "value",
+          "p_beats_chosen": 0.01,
+          "lift_pct": -16.8,
+          "decisive": true
+        }
+      ],
+      "better": null,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Change hook to a myth-busting Hinglish line (e.g., 'MYTH: AI ANIMATION HUMESHA ROBOTIC LAGTA HAI'), add one arrow line naming 2-3 varied business types (e.g., 'Works for a cafe in Kochi, a clinic in Indore, a gym in Guwahati'), r"
+    ],
+    "before": {
+      "instagram": 6.2,
+      "linkedin": 10.1,
+      "bluesky": 9.6
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 10.6,
+      "bluesky": 10.0
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 21.6,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 102.3,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 98.8,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 15.9,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6aee0b362ac07ecb211412fc (7 slides)"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6aee0b91af7e526d43cdaa60 (due 2026-11-06T17:17:06.009Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mznv67sq322z (4 slides)"
+    }
+  }
+}

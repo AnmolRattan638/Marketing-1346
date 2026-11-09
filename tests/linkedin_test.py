@@ -24,7 +24,10 @@ bad = "BLANK SCREEN STOPS POSTING\n\n→ One script structure hooks value CTA in
 good = ("Most reels fail in the first three seconds because there is no clear opening line.\n\n"
         "A short script fixes that. Write the hook first, then one point, then one next step for the viewer.\n\n"
         "Owners who post without a script often run out of ideas by the second week, which is why the posting stops.\n\n"
-        "Try it for one reel this week and see how much faster filming goes.\n\nDM SCRIPT and tell me what you sell.")
+        "Try it for one reel this week and see how much faster filming goes.\n\n"
+        + "\n\n".join(["A script also explains the reasoning behind each line, so the owner can adjust it calmly and keep the same structure for every reel that follows."] * 10)
+        + "\n\nDM SCRIPT and tell me what you sell.")
+assert 300 <= captions.words(good) <= 380, captions.words(good)
 focus, brand = {"dm_keyword": "SCRIPT"}, {"facts_rules": ["no demo claims"]}
 llm.factcheck_model = lambda p, s="", **k: json.dumps({"ok": False, "issues": ["garbled"], "revised": good})
 r = linkedin_edit.run(bad, focus, brand)

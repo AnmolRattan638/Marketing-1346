@@ -33,7 +33,9 @@ assert C.finalize("so *this* and a ** stray") == "so this and a  stray" or C.fin
 
 # ------------------------------------------------------------------ captions: limits
 assert C.words("**HOOK** → one two #tag #other") == 3
-assert C.over_limit({"instagram": "w " * 55, "linkedin": "w " * 100, "bluesky": "x" * 200}) == ""
+assert C.over_limit({"instagram": "w " * 55, "linkedin": "w " * 340, "bluesky": "x" * 200}) == ""
+assert "minimum is 300" in C.over_limit({"linkedin": "w " * 100}) and "maximum is 380" in C.over_limit({"linkedin": "w " * 450})
+assert C.over_limit({"instagram": "w " * 55}) == ""                      # no linkedin key: nothing to check
 assert "instagram caption has 80 words" in C.over_limit({"instagram": "w " * 80})
 assert "maximum is 45" in C.over_limit({"instagram": "w " * 60}, ig_mode="manual_reel")
 assert "linkedin" in C.over_limit({"linkedin": "w " * 160}) and "bluesky" in C.over_limit({"bluesky": "x" * 290})
@@ -47,14 +49,14 @@ seen = []
 def gemini_long_then_short(prompt, system="", **k):
     seen.append(prompt)
     ig = ("**HOOK** " + "word " * 90) if len(seen) == 1 else "**HOOK**\n\n→ short line\n\nDM **ADS**\n\n#a #b"
-    return json.dumps({"instagram": ig, "linkedin": "**L** ok", "bluesky": "**B** ok", "replies": []})
+    return json.dumps({"instagram": ig, "linkedin": "Clear sentence. " + "word " * 320, "bluesky": "**B** ok", "replies": []})
 llm.gemini = gemini_long_then_short
 out = writer.run(plan, focus, brand, "VOICE", "g")
-assert len(seen) == 2 and "TOO LONG" in seen[1] and C.words(out["instagram"]) < 10, (len(seen), out["instagram"][:60])
+assert len(seen) == 2 and "FIX THIS" in seen[1] and "instagram caption has" in seen[1] and C.words(out["instagram"]) < 10, (len(seen), out["instagram"][:60])
 p = seen[0]
 assert "CAPTION FORMAT" in p and "CAPITAL" in p and "DM **ADS**" in p and "35-60 words" in p and "NO paragraphs" in p and "80-140" not in p
 assert "**" in out["instagram"], "the writer keeps markers; bold is applied last, after fact-check"
-seen.clear(); llm.gemini = lambda prompt, system="", **k: seen.append(prompt) or json.dumps({"instagram": "**H** ok", "linkedin": "**L**", "bluesky": "**B**", "replies": []})
+seen.clear(); llm.gemini = lambda prompt, system="", **k: seen.append(prompt) or json.dumps({"instagram": "**H** ok", "linkedin": "Clear sentence. " + "word " * 320, "bluesky": "**B**", "replies": []})
 writer.run(plan, focus, brand, "VOICE", "g", ig_mode="manual_reel")
 assert len(seen) == 1 and "25-45 words" in seen[0], "a caption within limits costs no extra call; reels get the shorter limit"
 
@@ -70,6 +72,8 @@ assert json.loads((pathlib.Path(__file__).resolve().parent.parent / "config" / "
 
 buf = io.BytesIO(); Image.new("RGB", (1024, 1024), (200, 120, 40)).save(buf, "PNG"); PNG = buf.getvalue()
 tmp = pathlib.Path(tempfile.mkdtemp())
+config.DRAFTS = tmp / "drafts"                      # no real drafts: the chat-card cooldown must not depend on repo history
+config.DRAFTS.mkdir()
 os.environ.update(CLOUDFLARE_ACCOUNT_ID="acc", CLOUDFLARE_API_TOKEN="tok", GEMINI_API_KEY="gk")
 
 class R:

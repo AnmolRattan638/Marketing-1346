@@ -1,26 +1,26 @@
 {
-  "date": "2026-11-05",
-  "stage": "Brand new (under 100 followers across all platforms)",
+  "date": "2026-11-08",
+  "stage": "brand new under 100 followers",
   "followers": 9,
-  "summary": "Instagram bio violates brand rules: niches (hotels, cafes, gyms, homestays), region (Himachal), timeframe (24 hrs), and permanent free offer. Reels lose 77% viewers in first 3s — hooks failing. Lead_gen shows best relative signal (1.67x median, n=3) but data is thin.",
-  "guidance": "- Weakest area: Instagram hook/retention (77% skip rate) + non-compliant bio.\n- Rotate to **comparison** or **contrast** hooks for lead_gen; question hooks earn only 21% of comparison per reach.\n- Pause animated_ads (0.62x median); double down on lead_gen and chatbot topics.\n- Never write like an ad: show a developer's real screen, code, or sheet logic.\n- Use only broad hashtags (#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia).",
+  "summary": "Reel hooks fail (77% drop in 3s); chatbot posts earn 24% of lead_gen per reach. Bio violates rules: niche list, region, '24 hrs', free offer outside website posts.",
+  "guidance": "- Try comparison or contrast hooks (lead_gen outperforms; contrast 1.75x, comparison 1.56x) instead of question hooks (0.4x angle, 21% of comparison per reach).\n- Avoid \"Will AI look fake?\" or generic question openings; they've repeated and underperform.\n- Show real dev work: share a code snippet, config logic, or integration flowchart — not a demo link.\n- Keep captions conversational, end with \"DM if this fits your workflow.\"",
   "instructions": {
-    "research": "Find one relatable pain point: freelancers/agencies wasting billable hours manually searching Google Maps for local business leads.",
-    "analysis": "Lead_gen posts outperform other services 1.67x (n=3). Comparison hooks near median (0.94x) but question hooks severely underperform (0.21x). Use comparison/contrast.",
-    "writer": "Open with 'Freelancers' or 'Agencies'. Describe the sheet only in general terms: local businesses from Google Places with contact details, review counts, website checks, including newly opened ones. No niche examples. End with 'pay after approval' + DM for honest fit check.",
-    "image": "Clean screenshot of a generic spreadsheet view (column headers only: Business Name, Phone, Reviews, Website Yes/No, Date Added). Blur any real data. Caption overlay: 'LocalSignal — leads you can actually call.'",
-    "video": "Not required for today's lead_gen post."
+    "research": "Find 2-3 common chatbot integration pain points Indian small businesses mention in public forums (e.g., WhatsApp Business API limits, language switching, handoff to human).",
+    "analysis": "Compare last 4 chatbot posts' hook styles vs engagement; note which style (question/comparison/contrast) got most saves/shares.",
+    "writer": "Write a comparison-style caption: contrast manual WhatsApp replies vs a bot handling FAQs while owner serves walk-ins; end with 'DM if this fits your workflow.'",
+    "image": "Create a split-screen graphic: left side 'Manual replies' (cluttered chat), right side 'Bot handles FAQs' (clean flow); use desk-glow style.",
+    "video": "Skip reel today; static image carousel performs better for chatbot topic. If video needed, film a 5-sec timelapse of coding a bot flow (no business-specific logic)."
   },
   "manual_tips": [
-    "Rewrite Instagram bio to: 'Websites, AI chatbots, animated ads & lead sheets for small businesses across India. Pay after approval. DM for honest advice.' Remove niches, region, timeframes, and free offers.",
-    "Comment thoughtfully on 5 posts from Indian freelancers/agencies discussing client acquisition or local lead challenges — no self-promo.",
-    "Check and reply to any DMs/comments within 2 hours; move promising conversations to WhatsApp."
+    "Fix Instagram bio: remove niche list, region, '24 hrs', and free site check offer. Replace with: 'AI chatbots, animated ads, lead gen & websites for Indian small businesses. Pay after approval. DM to chat.'",
+    "Comment on 5 posts by Indian small business owners (cafes, gyms, clinics) discussing WhatsApp overload; add value, don't pitch.",
+    "Reply to every story mention or tag within 2 hours to build familiarity."
   ],
   "weak_signals": [
     {
       "id": "follower_stall",
       "platform": "instagram",
-      "detail": "5 posts in 7 days and followers changed by -1"
+      "detail": "6 posts in 7 days and followers changed by -1"
     },
     {
       "id": "high_skip_rate",
@@ -30,7 +30,7 @@
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 20% of what 'lead_gen' earns per person reached"
+      "detail": "by service, 'chatbot' earns 24% of what 'lead_gen' earns per person reached"
     },
     {
       "id": "weak_hook_style",
@@ -40,7 +40,7 @@
     {
       "id": "follower_stall",
       "platform": "bluesky",
-      "detail": "6 posts in 7 days and followers changed by +0"
+      "detail": "7 posts in 7 days and followers changed by +0"
     }
   ]
 }

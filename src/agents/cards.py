@@ -147,7 +147,37 @@ def compose_visual(spec, bg_path):
     d.rounded_rectangle([70, y_end + 34, 70 + 150, y_end + 44], radius=5, fill=ACCENT)
     if sub_lines:
         _draw_lines(d, sub_lines, font("Medium", 40), 70, y_end + 72, 56)
+    if spec.get("chat_overlay"):
+        im = _chat_elements(im, spec.get("chat") or [], 175, y0 - 45)
     return im
+
+
+def _chat_elements(im, msgs, top, bottom):
+    """The chat idea as a few floating glass bubbles on top of the AI picture (not the full chat card), tilted slightly and offset, in the free space between the tag and the
+    headline. Bubbles are measured first: fewer are drawn when the room is tight, none when even one does not fit, so they never touch the tag or the headline."""
+    msgs = [m for m in msgs if m.get("text")][:2]
+    fnt, tf = font("Medium", 34), font("Medium", 22)
+    layer = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    ld = ImageDraw.Draw(layer)
+    sized = []
+    for m in msgs:
+        lines = [" ".join(w for w, _ in ln) for ln in _bubble_lines(ld, m["text"], fnt, 520)]
+        sized.append((m, lines, min(560, int(max(ld.textlength(ln, font=fnt) for ln in lines)) + 64), len(lines) * 44 + 74))
+    while sized and sum(h for *_, h in sized) + 26 * (len(sized) - 1) > bottom - top:
+        sized.pop()
+    if not sized:
+        return im
+    y = top + (bottom - top - (sum(h for *_, h in sized) + 26 * (len(sized) - 1))) // 2
+    for i, (m, lines, w, h) in enumerate(sized):
+        x = 90 + (i * 330) % 420
+        ld.rounded_rectangle([x, y, x + w, y + h], radius=34, fill=(12, 16, 28, 178), outline=ACCENT + (170,), width=2)
+        for j, ln in enumerate(lines):
+            ld.text((x + 32, y + 20 + j * 44), ln, font=fnt, fill=WHITE + (255,))
+        if m.get("time"):
+            ld.text((x + w - 32, y + h - 16), str(m["time"]), font=tf, fill=MUTED + (255,), anchor="rb")
+        y += h + 26
+    layer = layer.rotate(-2.2, resample=Image.BICUBIC, center=(im.width // 2, (top + bottom) // 2))
+    return Image.alpha_composite(im.convert("RGBA"), layer).convert("RGB")
 
 
 def _bubble_lines(d, text, fnt, maxw):
@@ -215,12 +245,16 @@ CTA_BY_SERVICE = {"chatbot": "BOT", "animated_ads": "ADS", "lead_gen": "LEADS", 
                   "reel_scripts": "SCRIPT", "seo_blogs": "BLOG"}
 
 
+AVOID_CHAT = ()      # customer messages used in recent posts; image.py fills this in before every make_spec call
+
+
 def make_spec(plan, focus, guidance=""):
     hook = plan["hooks"][plan.get("chosen_hook", 0)]["text"]
     kw = focus.get("dm_keyword") or CTA_BY_SERVICE.get(focus.get("id"), "HI")
     prompt = f"""Design copy for ONE square social media image (Instagram/LinkedIn).
 Topic: {plan['topic']} | Hook: {hook} | Service: {focus['name']}
 Strategist note: {guidance}
+Customer messages already used in recent posts (write different ones, on a different situation): {"; ".join(AVOID_CHAT[:12]) or "none"}
 
 Rules:
 - Universal: any small business owner should relate. Never one niche. No demos, samples or claims of work done.

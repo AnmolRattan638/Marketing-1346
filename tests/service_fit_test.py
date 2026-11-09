@@ -97,10 +97,11 @@ assert count(tmp / "cyan.jpg", (0, 212, 255)) > 1500 and count(tmp / "cyan.jpg",
 assert count(tmp / "yellow.jpg", (255, 214, 10)) > 1500
 
 # ---- 5. image.run: every card type is rendered inside the day's family colour, and the family is recorded
+config.DRAFTS = pathlib.Path(tempfile.mkdtemp())      # no earlier drafts: the chat card is allowed (it alternates with pictures, see chat_card_test)
 seen = []
 cards.make_spec = lambda plan, focus, guidance="": {"style": "chat" if focus["id"] == "chatbot" else "bold", "headline": "H", "highlight": [], "sub": "", "chat": [], "cta": 'DM "X"', "tag": "T"}
 cards.render = lambda spec, path: seen.append(("designed", cards.ACCENT))
-image._visual_card = lambda plan, focus, spec, guidance, path, errors, variant=None: seen.append(("visual", cards.ACCENT)) or {"engine": "visual:x", "style_id": variant["id"]}
+image._visual_card = lambda plan, focus, spec, guidance, path, errors, variant=None, recent=(): seen.append(("visual", cards.ACCENT)) or {"engine": "visual:x", "style_id": variant["id"]}
 cfg = json.load(open(config.ROOT / "config/image_style.json"))
 v = image.pick_variant("2026-10-22")
 assert v["accent_rgb"] and len(v["accent_rgb"]) == 3 and all(0 <= c <= 255 for c in v["accent_rgb"])

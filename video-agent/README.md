@@ -6,7 +6,7 @@ Personal daily short-video agent. Groq writes the plan, Pexels gives footage, Ko
 
 1. Create a new private GitHub repo and push this folder.
 2. Repo → Settings → Secrets and variables → Actions → add:
-   `GROQ_API_KEY`, `PEXELS_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`
+   `GROQ_API_KEY`, `PIXABAY_API_KEY` (free, instant; used while Pexels is not issuing keys) and/or `PEXELS_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`
    (secrets are per repo, so re-add them even if Marketing-1346 has them).
 3. Run `cd template && npm install` once locally or in a Codespace and commit `package-lock.json` (already included in the zip).
 4. Edit `topics.txt` (one topic per line, picked by date) and `config.json` (language `en` or `hi`, voice, brand notes).
@@ -40,7 +40,7 @@ NOT tested (no keys or network access in the sandbox): Groq planning and Whisper
 - Telegram approve → post step (v1 only sends the video; wire into Marketing-1346's approval flow later)
 - GPU-based generation (Wan, MusicGen, AudioLDM); AudioLDM is non-commercial licensed
 - After Effects repos: reference only, they need paid AE
-- Pexels clips: keep `credits.json` per run; check Pexels licence terms before posting commercially
+- Footage order: your own hero clips, Pexels, Pixabay, then a plain placeholder. Pixabay has no portrait filter, so its clips are centre-cropped to 9:16. Keep `credits.json` per run; check Pexels licence terms before posting commercially
 
 ## Your cloned voice (Chatterbox, open source, MIT)
 `agent/voice.py` can speak every reel in your own voice. The reference clip is never committed (the repo is public): put it in the secret `VOICE_REF_B64` (base64 of a 10-15 s clip). Run Actions -> "Voice test (your cloned voice)" first: it sends three test lines (Hindi, Roman Hinglish, English) to Telegram with how long each took. If you like them, set `"voice_engine": "chatterbox"` in `config.json`. If your voice fails for any reason, the chain falls back to Kokoro and then edge-tts, so a reel is never blocked.

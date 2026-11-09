@@ -1,0 +1,15 @@
+name: Voice test (your cloned voice)
+
+# Placeholder so GitHub lists this workflow (manual workflows only appear once they exist on main).
+# The real test lives on the video-agent branch: Actions -> this workflow -> Run workflow -> choose branch "video-agent".
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Nothing to test on main. Re-run this workflow and pick the branch video-agent."

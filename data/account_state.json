@@ -1,20 +1,20 @@
 {
-  "date": "2026-11-08",
-  "stage": "brand new under 100 followers",
+  "date": "2026-11-09",
+  "stage": "Brand new under 100 followers across all platforms (9 IG, 5 LI, 1 BS). Building trust phase with minimal engagement.",
   "followers": 9,
-  "summary": "Reel hooks fail (77% drop in 3s); chatbot posts earn 24% of lead_gen per reach. Bio violates rules: niche list, region, '24 hrs', free offer outside website posts.",
-  "guidance": "- Try comparison or contrast hooks (lead_gen outperforms; contrast 1.75x, comparison 1.56x) instead of question hooks (0.4x angle, 21% of comparison per reach).\n- Avoid \"Will AI look fake?\" or generic question openings; they've repeated and underperform.\n- Show real dev work: share a code snippet, config logic, or integration flowchart — not a demo link.\n- Keep captions conversational, end with \"DM if this fits your workflow.\"",
+  "summary": "Weakest area: 77% reel skip rate in first 3 seconds — hooks fail to stop scroll. Lead gen service outperforms others 1.95x but data is thin (n=5). Instagram bio violates brand rules: niche/region targeting, timeframe claim, free offer outside website posts.",
+  "guidance": "- Rotate to **comparison** or **contrast** hooks (1.66–1.75x) for lead gen; avoid **question** hooks (only 21% of comparison performance).\n- Use **mistake** angle (1.69x); avoid **myth_bust** (0.25x) and **question** angles (0.44x).\n- Visual style: **desk-glow** or **bright-desk** (1.54–1.75x); avoid **network** (0.38x).\n- Post must read as developer sharing real work, not an ad. No demos, samples, or niche targeting. Goal: earn DMs via 'pay after approval' or short conversation offer.",
   "instructions": {
-    "research": "Find 2-3 common chatbot integration pain points Indian small businesses mention in public forums (e.g., WhatsApp Business API limits, language switching, handoff to human).",
-    "analysis": "Compare last 4 chatbot posts' hook styles vs engagement; note which style (question/comparison/contrast) got most saves/shares.",
-    "writer": "Write a comparison-style caption: contrast manual WhatsApp replies vs a bot handling FAQs while owner serves walk-ins; end with 'DM if this fits your workflow.'",
-    "image": "Create a split-screen graphic: left side 'Manual replies' (cluttered chat), right side 'Bot handles FAQs' (clean flow); use desk-glow style.",
-    "video": "Skip reel today; static image carousel performs better for chatbot topic. If video needed, film a 5-sec timelapse of coding a bot flow (no business-specific logic)."
+    "research": "Find 3–5 real Google Places search examples showing local businesses (varied industries, cities) with contact details, review counts, website status — no fabricated data.",
+    "analysis": "Compare 'spray-and-pray' manual searching vs. structured lead sheet: time saved, relevance, new openings. Keep it general, no invented signals.",
+    "writer": "Write a comparison post: 'Search-First Morning vs. Pitch-First Morning' for freelancers/agencies/solo sellers. Hook with contrast. End with 'pay after approval' or DM for honest fit check. Use national hashtags only.",
+    "image": "Create a bright-desk style split image: left side cluttered browser tabs/searches, right side clean spreadsheet with columns: Business, Phone, Reviews, Website, Opened. No brand logos.",
+    "video": "Skip video today — reel retention is 77% drop in 3s. Focus on static carousel with bold-slow-reveal (3.0x) if possible, else single image."
   },
   "manual_tips": [
-    "Fix Instagram bio: remove niche list, region, '24 hrs', and free site check offer. Replace with: 'AI chatbots, animated ads, lead gen & websites for Indian small businesses. Pay after approval. DM to chat.'",
-    "Comment on 5 posts by Indian small business owners (cafes, gyms, clinics) discussing WhatsApp overload; add value, don't pitch.",
-    "Reply to every story mention or tag within 2 hours to build familiarity."
+    "Update Instagram bio: remove 'hotels, cafes, gyms & homestays in Himachal', 'ready in 24 hrs', 'Free 2-min site check'. Replace with: 'Websites, AI chatbots, animated ads, lead gen for small businesses across India. Pay after approval. DM to discuss fit.'",
+    "Comment thoughtfully on 5 posts by Indian freelancers/agencies discussing client acquisition — add value, don't pitch.",
+    "Reply to any existing DMs/comments within 2 hours; move qualified chats to WhatsApp for the short conversation offer."
   ],
   "weak_signals": [
     {
@@ -36,6 +36,11 @@
       "id": "weak_hook_style",
       "platform": "instagram",
       "detail": "by hook style, 'question' earns 21% of what 'comparison' earns per person reached"
+    },
+    {
+      "id": "zero_engagement_streak",
+      "platform": "bluesky",
+      "detail": "the last 3 settled posts got zero likes, comments, shares and saves"
     },
     {
       "id": "follower_stall",

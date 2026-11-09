@@ -1,0 +1,492 @@
+{
+  "id": "2026-11-09-868d9a",
+  "date": "2026-11-09",
+  "created_at": "2026-11-09T10:22:36+00:00",
+  "status": "pending",
+  "service": "lead_gen",
+  "topic": "Spending 4 hours hunting vs. 4 minutes reviewing",
+  "idea_id": null,
+  "problem_id": "the-feast-or-famine-pipeline",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "the-feast-or-famine-pipeline",
+    "angle_type": null,
+    "hook_style": "contrast"
+  },
+  "hooks": [
+    {
+      "style": "comparison",
+      "text": "Anyone selling a service feels this drain"
+    },
+    {
+      "style": "mistake",
+      "text": "Consultants: stop only hunting when cash runs dry—pipeline disappears."
+    },
+    {
+      "style": "value",
+      "text": "Coaches: try pre‑filling a daily lead sheet in five minutes."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "comparison",
+  "posts": {
+    "instagram": "PROJECT KHATAM, LEADS KAHAN?\n→ Chaar ghante dhundhne ke baad, chaar minute mein 𝗦𝗛𝗘𝗘𝗧 review karein.\n→ Milega: contact, review count, 𝗪𝗘𝗕𝗦𝗜𝗧𝗘 check.\n→ Naye business bhi shamil hain, whatever you sell.\nDM 𝗟𝗘𝗔𝗗𝗦 aur batayein aap kya bechte hain.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+    "linkedin": "Finding the next client after a project often feels like searching in the dark.\n\nFreelancers often finish a website for a clinic or a video shoot for a gym and then the inbox goes quiet. The next morning is spent typing city names into search engines, copying phone numbers, and checking whether a business even has a website. This cycle repeats after every project, and the pipeline empties just when bills are due. Some days there are ten names, other days there are none.\n\nWhat I provide is a daily sheet of pre‑qualified local businesses. It is not a website, an ad account, or a marketing funnel. The sheet lists businesses found through Google Places, with contact details, review counts and a check for a website, including newly opened ones. It can be used by anyone who sells a service to local businesses, whatever the service. The sheet is a starting point, not the whole sales process.\n\nFirst you tell me what you sell and what kind of local customer you want. Then I prepare the sheet using public listings and basic website checks. You review it and request any changes. You pay only after you approve the work.\n\nThe result is a shift from searching to pitching. Instead of spending hours on cold searching, you spend a few minutes reviewing names and numbers. The list is refreshed each week, so the flow stays consistent even after a project ends, and you do not have to wonder where the next client will come from.\n\nThis service is for freelancers and agencies who already know how to pitch but need a steady list. It does not write your messages, does not guarantee replies, and does not close sales for you. You remain responsible for the selling.\n\nI am happy to discuss whether this fits your business before you commit. Payment is made only after you approve the work. DM LEADS and tell me what you sell.",
+    "bluesky": "Most freelancers spend their mornings searching for local businesses to pitch. A daily sheet with contact details, review counts and website checks can shrink that search to minutes. DM LEADS if you want to see how it works. #FreelanceIndia"
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I don't list a price for the lead sheet because it depends on what you sell and how many local businesses you need each week. What do you want customers to do when they see your message - call, WhatsApp, or fill a form?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for asking. The sheet is for any freelancer or agency selling to local businesses, whatever the service - marketing, design, video, SEO, ads, web, software, photography, accounting, consulting, coaching. What do you sell, and which local businesses are you trying to reach?"
+    },
+    {
+      "if_they_say": "i'll think about it",
+      "reply": "Of course, no pressure. I can send a one-page summary of what is included, the timeline, and how the price works. Is the hesitation budget, timing, or whether it will actually bring enquiries?"
+    }
+  ],
+  "image": {
+    "prompt": "a matte‑black laptop with a soft amber glow on its screen displaying a clean spreadsheet of leads sits centered in the upper two‑thirds of the frame, its sleek silver chassis reflecting a warm gold‑accented ceramic coffee mug and a small stack of printed research pages beside a brushed‑metal pen; a hand reaches for the pen while the lower 40 % of the image remains clear for headline overlay. warm tungsten key light streams from the right, casting gentle shadows leftward and a subtle gold rim light outlines the laptop; a brushed‑metal desk lamp adds a soft secondary glow. the scene rests on a dark walnut desk foreground, with a blurred office wall and faint plant silhouette in the background. colour palette of charcoal, walnut and warm gold creates a calm, focused mood. captured with an 85 mm lens at f/1.8, shallow depth of field keeps the laptop razor‑sharp, highlighting brushed metal texture and fine dust particles catching the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-09.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "the-feast-or-famine-pipeline",
+      "angle_type": "mistake",
+      "style": "bold",
+      "headline": "4 hours hunting vs 4 minutes reviewing",
+      "highlight": [
+        "4 minutes reviewing"
+      ],
+      "sub": "Avoid the feast or famine pipeline.",
+      "chat": [],
+      "cta": "DM \"LEADS\"",
+      "tag": "FOR FREELANCERS & AGENCIES"
+    },
+    "errors": [],
+    "style_id": "desk-glow"
+  },
+  "carousel": {
+    "flavor": "bold-slow-reveal",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-09.jpg",
+      "data/media/2026-11-09-s2.jpg",
+      "data/media/2026-11-09-s3.jpg",
+      "data/media/2026-11-09-s4.jpg",
+      "data/media/2026-11-09-s5.jpg",
+      "data/media/2026-11-09-s6.jpg",
+      "data/media/2026-11-09-s7.jpg"
+    ],
+    "alts": [
+      "Anyone selling a service feels this drain",
+      "Slide 2 of 7: You open your laptop and search again. Hours vanish scrolling maps, copying numbers, checking if the business even has a site.",
+      "Slide 3 of 7: Manual lead hunting eats your selling time. By the time you find a list, the day is gone and no pitch has gone out.",
+      "Slide 4 of 7: A daily sheet of local businesses. Local businesses found through Google Places with contact details, review counts and website checks, including newly opened ones.",
+      "Slide 5 of 7: Review the list in minutes instead. Copy contacts and start pitching. The search work is already done for you.",
+      "Slide 6 of 7: Fresh names arrive every working day. A steady flow means you have names ready after a project ends.",
+      "Slide 7 of 7: DM LEADS. Message me for an honest conversation about whether this fits your service. I reply with straight advice."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Anyone selling a service feels this drain",
+        "body": "There is a faster way to start your day."
+      },
+      {
+        "role": "problem",
+        "headline": "You open your laptop and search again",
+        "body": "Hours vanish scrolling maps, copying numbers, checking if the business even has a site."
+      },
+      {
+        "role": "problem",
+        "headline": "Manual lead hunting eats your selling time",
+        "body": "By the time you find a list, the day is gone and no pitch has gone out."
+      },
+      {
+        "role": "solution",
+        "headline": "A daily sheet of local businesses",
+        "body": "Local businesses found through Google Places with contact details, review counts and website checks, including newly opened ones."
+      },
+      {
+        "role": "solution",
+        "headline": "Review the list in minutes instead",
+        "body": "Copy contacts and start pitching. The search work is already done for you."
+      },
+      {
+        "role": "solution",
+        "headline": "Fresh names arrive every working day",
+        "body": "A steady flow means you have names ready after a project ends."
+      },
+      {
+        "role": "cta",
+        "headline": "DM LEADS",
+        "body": "Message me for an honest conversation about whether this fits your service. I reply with straight advice."
+      }
+    ],
+    "scene_prompts": {
+      "2": "A matte‑black laptop with a softly glowing dark screen sits on a deep‑gray desk, its keyboard rimmed in warm‑gold; focused hands hover over the touchpad while a sleek stainless‑steel mouse clicks, releasing a swirl of tiny map icons above the display, suggesting endless searching. The laptop fills the upper 55 % of the frame, seen from a high angle that leaves the lower 45 % clear for text. A warm amber desk lamp on the right casts a gentle rim light and deep shadows, while a black ceramic mug and a closed notebook rest in the midground. Cool slate tones with a single warm‑gold accent create a focused, slightly frantic mood. Shot with an 85 mm lens at f/1.8, shallow depth of field captures brushed‑metal surfaces and fine dust particles in crisp detail. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "3": "A pair of focused hands rest on a matte‑black laptop with a softly glowing dark screen, fingertips hovering over a cluttered spreadsheet while a stack of printed business‑card sheets, sticky‑note clusters, and a closed notebook lie beside a black ceramic mug; the subject occupies the upper 55% of the frame, viewed from a slight high angle that leaves the lower 45% open and calm for overlay. Warm amber lamp light spills from the right, casting a gentle rim glow on the hands and a subtle shadow to the left, while a cool, diffused fill adds depth. In the foreground a brushed‑metal desk surface catches faint reflections, the midground holds the paper chaos, and a blurred dark wall with a faint leafy plant fades into the background. The palette is deep charcoal and muted teal with a single warm‑gold accent, evoking a focused yet weary mood. Shot with a 50mm prime at f/1.8, shallow depth of field renders tactile paper fibers and fine dust particles in the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "5": "a matte‑black laptop with a glowing dark screen, brushed‑metal chassis reflecting a warm‑gold progress bar hovering above the keyboard as relaxed hands rest on the touchpad; the laptop fills the upper 55% of the frame, seen from an eye level, leaving the lower 45% as a calm area; a warm amber desk lamp on the right provides key light and a thin rim glow, casting shadows; a dark walnut desk holds a black ceramic mug, a closed notebook with a silver pen, a small leafy plant, and a blurred cityscape in the background; deep charcoal with a warm‑gold accent, conveying organized relief; 85 mm lens at f/1.8, shallow depth of field, brushed metal detail, glass reflections, fine dust catching the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "6": "A matte-black laptop with a softly glowing dark screen rests under a pair of relaxed hands typing, while a gold‑tinged holographic stream of fresh name cards flows from the screen onto a polished wooden tray. The laptop occupies the upper 55% of the frame, captured at eye level with a slight high angle, leaving the lower 45% as a calm dark space. Warm amber lamp light from the right casts a key rim around the hands, creating soft shadows and a gentle gold glow on the streaming cards. In the foreground a dark walnut desk holds a black ceramic mug, a closed notebook and a small leafy plant; the background fades into a blurred deep‑navy wall with subtle bokeh. The palette blends deep navy and charcoal with a warm gold accent, evoking organized relief. Shot with an 85mm lens at f/1.8, shallow depth of field highlights brushed‑metal laptop surfaces, glass‑like reflections on the name stream, and fine dust particles catching the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": [
+      "slide_prompt: none"
+    ]
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "image",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**PROJECT KHATAM, LEADS KAHAN?\n→ Chaar ghante dhundhne ke baad, chaar minute mein **SHEET** review karein.\n→ Milega: contact, review count, **WEBSITE** check.\n→ Naye business bhi shamil hain, whatever you sell.\nDM **LEADS** aur batayein aap kya bechte hain.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+      "linkedin": "Finding the next client after a project often feels like searching in the dark.\n\nFreelancers often finish a website for a clinic or a video shoot for a gym and then the inbox goes quiet. The next morning is spent typing city names into search engines, copying phone numbers, and checking whether a business even has a website. This cycle repeats after every project, and the pipeline empties just when bills are due. Some days there are ten names, other days there are none.\n\nWhat I provide is a daily sheet of pre‑qualified local businesses. It is not a website, an ad account, or a marketing funnel. The sheet lists businesses found through Google Places, with contact details, review counts and a check for a website, including newly opened ones. It can be used by anyone who sells a service to local businesses, whatever the service. The sheet is a starting point, not the whole sales process.\n\nFirst you tell me what you sell and what kind of local customer you want. Then I prepare the sheet using public listings and basic website checks. You review it and request any changes. You pay only after you approve the work.\n\nThe result is a shift from searching to pitching. Instead of spending hours on cold searching, you spend a few minutes reviewing names and numbers. The list is refreshed each week, so the flow stays consistent even after a project ends, and you do not have to wonder where the next client will come from.\n\nThis service is for freelancers and agencies who already know how to pitch but need a steady list. It does not write your messages, does not guarantee replies, and does not close sales for you. You remain responsible for the selling.\n\nI am happy to discuss whether this fits your business before you commit. Payment is made only after you approve the work. DM LEADS and tell me what you sell.",
+      "bluesky": "Most freelancers spend their mornings searching for local businesses to pitch. A daily sheet with contact details, review counts and website checks can shrink that search to minutes. DM LEADS if you want to see how it works. #FreelanceIndia"
+    }
+  },
+  "ad_score": 3,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 337.0,
+        "reach_p50": 655.0,
+        "reach_p90": 1398.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'cultural/linguistic exclusion', 'severity': 'low', 'description': 'The post mixes Hindi and English withou",
+          "{'category': 'tone‑deafness / unrealistic expectations', 'severity': 'medium', 'description': 'Claiming that after \"four",
+          "{'category': 'potential encouragement of unregulated sales', 'severity': 'medium', 'description': 'The phrase \"whatever "
+        ],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 4.0,
+          "educational": 2.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 5.0,
+          "practical_value": 5.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 364,
+            "share": 3,
+            "like": 2,
+            "reply": 1
+          },
+          "engagement_rate": 0.0162,
+          "by_role": {
+            "public": {
+              "n": 6,
+              "avg_sentiment": 0.623,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 4,
+          "r_effective": 1.25,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 10,
+          "reach_fraction": 0.0155,
+          "r_effective": 0.525,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.7
+          },
+          {
+            "title": "Open a stronger curiosity gap",
+            "lift_pct": 3.6
+          },
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 3.6
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 436.0,
+        "reach_p50": 877.0,
+        "reach_p90": 1929.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'class', 'severity': 'low', 'description': 'The copy assumes freelancers and agencies have the financial fl",
+          "{'category': 'tone‑deafness', 'severity': 'low', 'description': 'Phrases like “searching in the dark” and “the inbox goe",
+          "{'category': 'privacy / data ethics', 'severity': 'low', 'description': 'The service relies on scraping public listings "
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 4.0,
+          "controversy": 1.0,
+          "emotional_intensity": 2.0,
+          "relatability": 5.0,
+          "practical_value": 5.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Hype or guarantee words",
+            "impact": "medium"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 354,
+            "share": 3,
+            "like": 4,
+            "reply": 2
+          },
+          "engagement_rate": 0.0248,
+          "by_role": {
+            "public": {
+              "n": 9,
+              "avg_sentiment": 0.678,
+              "share_rate": 0.333
+            }
+          },
+          "cascade_size": 4,
+          "r_effective": 1.25,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 15,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.6792,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 211.0,
+        "reach_p50": 442.0,
+        "reach_p90": 969.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'exclusion', 'severity': 'low', 'description': 'The hashtag #FreelanceIndia and the phrasing may unintentio",
+          "{'category': 'generalization', 'severity': 'low', 'description': 'The statement \"Most freelancers spend their mornings s"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 5.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 365,
+            "share": 1,
+            "like": 2
+          },
+          "engagement_rate": 0.0082,
+          "by_role": {
+            "public": {
+              "n": 3,
+              "avg_sentiment": 0.92,
+              "share_rate": 0.333
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "mistake",
+          "p_beats_chosen": 0.95,
+          "lift_pct": 4.6,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "value",
+          "p_beats_chosen": 0.9,
+          "lift_pct": 1.6,
+          "decisive": true
+        }
+      ],
+      "better": 1,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Change hook to a relatable question (e.g., 'PROJECT KHATAM, LEADS KAHAN?') and add a -> line with concrete sheet columns: 'Contact, review count, website check'.",
+      "linkedin: Cut length by half; open with 'Finding prospects between projects is hard'; list sheet columns (contact, reviews, website); remove 'waste mornings' and Google Places dependency assumptions.",
+      "bluesky: Change 'cuts that search to minutes' to 'can shrink search to minutes'; add 'contact, reviews, website' detail; keep under 260 chars."
+    ],
+    "before": {
+      "instagram": 11.0,
+      "linkedin": 0.0,
+      "bluesky": 0.0
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 0.0
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemini-3.8-flash (ProviderDown)"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 61.5,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 11.1,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 273.1,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 136.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    ]
+  }
+}

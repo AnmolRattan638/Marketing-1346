@@ -1,4 +1,4 @@
-- Try comparison or contrast hooks (lead_gen outperforms; contrast 1.75x, comparison 1.56x) instead of question hooks (0.4x angle, 21% of comparison per reach).
-- Avoid "Will AI look fake?" or generic question openings; they've repeated and underperform.
-- Show real dev work: share a code snippet, config logic, or integration flowchart — not a demo link.
-- Keep captions conversational, end with "DM if this fits your workflow."
+- Rotate to **comparison** or **contrast** hooks (1.66–1.75x) for lead gen; avoid **question** hooks (only 21% of comparison performance).
+- Use **mistake** angle (1.69x); avoid **myth_bust** (0.25x) and **question** angles (0.44x).
+- Visual style: **desk-glow** or **bright-desk** (1.54–1.75x); avoid **network** (0.38x).
+- Post must read as developer sharing real work, not an ad. No demos, samples, or niche targeting. Goal: earn DMs via 'pay after approval' or short conversation offer.

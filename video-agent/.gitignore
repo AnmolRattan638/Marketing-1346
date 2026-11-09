@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+template/node_modules/
+template/public/assets/run/
+template/out/
+runs/*/final.mp4

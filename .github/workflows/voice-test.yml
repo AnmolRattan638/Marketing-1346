@@ -1,7 +1,5 @@
 name: Voice test (your cloned voice)
 
-# Placeholder so GitHub lists this workflow (manual workflows only appear once they exist on main).
-# The real test lives on the video-agent branch: Actions -> this workflow -> Run workflow -> choose branch "video-agent".
 on:
   workflow_dispatch:
 
@@ -9,7 +7,33 @@ permissions:
   contents: read
 
 jobs:
-  placeholder:
+  voice-test:
+    defaults:
+      run:
+        working-directory: video-agent
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
-      - run: echo "Nothing to test on main. Re-run this workflow and pick the branch video-agent."
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: System packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libsndfile1
+      - name: Python deps
+        run: |
+          pip install -r requirements.txt
+          pip install -r requirements-chatterbox.txt
+      - name: Speak three test lines in your voice
+        env:
+          VOICE_REF_B64: ${{ secrets.VOICE_REF_B64 }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/voice_test.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: voice-test
+          path: video-agent/runs/voice_test/

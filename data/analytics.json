@@ -1,6 +1,64 @@
 {
   "posts": [
     {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mzupmi67s72x",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzupmi67s72x",
+      "published_at": "2026-11-09T10:26:22.257097+00:00",
+      "text": "Most freelancers spend their mornings searching for local businesses to pitch. A daily sheet with contact details, review counts and website checks can shrink t",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-09",
+        "service": "lead_gen",
+        "hook_style": "comparison",
+        "topic": "Spending 4 hours hunting vs. 4 minutes reviewing"
+      }
+    },
+    {
+      "platform": "instagram",
+      "id": "18099603071648856",
+      "url": "https://www.instagram.com/p/DfhHPVpDcY5/",
+      "published_at": "2026-11-09T10:26:16.000Z",
+      "text": "PROJECT KHATAM, LEADS KAHAN?\n→ Chaar ghante dhundhne ke baad, chaar minute mein 𝗦𝗛𝗘𝗘𝗧 review karein.\n→ Milega: contact, review count, 𝗪𝗘𝗕𝗦𝗜𝗧𝗘 check.\n→ Naye busi",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 9,
+        "reach": 2,
+        "views": 9,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-09",
+        "service": "lead_gen",
+        "hook_style": "comparison",
+        "topic": "Spending 4 hours hunting vs. 4 minutes reviewing"
+      }
+    },
+    {
       "platform": "instagram",
       "id": "18117467540120725",
       "url": "https://www.instagram.com/p/Dfemp5kiqFl/",
@@ -96,9 +154,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 9,
+        "impressions": 12,
         "reach": 2,
-        "views": 9,
+        "views": 12,
         "likes": 1,
         "comments": 0,
         "shares": 0,
@@ -125,9 +183,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 7,
+        "impressions": 9,
         "reach": 2,
-        "views": 7,
+        "views": 9,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -299,9 +357,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 23,
+        "impressions": 26,
         "reach": 3,
-        "views": 23,
+        "views": 26,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -1302,13 +1360,13 @@
       "username": "ar__designerx"
     },
     "linkedin": {
-      "followers": 5,
+      "followers": 6,
       "username": "Anmol Rattan"
     },
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 24
+      "posts": 25
     }
   },
   "coverage": {
@@ -1558,12 +1616,12 @@
       "date": "2026-11-09",
       "followers": {
         "instagram": 9,
-        "linkedin": 5,
+        "linkedin": 6,
         "bluesky": 1
       }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-09T06:33:40+00:00"
+  "updated_at": "2026-11-09T22:23:32+00:00"
 }

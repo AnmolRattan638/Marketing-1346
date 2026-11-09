@@ -1504,9 +1504,9 @@
         }
       },
       "latest": {
-        "impressions": 23,
+        "impressions": 26,
         "reach": 3,
-        "views": 23,
+        "views": 26,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -1648,9 +1648,9 @@
         }
       },
       "latest": {
-        "impressions": 7,
+        "impressions": 9,
         "reach": 2,
-        "views": 7,
+        "views": 9,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -1688,7 +1688,79 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-11-07|bluesky": {
+      "date": "2026-11-07",
+      "platform": "bluesky",
+      "service": "website",
+      "problem_id": "repeatedly-answering-the-same-basic-ques",
+      "angle_type": "myth_bust",
+      "hook_style": "contrast",
+      "format": "text",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "angle_type",
+      "image_style": "silhouette",
+      "carousel_flavor": "before-after-example",
+      "slides": 5,
+      "published_at": "2026-11-07T14:32:38.484179+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzq4gzgssl2z",
+      "snap": {
+        "48h": {
+          "age_h": 55.8,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
+    },
+    "2026-11-07|instagram": {
+      "date": "2026-11-07",
+      "platform": "instagram",
+      "service": "website",
+      "problem_id": "repeatedly-answering-the-same-basic-ques",
+      "angle_type": "myth_bust",
+      "hook_style": "contrast",
+      "format": "carousel",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "angle_type",
+      "image_style": "silhouette",
+      "carousel_flavor": "before-after-example",
+      "slides": 5,
+      "published_at": "2026-11-07T14:32:33.000Z",
+      "url": "https://www.instagram.com/p/DfcZ1gFDdHB/",
+      "snap": {
+        "48h": {
+          "age_h": 55.9,
+          "source": "zernio",
+          "impressions": 12,
+          "reach": 2,
+          "views": 12,
+          "likes": 1,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 12,
+        "reach": 2,
+        "views": 12,
+        "likes": 1,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
     }
   },
-  "updated_at": "2026-11-09T11:59:30+00:00"
+  "updated_at": "2026-11-09T22:23:34+00:00"
 }

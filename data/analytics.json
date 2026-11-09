@@ -1294,30 +1294,6 @@
         "duration_s": 40
       },
       "matched": null
-    },
-    {
-      "platform": "instagram",
-      "id": "18133254256648347",
-      "url": "https://www.instagram.com/p/DdEeXU0nzpp/",
-      "published_at": "2026-09-09T14:27:25.000Z",
-      "text": "#ARDesigns #WebDevelopment\n\n#FreelanceWebDeveloper\n\n#WebDesignerIndia #Himachal Pradesh\n\nDigitalMarketingIndia AIChatbot\n\nBusinessGrowth SmallBusinessIndia\n\nSta",
-      "format": "carousel",
-      "source": "zernio",
-      "metrics": {
-        "impressions": 142,
-        "reach": 38,
-        "views": 142,
-        "likes": 3,
-        "comments": 0,
-        "shares": 0,
-        "saves": 0,
-        "clicks": 0,
-        "reposts": null,
-        "skip_rate": null,
-        "avg_watch_s": null,
-        "duration_s": null
-      },
-      "matched": null
     }
   ],
   "accounts": {
@@ -1577,9 +1553,17 @@
         "linkedin": 5,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-11-09",
+      "followers": {
+        "instagram": 9,
+        "linkedin": 5,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-08T22:07:37+00:00"
+  "updated_at": "2026-11-09T06:33:40+00:00"
 }

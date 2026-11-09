@@ -44,3 +44,15 @@ NOT tested (no keys or network access in the sandbox): Groq planning and Whisper
 
 ## Your cloned voice (Chatterbox, open source, MIT)
 `agent/voice.py` can speak every reel in your own voice. The reference clip is never committed (the repo is public): put it in the secret `VOICE_REF_B64` (base64 of a 10-15 s clip). Run Actions -> "Voice test (your cloned voice)" first: it sends three test lines (Hindi, Roman Hinglish, English) to Telegram with how long each took. If you like them, set `"voice_engine": "chatterbox"` in `config.json`. If your voice fails for any reason, the chain falls back to Kokoro and then edge-tts, so a reel is never blocked.
+
+## Hybrid editing from your `edits` folder (strict)
+Put one folder in Google Drive, share it as "Anyone with the link", and add its link as the repo secret `EDITS_DRIVE_URL`:
+```
+edits/
+  hero/   finished reels you like (the agent measures their cut rhythm) + optional notes.txt
+  raw/    your recordings, demos, screen captures and photos + optional notes.txt
+```
+- **hero/notes.txt** (all lines optional): `shot_seconds: 1.6-3.0`, `transitions: cut 80, fade 20`, `punch_in: 30`, `first_shot: raw`. Measured automatically from the reels: shot length and cut rhythm only. Transitions and effects are NOT detected from video; the allowed ones are cut, fade, punch_in, push_in and Ken Burns on photos.
+- **raw/notes.txt**: lines like `IMG_2031.jpg: me at my desk with a laptop`. File names count as tags too, so name clips `website_demo.mp4`, `chatbot_demo.mp4`.
+- Every narrated scene is cut into shots and each shot is your raw clip, a stock clip or a photo. The code (agent/hybrid.py) picks the source, the model never does. Rules, checked again on the finished reel: at least 40% your raw footage, at most 45% stock, at least one photo, no source 3 times in a row, the first shot is yours, shot lengths stay inside your Hero range. In strict mode a broken rule or a missing/empty raw folder stops the run and Telegram says why. Tune in `config.json` -> `hybrid`; `"enabled": false` returns to one stock clip per scene.
+- Limits: Drive downloads fail above 50 files per folder or when the link is not public; clips are matched to scenes by file-name tags, not by what is on screen.

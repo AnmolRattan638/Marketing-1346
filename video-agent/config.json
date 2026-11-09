@@ -48,5 +48,14 @@
   },
   "brand": {
     "notes": "AR Designs: web design for small local businesses in North India. Friendly, practical, no hype."
+  },
+  "hybrid": {
+    "enabled": true,
+    "strict": true,
+    "min_raw_share": 0.4,
+    "max_stock_share": 0.45,
+    "min_photo_shots": 1,
+    "max_same_in_row": 2,
+    "fade_seconds": 0.2
   }
 }

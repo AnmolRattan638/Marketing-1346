@@ -166,5 +166,12 @@
     "topic": "The Scrolling Fatigue vs. The Lead List",
     "hook_style": "contrast",
     "status": "published"
+  },
+  {
+    "date": "2026-11-09",
+    "service": "lead_gen",
+    "topic": "Spending 4 hours hunting vs. 4 minutes reviewing",
+    "hook_style": "comparison",
+    "status": "published"
   }
 ]

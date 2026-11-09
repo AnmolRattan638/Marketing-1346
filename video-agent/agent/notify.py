@@ -38,3 +38,13 @@ def send_video(path: Path, caption: str) -> None:
         requests.post(f"https://api.telegram.org/bot{c[0]}/sendVideo",
                       data={"chat_id": c[1], "caption": caption[:1000], "supports_streaming": "true"},
                       files={"video": fh}, timeout=300).raise_for_status()
+
+
+def send_audio(path: Path, caption: str) -> None:
+    c = _creds()
+    if not c:
+        return
+    with open(path, "rb") as fh:
+        requests.post(f"https://api.telegram.org/bot{c[0]}/sendAudio",
+                      data={"chat_id": c[1], "caption": caption[:1000]},
+                      files={"audio": fh}, timeout=120).raise_for_status()

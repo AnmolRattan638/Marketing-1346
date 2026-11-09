@@ -50,6 +50,8 @@ jobs:
           pip install -r requirements.txt
           # Kokoro (CPU torch) is large; comment out to use edge-tts only
           pip install -r requirements-kokoro.txt || echo "kokoro install failed, falling back to edge-tts"
+          # your cloned voice: only when voice_engine is "chatterbox" in config.json and the secret exists
+          if grep -q '"voice_engine": "chatterbox"' config.json; then pip install -r requirements-chatterbox.txt || echo "chatterbox install failed, falling back to kokoro"; fi
 
       - name: Node deps
         working-directory: video-agent/template
@@ -63,6 +65,7 @@ jobs:
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          VOICE_REF_B64: ${{ secrets.VOICE_REF_B64 }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TOPIC: ${{ github.event.inputs.topic }}

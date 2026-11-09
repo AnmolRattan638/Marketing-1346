@@ -1,7 +1,9 @@
-"""Voice: Kokoro (CPU) first, edge-tts as fallback, silence only for offline tests."""
+"""Voice: your cloned voice (Chatterbox, open source, MIT) when a reference clip exists, then Kokoro (CPU), then edge-tts; silence only for offline tests."""
 from __future__ import annotations
 
 import asyncio
+import base64
+import os
 from pathlib import Path
 
 from .common import log, media_duration, run
@@ -9,6 +11,50 @@ from .common import log, media_duration, run
 
 def _wav_to_mp3(wav: Path, mp3: Path) -> None:
     run(["ffmpeg", "-y", "-loglevel", "error", "-i", wav, "-ac", "1", "-b:a", "128k", mp3])
+
+
+def reference_clip() -> Path | None:
+    """Your own voice sample. It is never committed (the repo is public): the workflow decodes the secret VOICE_REF_B64 to a file, or set VOICE_REF to a path."""
+    path = os.environ.get("VOICE_REF")
+    if path and Path(path).exists():
+        return Path(path)
+    b64 = (os.environ.get("VOICE_REF_B64") or "").strip()
+    if not b64:
+        return None
+    out = Path(os.environ.get("RUNNER_TEMP") or "/tmp") / "voice_ref.ogg"
+    out.write_bytes(base64.b64decode(b64))
+    return out
+
+
+_CHATTERBOX = {}
+
+
+def _chatterbox(text: str, mp3: Path, vcfg: dict) -> None:
+    """Zero-shot clone of the reference clip. Hindi/English use the multilingual model; sentences are spoken one at a time so a failure or an odd sentence stays small."""
+    import re
+    import numpy as np
+    import soundfile as sf
+    import torch
+
+    ref = reference_clip()
+    if ref is None:
+        raise RuntimeError("no reference voice (set the secret VOICE_REF_B64 or VOICE_REF)")
+    lang = (vcfg.get("chatterbox") or {}).get("language_id", "en")
+    if "model" not in _CHATTERBOX:
+        from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+        _CHATTERBOX["model"] = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
+    model = _CHATTERBOX["model"]
+    parts = [t.strip() for t in re.split(r"(?<=[.!?\u0964])\s+", text) if t.strip()] or [text]
+    pause = np.zeros(int(model.sr * 0.18), dtype="float32")
+    chunks = []
+    with torch.inference_mode():
+        for t in parts:
+            wav = model.generate(t, language_id=lang, audio_prompt_path=str(ref))
+            chunks += [wav.squeeze().cpu().numpy().astype("float32"), pause]
+    wav_path = mp3.with_suffix(".wav")
+    sf.write(str(wav_path), np.concatenate(chunks), model.sr)
+    _wav_to_mp3(wav_path, mp3)
+    wav_path.unlink()
 
 
 def _kokoro(text: str, mp3: Path, vcfg: dict) -> None:
@@ -36,13 +82,13 @@ def _silent(text: str, mp3: Path, vcfg: dict) -> None:
          "anullsrc=r=24000:cl=mono", "-t", f"{seconds:.2f}", "-b:a", "64k", mp3])
 
 
-ENGINES = {"kokoro": _kokoro, "edge": _edge, "silent": _silent}
+ENGINES = {"chatterbox": _chatterbox, "kokoro": _kokoro, "edge": _edge, "silent": _silent}
 
 
 def synth(text: str, mp3: Path, cfg: dict, offline: bool) -> float:
     """Write narration to mp3 and return its length in seconds."""
     vcfg = cfg["voices"][cfg["language"]]
-    order = [cfg["voice_engine"], "edge"]
+    order = [cfg["voice_engine"], "kokoro", "edge"]       # your voice first; if it fails the reel still gets a voice
     if offline:
         order = ["silent"]
     last_err = None

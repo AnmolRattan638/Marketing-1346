@@ -3,23 +3,49 @@
   "voice_engine": "kokoro",
   "voices": {
     "en": {
-      "kokoro": { "lang": "a", "voice": "af_heart" },
-      "edge": "en-US-AndrewNeural"
+      "kokoro": {
+        "lang": "a",
+        "voice": "af_heart"
+      },
+      "edge": "en-US-AndrewNeural",
+      "chatterbox": {
+        "language_id": "en"
+      }
     },
     "hi": {
-      "kokoro": { "lang": "h", "voice": "hf_alpha" },
-      "edge": "hi-IN-SwaraNeural"
+      "kokoro": {
+        "lang": "h",
+        "voice": "hf_alpha"
+      },
+      "edge": "hi-IN-SwaraNeural",
+      "chatterbox": {
+        "language_id": "hi"
+      }
     }
   },
   "planner": {
     "model": "llama-3.3-70b-versatile",
-    "skills": ["planner-rules.md", "sfx-notes.md"],
+    "skills": [
+      "planner-rules.md",
+      "sfx-notes.md"
+    ],
     "extra_skills": [],
     "max_skill_chars": 5000
   },
-  "captions": { "model": "whisper-large-v3-turbo" },
-  "video": { "width": 1080, "height": 1920, "fps": 30, "target_seconds": 25, "tail_seconds": 0.4 },
-  "music": { "base_volume": 0.22, "duck_to": 0.07 },
+  "captions": {
+    "model": "whisper-large-v3-turbo"
+  },
+  "video": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "target_seconds": 25,
+    "tail_seconds": 0.4
+  },
+  "music": {
+    "base_volume": 0.22,
+    "duck_to": 0.07
+  },
   "brand": {
     "notes": "AR Designs: web design for small local businesses in North India. Friendly, practical, no hype."
   }

@@ -41,3 +41,6 @@ NOT tested (no keys or network access in the sandbox): Groq planning and Whisper
 - GPU-based generation (Wan, MusicGen, AudioLDM); AudioLDM is non-commercial licensed
 - After Effects repos: reference only, they need paid AE
 - Pexels clips: keep `credits.json` per run; check Pexels licence terms before posting commercially
+
+## Your cloned voice (Chatterbox, open source, MIT)
+`agent/voice.py` can speak every reel in your own voice. The reference clip is never committed (the repo is public): put it in the secret `VOICE_REF_B64` (base64 of a 10-15 s clip). Run Actions -> "Voice test (your cloned voice)" first: it sends three test lines (Hindi, Roman Hinglish, English) to Telegram with how long each took. If you like them, set `"voice_engine": "chatterbox"` in `config.json`. If your voice fails for any reason, the chain falls back to Kokoro and then edge-tts, so a reel is never blocked.

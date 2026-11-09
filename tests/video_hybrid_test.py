@@ -10,6 +10,8 @@ from agent.common import load_config, media_duration
 
 cfg = load_config()
 hs = hybrid.settings(cfg)
+assert hs["min_photo_shots"] == 0, "no photo is required by default"
+hs_photo = {**hs, "min_photo_shots": 1}
 prof = dict(style.DEFAULT)
 avail = {"raw": True, "stock": True, "photo": True}
 
@@ -27,7 +29,8 @@ assert any("raw footage" in b for b in hybrid.audit(mk(("raw", 1), ("stock", 2),
 assert any("stock video" in b for b in hybrid.audit(mk(("raw", 4), ("stock", 6)), avail, hs, prof))
 assert any("in a row" in b for b in hybrid.audit(mk(("raw", 2), ("raw", 2), ("raw", 2), ("photo", 2), ("stock", 1)), avail, hs, prof))
 assert any("first shot" in b for b in hybrid.audit(mk(("stock", 2), ("raw", 4), ("photo", 2)), avail, hs, prof))
-assert any("photo shots" in b for b in hybrid.audit(mk(("raw", 3), ("stock", 2), ("raw", 3)), avail, hs, prof))
+assert hybrid.audit(mk(("raw", 3), ("stock", 2), ("raw", 3)), avail, hs, prof) == [], "no photo needed by default"
+assert any("photo shots" in b for b in hybrid.audit(mk(("raw", 3), ("stock", 2), ("raw", 3)), avail, hs_photo, prof))
 assert any("range" in b for b in hybrid.audit(mk(("raw", 9), ("stock", 2), ("photo", 2), ("raw", 3)), avail, hs, prof))
 # a source that does not exist is not demanded
 assert hybrid.audit(mk(("stock", 2), ("photo", 3), ("stock", 1), ("photo", 2)), {"raw": False, "stock": True, "photo": True}, hs, prof) == []

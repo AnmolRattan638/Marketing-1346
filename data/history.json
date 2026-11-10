@@ -173,5 +173,12 @@
     "topic": "Spending 4 hours hunting vs. 4 minutes reviewing",
     "hook_style": "comparison",
     "status": "published"
+  },
+  {
+    "date": "2026-11-10",
+    "service": "animated_ads",
+    "topic": "Spending 4 hours on one static graphic vs. having a professional AI ad ready to upload",
+    "hook_style": "contrast",
+    "status": "published"
   }
 ]

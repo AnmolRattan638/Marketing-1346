@@ -8,6 +8,7 @@ Rules (config.json -> "hybrid"; each is checked again by audit() on the finished
   5. The first shot is the hero's first_shot type (default raw): the hook shows YOU, not stock.
   6. Shot lengths stay inside the range measured from your Hero reels (agent/style.py).
   7. When two or more source types exist, at least two are used.
+  8. A raw clip may only be used for the service it is labelled with (subfolder, notes.txt or file-name prefix), or from raw/general. Unlabelled clips are never used.
 The model only writes the story and a search query per scene; it never picks the source.
 """
 from __future__ import annotations
@@ -115,8 +116,9 @@ def _score(tags: set, words: set) -> int:
     return len(tags & words)
 
 
-def pick_local(items: list[dict], words: set, used: set, rng: random.Random) -> dict | None:
-    fresh = [x for x in items if x["name"] not in used] or items
+def pick_local(items: list[dict], words: set, used: set, rng: random.Random, service: str = "general") -> dict | None:
+    own = [x for x in items if x.get("service") == service and x["name"] not in used]
+    fresh = own or [x for x in items if x["name"] not in used] or items      # the service's own clips first, then general, then reuse
     if not fresh:
         return None
     best = max(_score(x["tags"], words) for x in fresh)
@@ -167,32 +169,53 @@ def make_shot(shot: dict, dest: Path, rng: random.Random) -> None:
          "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-r", FPS, dest])
 
 
-def join(parts: list[Path], shots: list[dict], hs: dict, dest: Path) -> None:
-    """Hard cuts everywhere except the shots marked 'fade', which cross-dissolve. Shot lengths already include the overlap, so the total is exact."""
-    if all(s["transition_in"] == "cut" for s in shots[1:]):
-        lst = dest.with_suffix(".txt")
-        lst.write_text("".join(f"file '{p.resolve()}'\n" for p in parts), encoding="utf-8")
-        run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", dest])
-        lst.unlink()
-        return
+def _xfade(parts: list[Path], durs: list[float], f: float, dest: Path) -> None:
     ins = [x for p in parts for x in ("-i", p)]
-    chain, cur, length = [], "[0:v]", shots[0]["seconds"]
+    chain, cur, length = [], "[0:v]", durs[0]
     for i in range(1, len(parts)):
-        f = hs["fade_seconds"] if shots[i]["transition_in"] == "fade" else 0.04
-        length_i = length - f
+        length -= f
         out = f"[v{i}]"
-        chain.append(f"{cur}[{i}:v]xfade=transition=fade:duration={f}:offset={length_i:.3f}{out}")
-        cur, length = out, length_i + shots[i]["seconds"]
-    run(["ffmpeg", "-y", "-loglevel", "error", *ins, "-filter_complex", ";".join(chain), "-map", cur, "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-pix_fmt", "yuv420p", dest])
+        chain.append(f"{cur}[{i}:v]xfade=transition=fade:duration={f}:offset={length:.3f}{out}")
+        cur, length = out, length + durs[i]
+    run(["ffmpeg", "-y", "-loglevel", "error", *ins, "-filter_complex", ";".join(chain), "-map", cur, "-c:v", "libx264", "-preset", "veryfast",
+         "-crf", "22", "-pix_fmt", "yuv420p", "-r", FPS, dest])
+
+
+def join(parts: list[Path], shots: list[dict], hs: dict, dest: Path) -> None:
+    """Hard cuts, except shots marked 'fade' which cross-dissolve with the shot before them. Shot lengths already include the overlap, so the total is exact.
+    Runs of faded shots are dissolved first, then the runs are joined with plain cuts."""
+    groups: list[list[int]] = []
+    for i, s in enumerate(shots):
+        if i and s["transition_in"] == "fade":
+            groups[-1].append(i)
+        else:
+            groups.append([i])
+    segs = []
+    for g in groups:
+        if len(g) == 1:
+            segs.append(parts[g[0]])
+        else:
+            seg = dest.with_name(f"{dest.stem}_seg{g[0]}.mp4")
+            _xfade([parts[i] for i in g], [shots[i]["seconds"] for i in g], hs["fade_seconds"], seg)
+            segs.append(seg)
+    lst = dest.with_suffix(".txt")
+    lst.write_text("".join(f"file '{p.resolve()}'\n" for p in segs), encoding="utf-8")
+    run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c:v", "libx264", "-preset", "veryfast", "-crf", "22",
+         "-pix_fmt", "yuv420p", "-r", FPS, dest])
+    lst.unlink()
 
 
 # ---------- 5. the whole reel ----------
 class Editor:
-    def __init__(self, cfg: dict, offline: bool):
-        self.cfg, self.offline, self.hs = cfg, offline, settings(cfg)
+    def __init__(self, cfg: dict, offline: bool, service: str = "general"):
+        self.cfg, self.offline, self.hs, self.service = cfg, offline, settings(cfg), service
         self.rng = random.Random(date.today().toordinal())
         root = None if offline and not edits.configured() else edits.sync()
-        self.lib = edits.raw_library(root) if root else {"videos": [], "images": []}
+        full = edits.raw_library(root) if root else {"videos": [], "images": []}
+        self.unassigned = [x["name"] for k in full for x in full[k] if x["service"] == "unassigned"]
+        ok = {service, "general"}
+        self.lib = {k: [x for x in full[k] if x["service"] in ok] for k in full}      # the only clips this reel may ever touch
+        self.others = sum(1 for k in full for x in full[k] if x["service"] not in ok | {"unassigned"})
         reels, notes = edits.hero_reels(root) if root else ([], [])
         from . import style
         self.prof = style.profile(reels, notes)
@@ -203,13 +226,16 @@ class Editor:
                       "photo": offline or bool(self.lib["images"]) or footage.stock_available("photo")}
         if offline and not self.lib["videos"]:
             self._seed_offline()
-        log(f"hybrid: raw videos {len(self.lib['videos'])}, raw photos {len(self.lib['images'])}, hero reels measured {self.prof['reels_measured']}, "
+        if self.unassigned:
+            log(f"hybrid: {len(self.unassigned)} raw file(s) have no service label and are never used: {', '.join(self.unassigned[:6])}")
+        log(f"hybrid: service '{service}': raw videos {len(self.lib['videos'])}, raw photos {len(self.lib['images'])} ({self.others} belong to other services), hero reels measured {self.prof['reels_measured']}, "
             f"shot length {self.prof['shot_min']}-{self.prof['shot_max']}s (median {self.prof['shot_median']}s)")
         if self.hs["strict"] and not offline:
             if not self.configured:
                 raise HybridError("the edits folder is not connected (secret EDITS_DRIVE_URL). Strict hybrid mode needs your raw footage, so no reel was made.")
             if not self.avail["raw"]:
-                raise HybridError("the edits folder has no raw video clips (put them in the 'raw' subfolder). Strict hybrid mode needs them, so no reel was made.")
+                raise HybridError(f"no raw video clip is labelled for '{service}' or 'general'. Put clips in edits/raw/{service}/ (or edits/raw/general/ for clips that fit any service), "
+                                  f"or name them {service}_something.mp4. {len(self.unassigned)} unlabelled file(s) are ignored. Strict mode needs your clips, so no reel was made.")
 
     def _seed_offline(self) -> None:
         """Offline tests: pretend the edits folder has 3 landscape raw clips and 2 photos."""
@@ -217,10 +243,10 @@ class Editor:
         d = Path(tempfile.mkdtemp(prefix="edits_offline_"))
         for n in ("website_demo", "chatbot_demo", "desk_setup"):
             self._synthetic("raw", d / f"{n}.mp4", len(n))
-            self.lib["videos"].append({"path": d / f"{n}.mp4", "name": f"{n}.mp4", "tags": edits.tags_of(n + ".x")})
+            self.lib["videos"].append({"path": d / f"{n}.mp4", "name": f"{n}.mp4", "tags": edits.tags_of(n + ".x"), "service": self.service})
         for k, n in enumerate(("portfolio_shot", "team_photo")):
             self._synthetic("photo", d / f"{n}.jpg", k)
-            self.lib["images"].append({"path": d / f"{n}.jpg", "name": f"{n}.jpg", "tags": edits.tags_of(n + ".x")})
+            self.lib["images"].append({"path": d / f"{n}.jpg", "name": f"{n}.jpg", "tags": edits.tags_of(n + ".x"), "service": "general"})
         self.avail["raw"] = True
 
     def library_summary(self) -> str:
@@ -261,6 +287,9 @@ class Editor:
             if shots[i + 1]["transition_in"] == "fade":
                 s["seconds"] += self.hs["fade_seconds"]
         bad = audit(shots, self.avail, self.hs, self.prof)
+        for s in shots:
+            if s["type"] in ("raw", "photo") and s["credit"].get("service") not in (None, self.service, "general"):
+                bad.append(f"a raw clip labelled '{s['credit']['service']}' was used in a '{self.service}' reel")
         self.violations = bad
         if bad:
             if self.hs["strict"]:
@@ -290,16 +319,16 @@ class Editor:
             if not self.avail.get(t):
                 continue
             if t == "raw":
-                item = pick_local(self.lib["videos"], words, self.used_local, self.rng)
+                item = pick_local(self.lib["videos"], words, self.used_local, self.rng, self.service)
                 if item:
                     self.used_local.add(item["name"])
-                    s.update(type="raw", src=item["path"], credit={"file": item["name"]})
+                    s.update(type="raw", src=item["path"], credit={"file": item["name"], "service": item["service"]})
                     return
             elif t == "photo":
-                item = pick_local(self.lib["images"], words, self.used_local, self.rng)
+                item = pick_local(self.lib["images"], words, self.used_local, self.rng, self.service)
                 if item:
                     self.used_local.add(item["name"])
-                    s.update(type="photo", src=item["path"], credit={"file": item["name"]})
+                    s.update(type="photo", src=item["path"], credit={"file": item["name"], "service": item["service"]})
                     return
                 dest = base.with_suffix(".jpg")
                 if self.offline:

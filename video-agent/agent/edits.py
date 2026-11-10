@@ -53,6 +53,26 @@ def _sub(root: Path, name: str) -> Path | None:
     return None
 
 
+SERVICES = ["website", "chatbot", "animated_ads", "lead_gen", "reel_scripts", "seo_blogs"]
+
+
+def detect_service(topic: str, cfg: dict) -> tuple[str, str]:
+    """-> (service id or 'general', topic text without any [tag]). Never asks the model. An explicit `[chatbot] topic` tag wins; otherwise the
+    service whose keywords match the topic most (whole words); a tie or no match is 'general', which only uses raw/general clips."""
+    m = re.match(r"\s*\[([a-z_]+)\]\s*(.*)", topic, flags=re.S)
+    if m:
+        tag, rest = m.group(1), m.group(2)
+        if tag in SERVICES or tag == "general":
+            return tag, rest
+        raise ValueError(f"unknown service tag [{tag}] in the topic; use one of: {', '.join(SERVICES)}, general")
+    text = " " + re.sub(r"[^a-z0-9]+", " ", topic.lower()) + " "
+    score = {sid: sum(1 for k in kws if f" {k} " in text) for sid, kws in (cfg.get("services") or {}).items()}
+    best = sorted(score.items(), key=lambda kv: -kv[1])
+    if best and best[0][1] > 0 and (len(best) == 1 or best[0][1] > best[1][1]):
+        return best[0][0], topic
+    return "general", topic
+
+
 def tags_of(name: str) -> set[str]:
     words = re.split(r"[^a-z0-9]+", Path(name).stem.lower())
     return {w for w in words if len(w) > 2 and w not in STOP and not w.isdigit()}
@@ -63,8 +83,25 @@ def read_notes(folder: Path | None) -> list[str]:
     return [l.strip() for l in f.read_text(encoding="utf-8", errors="ignore").splitlines() if l.strip() and not l.startswith("#")] if f else []
 
 
+def service_of(rel: Path, desc: str) -> str:
+    """Which service a raw file represents, from explicit labels only (never guessed from what is on screen):
+    1. its subfolder: raw/chatbot/x.mp4 (raw/general/ for clips that fit every service)
+    2. a notes.txt line  `x.mp4: service=chatbot, me demoing the bot`
+    3. a file name that starts with the service id: chatbot_demo.mp4
+    Anything else is 'unassigned' and is never used."""
+    if len(rel.parts) > 1 and (rel.parts[0].lower() in SERVICES or rel.parts[0].lower() == "general"):
+        return rel.parts[0].lower()
+    m = re.search(r"service\s*=\s*([a-z_]+)", desc.lower())
+    if m and (m.group(1) in SERVICES or m.group(1) == "general"):
+        return m.group(1)
+    for sid in SERVICES:
+        if re.match(rf"{sid}[^a-z]", rel.name.lower() + "."):
+            return sid
+    return "unassigned"
+
+
 def raw_library(root: Path | None) -> dict:
-    """{'videos': [{path, name, tags}], 'images': [...]} from edits/raw. Tags come from the file name plus any `filename: description` line in notes.txt."""
+    """{'videos': [...], 'images': [...]} from edits/raw; each item has path, name, tags, service. notes.txt lines are `filename: service=chatbot, what it shows`."""
     lib = {"videos": [], "images": []}
     raw = _sub(root, "raw") if root else None
     if not raw:
@@ -78,8 +115,9 @@ def raw_library(root: Path | None) -> dict:
         ext = f.suffix.lower()
         if not f.is_file() or f.name.startswith(".") or ext not in VIDEO_EXT | IMAGE_EXT:
             continue
-        tags = tags_of(f.name) | tags_of(desc.get(f.name.lower(), "") + ".x")
-        lib["videos" if ext in VIDEO_EXT else "images"].append({"path": f, "name": f.name, "tags": tags})
+        d = desc.get(f.name.lower(), "")
+        tags = tags_of(f.name) | tags_of(re.sub(r"service\s*=\s*[a-z_]+", "", d) + ".x")
+        lib["videos" if ext in VIDEO_EXT else "images"].append({"path": f, "name": f.name, "tags": tags, "service": service_of(f.relative_to(raw), d)})
     return lib
 
 

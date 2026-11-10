@@ -57,5 +57,58 @@
     "min_photo_shots": 0,
     "max_same_in_row": 2,
     "fade_seconds": 0.2
+  },
+  "services": {
+    "website": [
+      "website",
+      "websites",
+      "web site",
+      "landing page",
+      "homestay",
+      "google business",
+      "web design",
+      "web development"
+    ],
+    "chatbot": [
+      "chatbot",
+      "chatbots",
+      "chat bot",
+      "whatsapp",
+      "auto reply",
+      "auto replies",
+      "customer messages",
+      "dms"
+    ],
+    "animated_ads": [
+      "animated ad",
+      "animated ads",
+      "video ad",
+      "video ads",
+      "ad creative",
+      "ad creatives"
+    ],
+    "lead_gen": [
+      "lead",
+      "leads",
+      "lead generation",
+      "localsignal",
+      "prospects",
+      "prospecting"
+    ],
+    "reel_scripts": [
+      "reel script",
+      "reel scripts",
+      "script writing",
+      "reel hook",
+      "hooks"
+    ],
+    "seo_blogs": [
+      "seo",
+      "blog",
+      "blogs",
+      "blog writing",
+      "google ranking",
+      "keywords"
+    ]
   }
 }

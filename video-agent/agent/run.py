@@ -12,6 +12,7 @@ from . import notify
 from .captions import get_words
 from .common import ROOT, WORK, load_config, log, media_duration
 from .footage import fetch_clip
+from . import edits
 from .hybrid import Editor, HybridError
 from .manifest import available_sfx, build_manifest
 from .plan import make_plan, sample_plan
@@ -41,7 +42,9 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
     (WORK / "narration").mkdir(parents=True)
 
     hybrid_on = (cfg.get("hybrid") or {}).get("enabled", True)
-    editor = Editor(cfg, offline) if hybrid_on else None
+    service, topic = edits.detect_service(topic, cfg)
+    log(f"service for this reel: {service}")
+    editor = Editor(cfg, offline, service) if hybrid_on else None
     plan = sample_plan() if offline else make_plan(topic, cfg, editor.library_summary() if editor else "")
     (out_dir / "plan.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding="utf-8")
     log(f"plan: '{plan['title']}' with {len(plan['scenes'])} scenes")
@@ -75,7 +78,7 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
         shots = [x for b in built for x in b["clip"].get("shots", [])]
         total = sum(x["seconds"] for x in shots) or 1
         share = {t: sum(x["seconds"] for x in shots if x["type"] == t) / total for t in ("raw", "stock", "photo")}
-        summary = (f"\nHybrid: {len(shots)} shots, your raw {share['raw']:.0%}, stock {share['stock']:.0%}, photos {share['photo']:.0%}; "
+        summary = (f"\nService: {service}. Hybrid: {len(shots)} shots, your raw {share['raw']:.0%}, stock {share['stock']:.0%}, photos {share['photo']:.0%}; "
                    f"cut rhythm {editor.prof['shot_min']}-{editor.prof['shot_max']}s from {editor.prof['reels_measured']} hero reel(s). {'All rules passed.' if not editor.violations else 'RULES NOT MET: ' + '; '.join(editor.violations)}")
         log(summary.strip())
     if no_render:

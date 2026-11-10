@@ -8,6 +8,7 @@ import type { NarrationRange } from "./audio/useDucking";
 import ExampleScene from "./sequences/ExampleScene";
 import KitchenSink from "./sequences/KitchenSink";
 import FootageScene from "./sequences/FootageScene";
+import { LogoBug } from "./components/LogoBug";
 
 // Map of component path (as used in manifest.scenes[].component) to the
 // actual React component. Add entries here as you create new scene files.
@@ -71,6 +72,7 @@ export const Video: React.FC = () => {
           </Sequence>
         );
       })}
+      {manifest.brand?.logo && <LogoBug logo={manifest.brand.logo} />}
     </AbsoluteFill>
   );
 };

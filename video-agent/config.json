@@ -110,5 +110,13 @@
       "google ranking",
       "keywords"
     ]
+  },
+  "logo": {
+    "enabled": true,
+    "position": "top-left",
+    "size": 120,
+    "opacity": 0.92,
+    "marginX": 48,
+    "marginY": 150
   }
 }

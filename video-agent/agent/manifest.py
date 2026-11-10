@@ -26,6 +26,17 @@ def _stage_music(cfg: dict):
     return {"src": "assets/run/music/bed.mp3", "baseVolume": m["base_volume"], "duckTo": m["duck_to"]}
 
 
+def _stage_logo(cfg: dict):
+    """Your logo as a small bug on every frame (config.json -> logo). None when disabled or the file is missing."""
+    lg = cfg.get("logo") or {}
+    src = ROOT / "assets" / "brand" / "logo.png"
+    if not lg.get("enabled") or not src.exists():
+        return None
+    (WORK / "brand").mkdir(parents=True, exist_ok=True)
+    shutil.copy(src, WORK / "brand" / "logo.png")
+    return {"src": "assets/run/brand/logo.png", **{k: lg[k] for k in ("position", "size", "opacity", "marginX", "marginY") if k in lg}}
+
+
 def available_sfx() -> set:
     return {p.stem for p in (ROOT / "assets" / "sfx").glob("*.mp3")}
 
@@ -62,5 +73,6 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict) -> dict:
         "video": {"id": "daily", "width": v["width"], "height": v["height"], "fps": fps,
                   "title": plan["title"]},
         "audio": {"music": _stage_music(cfg)},
+        "brand": {"logo": _stage_logo(cfg)},
         "scenes": scenes,
     }

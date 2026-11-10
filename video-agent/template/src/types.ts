@@ -32,7 +32,17 @@ export interface ManifestScene {
   props?: Record<string, unknown>;
 }
 
+export interface ManifestLogo {
+  src: string;
+  position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+  size?: number;
+  opacity?: number;
+  marginX?: number;
+  marginY?: number;
+}
+
 export interface Manifest {
+  brand?: { logo: ManifestLogo | null };
   video: ManifestVideo;
   audio: ManifestAudio;
   scenes: ManifestScene[];

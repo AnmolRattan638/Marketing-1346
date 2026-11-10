@@ -1341,9 +1341,9 @@
         }
       },
       "latest": {
-        "impressions": 24,
+        "impressions": 26,
         "reach": 5,
-        "views": 24,
+        "views": 26,
         "likes": 2,
         "comments": 1,
         "shares": 0,
@@ -1465,6 +1465,13 @@
           "likes": 0,
           "comments": 0,
           "shares": 0
+        },
+        "7d": {
+          "age_h": 177.2,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
         }
       },
       "latest": {
@@ -1496,6 +1503,18 @@
           "impressions": 17,
           "reach": 2,
           "views": 17,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        },
+        "7d": {
+          "age_h": 177.2,
+          "source": "zernio",
+          "impressions": 26,
+          "reach": 3,
+          "views": 26,
           "likes": 0,
           "comments": 0,
           "shares": 0,
@@ -1760,7 +1779,79 @@
         "saves": 0,
         "clicks": 0
       }
+    },
+    "2026-11-08|instagram": {
+      "date": "2026-11-08",
+      "platform": "instagram",
+      "service": "chatbot",
+      "problem_id": "enquiries-getting-lost-in-chat-history",
+      "angle_type": null,
+      "hook_style": "contrast",
+      "format": "carousel",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "network",
+      "carousel_flavor": "how-it-works",
+      "slides": 7,
+      "published_at": "2026-11-08T11:03:10.000Z",
+      "url": "https://www.instagram.com/p/Dfemp5kiqFl/",
+      "snap": {
+        "48h": {
+          "age_h": 56.7,
+          "source": "zernio",
+          "impressions": 8,
+          "reach": 2,
+          "views": 8,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 8,
+        "reach": 2,
+        "views": 8,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
+    },
+    "2026-11-08|bluesky": {
+      "date": "2026-11-08",
+      "platform": "bluesky",
+      "service": "chatbot",
+      "problem_id": "enquiries-getting-lost-in-chat-history",
+      "angle_type": null,
+      "hook_style": "contrast",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "network",
+      "carousel_flavor": "how-it-works",
+      "slides": 7,
+      "published_at": "2026-11-08T11:03:01.978Z",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzsb6zipct2d",
+      "snap": {
+        "48h": {
+          "age_h": 56.7,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-11-09T22:23:34+00:00"
+  "updated_at": "2026-11-10T19:45:13+00:00"
 }

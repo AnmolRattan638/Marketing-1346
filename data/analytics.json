@@ -1,6 +1,64 @@
 {
   "posts": [
     {
+      "platform": "instagram",
+      "id": "18288015040292848",
+      "url": "https://www.instagram.com/p/DfjuJUCiC3-/",
+      "published_at": "2026-11-10T10:44:45.000Z",
+      "text": "𝗔𝗜 𝗔𝗡𝗜𝗠𝗔𝗧𝗘𝗗 𝗔𝗗𝗦 𝗦𝗔𝗩𝗘 𝗗𝗘𝗦𝗜𝗚𝗡 𝗛𝗢𝗨𝗥𝗦\n→ Chaar ghante ek 𝗦𝗧𝗔𝗧𝗜𝗖 𝗚𝗥𝗔𝗣𝗛𝗜𝗖 par, phir bhi thoda sahi nahi lagta.\n→ 𝗔𝗜 𝗔𝗡𝗜𝗠𝗔𝗧𝗜𝗢𝗡 se professional ad ready hota hai upload ",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 4,
+        "reach": 1,
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-10",
+        "service": "animated_ads",
+        "hook_style": "contrast",
+        "topic": "Spending 4 hours on one static graphic vs. having a professional AI ad ready to upload"
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mzxb47fogn22",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzxb47fogn22",
+      "published_at": "2026-11-10T10:44:42.788416+00:00",
+      "text": "Spent four hours on one static graphic yesterday. An AI animated ad could have been ready to upload in minutes. Not a replacement for talking to customers, just",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-10",
+        "service": "animated_ads",
+        "hook_style": "contrast",
+        "topic": "Spending 4 hours on one static graphic vs. having a professional AI ad ready to upload"
+      }
+    },
+    {
       "platform": "bluesky",
       "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mzupmi67s72x",
       "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzupmi67s72x",
@@ -38,9 +96,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 9,
+        "impressions": 17,
         "reach": 2,
-        "views": 9,
+        "views": 17,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -67,9 +125,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 6,
-        "reach": 1,
-        "views": 6,
+        "impressions": 8,
+        "reach": 2,
+        "views": 8,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -473,9 +531,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 24,
+        "impressions": 26,
         "reach": 5,
-        "views": 24,
+        "views": 26,
         "likes": 2,
         "comments": 1,
         "shares": 0,
@@ -1366,7 +1424,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 25
+      "posts": 26
     }
   },
   "coverage": {
@@ -1631,5 +1689,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-10T07:21:03+00:00"
+  "updated_at": "2026-11-10T19:45:10+00:00"
 }

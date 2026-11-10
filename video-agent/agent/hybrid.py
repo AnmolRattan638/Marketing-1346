@@ -3,7 +3,7 @@
 Rules (config.json -> "hybrid"; each is checked again by audit() on the finished timeline, and in strict mode a violation stops the run):
   1. Your raw footage fills at least min_raw_share of the screen time (when you have raw clips).
   2. Stock video fills at most max_stock_share of it (when other sources exist).
-  3. At least min_photo_shots photos (your own first, otherwise stock photos) when a photo source exists.
+  3. At least min_photo_shots photos (default 0: photos are mixed in by weight but never forced; set it in config.json to require some).
   4. No source type three times in a row (max_same_in_row = 2).
   5. The first shot is the hero's first_shot type (default raw): the hook shows YOU, not stock.
   6. Shot lengths stay inside the range measured from your Hero reels (agent/style.py).
@@ -21,7 +21,7 @@ from . import edits, footage
 from .common import log, media_duration, run
 
 W, H, FPS = 1080, 1920, 30
-DEFAULTS = {"strict": True, "min_raw_share": 0.4, "max_stock_share": 0.45, "min_photo_shots": 1, "max_same_in_row": 2, "fade_seconds": 0.2}
+DEFAULTS = {"strict": True, "min_raw_share": 0.4, "max_stock_share": 0.45, "min_photo_shots": 0, "max_same_in_row": 2, "fade_seconds": 0.2}
 TYPES = ("raw", "stock", "photo")
 
 

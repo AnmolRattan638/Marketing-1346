@@ -1,4 +1,5 @@
-- Rotate to **comparison** or **contrast** hooks (1.66–1.75x) for lead gen; avoid **question** hooks (only 21% of comparison performance).
-- Use **mistake** angle (1.69x); avoid **myth_bust** (0.25x) and **question** angles (0.44x).
-- Visual style: **desk-glow** or **bright-desk** (1.54–1.75x); avoid **network** (0.38x).
-- Post must read as developer sharing real work, not an ad. No demos, samples, or niche targeting. Goal: earn DMs via 'pay after approval' or short conversation offer.
+- Rotate to **contrast** or **comparison** hooks; pause **question** hooks (0.48x angle, 21% of comparison per reach).
+- Lead with the **budget-for-video** pain point (top problem) using a **mistake** angle (1.88x).
+- Use **desk-glow** or **bright-desk** image style (1.91x, 1.46x).
+- Avoid reel format until 3-second hook is fixed; if video, front-load the problem visually.
+- Every post must read like a developer sharing real work, never an ad. Offer only: pay after approval or a short DM conversation.

@@ -1,0 +1,500 @@
+{
+  "id": "2026-11-10-fa99d7",
+  "date": "2026-11-10",
+  "created_at": "2026-11-10T10:42:28+00:00",
+  "status": "pending",
+  "service": "animated_ads",
+  "topic": "Spending 4 hours on one static graphic vs. having a professional AI ad ready to upload",
+  "idea_id": null,
+  "problem_id": "content-creation-takes-too-much-time",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "content-creation-takes-too-much-time",
+    "angle_type": null,
+    "hook_style": "contrast"
+  },
+  "hooks": [
+    {
+      "style": "contrast",
+      "text": "Myth: Animated ads are only for big brands"
+    },
+    {
+      "style": "mistake",
+      "text": "Mistake: spending a day on a post when you could sell"
+    },
+    {
+      "style": "value",
+      "text": "Get a ready‑to‑post AI ad in minutes, no design skills"
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "contrast",
+  "posts": {
+    "instagram": "𝗔𝗜 𝗔𝗡𝗜𝗠𝗔𝗧𝗘𝗗 𝗔𝗗𝗦 𝗦𝗔𝗩𝗘 𝗗𝗘𝗦𝗜𝗚𝗡 𝗛𝗢𝗨𝗥𝗦\n→ Chaar ghante ek 𝗦𝗧𝗔𝗧𝗜𝗖 𝗚𝗥𝗔𝗣𝗛𝗜𝗖 par, phir bhi thoda sahi nahi lagta.\n→ 𝗔𝗜 𝗔𝗡𝗜𝗠𝗔𝗧𝗜𝗢𝗡 se professional ad ready hota hai upload karne ke liye.\n→ Aapka time customers aur kaam ke liye bachega.\n\nDM 𝗔𝗗𝗦 aur bataiye aapka business kya hai. Pehle approve, phir payment.\n\n#SmallBusinessIndia #AIAds #GetClients #FreelanceIndia #LeadGeneration",
+    "linkedin": "Many small business owners lose hours each day creating a single social‑media graphic.\n\nA café owner opens Canva at ten in the morning, selects a template, changes the text, tweaks the colours and still feels the result is not professional enough. By noon the graphic is finally posted, but the morning is already half gone and customers are waiting for replies. The same pattern repeats at a gym, a clinic, or any shop where the owner becomes a part‑time designer for a few hours instead of focusing on customers.\n\nI create short animated ads that small businesses can use on Instagram and Facebook. The ad is a moving image that highlights the offer and answers the most common questions visually. It is not a full video shoot, not a cinema‑style commercial, and it does not replace personal conversations with customers. It is a simple, reusable asset that sits on the profile and works while the owner is busy.\n\nThe process starts with the owner telling me what the business sells and what questions customers ask most often. I then craft an animation using easy‑to‑use AI tools and basic design sense. The draft is sent for review, changes are made until it looks right, and the client pays only after giving approval. There is no long‑term contract and no upfront fee.\n\nBecause the animation is ready to publish, the owner can significantly cut the time spent on creating a single post. The ad runs automatically on Instagram and Facebook while the owner attends to customers, answers calls, or manages inventory. Frequently asked questions are answered visually even after shop hours, so fewer repetitive messages arrive. The online presence appears more polished without hiring a camera crew or a large team.\n\nThis service fits owners who want a clean, moving ad for social media and do not need a complex campaign. It will not fix a slow website, it does not replace personal replies to detailed queries, and it does not guarantee more sales on its own. It is one small piece of a broader online strategy.\n\nIf this sounds like a fit for your business, feel free to reach out. Payment is required only after you approve the final animation. DM ADS to start the conversation.",
+    "bluesky": "Spent four hours on one static graphic yesterday. An AI animated ad could have been ready to upload in minutes. Not a replacement for talking to customers, just a cleaner way to show what you sell. DM ADS if you want to talk."
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I build short animated ads for small businesses on Instagram and Facebook. Quick question: what do you want customers to do after seeing it — call, WhatsApp, or visit your shop? The price range is INR 999 to 2,199, and you pay only after approving the work. I can explain how it would work for you."
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for messaging. I work with any small business in India that talks to customers online, whether it is a shop, clinic, or service. What kind of business do you run, and what do customers ask you most often?"
+    },
+    {
+      "if_they_say": "can you show me a sample?",
+      "reply": "Hi, thanks for messaging. I do not share custom samples for specific business types, but I can explain how an animated ad works for your kind of business. What do you sell, and what is the one question your customers ask again and again?"
+    }
+  ],
+  "image": {
+    "prompt": "a matte‑black laptop with a softly glowing dark‑blue screen showing a half‑finished static graphic, beside a warm white ceramic coffee mug, an open notebook with a pencil, and a small potted succulent. laptop centered in the upper two‑thirds, camera slightly above eye level, lower 40 % clear for headline space. cool key light from a left‑hand window creating a gentle amber rim on the laptop edge, soft shadows under the mug. light walnut desk, faint wood grain, background a blurred daylight window. neutral tones with a single cool‑blue accent, feeling focused and efficient. 85 mm lens at f/1.8, shallow depth of field rendering brushed metal chassis and glass screen crisp, fine dust catching the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-10.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "style": "bold",
+      "headline": "4 hours for one graphic vs. AI animation",
+      "highlight": [
+        "4 hours"
+      ],
+      "sub": "Spending a whole day on one image is a mistake.",
+      "cta": "DM \"ADS\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "bright-desk"
+  },
+  "carousel": {
+    "flavor": "myth-bust",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-10.jpg",
+      "data/media/2026-11-10-s2.jpg",
+      "data/media/2026-11-10-s3.jpg",
+      "data/media/2026-11-10-s4.jpg",
+      "data/media/2026-11-10-s5.jpg",
+      "data/media/2026-11-10-s6.jpg",
+      "data/media/2026-11-10-s7.jpg"
+    ],
+    "alts": [
+      "Myth: Animated ads are only for big brands",
+      "Slide 2 of 7: Spending your day on one image. Time slips away designing a single static post while customers wait. You do the work, but the post does not move.",
+      "Slide 3 of 7: A still post blends into the feed. Customers scroll past images that look like everything else. Your offer gets lost among similar static graphics.",
+      "Slide 4 of 7: Short animated ads made with AI. A simple prompt turns your offer into a moving ad for Instagram and Facebook. No design skills needed.",
+      "Slide 5 of 7: More time for your customers. While the ad handles attention online, you can focus on orders, calls, and daily service.",
+      "Slide 6 of 7: Clean look without hiring help. The animation looks polished and ready to upload. You keep control of your brand message.",
+      "Slide 7 of 7: DM ADS. Message me to discuss if short animated ads fit your business. I will give honest advice."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Myth: Animated ads are only for big brands",
+        "body": "Small businesses can use short animated ads too."
+      },
+      {
+        "role": "problem",
+        "headline": "Spending your day on one image",
+        "body": "Time slips away designing a single static post while customers wait. You do the work, but the post does not move."
+      },
+      {
+        "role": "problem",
+        "headline": "A still post blends into the feed",
+        "body": "Customers scroll past images that look like everything else. Your offer gets lost among similar static graphics."
+      },
+      {
+        "role": "solution",
+        "headline": "Short animated ads made with AI",
+        "body": "A simple prompt turns your offer into a moving ad for Instagram and Facebook. No design skills needed."
+      },
+      {
+        "role": "solution",
+        "headline": "More time for your customers",
+        "body": "While the ad handles attention online, you can focus on orders, calls, and daily service."
+      },
+      {
+        "role": "solution",
+        "headline": "Clean look without hiring help",
+        "body": "The animation looks polished and ready to upload. You keep control of your brand message."
+      },
+      {
+        "role": "cta",
+        "headline": "DM ADS",
+        "body": "Message me to discuss if short animated ads fit your business. I will give honest advice."
+      }
+    ],
+    "scene_prompts": {
+      "4": "a matte‑black laptop with a dark glow, hands resting on its trackpad. the laptop fills the upper 55% of the frame, seen from eye level slightly above, leaving the lower 45% as a calm area for overlay. cool daylight streams from a left window, casting a blue rim around the device and gentle shadows. a wooden desk with a white ceramic mug, a small succulent, and a veil of window light; a blurred neutral wall adds depth. warm wood tones with a single soft‑blue accent, relaxed and productive. 85 mm lens at f/1.8, shallow depth of field, brushed‑metal laptop, glass reflections, fine dust motes, and a translucent holographic carousel of three looping animated frames hovering above the laptop, visualizing AI‑generated short ads. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "6": "a sleek matte‑black laptop with a softly glowing soft‑blue interface, hands of a relaxed person seen from behind, fingertips resting on the trackpad, a small floating holographic AI swirl above the screen. laptop occupies the upper 55% of the frame, viewed from above eye level, lower 45% left uncluttered with a soft‑focus area. daylight from a left‑hand window at 5600K, a rim of soft blue outlining the hands, gentle shadows. light oak desk foreground, a white ceramic mug and a potted succulent mid‑ground, blurred office space with a faint cityscape beyond a window. muted greys and wood with a single soft‑blue accent, calm and confident. 85mm lens at f/1.8, shallow depth of field. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": [
+      "slide_prompt: none",
+      "slide_prompt: none",
+      "slide_prompt: none"
+    ]
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "LinkedIn post contains an absolute outcome claim ('owner no longer spends hours on a single post')."
+    ],
+    "revised": {
+      "instagram": "**AI ANIMATED ADS SAVE DESIGN HOURS**\n→ Chaar ghante ek **STATIC GRAPHIC** par, phir bhi thoda sahi nahi lagta.\n→ **AI ANIMATION** se professional ad ready hota hai upload karne ke liye.\n→ Aapka time customers aur kaam ke liye bachega.\n\nDM **ADS** aur bataiye aapka business kya hai. Pehle approve, phir payment.\n\n#SmallBusinessIndia #AIAds #GetClients #FreelanceIndia #LeadGeneration",
+      "linkedin": "Many small business owners lose hours each day creating a single social‑media graphic.\n\nA café owner opens Canva at ten in the morning, selects a template, changes the text, tweaks the colours and still feels the result is not professional enough. By noon the graphic is finally posted, but the morning is already half gone and customers are waiting for replies. The same pattern repeats at a gym, a clinic, or any shop where the owner becomes a part‑time designer for a few hours instead of focusing on customers.\n\nI create short animated ads that small businesses can use on Instagram and Facebook. The ad is a moving image that highlights the offer and answers the most common questions visually. It is not a full video shoot, not a cinema‑style commercial, and it does not replace personal conversations with customers. It is a simple, reusable asset that sits on the profile and works while the owner is busy.\n\nThe process starts with the owner telling me what the business sells and what questions customers ask most often. I then craft an animation using easy‑to‑use AI tools and basic design sense. The draft is sent for review, changes are made until it looks right, and the client pays only after giving approval. There is no long‑term contract and no upfront fee.\n\nBecause the animation is ready to publish, the owner can significantly cut the time spent on creating a single post. The ad runs automatically on Instagram and Facebook while the owner attends to customers, answers calls, or manages inventory. Frequently asked questions are answered visually even after shop hours, so fewer repetitive messages arrive. The online presence appears more polished without hiring a camera crew or a large team.\n\nThis service fits owners who want a clean, moving ad for social media and do not need a complex campaign. It will not fix a slow website, it does not replace personal replies to detailed queries, and it does not guarantee more sales on its own. It is one small piece of a broader online strategy.\n\nIf this sounds like a fit for your business, feel free to reach out. Payment is required only after you approve the final animation. DM ADS to start the conversation.",
+      "bluesky": "Spent four hours on one static graphic yesterday. An AI animated ad could have been ready to upload in minutes. Not a replacement for talking to customers, just a cleaner way to show what you sell. DM ADS if you want to talk."
+    }
+  },
+  "ad_score": 9,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 343.0,
+        "reach_p50": 690.0,
+        "reach_p90": 1509.0,
+        "risk": "high",
+        "risk_issues": [
+          "{'category': 'language exclusion', 'severity': 'medium', 'description': 'The copy mixes Hindi (e.g., \"Chaar ghante\", \"Aa",
+          "{'category': 'professional displacement / tone‑deafness to designers', 'severity': 'high', 'description': 'The message f",
+          "{'category': 'overpromising / misleading claims', 'severity': 'medium', 'description': 'The claim that AI animation will"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 5.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 6.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 350,
+            "share": 6,
+            "reply": 6,
+            "like": 2
+          },
+          "engagement_rate": 0.0385,
+          "by_role": {
+            "public": {
+              "n": 14,
+              "avg_sentiment": 0.59,
+              "share_rate": 0.429
+            }
+          },
+          "cascade_size": 7,
+          "r_effective": 2.25,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 24,
+          "reach_fraction": 0.034,
+          "r_effective": 0.925,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 4.5
+          },
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 4.2
+          },
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 4.1
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 436.0,
+        "reach_p50": 923.0,
+        "reach_p90": 1996.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'occupation/professional design community', 'severity': 'medium', 'description': 'The copy frames professio",
+          "{'category': 'class', 'severity': 'low', 'description': 'The messaging assumes all small‑business owners have the time, ",
+          "{'category': 'exclusion', 'severity': 'low', 'description': 'The content focuses exclusively on English‑speaking, social"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 5.0,
+          "controversy": 1.0,
+          "emotional_intensity": 2.0,
+          "relatability": 7.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Hype or guarantee words",
+            "impact": "medium"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 350,
+            "share": 6,
+            "reply": 6,
+            "like": 2
+          },
+          "engagement_rate": 0.0385,
+          "by_role": {
+            "public": {
+              "n": 14,
+              "avg_sentiment": 0.593,
+              "share_rate": 0.429
+            }
+          },
+          "cascade_size": 7,
+          "r_effective": 2.25,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 34,
+          "reach_fraction": 0.0475,
+          "r_effective": 0.8833,
+          "polarization": 0.48,
+          "echo_chamber": 0.071
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 5.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 210.0,
+        "reach_p50": 437.0,
+        "reach_p90": 957.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'class', 'severity': 'low', 'description': 'The post suggests that AI can produce ads in minutes compared t"
+        ],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 5.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 347,
+            "share": 4,
+            "reply": 3,
+            "like": 2
+          },
+          "engagement_rate": 0.0253,
+          "by_role": {
+            "public": {
+              "n": 9,
+              "avg_sentiment": 0.456,
+              "share_rate": 0.444
+            }
+          },
+          "cascade_size": 5,
+          "r_effective": 1.6667,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "mistake",
+          "p_beats_chosen": 0.14,
+          "lift_pct": -0.7,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "value",
+          "p_beats_chosen": 0.96,
+          "lift_pct": 5.5,
+          "decisive": true
+        }
+      ],
+      "better": 2,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Replace 'bina kisi freelancer ke' with a line highlighting time saved without implying no freelancer needed; sharpen hook to value-focused (e.g., 'AI ANIMATED ADS SAVE DESIGN HOURS').",
+      "linkedin: Add capital hook line; cut to 3-4 short paragraphs (problem, solution, pay-after-approval, DM); include one illustrative example clearly labelled as example (e.g., 'Example: a bakery ad shows specials and answers \"delivery?\" in mo",
+      "bluesky: Start with capital hook line; insert one illustrative example before DM; keep under 260 chars."
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 10.0
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 5.0
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (ProviderDown)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemini-3.8-flash (HTTP 503)"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 245.0,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 201.9,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 183.1,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 8.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 11.4,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 136.2,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    ]
+  }
+}

@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import os
 import re
-import subprocess
 from pathlib import Path
 
 from .common import ROOT, log
@@ -35,9 +34,13 @@ def sync() -> Path | None:
         return None
     CACHE.mkdir(exist_ok=True)
     log("syncing the edits folder from Google Drive")
-    p = subprocess.run(["gdown", "--folder", url, "-O", str(CACHE), "--remaining-ok", "--quiet"], text=True, capture_output=True)
-    if p.returncode != 0:
-        raise RuntimeError("could not download the edits folder from Drive (is it shared as 'Anyone with the link'? more than 50 files per folder also fails): " + (p.stderr or p.stdout)[-300:])
+    try:
+        import gdown        # the Python API: the command-line flags differ between gdown versions, the function arguments below exist in 5.x and 6.x
+        got = gdown.download_folder(url=url, output=str(CACHE), quiet=True, resume=True)
+    except Exception as e:
+        raise RuntimeError("could not download the edits folder from Drive (is it shared as 'Anyone with the link'? a very large folder can also fail): " + str(e)[-300:]) from e
+    if not got:
+        raise RuntimeError("the Drive folder came back empty or could not be read (share it as 'Anyone with the link' and check the EDITS_DRIVE_URL secret)")
     # gdown puts the folder's own name under the cache; use whichever directory holds hero/ or raw/
     for d in [CACHE, *[x for x in CACHE.iterdir() if x.is_dir()]]:
         names = {x.name.lower() for x in d.iterdir() if x.is_dir()}

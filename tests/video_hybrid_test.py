@@ -35,6 +35,32 @@ assert any("range" in b for b in hybrid.audit(mk(("raw", 9), ("stock", 2), ("pho
 # a source that does not exist is not demanded
 assert hybrid.audit(mk(("stock", 2), ("photo", 3), ("stock", 1), ("photo", 2)), {"raw": False, "stock": True, "photo": True}, hs, prof) == []
 
+# 2b. the Drive download goes through gdown's Python API (the CLI flag --remaining-ok broke in CI) and fails with a clear message
+import types
+fake = types.ModuleType("gdown"); calls = {}
+def fake_dl(url=None, output=None, quiet=False, resume=False, **kw):
+    calls.update(url=url, output=output, kw=kw)
+    root = pathlib.Path(output) / "edits"; (root / "raw" / "website").mkdir(parents=True, exist_ok=True); (root / "hero").mkdir(exist_ok=True)
+    return [str(root / "raw" / "website" / "a.mp4")]
+fake.download_folder = fake_dl
+sys.modules["gdown"] = fake
+os.environ["EDITS_DRIVE_URL"] = "https://drive.google.com/drive/folders/abc"
+edits.CACHE = pathlib.Path(tempfile.mkdtemp())
+synced = edits.sync()
+assert synced.name == "edits" and calls["url"].endswith("abc") and "remaining_ok" not in calls["kw"]
+fake.download_folder = lambda **kw: []
+try:
+    edits.sync(); raise SystemExit("an empty download must fail")
+except RuntimeError as e:
+    assert "empty or could not be read" in str(e)
+def boom(**kw): raise ValueError("Cannot retrieve the public link")
+fake.download_folder = boom
+try:
+    edits.sync(); raise SystemExit("a failed download must fail")
+except RuntimeError as e:
+    assert "Anyone with the link" in str(e)
+del sys.modules["gdown"]; os.environ.pop("EDITS_DRIVE_URL")
+
 # 3. strict mode refuses to run without the edits folder or raw clips
 try:
     hybrid.Editor(cfg, False); raise SystemExit("must refuse without edits")

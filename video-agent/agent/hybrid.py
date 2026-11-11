@@ -1,7 +1,8 @@
 """The strict hybrid editor. Every scene is cut into short shots; every shot is YOUR raw footage, stock video, or a photo. Code decides, not the model.
 
 Rules (config.json -> "hybrid"; each is checked again by audit() on the finished timeline, and in strict mode a violation stops the run):
-  1. Your raw footage fills at least min_raw_share of the screen time (when you have raw clips).
+  1. At least min_raw_shots shots are your own raw footage (default 1; the first shot already is). Each raw shot is the BEST PART of a clip (agent/clipscore.py),
+     never the whole file; a clip can be used for several shots with different parts, and with two or more clips the raw shots use at least two of them.
   2. Stock video fills at most max_stock_share of it (when other sources exist).
   3. At least min_photo_shots photos (default 0: photos are mixed in by weight but never forced; set it in config.json to require some).
   4. No source type three times in a row (max_same_in_row = 2).
@@ -18,11 +19,11 @@ import subprocess
 from datetime import date
 from pathlib import Path
 
-from . import edits, footage
+from . import clipscore, edits, footage
 from .common import log, media_duration, run
 
 W, H, FPS = 1080, 1920, 30
-DEFAULTS = {"strict": True, "min_raw_share": 0.4, "max_stock_share": 0.45, "min_photo_shots": 0, "max_same_in_row": 2, "fade_seconds": 0.2}
+DEFAULTS = {"strict": True, "min_raw_shots": 1, "max_stock_share": 0.45, "min_photo_shots": 0, "max_same_in_row": 2, "fade_seconds": 0.2}
 TYPES = ("raw", "stock", "photo")
 
 
@@ -54,15 +55,13 @@ def allocate(durs: list[float], avail: dict, hs: dict, prof: dict, rng: random.R
     total = sum(durs)
     want = {"raw": 0.5, "stock": 0.3, "photo": 0.2}
     want = {t: want[t] for t in types}
-    if "raw" in want:
-        want["raw"] = max(want["raw"], hs["min_raw_share"] + 0.05)
     if "stock" in want and len(types) > 1:
         want["stock"] = min(want["stock"], hs["max_stock_share"] - 0.05)
     norm = sum(want.values())
     want = {t: v / norm * total for t, v in want.items()}
     got = {t: 0.0 for t in types}
     out: list[str] = []
-    photos_needed = hs["min_photo_shots"] if "photo" in types else 0
+    need = {"raw": hs["min_raw_shots"] if "raw" in types else 0, "photo": hs["min_photo_shots"] if "photo" in types else 0}
     for i, d in enumerate(durs):
         left = len(durs) - i
         ok = list(types)
@@ -72,8 +71,8 @@ def allocate(durs: list[float], avail: dict, hs: dict, prof: dict, rng: random.R
             ok.remove("stock")
         if i == 0 and prof.get("first_shot") in ok:
             pick = prof["first_shot"]
-        elif photos_needed and out.count("photo") < photos_needed and left <= photos_needed - out.count("photo") and "photo" in ok:
-            pick = "photo"
+        elif (short := {t: n - out.count(t) for t, n in need.items() if n > out.count(t)}) and left <= sum(short.values()) and any(t in ok for t in short):
+            pick = max((t for t in short if t in ok), key=lambda t: short[t])      # the minimums are met before the reel runs out of shots
         else:
             pick = max(ok, key=lambda t: (want[t] - got[t]) + rng.uniform(0, 0.01 * total))
         out.append(pick)
@@ -87,8 +86,12 @@ def audit(shots: list[dict], avail: dict, hs: dict, prof: dict) -> list[str]:
     total = sum(s["seconds"] for s in shots) or 1.0
     by = {t: sum(s["seconds"] for s in shots if s["type"] == t) for t in TYPES}
     types = [t for t in TYPES if avail.get(t)]
-    if avail.get("raw") and by["raw"] / total < hs["min_raw_share"] - 0.02:
-        bad.append(f"raw footage is {by['raw'] / total:.0%} of the reel, the rule is at least {hs['min_raw_share']:.0%}")
+    raw_shots = [s for s in shots if s["type"] == "raw"]
+    if avail.get("raw") and len(raw_shots) < hs["min_raw_shots"]:
+        bad.append(f"only {len(raw_shots)} raw shot(s), the rule is at least {hs['min_raw_shots']} of your own footage")
+    files = {s["credit"]["file"] for s in raw_shots if (s.get("credit") or {}).get("file")}
+    if avail.get("raw_clips", 0) >= 2 and len(raw_shots) >= 2 and len(files) == 1:
+        bad.append("every raw shot comes from one clip, the rule is to use at least 2 of your clips")
     if len(types) > 1 and by["stock"] / total > hs["max_stock_share"] + 0.02:
         bad.append(f"stock video is {by['stock'] / total:.0%} of the reel, the rule is at most {hs['max_stock_share']:.0%}")
     if avail.get("photo") and sum(1 for s in shots if s["type"] == "photo") < hs["min_photo_shots"]:
@@ -123,6 +126,14 @@ def pick_local(items: list[dict], words: set, used: set, rng: random.Random, ser
         return None
     best = max(_score(x["tags"], words) for x in fresh)
     return rng.choice([x for x in fresh if _score(x["tags"], words) == best])
+
+
+def pick_raw(items: list[dict], words: set, uses: dict, rng: random.Random, service: str = "general") -> dict | None:
+    """The clip with the FEWEST shots so far (so every clip is used before any is reused), then the service's own clips, then the best tag match."""
+    if not items:
+        return None
+    best = min((uses.get(x["name"], 0), 0 if x.get("service") == service else 1, -_score(x["tags"], words), rng.random(), i) for i, x in enumerate(items))
+    return items[best[-1]]
 
 
 # ---------- 4. making each shot, then joining ----------
@@ -162,7 +173,9 @@ def make_shot(shot: dict, dest: Path, rng: random.Random) -> None:
         run(["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", src, "-vf", vf, "-frames:v", frames, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", dest])
         return
     dur = media_duration(src)
-    start = rng.uniform(0, max(0.0, dur - sec - 0.1)) if dur > sec + 0.2 else 0.0
+    start = shot.get("start")
+    if start is None:     # stock clips (and raw clips that could not be analysed): a random slice
+        start = rng.uniform(0, max(0.0, dur - sec - 0.1)) if dur > sec + 0.2 else 0.0
     loop = ["-stream_loop", "-1"] if dur < sec + 0.1 else []
     vf = _fit_filter(shot["type"] == "raw" and _is_landscape(src)) + f",fps={FPS}" + _zoom(shot["effect"], frames) + ",format=yuv420p"
     run(["ffmpeg", "-y", "-loglevel", "error", *loop, "-ss", f"{start:.2f}", "-i", src, "-t", f"{sec:.3f}", "-vf", vf,
@@ -220,9 +233,11 @@ class Editor:
         from . import style
         self.prof = style.profile(reels, notes)
         self.used_local: set = set()
+        self.raw_uses: dict[str, int] = {}                          # shots per raw clip so far
+        self.taken: dict[str, list[tuple[float, float]]] = {}       # parts of each raw clip already used
         self.used_stock: set = set()
         self.configured = bool(root)
-        self.avail = {"raw": bool(self.lib["videos"]), "stock": offline or footage.stock_available("video"),
+        self.avail = {"raw": bool(self.lib["videos"]), "raw_clips": len(self.lib["videos"]), "stock": offline or footage.stock_available("video"),
                       "photo": offline or bool(self.lib["images"]) or footage.stock_available("photo")}
         if offline and not self.lib["videos"]:
             self._seed_offline()
@@ -291,6 +306,8 @@ class Editor:
             if s["type"] in ("raw", "photo") and s["credit"].get("service") not in (None, self.service, "general"):
                 bad.append(f"a raw clip labelled '{s['credit']['service']}' was used in a '{self.service}' reel")
         self.violations = bad
+        parts = [f"{s['credit']['file']}@{s['credit']['start']}s" for s in shots if s["type"] == "raw" and s["credit"].get("file")]
+        log(f"hybrid: {len(parts)} raw shot(s) from {len({p.split('@')[0] for p in parts})} clip(s): {', '.join(parts)}")
         if bad:
             if self.hs["strict"]:
                 raise HybridError("the reel breaks the hybrid rules: " + "; ".join(bad))
@@ -312,6 +329,17 @@ class Editor:
                                                                       "transition_in": s["transition_in"], **s["credit"]} for s in shots]},
                 "shots": [{"type": s["type"], "seconds": s["seconds"]} for s in shots]}
 
+    def _best_part(self, item: dict, need: float) -> float | None:
+        """Start of the best part of this clip for a shot of `need` seconds, avoiding parts earlier shots already used. None = use a random slice."""
+        dur = media_duration(item["path"])
+        if dur <= need:
+            return 0.0                                  # shorter than the shot: the whole clip (looped by make_shot)
+        taken = self.taken.setdefault(item["name"], [])
+        start = clipscore.best_start(item["path"], need, dur, taken)
+        if start is not None:
+            taken.append((start, start + need))
+        return start
+
     def _fill(self, s: dict, words: set, scene: dict, base: Path, i: int) -> None:
         """Find the asset for this shot; if a source fails, move the shot to the next source in the same order of preference."""
         order = {"raw": ["raw", "photo", "stock"], "stock": ["stock", "raw", "photo"], "photo": ["photo", "raw", "stock"]}[s["type"]]
@@ -319,10 +347,11 @@ class Editor:
             if not self.avail.get(t):
                 continue
             if t == "raw":
-                item = pick_local(self.lib["videos"], words, self.used_local, self.rng, self.service)
+                item = pick_raw(self.lib["videos"], words, self.raw_uses, self.rng, self.service)
                 if item:
-                    self.used_local.add(item["name"])
-                    s.update(type="raw", src=item["path"], credit={"file": item["name"], "service": item["service"]})
+                    self.raw_uses[item["name"]] = self.raw_uses.get(item["name"], 0) + 1
+                    start = self._best_part(item, s["seconds"] + self.hs["fade_seconds"] + 0.1)      # room for a fade overlap
+                    s.update(type="raw", src=item["path"], start=start, credit={"file": item["name"], "service": item["service"], "start": round(start or 0, 2)})
                     return
             elif t == "photo":
                 item = pick_local(self.lib["images"], words, self.used_local, self.rng, self.service)

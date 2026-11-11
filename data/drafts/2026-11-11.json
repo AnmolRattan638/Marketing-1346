@@ -1,0 +1,490 @@
+{
+  "id": "2026-11-11-4322f3",
+  "date": "2026-11-11",
+  "created_at": "2026-11-11T10:01:32+00:00",
+  "status": "pending",
+  "service": "reel_scripts",
+  "topic": "The 15-sentence essay script vs the 3-line spoken framework",
+  "idea_id": "script-three-lines",
+  "problem_id": "not-knowing-what-to-say-on-camera-and-st",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "not-knowing-what-to-say-on-camera-and-st",
+    "angle_type": null,
+    "hook_style": "comparison"
+  },
+  "hooks": [
+    {
+      "style": "comparison",
+      "text": "The mistake of writing a full essay instead of a 3-line prompt"
+    },
+    {
+      "style": "myth",
+      "text": "Small business owners: Myth—long scripts look professional. Fact—simple wins."
+    },
+    {
+      "style": "value",
+      "text": "Entrepreneurs: Try this 3‑beat framework, record confidently in one take."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "comparison",
+  "posts": {
+    "instagram": "𝗠𝗬𝗧𝗛: 𝗟𝗔𝗠𝗕𝗘 𝗦𝗖𝗥𝗜𝗣𝗧 𝗦𝗘 𝗥𝗘𝗘𝗟 𝗩𝗜𝗥𝗔𝗟 𝗛𝗢𝗧𝗜 𝗛𝗔𝗜\n\n→ Essay mat likho, camera par 𝗡𝗔𝗧𝗨𝗥𝗔𝗟 bolo.\n→ Example: Problem batao, proof dikhao, clear 𝗔𝗖𝗧𝗜𝗢𝗡 do.\n→ 3 lines se RETAKES kam ho sakte hain aur time bachega.\n\nDM 𝗦𝗖𝗥𝗜𝗣𝗧 aur batao aapka business kya hai.\n\n#SmallBusinessIndia #ReelTips #ContentCreation #IndianBusiness",
+    "linkedin": "Many small business owners spend hours writing reel scripts that never get posted.\n\nIt often happens late in the evening. A doctor, a boutique owner, or a gym coach decides to record a short video for social media. They open a notes app and write fifteen full sentences. When the camera turns on they try to read every line verbatim. The delivery feels stiff, they stumble, and after many retakes the video is abandoned. The result is a lot of wasted effort and missed opportunities to connect with potential customers.\n\nI provide short reel scripts in Hindi‑English or English that are meant to be spoken naturally. They are not formal marketing copy. Each script contains a three‑second hook that captures attention, a core message lasting thirty to sixty seconds, and a clear call to action at the end. I adapt the wording to match the way you normally speak, so the final video feels authentic.\n\nThe process is simple. First you tell me what your business sells and the most common questions customers ask. I then turn that information into three spoken prompts instead of a dense paragraph. For example: line one states the daily problem, line two offers a practical fix, line three tells the viewer how to contact you. After I send the draft you can suggest edits, and I revise until the wording feels natural for you.\n\nThis structure can reduce the need for multiple retakes and may save hours of second‑guessing. Because you are speaking to the camera as if answering a customer standing in your shop, the language stays conversational and the video stays focused on what buyers care about. The concise format also keeps the video under a minute, which aligns with the attention span of many viewers. It can make regular content creation more realistic for busy owners.\n\nA script cannot create confidence on its own or replace your product knowledge. It only provides a logical flow, a strong opening, and a clear ending. Think of the script as a guide that helps you stay on track, not a magic formula. You still need to record yourself and deliver the points in your own tone.\n\nIf you want a simpler way to record reels, DM SCRIPT.",
+    "bluesky": "Myth: Long scripts make better reels. Staring at 15 lines can cause stiff retakes. Three simple prompts (problem, proof, action) let you speak naturally in front of the camera. DM SCRIPT if you want to try the framework."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much do you charge for reel scripts?",
+      "reply": "Hi! Rates depend on format: single hooks and short scripts start at INR 299, standard sets are INR 499, and longer structured packs are INR 999. You pay only after you approve the work. What kind of business do you run?"
+    },
+    {
+      "if_they_say": "Do you write scripts for my kind of business?",
+      "reply": "Hi! Yes, I write Hinglish and English scripts for local businesses across India. What are the top two or three questions customers ask you before buying?"
+    },
+    {
+      "if_they_say": "I usually write my own scripts, why pay someone?",
+      "reply": "Fair point! If your current scripts are easy to record without dozens of retakes, you definitely should write them yourself. Most owners I speak with struggle with over-writing paragraphs and sounding robotic. If that ever becomes a hurdle, happy to share how a 3-line prompt works."
+    }
+  ],
+  "image": {
+    "prompt": "a crisp white notebook page with a three‑line handwritten script in dark ink, a matte‑black ballpoint pen, and a warm ceramic coffee mug with steam on a reclaimed‑wood café table. the notebook fills the upper two‑thirds, viewed from a slight overhead eye‑level angle, leaving the lower 40% clear for overlay. soft amber pendant light from the left casts gentle shadows, while a cool electric‑cyan rim glow outlines the mug. foreground a coffee bean speck, midground the notebook and pen, background a blurred café wall with subtle bokeh. deep walnut, muted amber, electric‑cyan accent, focused calm. 85mm lens at f/1.8, shallow depth of field, showing paper grain, brushed‑metal pen tip, and glossy mug surface. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-11.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "not-knowing-what-to-say-on-camera-and-st",
+      "angle_type": "comparison",
+      "style": "bold",
+      "headline": "The mistake of essay scripts versus simple prompts",
+      "highlight": [
+        "essay scripts"
+      ],
+      "sub": "Reading paragraphs freezes you. Three lines keep you natural.",
+      "chat": [],
+      "cta": "DM \"SCRIPT\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "glass-ui"
+  },
+  "carousel": {
+    "flavor": "common-mistake",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-11.jpg",
+      "data/media/2026-11-11-s2.jpg",
+      "data/media/2026-11-11-s3.jpg",
+      "data/media/2026-11-11-s4.jpg",
+      "data/media/2026-11-11-s5.jpg",
+      "data/media/2026-11-11-s6.jpg",
+      "data/media/2026-11-11-s7.jpg"
+    ],
+    "alts": [
+      "The mistake of writing a full essay instead of a 3-line prompt",
+      "Slide 2 of 7: What happens when you try to memorize a long script. You stare at the camera trying to recall sentences word for word. One slip means starting again, leaving you drained before you even post.",
+      "Slide 3 of 7: Brochure language does not sound natural on camera. When you read formal sentences, you sound like a printed brochure rather than an owner speaking directly to an everyday customer.",
+      "Slide 4 of 7: Switch to a simple three-part spoken framework. Instead of writing a full script, write just three clear lines: the customer's problem, your proof, and the direct action to take.",
+      "Slide 5 of 7: Speak in your natural everyday voice. Use simple Hinglish or conversational English. When you talk naturally like you do in your daily work, your confidence comes through immediately.",
+      "Slide 6 of 7: Record comfortably without memorizing entire paragraphs. Glancing at three bullet points lets you speak smoothly in one take. It saves valuable time and makes filming reels much more relaxed.",
+      "Slide 7 of 7: DM SCRIPT. Message me to discuss simple reel scripts for your business. We can chat about what fits your daily workflow."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "The mistake of writing a full essay instead of a 3-line prompt",
+        "body": "Memorizing long paragraphs on camera usually makes reels feel stiff."
+      },
+      {
+        "role": "problem",
+        "headline": "What happens when you try to memorize a long script",
+        "body": "You stare at the camera trying to recall sentences word for word. One slip means starting again, leaving you drained before you even post."
+      },
+      {
+        "role": "problem",
+        "headline": "Brochure language does not sound natural on camera",
+        "body": "When you read formal sentences, you sound like a printed brochure rather than an owner speaking directly to an everyday customer."
+      },
+      {
+        "role": "solution",
+        "headline": "Switch to a simple three-part spoken framework",
+        "body": "Instead of writing a full script, write just three clear lines: the customer's problem, your proof, and the direct action to take."
+      },
+      {
+        "role": "solution",
+        "headline": "Speak in your natural everyday voice",
+        "body": "Use simple Hinglish or conversational English. When you talk naturally like you do in your daily work, your confidence comes through immediately."
+      },
+      {
+        "role": "solution",
+        "headline": "Record comfortably without memorizing entire paragraphs",
+        "body": "Glancing at three bullet points lets you speak smoothly in one take. It saves valuable time and makes filming reels much more relaxed."
+      },
+      {
+        "role": "cta",
+        "headline": "DM SCRIPT",
+        "body": "Message me to discuss simple reel scripts for your business. We can chat about what fits your daily workflow."
+      }
+    ],
+    "scene_prompts": {
+      "2": "An angled view of a matte‑black desk fills the upper 55% of the frame, where clenched hands grip a crumpled stack of white script pages, ink‑stained fingertips and a brushed‑metal coffee mug glowing electric‑cyan at its base; the camera looks just above eye level, leaving the lower 45% a dark plane for text. A cool key light from the left washes the hands in blue‑white, while a thin electric‑cyan rim outlines the desk and a floating glass‑like interface card hovers nearby, its blank bars lit. Behind, a deep navy wall with subtle haze reflects on the glossy floor. Palette: charcoal, deep navy, electric cyan accent, tense fatigue. Shot with an 85mm lens at f/1.8, shallow depth of field shows brushed metal texture, glass reflections and fine dust in the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "4": "a pair of matte‑black hands placing three translucent glass cards, each rimmed with electric cyan, hovering just above a brushed‑metal desk. hands and cards fill the upper 55% of the frame, seen from slightly above eye level; the lower 45% remains a smooth dark area for overlay. cool left‑front key light (5600K) highlights the cards, a thin cyan rim light grazes the hands, soft shadows stretch toward the floor. foreground brushed‑metal desk with fine dust specks, midground the floating cards, background a deep navy wall with faint ambient glow and light haze. deep navy palette with electric cyan accent, calm confidence. 85mm lens at f/1.8, shallow depth of field, glass reflections, brushed‑metal sheen, subtle glossy floor reflection. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "5": "a matte‑black ergonomic microphone on a brushed‑aluminum stand, its capsule glowing soft electric cyan, hands (bare, relaxed) adjusting the gain knob. the microphone fills the upper 55% of the frame, seen slightly from above, while the lower 45% is a smooth dark surface ready for text. a cool front‑left key light at 5600K casts a gentle cyan rim on the mic, with soft fill opposite and a faint neon floor glow. a sleek glass tablet lies tilted in front, the mic in the middle, and a deep navy wall behind with faint floating translucent interface cards. deep navy palette with an electric cyan accent conveys calm confidence and effortless flow. Camera: 85mm lens at f/1.8, focus shows brushed metal texture and glass reflections. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": [
+      "slide_prompt: none",
+      "slide_prompt: none"
+    ]
+  },
+  "instagram_mode": "manual_reel",
+  "linkedin_format": "image",
+  "video": {
+    "hook_first_3s": "Essay script vs 3‑line prompt | Stuck writing pages? Try three lines.",
+    "concept": "Hands delete a dense essay, type a short natural Hinglish line, and close the laptop satisfied, showing the shift from cold to warm light.",
+    "parts": [
+      {
+        "time": "0-10s",
+        "voiceover": "Stuck writing pages? Try three lines.",
+        "story": "Laptop glows blue showing a dense essay; hands highlight the paragraph, swipe to delete, screen shifts to warm gold as a 3‑line prompt appears.",
+        "flow_prompt": "A deeply relatable non-commercial indie-film style cinematic micro-story for 'AR Designs', shot on ARRI Alexa Mini LF with a 100mm Macro Anamorphic lens, 4K resolution, 60fps, Kodak Vision3 500T film emulation with rich halation, a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, in a minimalist white workspace with a Nordic oak wood desk, featuring a Space Silver MacBook Pro.\n[00:00-00:03 / Story 0-3s] A micro‑dolly push‑in with an 85mm macro lens at f/1.4 reveals a Space Silver MacBook Pro on a Nordic oak desk, its screen glowing cold blue with a dense essay. A fingertip highlights a paragraph, then the camera racks focus to the glass reflection as a warm voice asks, \"Stuck writing pages? Try three lines.\" The cold blue light bathes brushed aluminium and dust motes, while a single heavy key click punctuates the tension.\n[00:03-00:06 / Story 3-6s] A horizontal slider tracking shot with a 100mm macro anamorphic lens at f/2.0 follows a crisp trackpad swipe that drags the highlighted paragraph off screen, then a decisive delete‑key thud shifts the display to warm gold as the 3200K tungsten lamp flickers on, casting soft shadows over the Nordic oak desk. Volumetric dust motes catch amber light, and a warm lo‑fi synth pad swells.\n[00:06-00:08 / Story 6-8s] A dolly zoom‑out using a 50mm anamorphic lens at f/2.0 introduces three short Hinglish lines in amber and teal tags on the gold screen, while a subtle studio light‑switch click accompanies the appearance. The hand lifts the Space Silver MacBook Pro lid; a crane‑style pull‑back with an 85mm macro lens at f/1.4 captures the satisfying magnetic thock as the lid closes, sealing the warm glow.\n[00:08-00:10 / Story 8-10s] A locked‑off architectural wide shot with a 35mm anamorphic lens at f/2.8 shows the closed laptop resting on the Nordic oak desk, bathed in the soft, diffused light of the matte‑white 3200K lamp. Brushed aluminium edges glint faintly, dust motes swirl in creamy bokeh, and the empty golden space holds a silent invitation for typography, ending with a relieved exhale and a lingering vinyl tail.\nAudio & Voiceover Sync: tense silence, single heavy key click, rhythmic ASMR mechanical keystrokes, crisp trackpad swipe, decisive delete‑key thud, warm lo‑fi ambient synth pad, subtle studio light‑switch click, satisfying magnetic lid‑close thock, relieved exhale, lingering vinyl tail, then silence. Intimate, grounded, conversational voiceover: \"Stuck writing pages? Try three lines.\"",
+        "beat_sheet": "[00:00 - 00:01] Frame 1-60: The Cold Open\nVisual: A Space Silver MacBook Pro sits on a Nordic oak desk. Its screen glows a cold blue, displaying a dense essay. The brushed aluminium chassis reflects crisp glass highlights. Dim ambient light, no lamp yet, lets dust motes float in faint blue haze.\nStory Feel: Cold confusion, mind stuck in endless English ka jam.\nCamera & Lens: micro-dolly push-in, 85mm macro lens at f/1.4, smooth forward motion captures the screen surface.\nAudio Cue: tense silence\n\n[00:01 - 00:02] Frame 61-120: The Highlight\nVisual: A right hand fingertip, skin soft, slides over the Space Silver MacBook Pro keyboard, then lifts to highlight a paragraph. The blue glow sharpens; brushed aluminium edge catches a soft lens flare. The Nordic oak grain stays in muted shadow.\nStory Feel: Ek line ko pakadna, tension ka pehla kadam.\nCamera & Lens: slight tilt-up with centre razor‑sharp, 35mm anamorphic lens at f/2.8, tilt reveals fingertip and highlighted text.\nAudio Cue: single heavy key click\n\n[00:02 - 00:03] Frame 121-180: The Question\nVisual: The camera racks focus from the glowing pixels to the faint reflection of the hand in the screen glass. The voice whispers over the cold blue, while the hand hovers ready to swipe. Dust motes catch a tiny amber glint.\nStory Feel: Stuck writing pages? Try three lines – ek choti si raah.\nCamera & Lens: rack-focus from screen pixels to glass reflection, 50mm anamorphic lens at f/2.0, focus pull reveals hand and text.\nAudio Cue: rhythmic ASMR mechanical keystrokes, spoken words: \"Stuck writing pages? Try three lines.\"\n\n[00:03 - 00:04] Frame 181-240: The Swipe\nVisual: A crisp trackpad swipe glides left across the Space Silver MacBook Pro screen. The highlighted paragraph slides off, leaving a blank space. Cold blue still dominates, but the swipe creates a subtle motion blur on the brushed aluminium.\nStory Feel: Swipe se tension ko hata rahe hain, ek hi gesture mein.\nCamera & Lens: horizontal slider tracking shot alongside the cursor, 100mm macro anamorphic lens at f/2.0, smooth side motion follows finger.\nAudio Cue: crisp trackpad swipe\n\n[00:04 - 00:05] Frame 241-300: The Delete\nVisual: The delete key is pressed; a decisive thud echoes. The paragraph vanishes, and the screen colour instantly shifts from cold blue to a warm gold hue, matching the 3200K tungsten lamp that flickers on the Nordic oak desk.\nStory Feel: Delete ki thud, aur light ka warm switch – relief ka instant feel.\nCamera & Lens: macro probe‑lens tracking shot, 85mm macro lens at f/1.4, tight focus on key and screen transition.\nAudio Cue: decisive delete‑key thud\n\n[00:05 - 00:06] Frame 301-360: The Warm Shift\nVisual: Warm 3200K tungsten lamp casts soft, diffused shadows across the Nordic oak desk. Volumetric dust motes glow amber, floating in the new golden light. The Space Silver MacBook Pro screen now radiates a gentle gold, brushed aluminium catching a creamy bokeh.\nStory Feel: Golden glow se mann ko sukoon, jaise coffee ki steam.\nCamera & Lens: overhead top‑down glide, 35mm anamorphic lens at f/2.8, descending motion reveals lamp and screen.\nAudio Cue: warm lo‑fi ambient synth pad\n\n[00:06 - 00:07] Frame 361-420: The Prompt Appears\nVisual: Three short Hinglish lines appear in amber and teal pacing tags on the gold screen. The text is crisp, the glass reflection shows a soft blurred hand silhouette. The matte‑white lamp’s edge glows with a subtle halo.\nStory Feel: Simple teen lines, ab sab kuch clear – bas three lines!\nCamera & Lens: dolly zoom‑out, 50mm anamorphic lens at f/2.0, subtle pull back emphasizes new text.\nAudio Cue: subtle studio light‑switch click\n\n[00:07 - 00:08] Frame 421-480: The Satisfied Close\nVisual: A hand lifts the Space Silver MacBook Pro lid; the magnetic closure thock resonates. Warm gold from the 3200K lamp floods the frame, dust motes sparkle. The brushed aluminium chassis glints as the lid meets the base.\nStory Feel: Lid close karte hi, satisfaction ka thok, jaise kaam ho gaya.\nCamera & Lens: crane‑style pull‑back, 85mm macro lens at f/1.4, steady retreat captures closing motion.\nAudio Cue: satisfying magnetic lid‑close thock\n\n[00:08 - 00:10] Frame 481-600: The Open Space\nVisual: The closed laptop rests on the Nordic oak desk, bathed in warm 3200K tungsten light. The matte‑white lamp dominates, casting soft shadows. Empty golden space invites typography; dust motes linger in creamy bokeh, brushed aluminium still faintly visible.\nStory Feel: Silence mein warm glow, ready for next idea – ek nayi shuruaat.\nCamera & Lens: locked‑off architectural wide shot, 35mm anamorphic lens at f/2.8, static composition frames empty space.\nAudio Cue: relieved exhale, lingering vinyl tail, then silence"
+      },
+      {
+        "time": "10-20s",
+        "voiceover": "I spot the blank stare, drop the essay, and type a conversational Hinglish line in seconds.",
+        "story": "Hands scroll to the empty script box, erase the essay, type a short Hinglish sentence, and lean back as the lamp’s warm light spreads.",
+        "flow_prompt": "Continuing the non-commercial indie-film style cinematic micro-story for 'AR Designs', shot on ARRI Alexa Mini LF with a 100mm Macro Anamorphic lens, 4K resolution, 60fps, Kodak Vision3 500T film emulation with rich halation, a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, in a minimalist white workspace with a Nordic oak wood desk, featuring a Space Silver MacBook Pro.\n[00:00-00:05 / Story 10-15s] Hands scroll to the empty script box, erase the essay, type a short Hinglish sentence, and lean back as the lamp’s warm light spreads. A slow micro-dolly push-in on a Space Silver MacBook Pro in a minimalist white workspace with a Nordic oak wood desk, shot on a 100mm Macro Anamorphic lens, lit by a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, with brushed aluminium, crisp glass reflections and volumetric dust motes floating in the golden lamp light.\n[00:05-00:10 / Story 15-20s] The screen shows a script document where a stiff, robotic English sentence is replaced by a natural, conversational Hinglish line, with soft amber and teal pacing tags. Deleting the stiff sentence in one clean sweep, then closing the laptop lid when the script is ready, then the camera settles into a calm, balanced composition with a matte-white architectural lamp and a sleek studio microphone in soft focus.\nAudio & Voiceover Sync: Soft room tone, rhythmic key presses and a warm ambient pad that settles under the voiceover. Warm, conversational voiceover: \"I spot the blank stare, drop the essay, and type a conversational Hinglish line in seconds.\"",
+        "beat_sheet": ""
+      },
+      {
+        "time": "20-30s",
+        "voiceover": "Now you can record in one take—DM 'SCRIPT' for your three‑line version.",
+        "story": "Laptop lid closes smoothly, hands place a coffee mug, and a final on‑screen text asks, 'Stuck writing pages?' looping back to the start.",
+        "flow_prompt": "The final act of a non-commercial indie-film style cinematic micro-story for 'AR Designs', shot on ARRI Alexa Mini LF with a 50mm Anamorphic lens, 4K resolution, 60fps, Kodak Vision3 500T film emulation with rich halation, a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, in a minimalist white workspace with a Nordic oak wood desk, featuring a Space Silver MacBook Pro.\n[00:00-00:05 / Story 20-25s] Laptop lid closes smoothly, hands place a coffee mug, and a final on‑screen text asks, 'Stuck writing pages?' looping back to the start. A slow micro-dolly push-in on a Space Silver MacBook Pro in a minimalist white workspace with a Nordic oak wood desk, shot on a 50mm Anamorphic lens, lit by a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, with brushed aluminium, crisp glass reflections and volumetric dust motes floating in the golden lamp light.\n[00:05-00:10 / Story 25-30s] The screen shows a script document where a stiff, robotic English sentence is replaced by a natural, conversational Hinglish line, with soft amber and teal pacing tags. Deleting the stiff sentence in one clean sweep, then closing the laptop lid when the script is ready, then the camera settles into a calm, balanced composition with a matte-white architectural lamp and a sleek studio microphone in soft focus.\nAudio & Voiceover Sync: Soft room tone, rhythmic key presses and a warm ambient pad that settles under the voiceover. Warm, conversational voiceover: \"Now you can record in one take—DM 'SCRIPT' for your three‑line version.\"",
+        "beat_sheet": ""
+      }
+    ],
+    "voiceover": "Stuck writing pages? Try three lines. I spot the blank stare, drop the essay, and type a conversational Hinglish line in seconds. Now you can record in one take—DM 'SCRIPT' for your three‑line version.",
+    "warnings": [
+      "reel clip 2: the model could not write a checked clip (the model failed: no JSON found in model reply), so a plain fallback clip is used. Read it before you generate.",
+      "reel clip 3: the model could not write a checked clip ('beats' needs 6-10 beats of 1-2 seconds, got 0; 'flow_beats' needs 4 beats of 2-3 seconds, got 0; 'audio' is too thin (1), so a plain fallback clip is used. Read it before you generate."
+    ]
+  },
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Instagram caption contains an absolute claim about retakes (\"3 lines se KAM RETAKES lagenge\"), which should be softened.",
+      "LinkedIn post contains absolute outcome claims (\"reduces the need for multiple retakes and saves hours\", \"makes regular content creation realistic\"), which should be softened.",
+      "Bluesky post contains an absolute claim (\"just causes stiff retakes\"), which should be softened."
+    ],
+    "revised": {
+      "instagram": "**MYTH: LAMBE SCRIPT SE REEL VIRAL HOTI HAI**\n\n→ Essay mat likho, camera par **NATURAL** bolo.\n→ Example: Problem batao, proof dikhao, clear **ACTION** do.\n→ 3 lines se RETAKES kam ho sakte hain aur time bachega.\n\nDM **SCRIPT** aur batao aapka business kya hai.\n\n#SmallBusinessIndia #ReelTips #ContentCreation #IndianBusiness",
+      "linkedin": "Many small business owners spend hours writing reel scripts that never get posted.\n\nIt often happens late in the evening. A doctor, a boutique owner, or a gym coach decides to record a short video for social media. They open a notes app and write fifteen full sentences. When the camera turns on they try to read every line verbatim. The delivery feels stiff, they stumble, and after many retakes the video is abandoned. The result is a lot of wasted effort and missed opportunities to connect with potential customers.\n\nI provide short reel scripts in Hindi‑English or English that are meant to be spoken naturally. They are not formal marketing copy. Each script contains a three‑second hook that captures attention, a core message lasting thirty to sixty seconds, and a clear call to action at the end. I adapt the wording to match the way you normally speak, so the final video feels authentic.\n\nThe process is simple. First you tell me what your business sells and the most common questions customers ask. I then turn that information into three spoken prompts instead of a dense paragraph. For example: line one states the daily problem, line two offers a practical fix, line three tells the viewer how to contact you. After I send the draft you can suggest edits, and I revise until the wording feels natural for you.\n\nThis structure can reduce the need for multiple retakes and may save hours of second‑guessing. Because you are speaking to the camera as if answering a customer standing in your shop, the language stays conversational and the video stays focused on what buyers care about. The concise format also keeps the video under a minute, which aligns with the attention span of many viewers. It can make regular content creation more realistic for busy owners.\n\nA script cannot create confidence on its own or replace your product knowledge. It only provides a logical flow, a strong opening, and a clear ending. Think of the script as a guide that helps you stay on track, not a magic formula. You still need to record yourself and deliver the points in your own tone.\n\nIf you want a simpler way to record reels, DM SCRIPT.",
+      "bluesky": "Myth: Long scripts make better reels. Staring at 15 lines can cause stiff retakes. Three simple prompts (problem, proof, action) let you speak naturally in front of the camera. DM SCRIPT if you want to try the framework."
+    }
+  },
+  "ad_score": 7,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 1.1,
+        "breakout_probability": 0.0,
+        "reach_p10": 347.0,
+        "reach_p50": 714.0,
+        "reach_p90": 1644.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'class/economic bias', 'severity': 'low', 'description': 'The content assumes that the audience has access ",
+          "{'category': 'language accessibility', 'severity': 'low', 'description': 'The mix of Hindi and English (e.g., \"LAMBE SCR"
+        ],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 4.0,
+          "educational": 7.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 6.0,
+          "practical_value": 8.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 349,
+            "share": 2,
+            "reply": 5,
+            "like": 4
+          },
+          "engagement_rate": 0.0306,
+          "by_role": {
+            "public": {
+              "n": 11,
+              "avg_sentiment": 0.825,
+              "share_rate": 0.182
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 2.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 21,
+          "reach_fraction": 0.038,
+          "r_effective": 0.81,
+          "polarization": 0.48,
+          "echo_chamber": 0.071
+        },
+        "levers": [
+          {
+            "title": "Add something actionable",
+            "lift_pct": 4.1
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.9
+          },
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 3.9
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 448.0,
+        "reach_p50": 933.0,
+        "reach_p90": 2039.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'disability', 'severity': 'medium', 'description': 'The copy assumes all small‑business owners can comforta",
+          "{'category': 'age', 'severity': 'low', 'description': 'The messaging presumes familiarity and comfort with short‑form vi",
+          "{'category': 'culture', 'severity': 'low', 'description': 'Offering scripts specifically in “Hindi‑English or English” c"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 7.0,
+          "novelty": 5.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 7.0,
+          "practical_value": 8.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 359,
+            "share": 3,
+            "reply": 6,
+            "like": 3
+          },
+          "engagement_rate": 0.0323,
+          "by_role": {
+            "public": {
+              "n": 12,
+              "avg_sentiment": 0.833,
+              "share_rate": 0.25
+            }
+          },
+          "cascade_size": 4,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 25,
+          "reach_fraction": 0.039,
+          "r_effective": 0.8139,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 10.2,
+        "breakout_probability": 0.0,
+        "reach_p10": 222.0,
+        "reach_p50": 474.0,
+        "reach_p90": 1049.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 5.0,
+          "educational": 7.0,
+          "novelty": 5.0,
+          "controversy": 1.0,
+          "emotional_intensity": 2.0,
+          "relatability": 6.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 354,
+            "share": 6,
+            "reply": 4,
+            "like": 2
+          },
+          "engagement_rate": 0.0328,
+          "by_role": {
+            "public": {
+              "n": 12,
+              "avg_sentiment": 0.612,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 7,
+          "r_effective": 1.75,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 40,
+          "reach_fraction": 0.0575,
+          "r_effective": 0.913,
+          "polarization": 0.48,
+          "echo_chamber": 0.071
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "myth",
+          "p_beats_chosen": 0.98,
+          "lift_pct": 12.4,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "value",
+          "p_beats_chosen": 0.93,
+          "lift_pct": 2.8,
+          "decisive": true
+        }
+      ],
+      "better": 1,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Replace hook with myth-busting line (e.g., 'MYTH: LAMBE SCRIPT SE REEL VIRAL HOTI HAI'); soften 'ONE TAKE' to 'kam retakes'; add one generic labelled example of the 3-line framework.",
+      "linkedin: Open with value-based hook (e.g., 'Most owners lose hours scripting reels that never get posted.'); cut redundant sentences; replace absolute 'record in one take' with 'helps reduce retakes'; insert a generic labelled example.",
+      "bluesky: Rewrite hook as myth-busting or value statement (e.g., 'Myth: Long scripts make better reels. Truth: 3 prompts beat 15 lines.'); keep under 260 chars."
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 10.4
+    },
+    "after": {
+      "instagram": 1.1,
+      "linkedin": 0.0,
+      "bluesky": 10.2
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "FAILED google:gemma-4-26b-a4b-it (ProviderDown)",
+      "google:gemini-3.8-flash",
+      "groq.com:openai/gpt-oss-120b"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 29.4,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "ProviderDown",
+        "seconds": 244.1,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      }
+    ]
+  }
+}

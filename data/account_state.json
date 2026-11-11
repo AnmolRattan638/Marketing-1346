@@ -1,26 +1,26 @@
 {
-  "date": "2026-11-10",
-  "stage": "Brand new under 100 followers across all platforms; building trust with minimal engagement",
+  "date": "2026-11-11",
+  "stage": "brand new under 100 followers",
   "followers": 9,
-  "summary": "Instagram bio violates brand rules: names specific niches (hotels, cafes, gyms, homestays) and region (Himachal), states a 24-hour delivery timeframe, and offers a free site check outside website posts. Reels lose 77% viewers in first 3 seconds. Lead_gen outperforms chatbot 5:1 per reach. Contrast/comparison hooks and mistake angles work best but n<5. Bluesky last 4 posts zero engagement.",
-  "guidance": "- Rotate to **contrast** or **comparison** hooks; pause **question** hooks (0.48x angle, 21% of comparison per reach).\n- Lead with the **budget-for-video** pain point (top problem) using a **mistake** angle (1.88x).\n- Use **desk-glow** or **bright-desk** image style (1.91x, 1.46x).\n- Avoid reel format until 3-second hook is fixed; if video, front-load the problem visually.\n- Every post must read like a developer sharing real work, never an ad. Offer only: pay after approval or a short DM conversation.",
+  "summary": "Account is brand new (9 IG, 6 LI, 1 BS followers). Weakest area: hooks failing — Reels lose 77% viewers in first 3s, zero growth despite 21 posts/30d, Bluesky last 5 posts zero engagement. Bio conflicts with rules: names Himachal, specific niches, '24 hrs', and offers free site check outside website posts.",
+  "guidance": "- Hook style to try next: use \"mistake\" angle (1.69x) with \"comparison\" hook style (1.66x); avoid pure \"question\" hooks (earn 27% of comparison per reach).\n- Topics to avoid repeating: another \"contrast\" hook (used 4× recently), another generic \"Spending X hours vs Y minutes\" comparison (already used 3× for different services).\n- Reminder: every post must read like a developer showing real work, never an ad; no demos, samples, or niche targeting.",
   "instructions": {
-    "research": "List 3 common budget/video-production pains Indian small businesses mention in comments/forums (e.g., 'can't afford camera crew', 'stock footage looks generic', 'editing takes too long').",
-    "analysis": "Compare the 3 animated_ads posts (10-30, 11-03, 11-06) — all used question hooks. Note reach/engagement vs lead_gen posts using comparison/contrast hooks.",
-    "writer": "Write a contrast hook: 'Professional video ads cost ₹50k–₹2L. AI animation delivers 80% of the polish for a fraction. The mistake? Thinking you need a camera crew.' Keep it one screen, end with 'DM me — I’ll tell you if it fits your business.'",
-    "image": "Create a desk-glow style static carousel: slide 1 shows a laptop with a rough storyboard sketch; slide 2 shows the same frame rendered as clean AI animation. No logos, no client names. Caption: 'From sketch to motion — no shoot required.'",
-    "video": "Skip reel today. If you must post video, make a 5-second loop: split screen — left side 'Quoting a video agency', right side 'Generating AI ad in browser'. No talking head. First frame must show the cost gap visually."
+    "research": "List 3 common reel script mistakes Indian small businesses (cafes, gyms, coaching centres, shops) make — e.g., no hook, too long, no call-to-action — without naming specific niches.",
+    "analysis": "Compare the 4 recent \"contrast\" posts and 3 \"comparison\" posts: note which got any engagement vs zero; identify if \"mistake\" angle posts (only 1 so far) outperformed.",
+    "writer": "Write one Instagram carousel post for Reel script writing service: hook = comparison of a weak vs strong opening line; angle = mistake (\"Most scripts miss the first 3-second hook\"); body = 3 concrete script fixes; CTA = DM for pay-after-approval script help.",
+    "image": "Create a bold-slow-reveal carousel (3.0x taste): slide 1 shows a weak script line blurred, slide 2 reveals strong rewrite, slide 3 shows 3-point checklist; use desk-glow style (1.75x).",
+    "video": "Not needed today — service is script writing, deliverable is text/carousel."
   },
   "manual_tips": [
-    "Rewrite Instagram bio to: 'Websites, AI chatbots, AI animated ads & lead lists for small businesses across India. Pay after approval. DM for honest advice.' Remove niches, region, timeframes, and free offers.",
-    "Comment thoughtfully on 5 posts from Indian freelancers/agencies discussing client acquisition or video marketing — add value, don't pitch.",
-    "Reply to every story mention or comment on your own posts within 2 hours; move conversations to DM when they ask 'how?' or 'cost?'."
+    "Update Instagram bio: remove 'Himachal', 'hotels, cafes, gyms & homestays', 'ready in 24 hrs', and 'Free 2-min site check'. Replace with: 'Websites, AI chatbots, animated ads & lead gen for small businesses across India. Pay after approval. DM for honest advice.'",
+    "Comment thoughtfully on 5 posts from small business owners in different Indian cities (e.g., a Jaipur cafe, a Kochi gym, a Delhi coaching centre) — ask about their content struggles, don't pitch.",
+    "Spend 15 minutes on LinkedIn engaging with posts from freelancers/agencies selling services to local businesses — lead_gen is your best-performing service (1.95x)."
   ],
   "weak_signals": [
     {
       "id": "follower_stall",
       "platform": "instagram",
-      "detail": "6 posts in 7 days and followers changed by -1"
+      "detail": "6 posts in 7 days and followers changed by +0"
     },
     {
       "id": "high_skip_rate",
@@ -30,17 +30,17 @@
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 19% of what 'lead_gen' earns per person reached"
+      "detail": "by service, 'chatbot' earns 21% of what 'website' earns per person reached"
     },
     {
       "id": "weak_hook_style",
       "platform": "instagram",
-      "detail": "by hook style, 'question' earns 21% of what 'comparison' earns per person reached"
+      "detail": "by hook style, 'question' earns 27% of what 'comparison' earns per person reached"
     },
     {
       "id": "zero_engagement_streak",
       "platform": "bluesky",
-      "detail": "the last 4 settled posts got zero likes, comments, shares and saves"
+      "detail": "the last 5 settled posts got zero likes, comments, shares and saves"
     },
     {
       "id": "follower_stall",

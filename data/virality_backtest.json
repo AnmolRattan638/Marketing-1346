@@ -1,14 +1,14 @@
 {
   "platforms": {
     "instagram": {
-      "n": 18,
-      "spearman": 0.47,
-      "p_value": 0.05,
-      "score_spread": 12.6,
-      "llm_scored": 5,
-      "median_actual_reach": 4.5,
-      "median_predicted_reach": 672.0,
-      "reach_ratio": 0.007,
+      "n": 19,
+      "spearman": 0.54,
+      "p_value": 0.02,
+      "score_spread": 12.5,
+      "llm_scored": 6,
+      "median_actual_reach": 4.0,
+      "median_predicted_reach": 675.0,
+      "reach_ratio": 0.006,
       "verdict": "some signal"
     },
     "linkedin": {

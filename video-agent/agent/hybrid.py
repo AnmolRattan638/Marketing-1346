@@ -36,14 +36,45 @@ def settings(cfg: dict) -> dict:
 
 
 # ---------- 1. cutting a scene into shots ----------
-def split_scene(seconds: float, prof: dict, rng: random.Random) -> list[float]:
+def split_scene(seconds: float, prof: dict, rng: random.Random, words: list[dict] | None = None) -> list[float]:
+    """Cut a scene into shots. With the scene's word timings, every inner cut is moved onto the start of a spoken word (see snap_cuts)."""
     n = max(1, round(seconds / prof["shot_median"]))
     while n > 1 and seconds / n < prof["shot_min"]:
         n -= 1
     while seconds / n > prof["shot_max"]:
         n += 1
     w = [rng.uniform(0.85, 1.15) for _ in range(n)]
-    return [seconds * x / sum(w) for x in w]
+    durs = [seconds * x / sum(w) for x in w]
+    return snap_cuts(durs, words, prof) if words else durs
+
+
+CUT_LEAD = 0.03     # a cut lands this much BEFORE the word it introduces, so the picture is already there when the word is heard
+SNAP_TOLERANCE = 0.3
+
+
+def snap_cuts(durs: list[float], words: list[dict], prof: dict, tol: float = SNAP_TOLERANCE) -> list[float]:
+    """Move each inner cut to the nearest word start within `tol` seconds, so the picture changes WITH the speech instead of in the middle of a word.
+    Shot lengths are kept inside the Hero range and the scene length is unchanged."""
+    n = len(durs)
+    if n < 2 or not words:
+        return durs
+    total = sum(durs)
+    lo_len, hi_len = prof["shot_min"] * 0.9, prof["shot_max"] * 1.3
+    starts = sorted(w["start"] - CUT_LEAD for w in words if 0 < w["start"] < total)
+    bounds, prev = [], 0.0
+    cum = 0.0
+    for k in range(n - 1):
+        cum += durs[k]
+        lo = prev + lo_len
+        hi = min(prev + hi_len, total - (n - 1 - k) * lo_len)
+        if k == n - 2:
+            lo = max(lo, total - hi_len)
+        cands = [t for t in starts if abs(t - cum) <= tol and lo <= t <= hi]
+        b = min(cands, key=lambda t: abs(t - cum)) if cands else min(max(cum, lo), hi)
+        bounds.append(b)
+        prev = b
+    edges = [0.0, *bounds, total]
+    return [edges[i + 1] - edges[i] for i in range(n)]
 
 
 # ---------- 2. deciding the source of every shot ----------
@@ -276,22 +307,35 @@ class Editor:
             src = "testsrc=s=1920x1080:r=30:d=6" if kind == "raw" else "mandelbrot=s=1080x1920:r=30"
             run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", src, "-t", "6", "-pix_fmt", "yuv420p", "-c:v", "libx264", "-preset", "ultrafast", dest])
 
-    def prepare(self, scenes: list[tuple[str, dict, float]], out_dir: Path) -> None:
-        """Plan the WHOLE reel at once (so the share rules apply to the reel, not to each scene): cut, choose sources, fetch assets, audit."""
-        durs, owner = [], []
+    def prepare(self, scenes: list[tuple[str, dict, float]], out_dir: Path, words_by_scene: dict[str, list[dict]] | None = None) -> None:
+        """Plan the WHOLE reel at once (so the share rules apply to the reel, not to each scene): cut on the speech, choose sources, fetch assets, audit.
+        words_by_scene maps a scene id to its word timings (seconds from the scene start); without them cuts are placed by rhythm only."""
+        words_by_scene = words_by_scene or {}
+        durs, owner, t0s = [], [], []
         for sid, sc, seconds in scenes:
-            for d in split_scene(seconds, self.prof, self.rng):
+            t = 0.0
+            for d in split_scene(seconds, self.prof, self.rng, words_by_scene.get(sid)):
                 durs.append(d)
                 owner.append((sid, sc))
+                t0s.append(t)
+                t += d
         types = allocate(durs, self.avail, self.hs, self.prof, self.rng)
         trans = self.prof["transitions"]
-        shots = [{"type": t, "seconds": d, "src": None, "credit": {}, "effect": "none", "transition_in": "cut", "sid": sid}
-                 for t, d, (sid, _) in zip(types, durs, owner)]
+        shots = [{"type": t, "seconds": d, "src": None, "credit": {}, "effect": "none", "transition_in": "cut", "sid": sid, "t0": t0}
+                 for t, d, t0, (sid, _) in zip(types, durs, t0s, owner)]
         work = out_dir / "shots"
         work.mkdir(parents=True, exist_ok=True)
+        broll_n: dict[str, int] = {}
         for i, (s, (sid, sc)) in enumerate(zip(shots, owner)):
-            words = edits.tags_of(sc.get("footage_query", "") + " " + sc.get("narration", "") + ".x")
-            self._fill(s, words, sc, work / f"a{i}", i)
+            query = sc.get("footage_query", "")
+            if s["type"] != "raw" and sc.get("broll"):       # each cutaway shows what is being said at that moment, not the same search again
+                k = broll_n.get(sid, 0)
+                broll_n[sid] = k + 1
+                query = sc["broll"][k % len(sc["broll"])]
+            spoken = " ".join(w["text"] for w in words_by_scene.get(sid, []) if s["t0"] - 0.05 <= w["start"] < s["t0"] + s["seconds"])
+            words = edits.tags_of(query + " " + (spoken or sc.get("narration", "")) + ".x")
+            s["query"] = query
+            self._fill(s, words, {**sc, "footage_query": query}, work / f"a{i}", i)
         # effects and transitions come from the Hero style, never from the model; a scene's first shot always cuts in
         for i, s in enumerate(shots):
             if i and s["sid"] == shots[i - 1]["sid"] and self.rng.uniform(0, sum(trans.values())) < trans.get("fade", 0):
@@ -324,7 +368,8 @@ class Editor:
             parts.append(p)
         dest = out_dir / f"{sid}.mp4"
         join(parts, shots, self.hs, dest)
-        return {"path": f"assets/run/footage/{sid}.mp4", "seconds": round(media_duration(dest), 2),
+        cuts = [{"at": round(s["t0"], 3), "kind": s["transition_in"], "type": s["type"], "effect": s["effect"]} for s in shots[1:]]
+        return {"path": f"assets/run/footage/{sid}.mp4", "seconds": round(media_duration(dest), 2), "cuts": cuts,
                 "credit": {"scene": sid, "source": "hybrid", "shots": [{"type": s["type"], "seconds": round(s["seconds"], 2), "effect": s["effect"],
                                                                       "transition_in": s["transition_in"], **s["credit"]} for s in shots]},
                 "shots": [{"type": s["type"], "seconds": s["seconds"]} for s in shots]}

@@ -14,6 +14,7 @@ Return exactly one JSON object:
     {
       "narration": "One or two short spoken sentences.",
       "footage_query": "2-5 English words describing what we should SEE",
+      "broll": ["shop owner at counter", "customer reading phone"],
       "sfx": [ { "type": "pop", "at": "word", "at_word": "online" } ]
     }
   ],
@@ -30,6 +31,9 @@ Return exactly one JSON object:
 - Write narration in the requested language. Always write `footage_query` in English, because stock
   sites search in English. Describe concrete things a camera can film (shop counter, hands typing
   on laptop), not ideas ("success", "growth").
+- `broll` is 2-3 short English searches for cutaway shots inside that scene, in the order the narration
+  mentions things (each one filmable: hands on keyboard, customer reading phone). Each cutaway shot uses
+  the next one, so the picture changes with what is being said. Keep `footage_query` as the scene's main look.
 - Never mention prices, guarantees or results you cannot back up.
 - `sfx` is optional: at most one entry per scene, and none in some scenes. A whoosh on every cut is
   added automatically, so do not request it. Use `pop` on one key word, `riser` before a reveal,

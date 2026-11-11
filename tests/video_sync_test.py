@@ -1,0 +1,98 @@
+"""Offline test: picture, SFX, captions and B-roll stay in sync with the narration (cuts on words, SFX on cuts and emphasis words, per-shot B-roll)."""
+import json, os, pathlib, random, sys, tempfile
+ROOT = pathlib.Path(__file__).resolve().parent.parent / "video-agent"
+sys.path.insert(0, str(ROOT))
+os.chdir(ROOT)
+for k in ("EDITS_DIR", "EDITS_DRIVE_URL", "PEXELS_API_KEY", "PIXABAY_API_KEY", "COVERR_API_KEY", "UNSPLASH_ACCESS_KEY"):
+    os.environ.pop(k, None)
+from agent import hybrid, sfx_plan, style
+from agent.common import load_config
+from agent.schema import validate_plan
+
+prof = dict(style.DEFAULT)
+cfg = load_config()
+
+# 1. cuts land on the start of a spoken word (a hair early), shots stay inside the Hero range, the scene length does not change
+rng = random.Random(1)
+for seed in range(80):
+    rng = random.Random(seed)
+    total = rng.uniform(3.0, 8.0)
+    words, t = [], 0.0
+    while t < total - 0.3:
+        d = rng.uniform(0.18, 0.5); words.append({"text": "w", "start": round(t, 3), "end": round(t + d, 3)}); t += d + rng.uniform(0, 0.12)
+    durs = hybrid.split_scene(total, prof, rng, words)
+    assert abs(sum(durs) - total) < 1e-6, (seed, sum(durs), total)
+    assert all(prof["shot_min"] * 0.6 <= d <= prof["shot_max"] * 1.5 for d in durs), (seed, durs)
+    starts = [w["start"] - hybrid.CUT_LEAD for w in words]
+    cum = 0.0
+    snapped = 0
+    for d in durs[:-1]:
+        cum += d
+        if any(abs(cum - s) < 1e-6 for s in starts):
+            snapped += 1
+    assert snapped >= len(durs[:-1]) - 1, f"seed {seed}: only {snapped} of {len(durs) - 1} cuts sit on a word start: {durs}"
+assert hybrid.split_scene(5.0, prof, random.Random(3)), "no words: still cuts by rhythm"
+
+# 2. SFX are placed from real times
+words = [{"text": "Most", "start": 0.0, "end": 0.3}, {"text": "customers", "start": 0.3, "end": 0.9}, {"text": "search", "start": 0.9, "end": 1.4},
+         {"text": "online", "start": 2.0, "end": 2.6}, {"text": "today.", "start": 3.2, "end": 3.7}]
+scene = {"sfx": [{"type": "pop", "at": "word", "at_word": "online"}, {"type": "riser", "at": "word", "at_word": "today"}]}
+avail = {"whoosh", "pop", "riser", "click"}
+beats = sfx_plan.emphasis_beats(scene, words)
+assert beats == [("online", 2.0), ("today.", 3.2)], beats
+cuts = [{"at": 1.5, "kind": "cut", "type": "stock", "effect": "none"}, {"at": 2.2, "kind": "fade", "type": "photo", "effect": "none"},
+        {"at": 3.0, "kind": "cut", "type": "raw", "effect": "none"}]
+cues = sfx_plan.plan_sfx(2, scene, words, avail, cuts)
+by = lambda k: [c for c in cues if c["type"] == k]
+assert by("pop") and by("pop")[0]["atSecond"] == 2.0, "the pop lands on the first sound of its word"
+assert abs(by("riser")[0]["atSecond"] - (3.2 - sfx_plan.RISER_SECONDS)) < 1e-6, "the riser ends on its word"
+assert any(abs(c["atSecond"] - (1.5 - sfx_plan.LEAD["whoosh"])) < 1e-6 for c in by("whoosh")), "the cutaway whoosh peaks on the cut"
+assert not any(abs(c["atSecond"] - 2.2) < 0.25 for c in cues if c["type"] != "pop"), "a dissolve gets no sound"
+hits = [c for c in cues if c["type"] != "riser"]
+assert all(b["atSecond"] - a["atSecond"] >= sfx_plan.MIN_GAP - 1e-6 for a, b in zip(hits, hits[1:])), "transients never stack"
+assert len(cues) <= sfx_plan.MAX_PER_SCENE and cues == sorted(cues, key=lambda c: c["atSecond"])
+many = [{"at": 0.4 * i, "kind": "cut", "type": "stock", "effect": "none"} for i in range(1, 14)]
+crowded = sfx_plan.plan_sfx(1, scene, words, avail, many)
+assert any(c["type"] == "pop" for c in crowded) and any(c["type"] == "riser" for c in crowded), "planner hints beat automatic cut sounds"
+assert len(crowded) <= sfx_plan.MAX_PER_SCENE
+
+# 3. the plan accepts per-scene B-roll; each cutaway shot uses the next query
+plan = json.loads((ROOT / "examples" / "sample_plan.json").read_text())
+assert validate_plan(plan) == [] and all(len(s["broll"]) >= 2 for s in plan["scenes"])
+bad = json.loads(json.dumps(plan)); bad["scenes"][0]["broll"] = ["ok words", "x"]
+assert validate_plan(bad), "a too-short B-roll query is rejected"
+ed = hybrid.Editor(cfg, True, "general")
+asked = []
+orig = ed._fill
+def spy(s, words_, scene_, base, i):
+    asked.append((s["type"], scene_["footage_query"]))
+    return orig(s, words_, scene_, base, i)
+ed._fill = spy
+sc = {"footage_query": "main look", "narration": "a b c", "broll": ["first cutaway", "second cutaway"]}
+ed.prepare([("s1", sc, 9.0)], pathlib.Path(tempfile.mkdtemp()), {"s1": [{"text": "a", "start": 0.2, "end": 0.5}]})
+non_raw = [q for t, q in asked if t != "raw"]
+raw = [q for t, q in asked if t == "raw"]
+assert non_raw[:2] == ["first cutaway", "second cutaway"][:len(non_raw[:2])] and set(non_raw) <= {"first cutaway", "second cutaway"}, asked
+assert set(raw) == {"main look"}, "your own footage keeps the scene's main look"
+assert all("t0" in s for s in ed.shots) and abs(sum(s["seconds"] for s in ed.shots) - 9.0) < 0.5
+
+# 4. the manifest of a whole offline run lines picture, audio and captions up
+import subprocess
+r = subprocess.run([sys.executable, "-m", "agent.run", "--offline", "--no-render"], capture_output=True, text=True)
+assert r.returncode == 0, r.stdout[-800:] + r.stderr[-800:]
+import glob, shutil
+run_dir = sorted(glob.glob(str(ROOT / "runs" / "*")))[-1]
+m = json.loads((pathlib.Path(run_dir) / "manifest.json").read_text())
+credits = json.loads((pathlib.Path(run_dir) / "credits.json").read_text())
+fps = m["video"]["fps"]
+for i, (scn, cr) in enumerate(zip(m["scenes"], credits)):
+    p, dur = scn["props"], scn["duration"]
+    shot_total = sum(s["seconds"] for s in cr["shots"])
+    assert abs(shot_total - dur) < 0.3, (scn["id"], shot_total, dur)                          # picture length = narration length
+    assert all(0 <= c["atSecond"] <= dur for c in scn["sfx"]), scn["sfx"]                     # every SFX inside its scene
+    assert all(w["end"] <= dur + 1e-6 for w in p["words"]), "caption words stay inside the scene"
+    starts = {round(w["start"], 3) for w in p["words"] if w["text"].strip(".,!?").lower() in {e.strip(".,!?").lower() for e in p["emphasis"]}}
+    assert set(p["pulses"]) <= starts, (p["pulses"], starts)                                  # the zoom pulse lands on the emphasis word
+    assert ("fadeOutFrames" in p) == (i == len(m["scenes"]) - 1), "only the last scene fades to black"
+shutil.rmtree(run_dir, ignore_errors=True)
+print("video sync test passed: cuts on words, SFX on cuts and emphasis words, per-shot B-roll, manifest lines up")

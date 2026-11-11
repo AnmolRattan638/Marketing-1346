@@ -45,6 +45,15 @@ NOT tested (no keys or network access in the sandbox): Groq planning and Whisper
 ## Your cloned voice (Chatterbox, open source, MIT)
 `agent/voice.py` can speak every reel in your own voice. The reference clip is never committed (the repo is public): put it in the secret `VOICE_REF_B64` (base64 of a 10-15 s clip). Run Actions -> "Voice test (your cloned voice)" first: it sends three test lines (Hindi, Roman Hinglish, English) to Telegram with how long each took. If you like them, set `"voice_engine": "chatterbox"` in `config.json`. If your voice fails for any reason, the chain falls back to Kokoro and then edge-tts, so a reel is never blocked.
 
+## Sync and look (cuts, SFX, captions, B-roll)
+
+- **Cuts follow the speech.** Inside a scene every cut is moved onto the start of a spoken word (3 frames early), within the Hero shot-length range. Whisper's word times drive it, so the picture changes as the word begins.
+- **SFX are placed from real times.** A pop lands on the first sound of its word, a riser ends on its word, a whoosh starts 0.2 s before the cut it belongs to so the swell peaks on the cut (cutaway to B-roll = quiet whoosh, back to your footage = click, dissolves = silence). Planner hints win over automatic cut sounds; at most 5 cues a scene. Tune `LEAD`, `VOLUMES`, `CUT_VOLUMES` in `agent/sfx_plan.py` by ear.
+- **Hard cuts between scenes**, no dip to black; each scene settles in with the whoosh and the picture punches in on every emphasis word (same moment as the pop). Only the very end fades out.
+- **Animated captions** (`template/src/components/Captions.tsx`): short phrases that spring in, the spoken word on a pill that pops on its first sound, emphasis words (the planner's pop/riser words and numbers) in a hotter gradient, stroke + shadow, eased exit.
+- **B-roll that matches the words.** The planner gives each scene 2-3 `broll` searches in spoken order; each cutaway shot uses the next one and the words spoken during it (stock and photos). Your own footage keeps the scene's main look.
+- `tests/video_sync_test.py` checks all of this offline.
+
 ## Hybrid editing from your `edits` folder (strict)
 Put one folder in Google Drive, share it as "Anyone with the link", and add its link as the repo secret `EDITS_DRIVE_URL`:
 ```

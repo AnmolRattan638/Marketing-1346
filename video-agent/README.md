@@ -6,7 +6,7 @@ Personal daily short-video agent. Groq writes the plan, Pexels gives footage, Ko
 
 1. Create a new private GitHub repo and push this folder.
 2. Repo → Settings → Secrets and variables → Actions → add:
-   `GROQ_API_KEY`, `PIXABAY_API_KEY` (free, instant; used while Pexels is not issuing keys) and/or `PEXELS_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`
+   `GROQ_API_KEY`, `PIXABAY_API_KEY` (free, instant; used while Pexels is not issuing keys) and/or `PEXELS_API_KEY`, optional extra fallbacks `COVERR_API_KEY` (video, after Pexels/Pixabay) and `UNSPLASH_ACCESS_KEY` (photos, after Pixabay/Pexels), `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`
    (secrets are per repo, so re-add them even if Marketing-1346 has them).
 3. Run `cd template && npm install` once locally or in a Codespace and commit `package-lock.json` (already included in the zip).
 4. Edit `topics.txt` (one topic per line, picked by date) and `config.json` (language `en` or `hi`, voice, brand notes).

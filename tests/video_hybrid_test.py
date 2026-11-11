@@ -3,7 +3,7 @@ import os, pathlib, random, sys, tempfile
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "video-agent"
 sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
-for k in ("EDITS_DIR", "EDITS_DRIVE_URL", "PEXELS_API_KEY", "PIXABAY_API_KEY"):
+for k in ("EDITS_DIR", "EDITS_DRIVE_URL", "PEXELS_API_KEY", "PIXABAY_API_KEY", "COVERR_API_KEY", "UNSPLASH_ACCESS_KEY"):
     os.environ.pop(k, None)
 from agent import edits, hybrid, style
 from agent.common import load_config, media_duration

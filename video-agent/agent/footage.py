@@ -1,4 +1,4 @@
-"""Footage: your own hero clips, then Pexels, then Pixabay (free key, used while Pexels is not issuing keys), then a placeholder if all else fails."""
+"""Footage: your own hero clips, then stock video (Pexels -> Pixabay -> Coverr) and stock photos (Pixabay -> Pexels -> Unsplash), then a placeholder if all else fails."""
 from __future__ import annotations
 
 import os
@@ -11,6 +11,8 @@ from .common import ROOT, log, media_duration, run
 
 PEXELS_URL = "https://api.pexels.com/videos/search"
 PIXABAY_URL = "https://pixabay.com/api/videos/"
+COVERR_URL = "https://api.coverr.co/videos"
+UNSPLASH_URL = "https://api.unsplash.com/search/photos"
 
 
 def _search(query: str, key: str) -> list[dict]:
@@ -49,6 +51,21 @@ def _pixabay_file(hit: dict) -> dict | None:
     return None
 
 
+def _coverr_search(query: str, key: str) -> list[dict]:
+    """Coverr: key goes in the x-api-key header; urls=true is needed to get the mp4 links. Vertical clips first, landscape ones are centre-cropped later."""
+    r = requests.get(COVERR_URL, headers={"x-api-key": key}, params={"query": query, "page_size": 20, "urls": "true"}, timeout=30)
+    r.raise_for_status()
+    hits = r.json().get("hits", [])
+    return sorted(hits, key=lambda h: not h.get("is_vertical"))
+
+
+def _unsplash_search(query: str, key: str) -> list[dict]:
+    r = requests.get(UNSPLASH_URL, headers={"Authorization": f"Client-ID {key}", "Accept-Version": "v1"},
+                     params={"query": query, "orientation": "portrait", "per_page": 20, "content_filter": "high"}, timeout=30)
+    r.raise_for_status()
+    return r.json().get("results", [])
+
+
 def _to_portrait(src: Path, dest: Path) -> None:
     """Fill a 1080x1920 frame from any footage (centre crop), 30 fps, no audio."""
     run(["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-an",
@@ -73,7 +90,7 @@ def _placeholder(dest: Path, seconds: float = 8.0) -> None:
 
 
 def _stock_video(query_text: str, dest: Path, used_ids: set) -> dict | None:
-    """One portrait-ish stock video for the query (Pexels, then Pixabay). -> credit dict, or None when nothing was found."""
+    """One portrait-ish stock video for the query (Pexels, then Pixabay, then Coverr). -> credit dict, or None when nothing was found."""
     words = query_text.split()
     queries = [query_text] + ([" ".join(words[:2])] if len(words) > 2 else [])
     if os.environ.get("PEXELS_API_KEY"):
@@ -108,11 +125,30 @@ def _stock_video(query_text: str, dest: Path, used_ids: set) -> dict | None:
                     return {"source": "pixabay", "query": query, "page": hit.get("pageURL"), "videographer": hit.get("user")}
             except Exception as e:
                 log(f"pixabay search failed for '{query}': {e}")
+    if os.environ.get("COVERR_API_KEY"):
+        key = os.environ["COVERR_API_KEY"]
+        for query in queries:
+            try:
+                for v in _coverr_search(query, key):
+                    url = (v.get("urls") or {}).get("mp4") or (v.get("urls") or {}).get("mp4_download")
+                    cid = f"coverr:{v.get('id')}"
+                    if not url or cid in used_ids or (v.get("duration") or 0) < 3:
+                        continue
+                    raw = dest.with_suffix(".src.mp4")
+                    _download(url, raw)
+                    try:
+                        _to_portrait(raw, dest)
+                    finally:
+                        raw.unlink(missing_ok=True)
+                    used_ids.add(cid)
+                    return {"source": "coverr", "query": query, "page": f"https://coverr.co/videos/{v.get('id')}", "videographer": v.get("title")}
+            except Exception as e:
+                log(f"coverr search failed for '{query}': {e}")
     return None
 
 
 def _stock_photo(query_text: str, dest: Path, used_ids: set) -> dict | None:
-    """One portrait photo for the query (Pixabay, then Pexels). -> credit dict, or None."""
+    """One portrait photo for the query (Pixabay, then Pexels, then Unsplash). -> credit dict, or None."""
     words = query_text.split()
     queries = [query_text] + ([" ".join(words[:2])] if len(words) > 2 else [])
     if os.environ.get("PIXABAY_API_KEY"):
@@ -147,11 +183,30 @@ def _stock_photo(query_text: str, dest: Path, used_ids: set) -> dict | None:
                     return {"source": "pexels-photo", "query": query, "page": ph.get("url"), "videographer": ph.get("photographer")}
             except Exception as e:
                 log(f"pexels photo search failed for '{query}': {e}")
+    if os.environ.get("UNSPLASH_ACCESS_KEY"):
+        key = os.environ["UNSPLASH_ACCESS_KEY"]
+        for query in queries:
+            try:
+                for ph in _unsplash_search(query, key):
+                    pid = f"unsplash:{ph.get('id')}"
+                    raw_url = (ph.get("urls") or {}).get("raw")
+                    if pid in used_ids or not raw_url:
+                        continue
+                    _download(raw_url + ("&" if "?" in raw_url else "?") + "w=1080&h=1920&fit=crop&q=80", dest)
+                    used_ids.add(pid)
+                    try:   # Unsplash API rule: report a download to their tracking endpoint (best effort)
+                        requests.get((ph.get("links") or {}).get("download_location", ""), headers={"Authorization": f"Client-ID {key}"}, timeout=15)
+                    except Exception:
+                        pass
+                    return {"source": "unsplash", "query": query, "page": (ph.get("links") or {}).get("html"), "videographer": (ph.get("user") or {}).get("name")}
+            except Exception as e:
+                log(f"unsplash search failed for '{query}': {e}")
     return None
 
 
 def stock_available(kind: str) -> bool:
-    return bool(os.environ.get("PEXELS_API_KEY") or os.environ.get("PIXABAY_API_KEY"))
+    keys = ("PEXELS_API_KEY", "PIXABAY_API_KEY", "UNSPLASH_ACCESS_KEY" if kind == "photo" else "COVERR_API_KEY")
+    return any(os.environ.get(k) for k in keys)
 
 
 def fetch_clip(scene: dict, sid: str, out_dir: Path, used_ids: set, offline: bool) -> dict:

@@ -1556,6 +1556,13 @@
           "likes": 2,
           "comments": 0,
           "shares": 0
+        },
+        "7d": {
+          "age_h": 171.4,
+          "source": "bluesky",
+          "likes": 2,
+          "comments": 0,
+          "shares": 0
         }
       },
       "latest": {
@@ -1770,9 +1777,9 @@
         }
       },
       "latest": {
-        "impressions": 12,
-        "reach": 2,
-        "views": 12,
+        "impressions": 14,
+        "reach": 3,
+        "views": 14,
         "likes": 1,
         "comments": 0,
         "shares": 0,
@@ -1811,9 +1818,9 @@
         }
       },
       "latest": {
-        "impressions": 8,
+        "impressions": 10,
         "reach": 2,
-        "views": 8,
+        "views": 10,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -1851,7 +1858,79 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-11-09|bluesky": {
+      "date": "2026-11-09",
+      "platform": "bluesky",
+      "service": "lead_gen",
+      "problem_id": "the-feast-or-famine-pipeline",
+      "angle_type": "mistake",
+      "hook_style": "comparison",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "desk-glow",
+      "carousel_flavor": "bold-slow-reveal",
+      "slides": 7,
+      "published_at": "2026-11-09T10:26:22.257097+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzupmi67s72x",
+      "snap": {
+        "48h": {
+          "age_h": 57.2,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
+    },
+    "2026-11-09|instagram": {
+      "date": "2026-11-09",
+      "platform": "instagram",
+      "service": "lead_gen",
+      "problem_id": "the-feast-or-famine-pipeline",
+      "angle_type": "mistake",
+      "hook_style": "comparison",
+      "format": "carousel",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "desk-glow",
+      "carousel_flavor": "bold-slow-reveal",
+      "slides": 7,
+      "published_at": "2026-11-09T10:26:16.000Z",
+      "url": "https://www.instagram.com/p/DfhHPVpDcY5/",
+      "snap": {
+        "48h": {
+          "age_h": 57.2,
+          "source": "zernio",
+          "impressions": 17,
+          "reach": 2,
+          "views": 17,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 17,
+        "reach": 2,
+        "views": 17,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
     }
   },
-  "updated_at": "2026-11-10T19:45:13+00:00"
+  "updated_at": "2026-11-11T19:37:07+00:00"
 }

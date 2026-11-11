@@ -1,6 +1,35 @@
 {
   "posts": [
     {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mzzuqzzkoy2x",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzzuqzzkoy2x",
+      "published_at": "2026-11-11T11:41:42.005488+00:00",
+      "text": "Myth: Long scripts make better reels. Staring at 15 lines can cause stiff retakes. Three simple prompts (problem, proof, action) let you speak naturally in fron",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-11",
+        "service": "reel_scripts",
+        "hook_style": "comparison",
+        "topic": "The 15-sentence essay script vs the 3-line spoken framework"
+      }
+    },
+    {
       "platform": "instagram",
       "id": "18288015040292848",
       "url": "https://www.instagram.com/p/DfjuJUCiC3-/",
@@ -9,9 +38,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 4,
-        "reach": 1,
-        "views": 4,
+        "impressions": 8,
+        "reach": 2,
+        "views": 8,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -125,9 +154,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 8,
+        "impressions": 10,
         "reach": 2,
-        "views": 8,
+        "views": 10,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -212,9 +241,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 12,
-        "reach": 2,
-        "views": 12,
+        "impressions": 14,
+        "reach": 3,
+        "views": 14,
         "likes": 1,
         "comments": 0,
         "shares": 0,
@@ -1394,13 +1423,13 @@
       "username": "ar__designerx"
     },
     "linkedin": {
-      "followers": 6,
+      "followers": 7,
       "username": "Anmol Rattan"
     },
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 26
+      "posts": 27
     }
   },
   "coverage": {
@@ -1666,12 +1695,12 @@
       "date": "2026-11-11",
       "followers": {
         "instagram": 9,
-        "linkedin": 6,
+        "linkedin": 7,
         "bluesky": 1
       }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-11T06:24:51+00:00"
+  "updated_at": "2026-11-11T19:37:04+00:00"
 }

@@ -36,26 +36,37 @@ def build_system_prompt(cfg: dict) -> str:
     return "\n\n".join(parts)
 
 
+def _models(cfg: dict) -> list[str]:
+    """The model from GROQ_MODEL or config first, then the others. Groq retires and renames models, and answers 404 for one it no longer serves."""
+    first = os.environ.get("GROQ_MODEL") or cfg["planner"]["model"]
+    rest = [m for m in cfg["planner"].get("fallback_models", []) if m != first]
+    return [first, *rest]
+
+
 def _call_groq(messages: list[dict], cfg: dict) -> str:
     key = os.environ.get("GROQ_API_KEY")
     if not key:
         raise RuntimeError("GROQ_API_KEY is not set")
-    r = requests.post(
-        GROQ_CHAT_URL,
-        headers={"Authorization": f"Bearer {key}"},
-        json={
-            "model": os.environ.get("GROQ_MODEL", cfg["planner"]["model"]),
-            "messages": messages,
-            "temperature": 0.7,
-            "max_tokens": 1800,
-            "response_format": {"type": "json_object"},
-        },
-        timeout=90,
-    )
-    if r.status_code == 429:
-        raise RuntimeError("Groq rate limit hit (429). Wait and rerun, or reduce skills.")
-    r.raise_for_status()
-    return r.json()["choices"][0]["message"]["content"]
+    errors = []
+    for model in _models(cfg):
+        body = {"model": model, "messages": messages, "temperature": 0.7, "max_tokens": 6000, "response_format": {"type": "json_object"}}
+        if "gpt-oss" in model:
+            body["reasoning_effort"] = "low"      # thinking tokens count against max_tokens; low keeps the JSON answer from being cut off
+        for attempt in (1, 2):
+            r = requests.post(GROQ_CHAT_URL, headers={"Authorization": f"Bearer {key}"}, json=body, timeout=120)
+            if r.status_code == 400 and attempt == 1 and "response_format" in body:
+                body.pop("response_format")       # this model rejects JSON mode: the prompt already asks for JSON only
+                continue
+            break
+        if r.status_code == 429:
+            raise RuntimeError("Groq rate limit hit (429). Wait and rerun, or reduce skills.")
+        if r.status_code in (400, 403, 404):
+            errors.append(f"{model}: {r.status_code} {r.text[:160]}")
+            log(f"groq model {model} unavailable ({r.status_code}), trying the next one")
+            continue
+        r.raise_for_status()
+        return r.json()["choices"][0]["message"]["content"]
+    raise RuntimeError("no Groq model worked: " + " | ".join(errors))
 
 
 def make_plan(topic: str, cfg: dict, library: str = "") -> dict:

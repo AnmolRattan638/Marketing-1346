@@ -142,3 +142,23 @@ for sid, want in (("s1", 6.0), ("s2", 5.0)):
     r = ed.render_scene(sid, out)
     assert abs(media_duration(out / f"{sid}.mp4") - want) < 0.25, (sid, r["seconds"], [(s["type"], round(s["seconds"], 2), s["transition_in"]) for s in ed.shots if s["sid"] == sid])
 print("video hybrid test passed: rules over 60 seeds, audit, strict refusals, folder reader, style notes, measured rhythm, fade render")
+
+# 6. the planner survives a retired Groq model (404 -> next model) and a model that rejects JSON mode (400 -> retry without it)
+from unittest import mock
+from agent import plan as planmod
+class R:
+    def __init__(self, code, body=None): self.status_code, self._b, self.text = code, body or {}, "x"
+    def json(self): return self._b
+    def raise_for_status(self): assert self.status_code < 400
+seen = []
+def post(url, headers=None, json=None, timeout=None):
+    seen.append((json["model"], "response_format" in json, json.get("reasoning_effort")))
+    if json["model"] == "openai/gpt-oss-120b": return R(404)
+    if json["model"] == "llama-3.3-70b-versatile" and "response_format" in json: return R(400)
+    return R(200, {"choices": [{"message": {"content": "{}"}}]})
+os.environ["GROQ_API_KEY"] = "k"; os.environ.pop("GROQ_MODEL", None)
+with mock.patch.object(planmod.requests, "post", post):
+    assert planmod._call_groq([{"role": "user", "content": "x"}], cfg) == "{}"
+assert seen == [("openai/gpt-oss-120b", True, "low"), ("llama-3.3-70b-versatile", True, None), ("llama-3.3-70b-versatile", False, None)], seen
+assert cfg["planner"]["model"] == "openai/gpt-oss-120b"
+print("groq model fallback test passed")

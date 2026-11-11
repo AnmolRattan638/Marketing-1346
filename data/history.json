@@ -180,5 +180,12 @@
     "topic": "Spending 4 hours on one static graphic vs. having a professional AI ad ready to upload",
     "hook_style": "contrast",
     "status": "published"
+  },
+  {
+    "date": "2026-11-11",
+    "service": "reel_scripts",
+    "topic": "The 15-sentence essay script vs the 3-line spoken framework",
+    "hook_style": "comparison",
+    "status": "published"
   }
 ]

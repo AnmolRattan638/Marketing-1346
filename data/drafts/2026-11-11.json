@@ -2,7 +2,7 @@
   "id": "2026-11-11-4322f3",
   "date": "2026-11-11",
   "created_at": "2026-11-11T10:01:32+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "reel_scripts",
   "topic": "The 15-sentence essay script vs the 3-line spoken framework",
   "idea_id": "script-three-lines",
@@ -486,5 +486,15 @@
         "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
       }
     ]
+  },
+  "results": {
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6af4546b2c0a5da53405cd78 (due 2026-11-11T11:41:31.510Z) (7 slides)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3mzzuqzzkoy2x (4 slides)"
+    }
   }
 }

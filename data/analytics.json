@@ -1386,30 +1386,6 @@
         "hook_style": "Myth Bust",
         "topic": "The 'Missing Website' Trust Gap"
       }
-    },
-    {
-      "platform": "instagram",
-      "id": "18188406346402194",
-      "url": "https://www.instagram.com/reel/DdI9d_ipRYK/",
-      "published_at": "2026-09-11T08:21:04.000Z",
-      "text": "#ARDesigns #WebDevelopment\n\n#FreelanceWebDeveloper\n\n#WebDesignerIndia #Himachal Pradesh\n\nDigitalMarketingIndia AIChatbot\n\nBusinessGrowth SmallBusinessIndia\n\nSta",
-      "format": "reel",
-      "source": "zernio",
-      "metrics": {
-        "impressions": 154,
-        "reach": 104,
-        "views": 154,
-        "likes": 8,
-        "comments": 2,
-        "shares": 0,
-        "saves": 0,
-        "clicks": 0,
-        "reposts": null,
-        "skip_rate": 71.7,
-        "avg_watch_s": 6.074,
-        "duration_s": 40
-      },
-      "matched": null
     }
   ],
   "accounts": {
@@ -1685,9 +1661,17 @@
         "linkedin": 6,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-11-11",
+      "followers": {
+        "instagram": 9,
+        "linkedin": 6,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-10T19:45:10+00:00"
+  "updated_at": "2026-11-11T06:24:51+00:00"
 }

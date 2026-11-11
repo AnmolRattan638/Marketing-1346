@@ -20,6 +20,9 @@ PLAN_SCHEMA = {
                 "properties": {
                     "narration": {"type": "string", "minLength": 5, "maxLength": 240},
                     "footage_query": {"type": "string", "minLength": 3, "maxLength": 80},
+                    # Optional cutaway (B-roll) searches, in the order the narration mentions them. Each cutaway shot in the scene
+                    # uses the next one, so the picture matches what is being said at that moment.
+                    "broll": {"type": "array", "maxItems": 4, "items": {"type": "string", "minLength": 3, "maxLength": 60}},
                     # Name of a clip you placed in assets/hero/ by hand (e.g. made on a
                     # free Kaggle GPU session). Null or missing means use Pexels.
                     "hero_clip": {"type": ["string", "null"]},

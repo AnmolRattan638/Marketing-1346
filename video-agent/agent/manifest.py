@@ -54,6 +54,11 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict) -> dict:
             "clipSeconds": b["clip"]["seconds"],
             "words": b["words"],
         }
+        beats = b.get("beats") or []
+        props["emphasis"] = [w for w, _ in beats]          # words the captions colour and the picture pulses on, same moments as the pop/riser
+        props["pulses"] = [round(t, 3) for _, t in beats]
+        if i == len(built) - 1:
+            props["fadeOutFrames"] = 10                    # the only fade to black: the end of the video
         if i == len(built) - 1 and plan.get("cta", {}).get("text"):
             props["overlayText"] = plan["cta"]["text"]
         used_sfx |= {c["type"] for c in b["sfx"]}

@@ -4,22 +4,58 @@
     {
       "narration": "Most customers search online before they visit a shop.",
       "footage_query": "person searching phone street",
-      "sfx": [{ "type": "pop", "at": "word", "at_word": "online" }]
+      "sfx": [
+        {
+          "type": "pop",
+          "at": "word",
+          "at_word": "online"
+        }
+      ],
+      "broll": [
+        "phone search results close up",
+        "customer scrolling phone"
+      ]
     },
     {
       "narration": "If you do not show up, they walk into the next one.",
-      "footage_query": "shop front street walking"
+      "footage_query": "shop front street walking",
+      "broll": [
+        "shop sign street",
+        "closed door shop front"
+      ]
     },
     {
       "narration": "A simple website shows your hours, your location and your best work.",
       "footage_query": "laptop website design desk",
-      "sfx": [{ "type": "riser", "at": "word", "at_word": "best" }]
+      "sfx": [
+        {
+          "type": "riser",
+          "at": "word",
+          "at_word": "best"
+        }
+      ],
+      "broll": [
+        "laptop screen website",
+        "hands typing laptop"
+      ]
     },
     {
       "narration": "Message us today and we will plan yours.",
       "footage_query": "smiling shop owner counter",
-      "sfx": [{ "type": "click", "at": "word", "at_word": "today" }]
+      "sfx": [
+        {
+          "type": "click",
+          "at": "word",
+          "at_word": "today"
+        }
+      ],
+      "broll": [
+        "shop owner smiling counter",
+        "customer entering shop"
+      ]
     }
   ],
-  "cta": { "text": "Message us today" }
+  "cta": {
+    "text": "Message us today"
+  }
 }

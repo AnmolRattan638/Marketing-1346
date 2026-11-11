@@ -17,7 +17,7 @@ from .hybrid import Editor, HybridError
 from .manifest import available_sfx, build_manifest
 from .plan import make_plan, sample_plan
 from .render import render
-from .sfx_plan import plan_sfx
+from .sfx_plan import emphasis_beats, plan_sfx
 from .voice import synth
 
 
@@ -57,7 +57,8 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
         seconds = synth(sc["narration"], mp3, cfg, offline)
         voiced.append((sid, sc, seconds, mp3, get_words(sc["narration"], mp3, seconds, cfg, offline)))
     if editor:   # the whole reel is planned at once so the hybrid rules apply to the reel, not to each scene
-        editor.prepare([(sid, sc, sec + cfg["video"]["tail_seconds"]) for sid, sc, sec, _, _ in voiced], WORK / "footage")
+        editor.prepare([(sid, sc, sec + cfg["video"]["tail_seconds"]) for sid, sc, sec, _, _ in voiced], WORK / "footage",
+                       {sid: words for sid, _, _, _, words in voiced})      # cuts are snapped to the spoken words
     for i, (sid, sc, seconds, mp3, words) in enumerate(voiced):
         if editor:
             clip = editor.render_scene(sid, WORK / "footage")
@@ -66,7 +67,8 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
         built.append({
             "id": sid, "clip": clip, "narration": f"assets/run/narration/{sid}.mp3",
             "narration_seconds": seconds, "words": words,
-            "sfx": plan_sfx(i, sc, words, sfx_ok),
+            "sfx": plan_sfx(i, sc, words, sfx_ok, clip.get("cuts")),     # whooshes and clicks land on the real shot cuts
+            "beats": emphasis_beats(sc, words),                           # the same words drive caption emphasis and the zoom pulse
         })
         credits.append(clip["credit"])
 

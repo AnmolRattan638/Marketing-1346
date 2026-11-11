@@ -11,9 +11,10 @@ from agent.common import load_config, media_duration
 cfg = load_config()
 hs = hybrid.settings(cfg)
 assert hs["min_photo_shots"] == 0, "no photo is required by default"
+assert hs["min_raw_shots"] == 1 and "min_raw_share" not in hs, "the 40% share rule is replaced by at least 1 raw shot"
 hs_photo = {**hs, "min_photo_shots": 1}
 prof = dict(style.DEFAULT)
-avail = {"raw": True, "stock": True, "photo": True}
+avail = {"raw": True, "raw_clips": 3, "stock": True, "photo": True}
 
 # 1. allocation follows every rule over many seeds and reel lengths
 for seed in range(60):
@@ -25,7 +26,17 @@ for seed in range(60):
 
 # 2. audit catches each violation
 mk = lambda *pairs: [{"type": t, "seconds": s} for t, s in pairs]
-assert any("raw footage" in b for b in hybrid.audit(mk(("raw", 1), ("stock", 2), ("photo", 2), ("stock", 2), ("raw", 1)), avail, hs, prof))
+assert any("raw shot" in b for b in hybrid.audit(mk(("stock", 2), ("photo", 2), ("stock", 2)), avail, hs, prof))
+assert not any("raw shot" in b for b in hybrid.audit(mk(("raw", 1.8), ("stock", 2), ("photo", 2), ("stock", 2)), avail, hs, prof)), "ONE raw shot is enough"
+one_file = lambda *fs: [{"type": "raw", "seconds": 2, "credit": {"file": f}} if f else {"type": "stock", "seconds": 2, "credit": {}} for f in fs]
+assert any("at least 2 of your clips" in b for b in hybrid.audit(one_file("a.mp4", None, "a.mp4"), avail, hs, prof))
+assert not any("clips" in b for b in hybrid.audit(one_file("a.mp4", None, "b.mp4"), avail, hs, prof))
+assert not any("clips" in b for b in hybrid.audit(one_file("a.mp4", None, "a.mp4"), {**avail, "raw_clips": 1}, hs, prof)), "one clip available: one clip is fine"
+# even a single-shot raw minimum of 3 is forced by allocate() when the reel is short
+for seed in range(30):
+    rng = random.Random(seed); durs = [2.0] * 6
+    ty = hybrid.allocate(durs, avail, {**hs, "min_raw_shots": 4}, prof, rng)
+    assert ty.count("raw") >= 4, (seed, ty)
 assert any("stock video" in b for b in hybrid.audit(mk(("raw", 4), ("stock", 6)), avail, hs, prof))
 assert any("in a row" in b for b in hybrid.audit(mk(("raw", 2), ("raw", 2), ("raw", 2), ("photo", 2), ("stock", 1)), avail, hs, prof))
 assert any("first shot" in b for b in hybrid.audit(mk(("stock", 2), ("raw", 4), ("photo", 2)), avail, hs, prof))
@@ -112,7 +123,7 @@ lens = style.shot_lengths(tmp / "hero" / "a.mp4")
 assert 2 <= len(lens) <= 3 and all(1.5 < x < 2.6 for x in lens), lens
 
 # 5. a real render with fades: scene length stays exact
-cfg["hybrid"]["min_raw_share"] = 0.4
+cfg["hybrid"]["min_raw_shots"] = 1
 ed = hybrid.Editor(cfg, False, "website")
 assert {v["name"] for v in ed.lib["videos"]} == {"Website_Demo_final.mp4", "labelled_by_note.mp4"}, "only website clips (no chatbot, no unlabelled)"
 assert ed.unassigned == ["mystery.mp4"] and ed.others == 2
@@ -141,6 +152,35 @@ assert any(s["transition_in"] == "fade" for s in ed.shots)
 for sid, want in (("s1", 6.0), ("s2", 5.0)):
     r = ed.render_scene(sid, out)
     assert abs(media_duration(out / f"{sid}.mp4") - want) < 0.25, (sid, r["seconds"], [(s["type"], round(s["seconds"], 2), s["transition_in"]) for s in ed.shots if s["sid"] == sid])
+# 5b. raw shots are the BEST PART of several clips, reused with different parts, never the whole file
+raw_shots = [x for x in ed.shots if x["type"] == "raw"]
+assert raw_shots and all(x.get("start") is not None and "start" in x["credit"] for x in raw_shots), "every raw shot records which part it uses"
+assert len({x["credit"]["file"] for x in raw_shots}) >= min(2, len(raw_shots)), "two or more clips are used"
+for name in {x["credit"]["file"] for x in raw_shots}:        # parts of one clip never overlap by more than the tolerance
+    spans = sorted((x["start"], x["start"] + x["seconds"]) for x in raw_shots if x["credit"]["file"] == name)
+    assert all(b[0] >= a[1] - 0.6 for a, b in zip(spans, spans[1:])), (name, spans)
+
+from agent import clipscore
+clip = pathlib.Path(tempfile.mkdtemp()) / "demo.mp4"      # 3 s of a black, still frame, then 4 s of detailed, moving picture
+ff("-f", "lavfi", "-i", "color=c=black:s=640x360:r=30:d=3", "-f", "lavfi", "-i", "testsrc2=s=640x360:r=30:d=4", "-filter_complex",
+   "[0:v][1:v]concat=n=2:v=1:a=0,format=yuv420p", str(clip))
+dur = media_duration(clip)
+t1 = clipscore.best_start(clip, 2.0, dur, [])
+assert t1 >= 2.4, f"the best 2 s is in the detailed half, not the black intro: {t1}"
+t2 = clipscore.best_start(clip, 2.0, dur, [(t1, t1 + 2.0)])
+assert abs(t2 - t1) >= 1.7, f"a second shot from the same clip takes a different part: {t1} then {t2}"
+assert clipscore.best_start(clip, dur + 1, dur, []) == 0.0, "a clip shorter than the shot is used whole"
+bad_clip = pathlib.Path(tempfile.mkdtemp()) / "broken.mp4"; bad_clip.write_bytes(b"not a video")
+assert clipscore.best_start(bad_clip, 2.0, 8.0, []) is None, "an unreadable clip falls back to a random slice"
+
+# a cut inside a window is avoided: 3 s of testsrc2, a hard cut to mandelbrot, 3 s more; the best 2 s window must not straddle the cut at 3 s
+cut = pathlib.Path(tempfile.mkdtemp()) / "cut.mp4"
+ff("-f", "lavfi", "-i", "testsrc2=s=640x360:r=30:d=3", "-f", "lavfi", "-i", "mandelbrot=s=640x360:r=30", "-filter_complex",
+   "[1:v]trim=duration=3,setpts=PTS-STARTPTS[b];[0:v][b]concat=n=2:v=1:a=0,format=yuv420p", str(cut))
+tc = clipscore.best_start(cut, 2.0, media_duration(cut), [])
+assert not (tc < 2.9 < tc + 2.0), f"the chosen window straddles the hard cut: {tc}"
+print("best-part test passed: strongest moment, different parts on reuse, cuts avoided, unreadable clips fall back")
+
 print("video hybrid test passed: rules over 60 seeds, audit, strict refusals, folder reader, style notes, measured rhythm, fade render")
 
 # 6. the planner survives a retired Groq model (404 -> next model) and a model that rejects JSON mode (400 -> retry without it)

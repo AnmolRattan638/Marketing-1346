@@ -2,3 +2,4 @@ requests>=2.31
 jsonschema>=4.20
 edge-tts>=6.1
 gdown>=5.2
+numpy>=1.26

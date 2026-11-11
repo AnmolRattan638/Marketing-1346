@@ -57,7 +57,7 @@
   "hybrid": {
     "enabled": true,
     "strict": true,
-    "min_raw_share": 0.4,
+    "min_raw_shots": 1,
     "max_stock_share": 0.45,
     "min_photo_shots": 0,
     "max_same_in_row": 2,

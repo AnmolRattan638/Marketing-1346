@@ -100,7 +100,7 @@
         "reach": null,
         "views": null,
         "likes": 0,
-        "comments": 0,
+        "comments": 1,
         "shares": 0,
         "saves": null,
         "clicks": null,
@@ -1150,7 +1150,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 76.7,
-        "avg_watch_s": 7.058,
+        "avg_watch_s": 7.493,
         "duration_s": 26
       },
       "matched": null
@@ -1698,9 +1698,17 @@
         "linkedin": 7,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-11-12",
+      "followers": {
+        "instagram": 9,
+        "linkedin": 7,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-11T19:37:04+00:00"
+  "updated_at": "2026-11-12T07:12:52+00:00"
 }

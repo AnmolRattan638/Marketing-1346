@@ -103,3 +103,9 @@ Own palette and own captions: only the layouts are inspired by the reference ree
 - **colour theme** (`template/src/graphics/themes.ts`): `ink`, `sunset`, `forest`, `violet`
 - **transition set**: calm / energetic / mixed (the planner's own `transition` still wins)
 Limit or force them in `config.json -> looks` (`captions`, `themes`, `force: {"caption": "cinematic"}`). Add a style: write the component, add it to `CaptionLayer` and `CAPTIONS`.
+
+## Smart caption placement
+
+Captions are not pinned to the bottom. For every footage scene `agent/caption_zones.py` samples the finished picture (4 fps), scores six candidate positions for edge density
+(faces, signs, on-screen text) and motion, and picks the emptiest spot over time (Viterbi with a cost per move, so they glide at most a few times, 0.2 s ease). The lower third is
+preferred when it is clear. Motion-graphic scenes keep their lower third free by layout. Switch off: `config.json -> captions.smart_position: false`.

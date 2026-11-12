@@ -18,6 +18,7 @@ from .manifest import available_sfx, build_manifest
 from .plan import make_plan, sample_plan
 from .render import render
 from .fx_plan import plan_fx
+from .caption_zones import zones_for
 from .looks import pick_look, pick_transition
 from .graphics import fallback_graphic, resolve_graphic
 from .sfx_plan import emphasis_beats, plan_sfx
@@ -81,17 +82,18 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
         transition = pick_transition(sc, i, look, cfg)
         gp = graphics.get(sid)
         if gp:
-            clip, fx = None, plan_fx(sc, words, seconds + tail, cfg)
+            clip, fx, zones = None, plan_fx(sc, words, seconds + tail, cfg), []
             sfx = plan_sfx(i, sc, words, sfx_ok, None, fx, transition, gp["sfx"], cfg.get("sfx_policy"))
             credits.append({"scene": sid, "graphic": gp["layout"]})
         else:
             clip = editor.render_scene(sid, WORK / "footage") if editor else fetch_clip(sc, sid, WORK / "footage", used_ids, offline)
             fx = plan_fx(sc, words, seconds + tail, cfg)      # graphics anchored to spoken words
+            zones = zones_for(WORK / "footage" / f"{sid}.mp4", seconds + tail) if (cfg.get("captions") or {}).get("smart_position", True) else []
             sfx = plan_sfx(i, sc, words, sfx_ok, clip.get("cuts"), fx, transition, None, cfg.get("sfx_policy"))
             credits.append(clip["credit"])
         built.append({
             "id": sid, "clip": clip, "graphic": gp, "narration": f"assets/run/narration/{sid}.mp3",
-            "narration_seconds": seconds, "words": words, "sfx": sfx, "fx": fx, "transition": transition,
+            "narration_seconds": seconds, "words": words, "sfx": sfx, "fx": fx, "transition": transition, "zones": zones,
             "beats": emphasis_beats(sc, words),                           # the same words drive caption emphasis and the zoom pulse
         })
 

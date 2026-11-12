@@ -10,8 +10,16 @@ const SANS = '"Montserrat", "Poppins", "Inter", "Noto Sans Devanagari", "Noto Sa
 const MONO = '"JetBrains Mono", "Fira Code", "DejaVu Sans Mono", Menlo, Consolas, monospace';
 const norm = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
 
+export interface CaptionZone {
+  from: number; // seconds from the scene start
+  to: number;
+  y: number; // centre of the caption area on the 1920 px frame (agent/caption_zones.py)
+}
+const DEFAULT_Y = 1400; // where the styles sit by themselves (the bottom area)
+
 interface Props {
   words: CaptionWord[];
+  zones?: CaptionZone[];
   emphasis?: string[];
   style?: CaptionStyle;
   upper?: boolean;
@@ -170,7 +178,31 @@ const Typewriter: React.FC<Props> = ({ words, upper = false, bottom = 400 }) => 
 };
 
 // One entry point for the scenes: the style comes from the reel's look (agent/looks.py).
+// Smart placement: the scene analysis found the emptiest spot of the picture moment by moment; the captions glide there (0.2 s ease) instead of sitting at a fixed place.
+const useZoneShift = (zones?: CaptionZone[]) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  if (!zones || zones.length === 0) return 0;
+  const t = frame / fps;
+  let k = 0;
+  for (let i = 0; i < zones.length; i++) if (zones[i].from <= t) k = i;
+  const cur = zones[k].y;
+  const prev = k > 0 ? zones[k - 1].y : cur;
+  const e = interpolate(t, [zones[k].from, zones[k].from + 0.22], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const ease = 1 - Math.pow(1 - e, 3);
+  return prev + (cur - prev) * ease - DEFAULT_Y;
+};
+
 export const CaptionLayer: React.FC<Props> = (p) => {
+  const dy = useZoneShift(p.zones);
+  return (
+    <AbsoluteFill style={{ transform: dy ? `translateY(${dy}px)` : undefined }}>
+      <CaptionStyleSwitch {...p} />
+    </AbsoluteFill>
+  );
+};
+
+const CaptionStyleSwitch: React.FC<Props> = (p) => {
   switch (p.style) {
     case "cinematic": return <Cinematic {...p} />;
     case "karaoke": return <Karaoke {...p} />;

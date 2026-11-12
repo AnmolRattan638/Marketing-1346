@@ -1,5 +1,5 @@
 """Offline test: picture, SFX, captions and B-roll stay in sync with the narration (cuts on words, SFX on cuts and emphasis words, per-shot B-roll)."""
-import json, os, pathlib, random, sys, tempfile
+import tempfile, json, os, pathlib, random, sys, tempfile
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "video-agent"
 sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
@@ -140,4 +140,15 @@ for i, (scn, cr) in enumerate(zip(m["scenes"], credits)):
 shutil.rmtree(run_dir, ignore_errors=True)
 assert m["scenes"][-1]["id"] == "outro" and m["scenes"][-1]["props"]["layout"] == "logo", "the reel ends on the logo animation"
 assert sum(1 for c in credits if c.get("source") in ("stock", "photo") or any(x.get("type") in ("stock", "photo") for x in c.get("shots", []))) <= 1
+# 5. smart caption placement: a flat picture keeps the bottom position, a busy lower half moves the captions up, a broken file never stops a reel
+from agent import caption_zones as cz
+tmp = pathlib.Path(tempfile.mkdtemp())
+def _mk(name, fc):
+    subprocess.run(["ffmpeg", "-v", "error", "-f", "lavfi", "-i", "color=c=gray:s=1080x1920:r=30:d=4", "-filter_complex", fc, "-pix_fmt", "yuv420p", str(tmp / name), "-y"], check=True)
+_mk("flat.mp4", "[0:v]null")
+_mk("busy_bottom.mp4", "[0:v]split[a][b];[b]drawgrid=w=40:h=40:t=6:c=black,crop=1080:1100:0:820[n];[a][n]overlay=0:820")
+assert cz.plan_zones(tmp / "flat.mp4", 4) in ([], [{"from": 0.0, "y": 1400, "to": 4}]), "a clear picture keeps the bottom position"
+z = cz.plan_zones(tmp / "busy_bottom.mp4", 4)
+assert z and z[0]["y"] < 1000 and z[0]["from"] == 0.0 and z[-1]["to"] == 4, z
+assert cz.zones_for(tmp / "missing.mp4", 4) == []
 print("video sync test passed: cuts on words, SFX on cuts and emphasis words, per-shot B-roll, fx on spoken words, manifest lines up")

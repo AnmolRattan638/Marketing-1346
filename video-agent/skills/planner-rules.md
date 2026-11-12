@@ -43,7 +43,8 @@ Return exactly one JSON object:
 - `transition` is how a scene arrives (default `settle`): `whip` for an energetic change of topic, `zoom` for a reveal,
   `glitch` for the problem, `iris` rarely. Do not use the same one in every scene.
 - MOTION GRAPHICS are the default picture. Give most scenes a `graphic` (no footage is fetched for it); the reel may use at most ONE stock
-  video/photo overall, so give at most one scene a `footage_query` and no `graphic`. Layouts:
+  video/photo overall, so give at most one scene a `footage_query` and no `graphic`. A scene with a `graphic` has NO `footage_query` key at all
+  (leave it out, never write an empty string). Layouts:
   `step` (`step` "STEP 1", `kicker`, `heading`, and a `mock` card: type `browser` for a website being built, `terminal` for commands/automation,
   `comment` for a comment being typed, `checklist` for things done, `file` for a file extracted, `window` for a list; `mock.items` 2-4 short lines
   in the order the narration says them), `strike` (`items` 2-5 single words struck out one by one, optional `heading`), `title` (`kicker`, `heading`,

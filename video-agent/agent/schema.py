@@ -23,6 +23,22 @@ PLAN_SCHEMA = {
                     # Optional cutaway (B-roll) searches, in the order the narration mentions them. Each cutaway shot in the scene
                     # uses the next one, so the picture matches what is being said at that moment.
                     "broll": {"type": "array", "maxItems": 4, "items": {"type": "string", "minLength": 3, "maxLength": 60}},
+                    # Optional animated graphics anchored to spoken words (agent/fx_plan.py) and how this scene arrives.
+                    "fx": {"type": "array", "maxItems": 2, "items": {
+                        "type": "object",
+                        "required": ["type"],
+                        "properties": {
+                            "type": {"enum": ["stat", "glitch", "title", "lower_third", "shake"]},
+                            "at_word": {"type": "string", "maxLength": 40},
+                            "seconds": {"type": "number", "minimum": 0.5, "maximum": 4},
+                            "text": {"type": "string", "maxLength": 40},
+                            "label": {"type": "string", "maxLength": 50},
+                            "value": {"type": "number"},
+                            "prefix": {"type": "string", "maxLength": 4},
+                            "suffix": {"type": "string", "maxLength": 6},
+                        },
+                    }},
+                    "transition": {"enum": ["settle", "whip", "zoom", "iris", "glitch"]},
                     # Name of a clip you placed in assets/hero/ by hand (e.g. made on a
                     # free Kaggle GPU session). Null or missing means use Pexels.
                     "hero_clip": {"type": ["string", "null"]},

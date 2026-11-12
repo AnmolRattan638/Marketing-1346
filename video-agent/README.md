@@ -54,6 +54,24 @@ NOT tested (no keys or network access in the sandbox): Groq planning and Whisper
 - **B-roll that matches the words.** The planner gives each scene 2-3 `broll` searches in spoken order; each cutaway shot uses the next one and the words spoken during it (stock and photos). Your own footage keeps the scene's main look.
 - `tests/video_sync_test.py` checks all of this offline.
 
+## Animation effects (from the RVE remotion-templates pack)
+
+The planner can ask for these per scene (`fx`, max 2, rare) and for how a scene arrives (`transition`). Each graphic is anchored to a
+SPOKEN word (`at_word`, its Whisper start), gets its own SFX on its first frame and a matching punch-in of the picture. Code: `agent/fx_plan.py`
+and `template/src/effects/` (adapted from the MIT-licensed pack, see `NOTICE.md` there; the pack's originals are 16:9 demos, these take props and fit 1080x1920).
+
+| `fx.type` | Style (pack template) | Use for | Params |
+|---|---|---|---|
+| `stat` | stat-counter | a number the narration says | `value`, `prefix`, `suffix`, `label` |
+| `glitch` | glitch-text | a hook or problem word | `text` |
+| `title` | bounce-text | one key phrase | `text`, `label` |
+| `lower_third` | lower-third | brand or speaker | `text`, `label` |
+| `shake` | camera-shake | an impact word (moves the footage, not the captions) | none |
+
+`transition` = how a scene arrives (the cut stays a hard cut, so audio and captions never move): `settle` (default), `whip` (whip-pan), `zoom` (zoom-through), `iris`, `glitch`.
+`config.json` -> `fx`: `enabled`, `max_per_scene`, `default_transition`, `grain` (film grain 0-0.1, off by default: it costs render time).
+A word that is not in the narration drops the graphic instead of placing it at the wrong moment; two graphics never overlap, so captions stay readable.
+
 ## Hybrid editing from your `edits` folder (strict)
 Put one folder in Google Drive, share it as "Anyone with the link", and add its link as the repo secret `EDITS_DRIVE_URL`:
 ```

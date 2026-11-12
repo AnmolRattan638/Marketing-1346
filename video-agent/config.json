@@ -123,5 +123,11 @@
     "opacity": 0.92,
     "marginX": 48,
     "marginY": 150
+  },
+  "fx": {
+    "enabled": true,
+    "max_per_scene": 2,
+    "default_transition": "settle",
+    "grain": 0
   }
 }

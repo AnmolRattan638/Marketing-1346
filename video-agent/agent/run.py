@@ -17,6 +17,7 @@ from .hybrid import Editor, HybridError
 from .manifest import available_sfx, build_manifest
 from .plan import make_plan, sample_plan
 from .render import render
+from .fx_plan import plan_fx, resolve_transition
 from .sfx_plan import emphasis_beats, plan_sfx
 from .voice import synth
 
@@ -64,10 +65,12 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
             clip = editor.render_scene(sid, WORK / "footage")
         else:
             clip = fetch_clip(sc, sid, WORK / "footage", used_ids, offline)
+        fx = plan_fx(sc, words, seconds + cfg["video"]["tail_seconds"], cfg)      # graphics anchored to spoken words
         built.append({
             "id": sid, "clip": clip, "narration": f"assets/run/narration/{sid}.mp3",
             "narration_seconds": seconds, "words": words,
-            "sfx": plan_sfx(i, sc, words, sfx_ok, clip.get("cuts")),     # whooshes and clicks land on the real shot cuts
+            "sfx": plan_sfx(i, sc, words, sfx_ok, clip.get("cuts"), fx),  # whooshes and clicks land on the real shot cuts; every graphic gets its sound
+            "fx": fx, "transition": resolve_transition(sc, i, cfg),
             "beats": emphasis_beats(sc, words),                           # the same words drive caption emphasis and the zoom pulse
         })
         credits.append(clip["credit"])

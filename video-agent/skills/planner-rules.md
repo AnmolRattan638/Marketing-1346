@@ -34,6 +34,14 @@ Return exactly one JSON object:
 - `broll` is 2-3 short English searches for cutaway shots inside that scene, in the order the narration
   mentions things (each one filmable: hands on keyboard, customer reading phone). Each cutaway shot uses
   the next one, so the picture changes with what is being said. Keep `footage_query` as the scene's main look.
+- Animated graphics are optional and rare: at most 2 `fx` per scene, most scenes have none. Anchor each to a word that
+  is really in that scene's narration (`at_word`, one word, exactly as spoken). Pick by meaning:
+  `stat` a real number the narration says (`value` 73, `suffix` "%", `label` "of customers search online first"),
+  `glitch` a hook or problem word (`text` max 3 words), `title` one key phrase (`text`), `lower_third` the brand or
+  who is speaking (`text` + `label`, usually scene 1), `shake` an impact word ("never", "crash").
+  Never put a number in a `stat` that the narration does not say.
+- `transition` is how a scene arrives (default `settle`): `whip` for an energetic change of topic, `zoom` for a reveal,
+  `glitch` for the problem, `iris` rarely. Do not use the same one in every scene.
 - Never mention prices, guarantees or results you cannot back up.
 - `sfx` is optional: at most one entry per scene, and none in some scenes. A whoosh on every cut is
   added automatically, so do not request it. Use `pop` on one key word, `riser` before a reveal,

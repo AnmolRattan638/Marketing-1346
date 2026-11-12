@@ -49,7 +49,7 @@ def _outro(cfg: dict):
     return lg
 
 
-def build_manifest(plan: dict, built: list[dict], cfg: dict) -> dict:
+def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None = None) -> dict:
     v = cfg["video"]
     fps = v["fps"]
     spans = [b["narration_seconds"] + v["tail_seconds"] for b in built]      # progress bar: how far through the narrated part each scene is
@@ -74,6 +74,8 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict) -> dict:
         fx = b.get("fx") or []
         props["fx"] = fx                                   # stat / glitch / title / lower_third / shake, each at a spoken word
         props["transitionIn"] = b.get("transition", "settle")
+        if look:
+            props["captionStyle"] = look["caption"]
         props["pulses"] += [f["atSecond"] for f in fx if f["type"] in ("stat", "glitch", "title")]     # the picture hits with the graphic
         props["pulses"].sort()
         if (cfg.get("fx") or {}).get("grain"):
@@ -109,5 +111,6 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict) -> dict:
                   "title": plan["title"]},
         "audio": {"music": _stage_music(cfg)},
         "brand": {"logo": _stage_logo(cfg)},
+        "look": {"theme": (look or {}).get("theme", "ink"), "caption": (look or {}).get("caption", "pill")},
         "scenes": scenes,
     }

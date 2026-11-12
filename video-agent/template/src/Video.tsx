@@ -10,6 +10,7 @@ import KitchenSink from "./sequences/KitchenSink";
 import FootageScene from "./sequences/FootageScene";
 import GraphicScene from "./sequences/GraphicScene";
 import { LogoBug } from "./components/LogoBug";
+import { applyTheme } from "./graphics/themes";
 
 // Map of component path (as used in manifest.scenes[].component) to the
 // actual React component. Add entries here as you create new scene files.
@@ -22,6 +23,7 @@ const sceneRegistry: Record<string, React.ComponentType<any>> = {
 
 export const Video: React.FC = () => {
   const manifest = useManifest();
+  applyTheme((manifest as any).look?.theme);
 
   // Compute each scene's start frame and duration-in-frames from the manifest.
   // durationFromAudio paths are resolved at build time by the Root-level

@@ -17,7 +17,8 @@ from .hybrid import Editor, HybridError
 from .manifest import available_sfx, build_manifest
 from .plan import make_plan, sample_plan
 from .render import render
-from .fx_plan import plan_fx, resolve_transition
+from .fx_plan import plan_fx
+from .looks import pick_look, pick_transition
 from .graphics import fallback_graphic, resolve_graphic
 from .sfx_plan import emphasis_beats, plan_sfx
 from .voice import synth
@@ -47,6 +48,7 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
     service, topic = edits.detect_service(topic, cfg)
     log(f"service for this reel: {service}")
     editor = Editor(cfg, offline, service) if hybrid_on else None
+    look = pick_look(f"{date.today().isoformat()}|{topic}", cfg) if not offline else {"caption": "cinematic", "theme": "sunset", "transitions": "mixed"}
     plan = sample_plan() if offline else make_plan(topic, cfg, editor.library_summary() if editor else "")
     (out_dir / "plan.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding="utf-8")
     log(f"plan: '{plan['title']}' with {len(plan['scenes'])} scenes")
@@ -76,7 +78,7 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
     if editor and footage_scenes:   # the whole reel is planned at once so the hybrid rules apply to the reel, not to each scene
         editor.prepare(footage_scenes, WORK / "footage", {sid: words for sid, _, _, _, words in voiced})      # cuts are snapped to the spoken words
     for i, (sid, sc, seconds, mp3, words) in enumerate(voiced):
-        transition = resolve_transition(sc, i, cfg)
+        transition = pick_transition(sc, i, look, cfg)
         gp = graphics.get(sid)
         if gp:
             clip, fx = None, plan_fx(sc, words, seconds + tail, cfg)
@@ -93,7 +95,7 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
             "beats": emphasis_beats(sc, words),                           # the same words drive caption emphasis and the zoom pulse
         })
 
-    manifest = build_manifest(plan, built, cfg)
+    manifest = build_manifest(plan, built, cfg, look)
     (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     (out_dir / "credits.json").write_text(json.dumps(credits, indent=2), encoding="utf-8")
     summary = ""

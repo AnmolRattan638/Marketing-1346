@@ -10,7 +10,7 @@ A scene can carry `fx` (overlays and camera moves) and a `transition` (how the s
   shake       decaying camera shake on the footage           (camera-shake)      an impact word
 
 Transitions (how a scene ARRIVES; the cut itself stays a hard cut so audio and captions never move):
-  settle (default), whip (whip-pan landing), zoom (zoom-through arrival), iris (iris open), glitch (RGB-glitch flash)
+  settle (default), whip (whip-pan landing), zoom (zoom-through arrival), iris (iris open), glitch (RGB-glitch flash), circle (colour circle wipe)
 """
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ import re
 from .common import log
 
 FX_TYPES = ("stat", "glitch", "title", "lower_third", "shake")
-TRANSITIONS = ("settle", "whip", "zoom", "iris", "glitch")
+TRANSITIONS = ("settle", "whip", "zoom", "iris", "glitch", "circle")      # circle = a colour disc opens onto the scene
 DEFAULT_SECONDS = {"stat": 2.4, "glitch": 1.4, "title": 1.9, "lower_third": 2.6, "shake": 0.7}
 SFX_FOR = {"stat": "pop", "glitch": "click", "title": "pop", "lower_third": "whoosh", "shake": "pop"}
 MIN_SECONDS = 0.5

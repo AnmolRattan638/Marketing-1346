@@ -23,7 +23,7 @@ from . import clipscore, edits, footage
 from .common import log, media_duration, run
 
 W, H, FPS = 1080, 1920, 30
-DEFAULTS = {"strict": True, "min_raw_shots": 1, "max_stock_share": 0.45, "min_photo_shots": 0, "max_same_in_row": 2, "fade_seconds": 0.2}
+DEFAULTS = {"strict": True, "min_raw_shots": 1, "max_stock_shots": 1, "max_stock_share": 0.45, "min_photo_shots": 0, "max_same_in_row": 2, "fade_seconds": 0.2}
 TYPES = ("raw", "stock", "photo")
 
 
@@ -96,10 +96,13 @@ def allocate(durs: list[float], avail: dict, hs: dict, prof: dict, rng: random.R
     for i, d in enumerate(durs):
         left = len(durs) - i
         ok = list(types)
-        if len(out) >= hs["max_same_in_row"] and len(set(out[-hs["max_same_in_row"]:])) == 1:
+        if hs.get("max_stock_shots") is None and len(out) >= hs["max_same_in_row"] and len(set(out[-hs["max_same_in_row"]:])) == 1:
             ok = [t for t in ok if t != out[-1]] or ok
         if "stock" in ok and len(ok) > 1 and (got["stock"] + d) / total > hs["max_stock_share"]:
             ok.remove("stock")
+        cap = hs.get("max_stock_shots")      # stock video and stock photos together: the reel's visuals are motion graphics and your own clips
+        if cap is not None and out.count("stock") + out.count("photo") >= cap:
+            ok = [t for t in ok if t == "raw"] or ok
         if i == 0 and prof.get("first_shot") in ok:
             pick = prof["first_shot"]
         elif (short := {t: n - out.count(t) for t, n in need.items() if n > out.count(t)}) and left <= sum(short.values()) and any(t in ok for t in short):
@@ -123,6 +126,11 @@ def audit(shots: list[dict], avail: dict, hs: dict, prof: dict) -> list[str]:
     files = {s["credit"]["file"] for s in raw_shots if (s.get("credit") or {}).get("file")}
     if avail.get("raw_clips", 0) >= 2 and len(raw_shots) >= 2 and len(files) == 1:
         bad.append("every raw shot comes from one clip, the rule is to use at least 2 of your clips")
+    cap = hs.get("max_stock_shots")
+    n_stock = sum(1 for s in shots if s["type"] in ("stock", "photo"))
+    if cap is not None and avail.get("raw") and n_stock > cap:
+        bad.append(f"{n_stock} stock shots, the rule is at most {cap} in the whole reel")
+    legacy = cap is None                      # with a stock cap the footage is mostly your own clips, so the mixing rules below do not apply
     if len(types) > 1 and by["stock"] / total > hs["max_stock_share"] + 0.02:
         bad.append(f"stock video is {by['stock'] / total:.0%} of the reel, the rule is at most {hs['max_stock_share']:.0%}")
     if avail.get("photo") and sum(1 for s in shots if s["type"] == "photo") < hs["min_photo_shots"]:
@@ -130,13 +138,13 @@ def audit(shots: list[dict], avail: dict, hs: dict, prof: dict) -> list[str]:
     run_len = 1
     for a, b in zip(shots, shots[1:]):
         run_len = run_len + 1 if a["type"] == b["type"] else 1
-        if len(types) > 1 and run_len > hs["max_same_in_row"]:
+        if legacy and len(types) > 1 and run_len > hs["max_same_in_row"]:
             bad.append(f"more than {hs['max_same_in_row']} {b['type']} shots in a row")
             break
     first = prof.get("first_shot", "raw")
     if first in TYPES and avail.get(first) and shots and shots[0]["type"] != first:
         bad.append(f"the first shot is {shots[0]['type']}, the rule is {first}")
-    if len(types) > 1 and len({s["type"] for s in shots}) < 2:
+    if legacy and len(types) > 1 and len({s["type"] for s in shots}) < 2:
         bad.append("only one source type used")
     for s in shots:
         if not prof["shot_min"] * 0.6 <= s["seconds"] <= prof["shot_max"] * 1.5:

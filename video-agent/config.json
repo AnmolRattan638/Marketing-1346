@@ -61,7 +61,8 @@
     "max_stock_share": 0.45,
     "min_photo_shots": 0,
     "max_same_in_row": 2,
-    "fade_seconds": 0.2
+    "fade_seconds": 0.2,
+    "max_stock_shots": 1
   },
   "services": {
     "website": [
@@ -129,5 +130,15 @@
     "max_per_scene": 2,
     "default_transition": "settle",
     "grain": 0
+  },
+  "look": {
+    "progress_bar": true,
+    "outro_logo": true,
+    "outro_seconds": 1.8
+  },
+  "sfx_policy": {
+    "cut_sounds": false,
+    "scene_whoosh": "wipes",
+    "max_per_scene": 3
   }
 }

@@ -1,22 +1,27 @@
 {
-  "date": "2026-11-11",
+  "date": "2026-11-12",
   "stage": "brand new under 100 followers",
   "followers": 9,
-  "summary": "Account is brand new (9 IG, 6 LI, 1 BS followers). Weakest area: hooks failing — Reels lose 77% viewers in first 3s, zero growth despite 21 posts/30d, Bluesky last 5 posts zero engagement. Bio conflicts with rules: names Himachal, specific niches, '24 hrs', and offers free site check outside website posts.",
-  "guidance": "- Hook style to try next: use \"mistake\" angle (1.69x) with \"comparison\" hook style (1.66x); avoid pure \"question\" hooks (earn 27% of comparison per reach).\n- Topics to avoid repeating: another \"contrast\" hook (used 4× recently), another generic \"Spending X hours vs Y minutes\" comparison (already used 3× for different services).\n- Reminder: every post must read like a developer showing real work, never an ad; no demos, samples, or niche targeting.",
+  "summary": "Account is brand new (9 IG followers). Weakest area: hooks fail — reels lose 77% viewers in 3s, last 3 posts zero engagement. Bio violates rules: niche/region targeting, '24 hrs' promise, free offer outside website posts.",
+  "guidance": "- Hook style: try comparison or contrast (outperformed question 3.7×); avoid question hooks for chatbot.\n- Topics: stop repeating \"same questions\" or \"busy serving walk-ins\" — used 3× in 2 weeks.\n- Every post must read like a developer sharing real work, never an ad; no demos, no guaranteed results.\n- Use bright-desk or desk-glow image styles (1.5× median); avoid network style.\n- Include pay-after-approval offer and DM-for-advice CTA only.",
   "instructions": {
-    "research": "List 3 common reel script mistakes Indian small businesses (cafes, gyms, coaching centres, shops) make — e.g., no hook, too long, no call-to-action — without naming specific niches.",
-    "analysis": "Compare the 4 recent \"contrast\" posts and 3 \"comparison\" posts: note which got any engagement vs zero; identify if \"mistake\" angle posts (only 1 so far) outperformed.",
-    "writer": "Write one Instagram carousel post for Reel script writing service: hook = comparison of a weak vs strong opening line; angle = mistake (\"Most scripts miss the first 3-second hook\"); body = 3 concrete script fixes; CTA = DM for pay-after-approval script help.",
-    "image": "Create a bold-slow-reveal carousel (3.0x taste): slide 1 shows a weak script line blurred, slide 2 reveals strong rewrite, slide 3 shows 3-point checklist; use desk-glow style (1.75x).",
-    "video": "Not needed today — service is script writing, deliverable is text/carousel."
+    "research": "Find 2-3 common chatbot pain points for Indian small businesses (e.g., missed WhatsApp leads after hours, repetitive FAQs) without naming niches.",
+    "analysis": "Compare last 3 chatbot posts' hook styles vs engagement; note question hooks got 0 engagement, contrast got low reach.",
+    "writer": "Write a comparison hook post: contrast manual WhatsApp replies vs chatbot handling after-hours FAQs, end with 'pay after approval' and DM invite.",
+    "image": "Create bright-desk style graphic showing split screen: phone with stacked WhatsApp notifications vs clean chatbot reply card.",
+    "video": "Skip video today; static image carousel performs better for chatbot topic per data."
   },
   "manual_tips": [
-    "Update Instagram bio: remove 'Himachal', 'hotels, cafes, gyms & homestays', 'ready in 24 hrs', and 'Free 2-min site check'. Replace with: 'Websites, AI chatbots, animated ads & lead gen for small businesses across India. Pay after approval. DM for honest advice.'",
-    "Comment thoughtfully on 5 posts from small business owners in different Indian cities (e.g., a Jaipur cafe, a Kochi gym, a Delhi coaching centre) — ask about their content struggles, don't pitch.",
-    "Spend 15 minutes on LinkedIn engaging with posts from freelancers/agencies selling services to local businesses — lead_gen is your best-performing service (1.95x)."
+    "Update Instagram bio to remove niches, region, '24 hrs', and free offer; keep only: 'Websites, AI chatbots, animated ads, lead gen for Indian small businesses. Pay after approval. DM for advice.'",
+    "Comment on 5 posts by Indian freelancers/agencies discussing lead gen or chatbot struggles; add value, don't pitch.",
+    "Reply to any story mentions or tags from collaborators (editorxyz_official, shiven_xyz) to maintain relationship."
   ],
   "weak_signals": [
+    {
+      "id": "zero_engagement_streak",
+      "platform": "instagram",
+      "detail": "the last 3 settled posts got zero likes, comments, shares and saves"
+    },
     {
       "id": "follower_stall",
       "platform": "instagram",
@@ -30,17 +35,12 @@
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 21% of what 'website' earns per person reached"
+      "detail": "by service, 'chatbot' earns 22% of what 'lead_gen' earns per person reached"
     },
     {
       "id": "weak_hook_style",
       "platform": "instagram",
       "detail": "by hook style, 'question' earns 27% of what 'comparison' earns per person reached"
-    },
-    {
-      "id": "zero_engagement_streak",
-      "platform": "bluesky",
-      "detail": "the last 5 settled posts got zero likes, comments, shares and saves"
     },
     {
       "id": "follower_stall",

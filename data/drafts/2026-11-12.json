@@ -1,0 +1,473 @@
+{
+  "id": "2026-11-12-9af153",
+  "date": "2026-11-12",
+  "created_at": "2026-11-12T10:27:16+00:00",
+  "status": "pending",
+  "service": "chatbot",
+  "topic": "Ever sent a customer the wrong price or timing and had to apologize later?",
+  "idea_id": null,
+  "problem_id": "inconsistent-information-given-to-custom",
+  "angle_type": null,
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "inconsistent-information-given-to-custom",
+    "angle_type": null,
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "A wrong price or wrong time sent by mistake"
+    },
+    {
+      "style": "myth",
+      "text": "Myth: AI always sounds robotic. Fact: It can echo your brand voice."
+    },
+    {
+      "style": "value",
+      "text": "A single source of truth eliminates manual double‑checks forever."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "posts": {
+    "instagram": "𝗔 𝗪𝗥𝗢𝗡𝗚 𝗣𝗥𝗜𝗖𝗘 𝗢𝗥 𝗪𝗥𝗢𝗡𝗚 𝗧𝗜𝗠𝗘 𝗦𝗘𝗡𝗧 𝗕𝗬 𝗠𝗜𝗦𝗧𝗔𝗞𝗘\n\n→ Kabhi kabhi galat 𝗣𝗥𝗜𝗖𝗘 ya 𝗧𝗜𝗠𝗜𝗡𝗚 man se chali jati hai\n→ 𝗖𝗛𝗔𝗧𝗕𝗢𝗧 catalogue se sahi details 24/7 dene ki koshish karta hai\n→ Customer ko consistent aur instant jawab milne ki sambhavna hoti hai, isse maafi dene ki zaroorat kam ho sakti hai\n\nDM 𝗕𝗢𝗧 aur batayein aapke customers kya poochte hain. Main bataunga chatbot fit hai ya nahi.\n\n#SmallBusinessIndia #ChatbotIndia #WhatsAppIndia #SmallBizIndia #DigitalIndia",
+    "linkedin": "A single wrong price or timing message can quickly erode a small business’s trust.\n\nOwners often juggle WhatsApp messages while serving walk‑in customers, checking a paper notebook, or recalling today’s price and opening time from memory. A café, a gym, or a clinic can send a typed reply with the wrong rate or hour, and the customer arrives expecting something different. One apology does not erase the confusion.\n\nI create an AI chatbot that answers common customer questions automatically, without replacing every human conversation. The basic version provides 24‑hour rule‑based replies and covers the top twenty questions a business receives, while forwarding new leads to WhatsApp. The advanced version is trained on the business’s catalogue and can collect leads without manual input.\n\nThe process starts with the owner listing what the business sells and the questions customers ask most often. I then build the chatbot using those answers as its knowledge base. The owner reviews the bot, requests any changes, and only after the final version is approved does the client pay.\n\nWith the bot handling routine queries, the owner can reduce the time spent typing the same price or opening hour into a phone while attending to shoppers. Answers are available at night when the shop is closed, and repeated questions are less likely to interrupt the workday. Customers receive more consistent information, freeing mental bandwidth for tasks that grow the business.\n\nI am happy to discuss whether this approach fits your business and to give an honest view. Payment is required only after you approve the work. If you would like to explore it, DM BOT and tell me what you sell.",
+    "bluesky": "Sending a customer the wrong price by mistake sticks in memory longer than the sale. A chatbot trained on your catalogue can help give consistent correct answers. DM BOT to see if it fits your business. #SmallBizIndia"
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I build AI chatbots that answer customer questions and take enquiries automatically. Quick question: do you want customers to call, WhatsApp, book, or fill a form? The chatbot costs INR 2,999 or INR 4,999 plus INR 299 a month for maintenance, and payment happens only after you approve the work. I can explain how it would work for you. Prefer a WhatsApp chat or details here?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for messaging. I help businesses get more direct enquiries with an AI chatbot that answers customer questions automatically. Quick question: is your main problem getting enquiries, converting Instagram followers, or managing leads?"
+    },
+    {
+      "if_they_say": "I'll think about it",
+      "reply": "Of course. I can send a one-page summary: what is included, timeline, and price range. Is the hesitation budget, timing, or whether it will actually bring enquiries? If budget is the concern, we can start small and expand later, and you pay only after you approve the work."
+    }
+  ],
+  "image": {
+    "prompt": "A smartphone on a cafe counter at night, its screen lit by a stack of unread chat bubbles, in the upper two thirds of the frame. A deep indigo darkness with soft blue and violet light and drifting particles. Lit by a soft blue window glow behind the person with a violet rim light and a faint warm lamp on the desk. With a person in profile as a dark silhouette at a desk, facing softly glowing translucent shapes, drifting light particles and thin network lines. Surfaces: matte dark fabric, glass and drifting light particles in hazy air. Accent colour: deep blue with violet. Shot with a 50mm lens at f/2.0 with gentle haze and a shallow depth of field. Soft, calm, uncluttered space across the lower 40% of the frame. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-12.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "inconsistent-information-given-to-custom",
+      "angle_type": "question",
+      "style": "bold",
+      "headline": "Sent the wrong price or timing?",
+      "highlight": [
+        "wrong price"
+      ],
+      "sub": "One wrong detail means an apology later.",
+      "chat": [],
+      "cta": "DM \"BOT\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "silhouette"
+  },
+  "carousel": {
+    "flavor": "scenario-story",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-12.jpg",
+      "data/media/2026-11-12-s2.jpg",
+      "data/media/2026-11-12-s3.jpg",
+      "data/media/2026-11-12-s4.jpg",
+      "data/media/2026-11-12-s5.jpg",
+      "data/media/2026-11-12-s6.jpg"
+    ],
+    "alts": [
+      "A wrong price or wrong time sent by mistake",
+      "Slide 2 of 6: Manual replies carry simple mistakes. A tired evening, a quick WhatsApp reply, and the wrong closing time goes out. The customer shows up to a closed shutter.",
+      "Slide 3 of 6: One wrong answer can shake trust. The next customer asks the same thing and hears a different number. Confusion replaces confidence, and they stop replying.",
+      "Slide 4 of 6: Replies come from your saved list. The chatbot can answer using the price and timing details you save, so every customer sees the same information.",
+      "Slide 5 of 6: You spend less time correcting mistakes. While the bot can handle routine price and timing questions, you can focus on orders, stock, and growth.",
+      "Slide 6 of 6: DM BOT. Message me for honest advice on whether an AI chatbot fits your business. Work begins only after you approve it."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      5
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "A wrong price or wrong time sent by mistake",
+        "body": "Imagine replying to a customer with yesterday's rate, then apologizing after they leave."
+      },
+      {
+        "role": "problem",
+        "headline": "Manual replies carry simple mistakes",
+        "body": "A tired evening, a quick WhatsApp reply, and the wrong closing time goes out. The customer shows up to a closed shutter."
+      },
+      {
+        "role": "problem",
+        "headline": "One wrong answer can shake trust",
+        "body": "The next customer asks the same thing and hears a different number. Confusion replaces confidence, and they stop replying."
+      },
+      {
+        "role": "solution",
+        "headline": "Replies come from your saved list",
+        "body": "The chatbot can answer using the price and timing details you save, so every customer sees the same information."
+      },
+      {
+        "role": "solution",
+        "headline": "You spend less time correcting mistakes",
+        "body": "While the bot can handle routine price and timing questions, you can focus on orders, stock, and growth."
+      },
+      {
+        "role": "cta",
+        "headline": "DM BOT",
+        "body": "Message me for honest advice on whether an AI chatbot fits your business. Work begins only after you approve it."
+      }
+    ],
+    "scene_prompts": {},
+    "picture_errors": [
+      "slide_prompt: none",
+      "slide_prompt: none",
+      "slide_prompt: none",
+      "slide_prompt: none"
+    ]
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Instagram post contains absolute outcome claim (\"Customer ko consistent aur instant jawab milta hai, koi maafi nahi\") which should be softened.",
+      "LinkedIn post contains absolute outcome claims (\"owner no longer spends time\", \"repeated questions no longer interrupt\") which should be softened.",
+      "Bluesky post contains absolute outcome claim (\"gives the same correct answer every time\") which should be softened."
+    ],
+    "revised": {
+      "instagram": "**A WRONG PRICE OR WRONG TIME SENT BY MISTAKE**\n\n→ Kabhi kabhi galat **PRICE** ya **TIMING** man se chali jati hai\n→ **CHATBOT** catalogue se sahi details 24/7 dene ki koshish karta hai\n→ Customer ko consistent aur instant jawab milne ki sambhavna hoti hai, isse maafi dene ki zaroorat kam ho sakti hai\n\nDM **BOT** aur batayein aapke customers kya poochte hain. Main bataunga chatbot fit hai ya nahi.\n\n#SmallBusinessIndia #ChatbotIndia #WhatsAppIndia #SmallBizIndia #DigitalIndia",
+      "linkedin": "A single wrong price or timing message can quickly erode a small business’s trust.\n\nOwners often juggle WhatsApp messages while serving walk‑in customers, checking a paper notebook, or recalling today’s price and opening time from memory. A café, a gym, or a clinic can send a typed reply with the wrong rate or hour, and the customer arrives expecting something different. One apology does not erase the confusion.\n\nI create an AI chatbot that answers common customer questions automatically, without replacing every human conversation. The basic version provides 24‑hour rule‑based replies and covers the top twenty questions a business receives, while forwarding new leads to WhatsApp. The advanced version is trained on the business’s catalogue and can collect leads without manual input.\n\nThe process starts with the owner listing what the business sells and the questions customers ask most often. I then build the chatbot using those answers as its knowledge base. The owner reviews the bot, requests any changes, and only after the final version is approved does the client pay.\n\nWith the bot handling routine queries, the owner can reduce the time spent typing the same price or opening hour into a phone while attending to shoppers. Answers are available at night when the shop is closed, and repeated questions are less likely to interrupt the workday. Customers receive more consistent information, freeing mental bandwidth for tasks that grow the business.\n\nI am happy to discuss whether this approach fits your business and to give an honest view. Payment is required only after you approve the work. If you would like to explore it, DM BOT and tell me what you sell.",
+      "bluesky": "Sending a customer the wrong price by mistake sticks in memory longer than the sale. A chatbot trained on your catalogue can help give consistent correct answers. DM BOT to see if it fits your business. #SmallBizIndia"
+    }
+  },
+  "ad_score": 8,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 318.0,
+        "reach_p50": 643.0,
+        "reach_p90": 1338.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'language/exclusion', 'severity': 'medium', 'description': 'The copy mixes English and Hindi, which may ali",
+          "{'category': 'gender bias', 'severity': 'low', 'description': 'The Hindi phrasing uses masculine generic forms (e.g., \"m",
+          "{'category': 'tone‑deafness', 'severity': 'medium', 'description': 'The statement that a chatbot reduces the need to apo"
+        ],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 5.0,
+          "practical_value": 4.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 343,
+            "like": 3,
+            "reply": 1
+          },
+          "engagement_rate": 0.0115,
+          "by_role": {
+            "public": {
+              "n": 4,
+              "avg_sentiment": 0.607,
+              "share_rate": 0.0
+            }
+          },
+          "cascade_size": 1,
+          "r_effective": 0.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 3.6
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.6
+          },
+          {
+            "title": "Open a stronger curiosity gap",
+            "lift_pct": 3.2
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 9.5,
+        "breakout_probability": 0.0,
+        "reach_p10": 449.0,
+        "reach_p50": 913.0,
+        "reach_p90": 2007.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 4.0,
+          "educational": 6.0,
+          "novelty": 4.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 5.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 353,
+            "share": 8,
+            "reply": 6,
+            "like": 6
+          },
+          "engagement_rate": 0.0536,
+          "by_role": {
+            "public": {
+              "n": 20,
+              "avg_sentiment": 0.622,
+              "share_rate": 0.4
+            }
+          },
+          "cascade_size": 9,
+          "r_effective": 1.6944,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 18,
+          "reach_fraction": 0.03,
+          "r_effective": 0.7533,
+          "polarization": 0.48,
+          "echo_chamber": 0.071
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 10.3,
+        "breakout_probability": 0.0,
+        "reach_p10": 214.0,
+        "reach_p50": 447.0,
+        "reach_p90": 962.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 5.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 348,
+            "share": 3,
+            "like": 2,
+            "reply": 3
+          },
+          "engagement_rate": 0.0225,
+          "by_role": {
+            "public": {
+              "n": 8,
+              "avg_sentiment": 0.495,
+              "share_rate": 0.375
+            }
+          },
+          "cascade_size": 4,
+          "r_effective": 1.25,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 15,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.6792,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "myth",
+          "p_beats_chosen": 0.98,
+          "lift_pct": 16.4,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "value",
+          "p_beats_chosen": 0.07,
+          "lift_pct": -3.4,
+          "decisive": true
+        }
+      ],
+      "better": 1,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Restructure with capital hook, 2-3 -> lines in Hinglish, DM BOT line, 5 national hashtags.",
+      "linkedin: Restructure with capital hook, plain sentences from developer view (not ad), DM BOT line, 3-5 national hashtags.",
+      "bluesky: Restructure with capital hook, 2-3 -> lines, positive framing (drop 'embarrassing'), DM BOT line, 3-5 national hashtags under 260 chars."
+    ],
+    "before": {
+      "instagram": 5.4,
+      "linkedin": 0.0,
+      "bluesky": 0.0
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 9.5,
+      "bluesky": 10.3
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (ProviderDown)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "FAILED google:gemma-4-26b-a4b-it (HTTP 500)",
+      "FAILED gemma: all its models"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 260.3,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 169.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 244.3,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 29.6,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 47.4,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 50.0,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "500",
+        "seconds": 4.5,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

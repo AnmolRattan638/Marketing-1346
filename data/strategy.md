@@ -1,3 +1,5 @@
-- Hook style to try next: use "mistake" angle (1.69x) with "comparison" hook style (1.66x); avoid pure "question" hooks (earn 27% of comparison per reach).
-- Topics to avoid repeating: another "contrast" hook (used 4× recently), another generic "Spending X hours vs Y minutes" comparison (already used 3× for different services).
-- Reminder: every post must read like a developer showing real work, never an ad; no demos, samples, or niche targeting.
+- Hook style: try comparison or contrast (outperformed question 3.7×); avoid question hooks for chatbot.
+- Topics: stop repeating "same questions" or "busy serving walk-ins" — used 3× in 2 weeks.
+- Every post must read like a developer sharing real work, never an ad; no demos, no guaranteed results.
+- Use bright-desk or desk-glow image styles (1.5× median); avoid network style.
+- Include pay-after-approval offer and DM-for-advice CTA only.

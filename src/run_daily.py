@@ -143,9 +143,9 @@ def main():
     focus = pick_focus(brand, history)
     ig_mode = "manual_reel" if dt.date.today().weekday() in brand.get("instagram", {}).get("manual_reel_weekdays", [2]) else "auto_image"
     try:
-        li_fmt = formats.linkedin_format(today)        # alternate text-only and image posts on LinkedIn
+        li_fmt = formats.linkedin_format(today)        # text only by default (LINKEDIN_FORMAT=image / alternate changes it)
     except Exception:
-        li_fmt = "image"
+        li_fmt = "text"
 
     try:
         state = stage("strategist.guide",
@@ -259,7 +259,7 @@ def main():
         names = {t["id"]: t["name"] for t in carousel_agent.flavors()}
         tg.send_media_group([config.ROOT / x for x in car_data["paths"]],
                             f"[CAROUSEL, {len(car_data['paths'])} slides | taste: {names.get(car_data['flavor'], car_data['flavor'])}] Order: hook, problem, solution, CTA. "
-                            f"Instagram and LinkedIn get every slide; Bluesky gets 4 (slides {', '.join(str(i + 1) for i in car_data['bluesky'])}). "
+                            f"{'Instagram gets every slide (LinkedIn is text only today)' if li_fmt == 'text' else 'Instagram and LinkedIn get every slide'}; Bluesky gets 4 (slides {', '.join(str(i + 1) for i in car_data['bluesky'])}). "
                             f"Hook image prompt: {(img.get('prompt') or '')[:420]}")
     elif img.get("path"):
         tg.send_photo(config.ROOT / img["path"], img.get("prompt") or "")

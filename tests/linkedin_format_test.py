@@ -1,4 +1,4 @@
-"""Offline tests: LinkedIn alternates a text-only post and an image post. The picker flips the last LinkedIn post that really went out,
+"""Offline tests: LinkedIn is text only by default (LINKEDIN_FORMAT=alternate flips text and image, =image pins images). The picker flips the last LinkedIn post that really went out,
 the publisher leaves the picture off LinkedIn only (Instagram and Bluesky keep it), the writer knows a text day has no picture, the daily run
 records and announces the format, and the learning loop / analytics label LinkedIn posts with the format we chose."""
 import json, os, pathlib, sys, tempfile
@@ -27,7 +27,9 @@ def clear():
 
 
 # ------------------------------------------------------------------ the picker
-assert formats.linkedin_format() == "text", "nothing sent yet: start with text"
+assert formats.linkedin_format() == "text", "default: text only"
+os.environ["LINKEDIN_FORMAT"] = "alternate"
+assert formats.linkedin_format() == "text", "alternate, nothing sent yet: start with text"
 put("2026-10-10", image=False)                                                  # legacy draft, no field, no picture -> it was a text post
 assert formats.of_draft(json.load(open(config.DRAFTS / "2026-10-10.json"))) == "text" and formats.linkedin_format() == "image"
 put("2026-10-12", image=True)                                                   # legacy draft with a picture -> it was an image post
@@ -46,16 +48,28 @@ assert formats.linkedin_format() == "image"
 os.environ["LINKEDIN_FORMAT"] = "TEXT"
 assert formats.linkedin_format() == "text"
 os.environ["LINKEDIN_FORMAT"] = "nonsense"
-assert formats.linkedin_format() == "text", "an unknown value falls back to alternating"
+assert formats.linkedin_format() == "text", "an unknown value means text"
 os.environ.pop("LINKEDIN_FORMAT")
+assert formats.linkedin_format() == "text", "default is text even though the last post that went out was an image post"
+assert formats.linkedin_format(today="2026-10-18") == "text"
 
-clear()                                                                         # six days in a row alternate
+clear()                                                                         # six days in a row: text every day by default
+seq = []
+for day in range(1, 7):
+    f = formats.linkedin_format()
+    seq.append(f)
+    put(f"2026-11-0{day}", fmt=f, image=(f == "image"))
+assert seq == ["text"] * 6, seq
+
+clear()                                                                         # opt in: alternate
+os.environ["LINKEDIN_FORMAT"] = "alternate"
 seq = []
 for day in range(1, 7):
     f = formats.linkedin_format()
     seq.append(f)
     put(f"2026-11-0{day}", fmt=f, image=(f == "image"))
 assert seq == ["text", "image", "text", "image", "text", "image"], seq
+os.environ.pop("LINKEDIN_FORMAT")
 
 # ------------------------------------------------------------------ the publisher
 calls = []
@@ -118,11 +132,20 @@ assert draft["linkedin_format"] == "text", draft.get("linkedin_format")
 assert any("LinkedIn today: TEXT ONLY (no image)" in m for m in sent), "the Telegram message tells the owner"
 assert any("NO PICTURE" in p for p in writer_prompts)
 
-# the next day: today's draft was sent to LinkedIn as text, so the following one is an image post
+# the next day: still text (the default never flips), whatever the last post was
 config.save_json(config.DRAFTS / "2026-10-20.json", {**draft, "date": "2026-10-20", "status": "published", "results": {"linkedin": {"ok": True}}})
 (config.DRAFTS / f"{run_daily.today}.json").unlink()
 sent.clear(); writer_prompts.clear()
 run_daily.main()
+draft_next = config.load_json(config.DRAFTS / f"{run_daily.today}.json", None)
+assert draft_next["linkedin_format"] == "text" and any("NO PICTURE" in p for p in writer_prompts)
+
+# opted in with LINKEDIN_FORMAT=alternate: the day after a text post is an image post
+os.environ["LINKEDIN_FORMAT"] = "alternate"
+(config.DRAFTS / f"{run_daily.today}.json").unlink()
+sent.clear(); writer_prompts.clear()
+run_daily.main()
+os.environ.pop("LINKEDIN_FORMAT")
 draft2 = config.load_json(config.DRAFTS / f"{run_daily.today}.json", None)
 assert draft2["linkedin_format"] == "image" and any("LinkedIn today: with the image" in m for m in sent)
 assert not any("NO PICTURE" in p for p in writer_prompts)

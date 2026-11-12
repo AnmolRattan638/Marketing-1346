@@ -2,7 +2,7 @@
   "id": "2026-11-12-9af153",
   "date": "2026-11-12",
   "created_at": "2026-11-12T10:27:16+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "chatbot",
   "topic": "Ever sent a customer the wrong price or timing and had to apologize later?",
   "idea_id": null,
@@ -469,5 +469,19 @@
         "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6af5b3dee29d7ea039af2c70 (6 slides)"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6af5b40b9c4618b9af3dab28 (due 2026-11-12T12:41:47.654Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n24ilguabw27 (4 slides)"
+    }
   }
 }

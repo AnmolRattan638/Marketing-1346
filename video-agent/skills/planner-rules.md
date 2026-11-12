@@ -42,6 +42,15 @@ Return exactly one JSON object:
   Never put a number in a `stat` that the narration does not say.
 - `transition` is how a scene arrives (default `settle`): `whip` for an energetic change of topic, `zoom` for a reveal,
   `glitch` for the problem, `iris` rarely. Do not use the same one in every scene.
+- MOTION GRAPHICS are the default picture. Give most scenes a `graphic` (no footage is fetched for it); the reel may use at most ONE stock
+  video/photo overall, so give at most one scene a `footage_query` and no `graphic`. Layouts:
+  `step` (`step` "STEP 1", `kicker`, `heading`, and a `mock` card: type `browser` for a website being built, `terminal` for commands/automation,
+  `comment` for a comment being typed, `checklist` for things done, `file` for a file extracted, `window` for a list; `mock.items` 2-4 short lines
+  in the order the narration says them), `strike` (`items` 2-5 single words struck out one by one, optional `heading`), `title` (`kicker`, `heading`,
+  `heading2`, `chips`), `punch` (a loud one-line slide for the key point: `heading`, `heading2`, `ghost` one big background word).
+  Every text is short (heading max 4 words, items 1-3 words) and uses words that are really spoken, so it can appear on its spoken word.
+  Use `punch` once at most, `strike` once at most. Never invent facts in graphics.
+- `transition` may also be `circle` (a colour circle opens the scene). Your logo animation is added at the end automatically.
 - Never mention prices, guarantees or results you cannot back up.
 - `sfx` is optional: at most one entry per scene, and none in some scenes. A whoosh on every cut is
   added automatically, so do not request it. Use `pop` on one key word, `riser` before a reveal,

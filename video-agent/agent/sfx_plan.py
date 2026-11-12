@@ -24,7 +24,10 @@ CUT_VOLUMES = {"whoosh": 0.32, "click": 0.38}      # sounds on shot cuts stay un
 RISER_SECONDS = 1.4        # riser clips end on the word they build toward
 LEAD = {"whoosh": 0.2, "riser": 0.0, "pop": 0.0, "click": 0.0}   # seconds a cue starts before its anchor; a whoosh swells for ~0.3 s, so its peak lands on the cut
 MIN_GAP = 0.3
-MAX_PER_SCENE = 5
+MAX_PER_SCENE = 3          # fewer, better placed sounds; a sound on every cut and every scene felt like noise
+POLICY = {"cut_sounds": False, "scene_whoosh": "wipes", "max_per_scene": MAX_PER_SCENE}
+# cut_sounds: whoosh/click on the shot cuts inside a footage scene. scene_whoosh: "wipes" = only when the scene arrives with a visible
+# transition (whip, zoom, iris, glitch, circle), "always" = every scene start, "never".
 
 
 def _norm(w: str) -> str:
@@ -43,8 +46,13 @@ def emphasis_beats(scene: dict, words: list[dict]) -> list[tuple[str, float]]:
     return out
 
 
-def plan_sfx(index: int, scene: dict, words: list[dict], available: set, cuts: list[dict] | None = None, fx: list[dict] | None = None) -> list[dict]:
+def plan_sfx(index: int, scene: dict, words: list[dict], available: set, cuts: list[dict] | None = None, fx: list[dict] | None = None,
+             transition: str = "settle", graphic_cues: list[dict] | None = None, policy: dict | None = None) -> list[dict]:
+    pol = {**POLICY, **(policy or {})}
     cands: list[tuple[int, str, float, float]] = []      # (priority, kind, anchor second, volume); lower priority number wins
+    for gc in graphic_cues or []:                         # the soft UI sounds of a motion-graphic scene (agent/graphics.py)
+        if gc["type"] in available:
+            cands.append((0, gc["type"], gc["atSecond"], gc["volume"]))
 
     for e in scene.get("sfx", []):
         kind = e.get("type")
@@ -66,10 +74,10 @@ def plan_sfx(index: int, scene: dict, words: list[dict], available: set, cuts: l
         if kind in available:
             cands.append((0, kind, f["atSecond"], VOLUMES[kind]))
 
-    if index > 0 and "whoosh" in available:
-        cands.append((1, "whoosh", 0.0, VOLUMES["whoosh"]))      # the cut into this scene
+    if index > 0 and "whoosh" in available and (pol["scene_whoosh"] == "always" or (pol["scene_whoosh"] == "wipes" and transition != "settle")):
+        cands.append((1, "whoosh", 0.0, VOLUMES["whoosh"]))      # the scene arrives with a visible wipe, so it gets its sound
 
-    for c in cuts or []:
+    for c in (cuts or []) if pol["cut_sounds"] else []:
         if c.get("kind") != "cut":
             continue          # a dissolve is its own transition and needs no sound
         kind = "whoosh" if c.get("type") in ("stock", "photo") else "click"
@@ -80,7 +88,7 @@ def plan_sfx(index: int, scene: dict, words: list[dict], available: set, cuts: l
     for _, kind, anchor, vol in sorted(cands, key=lambda c: (c[0], c[2])):
         at = max(0.0, anchor - LEAD[kind])
         # transients (pop, click, whoosh) must not stack; a riser starts as a near-silent fade-in, so it may overlap them
-        if len(cues) >= MAX_PER_SCENE or (kind != "riser" and any(abs(at - c["atSecond"]) < MIN_GAP for c in cues if c["type"] != "riser")):
+        if len(cues) >= pol["max_per_scene"] or (kind != "riser" and any(abs(at - c["atSecond"]) < MIN_GAP for c in cues if c["type"] != "riser")):
             continue
         cues.append({"src": f"assets/run/sfx/{kind}.mp3", "atSecond": round(at, 3), "volume": vol, "type": kind})
     return sorted(cues, key=lambda c: c["atSecond"])

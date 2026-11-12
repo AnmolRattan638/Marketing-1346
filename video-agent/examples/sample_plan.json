@@ -3,7 +3,6 @@
   "scenes": [
     {
       "narration": "Most customers search online before they visit a shop.",
-      "footage_query": "person searching phone street",
       "sfx": [
         {
           "type": "pop",
@@ -11,33 +10,38 @@
           "at_word": "online"
         }
       ],
-      "broll": [
-        "phone search results close up",
-        "customer scrolling phone"
-      ],
       "fx": [
         {
           "type": "lower_third",
           "text": "AR Designs",
           "label": "Websites for local shops"
         }
-      ]
+      ],
+      "graphic": {
+        "layout": "title",
+        "kicker": "Most customers",
+        "heading": "Search online",
+        "heading2": "before they visit",
+        "chips": [
+          "Phone",
+          "Google",
+          "Maps"
+        ]
+      }
     },
     {
       "narration": "If you do not show up, they walk into the next one.",
-      "footage_query": "shop front street walking",
-      "broll": [
-        "shop sign street",
-        "closed door shop front"
-      ],
       "transition": "glitch",
-      "fx": [
-        {
-          "type": "glitch",
-          "at_word": "walk",
-          "text": "LOST SALE"
-        }
-      ]
+      "graphic": {
+        "layout": "strike",
+        "kicker": "If you are not there",
+        "items": [
+          "Not found",
+          "Not trusted",
+          "Not visited"
+        ],
+        "heading": "They walk next door"
+      }
     },
     {
       "narration": "A simple website shows your hours, your location and your best work.",

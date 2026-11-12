@@ -84,3 +84,14 @@ edits/
 - **raw/notes.txt**: lines like `IMG_2031.jpg: service=general, me at my desk with a laptop`. File names count as tags too, so name clips `website_demo.mp4`, `chatbot_demo.mp4`.
 - Every narrated scene is cut into shots and each shot is your raw clip, a stock clip or a photo. The code (agent/hybrid.py) picks the source, the model never does. Rules, checked again on the finished reel: at least 1 raw shot (`min_raw_shots`; each raw shot is the best-scoring part of one of your 5-10 s clips, never the whole file, and a clip is reused with different parts; with 2+ clips at least 2 are used), at most 45% stock, photos are mixed in but never forced (`min_photo_shots` defaults to 0), no source 3 times in a row, the first shot is yours, shot lengths stay inside your Hero range. In strict mode a broken rule or a missing/empty raw folder stops the run and Telegram says why. Tune in `config.json` -> `hybrid`; `"enabled": false` returns to one stock clip per scene.
 - Limits: Drive downloads fail above 50 files per folder or when the link is not public; clips are matched to scenes by file-name tags, not by what is on screen.
+
+
+## Motion-graphic scenes (default picture)
+
+Instead of stock footage, most scenes are drawn by Remotion (`template/src/sequences/GraphicScene.tsx`, parts in `template/src/graphics/`):
+step badge + kinetic heading + a mock-up card (`browser`, `terminal`, `comment`, `checklist`, `file`, `window`), struck-through lists, a full-colour punch slide,
+a title card, a progress bar and a circle-wipe arrival. The planner gives a scene a `graphic` (see `skills/planner-rules.md`); `agent/graphics.py` turns it
+into times taken from the Whisper words, so every heading, tick, typed line and click lands on the word that says it, with a soft SFX of its own.
+Scenes without a usable graphic fall back to footage. Stock video + photos are capped at ONE shot per reel (`hybrid.max_stock_shots`); your raw clips still
+fill any footage scene. The reel always ends on your logo animation (`look.outro_logo`, `outro_seconds`). `sfx_policy` keeps sounds lean (no sound on every cut).
+Own palette and own captions: only the layouts are inspired by the reference reels.

@@ -16,7 +16,7 @@ PLAN_SCHEMA = {
             "maxItems": 8,
             "items": {
                 "type": "object",
-                "required": ["narration", "footage_query"],
+                "required": ["narration"],          # footage_query is only needed when the scene has no `graphic`
                 "properties": {
                     "narration": {"type": "string", "minLength": 5, "maxLength": 240},
                     "footage_query": {"type": "string", "minLength": 3, "maxLength": 80},
@@ -38,7 +38,33 @@ PLAN_SCHEMA = {
                             "suffix": {"type": "string", "maxLength": 6},
                         },
                     }},
-                    "transition": {"enum": ["settle", "whip", "zoom", "iris", "glitch"]},
+                    "transition": {"enum": ["settle", "whip", "zoom", "iris", "glitch", "circle"]},
+                    # Motion-graphic scene (agent/graphics.py): the visual is built from animated components instead of footage.
+                    "graphic": {
+                        "type": "object",
+                        "required": ["layout"],
+                        "properties": {
+                            "layout": {"enum": ["title", "step", "strike", "punch"]},
+                            "step": {"type": "string", "maxLength": 14},
+                            "kicker": {"type": "string", "maxLength": 40},
+                            "heading": {"type": "string", "maxLength": 30},
+                            "heading2": {"type": "string", "maxLength": 30},
+                            "heading_at": {"type": "string", "maxLength": 40},
+                            "ghost": {"type": "string", "maxLength": 12},
+                            "chips": {"type": "array", "maxItems": 3, "items": {"type": "string", "maxLength": 24}},
+                            "items": {"type": "array", "maxItems": 6, "items": {"type": "string", "maxLength": 60}},
+                            "reveal": {"type": "array", "maxItems": 6, "items": {"type": "string", "maxLength": 40}},
+                            "mock": {
+                                "type": "object",
+                                "required": ["type"],
+                                "properties": {
+                                    "type": {"enum": ["terminal", "comment", "checklist", "browser", "file", "window"]},
+                                    "title": {"type": "string", "maxLength": 30},
+                                    "items": {"type": "array", "maxItems": 6, "items": {"type": "string", "maxLength": 60}},
+                                },
+                            },
+                        },
+                    },
                     # Name of a clip you placed in assets/hero/ by hand (e.g. made on a
                     # free Kaggle GPU session). Null or missing means use Pexels.
                     "hero_clip": {"type": ["string", "null"]},
@@ -55,9 +81,7 @@ PLAN_SCHEMA = {
                             },
                         },
                     },
-                    # Reserved for later phases (Lottie overlays, transition styles).
-                    # Accepted so plans stay forward compatible, ignored by v1.
-                    "transition": {"type": "string"},
+                    # Reserved for later phases (Lottie overlays); accepted so plans stay forward compatible, ignored.
                     "lottie": {"type": ["string", "null"]},
                 },
             },

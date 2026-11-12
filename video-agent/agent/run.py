@@ -18,6 +18,7 @@ from .manifest import available_sfx, build_manifest
 from .plan import make_plan, sample_plan
 from .render import render
 from .fx_plan import plan_fx, resolve_transition
+from .graphics import fallback_graphic, resolve_graphic
 from .sfx_plan import emphasis_beats, plan_sfx
 from .voice import synth
 
@@ -57,30 +58,47 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
         mp3 = WORK / "narration" / f"{sid}.mp3"
         seconds = synth(sc["narration"], mp3, cfg, offline)
         voiced.append((sid, sc, seconds, mp3, get_words(sc["narration"], mp3, seconds, cfg, offline)))
-    if editor:   # the whole reel is planned at once so the hybrid rules apply to the reel, not to each scene
-        editor.prepare([(sid, sc, sec + cfg["video"]["tail_seconds"]) for sid, sc, sec, _, _ in voiced], WORK / "footage",
-                       {sid: words for sid, _, _, _, words in voiced})      # cuts are snapped to the spoken words
+    tail = cfg["video"]["tail_seconds"]
+    # Each scene is either a motion graphic (the default look) or footage (your own clips, at most max_stock_shots stock shots in the reel).
+    graphics: dict[str, dict] = {}
+    for sid, sc, sec, _, words in voiced:
+        if sc.get("graphic") or (editor and not editor.avail["raw"]):
+            if not sc.get("graphic"):
+                log(f"{sid}: no raw clips to show, so this scene becomes a motion graphic instead of stock footage")
+                sc["graphic"] = fallback_graphic(sc)
+            gp = resolve_graphic(sc, words, sec + tail)
+            if gp:
+                graphics[sid] = gp
+            else:
+                sc.pop("graphic", None)
+        sc.setdefault("footage_query", "modern website design on a laptop")
+    footage_scenes = [(sid, sc, sec + tail) for sid, sc, sec, _, _ in voiced if sid not in graphics]
+    if editor and footage_scenes:   # the whole reel is planned at once so the hybrid rules apply to the reel, not to each scene
+        editor.prepare(footage_scenes, WORK / "footage", {sid: words for sid, _, _, _, words in voiced})      # cuts are snapped to the spoken words
     for i, (sid, sc, seconds, mp3, words) in enumerate(voiced):
-        if editor:
-            clip = editor.render_scene(sid, WORK / "footage")
+        transition = resolve_transition(sc, i, cfg)
+        gp = graphics.get(sid)
+        if gp:
+            clip, fx = None, plan_fx(sc, words, seconds + tail, cfg)
+            sfx = plan_sfx(i, sc, words, sfx_ok, None, fx, transition, gp["sfx"], cfg.get("sfx_policy"))
+            credits.append({"scene": sid, "graphic": gp["layout"]})
         else:
-            clip = fetch_clip(sc, sid, WORK / "footage", used_ids, offline)
-        fx = plan_fx(sc, words, seconds + cfg["video"]["tail_seconds"], cfg)      # graphics anchored to spoken words
+            clip = editor.render_scene(sid, WORK / "footage") if editor else fetch_clip(sc, sid, WORK / "footage", used_ids, offline)
+            fx = plan_fx(sc, words, seconds + tail, cfg)      # graphics anchored to spoken words
+            sfx = plan_sfx(i, sc, words, sfx_ok, clip.get("cuts"), fx, transition, None, cfg.get("sfx_policy"))
+            credits.append(clip["credit"])
         built.append({
-            "id": sid, "clip": clip, "narration": f"assets/run/narration/{sid}.mp3",
-            "narration_seconds": seconds, "words": words,
-            "sfx": plan_sfx(i, sc, words, sfx_ok, clip.get("cuts"), fx),  # whooshes and clicks land on the real shot cuts; every graphic gets its sound
-            "fx": fx, "transition": resolve_transition(sc, i, cfg),
+            "id": sid, "clip": clip, "graphic": gp, "narration": f"assets/run/narration/{sid}.mp3",
+            "narration_seconds": seconds, "words": words, "sfx": sfx, "fx": fx, "transition": transition,
             "beats": emphasis_beats(sc, words),                           # the same words drive caption emphasis and the zoom pulse
         })
-        credits.append(clip["credit"])
 
     manifest = build_manifest(plan, built, cfg)
     (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     (out_dir / "credits.json").write_text(json.dumps(credits, indent=2), encoding="utf-8")
     summary = ""
     if editor:
-        shots = [x for b in built for x in b["clip"].get("shots", [])]
+        shots = [x for b in built if b["clip"] for x in b["clip"].get("shots", [])]
         total = sum(x["seconds"] for x in shots) or 1
         share = {t: sum(x["seconds"] for x in shots if x["type"] == t) / total for t in ("raw", "stock", "photo")}
         summary = (f"\nService: {service}. Hybrid: {len(shots)} shots, your raw {share['raw']:.0%}, stock {share['stock']:.0%}, photos {share['photo']:.0%}; "

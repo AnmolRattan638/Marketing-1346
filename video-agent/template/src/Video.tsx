@@ -8,6 +8,7 @@ import type { NarrationRange } from "./audio/useDucking";
 import ExampleScene from "./sequences/ExampleScene";
 import KitchenSink from "./sequences/KitchenSink";
 import FootageScene from "./sequences/FootageScene";
+import GraphicScene from "./sequences/GraphicScene";
 import { LogoBug } from "./components/LogoBug";
 
 // Map of component path (as used in manifest.scenes[].component) to the
@@ -16,6 +17,7 @@ const sceneRegistry: Record<string, React.ComponentType<any>> = {
   "sequences/ExampleScene": ExampleScene,
   "sequences/KitchenSink": KitchenSink,
   "sequences/FootageScene": FootageScene,
+  "sequences/GraphicScene": GraphicScene,
 };
 
 export const Video: React.FC = () => {
@@ -72,7 +74,11 @@ export const Video: React.FC = () => {
           </Sequence>
         );
       })}
-      {manifest.brand?.logo && <LogoBug logo={manifest.brand.logo} />}
+      {manifest.brand?.logo && (
+        <Sequence from={0} durationInFrames={Math.max(1, (resolved.find((r) => r.scene.id === "outro")?.startFrame ?? cursor))}>
+          <LogoBug logo={manifest.brand.logo} />
+        </Sequence>
+      )}
     </AbsoluteFill>
   );
 };

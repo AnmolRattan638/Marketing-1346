@@ -42,7 +42,8 @@ beats = sfx_plan.emphasis_beats(scene, words)
 assert beats == [("online", 2.0), ("today.", 3.2)], beats
 cuts = [{"at": 1.5, "kind": "cut", "type": "stock", "effect": "none"}, {"at": 2.2, "kind": "fade", "type": "photo", "effect": "none"},
         {"at": 3.0, "kind": "cut", "type": "raw", "effect": "none"}]
-cues = sfx_plan.plan_sfx(2, scene, words, avail, cuts)
+LOUD = {"cut_sounds": True, "scene_whoosh": "always", "max_per_scene": 5}
+cues = sfx_plan.plan_sfx(2, scene, words, avail, cuts, policy=LOUD)
 by = lambda k: [c for c in cues if c["type"] == k]
 assert by("pop") and by("pop")[0]["atSecond"] == 2.0, "the pop lands on the first sound of its word"
 assert abs(by("riser")[0]["atSecond"] - (3.2 - sfx_plan.RISER_SECONDS)) < 1e-6, "the riser ends on its word"
@@ -50,15 +51,15 @@ assert any(abs(c["atSecond"] - (1.5 - sfx_plan.LEAD["whoosh"])) < 1e-6 for c in 
 assert not any(abs(c["atSecond"] - 2.2) < 0.25 for c in cues if c["type"] != "pop"), "a dissolve gets no sound"
 hits = [c for c in cues if c["type"] != "riser"]
 assert all(b["atSecond"] - a["atSecond"] >= sfx_plan.MIN_GAP - 1e-6 for a, b in zip(hits, hits[1:])), "transients never stack"
-assert len(cues) <= sfx_plan.MAX_PER_SCENE and cues == sorted(cues, key=lambda c: c["atSecond"])
+assert len(cues) <= 5 and cues == sorted(cues, key=lambda c: c["atSecond"])
 many = [{"at": 0.4 * i, "kind": "cut", "type": "stock", "effect": "none"} for i in range(1, 14)]
-crowded = sfx_plan.plan_sfx(1, scene, words, avail, many)
+crowded = sfx_plan.plan_sfx(1, scene, words, avail, many, policy=LOUD)
 assert any(c["type"] == "pop" for c in crowded) and any(c["type"] == "riser" for c in crowded), "planner hints beat automatic cut sounds"
-assert len(crowded) <= sfx_plan.MAX_PER_SCENE
+assert len(crowded) <= 5
 
 # 3. the plan accepts per-scene B-roll; each cutaway shot uses the next query
 plan = json.loads((ROOT / "examples" / "sample_plan.json").read_text())
-assert validate_plan(plan) == [] and all(len(s["broll"]) >= 2 for s in plan["scenes"])
+assert validate_plan(plan) == [] and all(len(s["broll"]) >= 2 for s in plan["scenes"] if not s.get("graphic"))
 bad = json.loads(json.dumps(plan)); bad["scenes"][0]["broll"] = ["ok words", "x"]
 assert validate_plan(bad), "a too-short B-roll query is rejected"
 ed = hybrid.Editor(cfg, True, "general")
@@ -97,6 +98,9 @@ assert fx_plan.resolve_transition({"transition": "whip"}, 0, fcfg) == "settle", 
 assert fx_plan.resolve_transition({"transition": "whip"}, 2, fcfg) == "whip" and fx_plan.resolve_transition({}, 2, fcfg) == "settle"
 assert fx_plan.resolve_transition({"transition": "nonsense"}, 2, fcfg) == "settle"
 fx_cues = sfx_plan.plan_sfx(1, {"sfx": []}, fxw, avail, None, got)
+quiet = sfx_plan.plan_sfx(2, {"sfx": []}, fxw, avail, cuts)
+assert not any(c["type"] in ("whoosh", "click") for c in quiet), "default policy: no sound on plain cuts or plain scene starts"
+assert any(c["type"] == "whoosh" and c["atSecond"] == 0.0 for c in sfx_plan.plan_sfx(2, {"sfx": []}, fxw, avail, None, None, "circle")), "a visible wipe gets its whoosh"
 assert any(c["type"] == "pop" and c["atSecond"] == 0.5 for c in fx_cues), "a stat appears with its pop"
 badfx = json.loads(json.dumps(plan)); badfx["scenes"][0]["fx"] = [{"type": "confetti"}]
 assert validate_plan(badfx), "an unknown effect type is rejected"
@@ -113,8 +117,14 @@ credits = json.loads((pathlib.Path(run_dir) / "credits.json").read_text())
 fps = m["video"]["fps"]
 for i, (scn, cr) in enumerate(zip(m["scenes"], credits)):
     p, dur = scn["props"], scn["duration"]
-    shot_total = sum(s["seconds"] for s in cr["shots"])
-    assert abs(shot_total - dur) < 0.3, (scn["id"], shot_total, dur)                          # picture length = narration length
+    if scn["component"] == "sequences/GraphicScene":                                           # a motion graphic: every element lands on a spoken word, inside the scene
+        t = p["times"]
+        spoken = [w["start"] for w in p["words"]]
+        assert 0 <= t["heading"] < dur and all(0 <= x < dur for x in t["items"]), (scn["id"], t)
+        assert all(any(abs(x - s0) < 0.6 for s0 in spoken) for x in t["items"] if p["layout"] in ("strike", "step")), (scn["id"], t, spoken)
+    else:
+        shot_total = sum(s["seconds"] for s in cr["shots"])
+        assert abs(shot_total - dur) < 0.3, (scn["id"], shot_total, dur)                      # picture length = narration length
     assert all(0 <= c["atSecond"] <= dur for c in scn["sfx"]), scn["sfx"]                     # every SFX inside its scene
     assert all(w["end"] <= dur + 1e-6 for w in p["words"]), "caption words stay inside the scene"
     starts = {round(w["start"], 3) for w in p["words"] if w["text"].strip(".,!?").lower() in {e.strip(".,!?").lower() for e in p["emphasis"]}}
@@ -128,4 +138,6 @@ for i, (scn, cr) in enumerate(zip(m["scenes"], credits)):
             assert f["atSecond"] in p["pulses"], "the picture hits with the graphic"
         assert any(abs(c["atSecond"] - max(0, f["atSecond"] - sfx_plan.LEAD.get(fx_plan.SFX_FOR[f["type"]], 0))) < 0.35 for c in scn["sfx"]), (scn["id"], f, scn["sfx"])
 shutil.rmtree(run_dir, ignore_errors=True)
+assert m["scenes"][-1]["id"] == "outro" and m["scenes"][-1]["props"]["layout"] == "logo", "the reel ends on the logo animation"
+assert sum(1 for c in credits if c.get("source") in ("stock", "photo") or any(x.get("type") in ("stock", "photo") for x in c.get("shots", []))) <= 1
 print("video sync test passed: cuts on words, SFX on cuts and emphasis words, per-shot B-roll, fx on spoken words, manifest lines up")

@@ -10,7 +10,7 @@ import {
   useVideoConfig,
 } from "remotion";
 import { CaptionWord } from "../components/Captions";
-import { CaptionLayer, CaptionStyle } from "../components/CaptionStyles";
+import { CaptionLayer, CaptionStyle, CaptionZone } from "../components/CaptionStyles";
 import { FxItem, FxLayer } from "../effects/FxLayer";
 import { FilmGrain } from "../effects/FilmGrain";
 import { Arrival, arrival, shake } from "../effects/motion";
@@ -27,6 +27,7 @@ export interface FootageSceneProps {
   upperCaptions?: boolean;
   fx?: FxItem[]; // animated graphics and camera shakes anchored to spoken words (agent/fx_plan.py)
   transitionIn?: Arrival; // how the scene arrives: settle | whip | zoom | iris | glitch
+  captionZones?: CaptionZone[]; // smart caption placement for this scene
   captionStyle?: CaptionStyle; // from the reel's look (agent/looks.py)
   grain?: number; // film grain strength, 0 = off
 }
@@ -46,7 +47,7 @@ const FootageScene: React.FC<FootageSceneProps> = ({
   upperCaptions = true,
   fx = [],
   transitionIn = "settle",
-  captionStyle, grain = 0,
+  captionStyle, captionZones, grain = 0,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
@@ -95,7 +96,7 @@ const FootageScene: React.FC<FootageSceneProps> = ({
         }}
       />
       <FxLayer items={fx} />
-      <CaptionLayer words={words} emphasis={emphasis} upper={upperCaptions} style={captionStyle} />
+      <CaptionLayer words={words} emphasis={emphasis} upper={upperCaptions} style={captionStyle} zones={captionZones} />
       {grain > 0 ? <FilmGrain opacity={grain} /> : null}
       {overlayText ? (
         <AbsoluteFill

@@ -76,6 +76,8 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
         props["transitionIn"] = b.get("transition", "settle")
         if look:
             props["captionStyle"] = look["caption"]
+        if b.get("zones"):
+            props["captionZones"] = b["zones"]          # smart placement: where the captions sit, moment by moment (agent/caption_zones.py)
         props["pulses"] += [f["atSecond"] for f in fx if f["type"] in ("stat", "glitch", "title")]     # the picture hits with the graphic
         props["pulses"].sort()
         if (cfg.get("fx") or {}).get("grain"):

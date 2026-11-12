@@ -76,6 +76,32 @@ assert non_raw[:2] == ["first cutaway", "second cutaway"][:len(non_raw[:2])] and
 assert set(raw) == {"main look"}, "your own footage keeps the scene's main look"
 assert all("t0" in s for s in ed.shots) and abs(sum(s["seconds"] for s in ed.shots) - 9.0) < 0.5
 
+# 3b. animation effects (agent/fx_plan.py): anchored to spoken words, kept inside the scene, one graphic at a time, each with its own sound
+from agent import fx_plan
+fxw = [{"text": "Most", "start": 0.1, "end": 0.4}, {"text": "73%", "start": 0.5, "end": 1.0}, {"text": "search", "start": 1.2, "end": 1.6},
+       {"text": "online,", "start": 1.7, "end": 2.2}, {"text": "never", "start": 3.4, "end": 3.8}]
+fcfg = {"fx": {"enabled": True, "max_per_scene": 2, "default_transition": "settle"}}
+got = fx_plan.plan_fx({"fx": [{"type": "stat", "at_word": "73%", "value": 73, "suffix": "%", "label": "x"}]}, fxw, 4.0, fcfg)
+assert got and got[0]["atSecond"] == 0.5 and got[0]["value"] == 73 and got[0]["suffix"] == "%", got
+assert fx_plan.plan_fx({"fx": [{"type": "glitch", "at_word": "missing", "text": "A"}]}, fxw, 4.0, fcfg) == [], "a word that is not spoken: no graphic"
+late = fx_plan.plan_fx({"fx": [{"type": "title", "at_word": "never", "text": "T", "seconds": 4}]}, fxw, 4.0, fcfg)
+assert late and late[0]["atSecond"] + late[0]["seconds"] <= 4.0 - 0.09, "a graphic never outlives its scene"
+assert fx_plan.plan_fx({"fx": [{"type": "title", "at_word": "never", "text": "T", "seconds": 4}]}, fxw, 3.6, fcfg) == [], "no room left: skipped"
+two = fx_plan.plan_fx({"fx": [{"type": "stat", "at_word": "73%", "value": 1}, {"type": "title", "at_word": "search", "text": "T", "seconds": 2}]}, fxw, 6.0, fcfg)
+assert [f["type"] for f in two] == ["stat"], "two graphics never overlap"
+sh = fx_plan.plan_fx({"fx": [{"type": "stat", "at_word": "73%", "value": 1}, {"type": "shake", "at_word": "search"}]}, fxw, 6.0, fcfg)
+assert [f["type"] for f in sh] == ["stat", "shake"], "a camera shake may run under a graphic"
+assert len(fx_plan.plan_fx({"fx": [{"type": "glitch", "text": "A"}, {"type": "title", "text": "B"}, {"type": "stat", "value": 1}]}, fxw, 9.0, fcfg)) <= 2
+assert fx_plan.plan_fx({"fx": [{"type": "glitch", "text": "A"}]}, fxw, 4.0, {"fx": {"enabled": False}}) == [], "fx can be switched off in config.json"
+assert fx_plan.resolve_transition({"transition": "whip"}, 0, fcfg) == "settle", "the first scene has nothing to arrive from"
+assert fx_plan.resolve_transition({"transition": "whip"}, 2, fcfg) == "whip" and fx_plan.resolve_transition({}, 2, fcfg) == "settle"
+assert fx_plan.resolve_transition({"transition": "nonsense"}, 2, fcfg) == "settle"
+fx_cues = sfx_plan.plan_sfx(1, {"sfx": []}, fxw, avail, None, got)
+assert any(c["type"] == "pop" and c["atSecond"] == 0.5 for c in fx_cues), "a stat appears with its pop"
+badfx = json.loads(json.dumps(plan)); badfx["scenes"][0]["fx"] = [{"type": "confetti"}]
+assert validate_plan(badfx), "an unknown effect type is rejected"
+assert validate_plan(plan) == [] and any(s.get("fx") for s in plan["scenes"]) and any(s.get("transition") for s in plan["scenes"])
+
 # 4. the manifest of a whole offline run lines picture, audio and captions up
 import subprocess
 r = subprocess.run([sys.executable, "-m", "agent.run", "--offline", "--no-render"], capture_output=True, text=True)
@@ -92,7 +118,14 @@ for i, (scn, cr) in enumerate(zip(m["scenes"], credits)):
     assert all(0 <= c["atSecond"] <= dur for c in scn["sfx"]), scn["sfx"]                     # every SFX inside its scene
     assert all(w["end"] <= dur + 1e-6 for w in p["words"]), "caption words stay inside the scene"
     starts = {round(w["start"], 3) for w in p["words"] if w["text"].strip(".,!?").lower() in {e.strip(".,!?").lower() for e in p["emphasis"]}}
-    assert set(p["pulses"]) <= starts, (p["pulses"], starts)                                  # the zoom pulse lands on the emphasis word
+    fx_starts = {round(f["atSecond"], 3) for f in p["fx"] if f["type"] in ("stat", "glitch", "title")}
+    assert set(p["pulses"]) <= starts | fx_starts, (p["pulses"], starts, fx_starts)           # the zoom pulse lands on an emphasis word or a graphic
     assert ("fadeOutFrames" in p) == (i == len(m["scenes"]) - 1), "only the last scene fades to black"
+    assert p["transitionIn"] in fx_plan.TRANSITIONS and (i > 0 or p["transitionIn"] == "settle")
+    for f in p["fx"]:                                                                          # graphics sit on a spoken word and inside the scene
+        assert 0 <= f["atSecond"] and f["atSecond"] + f["seconds"] <= dur + 1e-6, (scn["id"], f)
+        if f["type"] in ("stat", "glitch", "title"):
+            assert f["atSecond"] in p["pulses"], "the picture hits with the graphic"
+        assert any(abs(c["atSecond"] - max(0, f["atSecond"] - sfx_plan.LEAD.get(fx_plan.SFX_FOR[f["type"]], 0))) < 0.35 for c in scn["sfx"]), (scn["id"], f, scn["sfx"])
 shutil.rmtree(run_dir, ignore_errors=True)
-print("video sync test passed: cuts on words, SFX on cuts and emphasis words, per-shot B-roll, manifest lines up")
+print("video sync test passed: cuts on words, SFX on cuts and emphasis words, per-shot B-roll, fx on spoken words, manifest lines up")

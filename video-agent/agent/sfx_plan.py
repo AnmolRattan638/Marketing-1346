@@ -15,6 +15,7 @@ from __future__ import annotations
 import re
 
 from .common import log
+from .fx_plan import SFX_FOR as fx_sfx
 
 # Starting levels. Short-form narration is near-continuous and masks quiet effects,
 # so these lean loud-ish. Tune by ear.
@@ -42,7 +43,7 @@ def emphasis_beats(scene: dict, words: list[dict]) -> list[tuple[str, float]]:
     return out
 
 
-def plan_sfx(index: int, scene: dict, words: list[dict], available: set, cuts: list[dict] | None = None) -> list[dict]:
+def plan_sfx(index: int, scene: dict, words: list[dict], available: set, cuts: list[dict] | None = None, fx: list[dict] | None = None) -> list[dict]:
     cands: list[tuple[int, str, float, float]] = []      # (priority, kind, anchor second, volume); lower priority number wins
 
     for e in scene.get("sfx", []):
@@ -59,6 +60,11 @@ def plan_sfx(index: int, scene: dict, words: list[dict], available: set, cuts: l
             continue
         anchor = hit["start"] - RISER_SECONDS if kind == "riser" else hit["start"]
         cands.append((0, kind, max(0.0, anchor), VOLUMES[kind]))
+
+    for f in fx or []:                      # a graphic appears WITH its sound (agent/fx_plan.py SFX_FOR)
+        kind = fx_sfx.get(f["type"])
+        if kind in available:
+            cands.append((0, kind, f["atSecond"], VOLUMES[kind]))
 
     if index > 0 and "whoosh" in available:
         cands.append((1, "whoosh", 0.0, VOLUMES["whoosh"]))      # the cut into this scene

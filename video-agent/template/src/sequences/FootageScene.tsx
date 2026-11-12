@@ -10,6 +10,9 @@ import {
   useVideoConfig,
 } from "remotion";
 import { Captions, CaptionWord } from "../components/Captions";
+import { FxItem, FxLayer } from "../effects/FxLayer";
+import { FilmGrain } from "../effects/FilmGrain";
+import { Arrival, arrival, shake } from "../effects/motion";
 
 export interface FootageSceneProps {
   clip: string; // e.g. "assets/run/footage/s1.mp4"
@@ -21,6 +24,9 @@ export interface FootageSceneProps {
   zoom?: number; // total slow zoom over the scene, 0.04 = 4%
   fadeOutFrames?: number; // fade to black at the END of the scene; only the last scene of the video uses it
   upperCaptions?: boolean;
+  fx?: FxItem[]; // animated graphics and camera shakes anchored to spoken words (agent/fx_plan.py)
+  transitionIn?: Arrival; // how the scene arrives: settle | whip | zoom | iris | glitch
+  grain?: number; // film grain strength, 0 = off
 }
 
 // One scene of the reel. The footage was already cut on the spoken words (agent/hybrid.py); here it gets a slow push,
@@ -36,19 +42,23 @@ const FootageScene: React.FC<FootageSceneProps> = ({
   zoom = 0.04,
   fadeOutFrames = 0,
   upperCaptions = true,
+  fx = [],
+  transitionIn = "settle",
+  grain = 0,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
 
   const clipFrames = Math.max(1, Math.round(clipSeconds * fps));
   const push = interpolate(frame, [0, durationInFrames], [0, zoom]);
-  const settle = 0.05 * Math.exp(-frame / 5); // arrives slightly zoomed in and eases back as the whoosh dies
   const punch = pulses.reduce((sum, p) => {
     const f = frame - Math.round(p * fps);
     if (f < 0 || f > 24) return sum;
     return sum + 0.05 * (f < 2 ? f / 2 : Math.exp(-(f - 2) / 4));
   }, 0);
-  const scale = 1 + push + settle + punch;
+  const look = arrival(transitionIn, frame, fps); // how this scene lands (settle = slight zoom that eases back with the whoosh)
+  const cam = shake(frame, fps, fx.filter((f) => f.type === "shake")); // camera shake on impact words, footage only: captions stay still
+  const scale = (1 + push + punch) * look.scale * cam.scale;
 
   const fadeOut =
     fadeOutFrames > 0
@@ -60,7 +70,14 @@ const FootageScene: React.FC<FootageSceneProps> = ({
 
   return (
     <AbsoluteFill style={{ backgroundColor: "black", opacity: fadeOut }}>
-      <AbsoluteFill style={{ transform: `scale(${scale})` }}>
+      <AbsoluteFill
+        style={{
+          transform: `translate(${look.translateX + cam.x}px, ${look.translateY + cam.y}px) scale(${scale})`,
+          filter: look.blur || look.hue || look.brightness !== 1 ? `blur(${look.blur}px) hue-rotate(${look.hue}deg) brightness(${look.brightness})` : undefined,
+          opacity: look.opacity,
+          clipPath: look.clip,
+        }}
+      >
         <Loop durationInFrames={clipFrames}>
           <OffthreadVideo
             src={staticFile(clip)}
@@ -75,7 +92,9 @@ const FootageScene: React.FC<FootageSceneProps> = ({
             "linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 48%), radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.28) 100%)",
         }}
       />
+      <FxLayer items={fx} />
       <Captions words={words} emphasis={emphasis} upper={upperCaptions} />
+      {grain > 0 ? <FilmGrain opacity={grain} /> : null}
       {overlayText ? (
         <AbsoluteFill
           style={{ justifyContent: "flex-start", alignItems: "center", paddingTop: 260 }}

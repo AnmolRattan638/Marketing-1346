@@ -14,6 +14,13 @@
       "broll": [
         "phone search results close up",
         "customer scrolling phone"
+      ],
+      "fx": [
+        {
+          "type": "lower_third",
+          "text": "AR Designs",
+          "label": "Websites for local shops"
+        }
       ]
     },
     {
@@ -22,6 +29,14 @@
       "broll": [
         "shop sign street",
         "closed door shop front"
+      ],
+      "transition": "glitch",
+      "fx": [
+        {
+          "type": "glitch",
+          "at_word": "walk",
+          "text": "LOST SALE"
+        }
       ]
     },
     {
@@ -37,6 +52,14 @@
       "broll": [
         "laptop screen website",
         "hands typing laptop"
+      ],
+      "transition": "whip",
+      "fx": [
+        {
+          "type": "title",
+          "at_word": "hours",
+          "text": "Hours · Location · Work"
+        }
       ]
     },
     {
@@ -52,7 +75,8 @@
       "broll": [
         "shop owner smiling counter",
         "customer entering shop"
-      ]
+      ],
+      "transition": "zoom"
     }
   ],
   "cta": {

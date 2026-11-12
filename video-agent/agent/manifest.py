@@ -57,6 +57,13 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict) -> dict:
         beats = b.get("beats") or []
         props["emphasis"] = [w for w, _ in beats]          # words the captions colour and the picture pulses on, same moments as the pop/riser
         props["pulses"] = [round(t, 3) for _, t in beats]
+        fx = b.get("fx") or []
+        props["fx"] = fx                                   # stat / glitch / title / lower_third / shake, each at a spoken word
+        props["transitionIn"] = b.get("transition", "settle")
+        props["pulses"] += [f["atSecond"] for f in fx if f["type"] in ("stat", "glitch", "title")]     # the picture hits with the graphic
+        props["pulses"].sort()
+        if (cfg.get("fx") or {}).get("grain"):
+            props["grain"] = cfg["fx"]["grain"]
         if i == len(built) - 1:
             props["fadeOutFrames"] = 10                    # the only fade to black: the end of the video
         if i == len(built) - 1 and plan.get("cta", {}).get("text"):

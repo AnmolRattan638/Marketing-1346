@@ -69,6 +69,43 @@ def _call_groq(messages: list[dict], cfg: dict) -> str:
     raise RuntimeError("no Groq model worked: " + " | ".join(errors))
 
 
+def _blank(v) -> bool:
+    return v is None or (isinstance(v, str) and not v.strip())
+
+
+def tidy_plan(plan):
+    """Clean the harmless slips a model makes before the plan is validated, so a run does not fail on them.
+
+    The commonest one: a scene that has a `graphic` gets `"footage_query": ""` (the rules say it needs none), and the schema then rejects the
+    empty string as too short. So a blank, null or too-short optional text is dropped, a too-long query or cutaway is cut at a word boundary,
+    and blank cutaways and empty lists are removed. Anything that really matters (narration, graphic layout, fx and sfx types) is left for
+    the validator to judge. A scene left with neither a graphic nor a query gets the default query later (run.py).
+    """
+    if not isinstance(plan, dict) or not isinstance(plan.get("scenes"), list):
+        return plan
+
+    def cut(text: str, limit: int) -> str:
+        text = " ".join(text.split())
+        return text if len(text) <= limit else text[:limit].rsplit(" ", 1)[0].strip()
+
+    for sc in plan["scenes"]:
+        if not isinstance(sc, dict):
+            continue
+        q = sc.get("footage_query")
+        if isinstance(q, str):
+            q = cut(q, 80)
+        if "footage_query" in sc and (not isinstance(q, str) or len(q) < 3):
+            sc.pop("footage_query")
+        elif isinstance(q, str):
+            sc["footage_query"] = q
+        if isinstance(sc.get("broll"), list):
+            sc["broll"] = [cut(b, 60) for b in sc["broll"] if isinstance(b, str) and len(b.strip()) >= 3]
+        for key in ("hero_clip", "lottie", "transition", "graphic", "broll", "fx", "sfx"):
+            if key in sc and (_blank(sc[key]) or sc[key] in ([], {})):
+                sc.pop(key)
+    return plan
+
+
 def make_plan(topic: str, cfg: dict, library: str = "") -> dict:
     lang = cfg["language"]
     user = (
@@ -87,7 +124,7 @@ def make_plan(topic: str, cfg: dict, library: str = "") -> dict:
     for attempt in (1, 2):
         raw = _call_groq(messages, cfg)
         try:
-            plan = json.loads(raw)
+            plan = tidy_plan(json.loads(raw))
             last_problems = validate_plan(plan)
         except json.JSONDecodeError as e:
             plan, last_problems = None, [f"not valid JSON: {e}"]

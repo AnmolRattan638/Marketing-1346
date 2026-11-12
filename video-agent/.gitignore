@@ -6,3 +6,4 @@ template/public/assets/run/
 template/out/
 runs/*/final.mp4
 edits_cache/
+state/

@@ -95,3 +95,11 @@ into times taken from the Whisper words, so every heading, tick, typed line and 
 Scenes without a usable graphic fall back to footage. Stock video + photos are capped at ONE shot per reel (`hybrid.max_stock_shots`); your raw clips still
 fill any footage scene. The reel always ends on your logo animation (`look.outro_logo`, `outro_seconds`). `sfx_policy` keeps sounds lean (no sound on every cut).
 Own palette and own captions: only the layouts are inspired by the reference reels.
+
+## Looks: every reel is styled differently
+
+`agent/looks.py` picks a LOOK per run (seeded by date + topic, never the same caption style or theme as the previous reel when it can help it):
+- **caption style** (`template/src/components/CaptionStyles.tsx`): `pill` (word pills), `cinematic` (small glowing blur-in lines; a phrase with an emphasis word becomes a big gold / neon / fire hero), `karaoke` (spoken word lights up), `stack` (one big word slams in at a time), `typewriter` (typed in a terminal strip)
+- **colour theme** (`template/src/graphics/themes.ts`): `ink`, `sunset`, `forest`, `violet`
+- **transition set**: calm / energetic / mixed (the planner's own `transition` still wins)
+Limit or force them in `config.json -> looks` (`captions`, `themes`, `force: {"caption": "cinematic"}`). Add a style: write the component, add it to `CaptionLayer` and `CAPTIONS`.

@@ -131,6 +131,7 @@
     "default_transition": "settle",
     "grain": 0
   },
+  "looks": {"captions": ["pill", "cinematic", "karaoke", "stack", "typewriter"], "themes": ["ink", "sunset", "forest", "violet"], "force": {}},
   "look": {
     "progress_bar": true,
     "outro_logo": true,

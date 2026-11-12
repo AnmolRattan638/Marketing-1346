@@ -1,6 +1,7 @@
 import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
-import { Captions, CaptionWord } from "../components/Captions";
+import { CaptionWord } from "../components/Captions";
+import { CaptionLayer, CaptionStyle } from "../components/CaptionStyles";
 import { FxItem, FxLayer } from "../effects/FxLayer";
 import { FilmGrain } from "../effects/FilmGrain";
 import { Arrival, arrival } from "../effects/motion";
@@ -31,6 +32,7 @@ export interface GraphicSceneProps {
   pulses?: number[];
   fx?: FxItem[];
   transitionIn?: Arrival | "circle";
+  captionStyle?: CaptionStyle; // from the reel's look (agent/looks.py)
   grain?: number;
   progress?: [number, number];
   showProgress?: boolean;
@@ -41,7 +43,7 @@ export interface GraphicSceneProps {
 // Own palette and own captions; the layouts are inspired by explainer reels (step badge + heading + mock-up card, struck-through list, punch slide).
 const GraphicScene: React.FC<GraphicSceneProps> = ({
   layout, words, step, kicker, heading = "", heading2, ghost, chips = [], items = [], mock, times, logo, cta,
-  emphasis = [], pulses = [], fx = [], transitionIn = "settle", grain = 0, progress, showProgress = true, fadeOutFrames = 0,
+  emphasis = [], pulses = [], fx = [], transitionIn = "settle", captionStyle, grain = 0, progress, showProgress = true, fadeOutFrames = 0,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
@@ -116,7 +118,7 @@ const GraphicScene: React.FC<GraphicSceneProps> = ({
         {body}
       </AbsoluteFill>
       <FxLayer items={fx} />
-      {isLogo ? null : <Captions words={words} emphasis={emphasis} upper />}
+      {isLogo ? null : <CaptionLayer words={words} emphasis={emphasis} upper style={captionStyle} />}
       {grain > 0 ? <FilmGrain opacity={grain} /> : null}
       {showProgress && progress && !isLogo ? <ProgressBar progress={progress} light={isPunch} /> : null}
       {circle ? <CircleWipe /> : null}

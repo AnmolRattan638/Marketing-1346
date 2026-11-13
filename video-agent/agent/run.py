@@ -11,6 +11,7 @@ from datetime import date
 from . import notify
 from .captions import get_words
 from .common import ROOT, WORK, load_config, log, media_duration
+from . import footage as _footage
 from .footage import fetch_clip
 from . import edits
 from .hybrid import Editor, HybridError
@@ -18,6 +19,7 @@ from .manifest import available_sfx, build_manifest
 from .plan import make_plan, sample_plan
 from .render import render
 from .fx_plan import plan_fx
+from .camera_plan import plan_camera
 from .caption_zones import zones_for
 from .looks import pick_look, pick_transition
 from .graphics import fallback_graphic, resolve_graphic
@@ -39,6 +41,7 @@ def pick_topic(arg_topic: str | None) -> str:
 
 def build(topic: str, offline: bool, no_render: bool) -> None:
     cfg = load_config()
+    _footage._CFG = cfg          # stock.keywords / stock.anchors keep stock strictly about AI and technology
     out_dir = ROOT / "runs" / date.today().isoformat()
     out_dir.mkdir(parents=True, exist_ok=True)
     shutil.rmtree(WORK, ignore_errors=True)
@@ -74,7 +77,7 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
                 graphics[sid] = gp
             else:
                 sc.pop("graphic", None)
-        sc.setdefault("footage_query", "modern website design on a laptop")
+        sc.setdefault("footage_query", "ai automation technology")
     footage_scenes = [(sid, sc, sec + tail) for sid, sc, sec, _, _ in voiced if sid not in graphics]
     if editor and footage_scenes:   # the whole reel is planned at once so the hybrid rules apply to the reel, not to each scene
         editor.prepare(footage_scenes, WORK / "footage", {sid: words for sid, _, _, _, words in voiced})      # cuts are snapped to the spoken words
@@ -82,18 +85,19 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
         transition = pick_transition(sc, i, look, cfg)
         gp = graphics.get(sid)
         if gp:
-            clip, fx, zones = None, plan_fx(sc, words, seconds + tail, cfg), []
+            clip, fx, zones, camera = None, plan_fx(sc, words, seconds + tail, cfg), [], []
             sfx = plan_sfx(i, sc, words, sfx_ok, None, fx, transition, gp["sfx"], cfg.get("sfx_policy"))
             credits.append({"scene": sid, "graphic": gp["layout"]})
         else:
             clip = editor.render_scene(sid, WORK / "footage") if editor else fetch_clip(sc, sid, WORK / "footage", used_ids, offline)
             fx = plan_fx(sc, words, seconds + tail, cfg)      # graphics anchored to spoken words
+            camera = plan_camera(sc, words, seconds + tail, clip.get("shots"), i, cfg)
             zones = zones_for(WORK / "footage" / f"{sid}.mp4", seconds + tail) if (cfg.get("captions") or {}).get("smart_position", True) else []
             sfx = plan_sfx(i, sc, words, sfx_ok, clip.get("cuts"), fx, transition, None, cfg.get("sfx_policy"))
             credits.append(clip["credit"])
         built.append({
             "id": sid, "clip": clip, "graphic": gp, "narration": f"assets/run/narration/{sid}.mp3",
-            "narration_seconds": seconds, "words": words, "sfx": sfx, "fx": fx, "transition": transition, "zones": zones,
+            "narration_seconds": seconds, "words": words, "sfx": sfx, "fx": fx, "transition": transition, "zones": zones, "camera": camera,
             "beats": emphasis_beats(sc, words),                           # the same words drive caption emphasis and the zoom pulse
         })
 

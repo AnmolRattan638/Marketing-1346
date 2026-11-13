@@ -14,6 +14,7 @@ import { CaptionLayer, CaptionStyle, CaptionZone } from "../components/CaptionSt
 import { FxItem, FxLayer } from "../effects/FxLayer";
 import { FilmGrain } from "../effects/FilmGrain";
 import { Arrival, arrival, shake } from "../effects/motion";
+import { CameraMove, cameraAt } from "../effects/camera";
 
 export interface FootageSceneProps {
   clip: string; // e.g. "assets/run/footage/s1.mp4"
@@ -27,6 +28,7 @@ export interface FootageSceneProps {
   upperCaptions?: boolean;
   fx?: FxItem[]; // animated graphics and camera shakes anchored to spoken words (agent/fx_plan.py)
   transitionIn?: Arrival; // how the scene arrives: settle | whip | zoom | iris | glitch
+  camera?: CameraMove[]; // zoom / pan moves on the footage (agent/camera_plan.py)
   captionZones?: CaptionZone[]; // smart caption placement for this scene
   captionStyle?: CaptionStyle; // from the reel's look (agent/looks.py)
   grain?: number; // film grain strength, 0 = off
@@ -47,13 +49,14 @@ const FootageScene: React.FC<FootageSceneProps> = ({
   upperCaptions = true,
   fx = [],
   transitionIn = "settle",
-  captionStyle, captionZones, grain = 0,
+  captionStyle, captionZones, camera = [], grain = 0,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
 
   const clipFrames = Math.max(1, Math.round(clipSeconds * fps));
-  const push = interpolate(frame, [0, durationInFrames], [0, zoom]);
+  const cm = camera.length ? cameraAt(camera, frame / fps) : null;
+  const push = cm ? 0 : interpolate(frame, [0, durationInFrames], [0, zoom]); // directed camera replaces the slow push
   const punch = pulses.reduce((sum, p) => {
     const f = frame - Math.round(p * fps);
     if (f < 0 || f > 24) return sum;
@@ -61,7 +64,7 @@ const FootageScene: React.FC<FootageSceneProps> = ({
   }, 0);
   const look = arrival(transitionIn, frame, fps); // how this scene lands (settle = slight zoom that eases back with the whoosh)
   const cam = shake(frame, fps, fx.filter((f) => f.type === "shake")); // camera shake on impact words, footage only: captions stay still
-  const scale = (1 + push + punch) * look.scale * cam.scale;
+  const scale = (1 + push + punch) * look.scale * cam.scale * (cm ? cm.scale : 1);
 
   const fadeOut =
     fadeOutFrames > 0
@@ -75,7 +78,7 @@ const FootageScene: React.FC<FootageSceneProps> = ({
     <AbsoluteFill style={{ backgroundColor: "black", opacity: fadeOut }}>
       <AbsoluteFill
         style={{
-          transform: `translate(${look.translateX + cam.x}px, ${look.translateY + cam.y}px) scale(${scale})`,
+          transform: `translate(${look.translateX + cam.x + (cm ? cm.x : 0)}px, ${look.translateY + cam.y + (cm ? cm.y : 0)}px) scale(${scale})`,
           filter: look.blur || look.hue || look.brightness !== 1 ? `blur(${look.blur}px) hue-rotate(${look.hue}deg) brightness(${look.brightness})` : undefined,
           opacity: look.opacity,
           clipPath: look.clip,

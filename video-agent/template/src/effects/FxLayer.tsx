@@ -4,9 +4,10 @@ import { StatCounter } from "./StatCounter";
 import { GlitchText } from "./GlitchText";
 import { PopTitle } from "./PopTitle";
 import { LowerThird } from "./LowerThird";
+import { QuoteUnderline } from "./QuoteUnderline";
 
 export interface FxItem {
-  type: "stat" | "glitch" | "title" | "lower_third" | "shake";
+  type: "stat" | "glitch" | "title" | "lower_third" | "shake" | "quote";
   atSecond: number; // from the scene start (the start of the spoken word it belongs to)
   seconds: number;
   text?: string;
@@ -14,6 +15,8 @@ export interface FxItem {
   value?: number;
   prefix?: string;
   suffix?: string;
+  wordTimes?: number[]; // quote: second each word is spoken, from the start of this graphic
+  wordEnds?: number[];
 }
 
 // The graphics of one scene. Each one lives in its own <Sequence>, so its animation starts exactly on its word.
@@ -31,6 +34,7 @@ export const FxLayer: React.FC<{ items: FxItem[] }> = ({ items }) => {
             ) : null}
             {it.type === "glitch" && it.text ? <GlitchText text={it.text} /> : null}
             {it.type === "title" && it.text ? <PopTitle text={it.text} label={it.label} /> : null}
+            {it.type === "quote" && it.text && it.wordTimes ? <QuoteUnderline text={it.text} label={it.label} wordTimes={it.wordTimes} wordEnds={it.wordEnds ?? []} /> : null}
             {it.type === "lower_third" && it.text ? <LowerThird text={it.text} label={it.label} /> : null}
           </Sequence>
         ))}

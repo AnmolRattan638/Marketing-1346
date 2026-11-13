@@ -109,3 +109,10 @@ Limit or force them in `config.json -> looks` (`captions`, `themes`, `force: {"c
 Captions are not pinned to the bottom. For every footage scene `agent/caption_zones.py` samples the finished picture (4 fps), scores six candidate positions for edge density
 (faces, signs, on-screen text) and motion, and picks the emptiest spot over time (Viterbi with a cost per move, so they glide at most a few times, 0.2 s ease). The lower third is
 preferred when it is clear. Motion-graphic scenes keep their lower third free by layout. Switch off: `config.json -> captions.smart_position: false`.
+
+## Your voice, camera moves, testimonial underline, AI/tech-only stock
+
+- **Voice**: `voice_engine` is `chatterbox` (your cloned voice). Add the secret `VOICE_REF_B64` (base64 of an ~11 s clean clip of you); without it the chain falls back to Kokoro, then edge-tts. Check it first with Actions -> "Voice test (your cloned voice)".
+- **Camera** (`agent/camera_plan.py`, `template/src/effects/camera.ts`): footage is never static. The planner can direct `camera` moves on spoken words (zoom into the top, then pan down on "testimonials"); otherwise every shot gets an automatic zoom + drift, restarted at each cut. Off: `camera.enabled: false`.
+- **Testimonial underline**: fx `quote` shows the quote and lights up + underlines each word exactly as the narrator says it (`QuoteUnderline`). Dropped if its words are not in the narration.
+- **Stock = AI and technology only** (`agent/stockquery.py`): every stock query carries an AI/tech anchor (AI agents, AI automation, AI bots doing work, robots, coding, ...), fallbacks are generic AI/tech searches, and results whose tags/title are not tech are rejected. Edit `config.json -> stock.anchors` to tune.

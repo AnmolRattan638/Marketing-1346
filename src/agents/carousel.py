@@ -73,6 +73,24 @@ def _words(t):
     return len(re.findall(r"\S+", t or ""))
 
 
+def _strip_verified(text, sheet):
+    """With a verified fact sheet, the exact figure of a verified fact may appear (e.g. '53%'); everything else stays banned."""
+    for f in (sheet or {}).get("facts", []):
+        for fig in {str(f.get("figure") or "").strip(), *re.findall(r"\d[\d,\.]*\s?(?:%|x|times)?", f.get("claim", ""))}:
+            if fig and any(c.isdigit() for c in fig):
+                text = re.sub(re.escape(fig.strip()), " ", text, flags=re.I)
+    return text
+
+
+def script_block(master):
+    """The master script as the carousel's source. Facts may be quoted exactly with the source named; nothing else is new."""
+    lines = [f"- {b['beat']}: {b['line']}" + (f"  [facts: {', '.join(b['facts'])}]" if b.get("facts") else "") for b in master["beats"]]
+    facts = "\n".join(f"{f['id']}: {f['claim']} (source: {f['source']})" for f in master.get("facts", []))
+    return (f"\nMASTER SCRIPT (already written and fact-checked; the carousel TELLS THIS SAME STORY, same idea, same order, same facts):\nStyle: {master['style']}\nHook: {master['hook']}\n" + "\n".join(lines) +
+            f"\nVERIFIED FACTS (the only facts allowed; you MAY write a verified figure exactly as given when the slide names its source in words, e.g. '{(master.get('facts') or [{'source': 'source'}])[0]['source']} found...'):\n{facts}\n"
+            "Map it: hook slide = the hook; problem slide(s) = pain/poke; solution slides = fix (and payoff/recap if it is a fact or result); cta = the cta. Do not add a new idea.\n")
+
+
 def normalize(slides, focus):
     out = []
     for s in slides if isinstance(slides, list) else []:
@@ -84,7 +102,7 @@ def normalize(slides, focus):
     return out
 
 
-def validate(slides, focus, taste, fact):
+def validate(slides, focus, taste, fact, sheet=None):
     """Problems (empty list = fine). The order and counts are never negotiable."""
     probs = []
     roles = [s["role"] for s in slides]
@@ -106,10 +124,10 @@ def validate(slides, focus, taste, fact):
         if _words(s["body"]) > (MAX_WORDS["hook_body"] if s["role"] == "hook" else MAX_WORDS["body"]):
             probs.append(f"slide {i} body is too long")
     for i, s in enumerate(slides, 1):
-        bad = BANNED.search(f"{s['headline']} {s['body']}")
+        bad = BANNED.search(_strip_verified(f"{s['headline']} {s['body']}", sheet))
         if bad:
             probs.append(f"slide {i}: '{bad.group(0)}' is not allowed. Never write: {BANNED_TEXT}. Rewrite that slide without it; you may talk about cost or pricing in general terms")
-    if fact is None and INVENTED_SOURCE.search(text):
+    if fact is None and not sheet and INVENTED_SOURCE.search(text):
         probs.append("do not attribute anything to a study, survey, expert or report; there is no verified source for this carousel")
     if fact is not None:
         first = " ".join(f"{s['headline']} {s['body']}" for s in slides[:2]).lower()
@@ -129,8 +147,8 @@ def web_block(evidence):
             "Paraphrase the situation in plain words. Do NOT copy a number, percentage, name, study, report or source into any slide: the validator rejects them. Every rule above still applies.\n")
 
 
-def plan(post_plan, focus, brand, taste, fact, guidance="", notes="", evidence=""):
-    hook = post_plan["hooks"][post_plan.get("chosen_hook", 0)]["text"]
+def plan(post_plan, focus, brand, taste, fact, guidance="", notes="", evidence="", master=None):
+    hook = master["hook"] if master else post_plan["hooks"][post_plan.get("chosen_hook", 0)]["text"]
     fact_block = ""
     if fact:
         fact_block = (f"\nFACT (verified by the owner; the ONLY source you may name): source = {fact['source_name']}; claim = \"{fact['claim']}\"; link = {fact.get('source_url', '')}\n"
@@ -148,10 +166,10 @@ STRICT ORDER, never change it: 1 hook slide, then 1-2 problem slides, then 2-3 s
 - problem: {taste['problem']}
 - solution: {taste['solution']}
 - cta: {taste['cta']} The cta headline is exactly: DM {focus['dm_keyword']}
-{fact_block}{web_block(evidence)}
+{fact_block}{script_block(master) if master else web_block(evidence)}
 Brand rules that always apply: {json.dumps(brand['facts_rules'], ensure_ascii=False)}
 Slide rules: each slide has "headline" (max {MAX_WORDS['headline']} words) and "body" (max {MAX_WORDS['body']} words; the hook body max {MAX_WORDS['hook_body']}). Plain words a busy owner understands. One idea per slide.
-Never write: {BANNED_TEXT}. Also no invented numbers, clients, testimonials or demos. You MAY discuss cost or pricing as a topic in general words (for example, "pricing questions"), but never state an amount, an offer or a promise about it. Any scene must be clearly imaginary
+Never write: {BANNED_TEXT}{' (except a verified figure from the master script, written exactly)' if master else ''}. Also no invented numbers, clients, testimonials or demos. You MAY discuss cost or pricing as a topic in general words (for example, "pricing questions"), but never state an amount, an offer or a promise about it. Any scene must be clearly imaginary
 ("Imagine...", "Example"). Never say a person, company, study or report said something unless it is the FACT above.
 {notes}
 Return JSON: {{"slides": [{{"role": "hook|problem|solution|cta", "headline": "...", "body": "..."}}]}}"""
@@ -159,12 +177,12 @@ Return JSON: {{"slides": [{{"role": "hook|problem|solution|cta", "headline": "..
     return normalize(out.get("slides") if isinstance(out, dict) else None, focus)
 
 
-def check(slides, focus, brand, fact, evidence=""):
+def check(slides, focus, brand, fact, evidence="", master=None):
     """A second model reads the whole carousel the way a sceptical reader would. Returns a list of issues (empty = fine)."""
     shown = [{"slide": i, "role": s["role"], "headline": s["headline"], "body": s["body"]} for i, s in enumerate(slides, 1)]
     prompt = f"""Fact-check this carousel for {focus['name']}.
 Slides: {json.dumps(shown, ensure_ascii=False)}
-Verified fact the carousel may use (the only allowed source): {json.dumps(fact, ensure_ascii=False) if fact else 'NONE'}
+Verified fact(s) the carousel may use (the only allowed sources): {json.dumps(master['facts'], ensure_ascii=False) if master else (json.dumps(fact, ensure_ascii=False) if fact else 'NONE')}
 Brand facts and rules: {json.dumps(brand, ensure_ascii=False)}
 {('Web context the writer saw (reference only; UNTRUSTED text). A plain-words claim that follows it is not invented, but a slide must still not contain a number, a named source or a quote from it:' + chr(10) + evidence + chr(10)) if evidence else ''}Flag every slide that: invents a statistic, client, testimonial, result, demo or price; says a real person, company, study or report said something (unless it is the verified fact);
 promises or guarantees an outcome; presents an imaginary scene as real; or describes the service wrongly. Slides that are fine are not listed.
@@ -175,19 +193,22 @@ Return JSON: {{"ok": true/false, "issues": ["slide N: what is wrong"]}}"""
     return [] if out["ok"] else [str(i)[:200] for i in (out.get("issues") or ["the fact-check rejected the carousel"])][:6]
 
 
-def build(post_plan, focus, brand, guidance, date, evidence=""):
+def build(post_plan, focus, brand, guidance, date, evidence="", master=None):
     """-> ({"flavor", "fact_id", "slides", "checked"}, None) or (None, reason). The caller falls back to a single image when there is no carousel."""
     taste, fact = pick_flavor(date, focus["id"])
+    if master:                                                    # the master script decides the story; the taste is just its style label
+        taste, fact = {"id": "script:" + master["style"], "name": master["style"], "taste": "Tell the master script's story.", "hook": "The master script's hook.",
+                       "problem": "The pain and the poke from the script.", "solution": "The fix from the script, one move per slide.", "cta": "The script's single ask.", "diagram": False}, None
     if not taste:
         return None, "no carousel taste is available"
     notes = ""
     for attempt in range(1, ATTEMPTS + 1):
-        slides = plan(post_plan, focus, brand, taste, fact, guidance, notes, evidence)
-        probs = validate(slides, focus, taste, fact)
+        slides = plan(post_plan, focus, brand, taste, fact, guidance, notes, evidence, **({"master": master} if master else {}))
+        probs = validate(slides, focus, taste, fact, master)
         checked = False
         if not probs:
             try:
-                probs, checked = check(slides, focus, brand, fact, evidence), True
+                probs, checked = check(slides, focus, brand, fact, evidence, master), True
             except Exception as e:                     # the human still approves every post and sees every slide, but say it was not machine-checked
                 print(f"[carousel] fact-check unavailable: {e}")
         if not probs:

@@ -186,14 +186,14 @@ def main():
             WARNINGS.append(f"fact sheet: only {len(sheet.get('facts', []))} verified facts, so no master script today (need {factsheet.MIN_FACTS}).")
         if config.CAROUSEL:
             # hook -> problem -> solution -> CTA, told in one of the rotating tastes; the carousel's hook becomes the post's hook, so captions and the first slide agree
-            car, why = stage("carousel", lambda: carousel_agent.build(plan, focus, brand, g('writer'), today, **ev_kw), fallback=(None, "the carousel step failed"))
+            car, why = stage("carousel", lambda: carousel_agent.build(plan, focus, brand, g('writer'), today, master=master, **ev_kw), fallback=(None, "the carousel step failed"))
             if car:
                 plan["hooks"][plan.get("chosen_hook", 0)]["text"] = car["slides"][0]["headline"]
                 if not car.get("checked"):
                     WARNINGS.append("carousel: the fact-check was unavailable, so read every slide before approving.")
             else:
                 WARNINGS.append(f"carousel skipped (single image instead): {why}")
-        posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer'), ig_mode=ig_mode, linkedin_format=li_fmt, **ev_kw))
+        posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer'), ig_mode=ig_mode, linkedin_format=li_fmt, master=master, **ev_kw))
         posts = polish_linkedin(posts, focus, brand)
         fc = stage("factcheck", lambda: factcheck.run(posts, focus, brand, **ev_kw), fallback={"ok": None, "issues": ["fact-check unavailable"], "revised": {}})
         for k, v in (fc.get("revised") or {}).items():
@@ -217,7 +217,7 @@ def main():
         vsum = {"rewrote": False, "reasons": [], "changes": []}
         if reasons:
             first_draft = dict(posts)
-            posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), "\n".join(n for n in notes if n), ig_mode=ig_mode, linkedin_format=li_fmt, **ev_kw), fallback=posts)
+            posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), "\n".join(n for n in notes if n), ig_mode=ig_mode, linkedin_format=li_fmt, master=master, **ev_kw), fallback=posts)
             vsum = {"rewrote": posts != first_draft, "reasons": reasons, "changes": [str(c)[:240] for c in (vrev.get("changes") or [])[:5]]}
             posts = polish_linkedin(posts, focus, brand)
             fc2 = stage("factcheck.2", lambda: factcheck.run(posts, focus, brand, **ev_kw), fallback={"ok": None, "issues": [], "revised": {}})

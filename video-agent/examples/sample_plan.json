@@ -27,7 +27,8 @@
           "Google",
           "Maps"
         ]
-      }
+      },
+      "beat": "pain"
     },
     {
       "narration": "If you do not show up, they walk into the next one.",
@@ -41,7 +42,8 @@
           "Not visited"
         ],
         "heading": "They walk next door"
-      }
+      },
+      "beat": "poke"
     },
     {
       "narration": "A simple website shows your hours, your location and your best work.",
@@ -64,7 +66,8 @@
           "at_word": "hours",
           "text": "Hours · Location · Work"
         }
-      ]
+      ],
+      "beat": "fix"
     },
     {
       "narration": "Message us today and we will plan yours.",
@@ -80,7 +83,8 @@
         "shop owner smiling counter",
         "customer entering shop"
       ],
-      "transition": "zoom"
+      "transition": "zoom",
+      "beat": "cta"
     }
   ],
   "cta": {

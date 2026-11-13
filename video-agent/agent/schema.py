@@ -1,6 +1,8 @@
 """JSON schema for the plan Groq returns. The planner never writes code, only this."""
 from __future__ import annotations
 
+BEATS = ("pain", "poke", "fix", "payoff", "recap", "cta")      # the script framework (skills/script-framework.md)
+
 from jsonschema import Draft202012Validator
 
 SFX_TYPES = ["whoosh", "pop", "riser", "click"]
@@ -19,6 +21,7 @@ PLAN_SCHEMA = {
                 "required": ["narration"],          # footage_query is only needed when the scene has no `graphic`
                 "properties": {
                     "narration": {"type": "string", "minLength": 5, "maxLength": 240},
+                    "beat": {"enum": list(BEATS)},        # the script framework beat this scene plays (skills/script-framework.md)
                     "footage_query": {"type": "string", "minLength": 3, "maxLength": 80},
                     # Optional cutaway (B-roll) searches, in the order the narration mentions them. Each cutaway shot in the scene
                     # uses the next one, so the picture matches what is being said at that moment.
@@ -108,10 +111,30 @@ PLAN_SCHEMA = {
 _validator = Draft202012Validator(PLAN_SCHEMA)
 
 
+def _beat_problems(plan) -> list[str]:
+    """The framework order: pain first, then poke / fix / payoff / recap / cta in that order (fix may repeat), each at most once. Plans with no beats are left alone."""
+    scenes = plan.get("scenes") if isinstance(plan, dict) else None
+    beats = [s.get("beat") for s in scenes or [] if isinstance(s, dict) and s.get("beat")]
+    if not beats:
+        return []
+    out = []
+    if scenes[0].get("beat") != "pain":
+        out.append("scenes/0/beat: the first scene must be the pain (the hook)")
+    rank = [BEATS.index(b) for b in beats if b in BEATS]
+    if rank != sorted(rank):
+        out.append("beats are out of order: use pain, poke, fix, payoff, recap, cta")
+    for b in BEATS:
+        if b != "fix" and beats.count(b) > 1:
+            out.append(f"beat '{b}' is used more than once")
+    if "fix" not in beats:
+        out.append("no scene has the beat 'fix'")
+    return out
+
+
 def validate_plan(plan) -> list[str]:
     """Return a list of human-readable problems, empty when the plan is valid."""
     problems = []
     for e in sorted(_validator.iter_errors(plan), key=lambda e: list(e.path)):
         where = "/".join(str(p) for p in e.path) or "(root)"
         problems.append(f"{where}: {e.message[:200]}")
-    return problems
+    return problems + _beat_problems(plan)

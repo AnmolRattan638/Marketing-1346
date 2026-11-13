@@ -27,10 +27,11 @@
     "model": "openai/gpt-oss-120b",
     "skills": [
       "planner-rules.md",
+      "script-framework.md",
       "sfx-notes.md"
     ],
     "extra_skills": [],
-    "max_skill_chars": 5000,
+    "max_skill_chars": 9000,
     "fallback_models": [
       "llama-3.3-70b-versatile",
       "openai/gpt-oss-20b",

@@ -13,7 +13,7 @@ from .captions import get_words
 from .common import ROOT, WORK, load_config, log, media_duration
 from . import footage as _footage
 from .footage import fetch_clip
-from . import edits, webresearch
+from . import edits, master_script, webresearch
 from .hybrid import Editor, HybridError
 from .manifest import available_sfx, build_manifest
 from .plan import make_plan, sample_plan
@@ -40,7 +40,7 @@ def pick_topic(arg_topic: str | None) -> str:
     return lines[date.today().toordinal() % len(lines)]
 
 
-def build(topic: str, offline: bool, no_render: bool) -> None:
+def build(topic: str, offline: bool, no_render: bool, master: dict | None = None) -> None:
     cfg = load_config()
     _footage._CFG = cfg          # stock.keywords / stock.anchors keep stock strictly about AI and technology
     out_dir = ROOT / "runs" / date.today().isoformat()
@@ -51,11 +51,16 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
 
     hybrid_on = (cfg.get("hybrid") or {}).get("enabled", True)
     service, topic = edits.detect_service(topic, cfg)
+    if master and master.get("service"):
+        service = master["service"]
     log(f"service for this reel: {service}")
     editor = Editor(cfg, offline, service) if hybrid_on else None
     look = pick_look(f"{date.today().isoformat()}|{topic}", cfg) if not offline else {"caption": "cinematic", "transitions": "mixed", "palette": load_palette(cfg)}
-    ev_text, sources = ("", []) if offline else webresearch.for_topic(topic)       # real sources for the topic (Tavily + Exa), optional
-    plan = sample_plan() if offline else make_plan(topic, cfg, editor.library_summary() if editor else "", service, **({"evidence": ev_text} if ev_text else {}))
+    # with a master script the research is already done and fact-checked (its fact sheet), so the video does no research of its own
+    ev_text, sources = ("", []) if (offline or master) else webresearch.for_topic(topic)       # real sources for the topic (Tavily + Exa), optional
+    if master:
+        sources = [{"title": f.get("claim", "")[:80], "url": f.get("url"), "domain": f.get("source")} for f in master.get("facts", []) if f.get("url")]
+    plan = sample_plan() if offline else make_plan(topic, cfg, editor.library_summary() if editor else "", service, **({"evidence": ev_text} if ev_text else {}), **({"master": master} if master else {}))
     if sources:
         plan["sources"] = sources
     (out_dir / "plan.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -132,10 +137,15 @@ def main() -> None:
     ap.add_argument("--offline", action="store_true",
                     help="no network: sample plan, placeholder footage, silent voice (for testing)")
     ap.add_argument("--no-render", action="store_true")
+    ap.add_argument("--script", help="master script JSON (default: today's draft in data/drafts); the video then follows it word for word")
+    ap.add_argument("--no-script", action="store_true", help="ignore any master script and plan from topics.txt")
     args = ap.parse_args()
-    topic = pick_topic(args.topic) if not args.offline else "offline sample"
+    master = None if (args.offline or args.no_script or args.topic or os.environ.get("TOPIC")) else master_script.load(args.script)
+    if master:
+        log(f"master script found: style {master.get('style')}, topic '{master.get('topic')}'")
+    topic = (master or {}).get("topic") or (pick_topic(args.topic) if not args.offline else "offline sample")
     try:
-        build(topic, args.offline, args.no_render)
+        build(topic, args.offline, args.no_render, master)
     except HybridError as e:
         print(e)
         try:

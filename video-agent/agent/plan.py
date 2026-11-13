@@ -9,6 +9,7 @@ import re
 import requests
 
 from .common import ROOT, SKILLS, log
+from . import master_script
 from .schema import validate_plan
 
 GROQ_CHAT_URL = "https://api.groq.com/openai/v1/chat/completions"
@@ -124,7 +125,7 @@ def evidence_block(evidence: str) -> str:
             "Never apply it to the owner's own work, never use it to promise a result, and state no other statistic or study. If nothing fits the topic, ignore the evidence.\n")
 
 
-def make_plan(topic: str, cfg: dict, library: str = "", service: str = "general", evidence: str = "") -> dict:
+def make_plan(topic: str, cfg: dict, library: str = "", service: str = "general", evidence: str = "", master: dict | None = None) -> dict:
     lang = cfg["language"]
     angle = random.SystemRandom().choice(ANGLES)          # a different angle every run, so scripts do not repeat
     note = (cfg.get("service_notes") or {}).get(service, "")
@@ -134,7 +135,7 @@ def make_plan(topic: str, cfg: dict, library: str = "", service: str = "general"
         "Do not copy the example wording from the rules; write fresh lines.\n"
         f"Angle for this video: {angle}.\n"
         + (f"What the topic covers: {note}\n" if note else "")
-        + evidence_block(evidence)
+        + (master_script.prompt_block(master) if master else evidence_block(evidence))
         + f"Narration language: {lang}\n"
         f"Background about the owner (use ONLY if it fits the topic, never as the topic): {cfg['brand']['notes']}\n"
         f"Target length: about {cfg['video']['target_seconds']} seconds in total.\n"
@@ -150,11 +151,11 @@ def make_plan(topic: str, cfg: dict, library: str = "", service: str = "general"
         raw = _call_groq(messages, cfg)
         try:
             plan = tidy_plan(json.loads(raw))
-            last_problems = validate_plan(plan)
+            last_problems = validate_plan(plan) + (master_script.problems(plan, master) if master else [])
         except json.JSONDecodeError as e:
             plan, last_problems = None, [f"not valid JSON: {e}"]
         if not last_problems:
-            return plan
+            return master_script.enforce_words(plan, master) if master else plan
         log(f"plan attempt {attempt} invalid: {last_problems[:3]}")
         messages += [
             {"role": "assistant", "content": raw},

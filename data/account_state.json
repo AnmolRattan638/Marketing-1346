@@ -1,20 +1,20 @@
 {
-  "date": "2026-11-12",
+  "date": "2026-11-13",
   "stage": "brand new under 100 followers",
   "followers": 9,
-  "summary": "Account is brand new (9 IG followers). Weakest area: hooks fail — reels lose 77% viewers in 3s, last 3 posts zero engagement. Bio violates rules: niche/region targeting, '24 hrs' promise, free offer outside website posts.",
-  "guidance": "- Hook style: try comparison or contrast (outperformed question 3.7×); avoid question hooks for chatbot.\n- Topics: stop repeating \"same questions\" or \"busy serving walk-ins\" — used 3× in 2 weeks.\n- Every post must read like a developer sharing real work, never an ad; no demos, no guaranteed results.\n- Use bright-desk or desk-glow image styles (1.5× median); avoid network style.\n- Include pay-after-approval offer and DM-for-advice CTA only.",
+  "summary": "All platforms under 10 followers. Instagram reels lose 77% viewers in first 3 seconds; last 3 posts zero engagement. Lead gen service outperforms others (1.79x). Bio violates rules: niche, region, timeframe, free offer outside website posts.",
+  "guidance": "- Hook style: use **question** or **comparison** (lead gen posts: comparison 1.53x, question 1.7x); avoid contrast.\n- Angle: **mistake** (1.54x) works best; frame lead gen as \"treating sourcing as billable hours\" error.\n- Visual: **bright-desk** image style (1.53x) — clean spreadsheet snippet, no branding.\n- Copy: write as developer sharing insight, not selling. Mention **pay after approval** once. No demos, guarantees, or niche targeting.\n- Rotate hooks; don't repeat \"4 hours vs 4 minutes\" phrasing again.",
   "instructions": {
-    "research": "Find 2-3 common chatbot pain points for Indian small businesses (e.g., missed WhatsApp leads after hours, repetitive FAQs) without naming niches.",
-    "analysis": "Compare last 3 chatbot posts' hook styles vs engagement; note question hooks got 0 engagement, contrast got low reach.",
-    "writer": "Write a comparison hook post: contrast manual WhatsApp replies vs chatbot handling after-hours FAQs, end with 'pay after approval' and DM invite.",
-    "image": "Create bright-desk style graphic showing split screen: phone with stacked WhatsApp notifications vs clean chatbot reply card.",
-    "video": "Skip video today; static image carousel performs better for chatbot topic per data."
+    "research": "List 5 common lead-gen pains Indian freelancers/agencies voice on LinkedIn/Instagram (e.g., outdated contacts, no website check, time sink).",
+    "analysis": "Compare the two lead-gen posts that used comparison hooks (2026-11-01, 2026-11-05, 2026-11-09) — note which phrasing got any saves/shares.",
+    "writer": "Draft a single image/carousel post: comparison hook \"Manual lead sheet vs. ready-to-call list\". Describe sheet generically (Google Places, contact, reviews, website flag, new openings). End with \"Pay after approval — DM if this fits.\"",
+    "image": "Create a bright-desk style graphic: blurred spreadsheet rows with column headers (Business, Phone, Reviews, Website?, New?). No logos, no client names.",
+    "video": "Not needed for today's lead-gen post."
   },
   "manual_tips": [
-    "Update Instagram bio to remove niches, region, '24 hrs', and free offer; keep only: 'Websites, AI chatbots, animated ads, lead gen for Indian small businesses. Pay after approval. DM for advice.'",
-    "Comment on 5 posts by Indian freelancers/agencies discussing lead gen or chatbot struggles; add value, don't pitch.",
-    "Reply to any story mentions or tags from collaborators (editorxyz_official, shiven_xyz) to maintain relationship."
+    "Update Instagram bio: remove niche list, Himachal reference, \"24 hrs\", and free site check. Keep only: \"Websites • AI chatbots • Animated ads • Lead sheets for Indian small businesses. Pay after approval. DM to chat.\"",
+    "Comment thoughtfully on 5 posts from Indian freelancers/agencies discussing client acquisition (no self-promo).",
+    "Share a relevant article on LinkedIn about local lead generation with a one-line take; tag no one."
   ],
   "weak_signals": [
     {
@@ -35,12 +35,12 @@
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 22% of what 'lead_gen' earns per person reached"
+      "detail": "by service, 'chatbot' earns 24% of what 'lead_gen' earns per person reached"
     },
     {
       "id": "weak_hook_style",
       "platform": "instagram",
-      "detail": "by hook style, 'question' earns 27% of what 'comparison' earns per person reached"
+      "detail": "by hook style, 'contrast' earns 31% of what 'comparison' earns per person reached"
     },
     {
       "id": "follower_stall",

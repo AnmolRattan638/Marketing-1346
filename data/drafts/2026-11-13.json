@@ -1,0 +1,531 @@
+{
+  "id": "2026-11-13-fd3bd8",
+  "date": "2026-11-13",
+  "created_at": "2026-11-13T10:03:10+00:00",
+  "status": "pending",
+  "service": "lead_gen",
+  "topic": "The Morning Search Trap: Why starting your day with Google Maps is a productivity mistake.",
+  "idea_id": null,
+  "problem_id": "manual-lead-searching-exhaustion",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "exploit",
+    "variable": "hook_style",
+    "problem_id": "manual-lead-searching-exhaustion",
+    "angle_type": "mistake",
+    "hook_style": "value"
+  },
+  "hooks": [
+    {
+      "style": "value",
+      "text": "Do you open Google Maps first thing every morning?"
+    },
+    {
+      "style": "question",
+      "text": "Are you losing billable hours scrolling Google Maps each sunrise?"
+    },
+    {
+      "style": "myth",
+      "text": "Myth: Early map searches boost leads. Fact: They drain your earnings."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "value",
+  "posts": {
+    "instagram": "𝗟𝗢𝗢𝗞𝗜𝗡𝗚 𝗙𝗢𝗥 𝗟𝗢𝗖𝗔𝗟 𝗟𝗘𝗔𝗗𝗦 𝗪𝗜𝗧𝗛𝗢𝗨𝗧 𝗧𝗛𝗘 𝗠𝗢𝗥𝗡𝗜𝗡𝗚 𝗠𝗔𝗣 𝗛𝗨𝗡𝗧?\n\n→ Subah Maps scroll karne mein billable 𝗛𝗢𝗨𝗥𝗦 nikal jaate hain.\n→ Ready 𝗘𝗫𝗖𝗘𝗟 𝗦𝗛𝗘𝗘𝗧 with contact, review count and website check – Example: a clinic with 14 reviews and no website.\n→ Whatever you sell, pitch instantly. You pay only after approval.\n\nDM 𝗟𝗘𝗔𝗗𝗦 and tell me what you sell.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+    "linkedin": "Freelancers waste morning hours manually searching for local leads instead of doing billable work.\n\nA typical start of the day begins with good intentions, but within a few minutes you are zooming into Google Maps, opening a dental clinic, a gym, or an accounting firm, copying phone numbers, and pasting them into a blank document. By lunch you have spent your freshest energy on repetitive data entry rather than writing proposals or delivering work for existing clients.\n\nWhat I provide is a simple Excel sheet that lists pre‑qualified local businesses pulled from Google Places. Each row contains verified contact details, the number of online reviews, a basic check of whether the business has a website, and an indication if the location has opened recently. The sheet is ready for anyone who sells services such as marketing, video editing, design, SEO, bookkeeping, or consulting to local owners.\n\nThe process is straightforward. First you tell me the type of businesses you want to target and the service you offer. I then extract the relevant listings from Google Places, run a quick website presence check, and arrange all the information into clear columns. Once the sheet is prepared, you review it to confirm that the entries meet your criteria before using the data for outreach.\n\nHaving the list already organized lets you keep your daily momentum. Sourcing contacts and reaching out require different mindsets; when the spreadsheet sits on your desk you can move directly into personalized outreach during your most productive morning hours, leaving the rest of the day free for client delivery and project work.\n\nAn honest limitation is that the spreadsheet does not write the emails or make the phone calls for you. It only organizes market information; building trust with a business owner still depends on your own pitch and the quality of the service you provide.\n\nI am happy to discuss whether this approach fits your outreach routine. You pay only after you approve the work. DM me with the word LEADS if you want to discuss.",
+    "bluesky": "Scrolling Maps for leads eats your best morning hours. Getting a clean Excel sheet with local business contacts, reviews, and website status lets you pitch straight away. DM LEADS to learn more."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does the lead sheet cost?",
+      "reply": "Hi! Thanks for reaching out. I keep pricing simple and tailored to what you need, but first: what service do you sell and which local business categories are you planning to reach out to? Prefer a quick chat here or over WhatsApp?"
+    },
+    {
+      "if_they_say": "Does this work for video editors and social media agencies?",
+      "reply": "Yes, absolutely. The sheet covers local businesses with contact info, review counts, and website presence, which makes it easy to spot who needs content or marketing help. Quick question: are you targeting specific cities or specific business types like clinics and gyms?"
+    },
+    {
+      "if_they_say": "How do I know the contact details are actually verified?",
+      "reply": "The data is sourced directly via Google Places along with website checks, including active phone numbers and review status. You can review the sheet first, and as with all my work, you pay only after you approve it. What kind of clients are you looking for right now?"
+    }
+  ],
+  "image": {
+    "prompt": "a matte‑black laptop with a cyan glowing screen showing a tidy lead spreadsheet, keyboard lit. laptop sits in upper two‑thirds, eye‑level view, lower 40% empty calm space for headline. key light from left‑front, cyan rim glow on screen edges, gentle shadows under laptop. foreground a white ceramic mug, midground a silver pen on an oak desk, background a blurred wall with faint cyan network lines. crisp white, soft gray, matte black, accent cyan, focused and productive. 85mm lens at f/1.8, shallow depth of field, glossy laptop surface, dust particles catching light. a ghosted map pin icon hovering near the laptop, showing abandoned Google Maps search. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-13.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "manual-lead-searching-exhaustion",
+      "angle_type": "mistake",
+      "style": "bold",
+      "headline": "Reclaim your billable hours",
+      "highlight": [
+        "billable hours"
+      ],
+      "sub": "Stop treating lead sourcing as billable hours. Pay after approval.",
+      "cta": "DM \"LEADS\"",
+      "tag": "FOR FREELANCERS & AGENCIES"
+    },
+    "errors": [],
+    "style_id": "network"
+  },
+  "carousel": {
+    "flavor": "question-hook",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-13.jpg",
+      "data/media/2026-11-13-s2.jpg",
+      "data/media/2026-11-13-s3.jpg",
+      "data/media/2026-11-13-s4.jpg",
+      "data/media/2026-11-13-s5.jpg",
+      "data/media/2026-11-13-s6.jpg"
+    ],
+    "alts": [
+      "Do you open Google Maps first thing every morning?",
+      "Slide 2 of 6: Morning map hunts steal your focus. You start the day searching instead of selling. Client work gets pushed later, and your energy fades before you send a single pitch.",
+      "Slide 3 of 6: Sourcing is not billable work. Every hour spent finding leads is an hour not spent pitching or delivering. That gap can limit what you earn this week.",
+      "Slide 4 of 6: Get a ready local lead list. A daily Excel sheet lists local businesses with contact details, review counts and website checks. You skip the search and start pitching.",
+      "Slide 5 of 6: Separate finding leads from pitching. Fix your sourcing once each morning. Then use the rest of the day for calls, messages and actual client work without breaking momentum.",
+      "Slide 6 of 6: DM LEADS. Message me to see if a daily local lead list fits your service. I will reply with honest advice, no pressure."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      5
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Do you open Google Maps first thing every morning?",
+        "body": "You hunt for local clients while your best work hours slip away."
+      },
+      {
+        "role": "problem",
+        "headline": "Morning map hunts steal your focus",
+        "body": "You start the day searching instead of selling. Client work gets pushed later, and your energy fades before you send a single pitch."
+      },
+      {
+        "role": "problem",
+        "headline": "Sourcing is not billable work",
+        "body": "Every hour spent finding leads is an hour not spent pitching or delivering. That gap can limit what you earn this week."
+      },
+      {
+        "role": "solution",
+        "headline": "Get a ready local lead list",
+        "body": "A daily Excel sheet lists local businesses with contact details, review counts and website checks. You skip the search and start pitching."
+      },
+      {
+        "role": "solution",
+        "headline": "Separate finding leads from pitching",
+        "body": "Fix your sourcing once each morning. Then use the rest of the day for calls, messages and actual client work without breaking momentum."
+      },
+      {
+        "role": "cta",
+        "headline": "DM LEADS",
+        "body": "Message me to see if a daily local lead list fits your service. I will reply with honest advice, no pressure."
+      }
+    ],
+    "scene_prompts": {
+      "2": "a pair of gloved hands gripping a matte‑black laptop with a softly glowing cyan screen. the laptop occupies the upper 55% of the frame, viewed from a slight high angle, while the lower 45% is a smooth dark plane left empty for text. key light from left front, cool cyan, rim light tracing edges, soft shadows. in front, a scattered stack of printed city maps with red pins, a ceramic coffee mug, a few sticky‑note squares; midground a brushed‑metal desk; background a deep black wall with faint white geometric network lines. palette of deep charcoal, crisp white, cyan accent, focused yet weary. 85mm lens at f/1.8, shallow depth of field, glossy laptop surface, fine dust motes catching the cyan glow. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "3": "A pair of light‑gray hands grips a matte‑black tablet that emits a soft cyan glow, the tablet positioned in the upper 55% of the frame, viewed from a slight high angle that keeps the lower 45% open and dark for overlay; a cool cyan key light from the left washes the hands and tablet, while a subtle rim light from behind outlines the shoulders in faint cyan, casting gentle shadows on the desk. In the foreground a cluttered wooden surface holds scattered sticky notes, crumpled business cards, a ceramic mug, and a brushed‑metal pen; the midground features a faint constellation of white nodes linked by thin cyan lines hovering above the chaos; the background is a deep black void punctuated by sharp angled white geometric shapes. The palette is black, charcoal, crisp white with a cyan accent, evoking focused tension. Shot with an 85mm lens at f/1.8, shallow depth of field renders fine dust particles catching the light and the glossy texture of the tablet. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "4": "A brushed‑metal desk holds a matte‑black laptop with a softly glowing cyan screen, sleek silver hands poised over the keyboard as they scroll through a floating holographic spreadsheet of tidy business‑card icons; the laptop and hands occupy the upper 55% of the frame, captured from a slightly elevated eye‑level view, leaving the lower 45% as a calm, dark canvas for text. Cool cyan key light washes from the front‑right, rim‑lighting the laptop’s edges, while subtle amber fill adds gentle depth and soft shadows. Behind, a deep black wall is traced by faint white geometric lines and a constellation of thin cyan nodes linked by delicate light strands, suggesting organized connections. Palette: jet black, crisp white, vivid cyan accent; mood: relieved, focused, efficient. Shot with an 85 mm lens at f/1.8, shallow depth of field renders the laptop sharp and the surrounding surfaces—brushed metal, glass reflections, fine dust motes in the light—tactile and polished. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": [
+      "slide_prompt: none"
+    ]
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Instagram draft mentions a specific business name (Sharma Clinic) and a specific review count, which is not allowed as it invents a client example not listed in the provided data.",
+      "The example should be generic and not present as a real client."
+    ],
+    "revised": {
+      "instagram": "**LOOKING FOR LOCAL LEADS WITHOUT THE MORNING MAP HUNT?**\n\n→ Subah Maps scroll karne mein billable **HOURS** nikal jaate hain.\n→ Ready **EXCEL SHEET** with contact, review count and website check – Example: a clinic with 14 reviews and no website.\n→ Whatever you sell, pitch instantly. You pay only after approval.\n\nDM **LEADS** and tell me what you sell.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+      "linkedin": "Freelancers waste morning hours manually searching for local leads instead of doing billable work.\n\nA typical start of the day begins with good intentions, but within a few minutes you are zooming into Google Maps, opening a dental clinic, a gym, or an accounting firm, copying phone numbers, and pasting them into a blank document. By lunch you have spent your freshest energy on repetitive data entry rather than writing proposals or delivering work for existing clients.\n\nWhat I provide is a simple Excel sheet that lists pre‑qualified local businesses pulled from Google Places. Each row contains verified contact details, the number of online reviews, a basic check of whether the business has a website, and an indication if the location has opened recently. The sheet is ready for anyone who sells services such as marketing, video editing, design, SEO, bookkeeping, or consulting to local owners.\n\nThe process is straightforward. First you tell me the type of businesses you want to target and the service you offer. I then extract the relevant listings from Google Places, run a quick website presence check, and arrange all the information into clear columns. Once the sheet is prepared, you review it to confirm that the entries meet your criteria before using the data for outreach.\n\nHaving the list already organized lets you keep your daily momentum. Sourcing contacts and reaching out require different mindsets; when the spreadsheet sits on your desk you can move directly into personalized outreach during your most productive morning hours, leaving the rest of the day free for client delivery and project work.\n\nAn honest limitation is that the spreadsheet does not write the emails or make the phone calls for you. It only organizes market information; building trust with a business owner still depends on your own pitch and the quality of the service you provide.\n\nI am happy to discuss whether this approach fits your outreach routine. You pay only after you approve the work. DM me with the word LEADS if you want to discuss.",
+      "bluesky": "Scrolling Maps for leads eats your best morning hours. Getting a clean Excel sheet with local business contacts, reviews, and website status lets you pitch straight away. DM LEADS to learn more."
+    }
+  },
+  "sources": [
+    {
+      "title": "Sanctoo Suites & Villas",
+      "url": "https://tavily.com/knowledge/company/FkHLBuabGXcS",
+      "domain": "tavily.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "These Google Maps settings turned my chaotic commute into something manageable",
+      "url": "https://www.xda-developers.com/google-maps-settings-morning-commute/",
+      "domain": "xda-developers.com",
+      "date": "2026-06-16",
+      "provider": "exa"
+    },
+    {
+      "title": "Calendar • Library Calendar",
+      "url": "https://library.texascitytx.gov/calendar.aspx?CID=24",
+      "domain": "library.texascitytx.gov",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "The Morning Routine Mistakes Quietly Killing Your Productivity by News & Crypto Hub May, 2026 Medium",
+      "url": "https://medium.com/@mohsinali73a/the-morning-routine-mistakes-quietly-killing-your-productivity-f7c4fae39445",
+      "domain": "medium.com",
+      "date": "2026-05-31",
+      "provider": "exa"
+    },
+    {
+      "title": "Calendar • Saint Joseph, MI • CivicEngage",
+      "url": "https://www.sjcity.com/calendar",
+      "domain": "sjcity.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "The Morning Routine That Costs D2C Founders 15 Hours/Week Futureex Futureex",
+      "url": "https://futureex.ai/blog/d2c-founder-morning-routine-productivity/",
+      "domain": "futureex.ai",
+      "date": "2026-03-05",
+      "provider": "exa"
+    },
+    {
+      "title": "How often do consumers search for local businesses in maps?",
+      "url": "https://maps-agent.com/research/consumers-conduct-local-searches-in-maps",
+      "domain": "maps-agent.com",
+      "date": "2026-10-23",
+      "provider": "exa"
+    },
+    {
+      "title": "Elections & Voter Registration Carroll County, GA - Official Website",
+      "url": "https://www.carrollcountyga.gov/323/Elections-Voter-Registration",
+      "domain": "carrollcountyga.gov",
+      "date": "",
+      "provider": "tavily"
+    }
+  ],
+  "ad_score": 9,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 2.8,
+        "breakout_probability": 0.0,
+        "reach_p10": 307.0,
+        "reach_p50": 616.0,
+        "reach_p90": 1280.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'language exclusion', 'severity': 'low', 'description': \"The post mixes Hindi ('Subah Maps scroll karne mei",
+          "{'category': 'class pressure', 'severity': 'low', 'description': 'The call to \"pitch instantly\" and the promise of payme"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 4.0,
+          "practical_value": 5.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 369,
+            "share": 2,
+            "like": 1
+          },
+          "engagement_rate": 0.0081,
+          "by_role": {
+            "public": {
+              "n": 3,
+              "avg_sentiment": 0.737,
+              "share_rate": 0.667
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 8,
+          "reach_fraction": 0.013,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 3.3
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.1
+          },
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 3.0
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 449.0,
+        "reach_p50": 904.0,
+        "reach_p90": 1979.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'class', 'severity': 'medium', 'description': 'The copy assumes all freelancers have the resources (e.g., r",
+          "{'category': 'tone‑deafness', 'severity': 'low', 'description': 'Describing freelancers as \"wasting\" their morning hours",
+          "{'category': 'exclusion', 'severity': 'low', 'description': 'The messaging presumes familiarity with tools like Google P"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 4.0,
+          "educational": 6.0,
+          "novelty": 3.0,
+          "controversy": 1.0,
+          "emotional_intensity": 2.0,
+          "relatability": 5.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 360,
+            "share": 3,
+            "reply": 3,
+            "like": 3
+          },
+          "engagement_rate": 0.0244,
+          "by_role": {
+            "public": {
+              "n": 9,
+              "avg_sentiment": 0.592,
+              "share_rate": 0.333
+            }
+          },
+          "cascade_size": 4,
+          "r_effective": 3.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 15,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.6792,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 9.9,
+        "breakout_probability": 0.0,
+        "reach_p10": 201.0,
+        "reach_p50": 418.0,
+        "reach_p90": 873.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 3.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 3.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 365,
+            "share": 2,
+            "like": 1
+          },
+          "engagement_rate": 0.0082,
+          "by_role": {
+            "public": {
+              "n": 3,
+              "avg_sentiment": 0.663,
+              "share_rate": 0.667
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 6,
+          "reach_fraction": 0.0065,
+          "r_effective": 0.2,
+          "polarization": 0.481,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "question",
+          "p_beats_chosen": 0.37,
+          "lift_pct": -0.1,
+          "decisive": false
+        },
+        {
+          "hook": 2,
+          "style": "myth",
+          "p_beats_chosen": 0.09,
+          "lift_pct": -2.1,
+          "decisive": true
+        }
+      ],
+      "better": null,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Replace the hook with a curiosity‑gap line that doesn’t assume a daily Maps habit, e.g. \"LOOKING FOR LOCAL LEADS WITHOUT THE MORNING MAP HUNT?\"",
+      "linkedin: Rewrite the opening sentence to avoid tone‑deaf waste language, e.g. \"Many freelancers spend early hours searching Google Maps for leads instead of billable work.\"",
+      "bluesky: Condense to a neutral, under‑260‑char line that states the problem and solution without presuming routine, e.g. \"Scrolling Maps for leads eats billable hours. A ready list flips the morning. DM LEADS to learn more.\""
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 0.0
+    },
+    "after": {
+      "instagram": 2.8,
+      "linkedin": 0.0,
+      "bluesky": 9.9
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "google:gemini-3.8-flash"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 7.9,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 168.5,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 16.3,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 49.4,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      }
+    ]
+  }
+}

@@ -1,5 +1,5 @@
-- Hook style: try comparison or contrast (outperformed question 3.7×); avoid question hooks for chatbot.
-- Topics: stop repeating "same questions" or "busy serving walk-ins" — used 3× in 2 weeks.
-- Every post must read like a developer sharing real work, never an ad; no demos, no guaranteed results.
-- Use bright-desk or desk-glow image styles (1.5× median); avoid network style.
-- Include pay-after-approval offer and DM-for-advice CTA only.
+- Hook style: use **question** or **comparison** (lead gen posts: comparison 1.53x, question 1.7x); avoid contrast.
+- Angle: **mistake** (1.54x) works best; frame lead gen as "treating sourcing as billable hours" error.
+- Visual: **bright-desk** image style (1.53x) — clean spreadsheet snippet, no branding.
+- Copy: write as developer sharing insight, not selling. Mention **pay after approval** once. No demos, guarantees, or niche targeting.
+- Rotate hooks; don't repeat "4 hours vs 4 minutes" phrasing again.

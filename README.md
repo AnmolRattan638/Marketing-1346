@@ -166,3 +166,14 @@ Send a photo (or an image file) to the bot while a draft is pending. It becomes 
 
 ## Video agent (`video-agent/`)
 A separate daily short-video maker (Groq plan, Pexels footage, Kokoro/edge-tts voice, Whisper captions, Remotion render, sent to Telegram). It has its own folder, README and workflow `.github/workflows/video-agent.yml` (10:00 IST daily, or Actions -> "Daily video (video-agent)" -> Run workflow; tick `offline` for a no-API test). It reuses the repo secrets `GROQ_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` and needs a footage key: `PIXABAY_API_KEY` (works today) and/or `PEXELS_API_KEY`. Topics come from `video-agent/topics.txt`. It does not touch the post pipeline and is not part of the Approve flow yet.
+
+## Pipeline (one story, two formats)
+
+1. **Research**: Tavily + Exa find sources; with `BROWSER_RESEARCH=1` (set automatically in the daily workflow) headless Chromium reads the full articles (`src/browser_research.py`).
+2. **Fact sheet** (`src/agents/factsheet.py`): the fact-checker keeps only facts a source clearly states, and every number must literally appear in that source. Under 3 verified facts = no master script that day (flagged, legacy path continues).
+3. **Master script** (`src/agents/scriptwriter.py`): one script from the fact sheet only, in one of 8 styles (least recently used first, saved on the draft as `script_style`), 5 hook candidates scored by ViralSim, every number cited to a fact id.
+4. **Carousel + captions** follow the master script; **video agent** (`video-agent/agent/master_script.py`) reads today's draft, keeps the words verbatim and only directs visuals.
+5. **Telegram**: the carousel draft with Approve/Reject at 08:00, the Reel arrives in the same chat a few minutes later (the daily workflow starts the video run once the draft is saved).
+6. **Approve** posts the carousel/text posts. Reels are not auto-posted (no publisher here supports video): upload the Reel yourself.
+
+Secrets needed: `TAVILY_API_KEY`, `EXA_API_KEY`, `UNSPLASH_ACCESS_KEY`, `VOICE_REF_B64`.

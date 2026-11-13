@@ -128,7 +128,7 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
     final = out_dir / "final.mp4"
     render(manifest, final)
     log(f"done: {final} ({media_duration(final):.1f}s, {final.stat().st_size / 1e6:.1f} MB)")
-    notify.send_video(final, f"{plan['title']}\nTopic: {topic}{summary}{webresearch.caption_line(plan.get('sources') or [])}")
+    notify.send_video(final, ("Reel for today's draft (same script as the carousel). Approving the draft posts the carousel; post this Reel yourself.\n" if master else "") + f"{plan['title']}\nTopic: {topic}{summary}{webresearch.caption_line(plan.get('sources') or [])}")
 
 
 def main() -> None:

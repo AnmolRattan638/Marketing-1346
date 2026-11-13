@@ -7,12 +7,16 @@ from pathlib import Path
 
 import requests
 
+from .stockquery import relevant, tech_queries
 from .common import ROOT, log, media_duration, run
 
 PEXELS_URL = "https://api.pexels.com/videos/search"
 PIXABAY_URL = "https://pixabay.com/api/videos/"
 COVERR_URL = "https://api.coverr.co/videos"
 UNSPLASH_URL = "https://api.unsplash.com/search/photos"
+
+
+_CFG: dict = {}      # set by run.py from config.json (stock.keywords / stock.anchors)
 
 
 def _search(query: str, key: str) -> list[dict]:
@@ -91,13 +95,14 @@ def _placeholder(dest: Path, seconds: float = 8.0) -> None:
 
 def _stock_video(query_text: str, dest: Path, used_ids: set) -> dict | None:
     """One portrait-ish stock video for the query (Pexels, then Pixabay, then Coverr). -> credit dict, or None when nothing was found."""
-    words = query_text.split()
-    queries = [query_text] + ([" ".join(words[:2])] if len(words) > 2 else [])
+    queries = tech_queries(query_text, _CFG)      # always AI / technology (agent/stockquery.py)
     if os.environ.get("PEXELS_API_KEY"):
         key = os.environ["PEXELS_API_KEY"]
         for query in queries:
             try:
                 for v in _search(query, key):
+                    if not relevant(v.get("url", "")):
+                        continue
                     f = _pick_file(v)
                     if not f or f"pexels:{v['id']}" in used_ids or v.get("duration", 0) < 3:
                         continue
@@ -111,6 +116,8 @@ def _stock_video(query_text: str, dest: Path, used_ids: set) -> dict | None:
         for query in queries:
             try:
                 for hit in _pixabay_search(query, key):
+                    if not relevant(hit.get("tags", "")):
+                        continue
                     f = _pixabay_file(hit)
                     pid = f"pixabay:{hit.get('id')}"
                     if not f or pid in used_ids or (hit.get("duration") or 0) < 3:
@@ -130,6 +137,8 @@ def _stock_video(query_text: str, dest: Path, used_ids: set) -> dict | None:
         for query in queries:
             try:
                 for v in _coverr_search(query, key):
+                    if not relevant(v.get("title", ""), " ".join(v.get("tags") or []) if isinstance(v.get("tags"), list) else str(v.get("tags") or "")):
+                        continue
                     url = (v.get("urls") or {}).get("mp4") or (v.get("urls") or {}).get("mp4_download")
                     cid = f"coverr:{v.get('id')}"
                     if not url or cid in used_ids or (v.get("duration") or 0) < 3:
@@ -149,8 +158,7 @@ def _stock_video(query_text: str, dest: Path, used_ids: set) -> dict | None:
 
 def _stock_photo(query_text: str, dest: Path, used_ids: set) -> dict | None:
     """One portrait photo for the query (Pixabay, then Pexels, then Unsplash). -> credit dict, or None."""
-    words = query_text.split()
-    queries = [query_text] + ([" ".join(words[:2])] if len(words) > 2 else [])
+    queries = tech_queries(query_text, _CFG)      # always AI / technology (agent/stockquery.py)
     if os.environ.get("PIXABAY_API_KEY"):
         for query in queries:
             try:
@@ -158,6 +166,8 @@ def _stock_photo(query_text: str, dest: Path, used_ids: set) -> dict | None:
                                  "orientation": "vertical", "per_page": 20, "safesearch": "true", "min_height": 1400}, timeout=30)
                 r.raise_for_status()
                 for hit in r.json().get("hits", []):
+                    if not relevant(hit.get("tags", "")):
+                        continue
                     pid = f"pixabay-photo:{hit.get('id')}"
                     url = hit.get("largeImageURL") or hit.get("webformatURL")
                     if pid in used_ids or not url:
@@ -174,6 +184,8 @@ def _stock_photo(query_text: str, dest: Path, used_ids: set) -> dict | None:
                                  params={"query": query, "orientation": "portrait", "per_page": 15}, timeout=30)
                 r.raise_for_status()
                 for ph in r.json().get("photos", []):
+                    if not relevant(ph.get("alt", ""), ph.get("url", "")):
+                        continue
                     pid = f"pexels-photo:{ph.get('id')}"
                     url = (ph.get("src") or {}).get("large2x")
                     if pid in used_ids or not url:
@@ -188,6 +200,8 @@ def _stock_photo(query_text: str, dest: Path, used_ids: set) -> dict | None:
         for query in queries:
             try:
                 for ph in _unsplash_search(query, key):
+                    if not relevant(ph.get("alt_description", ""), ph.get("description", ""), " ".join(t.get("title", "") for t in ph.get("tags") or [])):
+                        continue
                     pid = f"unsplash:{ph.get('id')}"
                     raw_url = (ph.get("urls") or {}).get("raw")
                     if pid in used_ids or not raw_url:

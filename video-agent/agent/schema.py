@@ -28,14 +28,26 @@ PLAN_SCHEMA = {
                         "type": "object",
                         "required": ["type"],
                         "properties": {
-                            "type": {"enum": ["stat", "glitch", "title", "lower_third", "shake"]},
+                            "type": {"enum": ["stat", "glitch", "title", "lower_third", "shake", "quote"]},
                             "at_word": {"type": "string", "maxLength": 40},
                             "seconds": {"type": "number", "minimum": 0.5, "maximum": 4},
-                            "text": {"type": "string", "maxLength": 40},
+                            "text": {"type": "string", "maxLength": 160},
                             "label": {"type": "string", "maxLength": 50},
                             "value": {"type": "number"},
                             "prefix": {"type": "string", "maxLength": 4},
                             "suffix": {"type": "string", "maxLength": 6},
+                        },
+                    }},
+                    # Camera moves on footage (agent/camera_plan.py): zoom into a subject, then pan on the words where the story moves on.
+                    "camera": {"type": "array", "maxItems": 4, "items": {
+                        "type": "object",
+                        "required": ["move"],
+                        "properties": {
+                            "move": {"enum": ["zoom_in", "zoom_out", "pan_down", "pan_up", "pan_left", "pan_right", "reset"]},
+                            "at_word": {"type": "string", "maxLength": 40},
+                            "focus": {"enum": ["top", "upper", "center", "lower", "bottom", "left", "right"]},
+                            "seconds": {"type": "number", "minimum": 0.3, "maximum": 4},
+                            "scale": {"type": "number", "minimum": 1.1, "maximum": 1.8},
                         },
                     }},
                     "transition": {"enum": ["settle", "whip", "zoom", "iris", "glitch", "circle"]},

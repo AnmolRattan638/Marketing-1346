@@ -5,6 +5,8 @@ import math
 import shutil
 from datetime import date
 
+from .sfx_plan import assign_files, kinds_available
+from .brand import load_palette
 from .common import ROOT, WORK, log
 
 
@@ -37,8 +39,13 @@ def _stage_logo(cfg: dict):
     return {"src": "assets/run/brand/logo.png", **{k: lg[k] for k in ("position", "size", "opacity", "marginX", "marginY") if k in lg}}
 
 
-def available_sfx() -> set:
+def sfx_stems() -> set:
     return {p.stem for p in (ROOT / "assets" / "sfx").glob("*.mp3")}
+
+
+def available_sfx() -> set:
+    """The cue KINDS the planner may use (whoosh, pop, click, riser, impact); the concrete files are chosen per cue by sfx_plan.assign_files."""
+    return kinds_available(sfx_stems())
 
 
 def _outro(cfg: dict):
@@ -57,6 +64,9 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
     outro = _outro(cfg)
     scenes = []
     used_sfx: set = set()
+    stems = sfx_stems()
+    outro_cues = [{"type": "pop", "atSecond": 0.35, "volume": 0.5}] if outro and "pop" in kinds_available(stems) else []
+    assign_files([b["sfx"] for b in built] + [outro_cues], stems, seed=str(plan.get("title", "")))      # a different file per cue, none more than 3 times in the reel
     for i, b in enumerate(built):
         # Round up to whole frames so Remotion's total length equals the sum of scenes.
         frames = math.ceil((b["narration_seconds"] + v["tail_seconds"]) * fps)
@@ -88,7 +98,7 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
             props["fadeOutFrames"] = 10                    # the only fade to black: the end of the video
         if i == len(built) - 1 and plan.get("cta", {}).get("text") and not outro:
             props["overlayText"] = plan["cta"]["text"]
-        used_sfx |= {c["type"] for c in b["sfx"]}
+        used_sfx |= {c["file"] for c in b["sfx"]}
         scenes.append({
             "id": b["id"],
             "component": "sequences/GraphicScene" if b.get("graphic") else "sequences/FootageScene",
@@ -101,11 +111,11 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
         secs = float((cfg.get("look") or {}).get("outro_seconds", 1.8))
         scenes.append({
             "id": "outro", "component": "sequences/GraphicScene", "duration": round(math.ceil(secs * fps) / fps, 4), "narration": None,
-            "sfx": [{"src": "assets/run/sfx/pop.mp3", "atSecond": 0.35, "volume": 0.5}] if "pop" in available_sfx() else [],
+            "sfx": [{k: c[k] for k in ("src", "atSecond", "volume")} for c in outro_cues],
             "props": {"layout": "logo", "words": [], "logo": outro["src"], "cta": plan.get("cta", {}).get("text", ""), "fadeOutFrames": 12,
                       "times": {"heading": 0.1, "mock": 0, "items": [], "chips": 0}},
         })
-        used_sfx.add("pop")
+        used_sfx |= {c["file"] for c in outro_cues}
     _stage_sfx(used_sfx)
     total = sum(s["duration"] for s in scenes)
     if total > 60:
@@ -115,6 +125,6 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
                   "title": plan["title"]},
         "audio": {"music": _stage_music(cfg)},
         "brand": {"logo": _stage_logo(cfg)},
-        "look": {"theme": (look or {}).get("theme", "ink"), "caption": (look or {}).get("caption", "pill")},
+        "look": {"palette": (look or {}).get("palette") or load_palette(cfg), "caption": (look or {}).get("caption", "pill")},
         "scenes": scenes,
     }

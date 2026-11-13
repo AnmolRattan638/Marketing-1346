@@ -1,4 +1,5 @@
 import React from "react";
+import { THEME } from "../graphics/theme";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { FONT } from "./fonts";
 
@@ -30,10 +31,10 @@ export const StatCounter: React.FC<StatCounterProps> = ({ value, prefix = "", su
         style={{
           transform: `scale(${0.6 + 0.4 * pop})`,
           opacity: Math.min(1, pop * 1.6),
-          background: "rgba(8, 10, 20, 0.62)",
-          border: "2px solid rgba(255, 212, 0, 0.55)",
+          background: "rgba(6, 8, 13, 0.78)",
+          border: `2px solid ${THEME.accent2}`,
           borderRadius: 36,
-          boxShadow: "0 18px 60px rgba(0,0,0,0.5), 0 0 60px rgba(255,212,0,0.18)",
+          boxShadow: `0 18px 60px rgba(0,0,0,0.5), 0 0 60px ${THEME.glowSoft}`,
           padding: "34px 58px 38px",
           textAlign: "center",
           maxWidth: 900,
@@ -45,15 +46,15 @@ export const StatCounter: React.FC<StatCounterProps> = ({ value, prefix = "", su
             fontSize: 200,
             fontWeight: 900,
             lineHeight: 1,
-            color: "#fff",
+            color: THEME.text,
             letterSpacing: -4,
             textShadow: "0 8px 24px rgba(0,0,0,0.45)",
             fontVariantNumeric: "tabular-nums",
           }}
         >
-          <span style={{ color: "#FFD400" }}>{prefix}</span>
+          <span style={{ color: THEME.accent }}>{prefix}</span>
           {shown.toLocaleString("en-US")}
-          <span style={{ color: "#FFD400" }}>{suffix}</span>
+          <span style={{ color: THEME.accent }}>{suffix}</span>
         </div>
         {label ? (
           <div
@@ -61,7 +62,7 @@ export const StatCounter: React.FC<StatCounterProps> = ({ value, prefix = "", su
               marginTop: 14,
               fontSize: 50,
               fontWeight: 700,
-              color: "rgba(255,255,255,0.88)",
+              color: THEME.text,
               letterSpacing: 1,
               opacity: labelOpacity,
               transform: `translateY(${(1 - labelOpacity) * 14}px)`,

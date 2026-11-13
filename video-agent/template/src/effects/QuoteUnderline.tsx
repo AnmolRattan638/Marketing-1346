@@ -14,16 +14,16 @@ export const QuoteUnderline: React.FC<{ text: string; label?: string; wordTimes:
   const size = words.length > 16 ? 58 : words.length > 10 ? 68 : 78;
   return (
     <AbsoluteFill style={{ justifyContent: "flex-start", alignItems: "center", paddingTop: 250, opacity: out }}>
-      <div style={{ width: 920, padding: "40px 46px 46px", borderRadius: 36, background: "rgba(8,12,28,0.72)", border: `2px solid ${THEME.cardEdge}`, boxShadow: "0 24px 70px rgba(0,0,0,.5)", transform: `translateY(${(1 - Math.min(1, enter)) * 50}px) scale(${0.94 + 0.06 * Math.min(1, enter)})`, opacity: Math.min(1, enter * 1.5) }}>
+      <div style={{ width: 920, padding: "40px 46px 46px", borderRadius: 36, background: "rgba(6,8,13,0.8)", border: `2px solid ${THEME.cardEdge}`, boxShadow: "0 24px 70px rgba(0,0,0,.5)", transform: `translateY(${(1 - Math.min(1, enter)) * 50}px) scale(${0.94 + 0.06 * Math.min(1, enter)})`, opacity: Math.min(1, enter * 1.5) }}>
         <div style={{ fontFamily: FONT_SERIF, fontSize: 120, lineHeight: 0.6, color: THEME.accent, height: 56 }}>“</div>
-        <div style={{ fontFamily: FONT_SERIF, fontStyle: "italic", fontWeight: 700, fontSize: size, lineHeight: 1.4, color: "#fff" }}>
+        <div style={{ fontFamily: FONT_SERIF, fontStyle: "italic", fontWeight: 700, fontSize: size, lineHeight: 1.4, color: THEME.text }}>
           {words.map((w, i) => {
             const a = wordTimes[i] ?? 0;
             const b = Math.max(a + 0.15, wordEnds[i] ?? a + 0.3);
             const spoken = t >= a - 0.02;
             const u = interpolate(t, [a, b], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
             return (
-              <span key={i} style={{ position: "relative", display: "inline-block", marginRight: "0.28em", opacity: spoken ? 1 : 0.35, color: spoken ? "#fff" : "#cfd6f5" }}>
+              <span key={i} style={{ position: "relative", display: "inline-block", marginRight: "0.28em", opacity: spoken ? 1 : 0.35, color: spoken ? THEME.text : THEME.muted }}>
                 {w}
                 <span style={{ position: "absolute", left: 0, bottom: 4, height: 9, width: "100%", borderRadius: 6, background: `linear-gradient(90deg, ${THEME.accent}, ${THEME.accent2})`, transformOrigin: "0 50%", transform: `scaleX(${u})`, boxShadow: `0 0 14px ${THEME.accent}88` }} />
               </span>

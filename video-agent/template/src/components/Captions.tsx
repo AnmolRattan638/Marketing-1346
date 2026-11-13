@@ -1,4 +1,5 @@
 import React from "react";
+import { THEME } from "../graphics/theme";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 
 export interface CaptionWord {
@@ -56,9 +57,9 @@ export function chunkWords(words: CaptionWord[], maxWords = 4, maxChars = 24): C
 export const Captions: React.FC<CaptionsProps> = ({
   words,
   emphasis = [],
-  accent = "#FFD400",
-  emphasisFrom = "#FF9F1C",
-  emphasisTo = "#FF3D71",
+  accent = THEME.accent,
+  emphasisFrom = THEME.accent2,
+  emphasisTo = THEME.hot,
   maxWords = 4,
   maxChars = 24,
   upper = true,
@@ -135,16 +136,16 @@ export const Captions: React.FC<CaptionsProps> = ({
                 padding: "2px 18px 6px",
                 borderRadius: 22,
                 transform: `scale(${scale}) rotate(${tilt}deg)`,
-                color: isActive ? "#111" : isEmph ? accent : "#fff",
+                color: isActive ? THEME.ink : isEmph ? accent : THEME.text,
                 background: isActive
                   ? isEmph
                     ? `linear-gradient(135deg, ${emphasisFrom}, ${emphasisTo})`
                     : accent
                   : "transparent",
                 boxShadow: isActive
-                  ? `0 10px 34px ${isEmph ? "rgba(255,61,113,0.5)" : "rgba(255,212,0,0.5)"}`
+                  ? `0 10px 34px ${THEME.glow}`
                   : "none",
-                WebkitTextStroke: isActive ? "0px" : "9px #000",
+                WebkitTextStroke: isActive ? "0px" : `9px ${THEME.ink}`,
                 paintOrder: "stroke fill",
                 textShadow: isActive ? "none" : "0 6px 18px rgba(0,0,0,0.65)",
               }}

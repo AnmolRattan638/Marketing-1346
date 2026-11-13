@@ -37,10 +37,31 @@
       "llama-3.1-8b-instant"
     ]
   },
-  "stock": {"only_ai_tech": true, "anchors": ["ai agents", "ai automation", "technology", "ai bots doing work", "artificial intelligence", "robot working on computer", "futuristic technology interface", "machine learning", "neural network", "coding on screen", "data visualization technology", "digital automation workflow", "humanoid robot", "software developer coding"]},
-  "camera": {"enabled": true, "scale": 1.3},
+  "stock": {
+    "only_ai_tech": true,
+    "anchors": [
+      "ai agents",
+      "ai automation",
+      "technology",
+      "ai bots doing work",
+      "artificial intelligence",
+      "robot working on computer",
+      "futuristic technology interface",
+      "machine learning",
+      "neural network",
+      "coding on screen",
+      "data visualization technology",
+      "digital automation workflow",
+      "humanoid robot",
+      "software developer coding"
+    ]
+  },
+  "camera": {
+    "enabled": true,
+    "scale": 1.3
+  },
   "captions": {
-    "model": "whisper-large-v3-turbo"
+    "smart_position": true
   },
   "video": {
     "width": 1080,
@@ -54,7 +75,22 @@
     "duck_to": 0.07
   },
   "brand": {
-    "notes": "AR Designs: web design for small local businesses in North India. Friendly, practical, no hype."
+    "notes": "Anmol Rattan / AR Designs: AI agent systems (lead generation, autonomous marketing workflows, multi-agent), AI chatbots, websites, AI cartoon animations, motion ads, script and SEO blog writing, for local businesses in North India. Friendly, practical, no hype.",
+    "palette": {
+      "bgTop": "#06080D",
+      "bgBottom": "#0A1220",
+      "card": "#0D182B",
+      "cardEdge": "#1A2A44",
+      "ink": "#06080D",
+      "text": "#E8EBF2",
+      "muted": "#9AA3B2",
+      "accent": "#F0C040",
+      "accent2": "#C9A84C",
+      "hot": "#FFF0B3",
+      "ok": "#F0C040",
+      "glow": "rgba(240,192,64,0.45)",
+      "glowSoft": "rgba(240,192,64,0.14)"
+    }
   },
   "hybrid": {
     "enabled": true,
@@ -133,8 +169,16 @@
     "default_transition": "settle",
     "grain": 0
   },
-  "captions": {"smart_position": true},
-  "looks": {"captions": ["pill", "cinematic", "karaoke", "stack", "typewriter"], "themes": ["ink", "sunset", "forest", "violet"], "force": {}},
+  "looks": {
+    "captions": [
+      "pill",
+      "cinematic",
+      "karaoke",
+      "stack",
+      "typewriter"
+    ],
+    "force": {}
+  },
   "look": {
     "progress_bar": true,
     "outro_logo": true,
@@ -144,5 +188,12 @@
     "cut_sounds": false,
     "scene_whoosh": "wipes",
     "max_per_scene": 3
+  },
+  "service_notes": {
+    "website": "Websites for local businesses: fast, mobile-first, built to turn visitors into enquiries.",
+    "chatbot": "AI chatbots that answer customer messages (WhatsApp, website, DMs) instantly, qualify the lead and book the next step, 24/7. Talk about chatbots, not websites.",
+    "animated_ads": "Animated and motion video ads that stop the scroll for small brands.",
+    "lead_gen": "AI agents that find high-intent leads and reach out for you, automatically. Talk about lead generation agents, not websites.",
+    "reel_scripts": "Script writing for short reels: hooks, structure, spoken rhythm."
   }
 }

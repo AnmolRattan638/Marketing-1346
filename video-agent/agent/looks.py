@@ -10,10 +10,10 @@ import json
 import random
 from pathlib import Path
 
+from .brand import load_palette
 from .common import ROOT, log
 
 CAPTIONS = ("pill", "cinematic", "karaoke", "stack", "typewriter")
-THEMES = ("ink", "sunset", "forest", "violet")
 TRANSITION_SETS = {
     "calm": ("settle", "zoom", "iris"),
     "energetic": ("whip", "glitch", "zoom", "circle"),
@@ -34,17 +34,16 @@ def pick_look(seed: str, cfg: dict) -> dict:
     rng = random.Random(int(hashlib.sha256(seed.encode()).hexdigest(), 16))
     last = _last()
     caps = [c for c in lc.get("captions", CAPTIONS) if c in CAPTIONS] or list(CAPTIONS)
-    themes = [t for t in lc.get("themes", THEMES) if t in THEMES] or list(THEMES)
     caps_ok = [c for c in caps if c != last.get("caption")] or caps
-    themes_ok = [t for t in themes if t != last.get("theme")] or themes
-    look = {"caption": rng.choice(caps_ok), "theme": rng.choice(themes_ok), "transitions": rng.choice(list(TRANSITION_SETS))}
+    look = {"caption": rng.choice(caps_ok), "transitions": rng.choice(list(TRANSITION_SETS))}
     look.update({k: v for k, v in (lc.get("force") or {}).items() if k in look})
     try:
         STATE.parent.mkdir(exist_ok=True)
         STATE.write_text(json.dumps(look))
     except OSError:
         pass
-    log(f"look: captions={look['caption']}, theme={look['theme']}, transitions={look['transitions']}")
+    look["palette"] = load_palette(cfg)       # colours are ONLY the website's (agent/brand.py), never varied per reel
+    log(f"look: captions={look['caption']}, transitions={look['transitions']}, palette=brand")
     return look
 
 

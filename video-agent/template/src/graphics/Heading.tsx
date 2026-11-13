@@ -14,7 +14,7 @@ export const Heading: React.FC<{
   size?: number;
   accent?: string;
   second?: string;
-}> = ({ kicker, heading, heading2, at, align = "left", size = 128, accent = THEME.accent, second = "#fff" }) => {
+}> = ({ kicker, heading, heading2, at, align = "left", size = 128, accent = THEME.accent, second = THEME.text }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const k = pop(frame, fps, at, { damping: 18, stiffness: 160, mass: 0.8 });
@@ -104,7 +104,7 @@ export const Chips: React.FC<{ items: string[]; at: number; align?: "left" | "ce
             style={{
               transform: `scale(${0.5 + 0.5 * p}) translateY(${(1 - p) * 20}px)`,
               opacity: Math.min(1, p * 2),
-              background: i === 0 ? THEME.accent : "rgba(255,255,255,0.12)",
+              background: i === 0 ? THEME.accent : THEME.cardEdge,
               color: i === 0 ? THEME.ink : "#fff",
               border: i === 0 ? "none" : `2px solid ${THEME.cardEdge}`,
               borderRadius: 40,

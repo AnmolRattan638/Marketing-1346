@@ -17,8 +17,8 @@ export const StrikeList: React.FC<{ items: string[]; times: number[] }> = ({ ite
         const struck = frame / fps >= at;
         return (
           <div key={i} style={{ position: "relative", display: "inline-block", alignSelf: "flex-start", opacity: Math.min(1, enter * 2) * (struck ? 0.62 : 1), transform: `translateX(${(1 - enter) * -80}px)` }}>
-            <span style={{ fontFamily: FONT_HEAD, fontWeight: 900, fontSize: size, color: "#fff", textTransform: "uppercase", letterSpacing: -1 }}>{s}</span>
-            <div style={{ position: "absolute", left: -10, top: "56%", height: 12, width: `${line * 104}%`, background: THEME.hot, borderRadius: 6, boxShadow: "0 4px 16px rgba(255,61,113,0.6)" }} />
+            <span style={{ fontFamily: FONT_HEAD, fontWeight: 900, fontSize: size, color: THEME.text, textTransform: "uppercase", letterSpacing: -1 }}>{s}</span>
+            <div style={{ position: "absolute", left: -10, top: "56%", height: 12, width: `${line * 104}%`, background: THEME.hot, borderRadius: 6, boxShadow: `0 4px 16px ${THEME.glow}` }} />
           </div>
         );
       })}

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import random
 import os
 import re
 
@@ -49,7 +50,7 @@ def _call_groq(messages: list[dict], cfg: dict) -> str:
         raise RuntimeError("GROQ_API_KEY is not set")
     errors = []
     for model in _models(cfg):
-        body = {"model": model, "messages": messages, "temperature": 0.7, "max_tokens": 6000, "response_format": {"type": "json_object"}}
+        body = {"model": model, "messages": messages, "temperature": 0.85, "max_tokens": 6000, "response_format": {"type": "json_object"}}
         if "gpt-oss" in model:
             body["reasoning_effort"] = "low"      # thinking tokens count against max_tokens; low keeps the JSON answer from being cut off
         for attempt in (1, 2):
@@ -106,12 +107,25 @@ def tidy_plan(plan):
     return plan
 
 
-def make_plan(topic: str, cfg: dict, library: str = "") -> dict:
+ANGLES = [
+    "a myth most owners believe, then the truth", "one surprising number and what it means", "a short before/after story",
+    "three quick steps the viewer can do today", "the most common mistake and how to avoid it", "a question the viewer is secretly asking themselves",
+    "what quietly happens if you do nothing", "a day in the life, with and without it", "a simple comparison: the old way vs the smart way",
+]
+
+
+def make_plan(topic: str, cfg: dict, library: str = "", service: str = "general") -> dict:
     lang = cfg["language"]
+    angle = random.SystemRandom().choice(ANGLES)          # a different angle every run, so scripts do not repeat
+    note = (cfg.get("service_notes") or {}).get(service, "")
     user = (
-        f"Topic: {topic}\n"
-        f"Narration language: {lang}\n"
-        f"Brand notes: {cfg['brand']['notes']}\n"
+        f"TOPIC (the subject of the whole video): {topic}\n"
+        "Every scene must be about this topic. Do NOT drift into websites, web design or a sales pitch unless the topic itself is about that. "
+        "Do not copy the example wording from the rules; write fresh lines.\n"
+        f"Angle for this video: {angle}.\n"
+        + (f"What the topic covers: {note}\n" if note else "")
+        + f"Narration language: {lang}\n"
+        f"Background about the owner (use ONLY if it fits the topic, never as the topic): {cfg['brand']['notes']}\n"
         f"Target length: about {cfg['video']['target_seconds']} seconds in total.\n"
         + (f"The owner has his own raw clips and photos about: {library}. Prefer a story he can actually show with them (his demos, his desk, his work), and use those words in footage_query where they fit.\n" if library else "")
         + "Return only the JSON object described in the rules."

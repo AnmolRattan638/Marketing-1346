@@ -1,4 +1,5 @@
 import React from "react";
+import { THEME } from "../graphics/theme";
 import {
   AbsoluteFill,
   Loop,
@@ -75,7 +76,7 @@ const FootageScene: React.FC<FootageSceneProps> = ({
   const cta = spring({ frame: frame - ctaStart, fps, config: { damping: 11, stiffness: 200, mass: 0.7 } });
 
   return (
-    <AbsoluteFill style={{ backgroundColor: "black", opacity: fadeOut }}>
+    <AbsoluteFill style={{ backgroundColor: THEME.ink, opacity: fadeOut }}>
       <AbsoluteFill
         style={{
           transform: `translate(${look.translateX + cam.x + (cm ? cm.x : 0)}px, ${look.translateY + cam.y + (cm ? cm.y : 0)}px) scale(${scale})`,
@@ -109,9 +110,9 @@ const FootageScene: React.FC<FootageSceneProps> = ({
             style={{
               opacity: Math.min(1, Math.max(0, cta)),
               transform: `translateY(${(1 - Math.min(1, Math.max(0, cta))) * -40}px) scale(${0.85 + 0.15 * Math.max(0, cta)})`,
-              background: "linear-gradient(135deg, #FFD400, #FF9F1C)",
-              boxShadow: "0 14px 44px rgba(255,159,28,0.45)",
-              color: "#111",
+              background: `linear-gradient(135deg, ${THEME.accent}, ${THEME.accent2})`,
+              boxShadow: `0 14px 44px ${THEME.glow}`,
+              color: THEME.ink,
               fontFamily:
                 '"Montserrat", "Poppins", "Noto Sans Devanagari", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
               fontWeight: 900,

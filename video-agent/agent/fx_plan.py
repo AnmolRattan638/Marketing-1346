@@ -22,7 +22,7 @@ from .common import log
 FX_TYPES = ("stat", "glitch", "title", "lower_third", "shake", "quote")
 TRANSITIONS = ("settle", "whip", "zoom", "iris", "glitch", "circle")      # circle = a colour disc opens onto the scene
 DEFAULT_SECONDS = {"stat": 2.4, "glitch": 1.4, "title": 1.9, "lower_third": 2.6, "shake": 0.7, "quote": 5.0}
-SFX_FOR = {"stat": "pop", "glitch": "click", "title": "pop", "lower_third": "whoosh", "shake": "pop", "quote": "click"}
+SFX_FOR = {"stat": "pop", "glitch": "click", "title": "pop", "lower_third": "whoosh", "shake": "impact", "quote": "click"}
 MIN_SECONDS = 0.5
 MAX_SECONDS = 4.0
 QUOTE_MAX_SECONDS = 9.0

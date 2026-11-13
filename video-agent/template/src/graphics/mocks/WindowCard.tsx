@@ -28,11 +28,11 @@ export const WindowCard: React.FC<{
         boxShadow: "0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset",
         overflow: "hidden",
         fontFamily: FONT_HEAD,
-        color: "#fff",
+        color: THEME.text,
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "24px 30px 0" }}>
-        {["#FF5F57", "#FEBC2E", "#28C840"].map((c) => (
+        {[THEME.accent2, THEME.accent, THEME.hot].map((c) => (
           <span key={c} style={{ width: 20, height: 20, borderRadius: 10, background: c }} />
         ))}
         {title ? <span style={{ marginLeft: 16, fontSize: 28, fontWeight: 600, color: THEME.muted }}>{title}</span> : null}

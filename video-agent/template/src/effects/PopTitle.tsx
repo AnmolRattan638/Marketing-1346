@@ -1,4 +1,5 @@
 import React from "react";
+import { THEME } from "../graphics/theme";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { FONT } from "./fonts";
 
@@ -18,9 +19,9 @@ export const PopTitle: React.FC<{ text: string; label?: string }> = ({ text, lab
         style={{
           transform: `scale(${scale})`,
           opacity: fade,
-          background: "linear-gradient(45deg, #FF9F1C, #FF3D71)",
+          background: `linear-gradient(45deg, ${THEME.accent2}, ${THEME.accent})`,
           borderRadius: 34,
-          boxShadow: "0 18px 54px rgba(255,61,113,0.4)",
+          boxShadow: `0 18px 54px ${THEME.glow}`,
           padding: "30px 54px",
           maxWidth: 920,
           fontFamily: FONT,
@@ -28,9 +29,9 @@ export const PopTitle: React.FC<{ text: string; label?: string }> = ({ text, lab
         }}
       >
         <div style={{ transform: `translateX(${slide}%)` }}>
-          <div style={{ fontSize: 86, fontWeight: 900, lineHeight: 1.05, color: "#fff", textAlign: "center", textShadow: "0 5px 12px rgba(0,0,0,0.3)" }}>{text}</div>
+          <div style={{ fontSize: 86, fontWeight: 900, lineHeight: 1.05, color: THEME.ink, textAlign: "center" }}>{text}</div>
           {label ? (
-            <div style={{ marginTop: 10, fontSize: 44, fontWeight: 600, color: "#fff", textAlign: "center", opacity: sub }}>{label}</div>
+            <div style={{ marginTop: 10, fontSize: 44, fontWeight: 600, color: THEME.ink, textAlign: "center", opacity: sub }}>{label}</div>
           ) : null}
         </div>
       </div>

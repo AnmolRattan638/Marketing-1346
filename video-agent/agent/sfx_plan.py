@@ -12,6 +12,7 @@ When cues compete for the same moment the important ones win: planner hints firs
 """
 from __future__ import annotations
 
+import random
 import re
 
 from .common import log
@@ -19,15 +20,60 @@ from .fx_plan import SFX_FOR as fx_sfx
 
 # Starting levels. Short-form narration is near-continuous and masks quiet effects,
 # so these lean loud-ish. Tune by ear.
-VOLUMES = {"whoosh": 0.55, "pop": 0.7, "riser": 0.5, "click": 0.6}
+VOLUMES = {"whoosh": 0.55, "pop": 0.7, "riser": 0.5, "click": 0.6, "impact": 0.6}
 CUT_VOLUMES = {"whoosh": 0.32, "click": 0.38}      # sounds on shot cuts stay under the voice and the planner's own effects
 RISER_SECONDS = 1.4        # riser clips end on the word they build toward
-LEAD = {"whoosh": 0.2, "riser": 0.0, "pop": 0.0, "click": 0.0}   # seconds a cue starts before its anchor; a whoosh swells for ~0.3 s, so its peak lands on the cut
+LEAD = {"whoosh": 0.2, "riser": 0.0, "pop": 0.0, "click": 0.0, "impact": 0.0}   # seconds a cue starts before its anchor; a whoosh swells for ~0.3 s, so its peak lands on the cut
 MIN_GAP = 0.3
 MAX_PER_SCENE = 3          # fewer, better placed sounds; a sound on every cut and every scene felt like noise
 POLICY = {"cut_sounds": False, "scene_whoosh": "wipes", "max_per_scene": MAX_PER_SCENE}
 # cut_sounds: whoosh/click on the shot cuts inside a footage scene. scene_whoosh: "wipes" = only when the scene arrives with a visible
 # transition (whip, zoom, iris, glitch, circle), "always" = every scene start, "never".
+
+
+# ---- variety: which FILE plays each cue ----------------------------------------------------------------------------------------------------------
+# plan_sfx decides WHAT and WHEN (a kind: whoosh, pop, click, riser, impact). assign_files() then gives every cue of the whole reel a concrete file from the
+# kind's family, always the least-used one, never the same file twice in a row, and never one file more than MAX_USES times in the reel.
+FAMILIES = {
+    "whoosh": ("whoosh", "swipe"),
+    "pop": ("pop", "boop", "ding", "sparkle"),
+    "click": ("click", "tick"),
+    "riser": ("riser",),
+    "impact": ("impact",),
+}
+MAX_USES = 3
+
+
+def stem_kind(stem: str) -> str:
+    return re.sub(r"_\d+$", "", stem)
+
+
+def kinds_available(stems: set) -> set:
+    """The cue kinds the plan can ask for, given the files on disk (whoosh_3.mp3 counts for 'whoosh'; an old single whoosh.mp3 still works)."""
+    bases = {stem_kind(s) for s in stems}
+    return {k for k, fam in FAMILIES.items() if bases & set(fam)} | bases
+
+
+def assign_files(scenes_cues: list[list[dict]], stems: set, seed: str = "", max_uses: int = MAX_USES) -> None:
+    """Set cue['file'] (a stem, e.g. 'whoosh_4') on every cue, in playing order across the reel. Cues that cannot get a file within the cap are removed."""
+    rng = random.Random(seed)
+    uses: dict[str, int] = {}
+    last: str | None = None
+    for cues in scenes_cues:
+        for c in list(sorted(cues, key=lambda c: c["atSecond"])):
+            fam = FAMILIES.get(c["type"], (c["type"],))
+            pool = sorted(s for s in stems if stem_kind(s) in fam and uses.get(s, 0) < max_uses)
+            if not pool:
+                log(f"sfx '{c['type']}' at {c['atSecond']:.2f}s dropped: every file of its family already played {max_uses} times")
+                cues.remove(c)
+                continue
+            fresh = [s for s in pool if s != last] or pool
+            low = min(uses.get(s, 0) for s in fresh)
+            pick = rng.choice([s for s in fresh if uses.get(s, 0) == low])
+            uses[pick] = uses.get(pick, 0) + 1
+            last = pick
+            c["file"] = pick
+            c["src"] = f"assets/run/sfx/{pick}.mp3"
 
 
 def _norm(w: str) -> str:

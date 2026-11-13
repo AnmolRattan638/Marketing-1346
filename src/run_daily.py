@@ -3,7 +3,7 @@ import datetime as dt
 import os, secrets
 import sys, traceback
 import requests
-from . import analytics, captions, carousel, config, diagrams, formats, ideas, learning, llm, tg, virality
+from . import analytics, captions, carousel, config, diagrams, formats, ideas, learning, llm, tg, virality, web_research
 from .agents import analysis, carousel as carousel_agent, factcheck, fit as fit_agent, image, linkedin_edit, problems as problems_agent, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
@@ -165,11 +165,17 @@ def main():
             return guidance + (f"\n\nSTRATEGIST BRIEF (current Instagram state: {state.get('stage')}): {note}" if note else "")
 
         used = [h.get("topic") for h in history]
-        topics = stage("research", lambda: research.run(brand, focus, used, g('research'), today, ideas.ideas_text(ideas.for_service(focus['id'], ideas.used_ids(history)))),
+        web = stage("web.trends", lambda: web_research.trend_context(focus, today), fallback="") if web_research.enabled() else ""
+        web_kw = {"web": web} if web else {}
+        topics = stage("research", lambda: research.run(brand, focus, used, g('research'), today, ideas.ideas_text(ideas.for_service(focus['id'], ideas.used_ids(history))), **web_kw),
                        fallback=[{"topic": f"A practical tip about {focus['name']} for local businesses",
                                   "angle": focus["pitch"], "why_it_matters": "fallback topic"}])
         plan = stage("analysis", lambda: analysis.run(topics, focus, g('analysis'), history))
         plan = ensure_fit(plan, topics, focus, brand, g('analysis'), history)
+        ev = stage("web.evidence", lambda: web_research.evidence_for(plan, focus), fallback=[]) if web_research.enabled() else []   # real sources for the topic that was picked
+        ev_text = web_research.evidence_text(ev)
+        ev_kw = {"evidence": ev_text} if ev_text else {}
+        WARNINGS.extend(web_research.problems())
         if config.CAROUSEL:
             # hook -> problem -> solution -> CTA, told in one of the rotating tastes; the carousel's hook becomes the post's hook, so captions and the first slide agree
             car, why = stage("carousel", lambda: carousel_agent.build(plan, focus, brand, g('writer'), today), fallback=(None, "the carousel step failed"))
@@ -179,9 +185,9 @@ def main():
                     WARNINGS.append("carousel: the fact-check was unavailable, so read every slide before approving.")
             else:
                 WARNINGS.append(f"carousel skipped (single image instead): {why}")
-        posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer'), ig_mode=ig_mode, linkedin_format=li_fmt))
+        posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer'), ig_mode=ig_mode, linkedin_format=li_fmt, **ev_kw))
         posts = polish_linkedin(posts, focus, brand)
-        fc = stage("factcheck", lambda: factcheck.run(posts, focus, brand), fallback={"ok": None, "issues": ["fact-check unavailable"], "revised": {}})
+        fc = stage("factcheck", lambda: factcheck.run(posts, focus, brand, **ev_kw), fallback={"ok": None, "issues": ["fact-check unavailable"], "revised": {}})
         for k, v in (fc.get("revised") or {}).items():
             if k in posts and v:
                 posts[k] = v[:300] if k == "bluesky" else v
@@ -203,10 +209,10 @@ def main():
         vsum = {"rewrote": False, "reasons": [], "changes": []}
         if reasons:
             first_draft = dict(posts)
-            posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), "\n".join(n for n in notes if n), ig_mode=ig_mode, linkedin_format=li_fmt), fallback=posts)
+            posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), "\n".join(n for n in notes if n), ig_mode=ig_mode, linkedin_format=li_fmt, **ev_kw), fallback=posts)
             vsum = {"rewrote": posts != first_draft, "reasons": reasons, "changes": [str(c)[:240] for c in (vrev.get("changes") or [])[:5]]}
             posts = polish_linkedin(posts, focus, brand)
-            fc2 = stage("factcheck.2", lambda: factcheck.run(posts, focus, brand), fallback={"ok": None, "issues": [], "revised": {}})
+            fc2 = stage("factcheck.2", lambda: factcheck.run(posts, focus, brand, **ev_kw), fallback={"ok": None, "issues": [], "revised": {}})
             for k, v in (fc2.get("revised") or {}).items():
                 if k in posts and v:
                     posts[k] = v[:300] if k == "bluesky" else v
@@ -244,7 +250,7 @@ def main():
              "hooks": plan["hooks"], "chosen_hook": plan.get("chosen_hook", 0),
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),
-             "image": img, "carousel": car_data, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "ad_score": rv.get("ad_score"), "virality": vir_after or None, "virality_review": vsum,
+             "image": img, "carousel": car_data, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "sources": web_research.sources_for_draft(ev), "ad_score": rv.get("ad_score"), "virality": vir_after or None, "virality_review": vsum,
              "llm": {"answered": list(dict.fromkeys(llm.LOG)), "failures": llm.FAILURES[:20]}}
     config.save_json(path, draft)
 
@@ -253,6 +259,7 @@ def main():
             f"Instagram today: {'MANUAL reel (post it yourself)' if ig_mode == 'manual_reel' else 'auto-posted image + caption'}\nLinkedIn today: {'TEXT ONLY (no image)' if li_fmt == 'text' else 'with the image'}\nFact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n{virality.telegram_line(vir_after, bt, vsum)}\n"
             f"Account check ({state.get('stage')}): {state.get('summary')}" +
             (("\nLive weak spots: " + "; ".join(f"[{s['platform']}] {s['detail']}" for s in live_signals[:2])) if live_signals else "") +
+            (("\n\nWeb sources behind today's facts (open one if the post quotes a number):\n" + web_research.sources_line(ev)) if ev else "") +
             "\n\nModels that answered: " + (" | ".join(dict.fromkeys(llm.LOG))[:700] or "n/a") +
             ("\nManual tips:\n- " + "\n- ".join(map(str, state.get("manual_tips") or [])) if state.get("manual_tips") else ""))
     if car_data:

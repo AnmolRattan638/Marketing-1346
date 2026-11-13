@@ -123,6 +123,15 @@ Trade-off: LinkedIn only reports posts published through Zernio, so LinkedIn pos
 - Add your own ideas to the `ideas` list (copy an existing entry; `hook` must be 12 words or fewer). Ideas are used in file order.
 - Honest limit: vidIQ says viral is not the same as profitable. These formats are a better *starting point* for attention; whether they bring DMs is something your analytics will show.
 
+## Web research (Tavily + Exa)
+The agents no longer write from the model's memory alone. With a **Tavily** and/or an **Exa** key the daily run also reads what is really being published and measured right now:
+1. **Before research:** one search per provider for what is new for small businesses in India around today's service. The research agent uses it to make topics timely.
+2. **After the topic is picked:** two searches per provider about that topic (general coverage, and statistics/surveys). The writer may use **one** concrete fact from them, named in words ("according to ..."), never a link and never rounded up. Everything else stays as strict as before (no invented numbers, no promised results).
+3. **Fact-check:** a statistic or study passes only if the sources say it and the post names the source; otherwise it is removed or softened.
+4. **You see it:** the Telegram draft lists the sources behind the facts, and the draft JSON keeps them under `sources`. Open one if the post quotes a number.
+
+Setup: add `TAVILY_API_KEY` and/or `EXA_API_KEY` as repo secrets (either one is enough; with both, their results are interleaved and de-duplicated). About 6 searches a day. Repo variables (optional): `WEB_RESEARCH=0` switches it off, `WEB_RESEARCH_PROVIDERS` (`tavily,exa` by default; `exa` or `tavily` to use one). A failing provider never stops the run: the other one answers and a warning appears in the draft. No key means nothing is searched and nothing changes. Social sites (Pinterest, Quora, Reddit, Facebook, Instagram, TikTok, X, LinkedIn) are skipped as sources, and web text is cleaned and handed to the models as untrusted facts-only data. Test: `python tests/web_research_test.py`.
+
 ## LinkedIn: text-only posts
 LinkedIn gets **text-only** posts (text posts reached 100+ impressions, image posts 5-6). The format is decided when the draft is made, saved in the draft as `linkedin_format`, and shown in the Telegram message ("LinkedIn today: TEXT ONLY (no image)"). Instagram and Bluesky are unchanged and still get the image.
 - On a text day the writer is told there is no picture: no "see the image", and the first line must carry the whole hook because LinkedIn hides the rest behind "see more". The publisher then leaves the picture off LinkedIn **only**; Instagram and Bluesky still get it.

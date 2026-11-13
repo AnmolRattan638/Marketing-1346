@@ -415,9 +415,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 25,
-        "reach": 7,
-        "views": 25,
+        "impressions": 26,
+        "reach": 8,
+        "views": 26,
         "likes": 2,
         "comments": 0,
         "shares": 0,
@@ -502,9 +502,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 26,
-        "reach": 3,
-        "views": 26,
+        "impressions": 27,
+        "reach": 4,
+        "views": 27,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -1481,7 +1481,7 @@
       "username": "ar__designerx"
     },
     "linkedin": {
-      "followers": 7,
+      "followers": 8,
       "username": "Anmol Rattan"
     },
     "bluesky": {
@@ -1769,12 +1769,12 @@
       "date": "2026-11-13",
       "followers": {
         "instagram": 9,
-        "linkedin": 7,
+        "linkedin": 8,
         "bluesky": 1
       }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-13T06:48:06+00:00"
+  "updated_at": "2026-11-13T19:43:42+00:00"
 }

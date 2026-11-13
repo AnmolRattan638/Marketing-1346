@@ -1523,9 +1523,9 @@
         }
       },
       "latest": {
-        "impressions": 26,
-        "reach": 3,
-        "views": 26,
+        "impressions": 27,
+        "reach": 4,
+        "views": 27,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -1652,9 +1652,9 @@
         }
       },
       "latest": {
-        "impressions": 25,
-        "reach": 7,
-        "views": 25,
+        "impressions": 26,
+        "reach": 8,
+        "views": 26,
         "likes": 2,
         "comments": 0,
         "shares": 0,
@@ -1685,6 +1685,18 @@
           "impressions": 7,
           "reach": 2,
           "views": 7,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        },
+        "7d": {
+          "age_h": 170.4,
+          "source": "zernio",
+          "impressions": 10,
+          "reach": 3,
+          "views": 10,
           "likes": 0,
           "comments": 0,
           "shares": 0,
@@ -1722,6 +1734,13 @@
       "snap": {
         "48h": {
           "age_h": 52.8,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        },
+        "7d": {
+          "age_h": 170.4,
           "source": "bluesky",
           "likes": 0,
           "comments": 0,
@@ -2021,7 +2040,38 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-11-11|bluesky": {
+      "date": "2026-11-11",
+      "platform": "bluesky",
+      "service": "reel_scripts",
+      "problem_id": "not-knowing-what-to-say-on-camera-and-st",
+      "angle_type": "mistake",
+      "hook_style": "comparison",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "glass-ui",
+      "carousel_flavor": "common-mistake",
+      "slides": 7,
+      "published_at": "2026-11-11T11:41:42.005488+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3mzzuqzzkoy2x",
+      "snap": {
+        "48h": {
+          "age_h": 56.0,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-11-12T19:56:03+00:00"
+  "updated_at": "2026-11-13T19:43:45+00:00"
 }

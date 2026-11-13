@@ -178,7 +178,7 @@ def main():
         WARNINGS.extend(web_research.problems())
         if config.CAROUSEL:
             # hook -> problem -> solution -> CTA, told in one of the rotating tastes; the carousel's hook becomes the post's hook, so captions and the first slide agree
-            car, why = stage("carousel", lambda: carousel_agent.build(plan, focus, brand, g('writer'), today), fallback=(None, "the carousel step failed"))
+            car, why = stage("carousel", lambda: carousel_agent.build(plan, focus, brand, g('writer'), today, **ev_kw), fallback=(None, "the carousel step failed"))
             if car:
                 plan["hooks"][plan.get("chosen_hook", 0)]["text"] = car["slides"][0]["headline"]
                 if not car.get("checked"):

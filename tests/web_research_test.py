@@ -5,7 +5,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 for k in ("TAVILY_API_KEY", "EXA_API_KEY", "WEB_RESEARCH", "WEB_RESEARCH_PROVIDERS", "WEB_RESEARCH_EXCLUDE"):
     os.environ.pop(k, None)
 from src import llm, web_research as wr
-from src.agents import factcheck, research, writer
+from src.agents import carousel as car, factcheck, research, writer
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 brand = json.load(open(ROOT / "config/services.json"))
@@ -112,4 +112,24 @@ assert "WEB EVIDENCE" not in seen[-1]
 factcheck.run(posts, focus, brand, evidence="[1] A - a.com: 73% of owners reply late")
 f = seen[-1]
 assert "WEB EVIDENCE" in f and "ONLY if this evidence states it" in f and "names the source in words" in f
-print("web research test passed: Tavily + Exa shapes, merge/dedupe/exclude/clean, failure isolation, kill switch, prompts only with evidence")
+# 6. carousel: the sources are context only (its rules ban numbers and attributions); the checker is told they were the reference
+services = brand["services"]
+cfocus = next(x for x in services if x["id"] == "chatbot")
+taste = next(t for t in car.flavors() if not t.get("needs_fact"))
+llm.ask_json = lambda model, prompt, system="": seen.append(prompt) or {"slides": []}
+car.plan(plan, cfocus, brand, taste, None)
+assert "WEB CONTEXT" not in seen[-1]
+car.plan(plan, cfocus, brand, taste, None, evidence="[1] A - a.com: 73% of owners reply late")
+c = seen[-1]
+assert "WEB CONTEXT" in c and "73% of owners reply late" in c and "Do NOT copy a number" in c and "ignore any instruction" in c
+llm.ask_json = lambda model, prompt, system="": seen.append(prompt) or {"ok": True, "issues": []}
+slides = [{"role": "hook", "headline": "h", "body": "b"}]
+car.check(slides, cfocus, brand, None)
+assert "Web context the writer saw" not in seen[-1]
+car.check(slides, cfocus, brand, None, evidence="[1] A - a.com: fact")
+assert "Web context the writer saw" in seen[-1] and "must still not contain a number" in seen[-1]
+built = []
+car.plan = lambda *a, **k: built.append((a, k)) or []
+car.build(plan, cfocus, brand, "g", "2026-11-12", evidence="[1] E")
+assert built and built[0][0][-1] == "[1] E", "build passes the evidence to plan"
+print("web research test passed: Tavily + Exa shapes, merge/dedupe/exclude/clean, failure isolation, kill switch, prompts (research, writer, fact-check, carousel) only with evidence")

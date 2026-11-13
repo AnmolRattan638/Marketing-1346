@@ -13,7 +13,7 @@ from .captions import get_words
 from .common import ROOT, WORK, load_config, log, media_duration
 from . import footage as _footage
 from .footage import fetch_clip
-from . import edits
+from . import edits, webresearch
 from .hybrid import Editor, HybridError
 from .manifest import available_sfx, build_manifest
 from .plan import make_plan, sample_plan
@@ -54,7 +54,10 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
     log(f"service for this reel: {service}")
     editor = Editor(cfg, offline, service) if hybrid_on else None
     look = pick_look(f"{date.today().isoformat()}|{topic}", cfg) if not offline else {"caption": "cinematic", "transitions": "mixed", "palette": load_palette(cfg)}
-    plan = sample_plan() if offline else make_plan(topic, cfg, editor.library_summary() if editor else "", service)
+    ev_text, sources = ("", []) if offline else webresearch.for_topic(topic)       # real sources for the topic (Tavily + Exa), optional
+    plan = sample_plan() if offline else make_plan(topic, cfg, editor.library_summary() if editor else "", service, **({"evidence": ev_text} if ev_text else {}))
+    if sources:
+        plan["sources"] = sources
     (out_dir / "plan.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding="utf-8")
     log(f"plan: '{plan['title']}' with {len(plan['scenes'])} scenes")
 
@@ -120,7 +123,7 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
     final = out_dir / "final.mp4"
     render(manifest, final)
     log(f"done: {final} ({media_duration(final):.1f}s, {final.stat().st_size / 1e6:.1f} MB)")
-    notify.send_video(final, f"{plan['title']}\nTopic: {topic}{summary}")
+    notify.send_video(final, f"{plan['title']}\nTopic: {topic}{summary}{webresearch.caption_line(plan.get('sources') or [])}")
 
 
 def main() -> None:

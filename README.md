@@ -130,6 +130,8 @@ The agents no longer write from the model's memory alone. With a **Tavily** and/
 3. **Fact-check:** a statistic or study passes only if the sources say it and the post names the source; otherwise it is removed or softened.
 4. **You see it:** the Telegram draft lists the sources behind the facts, and the draft JSON keeps them under `sources`. Open one if the post quotes a number.
 
+**Carousel:** the carousel gets the same sources as context only. Its own rules ban percentages, numbers and "a study says", so the slides use the sources to describe the problem and the solution in plain, current words, and the fact-checker is told they were the reference. **Video agent:** the planner searches for the reel's topic (from `topics.txt` or `--topic`) and may build ONE scene around ONE fact, said aloud with who found it, optionally shown as a `stat` graphic. The sources are saved in `runs/<date>/plan.json` and the top three are listed in the Telegram caption. Offline runs (`--offline`) never search.
+
 Setup: add `TAVILY_API_KEY` and/or `EXA_API_KEY` as repo secrets (either one is enough; with both, their results are interleaved and de-duplicated). About 6 searches a day. Repo variables (optional): `WEB_RESEARCH=0` switches it off, `WEB_RESEARCH_PROVIDERS` (`tavily,exa` by default; `exa` or `tavily` to use one). A failing provider never stops the run: the other one answers and a warning appears in the draft. No key means nothing is searched and nothing changes. Social sites (Pinterest, Quora, Reddit, Facebook, Instagram, TikTok, X, LinkedIn) are skipped as sources, and web text is cleaned and handed to the models as untrusted facts-only data. Test: `python tests/web_research_test.py`.
 
 ## LinkedIn: text-only posts

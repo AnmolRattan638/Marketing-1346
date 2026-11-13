@@ -69,6 +69,8 @@ Return exactly one JSON object:
   The agent also adds an AI/tech keyword to any query that lacks one and rejects results that are not tech.
 - `transition` may also be `circle` (a colour circle opens the scene). Your logo animation is added at the end automatically.
 - Never mention prices, guarantees or results you cannot back up.
+- If the request carries WEB EVIDENCE, at most ONE scene may rest on ONE fact from it, said with who found it; a `stat` fx may show its number. No other statistic, study or
+  source is allowed, and nothing from the evidence may become a promise about the owner's results.
 - `sfx` is optional: at most one entry per scene, and none in some scenes. A whoosh on every cut is
   added automatically, so do not request it. Use `pop` on one key word, `riser` before a reveal,
   `click` for small taps. `at_word` must be a word that appears in that scene's narration.

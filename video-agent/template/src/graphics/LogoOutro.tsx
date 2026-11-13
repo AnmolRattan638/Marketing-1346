@@ -19,10 +19,10 @@ export const LogoOutro: React.FC<{ logo?: string; cta?: string }> = ({ logo, cta
         return <div key={d} style={{ position: "absolute", width: r.size, height: r.size, borderRadius: "50%", border: `5px solid ${THEME.accent}`, opacity: r.opacity }} />;
       })}
       {logo ? (
-        <Img src={staticFile(logo)} style={{ width: 340, height: 340, objectFit: "contain", borderRadius: 60, transform: `scale(${0.2 + 0.8 * pop}) rotate(${(1 - pop) * -14}deg)`, opacity: Math.min(1, pop * 2.5), filter: "drop-shadow(0 20px 50px rgba(255,212,0,0.35))" }} />
+        <Img src={staticFile(logo)} style={{ width: 340, height: 340, objectFit: "contain", borderRadius: 60, transform: `scale(${0.2 + 0.8 * pop}) rotate(${(1 - pop) * -14}deg)`, opacity: Math.min(1, pop * 2.5), filter: "drop-shadow(0 20px 50px rgba(240,192,64,0.35))" }} />
       ) : null}
       {cta ? (
-        <div style={{ position: "absolute", top: "50%", marginTop: 250, width: 900, textAlign: "center", fontFamily: FONT_HEAD, fontWeight: 900, fontSize: 70, color: "#fff", opacity: Math.min(1, text * 2), transform: `translateY(${(1 - text) * 50}px)`, textShadow: "0 8px 24px rgba(0,0,0,0.5)" }}>
+        <div style={{ position: "absolute", top: "50%", marginTop: 250, width: 900, textAlign: "center", fontFamily: FONT_HEAD, fontWeight: 900, fontSize: 70, color: THEME.text, opacity: Math.min(1, text * 2), transform: `translateY(${(1 - text) * 50}px)`, textShadow: "0 8px 24px rgba(0,0,0,0.5)" }}>
           <span style={{ background: `linear-gradient(135deg, ${THEME.accent}, ${THEME.accent2})`, color: THEME.ink, padding: "10px 36px", borderRadius: 30, display: "inline-block" }}>{cta}</span>
         </div>
       ) : null}

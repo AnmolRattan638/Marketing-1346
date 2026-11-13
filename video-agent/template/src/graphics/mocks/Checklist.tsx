@@ -18,13 +18,13 @@ export const Checklist: React.FC<{ at: number; title?: string; items: string[]; 
           const done = frame / fps >= ta;
           const dash = interpolate(tick, [0, 1], [60, 0], { extrapolateRight: "clamp" });
           return (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 28, opacity: Math.min(1, row * 2), transform: `translateX(${(1 - row) * -60}px)`, padding: "14px 22px", borderRadius: 26, background: done ? "rgba(53,208,127,0.14)" : "rgba(255,255,255,0.05)", border: `2px solid ${done ? "rgba(53,208,127,0.5)" : THEME.cardEdge}` }}>
+            <div key={i} style={{ display: "flex", alignItems: "center", gap: 28, opacity: Math.min(1, row * 2), transform: `translateX(${(1 - row) * -60}px)`, padding: "14px 22px", borderRadius: 26, background: done ? THEME.glowSoft : "rgba(255,255,255,0.05)", border: `2px solid ${done ? THEME.accent2 : THEME.cardEdge}` }}>
               <div style={{ width: 62, height: 62, borderRadius: 31, background: done ? THEME.ok : "rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", transform: `scale(${done ? 0.85 + 0.15 * tick : 1})` }}>
                 <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke={THEME.ink} strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: done ? 1 : 0 }}>
                   <path d="M4 12.5l5 5L20 6.5" strokeDasharray="60" strokeDashoffset={dash} />
                 </svg>
               </div>
-              <div style={{ fontSize: 50, fontWeight: 800, color: done ? "#fff" : THEME.muted }}>{s}</div>
+              <div style={{ fontSize: 50, fontWeight: 800, color: done ? THEME.text : THEME.muted }}>{s}</div>
             </div>
           );
         })}

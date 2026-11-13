@@ -23,7 +23,7 @@ const sceneRegistry: Record<string, React.ComponentType<any>> = {
 
 export const Video: React.FC = () => {
   const manifest = useManifest();
-  applyTheme((manifest as any).look?.theme);
+  applyTheme((manifest as any).look?.palette);
 
   // Compute each scene's start frame and duration-in-frames from the manifest.
   // durationFromAudio paths are resolved at build time by the Root-level

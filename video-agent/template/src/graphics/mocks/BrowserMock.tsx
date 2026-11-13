@@ -19,7 +19,7 @@ export const BrowserMock: React.FC<{ at: number; items: string[]; times: number[
   return (
     <WindowCard at={at} height={720}>
       <div style={{ marginTop: -8, display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,0.08)", borderRadius: 26, padding: "12px 24px", fontFamily: FONT_HEAD, fontSize: 28, color: THEME.muted }}>
-        <span style={{ color: THEME.ok }}>🔒</span> yourbusiness.in
+        <span style={{ color: THEME.ok }}>●</span> yourbusiness.in
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 18, marginTop: 28, opacity: nav }}>
         <div style={{ width: 54, height: 54, borderRadius: 14, background: THEME.accent }} />

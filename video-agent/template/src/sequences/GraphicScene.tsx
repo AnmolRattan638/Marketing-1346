@@ -96,7 +96,7 @@ const GraphicScene: React.FC<GraphicSceneProps> = ({
   } else if (isPunch) {
     body = (
       <AbsoluteFill style={{ justifyContent: "center", padding: "0 70px", paddingBottom: 320 }}>
-        <Heading kicker={kicker} heading={heading} heading2={heading2} at={times.heading} align="center" size={150} accent="#fff" second={THEME.ink} />
+        <Heading kicker={kicker} heading={heading} heading2={heading2} at={times.heading} align="center" size={150} accent={THEME.ink} second={THEME.bgBottom} />
         {chips.length ? <div style={{ marginTop: 60 }}><Chips items={chips} at={times.chips} align="center" /></div> : null}
       </AbsoluteFill>
     );

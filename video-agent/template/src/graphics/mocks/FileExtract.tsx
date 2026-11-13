@@ -15,8 +15,8 @@ export const FileExtract: React.FC<{ at: number; items: string[]; times: number[
   const done = pop(frame, fps, ex + 0.5, { damping: 10, stiffness: 260, mass: 0.6 });
   const box = (label: string, kind: "zip" | "dir", scale: number, op: number) => (
     <div style={{ width: 360, textAlign: "center", transform: `scale(${scale})`, opacity: op, fontFamily: FONT_HEAD }}>
-      <div style={{ margin: "0 auto", width: 230, height: 270, borderRadius: 30, border: `4px solid ${THEME.accent}`, background: "rgba(255,212,0,0.08)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 120, position: "relative" }}>
-        {kind === "zip" ? <span style={{ fontFamily: "monospace", fontWeight: 900, fontSize: 40, color: "#FFD400" }}>ZIP</span> : "📂"}
+      <div style={{ margin: "0 auto", width: 230, height: 270, borderRadius: 30, border: `4px solid ${THEME.accent}`, background: THEME.glowSoft, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 120, position: "relative" }}>
+        {kind === "zip" ? <span style={{ fontFamily: "monospace", fontWeight: 900, fontSize: 40, color: THEME.accent }}>ZIP</span> : <span style={{ fontFamily: "monospace", fontWeight: 900, fontSize: 56, color: THEME.accent }}>{"</>"}</span>}
         {kind === "dir" ? <div style={{ position: "absolute", right: -26, bottom: -26, width: 78, height: 78, borderRadius: 39, background: THEME.ok, color: THEME.ink, fontSize: 52, fontWeight: 900, display: "flex", alignItems: "center", justifyContent: "center", transform: `scale(${0.3 + 0.7 * done})` }}>✓</div> : null}
       </div>
       <div style={{ marginTop: 26, fontSize: 38, fontWeight: 800 }}>{label}</div>

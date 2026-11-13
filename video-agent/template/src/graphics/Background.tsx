@@ -17,15 +17,15 @@ export const Background: React.FC<{ punch?: boolean; ghost?: string }> = ({ punc
     <AbsoluteFill
       style={{
         background: punch
-          ? `linear-gradient(150deg, ${THEME.hot}, #B8123F 70%)`
+          ? `linear-gradient(150deg, ${THEME.accent}, ${THEME.accent2} 75%)`
           : `linear-gradient(170deg, ${THEME.bgTop}, ${THEME.bgBottom})`,
       }}
     >
       <AbsoluteFill
         style={{
           background: punch
-            ? "radial-gradient(circle at 70% 25%, rgba(255,212,0,0.28), rgba(255,212,0,0) 55%)"
-            : "radial-gradient(circle at 75% 20%, rgba(255,212,0,0.12), rgba(255,212,0,0) 55%), radial-gradient(circle at 15% 85%, rgba(255,61,113,0.1), rgba(255,61,113,0) 50%)",
+            ? `radial-gradient(circle at 70% 25%, ${THEME.glow}, rgba(240,192,64,0) 55%)`
+            : `radial-gradient(circle at 75% 20%, ${THEME.glowSoft}, rgba(240,192,64,0) 55%), radial-gradient(circle at 15% 85%, rgba(201,168,76,0.08), rgba(201,168,76,0) 50%)`,
         }}
       />
       {ghost ? (
@@ -36,7 +36,7 @@ export const Background: React.FC<{ punch?: boolean; ghost?: string }> = ({ punc
               fontWeight: 900,
               fontSize: 520,
               lineHeight: 1,
-              color: "#fff",
+              color: THEME.text,
               opacity: 0.1,
               transform: `translateY(-80px) rotate(-6deg) scale(${1 + 0.02 * Math.sin(t * 0.8)})`,
               whiteSpace: "nowrap",
@@ -49,7 +49,7 @@ export const Background: React.FC<{ punch?: boolean; ghost?: string }> = ({ punc
       ) : null}
       <AbsoluteFill>
         {specks.map((s, i) => (
-          <div key={i} style={{ position: "absolute", left: s.x, top: s.y, width: s.r, height: s.r, borderRadius: "50%", background: "#fff", opacity: s.o }} />
+          <div key={i} style={{ position: "absolute", left: s.x, top: s.y, width: s.r, height: s.r, borderRadius: "50%", background: THEME.text, opacity: s.o }} />
         ))}
       </AbsoluteFill>
       <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.38) 100%)" }} />

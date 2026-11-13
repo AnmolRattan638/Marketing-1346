@@ -1,4 +1,5 @@
 import React from "react";
+import { THEME } from "../graphics/theme";
 import { AbsoluteFill, interpolate, random, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { FONT } from "./fonts";
 
@@ -29,9 +30,9 @@ export const GlitchText: React.FC<{ text: string }> = ({ text }) => {
   return (
     <AbsoluteFill style={{ justifyContent: "flex-start", alignItems: "center", paddingTop: 470, opacity: out }}>
       <div style={{ display: "grid", transform: `translate(${jx + slice}px, ${jy}px) scale(${0.8 + 0.2 * pop})` }}>
-        <div style={{ ...base, color: "#00F0FF", transform: `translate(${-split}px, ${split / 3}px)`, mixBlendMode: "screen", opacity: 0.9 }}>{text}</div>
-        <div style={{ ...base, color: "#FF2BD6", transform: `translate(${split}px, ${-split / 3}px)`, mixBlendMode: "screen", opacity: 0.9 }}>{text}</div>
-        <div style={{ ...base, color: "#fff", WebkitTextStroke: "8px #000", paintOrder: "stroke fill", textShadow: "0 8px 26px rgba(0,0,0,0.6)" }}>{text}</div>
+        <div style={{ ...base, color: THEME.accent, transform: `translate(${-split}px, ${split / 3}px)`, mixBlendMode: "screen", opacity: 0.9 }}>{text}</div>
+        <div style={{ ...base, color: THEME.hot, transform: `translate(${split}px, ${-split / 3}px)`, mixBlendMode: "screen", opacity: 0.9 }}>{text}</div>
+        <div style={{ ...base, color: THEME.text, WebkitTextStroke: `8px ${THEME.ink}`, paintOrder: "stroke fill", textShadow: "0 8px 26px rgba(0,0,0,0.6)" }}>{text}</div>
       </div>
     </AbsoluteFill>
   );

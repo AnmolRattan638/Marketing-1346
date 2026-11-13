@@ -21,6 +21,7 @@ from .render import render
 from .fx_plan import plan_fx
 from .camera_plan import plan_camera
 from .caption_zones import zones_for
+from .brand import load_palette
 from .looks import pick_look, pick_transition
 from .graphics import fallback_graphic, resolve_graphic
 from .sfx_plan import emphasis_beats, plan_sfx
@@ -52,8 +53,8 @@ def build(topic: str, offline: bool, no_render: bool) -> None:
     service, topic = edits.detect_service(topic, cfg)
     log(f"service for this reel: {service}")
     editor = Editor(cfg, offline, service) if hybrid_on else None
-    look = pick_look(f"{date.today().isoformat()}|{topic}", cfg) if not offline else {"caption": "cinematic", "theme": "sunset", "transitions": "mixed"}
-    plan = sample_plan() if offline else make_plan(topic, cfg, editor.library_summary() if editor else "")
+    look = pick_look(f"{date.today().isoformat()}|{topic}", cfg) if not offline else {"caption": "cinematic", "transitions": "mixed", "palette": load_palette(cfg)}
+    plan = sample_plan() if offline else make_plan(topic, cfg, editor.library_summary() if editor else "", service)
     (out_dir / "plan.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding="utf-8")
     log(f"plan: '{plan['title']}' with {len(plan['scenes'])} scenes")
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { THEME } from "../graphics/theme";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { FONT } from "./fonts";
 
@@ -15,12 +16,12 @@ export const LowerThird: React.FC<{ text: string; label?: string }> = ({ text, l
   return (
     <AbsoluteFill style={{ justifyContent: "flex-start", alignItems: "flex-start", paddingTop: 520, paddingLeft: 56 }}>
       <div style={{ transform: `translateX(${-out * 900}px)`, fontFamily: FONT }}>
-        <div style={{ width: 340, height: 6, borderRadius: 3, background: "linear-gradient(90deg, #FFD400, #FF9F1C)", transform: `translateX(${accent}px)`, marginBottom: 8 }} />
+        <div style={{ width: 340, height: 6, borderRadius: 3, background: `linear-gradient(90deg, ${THEME.accent}, ${THEME.accent2})`, transform: `translateX(${accent}px)`, marginBottom: 8 }} />
         <div style={{ display: "flex", transform: `translateX(${bar}px)` }}>
-          <div style={{ width: 10, background: "#FFD400", borderRadius: "5px 0 0 5px" }} />
-          <div style={{ background: "rgba(0,0,0,0.72)", padding: "22px 46px 24px 36px", borderRadius: "0 12px 12px 0" }}>
-            <div style={{ color: "#fff", fontSize: 64, fontWeight: 900, letterSpacing: 0.5, opacity: textOpacity }}>{text}</div>
-            {label ? <div style={{ color: "rgba(255,255,255,0.78)", fontSize: 38, fontWeight: 500, marginTop: 6, opacity: textOpacity }}>{label}</div> : null}
+          <div style={{ width: 10, background: THEME.accent, borderRadius: "5px 0 0 5px" }} />
+          <div style={{ background: "rgba(6,8,13,0.84)", padding: "22px 46px 24px 36px", borderRadius: "0 12px 12px 0" }}>
+            <div style={{ color: THEME.text, fontSize: 64, fontWeight: 900, letterSpacing: 0.5, opacity: textOpacity }}>{text}</div>
+            {label ? <div style={{ color: THEME.muted, fontSize: 38, fontWeight: 500, marginTop: 6, opacity: textOpacity }}>{label}</div> : null}
           </div>
         </div>
       </div>

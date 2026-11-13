@@ -21,7 +21,7 @@ export const Terminal: React.FC<{ at: number; title?: string; items: string[]; t
           const text = isCmd ? typed(body, frame, fps, x.at, 18) : body;
           const p = pop(frame, fps, x.at, { damping: 16, stiffness: 220, mass: 0.6 });
           return (
-            <div key={i} style={{ display: "flex", gap: 16, color: isOk ? "#fff" : isCmd ? "#FFD9A0" : THEME.muted, opacity: isCmd ? 1 : Math.min(1, p * 2), transform: isCmd ? undefined : `translateX(${(1 - p) * 30}px)` }}>
+            <div key={i} style={{ display: "flex", gap: 16, color: isOk ? THEME.text : isCmd ? THEME.hot : THEME.muted, opacity: isCmd ? 1 : Math.min(1, p * 2), transform: isCmd ? undefined : `translateX(${(1 - p) * 30}px)` }}>
               {isOk ? <span style={{ color: THEME.ok, fontWeight: 900 }}>✓</span> : null}
               <span>
                 {text}

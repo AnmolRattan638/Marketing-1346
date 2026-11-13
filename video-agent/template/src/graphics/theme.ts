@@ -1,16 +1,18 @@
-// Look of the motion-graphic scenes. Own palette (the reference reels' cream/red is not copied): deep ink blue, gold, hot pink.
+// Look of the motion-graphic scenes. STRICTLY the brand palette from the website (agent/brand.py extracts it from index.html into config.json -> brand.palette): black, navy, gold. No other colours.
 export const THEME = {
-  bgTop: "#0B1020",
-  bgBottom: "#1A2347",
-  card: "#151D3B",
-  cardEdge: "rgba(255,255,255,0.14)",
-  ink: "#05070F",
-  text: "#FFFFFF",
-  muted: "rgba(255,255,255,0.68)",
-  accent: "#FFD400",
-  accent2: "#FF9F1C",
-  hot: "#FF3D71",
-  ok: "#35D07F",
+  bgTop: "#06080D", // --black
+  bgBottom: "#0A1220", // --navy
+  card: "#0D182B", // --navy-card
+  cardEdge: "#1A2A44", // --navy-border
+  ink: "#06080D",
+  text: "#E8EBF2", // --text
+  muted: "#9AA3B2", // --muted
+  accent: "#F0C040", // --gold-bright
+  accent2: "#C9A84C", // --gold
+  hot: "#FFF0B3", // --gold-light: where the old palette used a loud second colour, emphasis is gold-light now
+  ok: "#F0C040",
+  glow: "rgba(240,192,64,0.45)",
+  glowSoft: "rgba(240,192,64,0.14)",
 };
 export const FONT_HEAD =
   '"Montserrat", "Poppins", "Inter", "Noto Sans Devanagari", "Noto Sans", "Helvetica Neue", Arial, sans-serif';

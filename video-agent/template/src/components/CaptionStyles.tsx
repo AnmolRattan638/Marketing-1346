@@ -53,7 +53,7 @@ const Box: React.FC<{ bottom: number; children: React.ReactNode }> = ({ bottom, 
 );
 
 // ---- cinematic: small, spaced, glowing lines that blur in and out; a phrase with an emphasis word becomes a big "hero" treatment ----
-type Hero = "gold" | "neon" | "fire";
+type Hero = "gold" | "neon" | "fire";   // names kept; all three are drawn in the brand palette (gold / glowing light / deep gold)
 const HEROES: Hero[] = ["gold", "neon", "fire"];
 
 const Cinematic: React.FC<Props> = ({ words, emphasis = [], upper = true, bottom = 400 }) => {
@@ -71,9 +71,9 @@ const Cinematic: React.FC<Props> = ({ words, emphasis = [], upper = true, bottom
     const size = Math.max(70, Math.min(128, 330 / Math.max(6, text.length) * 11));
     const flick = kind === "fire" ? 1 + (random(`f${frame}`) - 0.5) * 0.04 : 1;
     const style: Record<Hero, React.CSSProperties> = {
-      gold: { fontFamily: FONT_SERIF, fontStyle: "italic", fontWeight: 800, background: "linear-gradient(180deg,#FFF3B8 0%,#F2B632 45%,#8A5A10 100%)", WebkitBackgroundClip: "text", color: "transparent", filter: "drop-shadow(0 6px 14px rgba(0,0,0,.6))" },
-      neon: { fontFamily: SANS, fontWeight: 800, color: "#fff", textShadow: "0 0 10px #5B8CFF, 0 0 28px #2F5BFF, 0 0 60px #2F5BFF", letterSpacing: 4 },
-      fire: { fontFamily: SANS, fontWeight: 900, background: "linear-gradient(180deg,#FFF3A0 0%,#FF9A1F 50%,#D02A00 100%)", WebkitBackgroundClip: "text", color: "transparent", filter: "drop-shadow(0 0 18px rgba(255,120,0,.65))" },
+      gold: { fontFamily: FONT_SERIF, fontStyle: "italic", fontWeight: 800, background: `linear-gradient(180deg,${THEME.hot} 0%,${THEME.accent} 45%,${THEME.accent2} 100%)`, WebkitBackgroundClip: "text", color: "transparent", filter: "drop-shadow(0 6px 14px rgba(0,0,0,.6))" },
+      neon: { fontFamily: SANS, fontWeight: 800, color: THEME.text, textShadow: `0 0 10px ${THEME.accent}, 0 0 28px ${THEME.accent2}, 0 0 60px ${THEME.accent2}`, letterSpacing: 4 },
+      fire: { fontFamily: SANS, fontWeight: 900, background: `linear-gradient(180deg,${THEME.text} 0%,${THEME.accent} 55%,${THEME.accent2} 100%)`, WebkitBackgroundClip: "text", color: "transparent", filter: `drop-shadow(0 0 18px ${THEME.glow})` },
     };
     return (
       <Box bottom={bottom}>
@@ -94,7 +94,7 @@ const Cinematic: React.FC<Props> = ({ words, emphasis = [], upper = true, bottom
     <Box bottom={bottom}>
       <div style={{ maxWidth: 820, textAlign: "center", fontFamily: SANS, fontWeight: 700, fontSize: 54, lineHeight: 1.25, letterSpacing: 7, textTransform: upper ? "uppercase" : "none", opacity, filter: `blur(${blur}px)`, transform: `translateY(${(1 - Math.min(1, enter)) * 14}px)` }}>
         {chunk.map((w, i) => (
-          <span key={i} style={{ display: "inline-block", margin: "0 0.28em", color: "#fff", opacity: t >= w.start - 0.02 || i <= active ? 1 : 0.42, textShadow: "0 0 18px rgba(255,255,255,.55), 0 4px 14px rgba(0,0,0,.7)" }}>
+          <span key={i} style={{ display: "inline-block", margin: "0 0.28em", color: THEME.text, opacity: t >= w.start - 0.02 || i <= active ? 1 : 0.42, textShadow: "0 0 18px rgba(255,255,255,.55), 0 4px 14px rgba(0,0,0,.7)" }}>
             {w.text}
           </span>
         ))}
@@ -118,7 +118,7 @@ const Karaoke: React.FC<Props> = ({ words, emphasis = [], upper = true, bottom =
           const p = spring({ frame: frame - Math.round(w.start * fps), fps, config: { damping: 9, stiffness: 300, mass: 0.5 } });
           const hot = emph.has(norm(w.text)) || /\d/.test(w.text);
           return (
-            <span key={`${c}-${i}`} style={{ display: "inline-block", color: on ? (hot ? THEME.hot : THEME.accent) : "#fff", transform: `scale(${on ? 1 + 0.14 * Math.min(1.3, p) : 1})`, WebkitTextStroke: "10px #000", paintOrder: "stroke fill", textShadow: on ? `0 0 34px ${hot ? THEME.hot : THEME.accent}88` : "0 6px 16px rgba(0,0,0,.6)" }}>
+            <span key={`${c}-${i}`} style={{ display: "inline-block", color: on ? (hot ? THEME.hot : THEME.accent) : THEME.text, transform: `scale(${on ? 1 + 0.14 * Math.min(1.3, p) : 1})`, WebkitTextStroke: `10px ${THEME.ink}`, paintOrder: "stroke fill", textShadow: on ? `0 0 34px ${hot ? THEME.hot : THEME.accent}88` : "0 6px 16px rgba(0,0,0,.6)" }}>
               {w.text}
             </span>
           );
@@ -141,12 +141,12 @@ const Stack: React.FC<Props> = ({ words, emphasis = [], upper = true, bottom = 4
   const emph = new Set(emphasis.map(norm));
   const hot = emph.has(norm(w.text)) || /\d/.test(w.text);
   const p = spring({ frame: frame - Math.round((w.start - 0.03) * fps), fps, config: { damping: 8, stiffness: 340, mass: 0.5 } });
-  const colors = ["#fff", THEME.accent, "#fff", THEME.accent2];
+  const colors = [THEME.text, THEME.accent, THEME.text, THEME.accent2];
   const color = hot ? THEME.hot : colors[idx % colors.length];
   const size = Math.max(90, Math.min(200, 1500 / Math.max(5, w.text.length) * 0.62));
   return (
     <Box bottom={bottom}>
-      <div style={{ fontFamily: SANS, fontWeight: 900, fontSize: size, color, textTransform: upper ? "uppercase" : "none", transform: `scale(${0.5 + 0.5 * Math.min(1.25, p)}) rotate(${hot ? -4 : 0}deg)`, opacity: Math.min(1, p * 3), WebkitTextStroke: "12px #000", paintOrder: "stroke fill", textShadow: "0 10px 30px rgba(0,0,0,.6)", textAlign: "center", maxWidth: 980 }}>
+      <div style={{ fontFamily: SANS, fontWeight: 900, fontSize: size, color, textTransform: upper ? "uppercase" : "none", transform: `scale(${0.5 + 0.5 * Math.min(1.25, p)}) rotate(${hot ? -4 : 0}deg)`, opacity: Math.min(1, p * 3), WebkitTextStroke: `12px ${THEME.ink}`, paintOrder: "stroke fill", textShadow: "0 10px 30px rgba(0,0,0,.6)", textAlign: "center", maxWidth: 980 }}>
         {w.text}
       </div>
     </Box>
@@ -168,7 +168,7 @@ const Typewriter: React.FC<Props> = ({ words, upper = false, bottom = 400 }) => 
   const cursor = Math.floor(t * 2.4) % 2 === 0;
   return (
     <Box bottom={bottom}>
-      <div style={{ maxWidth: 940, background: "rgba(5,7,15,0.82)", border: `2px solid ${THEME.cardEdge}`, borderRadius: 22, padding: "22px 34px", fontFamily: MONO, fontWeight: 700, fontSize: 54, lineHeight: 1.3, color: "#fff", textTransform: upper ? "uppercase" : "none", opacity: 1 - outP, boxShadow: "0 14px 40px rgba(0,0,0,.45)" }}>
+      <div style={{ maxWidth: 940, background: "rgba(6,8,13,0.86)", border: `2px solid ${THEME.cardEdge}`, borderRadius: 22, padding: "22px 34px", fontFamily: MONO, fontWeight: 700, fontSize: 54, lineHeight: 1.3, color: THEME.text, textTransform: upper ? "uppercase" : "none", opacity: 1 - outP, boxShadow: "0 14px 40px rgba(0,0,0,.45)" }}>
         <span style={{ color: THEME.accent }}>{"> "}</span>
         {shown}
         <span style={{ color: THEME.accent, opacity: cursor ? 1 : 0 }}>▌</span>

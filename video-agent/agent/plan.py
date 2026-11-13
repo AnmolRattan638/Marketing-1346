@@ -101,7 +101,7 @@ def tidy_plan(plan):
             sc["footage_query"] = q
         if isinstance(sc.get("broll"), list):
             sc["broll"] = [cut(b, 60) for b in sc["broll"] if isinstance(b, str) and len(b.strip()) >= 3]
-        for key in ("hero_clip", "lottie", "transition", "graphic", "broll", "fx", "sfx"):
+        for key in ("hero_clip", "lottie", "transition", "graphic", "broll", "fx", "sfx", "beat", "camera"):
             if key in sc and (_blank(sc[key]) or sc[key] in ([], {})):
                 sc.pop(key)
     return plan

@@ -47,3 +47,20 @@ with mock.patch.object(plan, "_call_groq", fake_groq):
     got = plan.make_plan("topic", load_config())
 assert len(calls) == 1 and validate_plan(got) == []
 print("video plan tidy test: ok")
+
+# script framework beats: blank beat is dropped, order is enforced, plans without beats are untouched
+from agent.schema import validate_plan as _vp
+framed = plan.sample_plan()
+assert [s["beat"] for s in framed["scenes"]] == ["pain", "poke", "fix", "cta"] and _vp(framed) == []
+framed["scenes"][1]["beat"] = ""
+assert _vp(plan.tidy_plan(framed)) == []
+framed = plan.sample_plan(); framed["scenes"][0]["beat"], framed["scenes"][2]["beat"] = "fix", "pain"
+assert any("pain" in p for p in _vp(framed)) and any("out of order" in p for p in _vp(framed))
+framed = plan.sample_plan(); framed["scenes"][2]["beat"] = "poke"
+assert any("more than once" in p for p in _vp(framed))
+for s_ in framed["scenes"]: s_.pop("beat")
+assert _vp(framed) == []
+# the planner prompt carries the framework and none of the rules is cut off
+sysmsg = plan.build_system_prompt(load_config())
+assert "Pain, Poke, Fix, Payoff, Recap, CTA" in sysmsg and "truncated" not in sysmsg and "TESTIMONIALS" in sysmsg and "Topic first" in sysmsg
+print("script framework test: ok")

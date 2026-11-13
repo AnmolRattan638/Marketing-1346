@@ -4,7 +4,7 @@ import os, secrets
 import sys, traceback
 import requests
 from . import analytics, captions, carousel, config, diagrams, formats, ideas, learning, llm, tg, virality, web_research
-from .agents import analysis, carousel as carousel_agent, factcheck, fit as fit_agent, image, linkedin_edit, problems as problems_agent, research, strategist, video, writer
+from .agents import analysis, carousel as carousel_agent, factcheck, factsheet, fit as fit_agent, image, scriptwriter, linkedin_edit, problems as problems_agent, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
 WARNINGS = []
@@ -176,6 +176,14 @@ def main():
         ev_text = web_research.evidence_text(ev)
         ev_kw = {"evidence": ev_text} if ev_text else {}
         WARNINGS.extend(web_research.problems())
+        # verified fact sheet FIRST, then one master script from it only. Under 3 verified facts: no master script today (legacy path continues) and it is flagged.
+        sheet = stage("factsheet", lambda: factsheet.build(plan["topic"], ev, ev_text), fallback={"ok": False, "facts": []}) if ev else {"ok": False, "facts": []}
+        master = None
+        if sheet.get("ok"):
+            sty = scriptwriter.pick_style(history)
+            master = stage("scriptwriter", lambda: scriptwriter.run(sheet, focus, sty), fallback=None)
+        else:
+            WARNINGS.append(f"fact sheet: only {len(sheet.get('facts', []))} verified facts, so no master script today (need {factsheet.MIN_FACTS}).")
         if config.CAROUSEL:
             # hook -> problem -> solution -> CTA, told in one of the rotating tastes; the carousel's hook becomes the post's hook, so captions and the first slide agree
             car, why = stage("carousel", lambda: carousel_agent.build(plan, focus, brand, g('writer'), today, **ev_kw), fallback=(None, "the carousel step failed"))
@@ -249,6 +257,7 @@ def main():
              "experiment": {k: exp.get(k) for k in ("mode", "variable", "problem_id", "angle_type", "hook_style")} if followed else None,
              "hooks": plan["hooks"], "chosen_hook": plan.get("chosen_hook", 0),
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
+             "fact_sheet": sheet if sheet.get("facts") else None, "master_script": master, "script_style": (master or {}).get("style"),
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),
              "image": img, "carousel": car_data, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "sources": web_research.sources_for_draft(ev), "ad_score": rv.get("ad_score"), "virality": vir_after or None, "virality_review": vsum,
              "llm": {"answered": list(dict.fromkeys(llm.LOG)), "failures": llm.FAILURES[:20]}}

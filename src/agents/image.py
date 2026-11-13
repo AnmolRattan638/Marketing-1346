@@ -1,5 +1,7 @@
 """Agent 4: the post image. A topic-specific AI picture (Gemma writes the prompt, config/image_style.json adds the permanent quality
-suffix) with the hook in real fonts on top; if no AI engine works, the designed text card; last, a plain card."""
+suffix) with the hook in real fonts on top; if no AI engine works, the designed text card; last, a plain card.
+AI engines, in order (the first one that works wins; a missing key skips an engine): 1) Ideogram 3 (the default), 2) Cloudflare FLUX.1 schnell, 3) Gemini image,
+4) Pollinations (free). IMAGE_ENGINE_ORDER (for example "cloudflare,ideogram") changes the order."""
 import base64, datetime, io, json, os, pathlib, random, re, tempfile, urllib.parse
 import requests
 from PIL import Image
@@ -72,6 +74,34 @@ def _save(data, path, ai=True, max_side=1080):
     im = Image.open(io.BytesIO(data)).convert("RGB")
     im.thumbnail((max_side, max_side), Image.LANCZOS)
     _write_jpeg(im, path, ai)
+
+
+IDEOGRAM_URL = "https://api.ideogram.ai/v1/ideogram-v3/generate"
+IDEOGRAM_NEGATIVE = "text, letters, words, numbers, captions, watermark, logo, signature, interface labels, distorted hands, extra fingers, blurry, low resolution"
+
+
+def _ideogram(img_prompt, path):
+    """Ideogram 3. The post's headline is added later in real fonts, so the picture itself must carry no text (negative prompt). Settings by env:
+    IDEOGRAM_RENDERING_SPEED TURBO | DEFAULT | QUALITY (default DEFAULT), IDEOGRAM_MAGIC_PROMPT OFF | AUTO | ON (default OFF: the prompt is already engineered), IDEOGRAM_STYLE (optional style_type)."""
+    key = os.environ["IDEOGRAM_API_KEY"]
+    form = {"prompt": enhance(img_prompt), "rendering_speed": (os.getenv("IDEOGRAM_RENDERING_SPEED") or "DEFAULT").strip().upper(),
+            "magic_prompt": (os.getenv("IDEOGRAM_MAGIC_PROMPT") or "OFF").strip().upper(), "negative_prompt": IDEOGRAM_NEGATIVE, "num_images": "1"}
+    if (os.getenv("IDEOGRAM_STYLE") or "").strip():
+        form["style_type"] = os.environ["IDEOGRAM_STYLE"].strip().upper()
+    for ratio in ("4x5", "3x4", None):                    # 4:5 is the post shape; if the account rejects it, the nearest ratio, then none
+        fields = dict(form, **({"aspect_ratio": ratio} if ratio else {}))
+        r = requests.post(IDEOGRAM_URL, headers={"Api-Key": key}, files={k: (None, v) for k, v in fields.items()}, timeout=180)   # multipart/form-data
+        if r.status_code not in (400, 422) or ratio is None:
+            break
+    r.raise_for_status()
+    items = (r.json() or {}).get("data") or []
+    if not items or not items[0].get("url"):
+        raise RuntimeError("Ideogram returned no image")
+    if items[0].get("is_image_safe") is False:
+        raise RuntimeError("Ideogram flagged the image as unsafe")
+    g = requests.get(items[0]["url"], timeout=120)         # the link expires, so the picture is downloaded right away
+    g.raise_for_status()
+    _save(g.content, path, max_side=1350)
 
 
 def _cloudflare(img_prompt, path):
@@ -330,9 +360,21 @@ Return ONLY the final prompt wrapped in <prompt></prompt> tags. No notes, no dra
     return scene_fallback(focus, variant)
 
 
+ENGINE_ORDER = "ideogram,cloudflare,gemini,pollinations"
+_AVAILABLE = {      # an engine is used only when its credentials exist
+    "ideogram": lambda: bool(os.getenv("IDEOGRAM_API_KEY")),
+    "cloudflare": lambda: bool(os.getenv("CLOUDFLARE_API_TOKEN") and os.getenv("CLOUDFLARE_ACCOUNT_ID")),
+    "gemini": lambda: bool(os.getenv("GEMINI_API_KEY")),
+    "pollinations": lambda: True,
+}
+
+
 def _engines():
-    return (([_cloudflare] if os.getenv("CLOUDFLARE_API_TOKEN") and os.getenv("CLOUDFLARE_ACCOUNT_ID") else [])
-            + ([_gemini] if os.getenv("GEMINI_API_KEY") else []) + [_pollinations])
+    """Engines to try, best first: Ideogram, Cloudflare FLUX, Gemini, Pollinations. IMAGE_ENGINE_ORDER overrides the order; unknown names are ignored.
+    Functions are looked up by name at call time, so a test (or a hotfix) that replaces one is honoured."""
+    names = [n.strip().lower() for n in (os.getenv("IMAGE_ENGINE_ORDER") or ENGINE_ORDER).split(",")]
+    order = [globals()["_" + n] for n in dict.fromkeys(names) if n in _AVAILABLE and _AVAILABLE[n]()]
+    return order or [globals()["_pollinations"]]
 
 
 def _ai_picture(plan, focus, spec, guidance, out_path, errors, variant=None, recent=()):

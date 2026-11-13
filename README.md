@@ -20,7 +20,8 @@ Repo -> Settings -> Secrets and variables -> Actions -> add **secrets**:
 | Secret | Used for |
 |---|---|
 | `NVIDIA_API_KEY` | Only for non-`:free` Nemotron IDs. The default `nvidia/nemotron-3-ultra-550b-a55b:free` runs through OpenRouter (`OPENROUTER_API_KEY`); on failure GPT-OSS on Groq answers (strategist) |
-| `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | Image generation (FLUX on Workers AI), else a free fallback |
+| `IDEOGRAM_API_KEY` | Image generation, **default engine** (Ideogram 3). Optional variables: `IDEOGRAM_RENDERING_SPEED` (`TURBO` cheapest, `DEFAULT`, `QUALITY`), `IMAGE_ENGINE_ORDER` (e.g. `cloudflare,ideogram`) |
+| `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | Image generation fallback (FLUX.1 schnell on Workers AI); the order is Ideogram, then Cloudflare FLUX, then Gemini, then free Pollinations |
 | `OPENROUTER_API_KEY` | Fallback model when another provider returns 429 |
 | `BLUESKY_HANDLE`, `BLUESKY_APP_PASSWORD` | Direct Bluesky posting (joins the rotation) |
 | `LIMESOCIAL_API_KEY`, `LIMESOCIAL_INSTAGRAM_USERNAME` | Lime Social publisher, Instagram only (needs an image). Username as shown in its dashboard |

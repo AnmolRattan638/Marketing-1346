@@ -1,8 +1,7 @@
 name: Daily video (video-agent)
 
 on:
-  schedule:
-    - cron: "30 4 * * *"   # 10:00 IST (the post pipeline runs at 08:00, so the two do not share the Groq limit at the same minute)
+  # no schedule: the Daily draft workflow starts this right after it saves the draft, so the reel follows the same master script
   workflow_dispatch:
     inputs:
       topic:

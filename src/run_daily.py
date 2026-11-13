@@ -3,7 +3,7 @@ import datetime as dt
 import os, secrets
 import sys, traceback
 import requests
-from . import analytics, captions, carousel, config, diagrams, formats, ideas, learning, llm, tg, virality, web_research
+from . import analytics, browser_research, captions, carousel, config, diagrams, formats, ideas, learning, llm, tg, virality, web_research
 from .agents import analysis, carousel as carousel_agent, factcheck, factsheet, fit as fit_agent, image, scriptwriter, linkedin_edit, problems as problems_agent, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
@@ -174,10 +174,11 @@ def main():
         plan = ensure_fit(plan, topics, focus, brand, g('analysis'), history)
         ev = stage("web.evidence", lambda: web_research.evidence_for(plan, focus), fallback=[]) if web_research.enabled() else []   # real sources for the topic that was picked
         ev_text = web_research.evidence_text(ev)
+        ev_full = browser_research.enrich(ev) if ev else ev      # full article text for the fact sheet only (off unless BROWSER_RESEARCH=1)
         ev_kw = {"evidence": ev_text} if ev_text else {}
         WARNINGS.extend(web_research.problems())
         # verified fact sheet FIRST, then one master script from it only. Under 3 verified facts: no master script today (legacy path continues) and it is flagged.
-        sheet = stage("factsheet", lambda: factsheet.build(plan["topic"], ev, ev_text), fallback={"ok": False, "facts": []}) if ev else {"ok": False, "facts": []}
+        sheet = stage("factsheet", lambda: factsheet.build(plan["topic"], ev_full, ev_text), fallback={"ok": False, "facts": []}) if ev else {"ok": False, "facts": []}
         master = None
         if sheet.get("ok"):
             sty = scriptwriter.pick_style(history)

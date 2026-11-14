@@ -1,6 +1,7 @@
 """Offline test: the video agent follows the master script (beats in order, words verbatim, no research of its own)."""
 import json, pathlib, sys, tempfile
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "video-agent"))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 from agent import master_script as ms, plan as planmod
 m = {"style": "myth-bust", "topic": "fast replies", "facts": [{"id": "f1", "claim": "c", "source": "a.com", "url": "https://a.com"}],
      "beats": [{"beat": "pain", "line": "Leads go cold at night", "screen": "Cold leads", "visual": "phone"},
@@ -28,4 +29,23 @@ cfg = json.load(open(pathlib.Path(__file__).resolve().parent.parent / "video-age
 plan = planmod.make_plan("fast replies", cfg, master=m)
 assert [s["narration"] for s in plan["scenes"]][0] == "Leads go cold at night" and len(plan["scenes"]) == 4
 assert "MASTER SCRIPT" in calls[0][1]["content"]
+# invented claims are stripped, verified ones kept; emotion is carried to the scenes
+m2 = dict(m, facts=[{"id": "f1", "claim": "53% of visits are abandoned", "figure": "53%", "source": "a.com"}], beats=[dict(b, emotion="warm" if b["beat"] == "cta" else None) for b in m["beats"]])
+sc2 = lambda b, **k: dict(sc(b), **k)
+p2 = {"scenes": [sc2("pain", fx=[{"type": "stat", "value": 73, "label": "x"}, {"type": "quote", "text": "q"}], graphic={"chips": ["2sec", "fast"]}),
+                 sc2("poke", fx=[{"type": "stat", "value": 53}]), sc("fix"), sc("cta")]}
+o = ms.enforce_words(p2, m2)["scenes"]
+assert o[0]["fx"] == [] and o[0]["graphic"]["chips"] == ["fast"] and o[1]["fx"] == [{"type": "stat", "value": 53}], o
+assert o[3]["emotion"] == "warm" and o[0]["emotion"] == "calm"
+# no sources / too few facts -> the run fails loudly with a plain reason (never a generic video)
+from src import web_research as wr
+wr.evidence_for = lambda *a, **k: []
+try: ms.make("chatbot for shops", {}); assert False
+except RuntimeError as e: assert "no web sources" in str(e)
+from src.agents import factsheet
+wr.evidence_for = lambda *a, **k: [{"title": "t", "url": "u", "domain": "d", "snippet": "s"}]
+factsheet.build = lambda *a, **k: {"ok": False, "facts": [1]}
+try: ms.make("chatbot for shops", {}); assert False
+except RuntimeError as e: assert "1 verified facts" in str(e)
+assert "STEPS to show" in ms.prompt_block(dict(m, beats=[dict(b, steps=["a", "b"]) if b["beat"] == "fix" else b for b in m["beats"]]))
 print("video master script ok")

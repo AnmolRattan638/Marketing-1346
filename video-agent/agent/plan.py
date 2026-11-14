@@ -4,12 +4,13 @@ from __future__ import annotations
 import json
 import random
 import os
+import time
 import re
 
 import requests
 
 from .common import ROOT, SKILLS, log
-from . import master_script
+from . import groqkeys, master_script
 from .schema import validate_plan
 
 GROQ_CHAT_URL = "https://api.groq.com/openai/v1/chat/completions"
@@ -46,28 +47,39 @@ def _models(cfg: dict) -> list[str]:
 
 
 def _call_groq(messages: list[dict], cfg: dict) -> str:
-    key = os.environ.get("GROQ_API_KEY")
-    if not key:
+    keys = groqkeys.rotated()
+    if not keys:
         raise RuntimeError("GROQ_API_KEY is not set")
-    errors = []
-    for model in _models(cfg):
-        body = {"model": model, "messages": messages, "temperature": 0.85, "max_tokens": 6000, "response_format": {"type": "json_object"}}
-        if "gpt-oss" in model:
-            body["reasoning_effort"] = "low"      # thinking tokens count against max_tokens; low keeps the JSON answer from being cut off
-        for attempt in (1, 2):
-            r = requests.post(GROQ_CHAT_URL, headers={"Authorization": f"Bearer {key}"}, json=body, timeout=120)
-            if r.status_code == 400 and attempt == 1 and "response_format" in body:
-                body.pop("response_format")       # this model rejects JSON mode: the prompt already asks for JSON only
-                continue
+    errors, limited = [], 0
+    for sweep in (1, 2):                                   # second sweep only after every key+model was rate limited: wait once, try again
+        limited = 0
+        for model in _models(cfg):
+            body = {"model": model, "messages": messages, "temperature": 0.85, "max_tokens": 6000, "response_format": {"type": "json_object"}}
+            if "gpt-oss" in model:
+                body["reasoning_effort"] = "low"      # thinking tokens count against max_tokens; low keeps the JSON answer from being cut off
+            for n, key in enumerate(keys, 1):
+                for attempt in (1, 2):
+                    r = requests.post(GROQ_CHAT_URL, headers={"Authorization": f"Bearer {key}"}, json=body, timeout=120)
+                    if r.status_code == 400 and attempt == 1 and "response_format" in body:
+                        body.pop("response_format")       # this model rejects JSON mode: the prompt already asks for JSON only
+                        continue
+                    break
+                if r.status_code == 429:
+                    limited += 1
+                    log(f"groq key {n}/{len(keys)} rate limited on {model}, trying the next key")
+                    continue
+                if r.status_code in (400, 403, 404):
+                    errors.append(f"{model}: {r.status_code} {r.text[:160]}")
+                    log(f"groq model {model} unavailable ({r.status_code}), trying the next one")
+                    break
+                r.raise_for_status()
+                return r.json()["choices"][0]["message"]["content"]
+        if not limited or sweep == 2:
             break
-        if r.status_code == 429:
-            raise RuntimeError("Groq rate limit hit (429). Wait and rerun, or reduce skills.")
-        if r.status_code in (400, 403, 404):
-            errors.append(f"{model}: {r.status_code} {r.text[:160]}")
-            log(f"groq model {model} unavailable ({r.status_code}), trying the next one")
-            continue
-        r.raise_for_status()
-        return r.json()["choices"][0]["message"]["content"]
+        log("every Groq key is rate limited, waiting 30 s once")
+        time.sleep(30)
+    if limited:
+        raise RuntimeError(f"Groq rate limit hit (429) on all {len(keys)} key(s) and models. Add more keys (GROQ_API_KEY_2, GROQ_API_KEY_3) or rerun later.")
     raise RuntimeError("no Groq model worked: " + " | ".join(errors))
 
 

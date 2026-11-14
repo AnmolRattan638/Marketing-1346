@@ -28,7 +28,7 @@ const PAUSE = 0.35; // a silence this long between words starts a new phrase
 const norm = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
 
 // Split the word stream into short phrases: new phrase after punctuation, a pause, or when the line gets long.
-export function chunkWords(words: CaptionWord[], maxWords = 4, maxChars = 24): CaptionWord[][] {
+export function chunkWords(words: CaptionWord[], maxWords = 3, maxChars = 24): CaptionWord[][] {
   const out: CaptionWord[][] = [];
   let cur: CaptionWord[] = [];
   let chars = 0;
@@ -60,8 +60,8 @@ export const Captions: React.FC<CaptionsProps> = ({
   accent = THEME.accent,
   emphasisFrom = THEME.accent2,
   emphasisTo = THEME.hot,
-  maxWords = 4,
-  maxChars = 24,
+  maxWords = 3,
+  maxChars = 22,
   upper = true,
   bottom = 400,
 }) => {
@@ -70,7 +70,7 @@ export const Captions: React.FC<CaptionsProps> = ({
   if (words.length === 0) return null;
 
   const t = frame / fps;
-  const chunks = chunkWords(words, maxWords, maxChars);
+  const chunks = chunkWords(words, Math.min(3, maxWords), maxChars); // never more than 3 words on screen
   let c = -1;
   for (let i = 0; i < chunks.length; i++) {
     if (chunks[i][0].start - LEAD <= t) c = i;

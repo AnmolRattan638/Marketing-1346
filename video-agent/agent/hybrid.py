@@ -262,6 +262,7 @@ class Editor:
     def __init__(self, cfg: dict, offline: bool, service: str = "general"):
         self.cfg, self.offline, self.hs, self.service = cfg, offline, settings(cfg), service
         self.rng = random.Random(date.today().toordinal())
+        self.violations: list[str] = []      # filled when shots are cut; stays empty if no scene was cut
         root = None if offline and not edits.configured() else edits.sync()
         full = edits.raw_library(root) if root else {"videos": [], "images": []}
         self.unassigned = [x["name"] for k in full for x in full[k] if x["service"] == "unassigned"]

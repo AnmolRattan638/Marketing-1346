@@ -1,7 +1,10 @@
 """Sarvam voice test: speaks one line per emotion (hook, pain, payoff, CTA) through the same path the reel uses, and sends the clips to Telegram.
 Run from video-agent/ with SARVAM_API_KEY (+ a Groq key for the Devanagari conversion; without it the Roman text is spoken)."""
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))   # so `agent` imports when run as a script
 
 from agent import notify, voice
 from agent.common import load_config, log, media_duration

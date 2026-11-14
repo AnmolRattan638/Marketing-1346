@@ -50,11 +50,40 @@ def _estimate(text: str, seconds: float) -> list[dict]:
     return out
 
 
+def align_script(text: str, heard: list[dict]) -> list[dict]:
+    """The voice speaks Devanagari but the captions must show the script's Roman Hinglish: keep the heard timings, put OUR words on them. Each script word gets the time
+    that matches its share of the line (by letters) along the heard words, so captions and animation cues still land on the spoken words."""
+    ours = text.split()
+    if not ours or not heard:
+        return heard
+    marks = [(0.0, heard[0]["start"])]                       # (share of heard letters, time) at each heard word boundary
+    total = float(sum(len(w["text"]) + 1 for w in heard))
+    run_ = 0.0
+    for w in heard:
+        marks.append((run_ / total, w["start"]))
+        run_ += len(w["text"]) + 1
+        marks.append((run_ / total, w["end"]))
+    def at(share: float) -> float:
+        for (a, ta), (b, tb) in zip(marks, marks[1:]):
+            if share <= b:
+                return ta if b == a else ta + (tb - ta) * (share - a) / (b - a)
+        return marks[-1][1]
+    weights = [len(w) + 1 for w in ours]
+    wsum, acc, out = float(sum(weights)), 0.0, []
+    for w, wt in zip(ours, weights):
+        out.append({"text": w, "start": round(at(acc / wsum), 3), "end": round(at((acc + wt) / wsum), 3)})
+        acc += wt
+    return out
+
+
 def get_words(text: str, mp3, seconds: float, cfg: dict, offline: bool) -> list[dict]:
     words: list[dict] = []
     if not offline and groqkeys.keys():
         try:
-            words = _transcribe(mp3, cfg["language"], cfg)
+            lang = cfg.get("voice_language") or cfg["language"]
+            words = _transcribe(mp3, lang, cfg)
+            if lang != cfg["language"] or cfg.get("align_script"):
+                words = align_script(text, words)
         except Exception as e:
             log(f"whisper failed, estimating word times: {e}")
     if not words:

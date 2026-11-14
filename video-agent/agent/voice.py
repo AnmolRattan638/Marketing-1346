@@ -1,8 +1,9 @@
-"""Voice: your cloned voice (Chatterbox, open source, MIT) when a reference clip exists, then Kokoro (CPU), then edge-tts; silence only for offline tests."""
+"""Voice: Sarvam Bulbul (Hinglish, per-beat emotion) when voice_engine is "sarvam"; otherwise your cloned voice (Chatterbox, open source, MIT) when a reference clip exists, then Kokoro (CPU), then edge-tts; silence only for offline tests."""
 from __future__ import annotations
 
 import asyncio
 import base64
+import json
 import os
 from pathlib import Path
 
@@ -82,19 +83,33 @@ def _silent(text: str, mp3: Path, vcfg: dict) -> None:
          "anullsrc=r=24000:cl=mono", "-t", f"{seconds:.2f}", "-b:a", "64k", mp3])
 
 
-ENGINES = {"chatterbox": _chatterbox, "kokoro": _kokoro, "edge": _edge, "silent": _silent}
+def _sarvam(text: str, mp3: Path, vcfg: dict, emotion: str | None = None, beat: str | None = None) -> None:
+    from . import sarvam
+    sarvam.synth(text, mp3, vcfg.get("sarvam") or {}, emotion, beat)
 
 
-def synth(text: str, mp3: Path, cfg: dict, offline: bool) -> float:
+def prepare(texts: list[str], cfg: dict) -> None:
+    """Engines that want the lines in another script (Sarvam: Devanagari + English) convert them once, up front."""
+    if cfg.get("voice_engine") != "sarvam" or not os.environ.get("SARVAM_API_KEY"):
+        return
+    from . import plan, sarvam
+    sarvam.prepare(texts, lambda prompt: json.loads(plan._call_groq([{"role": "system", "content": "You prepare text for a Hindi text-to-speech engine. Reply with JSON only."},
+                                                                      {"role": "user", "content": prompt}], cfg)))
+
+
+ENGINES = {"sarvam": _sarvam, "chatterbox": _chatterbox, "kokoro": _kokoro, "edge": _edge, "silent": _silent}
+
+
+def synth(text: str, mp3: Path, cfg: dict, offline: bool, emotion: str | None = None, beat: str | None = None) -> float:
     """Write narration to mp3 and return its length in seconds."""
-    vcfg = cfg["voices"][cfg["language"]]
-    order = [cfg["voice_engine"], "kokoro", "edge"]       # your voice first; if it fails the reel still gets a voice
+    vcfg = cfg["voices"][cfg.get("voice_language") or cfg["language"]]
+    order = [cfg["voice_engine"], "edge"] if cfg["voice_engine"] == "sarvam" else [cfg["voice_engine"], "kokoro", "edge"]       # the chosen voice first; if it fails the reel still gets a voice
     if offline:
         order = ["silent"]
     last_err = None
     for name in dict.fromkeys(order):
         try:
-            ENGINES[name](text, mp3, vcfg)
+            ENGINES[name](text, mp3, vcfg, emotion, beat) if name == "sarvam" else ENGINES[name](text, mp3, vcfg)
             if mp3.exists() and mp3.stat().st_size > 0:
                 return media_duration(mp3)
         except Exception as e:

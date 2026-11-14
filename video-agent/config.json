@@ -196,5 +196,17 @@
     "animated_ads": "Animated and motion video ads that stop the scroll for small brands.",
     "lead_gen": "AI agents that find high-intent leads and reach out for you, automatically. Talk about lead generation agents, not websites.",
     "reel_scripts": "Script writing for short reels: hooks, structure, spoken rhythm."
+  },
+  "templates": {
+    "enabled": true,
+    "max_per_video": 2,
+    "variants": [
+      "default",
+      "rounded",
+      "glass",
+      "neo",
+      "brutalist",
+      "minimal"
+    ]
   }
 }

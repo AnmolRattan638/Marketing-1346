@@ -22,6 +22,7 @@ from .fx_plan import plan_fx
 from .camera_plan import plan_camera
 from .caption_zones import zones_for
 from .brand import load_palette
+from . import templates as tpl_lib
 from .looks import pick_look, pick_transition
 from .graphics import fallback_graphic, resolve_graphic
 from .sfx_plan import emphasis_beats, plan_sfx
@@ -87,6 +88,8 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
             else:
                 sc.pop("graphic", None)
         sc.setdefault("footage_query", "ai automation technology")
+    if not offline:
+        tpl_lib.apply(graphics, [(sid, sc, sec + tail, mp3, w) for sid, sc, sec, mp3, w in voiced], cfg, f"{date.today().isoformat()}|{topic}")
     footage_scenes = [(sid, sc, sec + tail) for sid, sc, sec, _, _ in voiced if sid not in graphics]
     if editor and footage_scenes:   # the whole reel is planned at once so the hybrid rules apply to the reel, not to each scene
         editor.prepare(footage_scenes, WORK / "footage", {sid: words for sid, _, _, _, words in voiced})      # cuts are snapped to the spoken words

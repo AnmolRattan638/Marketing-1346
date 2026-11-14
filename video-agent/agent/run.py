@@ -26,7 +26,7 @@ from . import templates as tpl_lib
 from .looks import pick_look, pick_transition
 from .graphics import fallback_graphic, resolve_graphic
 from .sfx_plan import emphasis_beats, plan_sfx
-from .voice import synth
+from .voice import prepare as prepare_voice, synth
 
 
 def pick_topic(arg_topic: str | None) -> str:
@@ -69,10 +69,11 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
 
     sfx_ok, used_ids, built, credits = available_sfx(), set(), [], []
     voiced = []
+    prepare_voice([sc["narration"] for sc in plan["scenes"]], cfg)
     for i, sc in enumerate(plan["scenes"]):
         sid = f"s{i + 1}"
         mp3 = WORK / "narration" / f"{sid}.mp3"
-        seconds = synth(sc["narration"], mp3, cfg, offline)
+        seconds = synth(sc["narration"], mp3, cfg, offline, sc.get("emotion"), sc.get("beat"))
         voiced.append((sid, sc, seconds, mp3, get_words(sc["narration"], mp3, seconds, cfg, offline)))
     tail = cfg["video"]["tail_seconds"]
     # Each scene is either a motion graphic (the default look) or footage (your own clips, at most max_stock_shots stock shots in the reel).

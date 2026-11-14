@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "voice_engine": "chatterbox",
+  "voice_engine": "sarvam",
   "voices": {
     "en": {
       "kokoro": {
@@ -20,6 +20,23 @@
       "edge": "hi-IN-SwaraNeural",
       "chatterbox": {
         "language_id": "hi"
+      },
+      "sarvam": {
+        "candidates": [
+          {
+            "model": "bulbul:v4-flash",
+            "speaker": "aayan_hi_conversational"
+          },
+          {
+            "model": "bulbul:v4-flash",
+            "speaker": "aayan_enhi_conversational"
+          },
+          {
+            "model": "bulbul:v3",
+            "speaker": "aayan"
+          }
+        ],
+        "pause_scale": 1.0
       }
     }
   },
@@ -208,5 +225,7 @@
       "brutalist",
       "minimal"
     ]
-  }
+  },
+  "voice_language": "hi",
+  "align_script": true
 }

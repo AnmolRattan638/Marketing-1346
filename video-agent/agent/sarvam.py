@@ -26,6 +26,21 @@ PAUSE_AFTER = {"pain": 0.45, "poke": 0.40, "fix": 0.35, "payoff": 0.40, "recap":
 PREP: dict[str, str] = {}
 _OK: list = []            # the model/speaker this account accepted, tried first from then on
 DEVANAGARI = re.compile(r"[ऀ-ॿ]")
+# English words the Hindi voice mangles when they are left in Latin letters (it spells ALL-CAPS words letter by letter and says "whatsaap"): they are written the way an Indian speaker
+# says them, in Devanagari, by code, so it does not depend on the model's conversion. Add words here when one sounds wrong.
+LEXICON = {
+    "bot": "बॉट", "bots": "बॉट्स", "chatbot": "चैटबॉट", "step": "स्टेप", "steps": "स्टेप्स", "whatsapp": "व्हाट्सऐप", "lead": "लीड", "leads": "लीड्स",
+    "website": "वेबसाइट", "comment": "कमेंट", "message": "मैसेज", "reply": "रिप्लाई", "customer": "कस्टमर", "customers": "कस्टमर्स", "setup": "सेटअप",
+    "free": "फ्री", "demo": "डेमो", "link": "लिंक", "dm": "डीएम", "instagram": "इंस्टाग्राम", "google": "गूगल", "online": "ऑनलाइन", "business": "बिज़नेस",
+    "automation": "ऑटोमेशन", "ai": "ए आई", "minute": "मिनट", "minutes": "मिनट", "booking": "बुकिंग", "bookings": "बुकिंग्स", "follow": "फॉलो", "follow-up": "फॉलो-अप",
+    "sales": "सेल्स", "app": "ऐप", "call": "कॉल", "number": "नंबर", "offer": "ऑफर",
+}
+_LATIN_WORD = re.compile(r"[A-Za-z][A-Za-z'\-]*")
+
+
+def speakable(text: str) -> str:
+    """Swap the lexicon's English words (any case) for their Devanagari spelling, so the voice says them as whole words."""
+    return _LATIN_WORD.sub(lambda m: LEXICON.get(m.group(0).lower().rstrip("'"), m.group(0)), text)
 
 
 def prepare(texts: list[str], ask) -> None:
@@ -34,19 +49,18 @@ def prepare(texts: list[str], ask) -> None:
     todo = [t for t in dict.fromkeys(texts) if t not in PREP]
     if not todo:
         return
-    prompt = ("Rewrite each Roman-letter Hinglish line for a text-to-speech engine: write the Hindi words in Devanagari and keep English words (brand names, tech words like "
-              "WhatsApp, lead, website, bot) in Latin letters. Keep the meaning, order, numbers, punctuation and the casual spoken tone; do not translate English words into Hindi "
+    prompt = ("Rewrite each Roman-letter Hinglish line for a text-to-speech engine: write the Hindi words in Devanagari and keep other English words (brand names, tech words) in Latin letters, written in normal lower case (never ALL CAPS, which the voice spells out). Keep the meaning, order, numbers, punctuation and the casual spoken tone; do not translate English words into Hindi "
               "and do not add or drop words.\nReturn JSON {\"lines\": [...]} with exactly " + str(len(todo)) + " strings in the same order.\n" + json.dumps(todo, ensure_ascii=False))
     try:
         out = ask(prompt).get("lines") or []
         if len(out) != len(todo):
             raise ValueError(f"got {len(out)} lines for {len(todo)}")
         for src, dst in zip(todo, out):
-            PREP[src] = dst if isinstance(dst, str) and dst.strip() else src
+            PREP[src] = speakable(dst if isinstance(dst, str) and dst.strip() else src)
     except Exception as e:
         log(f"sarvam: bilingual conversion skipped ({str(e)[:120]}), speaking the Roman text")
         for t in todo:
-            PREP[t] = t
+            PREP[t] = speakable(t)
 
 
 def _request(key: str, text: str, model: str, speaker: str, params: tuple[float, float, float]) -> bytes | None:
@@ -71,7 +85,7 @@ def synth(text: str, mp3, scfg: dict, emotion: str | None = None, beat: str | No
     key = os.environ.get("SARVAM_API_KEY", "").strip()
     if not key:
         raise RuntimeError("SARVAM_API_KEY is not set")
-    spoken = PREP.get(text, text)
+    spoken = PREP.get(text) or speakable(text)
     params = EMOTION.get(emotion or "", EMOTION["calm"])
     wav_bytes = None
     cands = scfg.get("candidates") or [{"model": scfg.get("model", "bulbul:v4-flash"), "speaker": scfg.get("speaker", "aayan_hi_conversational")}]

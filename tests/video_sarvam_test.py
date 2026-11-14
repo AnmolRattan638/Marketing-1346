@@ -57,3 +57,13 @@ assert all(a["end"] <= b["start"] + 1e-6 for a, b in zip(w, w[1:])) and w[0]["st
 assert 0.55 < w[2]["start"] < 0.95, w                                                         # "customer" starts near where it is heard
 assert captions.align_script("", heard) == heard and captions.align_script("a b", []) == []
 print("video sarvam ok")
+
+
+def test_speakable_lexicon():
+    import sys
+    sys.path.insert(0, "video-agent")
+    from agent import sarvam
+    out = sarvam.speakable("Comment BOT karo, 3 step setup. WhatsApp pe lead aayegi.")
+    assert "BOT" not in out and "step" not in out and "WhatsApp" not in out
+    assert "बॉट" in out and "स्टेप" in out and "व्हाट्सऐप" in out
+    assert sarvam.speakable("हिंदी text CRM") == "हिंदी text CRM"

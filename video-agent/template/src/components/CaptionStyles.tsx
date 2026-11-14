@@ -31,7 +31,7 @@ function useChunk(words: CaptionWord[], maxWords: number, maxChars: number, lead
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = frame / fps;
-  const chunks = chunkWords(words, maxWords, maxChars);
+  const chunks = chunkWords(words, Math.min(3, maxWords), maxChars); // never more than 3 words on screen
   let c = -1;
   for (let i = 0; i < chunks.length; i++) if (chunks[i][0].start - lead <= t) c = i;
   if (c < 0) return null;
@@ -57,7 +57,7 @@ type Hero = "gold" | "neon" | "fire";   // names kept; all three are drawn in th
 const HEROES: Hero[] = ["gold", "neon", "fire"];
 
 const Cinematic: React.FC<Props> = ({ words, emphasis = [], upper = true, bottom = 400 }) => {
-  const s = useChunk(words, 5, 26, 0.08, 0.35);
+  const s = useChunk(words, 3, 22, 0.08, 0.35);
   if (!s) return null;
   const { frame, fps, t, c, chunk, local, outP, active } = s;
   const emph = new Set(emphasis.map(norm));
@@ -155,7 +155,7 @@ const Stack: React.FC<Props> = ({ words, emphasis = [], upper = true, bottom = 4
 
 // ---- typewriter: a dark terminal-ish strip, letters typed at the speed they are spoken ----
 const Typewriter: React.FC<Props> = ({ words, upper = false, bottom = 400 }) => {
-  const s = useChunk(words, 6, 34, 0.05, 0.4);
+  const s = useChunk(words, 3, 26, 0.05, 0.4);
   if (!s) return null;
   const { t, chunk, outP } = s;
   let shown = "";

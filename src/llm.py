@@ -18,11 +18,21 @@ class ProviderDown(RuntimeError):
 
 
 def _scrub(text):
-    for k in ("GEMINI_API_KEY", "GROQ_API_KEY", "OPENROUTER_API_KEY", "NVIDIA_API_KEY", "TELEGRAM_BOT_TOKEN"):
+    for k in ("GEMINI_API_KEY", "GROQ_API_KEY", "GROQ_API_KEY_2", "GROQ_API_KEY_3", "GROQ_API_KEY_4", "OPENROUTER_API_KEY", "NVIDIA_API_KEY", "TELEGRAM_BOT_TOKEN"):
         v = os.environ.get(k)
         if v and len(v) > 6:
             text = text.replace(v, "***")
     return text
+
+
+def groq_keys():
+    """Keys from several Groq organizations (limits are per organization): GROQ_API_KEY, GROQ_API_KEY_2..9, or GROQ_API_KEYS (comma list). Random start spreads the load."""
+    found = [os.environ.get("GROQ_API_KEY", "")] + [os.environ.get(f"GROQ_API_KEY_{i}", "") for i in range(2, 10)] + os.environ.get("GROQ_API_KEYS", "").split(",")
+    ks = list(dict.fromkeys(k.strip() for k in found if k and k.strip()))
+    if len(ks) > 1:
+        i = random.randrange(len(ks))
+        ks = ks[i:] + ks[:i]
+    return ks
 
 
 def _retry_after(r):
@@ -88,11 +98,11 @@ def _fail(provider, model, err, t0):
         _DOWN[key] = time.time() + COOLDOWN
 
 
-def _chat(url, key, prompt, system, model, temperature):
+def _chat(url, key, prompt, system, model, temperature, tries=3):
     msgs = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": prompt}]
     provider, t0 = url.split("/")[2].replace("api.", ""), time.time()
     try:
-        d = _post(url, {"Authorization": f"Bearer {key}"}, {"model": model, "messages": msgs, "temperature": temperature})
+        d = _post(url, {"Authorization": f"Bearer {key}"}, {"model": model, "messages": msgs, "temperature": temperature}, tries=tries)
     except Exception as e:
         _fail(provider, model, e, t0)
         raise
@@ -157,7 +167,7 @@ def _with_fallback(fn):
             chain = []
             if os.getenv("OPENROUTER_API_KEY"):
                 chain.append(("OpenRouter", lambda: openrouter(prompt, system)))
-            if os.getenv("GROQ_API_KEY") and fn.__name__ != "_groq":
+            if groq_keys() and fn.__name__ != "_groq":
                 chain.append(("Groq", lambda: _groq(prompt, system)))
             if not chain:
                 raise
@@ -282,8 +292,15 @@ def _gemma(prompt, system="", temperature=0.7):
 
 
 def _groq(prompt, system="", model=None, temperature=0.6):
-    return _chat("https://api.groq.com/openai/v1/chat/completions", os.environ["GROQ_API_KEY"], prompt, system,
-                 model or config.GROQ_MODEL, temperature)
+    ks = groq_keys()
+    for n, key in enumerate(ks, 1):                       # a rate limit on one organization's key moves on to the next key at once
+        try:
+            return _chat("https://api.groq.com/openai/v1/chat/completions", key, prompt, system, model or config.GROQ_MODEL, temperature,
+                         tries=1 if n < len(ks) else 3)
+        except RateLimited:
+            if n == len(ks):
+                raise
+    raise RuntimeError("GROQ_API_KEY is not set")
 
 
 def _nvidia(prompt, system="", model=None, temperature=0.6):
@@ -298,7 +315,7 @@ def prompt_writer(prompt, system="", **kw):
     """The model for the agents that write LONG, detailed prompts (the reel's Flow clips and the image scenes). Groq (GPT-OSS 120B) first when
     GROQ_API_KEY exists, because Gemma is too small to follow a detailed structure; if Groq fails (limit, outage) Gemma answers instead, so a
     prompt is never lost. PROMPT_WRITER=gemma switches Groq off for these agents (keeps its free quota for the others)."""
-    if (os.getenv("PROMPT_WRITER") or "groq").strip().lower() != "gemma" and os.getenv("GROQ_API_KEY"):
+    if (os.getenv("PROMPT_WRITER") or "groq").strip().lower() != "gemma" and groq_keys():
         try:
             return groq(prompt, system, **kw)
         except Exception as e:

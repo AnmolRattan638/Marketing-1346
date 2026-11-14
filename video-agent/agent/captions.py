@@ -5,26 +5,30 @@ import os
 
 import requests
 
+from . import groqkeys
 from .common import log
 
 GROQ_STT_URL = "https://api.groq.com/openai/v1/audio/transcriptions"
 
 
 def _transcribe(mp3, lang: str, cfg: dict) -> list[dict]:
-    key = os.environ["GROQ_API_KEY"]
-    with open(mp3, "rb") as fh:
-        r = requests.post(
-            GROQ_STT_URL,
-            headers={"Authorization": f"Bearer {key}"},
-            files={"file": (mp3.name, fh, "audio/mpeg")},
-            data={
-                "model": cfg["captions"]["model"],
-                "response_format": "verbose_json",
-                "timestamp_granularities[]": "word",
-                "language": lang,
-            },
-            timeout=120,
-        )
+    r = None
+    for key in groqkeys.rotated():
+        with open(mp3, "rb") as fh:
+            r = requests.post(
+                GROQ_STT_URL,
+                headers={"Authorization": f"Bearer {key}"},
+                files={"file": (mp3.name, fh, "audio/mpeg")},
+                data={
+                    "model": cfg["captions"]["model"],
+                    "response_format": "verbose_json",
+                    "timestamp_granularities[]": "word",
+                    "language": lang,
+                },
+                timeout=120,
+            )
+        if r.status_code != 429:
+            break
     r.raise_for_status()
     return [
         {"text": w["word"].strip(), "start": float(w["start"]), "end": float(w["end"])}
@@ -48,7 +52,7 @@ def _estimate(text: str, seconds: float) -> list[dict]:
 
 def get_words(text: str, mp3, seconds: float, cfg: dict, offline: bool) -> list[dict]:
     words: list[dict] = []
-    if not offline and os.environ.get("GROQ_API_KEY"):
+    if not offline and groqkeys.keys():
         try:
             words = _transcribe(mp3, cfg["language"], cfg)
         except Exception as e:

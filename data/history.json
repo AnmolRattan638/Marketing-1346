@@ -194,5 +194,12 @@
     "topic": "Ever sent a customer the wrong price or timing and had to apologize later?",
     "hook_style": "question",
     "status": "published"
+  },
+  {
+    "date": "2026-11-13",
+    "service": "lead_gen",
+    "topic": "The Morning Search Trap: Why starting your day with Google Maps is a productivity mistake.",
+    "hook_style": "value",
+    "status": "published"
   }
 ]

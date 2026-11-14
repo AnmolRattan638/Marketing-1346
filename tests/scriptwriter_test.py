@@ -30,24 +30,24 @@ assert sw.pick_style([])["id"] in sw.BY_ID
 assert sw.pick_style(hist + [{"script_style": sw.STYLES[-1]["id"]}])["id"] == sw.STYLES[0]["id"]
 
 style = sw.BY_ID["myth-bust"]
-good = {"hooks": ["Reply late and customers leave", "Why do leads go cold?", "21 times more leads, one habit", "Customer messages at 11pm", "Websites do not sell"],
-        "beats": [{"beat": "pain", "line": "Your enquiries go cold while you sleep", "screen": "Leads go cold", "visual": "phone", "facts": []},
-                  {"beat": "poke", "line": "Replying tomorrow morning does not fix it", "screen": "Too late", "visual": "x", "facts": []},
-                  {"beat": "fix", "line": "An instant first reply keeps the customer talking", "screen": "Reply fast", "visual": "chat", "facts": ["f3"]},
-                  {"beat": "payoff", "line": "a.com found 21 times more leads within five minutes", "screen": "21x leads", "visual": "stat", "facts": ["f1"]},
-                  {"beat": "cta", "line": "DM me the word BOT", "screen": "DM BOT", "visual": "logo", "facts": []}],
-        "cta": "DM me the word BOT", "linkedin_english": "Fast replies win leads."}
-script = sw.run(sheet, {"name": "Chatbot"}, style, ask=lambda p, s="", **k: __import__("json").dumps(good), voice="v")
+good = {"hooks": ["Raat 11 baje customer ka message aaya, jawab nahi gaya", "Aapke leads raat ko kahan jaate hain?", "21 guna zyada leads, bas ek aadat se", "Customer ne raat ko WhatsApp kiya", "Website se sale nahi hoti"],
+        "beats": [{"beat": "pain", "line": "Raat 11 baje customer ne WhatsApp kiya, jawab nahi mila", "screen": "Raat ka message", "visual": "phone", "facts": []},
+                  {"beat": "poke", "line": "Subah reply dene se woh dusri dukaan chala jaata hai", "screen": "Subah tak der", "visual": "x", "facts": []},
+                  {"beat": "fix", "line": "Pehle bot ko greet karna sikhao, phir ek sawaal, phir booking", "screen": "3 steps", "visual": "chat", "facts": ["f3"], "steps": ["Greet karo", "Ek sawaal pucho", "Call book karo"]},
+                  {"beat": "payoff", "line": "a.com ke mutabiq paanch minute mein reply se 21 guna leads", "screen": "21x leads", "visual": "stat", "facts": ["f1"]},
+                  {"beat": "cta", "line": "Comment BOT, main aapko 3-step setup bhejunga", "screen": "Comment BOT", "visual": "logo"}],
+        "cta": "Comment BOT, main aapko 3-step setup bhejunga", "linkedin_english": "Fast replies win leads."}
+script = sw.run(sheet, {"name": "Chatbot", "dm_keyword": "BOT"}, style, ask=lambda p, s="", **k: __import__("json").dumps(good), voice="v")
 assert script["style"] == "myth-bust" and script["hook"] and script["hooks"] and script["beats"][0]["line"] == script["hook"]
 
 import copy, json
-bad = copy.deepcopy(good); bad["beats"][3]["line"] = "a.com found 40 times more leads within five minutes"
+bad = copy.deepcopy(good); bad["beats"][3]["line"] = "a.com ke mutabiq 40 guna zyada leads mile"
 assert any("not backed" in p for p in sw.problems({"beats": bad["beats"]}, sheet, style))
 bad = copy.deepcopy(good); bad["beats"][3]["facts"] = []
 assert any("payoff needs" in p for p in sw.problems({"beats": bad["beats"]}, sheet, style))
 bad = copy.deepcopy(good); bad["beats"][2]["facts"] = ["f9"]
 assert any("not on the sheet" in p for p in sw.problems({"beats": bad["beats"]}, sheet, style))
-bad = copy.deepcopy(good); bad["beats"][0]["line"] = "Hello friends welcome to my channel today"
+bad = copy.deepcopy(good); bad["beats"][0]["line"] = "Hello friends welcome to my channel aaj"
 assert any("greeting" in p for p in sw.problems({"beats": bad["beats"]}, sheet, style))
 bad = copy.deepcopy(good); bad["beats"] = bad["beats"][:3]
 assert any("beats must be" in p for p in sw.problems({"beats": bad["beats"]}, sheet, style))
@@ -58,4 +58,19 @@ except ValueError:
 # retry feeds back the reasons and recovers
 seq = [json.dumps({"hooks": [], "beats": bad["beats"]}), json.dumps(good)]
 assert sw.run(sheet, {"name": "x"}, style, ask=lambda p, s="", **k: seq.pop(0), voice="v")["beats"]
+# new quality rules
+sheet2 = {**sheet, "keyword": "BOT"}
+def has(beats, text): return any(text in p for p in sw.problems({"beats": beats}, sheet2, style))
+bad = copy.deepcopy(good); bad["beats"][0]["line"] = "The myth: bots cannot ever replace a human at all"
+assert has(bad["beats"], "generic") and has(bad["beats"], "not Hinglish")
+bad = copy.deepcopy(good); bad["beats"][1]["line"] = "Yeh sab ek badi samasya hai aajkal sabke liye"
+assert has(bad["beats"], "too abstract")
+bad = copy.deepcopy(good); bad["beats"][2]["steps"] = ["ek"]
+assert has(bad["beats"], "2-3 concrete steps")
+bad = copy.deepcopy(good); bad["beats"][4]["line"] = "Comment LEARN aur seekho"
+assert has(bad["beats"], "keyword BOT") and has(bad["beats"], "what the viewer gets")
+bad = copy.deepcopy(good); bad["beats"][4]["line"] = "Comment BOT aur dekho"
+assert has(bad["beats"], "what the viewer gets")
+assert not sw.problems({"beats": copy.deepcopy(good["beats"])}, sheet2, style)
+assert all(b["emotion"] in sw.EMOTIONS for b in script["beats"]) and script["beats"][0]["emotion"] == "empathetic" and script["beats"][3]["emotion"] == "excited"
 print("scriptwriter ok")

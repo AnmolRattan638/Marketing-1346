@@ -70,8 +70,8 @@ const GraphicScene: React.FC<GraphicSceneProps> = ({
   } else if (layout === "step") {
     body = (
       <>
-        <div style={{ position: "absolute", left: 80, top: 210 }}>{step ? <StepBadge text={step} at={Math.max(0, times.heading - 0.1)} /> : null}</div>
-        <div style={{ position: "absolute", left: 80, right: 80, top: 300 }}>
+        <div style={{ position: "absolute", left: 80, top: 280 }}>{step ? <StepBadge text={step} at={Math.max(0, times.heading - 0.1)} /> : null}</div>
+        <div style={{ position: "absolute", left: 80, right: 80, top: 350 }}>
           <Heading kicker={kicker} heading={heading} heading2={heading2} at={times.heading} size={112} />
         </div>
         {mock ? (

@@ -143,7 +143,17 @@ def main() -> None:
     ap.add_argument("--script", help="master script JSON (default: today's draft in data/drafts); the video then follows it word for word")
     ap.add_argument("--no-script", action="store_true", help="ignore any master script and plan from topics.txt")
     args = ap.parse_args()
-    master = None if (args.offline or args.no_script or args.topic or os.environ.get("TOPIC")) else master_script.load(args.script)
+    topic_set = args.topic or os.environ.get("TOPIC")
+    master = None if (args.offline or args.no_script or topic_set) else master_script.load(args.script)      # a topic typed by hand wins over today's draft
+    if not master and not args.offline and not args.no_script:
+        # no script on today's draft: write one the same way the post pipeline does (verified facts first). No sources / facts = fail loudly, never a generic video.
+        try:
+            master = master_script.make(pick_topic(args.topic), load_config())
+            log(f"master script written for this run: style {master.get('style')}")
+        except Exception as e:
+            log(f"no master script: {e}")
+            notify.send_message(f"Video not made: {str(e)[:300]}")
+            raise SystemExit(1)
     if master:
         log(f"master script found: style {master.get('style')}, topic '{master.get('topic')}'")
     topic = (master or {}).get("topic") or (pick_topic(args.topic) if not args.offline else "offline sample")

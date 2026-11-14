@@ -9,9 +9,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 3,
-        "reach": 1,
-        "views": 3,
+        "impressions": 7,
+        "reach": 2,
+        "views": 7,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -1535,7 +1535,7 @@
   ],
   "accounts": {
     "instagram": {
-      "followers": 9,
+      "followers": 10,
       "username": "ar__designerx"
     },
     "linkedin": {
@@ -1834,7 +1834,7 @@
     {
       "date": "2026-11-14",
       "followers": {
-        "instagram": 9,
+        "instagram": 10,
         "linkedin": 8,
         "bluesky": 1
       }
@@ -1842,5 +1842,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-14T06:25:54+00:00"
+  "updated_at": "2026-11-14T18:03:48+00:00"
 }

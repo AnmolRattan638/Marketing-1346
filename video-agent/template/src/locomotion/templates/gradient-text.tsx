@@ -1,7 +1,8 @@
 // Imported from the Locomotion pack by scripts/import_locomotion.py (colours remapped to the brand THEME). Do not edit by hand.
 import React from 'react'
 import { THEME } from '../../graphics/theme'
-import { AbsoluteFill, useCurrentFrame, interpolate, useVideoConfig } from 'remotion'
+import { AbsoluteFill, interpolate, useVideoConfig } from 'remotion'
+import { useCurrentFrame } from '../timewarp'
 import { getCompositionStyles } from '../useStyle'
 
 export const GradientText: React.FC<{ text?: string; bgColor?: string; variant?: string }> = ({

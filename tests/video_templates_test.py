@@ -50,4 +50,25 @@ g, v = reel(2)
 for s in g.values(): s["times"]["heading"] = 0.3
 assert T.apply(g, [(a, b, 0.5, c, d) for a, b, _, c, d in v], cfg, "x") == [] and T.apply({}, [], cfg, "x") == []
 off = dict(cfg, templates={"enabled": False}); g, v = reel(4); assert T.apply(g, v, off, "x") == []
+# timing is tied to the spoken words
+W = lambda *ws: [{"text": w, "start": round(1.0 + i * 0.4, 3), "end": round(1.0 + i * 0.4 + 0.3, 3)} for i, w in enumerate(ws)]
+words = W("your", "leads", "go", "cold", "while", "you", "sleep")
+gp = {"heading": "Leads go cold", "heading2": "while you sleep", "items": ["Greet", "Ask", "Book"], "times": {"heading": 1.0, "items": [1.8, 2.6, 3.4]}}
+a = T._anchors("typewriter-reveal", gp, words, 1.0, 5.0)
+assert a[0] == (1.4, 0) and abs(a[1][0] - 2.5) < 0.01 and a[1][1] == 70, a      # typing starts on "leads", ends when "cold" ends
+a = T._anchors("staggered-words", gp, words, 1.0, 5.0); assert [f for _, f in a] == [4, 10, 16] and a[1][0] == 1.8, a
+a = T._anchors("meme-card", gp, words, 1.0, 5.0); assert a[0] == (1.4, 3) and a[1] == (2.6, 22), a   # bottom text lands on "while"
+a = T._anchors("onboarding-flow", gp, words, 0.2, 5.0); assert [(t, f) for t, f in a[-3:]] == [(1.8, 10), (2.6, 35), (3.4, 60)], a  # each tick on its word
+a = T._anchors("toggle-switch", gp, words, 1.0, 5.0); assert a[0] == (1.4, 5) and a[1] == (2.2, 15), a
+for tid in T.SELECTABLE:                                  # anchors are always increasing and inside the scene
+    a = T._anchors(tid, dict(gp, items=["a", "b", "c", "d"]), words, 1.0, 5.0)
+    assert all(x[0] < y[0] and x[1] < y[1] for x, y in zip(a, a[1:])), (tid, a)
+# no spoken match (heading not in the narration) -> falls back to the heading time
+assert T._anchors("bold-text-punch", dict(gp, heading="Nothing said"), words, 0.7, 5.0) == [(0.7, 0)]
+g, v = reel(6)
+v = [(sid, sc, sec, m, words) for sid, sc, sec, m, _ in v]
+for sid in g: g[sid]["heading"] = "Leads go cold"
+T.STATE = pathlib.Path(tempfile.mkdtemp()) / "x.json"
+done = T.apply(g, v, cfg, "sync|test")
+assert done and all(g[d["scene"]]["tpl"]["anchors"] for d in done)
 print("video templates ok")

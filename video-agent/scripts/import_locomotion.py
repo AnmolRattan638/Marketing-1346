@@ -126,6 +126,8 @@ def main(root: str) -> None:
         DARK = is_dark_native(text)
         text = recolor(text)
         DARK = False
+        text = re.sub(r"(import \{[^}]*?)\buseCurrentFrame,?\s*([^}]*\} from 'remotion')", lambda m: m.group(1) + m.group(2), text)       # frame comes from ../timewarp
+        text = text.replace("import { getCompositionStyles }", "import { useCurrentFrame } from '../timewarp'\nimport { getCompositionStyles }", 1)
         text = "// Imported from the Locomotion pack by scripts/import_locomotion.py (colours remapped to the brand THEME). Do not edit by hand.\n" \
                "import React from 'react'\nimport { THEME } from '../../graphics/theme'\n" + text
         (OUT / "templates" / f"{d.name}.tsx").write_text(text, encoding="utf-8")

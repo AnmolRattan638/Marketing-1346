@@ -50,6 +50,68 @@ def props_for(tid: str, gp: dict) -> dict | None:
     return {"text": heading}
 
 
+def _norm(t: str) -> str:
+    return "".join(c for c in str(t).lower() if c.isalnum())
+
+
+def _spoken(words: list[dict], text: str, not_before: float) -> list[tuple[float, float] | None]:
+    """For each word of `text`, (start, end) of the first matching spoken word in order, at/after `not_before` (None when not spoken)."""
+    out, i = [], 0
+    for tok in str(text).split():
+        n, hit = _norm(tok), None
+        for j in range(i, len(words)):
+            if words[j]["start"] >= not_before - 0.35 and _norm(words[j]["text"]) == n and n:
+                hit, i = (float(words[j]["start"]), float(words[j]["end"])), j + 1
+                break
+        out.append(hit)
+    return out
+
+
+# the template frame where each moment happens (read from the templates' own animation code)
+ITEM0 = {"onboarding-flow": (10, 25), "screen-showcase": (20, 10)}       # first item frame, frames between items
+
+
+def _anchors(tid: str, gp: dict, words: list[dict], head: float, seconds: float) -> list[tuple[float, int]]:
+    """[(scene second, template frame)] pinning the template's moments to the spoken words. Fallback: start on the heading word."""
+    heading = _clean(gp.get("heading"), 30)
+    sp = _spoken(words, heading, head) if heading else []
+    first = next((x for x in sp if x), None)
+    t0 = first[0] if first else head
+    last = next((x for x in reversed(sp) if x), None)
+    t_last = last[0] if last else t0
+    a: list[tuple[float, int]] = [(t0, 0)]
+    if tid == "typewriter-reveal":
+        a = [(t0, 0), (max((last[1] if last else t0 + 1.8), t0 + 0.8), 70)]               # typing runs exactly over the spoken phrase
+    elif tid == "staggered-words":
+        pts = [(x[0], i * 6 + 4) for i, x in enumerate(sp) if x]
+        a = pts if len(pts) >= 2 else [(t0, 0)]
+    elif tid == "toggle-switch":
+        a = [(t0, 5), (max(t_last, t0 + 0.25), 15)]                                         # the switch flips on the last heading word
+    elif tid == "app-feature-callout":
+        a = [(t0, 15)]
+    elif tid == "meme-card":
+        second = _spoken(words, _clean(gp.get("heading2"), 30), t0 + 0.1)
+        tb = next((x[0] for x in second if x), t0 + 0.7)
+        a = [(t0, 3), (max(tb, t0 + 0.3), 22)]
+    elif tid in ITEM0:
+        f0, df = ITEM0[tid]
+        times = (gp.get("times") or {}).get("items") or []
+        n = len(gp.get("items") or (gp.get("mock") or {}).get("items") or [])
+        n = min(n, 4 if tid == "onboarding-flow" else 3, len(times))
+        a = [(float(times[i]), f0 + df * i) for i in range(n)]
+        if a and head < a[0][0] - f0 / FPS + 0.01:
+            a.insert(0, (head, 0))
+    out: list[tuple[float, int]] = []                                                        # increasing in both, at least 0.12 s apart
+    for t, f in sorted(a):
+        if not out or (t - out[-1][0] >= 0.12 and f > out[-1][1]):
+            out.append((round(t, 3), f))
+    return out or [(round(t0, 3), 0)]
+
+
+def _words_of(voiced: list, sid: str) -> list[dict]:
+    return next((v[4] for v in voiced if v[0] == sid), [])
+
+
 def _state() -> dict:
     try:
         return json.loads(STATE.read_text())
@@ -78,17 +140,24 @@ def apply(graphics: dict, voiced: list, cfg: dict, seed: str) -> list[dict]:
         for tid, frames in SELECTABLE.items():
             if force.get("ids") and tid not in force["ids"]:
                 continue
-            if frames / FPS + start > seconds + 0.4 or tid in used:        # the animation must finish inside the scene
+            if tid in used:
                 continue
             props = props_for(tid, gp)
-            if props:
-                pool.append((tid, props))
+            if not props:
+                continue
+            anchors = _anchors(tid, gp, _words_of(voiced, sid), start, seconds)
+            end = anchors[-1][0] + (frames - anchors[-1][1]) / FPS
+            if end <= seconds + 0.4:                                      # the animation must finish inside the scene
+                pool.append((tid, props, anchors))
         fresh = [p for p in pool if p[0] not in recent] or pool
         if not fresh:
             continue
-        tid, props = rng.choice(fresh)
-        gp.update({"layout": "tpl", "tpl": {"id": tid, "variant": variant, "props": props, "atFrame": round(start * FPS)}, "mock": None, "items": [], "chips": []})
-        gp["sfx"] = [{"type": "pop", "atSecond": round(start + 0.05, 3), "volume": 0.5}]
+        tid, props, anchors = rng.choice(fresh)
+        gp.update({"layout": "tpl", "tpl": {"id": tid, "variant": variant, "props": props, "atFrame": round(start * FPS),
+                                            "anchors": [[round(t * FPS), f] for t, f in anchors]}, "mock": None, "items": [], "chips": []})
+        gp["sfx"] = [{"type": "pop", "atSecond": round(anchors[0][0] + 0.05, 3), "volume": 0.5}]
+        if tid in ITEM0:
+            gp["sfx"] += [{"type": "click", "atSecond": round(t + 0.02, 3), "volume": 0.28} for t, _ in anchors[1:] if t < seconds - 0.2][:3]
         used.append(tid)
         done.append({"scene": sid, "template": tid, "variant": variant})
         prev_idx = idx

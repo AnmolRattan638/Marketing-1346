@@ -1,7 +1,8 @@
 // Imported from the Locomotion pack by scripts/import_locomotion.py (colours remapped to the brand THEME). Do not edit by hand.
 import React from 'react'
 import { THEME } from '../../graphics/theme'
-import { AbsoluteFill, useCurrentFrame, spring, interpolate, useVideoConfig } from 'remotion'
+import { AbsoluteFill, spring, interpolate, useVideoConfig } from 'remotion'
+import { useCurrentFrame } from '../timewarp'
 import { getCompositionStyles } from '../useStyle'
 
 export const SaasHero: React.FC<{ title?: string; textColor?: string; bgColor?: string; variant?: string }> = ({

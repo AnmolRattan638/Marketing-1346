@@ -1,0 +1,761 @@
+{
+  "id": "2026-11-14-34445c",
+  "date": "2026-11-14",
+  "created_at": "2026-11-14T09:43:04+00:00",
+  "status": "pending",
+  "service": "website",
+  "topic": "Why do customers still call you for basic details even though you have a website?",
+  "idea_id": null,
+  "problem_id": "phone-calls-interrupting-personal-time-j",
+  "angle_type": "question",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "phone-calls-interrupting-personal-time-j",
+    "angle_type": null,
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "Why are customers still calling you for hours you posted online?"
+    },
+    {
+      "style": "value",
+      "text": "Add a one‑tap map, stop midnight calls today."
+    },
+    {
+      "style": "mistake",
+      "text": "Mistake: Hiding opening hours on a hidden page."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "70 to 90 percent of inbound calls to a small business are about five repeat questions",
+        "figure": "70 to 90 percent",
+        "source": "oncallclerk.com",
+        "title": "How to Stop Answering the Same Customer Questions Every Day OnCallClerk",
+        "url": "https://oncallclerk.com/blog/stop-answering-same-customer-questions",
+        "date": "2026-05-08",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "Hours and availability questions make up 25 to 35 percent of repeat calls",
+        "figure": "25 to 35 percent",
+        "source": "oncallclerk.com",
+        "title": "How to Stop Answering the Same Customer Questions Every Day OnCallClerk",
+        "url": "https://oncallclerk.com/blog/stop-answering-same-customer-questions",
+        "date": "2026-05-08",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Each inbound call consumes three to seven minutes of staff time",
+        "figure": "3 to 7 minutes",
+        "source": "oncallclerk.com",
+        "title": "How to Stop Answering the Same Customer Questions Every Day OnCallClerk",
+        "url": "https://oncallclerk.com/blog/stop-answering-same-customer-questions",
+        "date": "2026-05-08",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "The answer is often buried on the website, such as hours hidden in a footer or pricing behind a “Contact us” form",
+        "figure": null,
+        "source": "oncallclerk.com",
+        "title": "How to Stop Answering the Same Customer Questions Every Day OnCallClerk",
+        "url": "https://oncallclerk.com/blog/stop-answering-same-customer-questions",
+        "date": "2026-05-08",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Customers distrust website information when hours or pricing appear stale or contradictory",
+        "figure": null,
+        "source": "oncallclerk.com",
+        "title": "How to Stop Answering the Same Customer Questions Every Day OnCallClerk",
+        "url": "https://oncallclerk.com/blog/stop-answering-same-customer-questions",
+        "date": "2026-05-08",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "Mobile website designs often hide key information behind menus, making a phone tap faster than reading",
+        "figure": null,
+        "source": "oncallclerk.com",
+        "title": "Why Customers Call Your Business Instead of Using Your Website OnCallClerk",
+        "url": "https://oncallclerk.com/blog/why-customers-call-instead-of-website",
+        "date": "2026-05-08",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "In India, callers often want to confirm the business is real, which a voice response provides better than a page",
+        "figure": null,
+        "source": "srihayavadhana.com",
+        "title": "Serving Customers Who Prefer to Phone Sri Hayavadhana",
+        "url": "https://srihayavadhana.com/serving-customers-who-prefer-to-phone/",
+        "date": "2026-08-01",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Indian customers may prefer phone because typing in scripts like Devanagari is slower than speaking",
+        "figure": null,
+        "source": "srihayavadhana.com",
+        "title": "Serving Customers Who Prefer to Phone Sri Hayavadhana",
+        "url": "https://srihayavadhana.com/serving-customers-who-prefer-to-phone/",
+        "date": "2026-08-01",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "dropped": 0,
+    "topic": "Why do customers still call you for basic details even though you have a website?"
+  },
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Kya aapka phone bhi same sawalon se bhara rehta hai?",
+    "hooks": [
+      {
+        "text": "Kya aapka phone bhi same sawalon se bhara rehta hai?",
+        "score": 14.6
+      },
+      {
+        "text": "Oncallclerk ke hisaab se 70 se 90 percent calls same sawalon ki",
+        "score": 13.5
+      },
+      {
+        "text": "Oncallclerk ke hisaab se 70 se 90 percent calls repeat sawalon ki",
+        "score": 11.8
+      },
+      {
+        "text": "Myth: Contact form se calls kam ho jate hain",
+        "score": 10.7
+      },
+      {
+        "text": "Aapki website grahak ko phone karne par majboor karti hai",
+        "score": 7.9
+      },
+      {
+        "text": "Cafe ka owner phone utha utha ke thak chuka hai",
+        "score": 7.8
+      }
+    ],
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Kya aapka phone bhi same sawalon se bhara rehta hai?",
+        "screen": "Same sawalon ke phone",
+        "visual": "Phone ringing repeatedly at a shop counter",
+        "facts": [
+          "f1"
+        ]
+      },
+      {
+        "beat": "poke",
+        "line": "Website ke footer mein hours daalna kaam nahi karta",
+        "screen": "Footer mein hours? No",
+        "visual": "Scrolling a site, hours hidden at bottom",
+        "facts": [
+          "f4"
+        ]
+      },
+      {
+        "beat": "fix",
+        "line": "Mobile-first site, hours aur pricing upfront, menu se bahar",
+        "screen": "Fix: Mobile-first + upfront",
+        "visual": "Developer showing hours on phone homepage",
+        "facts": [
+          "f6"
+        ]
+      },
+      {
+        "beat": "payoff",
+        "line": "Oncallclerk ke hisaab se ek call mein 3 se 7 minute bachte hain",
+        "screen": "3 se 7 minute bachayein",
+        "visual": "Staff working, phone silent on desk",
+        "facts": [
+          "f3"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Oncallclerk ke hisaab se 70 se 90 percent calls ab nahi aayenge",
+        "screen": "Same sawal? Ab phone nahi",
+        "visual": "Quiet shop, happy owner",
+        "facts": [
+          "f1"
+        ]
+      },
+      {
+        "beat": "cta",
+        "line": "Mujhse DM mein baat karo",
+        "screen": "DM me",
+        "visual": "Anmol pointing down to DM",
+        "facts": []
+      }
+    ],
+    "cta": "Mujhse DM mein baat karo",
+    "linkedin_english": "Most small businesses spend hours answering the same repeat questions on the phone. A mobile-first website puts hours and pricing where customers can see them. Message me to get yours built.",
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "70 to 90 percent of inbound calls to a small business are about five repeat questions",
+        "figure": "70 to 90 percent",
+        "source": "oncallclerk.com",
+        "title": "How to Stop Answering the Same Customer Questions Every Day OnCallClerk",
+        "url": "https://oncallclerk.com/blog/stop-answering-same-customer-questions",
+        "date": "2026-05-08",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "Hours and availability questions make up 25 to 35 percent of repeat calls",
+        "figure": "25 to 35 percent",
+        "source": "oncallclerk.com",
+        "title": "How to Stop Answering the Same Customer Questions Every Day OnCallClerk",
+        "url": "https://oncallclerk.com/blog/stop-answering-same-customer-questions",
+        "date": "2026-05-08",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Each inbound call consumes three to seven minutes of staff time",
+        "figure": "3 to 7 minutes",
+        "source": "oncallclerk.com",
+        "title": "How to Stop Answering the Same Customer Questions Every Day OnCallClerk",
+        "url": "https://oncallclerk.com/blog/stop-answering-same-customer-questions",
+        "date": "2026-05-08",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "The answer is often buried on the website, such as hours hidden in a footer or pricing behind a “Contact us” form",
+        "figure": null,
+        "source": "oncallclerk.com",
+        "title": "How to Stop Answering the Same Customer Questions Every Day OnCallClerk",
+        "url": "https://oncallclerk.com/blog/stop-answering-same-customer-questions",
+        "date": "2026-05-08",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Customers distrust website information when hours or pricing appear stale or contradictory",
+        "figure": null,
+        "source": "oncallclerk.com",
+        "title": "How to Stop Answering the Same Customer Questions Every Day OnCallClerk",
+        "url": "https://oncallclerk.com/blog/stop-answering-same-customer-questions",
+        "date": "2026-05-08",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "Mobile website designs often hide key information behind menus, making a phone tap faster than reading",
+        "figure": null,
+        "source": "oncallclerk.com",
+        "title": "Why Customers Call Your Business Instead of Using Your Website OnCallClerk",
+        "url": "https://oncallclerk.com/blog/why-customers-call-instead-of-website",
+        "date": "2026-05-08",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "In India, callers often want to confirm the business is real, which a voice response provides better than a page",
+        "figure": null,
+        "source": "srihayavadhana.com",
+        "title": "Serving Customers Who Prefer to Phone Sri Hayavadhana",
+        "url": "https://srihayavadhana.com/serving-customers-who-prefer-to-phone/",
+        "date": "2026-08-01",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Indian customers may prefer phone because typing in scripts like Devanagari is slower than speaking",
+        "figure": null,
+        "source": "srihayavadhana.com",
+        "title": "Serving Customers Who Prefer to Phone Sri Hayavadhana",
+        "url": "https://srihayavadhana.com/serving-customers-who-prefer-to-phone/",
+        "date": "2026-08-01",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "Why do customers still call you for basic details even though you have a website?"
+  },
+  "script_style": "pain-poke-fix",
+  "posts": {
+    "instagram": "𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 𝗦𝗘 𝗣𝗘𝗛𝗟𝗘 𝗖𝗨𝗦𝗧𝗢𝗠𝗘𝗥 𝗔𝗔𝗣𝗞𝗜 𝗦𝗜𝗧𝗘 𝗣𝗔𝗥 𝗞𝗬𝗔 𝗖𝗛𝗘𝗖𝗞 𝗞𝗔𝗥𝗧𝗔 𝗛𝗔𝗜?\n→ 𝗧𝗜𝗠𝗜𝗡𝗚𝗦 aur 𝗔𝗗𝗗𝗥𝗘𝗦𝗦 upfront hon, footer mein nahi.\n→ Mobile pe ek tap mein 𝗠𝗔𝗣 aur 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 button mile.\n→ Ghante aur location saaf hon taake phone kam aaye.\nKochi bakery, Indore salon, Guwahati clinic – sab hours upfront rakhte hain.\n\nDM 𝗦𝗜𝗧𝗘 aur bataiye aapke customers kya poochte hain.\n\n#SmallBusinessIndia #WebsiteIndia #MobileFirst #LocalBusinessIndia #IndiaWeb",
+    "linkedin": "Many small businesses still answer basic questions over the phone instead of online.\n\nA café owner repeats the same address and opening hours to every caller. A clinic receives late‑night calls just to confirm if it is open. A shop loses walk‑in customers because the phone number is hidden below the fold, forcing the owner to stop work to answer. These situations waste time and distract from core work.\n\nI create fast, mobile‑first websites for any small business across India. The basic option provides a simple informational site with responsive design and thirty days of edits. The standard option adds up to five pages and a floating WhatsApp button. The pro bundle includes a full website, an AI‑powered chatbot, and setup of a Google Business Profile. All designs use readable contrast and scalable text for accessibility. The layouts load quickly even on slower connections, and the code follows modern standards to ensure compatibility with all major browsers.\n\nThe process starts with the owner describing the products or services and the questions customers ask most often. I then build the site, share a preview, and incorporate any requested changes. The owner pays only after the final version is approved.\n\nWith a website, the business hours and location are visible on any phone, so callers do not need to repeat the same information. The chatbot can answer common queries even when the office is closed, reducing interruptions during busy periods. The owner can focus on the actual work rather than fielding repetitive calls. Customers can also find the site through a simple Google search, which further reduces the need for phone contact.\n\nThe site does not replace a personal response for complicated inquiries, and it will not generate traffic on its own. The owner still needs to share the link and keep the information up to date.\n\nIf this approach sounds useful for your business, DM SITE and tell me what you sell.",
+    "bluesky": "Most small business sites bury hours and address in a contact page, so customers call just to ask. A mobile-first layout puts timings, map, and WhatsApp upfront. DM SITE if you want to talk about yours."
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I build fast, mobile-first websites for small businesses across India. Quick question: what do you want customers to do on your site—call, WhatsApp, book, or fill a form? Packages start at INR 1,499 for Basic and go up to INR 3,599 for Bundle 2, with domain setup at INR 800. You pay only after you approve the work. I can give a fixed-price scope once I know your goal. Prefer a WhatsApp chat or details here?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for reaching out. I build websites for small businesses anywhere in India—shops, clinics, salons, coaching centres, and more. Quick question: is your main problem getting enquiries, converting followers, or managing leads? DM SITE and tell me what you sell."
+    },
+    {
+      "if_they_say": "I'll think about it",
+      "reply": "Of course, no pressure. I can send a one-page summary: what's included, timeline, and price range. Is the hesitation budget, timing, or whether it will actually bring enquiries? If budget is the concern, I can suggest a smaller starting version you can expand later. You pay only after you approve the work."
+    }
+  ],
+  "image": {
+    "prompt": "a matte‑black smartphone with a brushed‑metal frame and warm‑gold accent rests on a smooth walnut café counter, its glass screen glowing with a clean, mobile‑friendly business homepage that shows opening hours, a map pin and contact buttons; the phone occupies the upper two‑thirds of the frame, captured at eye level with a slight downward angle, leaving the lower 40% calm and uncluttered for overlay text. a soft amber desk lamp on the left provides the key light, casting gentle shadows and a subtle rim glow from a distant window; in the foreground a white ceramic mug and a tiny rosemary sprig add detail, while the background blurs into a warm‑wooden wall and muted café ambience. the palette blends deep walnut, muted charcoal and a single warm‑gold accent, evoking a focused, reassuring mood. shot with an 85 mm lens at f/1.8, the shallow depth of field highlights the phone’s glass reflections and brushed‑metal texture, with fine dust motes catching the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-14.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "phone-calls-interrupting-personal-time-j",
+      "angle_type": "question",
+      "style": "bold",
+      "headline": "Still getting calls for your business hours?",
+      "highlight": [
+        "business hours"
+      ],
+      "sub": "Clear hours and a map mean fewer after-hours calls.",
+      "chat": [],
+      "cta": "DM \"SITE\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate",
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ],
+    "style_id": "desk-glow"
+  },
+  "carousel": null,
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**WHATSAPP SE PEHLE CUSTOMER AAPKI SITE PAR KYA CHECK KARTA HAI?**\n→ **TIMINGS** aur **ADDRESS** upfront hon, footer mein nahi.\n→ Mobile pe ek tap mein **MAP** aur **WHATSAPP** button mile.\n→ Ghante aur location saaf hon taake phone kam aaye.\nKochi bakery, Indore salon, Guwahati clinic – sab hours upfront rakhte hain.\n\nDM **SITE** aur bataiye aapke customers kya poochte hain.\n\n#SmallBusinessIndia #WebsiteIndia #MobileFirst #LocalBusinessIndia #IndiaWeb",
+      "linkedin": "Many small businesses still answer basic questions over the phone instead of online.\n\nA café owner repeats the same address and opening hours to every caller. A clinic receives late‑night calls just to confirm if it is open. A shop loses walk‑in customers because the phone number is hidden below the fold, forcing the owner to stop work to answer. These situations waste time and distract from core work.\n\nI create fast, mobile‑first websites for any small business across India. The basic option provides a simple informational site with responsive design and thirty days of edits. The standard option adds up to five pages and a floating WhatsApp button. The pro bundle includes a full website, an AI‑powered chatbot, and setup of a Google Business Profile. All designs use readable contrast and scalable text for accessibility. The layouts load quickly even on slower connections, and the code follows modern standards to ensure compatibility with all major browsers.\n\nThe process starts with the owner describing the products or services and the questions customers ask most often. I then build the site, share a preview, and incorporate any requested changes. The owner pays only after the final version is approved.\n\nWith a website, the business hours and location are visible on any phone, so callers do not need to repeat the same information. The chatbot can answer common queries even when the office is closed, reducing interruptions during busy periods. The owner can focus on the actual work rather than fielding repetitive calls. Customers can also find the site through a simple Google search, which further reduces the need for phone contact.\n\nThe site does not replace a personal response for complicated inquiries, and it will not generate traffic on its own. The owner still needs to share the link and keep the information up to date.\n\nIf this approach sounds useful for your business, DM SITE and tell me what you sell.",
+      "bluesky": "Most small business sites bury hours and address in a contact page, so customers call just to ask. A mobile-first layout puts timings, map, and WhatsApp upfront. DM SITE if you want to talk about yours."
+    }
+  },
+  "sources": [
+    {
+      "title": "Federal Register :: Improving Customer Service and Protecting Consumers Through Onshoring",
+      "url": "https://www.federalregister.gov/documents/2026/04/23/2026-07960/improving-customer-service-and-protecting-consumers-through-onshoring",
+      "domain": "federalregister.gov",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "How to Stop Answering the Same Customer Questions Every Day OnCallClerk",
+      "url": "https://oncallclerk.com/blog/stop-answering-same-customer-questions",
+      "domain": "oncallclerk.com",
+      "date": "2026-05-08",
+      "provider": "exa"
+    },
+    {
+      "title": "Discount car rental rates and rental car deals Budget Car Rental",
+      "url": "https://www.budget.com/en/home",
+      "domain": "budget.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Serving Customers Who Prefer to Phone Sri Hayavadhana",
+      "url": "https://srihayavadhana.com/serving-customers-who-prefer-to-phone/",
+      "domain": "srihayavadhana.com",
+      "date": "2026-08-01",
+      "provider": "exa"
+    },
+    {
+      "title": "The 12 best dating apps of 2026, tested and reviewed Mashable",
+      "url": "https://mashable.com/roundup/best-dating-apps-2026-hands-on-tested",
+      "domain": "mashable.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Why Customers Still Call Instead of Booking Online OnCallClerk",
+      "url": "https://oncallclerk.com/blog/why-customers-call-instead-of-booking-online",
+      "domain": "oncallclerk.com",
+      "date": "2026-05-08",
+      "provider": "exa"
+    },
+    {
+      "title": "How nursing facilities can prepare for CMS's PBJ audit BerryDunn",
+      "url": "https://www.berrydunn.com/news-detail/nine-ways-nursing-facilities-can-prepare-for-a-cms-pbj-audit",
+      "domain": "berrydunn.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Why Customers Call Your Business Instead of Using Your Website OnCallClerk",
+      "url": "https://oncallclerk.com/blog/why-customers-call-instead-of-website",
+      "domain": "oncallclerk.com",
+      "date": "2026-05-08",
+      "provider": "exa"
+    }
+  ],
+  "ad_score": 9,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 355.0,
+        "reach_p50": 703.0,
+        "reach_p90": 1500.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'language / cultural inclusion', 'severity': 'medium', 'description': \"The copy is written primarily in Hin",
+          "{'category': 'disability accessibility', 'severity': 'low', 'description': 'The content promotes mobile‑first interactio",
+          "{'category': 'class / digital divide', 'severity': 'medium', 'description': 'Emphasizing a “mobile‑first” experience ass"
+        ],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 4.0,
+          "educational": 7.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 6.0,
+          "practical_value": 8.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 345,
+            "share": 5,
+            "reply": 5,
+            "like": 4
+          },
+          "engagement_rate": 0.039,
+          "by_role": {
+            "public": {
+              "n": 14,
+              "avg_sentiment": 0.538,
+              "share_rate": 0.357
+            }
+          },
+          "cascade_size": 6,
+          "r_effective": 2.125,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 19,
+          "reach_fraction": 0.031,
+          "r_effective": 0.9333,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 5.6
+          },
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 5.0
+          },
+          {
+            "title": "Add something actionable",
+            "lift_pct": 4.6
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 455.0,
+        "reach_p50": 917.0,
+        "reach_p90": 2004.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'age', 'severity': 'medium', 'description': 'The copy assumes that customers will prefer digital channels (",
+          "{'category': 'class', 'severity': 'low', 'description': 'The messaging suggests that all small‑business owners can easil",
+          "{'category': 'culture', 'severity': 'low', 'description': 'The content references “small businesses across India” but on"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 4.0,
+          "educational": 6.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 7.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 346,
+            "share": 7,
+            "reply": 7,
+            "like": 5
+          },
+          "engagement_rate": 0.0521,
+          "by_role": {
+            "public": {
+              "n": 19,
+              "avg_sentiment": 0.677,
+              "share_rate": 0.368
+            }
+          },
+          "cascade_size": 8,
+          "r_effective": 2.375,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 18,
+          "reach_fraction": 0.03,
+          "r_effective": 0.7533,
+          "polarization": 0.48,
+          "echo_chamber": 0.071
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 10.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 214.0,
+        "reach_p50": 448.0,
+        "reach_p90": 975.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 3.0,
+          "educational": 7.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 5.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 351,
+            "share": 2,
+            "like": 1
+          },
+          "engagement_rate": 0.0085,
+          "by_role": {
+            "public": {
+              "n": 3,
+              "avg_sentiment": 0.853,
+              "share_rate": 0.667
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 12,
+          "reach_fraction": 0.019,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "value",
+          "p_beats_chosen": 0.07,
+          "lift_pct": -3.0,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "mistake",
+          "p_beats_chosen": 0.04,
+          "lift_pct": -5.2,
+          "decisive": true
+        }
+      ],
+      "better": null,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Change hook to Hinglish by replacing 'GRAHAK' with 'CUSTOMER' (e.g., 'WHATSAPP SE PEHLE CUSTOMER AAPKI SITE PAR KYA CHECK KARTA HAI?')",
+      "instagram: Add one line after bullets with 2-3 varied Indian business examples (e.g., 'A bakery in Kochi, a salon in Indore, a clinic in Guwahati – all put hours and map upfront so customers don't need to call.')",
+      "linkedin: Replace gendered 'her' with 'their' in café example (e.g., 'A café owner spends their morning repeating...')",
+      "linkedin: Add a sentence about accessible design after package description (e.g., 'The design uses readable contrast and scalable text for accessibility.')",
+      "bluesky: Sharpen first line to 'Most small business sites bury hours and address in a contact page, so customers call just to ask.'"
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 10.1
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 10.0
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (ProviderDown)",
+      "FAILED google:gemini-3.7-flash (ProviderDown)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemma-4-31b-it (HTTP 500)",
+      "FAILED google:gemma-4-26b-a4b-it (HTTP 500)",
+      "FAILED gemma: all its models"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 245.1,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "ProviderDown",
+        "seconds": 245.1,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 7.4,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 155.6,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 129.5,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 155.1,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "ProviderDown",
+        "seconds": 244.5,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "500",
+        "seconds": 15.0,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "500",
+        "seconds": 5.4,
+        "error": "HTTP 500 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n"
+      }
+    ]
+  }
+}

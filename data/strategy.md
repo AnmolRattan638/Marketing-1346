@@ -1,5 +1,5 @@
-- Hook style: use **question** or **comparison** (lead gen posts: comparison 1.53x, question 1.7x); avoid contrast.
-- Angle: **mistake** (1.54x) works best; frame lead gen as "treating sourcing as billable hours" error.
-- Visual: **bright-desk** image style (1.53x) — clean spreadsheet snippet, no branding.
-- Copy: write as developer sharing insight, not selling. Mention **pay after approval** once. No demos, guarantees, or niche targeting.
-- Rotate hooks; don't repeat "4 hours vs 4 minutes" phrasing again.
+- Rotate to **question** or **comparison** hooks (contrast underperforms at 0.31x).
+- Avoid repeating "4 hours vs 4 minutes" framing — used 3× recently.
+- Posts must read as a developer showing real work, never an ad.
+- Use bright-desk image style (1.53x hint).
+- Keep examples broad: mention 2–3 varied business types max per line.

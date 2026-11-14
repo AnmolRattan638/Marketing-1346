@@ -1,27 +1,22 @@
 {
-  "date": "2026-11-13",
+  "date": "2026-11-14",
   "stage": "brand new under 100 followers",
   "followers": 9,
-  "summary": "All platforms under 10 followers. Instagram reels lose 77% viewers in first 3 seconds; last 3 posts zero engagement. Lead gen service outperforms others (1.79x). Bio violates rules: niche, region, timeframe, free offer outside website posts.",
-  "guidance": "- Hook style: use **question** or **comparison** (lead gen posts: comparison 1.53x, question 1.7x); avoid contrast.\n- Angle: **mistake** (1.54x) works best; frame lead gen as \"treating sourcing as billable hours\" error.\n- Visual: **bright-desk** image style (1.53x) — clean spreadsheet snippet, no branding.\n- Copy: write as developer sharing insight, not selling. Mention **pay after approval** once. No demos, guarantees, or niche targeting.\n- Rotate hooks; don't repeat \"4 hours vs 4 minutes\" phrasing again.",
+  "summary": "Brand new (<100 followers). Bio violates rules: niche/region targeting, timeframe claim, permanent free offer. Reels lose 77% in 3s — hooks fail. Lead_gen outperforms; question/comparison hooks hint best. Too little data for confidence.",
+  "guidance": "- Rotate to **question** or **comparison** hooks (contrast underperforms at 0.31x).\n- Avoid repeating \"4 hours vs 4 minutes\" framing — used 3× recently.\n- Posts must read as a developer showing real work, never an ad.\n- Use bright-desk image style (1.53x hint).\n- Keep examples broad: mention 2–3 varied business types max per line.",
   "instructions": {
-    "research": "List 5 common lead-gen pains Indian freelancers/agencies voice on LinkedIn/Instagram (e.g., outdated contacts, no website check, time sink).",
-    "analysis": "Compare the two lead-gen posts that used comparison hooks (2026-11-01, 2026-11-05, 2026-11-09) — note which phrasing got any saves/shares.",
-    "writer": "Draft a single image/carousel post: comparison hook \"Manual lead sheet vs. ready-to-call list\". Describe sheet generically (Google Places, contact, reviews, website flag, new openings). End with \"Pay after approval — DM if this fits.\"",
-    "image": "Create a bright-desk style graphic: blurred spreadsheet rows with column headers (Business, Phone, Reviews, Website?, New?). No logos, no client names.",
-    "video": "Not needed for today's lead-gen post."
+    "research": "List 5 common website mistakes Indian small businesses make (any industry) that stop customers from messaging.",
+    "analysis": "Compare the two recent website posts (10/31 comparison, 11/7 contrast) — note which hook style got more saves/shares.",
+    "writer": "Write a question-hook carousel: \"What does a customer check on your site before they WhatsApp you?\" Cover 3 universal checks. End with pay-after-approval + DM offer.",
+    "image": "Create a bright-desk carousel slide: code editor showing a clean contact section, no niche branding.",
+    "video": "Skip video today — static carousel fits website service better."
   },
   "manual_tips": [
-    "Update Instagram bio: remove niche list, Himachal reference, \"24 hrs\", and free site check. Keep only: \"Websites • AI chatbots • Animated ads • Lead sheets for Indian small businesses. Pay after approval. DM to chat.\"",
-    "Comment thoughtfully on 5 posts from Indian freelancers/agencies discussing client acquisition (no self-promo).",
-    "Share a relevant article on LinkedIn about local lead generation with a one-line take; tag no one."
+    "Rewrite Instagram bio: remove niches, region, timeframe, and permanent free offer. Keep only: \"Websites for small businesses across India. Pay after approval. DM for a quick 3-point site check.\"",
+    "Comment on 5 posts from Indian small business owners (varied industries) about their online presence — ask genuine questions, don't pitch.",
+    "Leave a thoughtful comment on a LinkedIn post about freelance/service-selling challenges in India — share one real observation."
   ],
   "weak_signals": [
-    {
-      "id": "zero_engagement_streak",
-      "platform": "instagram",
-      "detail": "the last 3 settled posts got zero likes, comments, shares and saves"
-    },
     {
       "id": "follower_stall",
       "platform": "instagram",
@@ -35,12 +30,17 @@
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 24% of what 'lead_gen' earns per person reached"
+      "detail": "by service, 'chatbot' earns 34% of what 'lead_gen' earns per person reached"
     },
     {
       "id": "weak_hook_style",
       "platform": "instagram",
       "detail": "by hook style, 'contrast' earns 31% of what 'comparison' earns per person reached"
+    },
+    {
+      "id": "zero_engagement_streak",
+      "platform": "bluesky",
+      "detail": "the last 3 settled posts got zero likes, comments, shares and saves"
     },
     {
       "id": "follower_stall",

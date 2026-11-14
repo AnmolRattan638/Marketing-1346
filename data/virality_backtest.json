@@ -2,12 +2,12 @@
   "platforms": {
     "instagram": {
       "n": 21,
-      "spearman": 0.55,
+      "spearman": 0.53,
       "p_value": 0.01,
       "score_spread": 12.5,
       "llm_scored": 8,
       "median_actual_reach": 4.0,
-      "median_predicted_reach": 675.0,
+      "median_predicted_reach": 672.0,
       "reach_ratio": 0.006,
       "verdict": "some signal"
     },
@@ -18,8 +18,8 @@
       "score_spread": 0.5,
       "llm_scored": 0,
       "median_actual_reach": 57.0,
-      "median_predicted_reach": 843.0,
-      "reach_ratio": 0.068,
+      "median_predicted_reach": 845.0,
+      "reach_ratio": 0.067,
       "verdict": "too early"
     }
   },

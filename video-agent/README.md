@@ -126,3 +126,7 @@ preferred when it is clear. Motion-graphic scenes keep their lower third free by
 ## Script framework (Pain, Poke, Fix, Payoff, Recap, CTA)
 
 `video-agent/skills/script-framework.md` is loaded into the planner (config `planner.skills`). Every scene carries a `beat`; the validator enforces the order (pain first, then poke, fix, payoff, recap, cta; fix may repeat) and retries when the model breaks it. Variants (full, short, myth-first, loop) keep scripts from looking alike. Also fixed: `max_skill_chars` was 5000 while `planner-rules.md` is ~6500, so its last rules were silently cut off; it is 9000 now.
+
+## Animation templates (Locomotion pack)
+
+61 animation templates live in `template/src/locomotion/` (imported by `scripts/import_locomotion.py`; every colour is remapped to the website palette, so none can show an off-brand colour). `agent/templates.py` upgrades up to 2 graphic scenes per reel to a template, using only words from the script. Each reel gets one style variant (default, rounded, glass, neo, brutalist, minimal) and different templates from the last reels (remembered in `state/last_templates.json`). Templates with built-in demo content (prices, names, testimonials, tickers) are imported but never picked. Force one in `config.json` -> `templates.force` (`{"variant": "glass", "ids": ["onboarding-flow"]}`) or turn off with `"enabled": false`. Preview any template: `npx remotion still src/lab/index.ts <template-id> out.png --frame=80 --props='{"variant":"glass","props":{"text":"Hi"}}'`.

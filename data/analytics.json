@@ -2,6 +2,64 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "17993115096119908",
+      "url": "https://www.instagram.com/p/DftHAvMinlg/",
+      "published_at": "2026-11-14T02:15:11.000Z",
+      "text": "𝗟𝗢𝗢𝗞𝗜𝗡𝗚 𝗙𝗢𝗥 𝗟𝗢𝗖𝗔𝗟 𝗟𝗘𝗔𝗗𝗦 𝗪𝗜𝗧𝗛𝗢𝗨𝗧 𝗧𝗛𝗘 𝗠𝗢𝗥𝗡𝗜𝗡𝗚 𝗠𝗔𝗣 𝗛𝗨𝗡𝗧?\n\n→ Subah Maps scroll karne mein billable 𝗛𝗢𝗨𝗥𝗦 nikal jaate hain.\n→ Ready 𝗘𝗫𝗖𝗘𝗟 𝗦𝗛𝗘𝗘𝗧 with contact, review ",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 3,
+        "reach": 1,
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-13",
+        "service": "lead_gen",
+        "hook_style": "value",
+        "topic": "The Morning Search Trap: Why starting your day with Google Maps is a productivity mistake."
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2agimsetf2x",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2agimsetf2x",
+      "published_at": "2026-11-14T02:15:09.254Z",
+      "text": "Scrolling Maps for leads eats your best morning hours. Getting a clean Excel sheet with local business contacts, reviews, and website status lets you pitch stra",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-13",
+        "service": "lead_gen",
+        "hook_style": "value",
+        "topic": "The Morning Search Trap: Why starting your day with Google Maps is a productivity mistake."
+      }
+    },
+    {
+      "platform": "instagram",
       "id": "18082254182735712",
       "url": "https://www.instagram.com/p/DfpFJP4juVg/",
       "published_at": "2026-11-12T12:41:53.000Z",
@@ -1487,7 +1545,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 28
+      "posts": 29
     }
   },
   "coverage": {
@@ -1772,9 +1830,17 @@
         "linkedin": 8,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-11-14",
+      "followers": {
+        "instagram": 9,
+        "linkedin": 8,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-13T19:43:42+00:00"
+  "updated_at": "2026-11-14T06:25:54+00:00"
 }

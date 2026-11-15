@@ -125,7 +125,7 @@ def tidy_plan(plan):
         text = " ".join(text.split())
         return text if len(text) <= limit else text[:limit].rsplit(" ", 1)[0].strip()
 
-    plan_fit = _fit(plan, PLAN_SCHEMA)      # any on-screen text a hair over its limit (a 35-letter heading for 30) is cut at a word, not allowed to fail the run
+    _fit(plan, PLAN_SCHEMA)      # any on-screen text a hair over its limit (a 35-letter heading for 30) is cut at a word, not allowed to fail the run
     for sc in plan["scenes"]:
         if not isinstance(sc, dict):
             continue

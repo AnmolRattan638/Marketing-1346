@@ -1,8 +1,6 @@
 """Offline test: fact sheet verification + master scriptwriter rules. LLM mocked."""
 import pathlib, sys
-from unittest import mock
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
-from src import llm
 from src.agents import factsheet as fs, scriptwriter as sw
 
 items = [{"title": "Reply study", "url": "https://a.com/1", "domain": "a.com", "date": "2026-09-01", "snippet": "Firms replying within 5 minutes win 21 times more leads."},

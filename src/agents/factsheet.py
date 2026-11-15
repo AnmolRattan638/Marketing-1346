@@ -3,7 +3,6 @@
 The model extracts and judges; code re-checks the two things a model likes to fudge: the source must be one we actually fetched, and every
 number in a fact must literally appear in that source's text. A fact that fails is dropped, never repaired. Fewer than MIN_FACTS left ->
 `ok` is False and the caller skips the topic instead of padding."""
-import json
 import re
 from .. import llm
 

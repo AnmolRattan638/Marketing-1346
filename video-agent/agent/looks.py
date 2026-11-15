@@ -8,7 +8,6 @@ from __future__ import annotations
 import hashlib
 import json
 import random
-from pathlib import Path
 
 from .brand import load_palette
 from .common import ROOT, log

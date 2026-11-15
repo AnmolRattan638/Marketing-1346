@@ -1,5 +1,5 @@
 """Offline test: a 429 on one organization's Groq key moves to the next key; all limited -> clear error."""
-import json, os, pathlib, sys
+import os, pathlib, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "video-agent"))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 for k in list(os.environ):

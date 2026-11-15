@@ -13,7 +13,7 @@ from .captions import get_words
 from .common import ROOT, WORK, load_config, log, media_duration
 from . import footage as _footage
 from .footage import fetch_clip
-from . import edits, master_script, webresearch
+from . import edits, master_script, viral, webresearch
 from .hybrid import Editor, HybridError
 from .manifest import available_sfx, build_manifest
 from .plan import make_plan, sample_plan
@@ -64,6 +64,9 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
     plan = sample_plan() if offline else make_plan(topic, cfg, editor.library_summary() if editor else "", service, **({"evidence": ev_text} if ev_text else {}), **({"master": master} if master else {}))
     if sources:
         plan["sources"] = sources
+    viral.stop_fix(plan, master)                   # frame 1 = bold punch slide with the hook headline
+    vres = viral.forecast(plan, master)            # the predictor reads the reel BEFORE it is rendered and sent to you
+    log(viral.report(vres).replace("\n", " | "))
     (out_dir / "plan.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding="utf-8")
     log(f"plan: '{plan['title']}' with {len(plan['scenes'])} scenes")
 
@@ -140,6 +143,7 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
     final = out_dir / "final.mp4"
     render(manifest, final)
     log(f"done: {final} ({media_duration(final):.1f}s, {final.stat().st_size / 1e6:.1f} MB)")
+    notify.send_message(viral.report(vres))       # verdict first, then the video
     notify.send_video(final, ("Reel for today's draft (same script as the carousel). Approving the draft posts the carousel; post this Reel yourself.\n" if master else "") + f"{plan['title']}\nTopic: {topic}{summary}{webresearch.caption_line(plan.get('sources') or [])}")
 
 

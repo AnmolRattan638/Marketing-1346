@@ -186,3 +186,6 @@ A separate daily short-video maker (Groq plan, Pexels footage, Kokoro/edge-tts v
 6. **Approve** posts the carousel/text posts. Reels are not auto-posted (no publisher here supports video): upload the Reel yourself.
 
 Secrets needed: `TAVILY_API_KEY`, `EXA_API_KEY`, `UNSPLASH_ACCESS_KEY`, `VOICE_REF_B64`.
+
+## Video: predictor gate
+`video-agent/agent/viral.py`: every reel is forced to open on a bold `punch` slide with the hook's 3-5 word headline, then ViralSim reads the script before render. The verdict (score, weakest dimensions, hook A/B, scroll-stop check) is sent to Telegram first, then the video. Advisory only: ViralSim is a coarse heuristic and nothing is blocked or rewritten by it.

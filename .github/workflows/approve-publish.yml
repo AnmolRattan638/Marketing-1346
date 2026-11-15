@@ -28,6 +28,7 @@ jobs:
     timeout-minutes: 350        # a follow-up run waits for your tap for up to 5.5 hours
     env:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      GH_TOKEN: ${{ github.token }}         # lets a video you send start the Re-edit workflow
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
       ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}

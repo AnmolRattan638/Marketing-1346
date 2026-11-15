@@ -85,6 +85,6 @@ seq = [json.dumps(good), json.dumps(good)]
 calls = []
 def ask2(p, s="", **k):
     calls.append(p)
-    return json.dumps({"issues": ["payoff: says calls stop, fact says they are repeats"]}) if "strict editor" in p and len(calls) == 2 else (json.dumps({"issues": []}) if "strict editor" in p else seq.pop(0))
-assert sw.run(sheet, {"name": "x", "dm_keyword": "BOT"}, style, ask=ask2, voice="v")["beats"] and sum("strict editor" in c for c in calls) == 2
+    return json.dumps({"issues": ["payoff: says calls stop, fact says they are repeats"]}) if "editor checking spoken lines" in p and len(calls) == 2 else (json.dumps({"issues": []}) if "editor checking spoken lines" in p else seq.pop(0))
+assert sw.run(sheet, {"name": "x", "dm_keyword": "BOT"}, style, ask=ask2, voice="v")["beats"] and sum("editor checking spoken lines" in c for c in calls) == 2
 print("scriptwriter ok")

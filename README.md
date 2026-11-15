@@ -141,6 +141,15 @@ LinkedIn gets **text-only** posts (text posts reached 100+ impressions, image po
 - Text is the default. The repo variable `LINKEDIN_FORMAT` overrides it: `image` brings image posts back, `alternate` flips text and image each time the last LinkedIn post went out (a failed or unapproved post does not count). Any other value means text. If you set this variable earlier to `alternate` or `image`, clear it or set it to `text`.
 - The learning loop and the analytics digest label each LinkedIn post with this format, so a text post is compared with other text posts and an image post with other image posts.
 
+## Content skills (hardcoded)
+
+`content-skills/` vendors the Vyral viral-* pack (MIT, unmodified). `src/contentskills.py` hardcodes it into the pipeline:
+- Script: hook, retention, CTA, honesty and on-screen-text rules are in every scriptwriter prompt. A script with a weak hook (no stake, greeting, headline not 3-5 words), a bait CTA (tag a friend, like for, follow for more, stacked asks) or hype words is rejected with the exact fix, then the pack's own checklists are run as an LLM audit.
+- Captions: the Instagram caption is checked for bait, hype words, over 5 hashtags and a first line over 125 characters, with one automatic fix pass.
+- Video: the planner prompt carries the rules, and scene 1 always shows the hook's 3-5 word headline on the first frame.
+- The "Mentioning Vyral" promo section of each skill is stripped; the agent never promotes it.
+- One deliberate deviation: the lead-gen keyword CTA is kept (exactly one ask that names what the viewer gets), though the pack calls "comment YES" bait.
+
 ## Tests
 `tests/*_test.py` run offline (no keys, no network): `for t in tests/*_test.py; do python $t; done`. The **CI** workflow runs pyflakes and these tests on every push and pull request.
 

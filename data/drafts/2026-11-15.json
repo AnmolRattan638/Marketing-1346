@@ -1,0 +1,865 @@
+{
+  "id": "2026-11-15-fbf055",
+  "date": "2026-11-15",
+  "created_at": "2026-11-15T10:38:13+00:00",
+  "status": "pending",
+  "service": "animated_ads",
+  "topic": "The cost of a professional production crew vs. the cost of AI animation.",
+  "idea_id": null,
+  "problem_id": "lack-of-budget-for-professional-video-sh",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "exploit",
+    "variable": "hook_style",
+    "problem_id": "lack-of-budget-for-professional-video-sh",
+    "angle_type": null,
+    "hook_style": "comparison"
+  },
+  "hooks": [
+    {
+      "style": "comparison",
+      "text": "Kiya aapke Instagram ads log bina dekhe scroll kar dete hain?"
+    },
+    {
+      "style": "question",
+      "text": "Small business owners: Why waste thousands on shoots when AI works?"
+    },
+    {
+      "style": "myth",
+      "text": "Myth: Premium video needs pricey crews. Fact: AI matches quality cheap."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "comparison",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "AI‑enabled production has reduced industry costs by roughly 15% recently.",
+        "figure": "15%",
+        "source": "youtube.com",
+        "title": "Stop Guessing! Video Production Costs 2026 Revealed (Full Guide)",
+        "url": "https://www.youtube.com/watch?v=B6sQ065RFVA",
+        "date": null,
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "AI video tools in India cost between ₹5,000 and ₹25,000 per month per tool.",
+        "figure": "₹5,000–₹25,000 per month",
+        "source": "auromediahouse.com",
+        "title": "AI Video Tools vs Professional Production Auro Media House",
+        "url": "https://auromediahouse.com/ai-video-tools-vs-professional-production/",
+        "date": "2026-05-26",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Professional brand film production in Hyderabad starts at ₹3 lakhs for corporate films and ₹5 lakhs minimum for ad films.",
+        "figure": "₹3 lakhs (corporate), ₹5 lakhs (ad)",
+        "source": "auromediahouse.com",
+        "title": "AI Video Tools vs Professional Production Auro Media House",
+        "url": "https://auromediahouse.com/ai-video-tools-vs-professional-production/",
+        "date": "2026-05-26",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "A 30‑second brand film without a star cast in Hyderabad costs ₹5 – 7 lakhs.",
+        "figure": "₹5 – 7 lakhs",
+        "source": "auromediahouse.com",
+        "title": "AI Video Tools vs Professional Production Auro Media House",
+        "url": "https://auromediahouse.com/ai-video-tools-vs-professional-production/",
+        "date": "2026-05-26",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "AI video creators can produce a finished minute for as low as ₹150–₹300, compared with traditional human production costing ₹40,000–₹200,000+ per minute.",
+        "figure": "₹150–₹300 (AI), ₹40,000–₹200,000+ (human",
+        "source": "truefan.ai",
+        "title": "Cheap AI Video Creation India: Costs, ROI, and Savings",
+        "url": "https://www.truefan.ai/blogs/cheap-ai-video-creation-india",
+        "date": "2026-04-02",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "AI video generation platforms charge ₹300 to ₹2,000 per video, while multilingual localization that used to cost ₹3–10 lakhs now only needs script translation.",
+        "figure": "₹300–₹2,000 per video; ₹3–10 lakhs (old ",
+        "source": "tech.hindustantimes.com",
+        "title": "AI Video Generation vs Human Video Production: What Actually Scales in 2026 Brand Stories (HT Tech)",
+        "url": "https://tech.hindustantimes.com/brand-stories/ai-video-generation-vs-human-video-production-what-actually-scales-in-2026-71780397823747.html",
+        "date": "2026-06-02",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Traditional video production costs range from $1,000 to $50,000 per finished minute, whereas AI video tools reduce that to $2–$30 per minute.",
+        "figure": "$1,000–$50,000 (traditional), $2–$30 (AI",
+        "source": "ngram.com",
+        "title": "50+ AI Video Statistics for 2026 ngram.com",
+        "url": "https://www.ngram.com/blog/ai-video-statistics-2026",
+        "date": null,
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "DIY AI video software subscriptions cost $0–$300 per month; multi‑tool workflows $170–$685 per month; freelancer or small‑studio projects $500–$5,000 per project; agency‑led AI production starts around $5,000 per video.",
+        "figure": "$0–$300/month (DIY), $170–$685/month (mu",
+        "source": "goodfirms.co",
+        "title": "AI Video Production Cost in 2026: AI vs. Professional",
+        "url": "https://www.goodfirms.co/resources/video-production-cost-ai-vs-professional",
+        "date": "2026-08-24",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "dropped": 0,
+    "topic": "The cost of a professional production crew vs. the cost of AI animation."
+  },
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Kiya aapke Instagram ads log bina dekhe scroll kar dete hain?",
+    "hooks": [
+      {
+        "text": "Kiya aapke Instagram ads log bina dekhe scroll kar dete hain?",
+        "score": 12.9
+      },
+      {
+        "text": "₹40,000 per minute ka video shoot small business ke liye impossible hai.",
+        "score": 11.9
+      },
+      {
+        "text": "Myth yeh hai ki animated video ads sirf bade brands bana sakte hain.",
+        "score": 10.7
+      },
+      {
+        "text": "Ad run kiya, budget kata, par ek bhi lead nahi aayi.",
+        "score": 7.9
+      },
+      {
+        "text": "Static image ads ab Instagram feed mein customer ka dhyan nahi kheenchti.",
+        "score": 7.9
+      },
+      {
+        "text": "Instagram ad par hazaron rupaye lagaye, par sabne scroll kar diya. Ek bhi lead nahi aayi.",
+        "score": 7.8
+      }
+    ],
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Kiya aapke Instagram ads log bina dekhe scroll kar dete hain?",
+        "screen": "Static ads scroll ho jaati hain",
+        "visual": "Anmol points to low engagement graph on phone screen.",
+        "emotion": "empathetic",
+        "facts": []
+      },
+      {
+        "beat": "poke",
+        "line": "Iske baad log video shoot agency ke paas jaate hain, lekin camera aur studio ka kharcha sunkar darr jaate hain. Phone se banayi video unprofessional lagti hai aur sales zero rehti hai.",
+        "screen": "Shoot agency ka kharcha bahut zyada",
+        "visual": "Split screen showing expensive studio quote vs blurry phone clip.",
+        "emotion": "urgent",
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Pehle main aapke product ke liye script likhta hoon, taaki message seedha customer ko hit kare. Phir AI tools se custom animation banata hoon. Aakhir mein voiceover aur background music mix karke ad export karta hoon.",
+        "screen": "Script, AI animation aur voiceover mix",
+        "visual": "Screen recording of animation timeline and prompt workflow.",
+        "emotion": "calm",
+        "steps": [
+          "Product ke liye script likhna",
+          "AI tools se animation banana",
+          "Voiceover aur music mix karna"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "payoff",
+        "line": "Truefan dot ai ki report ke mutabiq, traditional human video production ka kharcha ₹40,000 se ₹200,000+ per minute hota hai. Lekin AI video creators ek finished minute ₹150 se ₹300 mein taiyar kar dete hain!",
+        "screen": "₹150–₹300 vs ₹40,000+ per minute",
+        "visual": "On-screen cost comparison chart highlighting the verified numbers.",
+        "emotion": "excited",
+        "facts": [
+          "f5"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Matlab ab scroll hone wali boring photo ads par paise barbad karne ki bilkul zaroorat nahi hai. Kam budget mein bhi aapka brand feed mein sabse alag aur engaging dikhega.",
+        "screen": "Boring ads par budget waste mat karo",
+        "visual": "Anmol holding phone showing dynamic sample animated reel.",
+        "emotion": "warm",
+        "facts": []
+      },
+      {
+        "beat": "cta",
+        "line": "Agar aapko bhi apne business ke liye animated reel banwani hai, toh comment mein ADS likho. Main aapko ek sample concept bhejunga, taaki aap dekh sako video kaise dikhegi.",
+        "screen": "Comment ADS for sample concept",
+        "visual": "Anmol smiling at camera with 'ADS' text popup on screen.",
+        "emotion": "warm",
+        "facts": []
+      }
+    ],
+    "cta": "Agar aapko bhi apne business ke liye animated reel banwani hai, toh comment mein ADS likho. Main aapko ek sample concept bhejunga, taaki aap dekh sako video kaise dikhegi.",
+    "linkedin_english": "Most small business owners burn marketing budgets on static image ads that get scrolled past instantly. Modern AI video workflows allow us to build engaging animated ads at a fraction of traditional production costs. I create sample concepts for businesses looking to improve their social media ad performance.",
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "AI‑enabled production has reduced industry costs by roughly 15% recently.",
+        "figure": "15%",
+        "source": "youtube.com",
+        "title": "Stop Guessing! Video Production Costs 2026 Revealed (Full Guide)",
+        "url": "https://www.youtube.com/watch?v=B6sQ065RFVA",
+        "date": null,
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "AI video tools in India cost between ₹5,000 and ₹25,000 per month per tool.",
+        "figure": "₹5,000–₹25,000 per month",
+        "source": "auromediahouse.com",
+        "title": "AI Video Tools vs Professional Production Auro Media House",
+        "url": "https://auromediahouse.com/ai-video-tools-vs-professional-production/",
+        "date": "2026-05-26",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Professional brand film production in Hyderabad starts at ₹3 lakhs for corporate films and ₹5 lakhs minimum for ad films.",
+        "figure": "₹3 lakhs (corporate), ₹5 lakhs (ad)",
+        "source": "auromediahouse.com",
+        "title": "AI Video Tools vs Professional Production Auro Media House",
+        "url": "https://auromediahouse.com/ai-video-tools-vs-professional-production/",
+        "date": "2026-05-26",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "A 30‑second brand film without a star cast in Hyderabad costs ₹5 – 7 lakhs.",
+        "figure": "₹5 – 7 lakhs",
+        "source": "auromediahouse.com",
+        "title": "AI Video Tools vs Professional Production Auro Media House",
+        "url": "https://auromediahouse.com/ai-video-tools-vs-professional-production/",
+        "date": "2026-05-26",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "AI video creators can produce a finished minute for as low as ₹150–₹300, compared with traditional human production costing ₹40,000–₹200,000+ per minute.",
+        "figure": "₹150–₹300 (AI), ₹40,000–₹200,000+ (human",
+        "source": "truefan.ai",
+        "title": "Cheap AI Video Creation India: Costs, ROI, and Savings",
+        "url": "https://www.truefan.ai/blogs/cheap-ai-video-creation-india",
+        "date": "2026-04-02",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "AI video generation platforms charge ₹300 to ₹2,000 per video, while multilingual localization that used to cost ₹3–10 lakhs now only needs script translation.",
+        "figure": "₹300–₹2,000 per video; ₹3–10 lakhs (old ",
+        "source": "tech.hindustantimes.com",
+        "title": "AI Video Generation vs Human Video Production: What Actually Scales in 2026 Brand Stories (HT Tech)",
+        "url": "https://tech.hindustantimes.com/brand-stories/ai-video-generation-vs-human-video-production-what-actually-scales-in-2026-71780397823747.html",
+        "date": "2026-06-02",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Traditional video production costs range from $1,000 to $50,000 per finished minute, whereas AI video tools reduce that to $2–$30 per minute.",
+        "figure": "$1,000–$50,000 (traditional), $2–$30 (AI",
+        "source": "ngram.com",
+        "title": "50+ AI Video Statistics for 2026 ngram.com",
+        "url": "https://www.ngram.com/blog/ai-video-statistics-2026",
+        "date": null,
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "DIY AI video software subscriptions cost $0–$300 per month; multi‑tool workflows $170–$685 per month; freelancer or small‑studio projects $500–$5,000 per project; agency‑led AI production starts around $5,000 per video.",
+        "figure": "$0–$300/month (DIY), $170–$685/month (mu",
+        "source": "goodfirms.co",
+        "title": "AI Video Production Cost in 2026: AI vs. Professional",
+        "url": "https://www.goodfirms.co/resources/video-production-cost-ai-vs-professional",
+        "date": "2026-08-24",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "The cost of a professional production crew vs. the cost of AI animation.",
+    "service": "animated_ads",
+    "keyword": "ADS"
+  },
+  "script_style": "pain-poke-fix",
+  "posts": {
+    "instagram": "𝗖𝗔𝗠𝗘𝗥𝗔 𝗦𝗛𝗢𝗢𝗧 𝗞𝗔 𝗞𝗛र्च𝗔 𝗘𝗞 𝗕𝗔𝗗𝗔 𝗠𝗬𝗧𝗛 𝗛𝗔𝗜\n\n→ No expensive studio needed, direct script aur 𝗔𝗜 𝗔𝗡𝗜𝗠𝗔𝗧𝗜𝗢𝗡.\n→ Custom motion visuals that can catch attention and help stop feed scrolling on phones.\n→ Plans at INR 999 / 1,499 / 2,199 with 𝗣𝗔𝗬 𝗔𝗙𝗧𝗘𝗥 𝗔𝗣𝗣𝗥𝗢𝗩𝗔𝗟.\n\nDM 𝗔𝗗𝗦 and tell me what you sell.\n\n#SmallBusinessIndia #InstagramAds #MarketingIndia #AIAds",
+    "linkedin": "Many small business owners think professional video requires an expensive studio shoot.\n\nRunning a retail shop, a local clinic, or a coaching centre leaves little time for anything beyond serving customers. You know a fresh video can stop a scrolling audience, but hiring a crew with lights and cameras quickly exceeds a tight budget. Some try to record on a phone between appointments, yet shaky angles and poor lighting often make the brand appear unpolished. You also worry that a low‑budget video will look amateur and turn potential customers away.\n\nI create short animated ads that small businesses across India can post on Instagram and Facebook. The clips are produced with modern animation tools, so no physical set, lights, or actors are needed. They focus on a single message and avoid generic stock footage. Each animation is tailored to reflect your brand colours and tone, so it feels like an extension of your business.\n\nThe process is simple and requires minimal time from you. First, you tell me what you sell and the most common questions customers ask. I write a short script that addresses that question, then design custom animation to match the words. After adding pacing and audio, I send you a draft for review and any changes you need.\n\nA clear animated video on your feed can help turn a casual scroller into an interested viewer. Because the message is visual and concise, viewers understand what you offer even with the sound off or late at night. This makes it easier for them to reach out with a genuine enquiry. The format works well on both mobile feeds and desktop timelines, reaching audiences wherever they browse.\n\nThe animation is not a magic solution that sells for you. It does not replace honest customer service, fair pricing, or quick replies to messages. It simply provides a clean, engaging creative asset that can help people pause and notice your offer.\n\nIf you think this could fit your current social media plan, I am happy to discuss it. You pay only after you have approved the final video. DM ADS.",
+    "bluesky": "TIRED OF PEOPLE SCROLLING PAST YOUR POSTS? AI animation gives your business clean video ads without camera crews. INR 999 to 2,199, pay after approval. DM ADS to talk."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does an animated ad cost?",
+      "reply": "Pricing is INR 999, 1,499, or 2,199 depending on the length and detail of the ad. You also pay only after you review and approve the finished video. What kind of product or service are you looking to promote?"
+    },
+    {
+      "if_they_say": "Will an AI video look fake or robotic for my brand?",
+      "reply": "That usually happens when people try generating fake AI human faces. I build clean graphic animation and motion text focused entirely on your product and customer problem, so it looks sharp and professional rather than artificial. What business do you run?"
+    },
+    {
+      "if_they_say": "Do you make ads for my kind of business?",
+      "reply": "I create short animated ads for small businesses across various sectors, from retail and services to local clinics. What do you sell, and what is the main message you want customers to notice?"
+    }
+  ],
+  "image": {
+    "prompt": "a light wood desk holds a sleek silver laptop with a soft‑blue animated ad on its screen, a white ceramic coffee mug beside it, and a small matte‑black clapperboard with a boom mic nearby, hinting at crew costs. laptop in the upper two‑thirds, eye‑level view slightly above, leaving a clear lower 40 % for headline. natural daylight from a left window at 5600 K casts soft shadows, with a rim light outlining the laptop edge. foreground shows desk grain, midground the mug and clapperboard, background a blurred window. neutral wood and silver tones with a soft‑blue accent, confident vibe. 85 mm lens at f/1.8, shallow depth of field, crisp metal reflections and fine wood grain. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-15.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "lack-of-budget-for-professional-video-sh",
+      "angle_type": "mistake",
+      "style": "bold",
+      "headline": "High budgets aren't required for professional looks",
+      "highlight": [
+        "aren't required"
+      ],
+      "sub": "Stop overspending on crews to look credible.",
+      "chat": [],
+      "cta": "DM \"ADS\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate",
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ],
+    "style_id": "bright-desk"
+  },
+  "carousel": {
+    "flavor": "script:pain-poke-fix",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-15.jpg",
+      "data/media/2026-11-15-s2.jpg",
+      "data/media/2026-11-15-s3.jpg",
+      "data/media/2026-11-15-s4.jpg",
+      "data/media/2026-11-15-s5.jpg",
+      "data/media/2026-11-15-s6.jpg",
+      "data/media/2026-11-15-s7.jpg"
+    ],
+    "alts": [
+      "Kiya aapke Instagram ads log bina dekhe scroll kar dete hain?",
+      "Slide 2 of 7: Photo ads log scroll kar dete hain. Log video dekhna chahte hain lekin boring photo ads unhein aage badhne par majboor karte hain.",
+      "Slide 3 of 7: Studio aur camera ka kharcha daraata hai. Agency ke paas jane par kharcha sun kar darr lagta hai. Phone video unprofessional lagti hai aur customer tak message nahi pahunch pata.",
+      "Slide 4 of 7: Pehle script, phir AI animation. Main aapke product ke liye script likhta hoon taaki message seedha customer ko hit kare. Phir AI tools se custom animation banata hoon.",
+      "Slide 5 of 7: Voiceover aur music ke saath final ad. Voiceover aur background music mix karke ad export ki jati hai. Truefan dot ai ki report ke mutabiq traditional production AI animation se kahin zyada mehenga hai.",
+      "Slide 6 of 7: Boring photo ads par rukna band karo. Brand feed mein alag aur engaging dikhai dega. Customer ka dhyan khinchna ab asaan ho gaya hai.",
+      "Slide 7 of 7: DM ADS. Agar aapko animated ad chahiye toh DM karein. Main aapko bataunga ki yeh aapke business ke liye sahi hai ya nahi."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Kiya aapke Instagram ads log bina dekhe scroll kar dete hain?",
+        "body": "Feed mein rukna ab pehle se kahin mushkil hai."
+      },
+      {
+        "role": "problem",
+        "headline": "Photo ads log scroll kar dete hain",
+        "body": "Log video dekhna chahte hain lekin boring photo ads unhein aage badhne par majboor karte hain."
+      },
+      {
+        "role": "problem",
+        "headline": "Studio aur camera ka kharcha daraata hai",
+        "body": "Agency ke paas jane par kharcha sun kar darr lagta hai. Phone video unprofessional lagti hai aur customer tak message nahi pahunch pata."
+      },
+      {
+        "role": "solution",
+        "headline": "Pehle script, phir AI animation",
+        "body": "Main aapke product ke liye script likhta hoon taaki message seedha customer ko hit kare. Phir AI tools se custom animation banata hoon."
+      },
+      {
+        "role": "solution",
+        "headline": "Voiceover aur music ke saath final ad",
+        "body": "Voiceover aur background music mix karke ad export ki jati hai. Truefan dot ai ki report ke mutabiq traditional production AI animation se kahin zyada mehenga hai."
+      },
+      {
+        "role": "solution",
+        "headline": "Boring photo ads par rukna band karo",
+        "body": "Brand feed mein alag aur engaging dikhai dega. Customer ka dhyan khinchna ab asaan ho gaya hai."
+      },
+      {
+        "role": "cta",
+        "headline": "DM ADS",
+        "body": "Agar aapko animated ad chahiye toh DM karein. Main aapko bataunga ki yeh aapke business ke liye sahi hai ya nahi."
+      }
+    ],
+    "scene_prompts": {
+      "5": "a matte‑black studio microphone on a brushed‑metal boom arm, its grille glowing soft blue with a faint sound‑wave halo, hands gently turning the mic knob; the microphone and hands fill the upper 55% of the frame, seen from a low angle, while the lower 45% stays calm for a future text card; daylight from a left window casts gentle shadows and a blue rim light around the mic; a light‑wood desk holds a dark laptop, a white ceramic mug and a small potted succulent; neutral greys and warm wood with a single soft‑blue accent, conveying organized serenity; 85 mm lens at f/1.8, shallow depth of field showing brushed metal surface and subtle light dust. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "6": "A matte‑black tablet with a soft‑blue glowing interface rests in hands, fingertips curved around its edges; the tablet fills the upper 55 % of the frame, seen from a high eye‑level angle, leaving the lower portion open and calm. Warm natural daylight streams from a window on the left, casting shadows and a cool blue rim that outlines the hands and device. A wooden desk forms the foreground, a potted succulent and a ceramic mug sit in the midground, while a blurred cityscape beyond the window adds depth. The palette mixes muted greys, warm wood tones and a single soft‑blue accent, feeling serene and confident. Shot with an 85 mm lens at f/1.8, shallow depth of field reveals brushed metal texture and fine dust particles catching light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate",
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate",
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate",
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ]
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Instagram caption contained an absolute outcome claim ('stop feed scrolling') which was softened to a softer wording."
+    ],
+    "revised": {
+      "instagram": "**CAMERA SHOOT KA KHर्चA EK BADA MYTH HAI**\n\n→ No expensive studio needed, direct script aur **AI ANIMATION**.\n→ Custom motion visuals that can catch attention and help stop feed scrolling on phones.\n→ Plans at INR 999 / 1,499 / 2,199 with **PAY AFTER APPROVAL**.\n\nDM **ADS** and tell me what you sell.\n\n#SmallBusinessIndia #InstagramAds #MarketingIndia #AIAds",
+      "linkedin": "Many small business owners think professional video requires an expensive studio shoot.\n\nRunning a retail shop, a local clinic, or a coaching centre leaves little time for anything beyond serving customers. You know a fresh video can stop a scrolling audience, but hiring a crew with lights and cameras quickly exceeds a tight budget. Some try to record on a phone between appointments, yet shaky angles and poor lighting often make the brand appear unpolished. You also worry that a low‑budget video will look amateur and turn potential customers away.\n\nI create short animated ads that small businesses across India can post on Instagram and Facebook. The clips are produced with modern animation tools, so no physical set, lights, or actors are needed. They focus on a single message and avoid generic stock footage. Each animation is tailored to reflect your brand colours and tone, so it feels like an extension of your business.\n\nThe process is simple and requires minimal time from you. First, you tell me what you sell and the most common questions customers ask. I write a short script that addresses that question, then design custom animation to match the words. After adding pacing and audio, I send you a draft for review and any changes you need.\n\nA clear animated video on your feed can help turn a casual scroller into an interested viewer. Because the message is visual and concise, viewers understand what you offer even with the sound off or late at night. This makes it easier for them to reach out with a genuine enquiry. The format works well on both mobile feeds and desktop timelines, reaching audiences wherever they browse.\n\nThe animation is not a magic solution that sells for you. It does not replace honest customer service, fair pricing, or quick replies to messages. It simply provides a clean, engaging creative asset that can help people pause and notice your offer.\n\nIf you think this could fit your current social media plan, I am happy to discuss it. You pay only after you have approved the final video. DM ADS.",
+      "bluesky": "TIRED OF PEOPLE SCROLLING PAST YOUR POSTS? AI animation gives your business clean video ads without camera crews. INR 999 to 2,199, pay after approval. DM ADS to talk."
+    }
+  },
+  "sources": [
+    {
+      "title": "Stop Guessing! Video Production Costs 2026 Revealed (Full Guide)",
+      "url": "https://www.youtube.com/watch?v=B6sQ065RFVA",
+      "domain": "youtube.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "AI Video Tools vs Professional Production Auro Media House",
+      "url": "https://auromediahouse.com/ai-video-tools-vs-professional-production/",
+      "domain": "auromediahouse.com",
+      "date": "2026-05-26",
+      "provider": "exa"
+    },
+    {
+      "title": "AI Development Cost in 2027: 6 AI Project Types & Their Cost",
+      "url": "https://intercode.com/blog/ai-development-cost-guide",
+      "domain": "intercode.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Cheap AI Video Creation India: Costs, ROI, and Savings",
+      "url": "https://www.truefan.ai/blogs/cheap-ai-video-creation-india",
+      "domain": "truefan.ai",
+      "date": "2026-04-02",
+      "provider": "exa"
+    },
+    {
+      "title": "How much does making a movie cost? Chaman Animation Studio",
+      "url": "https://chamananimation.com/blog.html",
+      "domain": "chamananimation.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "AI Video Generation vs Human Video Production: What Actually Scales in 2026 Brand Stories (HT Tech)",
+      "url": "https://tech.hindustantimes.com/brand-stories/ai-video-generation-vs-human-video-production-what-actually-scales-in-2026-71780397823747.html",
+      "domain": "tech.hindustantimes.com",
+      "date": "2026-06-02",
+      "provider": "exa"
+    },
+    {
+      "title": "50+ AI Video Statistics for 2026 ngram.com",
+      "url": "https://www.ngram.com/blog/ai-video-statistics-2026",
+      "domain": "ngram.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "AI Video Production Cost in 2026: AI vs. Professional",
+      "url": "https://www.goodfirms.co/resources/video-production-cost-ai-vs-professional",
+      "domain": "goodfirms.co",
+      "date": "2026-08-24",
+      "provider": "exa"
+    }
+  ],
+  "ad_score": 9,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 5.6,
+        "breakout_probability": 0.0,
+        "reach_p10": 321.0,
+        "reach_p50": 635.0,
+        "reach_p90": 1339.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'culture / language accessibility', 'severity': 'low', 'description': 'The copy mixes Hindi (e.g., \"CAMERA "
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 3.0,
+          "educational": 4.0,
+          "novelty": 5.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 5.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 347,
+            "share": 4,
+            "reply": 3,
+            "like": 2
+          },
+          "engagement_rate": 0.0253,
+          "by_role": {
+            "public": {
+              "n": 9,
+              "avg_sentiment": 0.476,
+              "share_rate": 0.444
+            }
+          },
+          "cascade_size": 5,
+          "r_effective": 1.6667,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 4.0
+          },
+          {
+            "title": "Open a stronger curiosity gap",
+            "lift_pct": 3.6
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.6
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 445.0,
+        "reach_p50": 888.0,
+        "reach_p90": 1902.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'disability', 'severity': 'medium', 'description': 'The copy promotes animated videos that rely on visual c",
+          "{'category': 'class', 'severity': 'low', 'description': 'The messaging repeatedly emphasizes \"tight budget\" and \"low‑bud",
+          "{'category': 'exclusion', 'severity': 'low', 'description': 'The content assumes that the target audience uses Instagram"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 4.0,
+          "educational": 5.0,
+          "novelty": 4.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 4.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 359,
+            "share": 4,
+            "reply": 2,
+            "like": 4
+          },
+          "engagement_rate": 0.0271,
+          "by_role": {
+            "public": {
+              "n": 10,
+              "avg_sentiment": 0.46,
+              "share_rate": 0.4
+            }
+          },
+          "cascade_size": 5,
+          "r_effective": 1.6667,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 15,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.6792,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 0.2,
+        "breakout_probability": 0.0,
+        "reach_p10": 214.0,
+        "reach_p50": 455.0,
+        "reach_p90": 977.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'class / occupation', 'severity': 'medium', 'description': 'The ad frames AI‑generated animation as a low‑c"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 4.0,
+          "controversy": 0,
+          "emotional_intensity": 3.0,
+          "relatability": 5.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 349,
+            "share": 3,
+            "like": 4,
+            "reply": 2
+          },
+          "engagement_rate": 0.0251,
+          "by_role": {
+            "public": {
+              "n": 9,
+              "avg_sentiment": 0.694,
+              "share_rate": 0.333
+            }
+          },
+          "cascade_size": 4,
+          "r_effective": 1.25,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "question",
+          "p_beats_chosen": 0.98,
+          "lift_pct": 11.4,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "myth",
+          "p_beats_chosen": 0.98,
+          "lift_pct": 15.8,
+          "decisive": true
+        }
+      ],
+      "better": 1,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Replace hook with a myth‑busting capital line; keep arrows but make each benefit concrete (no crew, AI script+animation, approve‑then‑pay); add a brief English phrase for accessibility; keep DM ADS and price lines unchanged.",
+      "linkedin: Condense to 4‑5 plain sentences: capital hook, what you do, how it works, pay after approval, DM ADS; remove narrative paragraphs and extra examples.",
+      "bluesky: Swap hook for a capital question; keep one benefit line, DM ADS, price range, pay after approval; ensure total under 260 characters."
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 5.3
+    },
+    "after": {
+      "instagram": 5.6,
+      "linkedin": 0.0,
+      "bluesky": 0.2
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (ProviderDown)",
+      "FAILED google:gemini-3.7-flash (ProviderDown)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "google:gemini-3.8-flash",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED google:gemini-3.8-flash (HTTP 429)",
+      "google:gemini-3.7-flash",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 429)"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 249.2,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "ProviderDown",
+        "seconds": 243.7,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 136.1,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 7.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 10.3,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 17.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 244.6,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 183.0,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "ProviderDown",
+        "seconds": 214.8,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 214.2,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "429",
+        "seconds": 169.8,
+        "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6634, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6534, Req"
+      }
+    ]
+  }
+}

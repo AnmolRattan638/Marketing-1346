@@ -1,5 +1,5 @@
-- Rotate to **question** or **comparison** hooks (contrast underperforms at 0.31x).
-- Avoid repeating "4 hours vs 4 minutes" framing — used 3× recently.
-- Posts must read as a developer showing real work, never an ad.
-- Use bright-desk image style (1.53x hint).
-- Keep examples broad: mention 2–3 varied business types max per line.
+- Hook style: rotate to **question** (1.53x) or **comparison** (1.39x); avoid curiosity (0.75x, n=1).
+- Angle: use **mistake** framing (1.35x); avoid how_to (0.5x) and question angles (0.48x).
+- Visual: try **bright-desk** (1.41x) or **silhouette** (1.29x); drop network style (0.39x).
+- Stop repeating "AI vs manual" contrast hooks — used 3× in last 14 days.
+- Posts must read like a developer sharing real work, never an ad. No demos, no free audits, no niche targeting.

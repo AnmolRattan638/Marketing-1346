@@ -1,27 +1,22 @@
 {
-  "date": "2026-11-14",
+  "date": "2026-11-15",
   "stage": "brand new under 100 followers",
-  "followers": 9,
-  "summary": "Brand new (<100 followers). Bio violates rules: niche/region targeting, timeframe claim, permanent free offer. Reels lose 77% in 3s — hooks fail. Lead_gen outperforms; question/comparison hooks hint best. Too little data for confidence.",
-  "guidance": "- Rotate to **question** or **comparison** hooks (contrast underperforms at 0.31x).\n- Avoid repeating \"4 hours vs 4 minutes\" framing — used 3× recently.\n- Posts must read as a developer showing real work, never an ad.\n- Use bright-desk image style (1.53x hint).\n- Keep examples broad: mention 2–3 varied business types max per line.",
+  "followers": 10,
+  "summary": "Animated ads service scores 0.99x (below median). Reels lose 77% viewers in first 3 seconds — hook fails. Instagram bio violates rules: names niches (hotels, cafes, gyms, homestays), region (Himachal), promises 24‑hr delivery, offers free site check outside website posts.",
+  "guidance": "- Hook style: rotate to **question** (1.53x) or **comparison** (1.39x); avoid curiosity (0.75x, n=1).\n- Angle: use **mistake** framing (1.35x); avoid how_to (0.5x) and question angles (0.48x).\n- Visual: try **bright-desk** (1.41x) or **silhouette** (1.29x); drop network style (0.39x).\n- Stop repeating \"AI vs manual\" contrast hooks — used 3× in last 14 days.\n- Posts must read like a developer sharing real work, never an ad. No demos, no free audits, no niche targeting.",
   "instructions": {
-    "research": "List 5 common website mistakes Indian small businesses make (any industry) that stop customers from messaging.",
-    "analysis": "Compare the two recent website posts (10/31 comparison, 11/7 contrast) — note which hook style got more saves/shares.",
-    "writer": "Write a question-hook carousel: \"What does a customer check on your site before they WhatsApp you?\" Cover 3 universal checks. End with pay-after-approval + DM offer.",
-    "image": "Create a bright-desk carousel slide: code editor showing a clean contact section, no niche branding.",
-    "video": "Skip video today — static carousel fits website service better."
+    "research": "Find 2–3 real Indian small-business pain points about video ad costs (e.g. cafe owner can't afford shoot, gym needs daily story ads, D2C brand needs product motion). Cite generic sources, no client names.",
+    "analysis": "Compare last 3 animated_ads posts (myth, question, contrast hooks) — note which hook style got most saves/shares per reach. Feed that into today's hook choice.",
+    "writer": "Write a single carousel post (3–4 slides) using a **question** hook: \"What if your next Instagram ad cost less than a coffee and took minutes, not days?\" Show the problem (budget, time, skill) and the AI-animated-ad workflow in general terms. End with \"Pay after approval — DM to discuss fit.\" No demo offer.",
+    "image": "Create a bright-desk style carousel: slide 1 hook text on clean desk background; slide 2 simple 3-step workflow icons (script → AI animate → upload); slide 3 price note placeholder; slide 4 CTA. No client logos, no screenshots of unlisted work.",
+    "video": "Skip video today — reel skip rate 77% shows hook failure. Focus on carousel for higher save rate."
   },
   "manual_tips": [
-    "Rewrite Instagram bio: remove niches, region, timeframe, and permanent free offer. Keep only: \"Websites for small businesses across India. Pay after approval. DM for a quick 3-point site check.\"",
-    "Comment on 5 posts from Indian small business owners (varied industries) about their online presence — ask genuine questions, don't pitch.",
-    "Leave a thoughtful comment on a LinkedIn post about freelance/service-selling challenges in India — share one real observation."
+    "Update Instagram bio to: \"AI chatbots, animated ads, lead lists & websites for small businesses across India. Pay after approval. DM for honest advice.\" Remove niches, region, timeframes, free offers.",
+    "Comment thoughtfully on 5 posts by Indian freelancers/agencies discussing client acquisition or video marketing — add value, don't pitch.",
+    "Reply to any story mentions or tags from collaborators (editorxyz_official, shiven_xyz) to keep network warm."
   ],
   "weak_signals": [
-    {
-      "id": "follower_stall",
-      "platform": "instagram",
-      "detail": "6 posts in 7 days and followers changed by +0"
-    },
     {
       "id": "high_skip_rate",
       "platform": "instagram",
@@ -30,22 +25,17 @@
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 34% of what 'lead_gen' earns per person reached"
+      "detail": "by service, 'chatbot' earns 35% of what 'lead_gen' earns per person reached"
     },
     {
       "id": "weak_hook_style",
       "platform": "instagram",
-      "detail": "by hook style, 'contrast' earns 31% of what 'comparison' earns per person reached"
-    },
-    {
-      "id": "zero_engagement_streak",
-      "platform": "bluesky",
-      "detail": "the last 3 settled posts got zero likes, comments, shares and saves"
+      "detail": "by hook style, 'contrast' earns 29% of what 'top3' earns per person reached"
     },
     {
       "id": "follower_stall",
       "platform": "bluesky",
-      "detail": "7 posts in 7 days and followers changed by +0"
+      "detail": "6 posts in 7 days and followers changed by +0"
     }
   ]
 }

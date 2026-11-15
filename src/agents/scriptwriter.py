@@ -28,7 +28,13 @@ BY_ID = {s["id"]: s for s in STYLES}
 SYS = "You write short vertical-video scripts for a solo web and AI developer in India talking to small-business owners. Plain, specific, spoken."
 BAD_OPEN = re.compile(r"^\s*(hi|hello|hey|namaste|welcome|in this (video|reel)|today (i|we)|aaj hum)\b", re.I)
 _NUM = re.compile(r"\d[\d,\.]*")
-WORDS = (5, 14)
+WORDS = (14, 42)      # a body beat explains itself in 1-3 spoken sentences; length of the video does not matter, how clearly it explains does
+HOOK_WORDS = (5, 16)
+CTA_WORDS = (8, 36)
+# helping words that join a thought to its reason or example; a script made only of short bare statements fails
+CONNECT = re.compile(r"\b(kyunki|kyuki|isliye|isiliye|matlab|yaani|jaise|jaise ki|maan lo|socho|yani|toh phir|phir|isse|taaki|warna|lekin|par asli|asli baat|dhyan rakho|iska matlab)\b", re.I)
+# a statistic describes how things are; a line must not turn it into a promise (e.g. "70-90% of calls are repeat questions" is not "70-90% of calls will stop")
+PROMISE = re.compile(r"\b(nahi aayenge|nahi aayegi|nahi aaenge|band ho (jayenge|jayegi|jaenge)|khatam ho|zero ho|guarantee|pakka|100 ?%)\b", re.I)
 COUNT = re.compile(r"\b\d\s?-?\s?(steps?|tarike|tareeke|points?|baar)\b|\b\d{1,2}(:\d\d)?\s?(baje|bje|pm|am)\b", re.I)      # '3 steps' counts our own list, not a statistic
 EMOTIONS = ("curious", "empathetic", "urgent", "calm", "excited", "warm")
 DEFAULT_EMOTION = {"pain": "empathetic", "poke": "urgent", "fix": "calm", "payoff": "excited", "recap": "curious", "cta": "warm"}
@@ -74,8 +80,9 @@ def problems(script, sheet, style):
     for b in beats:
         line = str(b.get("line") or "")
         n = len(line.split())
-        if b.get("beat") != "cta" and not WORDS[0] <= n <= WORDS[1] + 4:
-            out.append(f"{b.get('beat')}: line has {n} words (want {WORDS[0]}-{WORDS[1]})")
+        lo, hi = HOOK_WORDS if b is (beats[0] if beats else None) else (CTA_WORDS if b.get("beat") == "cta" else WORDS)
+        if not lo <= n <= hi + 6:
+            out.append(f"{b.get('beat')}: line has {n} words (want {lo}-{hi}; explain it in full spoken sentences, not a slogan)")
         cited = [facts[i] for i in b.get("facts") or [] if i in facts]
         if any(i not in facts for i in b.get("facts") or []):
             out.append(f"{b.get('beat')}: cites a fact id that is not on the sheet")
@@ -94,8 +101,14 @@ def problems(script, sheet, style):
         if b.get("beat") in ("pain", "poke", "fix") and not SCENE.search(line) and not (b.get("facts") or []):
             out.append(f"{b.get('beat')}: too abstract; name a concrete moment or thing (a 11 pm message, an unanswered enquiry, the WhatsApp reply)")
     hook = beats[0] if beats else {}
-    if hook and len(str(hook.get("line") or "").split()) > 16:
-        out.append("hook is too long; 16 words max")
+    if hook and len(str(hook.get("line") or "").split()) > HOOK_WORDS[1] + 2:
+        out.append(f"hook is too long; {HOOK_WORDS[1]} words max")
+    body = [b for b in beats[1:] if b.get("beat") in ("poke", "fix", "payoff", "recap")]
+    if sum(1 for b in body if CONNECT.search(str(b.get("line") or ""))) < max(1, len(body) // 2):
+        out.append("lines are bare statements; use helping words that give the reason or an example (kyunki, isliye, matlab, jaise ki, phir, taaki) so the viewer understands WHY")
+    for b in beats:
+        if b.get("facts") and PROMISE.search(str(b.get("line") or "")):
+            out.append(f"{b.get('beat')}: turns a statistic into a promise ({PROMISE.search(str(b.get('line'))).group(0)!r}); say only what the fact says")
     fix = next((b for b in beats if b.get("beat") == "fix"), None)
     if fix is not None:
         steps = [str(x).strip() for x in (fix.get("steps") or []) if str(x).strip()]
@@ -117,6 +130,20 @@ def problems(script, sheet, style):
     return out
 
 
+def fidelity(script, sheet, ask):
+    """One more model pass that only checks MEANING: does each spoken line say what its cited facts say (no promises, no wrong cause, no nonsense)? -> list of issues."""
+    facts = {f["id"]: f["claim"] for f in sheet.get("facts", [])}
+    rows = [{"beat": b.get("beat"), "line": b.get("line"), "facts": {i: facts.get(i) for i in b.get("facts") or []}} for b in script.get("beats", [])]
+    prompt = ("You are a strict editor. For each spoken line, decide whether (a) it makes sense heard once by a small-business owner, and (b) it says ONLY what its cited facts say: "
+              "no promise or outcome the fact does not claim, no changed number or cause. Lines citing no fact must not state any statistic.\nReturn JSON {\"issues\": [\"beat: what is wrong and how to say it correctly\"]}, empty list if all fine.\n"
+              + json.dumps(rows, ensure_ascii=False))
+    try:
+        res = llm.ask_json(ask, prompt, "You check whether lines are faithful and clear. JSON only.")
+        return [str(x) for x in (res or {}).get("issues", [])][:5] if isinstance(res, dict) else []
+    except Exception:
+        return []
+
+
 def run(sheet, focus, style, ask=None, voice=None, max_tries=4):
     sheet = {**sheet, "keyword": sheet.get("keyword") or focus.get("dm_keyword") or ""}
     """-> master script dict. Raises ValueError if no valid script after max_tries (caller's stage() reports it)."""
@@ -132,8 +159,14 @@ VERIFIED FACTS (the ONLY facts you may use; cite by id):
 VOICE: {voice[:900]}
 LANGUAGE (strict): every spoken line is HINGLISH in Roman letters, everyday spoken Hindi with English tech words, like talking to a shop owner. Example: "Raat 11 baje customer ne WhatsApp kiya, aur aapne subah reply diya. Tab tak woh dusri dukaan chala gaya." Not translated-sounding Hindi, not plain English.
 
-Write ONE script. Rules: no greeting or intro; one idea; spoken lines of {WORDS[0]}-{WORDS[1]} words (the cta may be shorter);
-HOOK: a specific scene or number from the facts (a time, a thing, a loss), never a general statement or "the myth". PAIN/POKE: one concrete moment the owner has lived. FIX: walk through 2-3 concrete steps in the spoken line AND list them in `steps` (each 7 words max). PAYOFF: only a fact from the sheet, source named in words. CTA: the keyword {sheet.get('keyword', '')} plus exactly what they get (e.g. "Comment BOT, main aapko 3-step setup bhejunga").
+Write ONE script. Rules: no greeting or intro; one idea; 
+SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 2-3 full spoken sentences, and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. Do not worry about video length; worry about the viewer UNDERSTANDING.
+EXPLAIN, don't announce: pain = the moment AND why it hurts (what it costs: time, a lost customer); poke = why the obvious fix fails, the reason in plain words; fix = each step with a one-clause reason ("pehle ..., kyunki ..."); payoff = what the fact MEANS for this owner in plain words (do the arithmetic only if every number comes from a fact); recap = loop back to the pain.
+Use helping words (kyunki, isliye, matlab, jaise ki, phir, taaki, lekin) so each line connects to the one before it. A line must make sense when heard once, with no screen.
+STATISTICS: say a figure exactly as its fact states it. "X% of calls are repeat questions" never becomes "X% of calls will stop"; do not invent an outcome the fact does not claim.
+Vary sentence length and mood inside a beat: a short punchy sentence, then a longer explaining one; a question where you are talking to the owner; "!" only for a real payoff.
+
+HOOK: a specific scene or number from the facts (a time, a thing, a loss), never a general statement or "the myth". PAIN/POKE: one concrete moment the owner has lived. FIX: walk through 2-3 concrete steps in the spoken line AND list them in `steps` (each 7 words max). PAYOFF: only a fact from the sheet, source named in words. CTA: the keyword {sheet.get('keyword', '')} plus exactly what they get and why it helps them (e.g. "Agar aapki website pe bhi yahi dikkat hai, toh comment mein BOT likho. Main aapko 3-step setup bhejunga, taaki aap kal se hi isse try kar sako.").
 Give each beat an `emotion` for the voice-over, one of: curious, empathetic, urgent, calm, excited, warm. plain Hinglish; every number must come from a cited fact and the
 source is named in words when a figure is spoken; no invented clients, results or testimonials; replace any vague line with a concrete detail from the facts or delete it; read each line aloud
 and cut filler. Also give 5 alternative first lines using 5 different hook formulas (question, number, myth, scene, bold claim).
@@ -153,6 +186,8 @@ Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken",
                   "cta": str(data.get("cta") or (beats[-1].get("line") if beats else "")), "linkedin_english": str(data.get("linkedin_english") or ""),
                   "language": "hinglish", "facts": sheet["facts"], "topic": sheet.get("topic"), "service": focus.get("id") or focus.get("name"), "keyword": sheet.get("keyword")}
         bad = problems(script, sheet, style)
+        if not bad:
+            bad = [f"meaning: {x}" for x in fidelity(script, sheet, ask)]
         if not bad:
             return script
         fixes = "Your last script was rejected: " + "; ".join(bad[:6]) + ". Fix exactly these."

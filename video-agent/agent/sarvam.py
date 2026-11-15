@@ -81,26 +81,58 @@ def _request(key: str, text: str, model: str, speaker: str, params: tuple[float,
     return base64.b64decode(audios[0]) if audios else None
 
 
+_SENT = re.compile(r"(?<=[.?!।])\s+")
+
+
+def sentence_emotions(sentences: list[str], base: str | None, beat: str | None) -> list[str]:
+    """One mood per sentence, so a scene is not read in one flat tone: the scene's mood opens it, a question turns curious, an exclamation excited, the sentence that
+    carries the reason (after kyunki/matlab/isliye) slows to calm, and the last sentence of a pain/poke beat softens to empathetic."""
+    base = base if base in EMOTION else "calm"
+    out = []
+    for i, t in enumerate(sentences):
+        t = t.strip()
+        if t.endswith("?"):
+            e = "curious"
+        elif t.endswith("!"):
+            e = "excited"
+        elif re.search(r"\b(kyunki|kyuki|isliye|matlab|yaani|taaki|क्योंकि|इसलिए|मतलब|ताकि)\b", t, re.I):
+            e = "calm"
+        elif i == len(sentences) - 1 and len(sentences) > 1 and beat in ("pain", "poke"):
+            e = "empathetic"
+        else:
+            e = base
+        out.append(e)
+    return out
+
+
 def synth(text: str, mp3, scfg: dict, emotion: str | None = None, beat: str | None = None) -> None:
     key = os.environ.get("SARVAM_API_KEY", "").strip()
     if not key:
         raise RuntimeError("SARVAM_API_KEY is not set")
     spoken = PREP.get(text) or speakable(text)
-    params = EMOTION.get(emotion or "", EMOTION["calm"])
-    wav_bytes = None
+    sentences = [x for x in _SENT.split(spoken.strip()) if x.strip()] or [spoken]
+    moods = sentence_emotions(sentences, emotion, beat)
     cands = scfg.get("candidates") or [{"model": scfg.get("model", "bulbul:v4-flash"), "speaker": scfg.get("speaker", "aayan_hi_conversational")}]
-    for cand in ([*_OK] + [c for c in cands if c not in _OK]):
-        wav_bytes = _request(key, spoken, cand["model"], cand["speaker"], params)      # first model/speaker the account accepts wins
-        if wav_bytes:
-            _OK[:] = [cand]
-            break
-    if not wav_bytes:
-        raise RuntimeError("Sarvam returned no audio for any configured speaker")
-    wav = mp3.with_suffix(".wav")
-    wav.write_bytes(wav_bytes)
+    wavs = []
+    for i, (sent, mood) in enumerate(zip(sentences, moods)):          # each sentence is its own take with its own pace/pitch/loudness
+        wav_bytes = None
+        for cand in ([*_OK] + [c for c in cands if c not in _OK]):
+            wav_bytes = _request(key, sent, cand["model"], cand["speaker"], EMOTION[mood])      # first model/speaker the account accepts wins
+            if wav_bytes:
+                _OK[:] = [cand]
+                break
+        if not wav_bytes:
+            raise RuntimeError("Sarvam returned no audio for any configured speaker")
+        w = mp3.with_suffix(f".s{i}.wav")
+        w.write_bytes(wav_bytes)
+        wavs.append(w)
+    gap = float(scfg.get("sentence_gap", 0.22))                       # a breath between sentences
     pause = PAUSE_AFTER.get(beat or "", 0.3) * float(scfg.get("pause_scale", 1.0))
-    cmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", wav]
-    if pause > 0:
-        cmd += ["-af", f"apad=pad_dur={pause:.2f}"]
-    run(cmd + ["-ac", "1", "-b:a", "128k", mp3])
-    wav.unlink()
+    cmd = ["ffmpeg", "-y", "-loglevel", "error"]
+    for w in wavs:
+        cmd += ["-i", w]
+    parts = [f"[{i}:a]apad=pad_dur={(gap if i < len(wavs) - 1 else pause):.2f}[a{i}]" for i in range(len(wavs))]
+    chain = ";".join(parts) + ";" + "".join(f"[a{i}]" for i in range(len(wavs))) + f"concat=n={len(wavs)}:v=0:a=1[out]"
+    run(cmd + ["-filter_complex", chain, "-map", "[out]", "-ac", "1", "-b:a", "128k", mp3])
+    for w in wavs:
+        w.unlink()

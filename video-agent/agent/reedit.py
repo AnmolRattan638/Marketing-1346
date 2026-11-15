@@ -33,7 +33,19 @@ LIMITS = {"title": 28, "step": 36, "fx_text": 40, "steps": (2, 5), "zoom": (1.1,
 def fetch(src: str, dest: Path) -> Path:
     """The clip from a local path, a Google Drive share link or a direct URL."""
     dest.parent.mkdir(parents=True, exist_ok=True)
-    if Path(src).exists():
+    if src.startswith("telegram:"):
+        token = os.environ.get("TELEGRAM_BOT_TOKEN")
+        if not token:
+            raise RuntimeError("TELEGRAM_BOT_TOKEN is not set, so the video cannot be fetched from Telegram")
+        info = requests.get(f"https://api.telegram.org/bot{token}/getFile", params={"file_id": src[9:]}, timeout=60).json()
+        if not info.get("ok"):
+            raise RuntimeError("Telegram would not give me that video (" + str(info.get("description"))[:120] + "). Telegram bots can only download files up to 20 MB: send a shorter copy or a Drive link")
+        with requests.get(f"https://api.telegram.org/file/bot{token}/{info['result']['file_path']}", stream=True, timeout=120) as r:
+            r.raise_for_status()
+            with open(dest, "wb") as fh:
+                for chunk in r.iter_content(1 << 20):
+                    fh.write(chunk)
+    elif Path(src).exists():
         shutil.copy(src, dest)
     elif "drive.google.com" in src or "docs.google.com" in src:
         import gdown

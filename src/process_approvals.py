@@ -1,7 +1,7 @@
 """Poll Telegram for Approve/Reject taps and publish approved drafts. The Daily draft run waits for the tap; when it ends, follow-up runs of the Approve workflow keep
 listening (a chain, because GitHub runs scheduled workflows only every few hours, however often the schedule says)."""
 import datetime as dt
-import os, subprocess, sys, time
+import os, re, subprocess, sys, time
 from . import config, publish, tg
 
 
@@ -114,14 +114,75 @@ def save_post_image(file_id, ai=False):
     return True
 
 
+STATE = {}                                                  # the tg_state of the running poll (offset + the video waiting for its instructions)
+DRIVE_LINK = re.compile(r"https?://(?:drive|docs)\.google\.com/\S+")
+BOT_FILE_LIMIT = 20 * 1024 * 1024                           # a Telegram bot cannot download files bigger than this
+EDIT_WINDOW = 3600                                          # a video sent without instructions waits this long for them
+
+
+def _video(msg):
+    """(file_id, size) of a video sent as a video or as a file; (None, 0) otherwise."""
+    v = msg.get("video")
+    if v:
+        return v["file_id"], v.get("file_size") or 0
+    d = msg.get("document") or {}
+    if str(d.get("mime_type", "")).startswith("video/"):
+        return d["file_id"], d.get("file_size") or 0
+    return None, 0
+
+
+def start_reedit(video_ref, instructions, reply_to=None):
+    """Start the Re-edit workflow with the clip (Telegram file or Drive link) and your words."""
+    cmd = ["gh", "workflow", "run", "re-edit.yml", "-f", f"video_url={video_ref}", "-f", f"instructions={instructions}"]
+    if os.getenv("GITHUB_REPOSITORY"):
+        cmd += ["-R", os.environ["GITHUB_REPOSITORY"]]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode:
+        tg.send("I could not start the editor: " + (r.stderr or r.stdout)[-300:], reply_to=reply_to)
+        return False
+    tg.send("Got it. Editing now; the new video will arrive here in a few minutes.\n\nWhat I'll do: " + instructions[:500], reply_to=reply_to)
+    return True
+
+
+def handle_edit_video(msg, file_id, size):
+    """A video: with a caption it is the instructions; without one the bot asks for them (they can follow as a normal message within an hour)."""
+    cap = (msg.get("caption") or "").strip()
+    if size > BOT_FILE_LIMIT:
+        return tg.send("That video is over 20 MB, which is more than a Telegram bot can download. Upload it to Google Drive (share as 'Anyone with the link') and send me the link "
+                       "together with what to change, or send a shorter / compressed copy.", reply_to=msg.get("message_id"))
+    if cap:
+        STATE.pop("edit_video", None)
+        return start_reedit(f"telegram:{file_id}", cap, msg.get("message_id"))
+    STATE["edit_video"] = {"file_id": file_id, "at": time.time(), "message_id": msg.get("message_id")}
+    tg.send("Got the video. Now send what to change, as a normal message (e.g. 'explain the 3 steps around 12 s with a step graphic, zoom in at 20 s').", reply_to=msg.get("message_id"))
+
+
+def handle_edit_text(msg):
+    """Plain text: instructions for a video sent a moment ago, or a Google Drive link plus instructions. Anything else is ignored."""
+    text = (msg.get("text") or "").strip()
+    if not text:
+        return
+    link = DRIVE_LINK.search(text)
+    if link:
+        rest = (text.replace(link.group(0), "") or "").strip() or "Add suitable motion graphics"
+        return start_reedit(link.group(0), rest, msg.get("message_id"))
+    pending = STATE.get("edit_video")
+    if pending and time.time() - pending.get("at", 0) < EDIT_WINDOW:
+        STATE.pop("edit_video", None)
+        return start_reedit(f"telegram:{pending['file_id']}", text, msg.get("message_id"))
+
+
 def handle_message(msg):
     """A photo or image file. Caption 'stats' (e.g. 'stats linkedin') = analytics screenshot; caption 'post' or 'ai' = today's post image ('ai' also marks it
     AI-generated). Anything else is ambiguous, so the bot asks with two buttons and saves nothing (and commits nothing) until you answer."""
     if not authorized(msg["chat"], msg.get("from")):
         return
+    vid, size = _video(msg)
+    if vid:
+        return handle_edit_video(msg, vid, size)
     file_id = _image_file_id(msg)
     if not file_id:
-        return
+        return handle_edit_text(msg)
     cap = (msg.get("caption") or "").strip()
     words = cap.lower().split()
     if cap.lower().startswith("stats"):
@@ -181,6 +242,8 @@ def pending_today():
 
 def poll(state, timeout):
     """One getUpdates call; handles every Approve/Reject tap and every image you sent to the bot."""
+    global STATE
+    STATE = state
     updates = tg.get_updates(state["offset"], timeout)
     for u in updates:
         state["offset"] = u["update_id"] + 1

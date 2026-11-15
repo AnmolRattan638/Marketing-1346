@@ -1,5 +1,5 @@
 """Offline test: Sarvam voice path (bilingual prep, per-emotion params, speaker fallthrough, pauses) and script-word caption alignment. HTTP mocked."""
-import base64, json, os, pathlib, subprocess, sys, tempfile
+import base64, os, pathlib, subprocess, sys, tempfile
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "video-agent"))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 os.environ["SARVAM_API_KEY"] = "k"

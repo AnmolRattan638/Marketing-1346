@@ -1,5 +1,5 @@
 """Offline test: picture, SFX, captions and B-roll stay in sync with the narration (cuts on words, SFX on cuts and emphasis words, per-shot B-roll)."""
-import tempfile, json, os, pathlib, random, sys, tempfile
+import json, os, pathlib, random, sys, tempfile
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "video-agent"
 sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)

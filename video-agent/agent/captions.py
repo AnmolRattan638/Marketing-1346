@@ -1,7 +1,6 @@
 """Word timings for captions and SFX: Groq Whisper, with an even-split estimate as fallback."""
 from __future__ import annotations
 
-import os
 
 import requests
 

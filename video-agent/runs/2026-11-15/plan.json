@@ -1,0 +1,93 @@
+{
+  "title": "Why local shops need a website",
+  "scenes": [
+    {
+      "narration": "Most customers search online before they visit a shop.",
+      "sfx": [
+        {
+          "type": "pop",
+          "at": "word",
+          "at_word": "online"
+        }
+      ],
+      "fx": [
+        {
+          "type": "lower_third",
+          "text": "AR Designs",
+          "label": "Websites for local shops"
+        }
+      ],
+      "graphic": {
+        "layout": "title",
+        "kicker": "Most customers",
+        "heading": "Search online",
+        "heading2": "before they visit",
+        "chips": [
+          "Phone",
+          "Google",
+          "Maps"
+        ]
+      },
+      "beat": "pain"
+    },
+    {
+      "narration": "If you do not show up, they walk into the next one.",
+      "transition": "glitch",
+      "graphic": {
+        "layout": "strike",
+        "kicker": "If you are not there",
+        "items": [
+          "Not found",
+          "Not trusted",
+          "Not visited"
+        ],
+        "heading": "They walk next door"
+      },
+      "beat": "poke"
+    },
+    {
+      "narration": "A simple website shows your hours, your location and your best work.",
+      "footage_query": "laptop website design desk",
+      "sfx": [
+        {
+          "type": "riser",
+          "at": "word",
+          "at_word": "best"
+        }
+      ],
+      "broll": [
+        "laptop screen website",
+        "hands typing laptop"
+      ],
+      "transition": "whip",
+      "fx": [
+        {
+          "type": "title",
+          "at_word": "hours",
+          "text": "Hours · Location · Work"
+        }
+      ],
+      "beat": "fix"
+    },
+    {
+      "narration": "Message us today and we will plan yours.",
+      "footage_query": "smiling shop owner counter",
+      "sfx": [
+        {
+          "type": "click",
+          "at": "word",
+          "at_word": "today"
+        }
+      ],
+      "broll": [
+        "shop owner smiling counter",
+        "customer entering shop"
+      ],
+      "transition": "zoom",
+      "beat": "cta"
+    }
+  ],
+  "cta": {
+    "text": "Message us today"
+  }
+}

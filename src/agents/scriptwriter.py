@@ -131,20 +131,22 @@ def problems(script, sheet, style):
 
 
 def fidelity(script, sheet, ask):
-    """One more model pass that only checks MEANING: does each spoken line say what its cited facts say (no promises, no wrong cause, no nonsense)? -> list of issues."""
-    facts = {f["id"]: f["claim"] for f in sheet.get("facts", [])}
-    rows = [{"beat": b.get("beat"), "line": b.get("line"), "facts": {i: facts.get(i) for i in b.get("facts") or []}} for b in script.get("beats", [])]
-    prompt = ("You are a strict editor. For each spoken line, decide whether (a) it makes sense heard once by a small-business owner, and (b) it says ONLY what its cited facts say: "
-              "no promise or outcome the fact does not claim, no changed number or cause. Lines citing no fact must not state any statistic.\nReturn JSON {\"issues\": [\"beat: what is wrong and how to say it correctly\"]}, empty list if all fine.\n"
-              + json.dumps(rows, ensure_ascii=False))
+    """One more model pass that only checks MEANING against the WHOLE fact sheet. Flags only: a number or cause that contradicts or changes a fact, an outcome promised that no fact claims,
+    a source or brand named that no fact names, or a line that is unintelligible. Plain-language explanation of WHY (common sense, no new figure) is allowed. -> list of issues."""
+    facts = {f["id"]: f"{f['claim']} (source: {f.get('source')})" for f in sheet.get("facts", [])}
+    rows = [{"beat": b.get("beat"), "line": b.get("line"), "cites": b.get("facts") or []} for b in script.get("beats", [])]
+    prompt = ("You are an editor checking spoken lines against ALL verified facts. Flag a line ONLY if: (1) it changes or contradicts a number or cause stated in a fact; (2) it promises an outcome "
+              "no fact claims (e.g. 'calls will stop'); (3) it names a company, person or study that no fact names; (4) it is unintelligible when heard once. "
+              "Do NOT flag plain-language explanations, examples or reasons that add no figure or name. Each issue must say exactly how to fix it.\n"
+              "Return JSON {\"issues\": [\"beat: problem and the exact fix\"]}, empty if fine.\nFACTS: " + json.dumps(facts, ensure_ascii=False) + "\nLINES: " + json.dumps(rows, ensure_ascii=False))
     try:
         res = llm.ask_json(ask, prompt, "You check whether lines are faithful and clear. JSON only.")
-        return [str(x) for x in (res or {}).get("issues", [])][:5] if isinstance(res, dict) else []
+        return [str(x) for x in (res or {}).get("issues", [])][:4] if isinstance(res, dict) else []
     except Exception:
         return []
 
 
-def run(sheet, focus, style, ask=None, voice=None, max_tries=4):
+def run(sheet, focus, style, ask=None, voice=None, max_tries=6):
     sheet = {**sheet, "keyword": sheet.get("keyword") or focus.get("dm_keyword") or ""}
     """-> master script dict. Raises ValueError if no valid script after max_tries (caller's stage() reports it)."""
     ask = ask or llm.gemini

@@ -10,7 +10,7 @@ from .common import log
 GROQ_STT_URL = "https://api.groq.com/openai/v1/audio/transcriptions"
 
 
-def _transcribe(mp3, lang: str, cfg: dict) -> list[dict]:
+def _transcribe(mp3, lang: str, cfg: dict, prompt: str = "", model: str = "") -> list[dict]:
     r = None
     for key in groqkeys.rotated():
         with open(mp3, "rb") as fh:
@@ -19,10 +19,11 @@ def _transcribe(mp3, lang: str, cfg: dict) -> list[dict]:
                 headers={"Authorization": f"Bearer {key}"},
                 files={"file": (mp3.name, fh, "audio/mpeg")},
                 data={
-                    "model": cfg["captions"]["model"],
+                    "model": model or cfg["captions"]["model"],
                     "response_format": "verbose_json",
                     "timestamp_granularities[]": "word",
                     "language": lang,
+                    **({"prompt": prompt} if prompt else {}),
                 },
                 timeout=120,
             )

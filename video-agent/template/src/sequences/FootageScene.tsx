@@ -1,5 +1,5 @@
 import React from "react";
-import { THEME } from "../graphics/theme";
+import { THEME, LOGO_SAFE_TOP } from "../graphics/theme";
 import {
   AbsoluteFill,
   Loop,
@@ -104,7 +104,7 @@ const FootageScene: React.FC<FootageSceneProps> = ({
       {grain > 0 ? <FilmGrain opacity={grain} /> : null}
       {overlayText ? (
         <AbsoluteFill
-          style={{ justifyContent: "flex-start", alignItems: "center", paddingTop: 260 }}
+          style={{ justifyContent: "flex-start", alignItems: "center", paddingTop: LOGO_SAFE_TOP }}
         >
           <div
             style={{

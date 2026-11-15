@@ -59,6 +59,13 @@ jobs:
           key: edits-${{ github.run_id }}
           restore-keys: edits-
 
+      - name: Memory between runs (planner mistakes to avoid, last templates / looks used)
+        uses: actions/cache@v4
+        with:
+          path: video-agent/state
+          key: state-${{ github.run_id }}
+          restore-keys: state-
+
       - name: Node deps
         working-directory: video-agent/template
         run: npm ci

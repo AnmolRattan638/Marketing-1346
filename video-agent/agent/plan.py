@@ -11,7 +11,7 @@ import requests
 
 from .common import ROOT, SKILLS, log
 from . import groqkeys, master_script
-from .schema import validate_plan, SFX_TYPES
+from .schema import validate_plan, SFX_TYPES, PLAN_SCHEMA
 
 GROQ_CHAT_URL = "https://api.groq.com/openai/v1/chat/completions"
 MAX_SKILLS = 3  # every skill costs prompt tokens; free-tier rate limits are tight
@@ -87,6 +87,26 @@ def _blank(v) -> bool:
     return v is None or (isinstance(v, str) and not v.strip())
 
 
+def _fit(value, schema):
+    """Shorten strings over their schema maxLength (at a word boundary) and lists over maxItems, in place. Narration is never touched; it is the script."""
+    if isinstance(value, str) and isinstance(schema, dict) and schema.get("type") == "string" and len(value) > schema.get("maxLength", 10**9):
+        cut = " ".join(value.split())[: schema["maxLength"]]
+        return (cut.rsplit(" ", 1)[0] if " " in cut and len(value) > schema["maxLength"] and value[len(cut)] != " " else cut).strip(" ,;:-")
+    if isinstance(value, list) and isinstance(schema, dict):
+        if isinstance(schema.get("maxItems"), int):
+            del value[schema["maxItems"]:]
+        for i, v in enumerate(value):
+            value[i] = _fit(v, schema.get("items"))
+        return value
+    if isinstance(value, dict) and isinstance(schema, dict):
+        props = schema.get("properties", {})
+        for k in list(value):
+            if k != "narration" and k in props:
+                value[k] = _fit(value[k], props[k])
+        return value
+    return value
+
+
 FX_TYPES = ("stat", "glitch", "title", "lower_third", "shake", "quote")
 
 
@@ -105,6 +125,7 @@ def tidy_plan(plan):
         text = " ".join(text.split())
         return text if len(text) <= limit else text[:limit].rsplit(" ", 1)[0].strip()
 
+    plan_fit = _fit(plan, PLAN_SCHEMA)      # any on-screen text a hair over its limit (a 35-letter heading for 30) is cut at a word, not allowed to fail the run
     for sc in plan["scenes"]:
         if not isinstance(sc, dict):
             continue

@@ -68,3 +68,7 @@ print("script framework test: ok")
 # an unknown fx/sfx type (a "pop" sound written under fx) drops that entry instead of failing the plan
 _p = plan.tidy_plan({"scenes": [{"narration": "abcde", "fx": [{"type": "pop"}, {"type": "stat", "text": "1"}], "sfx": [{"type": "zap"}, {"type": "pop", "at": "cut"}]}]})
 assert _p["scenes"][0]["fx"] == [{"type": "stat", "text": "1"}] and _p["scenes"][0]["sfx"] == [{"type": "pop", "at": "cut"}]
+
+# text a little over its limit is shortened at a word instead of failing the plan; narration is never cut
+_g = plan.tidy_plan({"scenes": [{"narration": "abcde " * 100, "graphic": {"layout": "step", "heading": "53% businesses karti hain ye galati", "chips": list("abcd")}}]})["scenes"][0]
+assert _g["graphic"]["heading"] == "53% businesses karti hain ye" and len(_g["graphic"]["chips"]) == 3 and len(_g["narration"]) == 600

@@ -1,0 +1,48 @@
+{
+ "summary": "Explain the 3-step setup with a step graphic, add a title and a zoom, cut one second",
+ "cuts": [
+  {
+   "from": 0.2,
+   "to": 1.2
+  }
+ ],
+ "zooms": [
+  {
+   "from": 8,
+   "to": 10.5,
+   "scale": 1.3,
+   "x": 0.5,
+   "y": 0.45
+  }
+ ],
+ "procedures": [
+  {
+   "from": 2.5,
+   "to": 8,
+   "title": "3-step setup",
+   "position": "top",
+   "steps": [
+    {
+     "text": "Business name + phone match",
+     "at": 3.2
+    },
+    {
+     "text": "Add services, FAQs, map link",
+     "at": 4.8
+    },
+    {
+     "text": "Make the site load fast",
+     "at": 6.4
+    }
+   ]
+  }
+ ],
+ "fx": [
+  {
+   "type": "title",
+   "at": 10.8,
+   "seconds": 1.0,
+   "text": "Match everywhere"
+  }
+ ]
+}

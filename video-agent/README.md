@@ -134,3 +134,12 @@ preferred when it is clear. Motion-graphic scenes keep their lower third free by
 ## Voice (Sarvam Bulbul, Aayan)
 
 `voice_engine: "sarvam"` in `config.json` reads each scene with Sarvam Bulbul v4-flash (persona `aayan_hi_conversational`; other personas/models are tried in order if the account rejects one). Needs the secret `SARVAM_API_KEY`. The lines are converted once to Sarvam's preferred bilingual script (Hindi in Devanagari, English words in Latin) for the voice only; captions keep the Roman Hinglish of the master script. Each beat's `emotion` sets pace, pitch and loudness (`agent/sarvam.py`, `EMOTION`) and a short pause follows every beat. If Sarvam fails, the reel falls back to Edge TTS (Hindi). Audition it with the workflow "Voice test (Sarvam, Aayan)".
+
+
+## Re-edit a finished clip (`re-edit` workflow)
+Take a downloaded reel you like, say what to change, and the agent edits it for you. Actions -> "Re-edit a clip" -> Run workflow:
+- `video_url`: a Google Drive link to the clip (share as "Anyone with the link") or a direct video URL
+- `instructions`: plain words, e.g. "around 12 s explain the 3 steps as a step graphic, zoom in on the phone number at 20 s, cut the pause at 25 s"
+
+It transcribes the clip (Whisper), the planner picks only from: **procedure** (step-by-step card whose steps light up on the spoken words), **title / stat / lower_third / glitch** text effects, **zoom** and **cut** (later times are re-timed). Your original picture, captions, logo and audio are kept; graphics stay below the logo corner. A bad plan is sent back with the exact mistakes (3 tries). The result comes to Telegram; `edit_plan.json` and `transcript.txt` are in the run artifact, so you can say "same, but move step 2 earlier".
+Limits: captions already burned into your clip cannot be removed, so graphics can cover them for a moment (say `position: middle` or `bottom` in the instructions to move a card); no speed changes yet.

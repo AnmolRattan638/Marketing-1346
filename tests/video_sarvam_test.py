@@ -56,6 +56,17 @@ assert [x["text"] for x in w] == ["Raat", "ko", "customer", "aaya"]
 assert all(a["end"] <= b["start"] + 1e-6 for a, b in zip(w, w[1:])) and w[0]["start"] == 0.0 and abs(w[-1]["end"] - 1.9) < 0.15, w
 assert 0.55 < w[2]["start"] < 0.95, w                                                         # "customer" starts near where it is heard
 assert captions.align_script("", heard) == heard and captions.align_script("a b", []) == []
+# one voice per reel: when Sarvam fails for a scene the run fails loudly, it never switches to the edge (female) voice for that scene
+import tempfile as _tf, pathlib as _pl
+_d = _pl.Path(_tf.mkdtemp()); os.environ["SARVAM_API_KEY"] = "k"
+_cfg = {"voice_engine": "sarvam", "language": "hi", "voice_language": "hi", "voices": {"hi": {"sarvam": {}, "edge": {}}}}
+_edge_called = []
+voice.ENGINES["edge"] = lambda *a, **k: _edge_called.append(1)
+voice.ENGINES["sarvam"] = lambda *a, **k: (_ for _ in ()).throw(RuntimeError("Sarvam 429"))
+try: voice.synth("x", _d / "o.mp3", _cfg, False); assert False
+except RuntimeError as e: assert "Sarvam 429" in str(e)
+assert not _edge_called
+assert sarvam.speakable("mismatched hours") .startswith("मिसमैच्ड")
 print("video sarvam ok")
 
 

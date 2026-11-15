@@ -103,7 +103,8 @@ ENGINES = {"sarvam": _sarvam, "chatterbox": _chatterbox, "kokoro": _kokoro, "edg
 def synth(text: str, mp3: Path, cfg: dict, offline: bool, emotion: str | None = None, beat: str | None = None) -> float:
     """Write narration to mp3 and return its length in seconds."""
     vcfg = cfg["voices"][cfg.get("voice_language") or cfg["language"]]
-    order = [cfg["voice_engine"], "edge"] if cfg["voice_engine"] == "sarvam" else [cfg["voice_engine"], "kokoro", "edge"]       # the chosen voice first; if it fails the reel still gets a voice
+    # Sarvam: ONE voice for the whole reel. A scene that cannot be spoken by it fails the run (clear message) instead of switching to another voice for that scene.
+    order = [cfg["voice_engine"]] if cfg["voice_engine"] == "sarvam" and cfg.get("voice_single", True) else ([cfg["voice_engine"], "edge"] if cfg["voice_engine"] == "sarvam" else [cfg["voice_engine"], "kokoro", "edge"])
     if offline:
         order = ["silent"]
     last_err = None

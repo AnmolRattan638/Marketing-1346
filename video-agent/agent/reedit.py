@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import shutil
 import time
 from pathlib import Path
@@ -64,16 +65,74 @@ def fetch(src: str, dest: Path) -> Path:
     return dest
 
 
+HINGLISH_PROMPT = "यह हिंदी और अंग्रेज़ी मिली हुई वॉयसओवर है: क्या आपको लगता है कि आपके सारे कस्टमर्स गूगल से मिल जाएंगे? वेबसाइट, चैटबॉट, WhatsApp, बिज़नेस।"
+WINDOW = 4.0                 # seconds; a spoken window with fewer than MIN_WORDS words while it is clearly audible is transcribed again on its own
+MIN_WORDS = 4
+AUDIBLE_DB = -38.0
+
+
+def window_db(wav: Path, a: float, b: float) -> float:
+    """Mean volume (dB) of a time window; -91 when it cannot be measured."""
+    p = run(["ffmpeg", "-hide_banner", "-ss", f"{a:.2f}", "-t", f"{b - a:.2f}", "-i", wav, "-af", "volumedetect", "-vn", "-f", "null", "-"], capture=True)
+    m = re.search(r"mean_volume: (-?[\d.]+) dB", (p.stderr or "") + (p.stdout or ""))
+    return float(m.group(1)) if m else -91.0
+
+
+def fill_gaps(words: list[dict], duration: float, loud, again) -> list[dict]:
+    """Whisper often drops the first seconds of a clip (the hook) or a stretch under music. Every WINDOW-second stretch that is audible but has too few words is
+    transcribed again on its own (loud(a, b) -> dB, again(a, b) -> words with times in the whole clip); the result replaces the sparse words only if it found more."""
+    out = list(words)
+    t = 0.0
+    while t < duration - 0.8:
+        a, b = t, min(duration, t + WINDOW)
+        have = [w for w in out if a <= w["start"] < b]
+        if len(have) < MIN_WORDS and loud(a, b) > AUDIBLE_DB:
+            new = [w for w in again(max(0, a - 0.3), min(duration, b + 0.3)) if a - 0.05 <= w["start"] < b]
+            if len(new) > len(have):
+                out = [w for w in out if not (a <= w["start"] < b)] + new
+        t += WINDOW
+    return sorted(out, key=lambda w: w["start"])
+
+
 def transcript(video: Path, cfg: dict) -> list[dict]:
     """Word timings of what is said in the clip (empty when speech-to-text is unavailable: the plan then relies on the instructions alone)."""
-    mp3 = video.with_suffix(".wav.mp3")
-    run(["ffmpeg", "-y", "-loglevel", "error", "-i", video, "-vn", "-ac", "1", "-ar", "16000", "-b:a", "48k", mp3])
+    wav = video.with_suffix(".speech.wav")
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", video, "-vn", "-ac", "1", "-ar", "16000", "-af", "highpass=f=90,loudnorm=I=-18:TP=-2", wav])
+    lang = cfg.get("voice_language", "hi")
     c = {**cfg, "captions": {"model": "whisper-large-v3-turbo", **cfg.get("captions", {})}}
+
+    def hear(path: Path, offset: float = 0.0) -> list[dict]:
+        mp3 = path.with_suffix(".mp3")
+        run(["ffmpeg", "-y", "-loglevel", "error", "-i", path, "-b:a", "64k", mp3])
+        last = None
+        for model in ("whisper-large-v3", c["captions"]["model"]):         # the bigger model first: it keeps the quiet / fast words
+            try:
+                ws = captions._transcribe(mp3, lang, c, prompt=HINGLISH_PROMPT, model=model)
+                return [{**w, "start": w["start"] + offset, "end": w["end"] + offset} for w in ws]
+            except Exception as e:
+                last = e
+        raise last
+
     try:
-        return captions._transcribe(mp3, c.get("voice_language", "hi"), c)
+        words = hear(wav)
     except Exception as e:
         log(f"transcription failed ({str(e)[:120]}); planning from the instructions only")
         return []
+    duration = media_duration(video)
+
+    def again(a: float, b: float) -> list[dict]:
+        part = video.with_suffix(f".w{int(a * 10)}.wav")
+        run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{a:.2f}", "-t", f"{b - a:.2f}", "-i", wav, part])
+        try:
+            return hear(part, a)
+        except Exception:
+            return []
+
+    try:
+        words = fill_gaps(words, duration, lambda a, b: window_db(wav, a, b), again)
+    except Exception as e:
+        log(f"gap check skipped ({str(e)[:100]})")
+    return words
 
 
 def lines(words: list[dict]) -> str:
@@ -304,6 +363,8 @@ def main(argv=None) -> None:
         out = out_dir / "edited.mp4"
         render(props, out)
         notify.send_video(out, "Re-edit: " + describe(props, ops))
+        if words:
+            notify.send_message("What I heard in your clip (check the planned timings against this):\n" + lines(words))
         log(f"done: {out}")
     except Exception as e:
         log(f"re-edit failed: {e}")

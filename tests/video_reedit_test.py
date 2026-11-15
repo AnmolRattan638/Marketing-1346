@@ -38,3 +38,15 @@ props = r.build_props(good, words, segs, 20)
 assert abs(props["seconds"] - 18) < 1e-6 and abs(props["procedures"][0]["steps"][0]["at"] - 3.6) < 1e-6
 assert abs(props["fx"][0]["atSecond"] - 11.5) < 1e-6 and abs(props["zooms"][0]["from"] - 8) < 1e-6
 print("video reedit ok")
+
+# a hook that Whisper skipped is transcribed again on its own; silent stretches are left alone; a worse retry never replaces better words
+heard = [{"text": "jayenge", "start": 3.4, "end": 3.9}] + [{"text": f"w{i}", "start": 4.2 + i * 0.35, "end": 4.5 + i * 0.35} for i in range(11)]
+hook = [{"text": t, "start": 0.2 + i * 0.35, "end": 0.5 + i * 0.35} for i, t in enumerate("Kya aapko lagta hai ki aapko sare customers Google se mil".split())]
+calls = []
+def again(a, b): calls.append((round(a, 1), round(b, 1))); return hook if a < 1 else []
+fixed = r.fill_gaps(heard, 12.0, lambda a, b: -20 if a < 4 else -60, again)
+assert [w["text"] for w in fixed][:3] == ["Kya", "aapko", "lagta"] and fixed[-1]["text"] == "w10"
+assert calls and calls[0][0] == 0.0
+assert len([w for w in fixed if w["start"] < 4]) == len(hook)
+assert r.fill_gaps(heard, 12.0, lambda a, b: -60, again) == heard
+print("video reedit gaps ok")

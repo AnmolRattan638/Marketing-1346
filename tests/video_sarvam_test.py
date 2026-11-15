@@ -66,7 +66,7 @@ voice.ENGINES["sarvam"] = lambda *a, **k: (_ for _ in ()).throw(RuntimeError("Sa
 try: voice.synth("x", _d / "o.mp3", _cfg, False); assert False
 except RuntimeError as e: assert "Sarvam 429" in str(e)
 assert not _edge_called
-assert sarvam.speakable("mismatched hours") .startswith("मिसमैच्ड")
+assert sarvam.speakable("mismatched hours").startswith("मिसमैच्ड") and sarvam.speakable("site") == "साइट" and len(sarvam.LEXICON) > 120
 print("video sarvam ok")
 
 

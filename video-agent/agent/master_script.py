@@ -114,6 +114,14 @@ def enforce_words(plan: dict, master: dict) -> dict:
         g = s.get("graphic")
         if isinstance(g, dict) and g.get("chips"):
             g["chips"] = [c for c in g["chips"] if not _digits(c) or _digits(c) <= ok]
+    # content skills: the hook's 3-5 word headline is on the first frame (works on mute); never invented, it is the script's own `screen`
+    hook = " ".join(str((master["beats"][0].get("screen") or "")).split()[:5]) if master.get("beats") else ""
+    if scenes and hook:
+        g = scenes[0].get("graphic")
+        if not isinstance(g, dict):
+            scenes[0]["graphic"] = {"layout": "title", "heading": hook[:30]}
+        elif not g.get("heading"):
+            g["heading"] = hook[:30]
     plan["scenes"] = scenes
     return plan
 
@@ -124,4 +132,7 @@ def prompt_block(master: dict) -> str:
     return ("\nMASTER SCRIPT (fixed, fact-checked; you are the DIRECTOR). One scene per beat, in exactly this order, each with its `beat` field. Do NOT write or change any words: "
             "the scene's narration is the beat's line, copied. Your job is the picture: choose graphic layout, fx, camera, footage_query for each beat "
             "(pain = bold title/punch, poke = strike, fix = step/checklist/terminal, payoff = stat/punch, recap = title, cta = outro). Add no fact, number or claim.\n"
+            "CONTENT SKILLS (hardcoded, mandatory): scene 1 is the hook: show its `on screen` words (3-5 bold words) as a big title/punch graphic on the FIRST frame, top-centre and clear of the logo, "
+            "so the hook works on mute; every later beat change gets a visible pattern reset (new graphic layout, zoom or cut); keep text out of the bottom 600px and right 150px; "
+            "the cta scene shows ONE ask only, no 'like/follow/tag'. Opening visual must show the stake, not a logo.\n"
             f"Style: {master.get('style')}\n{beats}\n")

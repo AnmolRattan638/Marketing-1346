@@ -12,6 +12,7 @@ import json
 import os
 import re
 import time
+from pathlib import Path
 
 import requests
 
@@ -27,17 +28,17 @@ PAUSE_AFTER = {"pain": 0.45, "poke": 0.40, "fix": 0.35, "payoff": 0.40, "recap":
 PREP: dict[str, str] = {}
 _OK: list = []            # the model/speaker this account accepted, tried first from then on
 DEVANAGARI = re.compile(r"[ऀ-ॿ]")
-# English words the Hindi voice mangles when they are left in Latin letters (it spells ALL-CAPS words letter by letter and says "whatsaap"): they are written the way an Indian speaker
-# says them, in Devanagari, by code, so it does not depend on the model's conversion. Add words here when one sounds wrong.
-LEXICON = {
-    "bot": "बॉट", "bots": "बॉट्स", "chatbot": "चैटबॉट", "step": "स्टेप", "steps": "स्टेप्स", "whatsapp": "व्हाट्सऐप", "lead": "लीड", "leads": "लीड्स",
-    "website": "वेबसाइट", "comment": "कमेंट", "message": "मैसेज", "reply": "रिप्लाई", "customer": "कस्टमर", "customers": "कस्टमर्स", "setup": "सेटअप",
-    "free": "फ्री", "demo": "डेमो", "link": "लिंक", "dm": "डीएम", "instagram": "इंस्टाग्राम", "google": "गूगल", "online": "ऑनलाइन", "business": "बिज़नेस",
-    "automation": "ऑटोमेशन", "ai": "ए आई", "minute": "मिनट", "minutes": "मिनट", "booking": "बुकिंग", "bookings": "बुकिंग्स", "follow": "फॉलो", "follow-up": "फॉलो-अप",
-    "mismatch": "मिसमैच", "mismatched": "मिसमैच्ड", "match": "मैच", "matched": "मैच्ड", "profile": "प्रोफ़ाइल", "details": "डिटेल्स", "search": "सर्च", "results": "रिज़ल्ट्स",
-    "mobile": "मोबाइल", "phone": "फ़ोन", "update": "अपडेट", "updated": "अपडेटेड", "map": "मैप", "reviews": "रिव्यूज़", "review": "रिव्यू", "listing": "लिस्टिंग", "local": "लोकल",
-    "sales": "सेल्स", "app": "ऐप", "call": "कॉल", "number": "नंबर", "offer": "ऑफर",
-}
+def _load_lexicon() -> dict[str, str]:
+    """The pronunciation dictionary: agent/pronunciations.json maps an English word (lower case) to the Devanagari spelling the voice reads correctly. Edit that file to fix a word."""
+    try:
+        d = json.loads((Path(__file__).with_name("pronunciations.json")).read_text(encoding="utf-8"))
+        return {str(k).lower(): str(v) for k, v in d.items()}
+    except Exception as e:
+        log(f"sarvam: pronunciation dictionary not loaded ({e})")
+        return {}
+
+
+LEXICON = _load_lexicon()
 _LATIN_WORD = re.compile(r"[A-Za-z][A-Za-z'\-]*")
 
 
@@ -52,14 +53,20 @@ def prepare(texts: list[str], ask) -> None:
     todo = [t for t in dict.fromkeys(texts) if t not in PREP]
     if not todo:
         return
-    prompt = ("Rewrite each Roman-letter Hinglish line for a text-to-speech engine: write the Hindi words in Devanagari and keep other English words (brand names, tech words) in Latin letters, written in normal lower case (never ALL CAPS, which the voice spells out). Keep the meaning, order, numbers, punctuation and the casual spoken tone; do not translate English words into Hindi "
-              "and do not add or drop words.\nReturn JSON {\"lines\": [...]} with exactly " + str(len(todo)) + " strings in the same order.\n" + json.dumps(todo, ensure_ascii=False))
+    prompt = ("Rewrite each Roman-letter Hinglish line for a Hindi text-to-speech engine so EVERY word is written in Devanagari, spelled the way an Indian speaker pronounces it: Hindi words "
+              "in Devanagari, and English words transliterated phonetically into Devanagari (site -> साइट, mismatched -> मिसमैच्ड, WhatsApp -> व्हाट्सऐप, checklist -> चेकलिस्ट). "
+              "Acronyms are spelled letter by letter in Devanagari (CRM -> सी आर एम). Words already in Devanagari stay as they are. Keep the meaning, order, numbers, punctuation and the casual "
+              "spoken tone; do not translate English words into Hindi and do not add or drop words.\nReturn JSON {\"lines\": [...]} with exactly " + str(len(todo)) + " strings in the same order.\n"
+              + json.dumps([speakable(t) for t in todo], ensure_ascii=False))
     try:
         out = ask(prompt).get("lines") or []
         if len(out) != len(todo):
             raise ValueError(f"got {len(out)} lines for {len(todo)}")
         for src, dst in zip(todo, out):
             PREP[src] = speakable(dst if isinstance(dst, str) and dst.strip() else src)
+            left = sorted({w.lower() for w in _LATIN_WORD.findall(PREP[src])})
+            if left:
+                log(f"sarvam: still in Latin letters (add to pronunciations.json if one sounds wrong): {', '.join(left)}")
     except Exception as e:
         log(f"sarvam: bilingual conversion skipped ({str(e)[:120]}), speaking the Roman text")
         for t in todo:

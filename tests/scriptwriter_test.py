@@ -32,10 +32,10 @@ assert sw.pick_style(hist + [{"script_style": sw.STYLES[-1]["id"]}])["id"] == sw
 style = sw.BY_ID["myth-bust"]
 good = {"hooks": ["Raat 11 baje customer ka message aaya, jawab nahi gaya", "Aapke leads raat ko kahan jaate hain?", "21 guna zyada leads, bas ek aadat se", "Customer ne raat ko WhatsApp kiya", "Website se sale nahi hoti"],
         "beats": [{"beat": "pain", "line": "Raat 11 baje customer ne WhatsApp kiya, jawab nahi mila", "screen": "Raat ka message", "visual": "phone", "facts": []},
-                  {"beat": "poke", "line": "Subah reply dene se woh dusri dukaan chala jaata hai", "screen": "Subah tak der", "visual": "x", "facts": []},
-                  {"beat": "fix", "line": "Pehle bot ko greet karna sikhao, phir ek sawaal, phir booking", "screen": "3 steps", "visual": "chat", "facts": ["f3"], "steps": ["Greet karo", "Ek sawaal pucho", "Call book karo"]},
-                  {"beat": "payoff", "line": "a.com ke mutabiq paanch minute mein reply se 21 guna leads", "screen": "21x leads", "visual": "stat", "facts": ["f1"]},
-                  {"beat": "cta", "line": "Comment BOT, main aapko 3-step setup bhejunga", "screen": "Comment BOT", "visual": "logo"}],
+                  {"beat": "poke", "line": "Subah reply dene se kuch nahi hota, kyunki customer ko jawab turant chahiye hota hai, aur tab tak woh dusri dukaan chala jaata hai", "screen": "Subah tak der", "visual": "x", "facts": []},
+                  {"beat": "fix", "line": "Pehle bot ko greet karna sikhao, kyunki pehla jawab hi trust banata hai. Phir ek sawaal pucho, aur end mein call book karwa do, taaki customer wapas na jaye", "screen": "3 steps", "visual": "chat", "facts": ["f3"], "steps": ["Greet karo", "Ek sawaal pucho", "Call book karo"]},
+                  {"beat": "payoff", "line": "a.com ke mutabiq jo firms paanch minute ke andar reply karti hain, unhe 21 guna zyada leads milti hain. Matlab speed hi aapka sabse sasta sales tool hai", "screen": "21x leads", "visual": "stat", "facts": ["f1"]},
+                  {"beat": "cta", "line": "Agar aapki dukaan pe bhi raat ko messages chhoot jaate hain, toh comment mein BOT likho. Main aapko 3-step setup bhejunga, taaki aap kal se hi shuru kar sako", "screen": "Comment BOT", "visual": "logo"}],
         "cta": "Comment BOT, main aapko 3-step setup bhejunga", "linkedin_english": "Fast replies win leads."}
 script = sw.run(sheet, {"name": "Chatbot", "dm_keyword": "BOT"}, style, ask=lambda p, s="", **k: __import__("json").dumps(good), voice="v")
 assert script["style"] == "myth-bust" and script["hook"] and script["hooks"] and script["beats"][0]["line"] == script["hook"]
@@ -63,7 +63,7 @@ sheet2 = {**sheet, "keyword": "BOT"}
 def has(beats, text): return any(text in p for p in sw.problems({"beats": beats}, sheet2, style))
 bad = copy.deepcopy(good); bad["beats"][0]["line"] = "The myth: bots cannot ever replace a human at all"
 assert has(bad["beats"], "generic") and has(bad["beats"], "not Hinglish")
-bad = copy.deepcopy(good); bad["beats"][1]["line"] = "Yeh sab ek badi samasya hai aajkal sabke liye"
+bad = copy.deepcopy(good); bad["beats"][1]["line"] = "Yeh sab ek badi samasya hai aajkal sabke liye, aur isliye hum sabko isse bahut dhyan se dekhna chahiye, matlab har cheez ko"
 assert has(bad["beats"], "too abstract")
 bad = copy.deepcopy(good); bad["beats"][2]["steps"] = ["ek"]
 assert has(bad["beats"], "2-3 concrete steps")
@@ -73,4 +73,18 @@ bad = copy.deepcopy(good); bad["beats"][4]["line"] = "Comment BOT aur dekho"
 assert has(bad["beats"], "what the viewer gets")
 assert not sw.problems({"beats": copy.deepcopy(good["beats"])}, sheet2, style)
 assert all(b["emotion"] in sw.EMOTIONS for b in script["beats"]) and script["beats"][0]["emotion"] == "empathetic" and script["beats"][3]["emotion"] == "excited"
+# descriptive-script rules: statistic must not become a promise; bare slogans are rejected; the meaning check feeds back
+bad = copy.deepcopy(good); bad["beats"][3]["line"] = "a.com ke mutabiq 21 guna zyada leads ab aapko pakka milengi, kyunki reply jaldi jaata hai aur isliye customer rukta hai"
+assert has(bad["beats"], "promise")
+bad = copy.deepcopy(good); bad["beats"][1]["line"] = "Subah reply dene se customer chala jaata hai"
+assert has(bad["beats"], "want 14-42")
+bad = copy.deepcopy(good)
+for b in bad["beats"][1:4]: b["line"] = b["line"].replace("kyunki", "").replace("Matlab", "").replace("taaki", "").replace("Phir", "Ab").replace("matlab", "")
+assert has(bad["beats"], "helping words") or has(bad["beats"], "bare statements")
+seq = [json.dumps(good), json.dumps(good)]
+calls = []
+def ask2(p, s="", **k):
+    calls.append(p)
+    return json.dumps({"issues": ["payoff: says calls stop, fact says they are repeats"]}) if "strict editor" in p and len(calls) == 2 else (json.dumps({"issues": []}) if "strict editor" in p else seq.pop(0))
+assert sw.run(sheet, {"name": "x", "dm_keyword": "BOT"}, style, ask=ask2, voice="v")["beats"] and sum("strict editor" in c for c in calls) == 2
 print("scriptwriter ok")

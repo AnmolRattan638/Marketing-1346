@@ -49,3 +49,11 @@ try: ms.make("chatbot for shops", {}); assert False
 except RuntimeError as e: assert "1 verified facts" in str(e)
 assert "STEPS to show" in ms.prompt_block(dict(m, beats=[dict(b, steps=["a", "b"]) if b["beat"] == "fix" else b for b in m["beats"]]))
 print("video master script ok")
+
+# a planner that adds an extra beat (recap) or a long narration is tolerated; a missing beat is still an error
+_m = {"beats": [{"beat": b} for b in ["pain", "poke", "fix", "payoff", "cta"]]}
+_mk = lambda *b: {"scenes": [{"beat": x} for x in b]}
+assert ms.problems(_mk("pain", "poke", "fix", "fix", "payoff", "recap", "cta"), _m) == []
+assert ms.problems(_mk("pain", "poke", "payoff", "cta"), _m)
+from agent import schema as _sc
+assert _sc.PLAN_SCHEMA["properties"]["scenes"]["items"]["properties"]["narration"]["maxLength"] >= 900

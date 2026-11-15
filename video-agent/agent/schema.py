@@ -20,7 +20,7 @@ PLAN_SCHEMA = {
                 "type": "object",
                 "required": ["narration"],          # footage_query is only needed when the scene has no `graphic`
                 "properties": {
-                    "narration": {"type": "string", "minLength": 5, "maxLength": 240},
+                    "narration": {"type": "string", "minLength": 5, "maxLength": 1500},
                     "beat": {"enum": list(BEATS)},        # the script framework beat this scene plays (skills/script-framework.md)
                     "footage_query": {"type": "string", "minLength": 3, "maxLength": 80},
                     # Optional cutaway (B-roll) searches, in the order the narration mentions them. Each cutaway shot in the scene

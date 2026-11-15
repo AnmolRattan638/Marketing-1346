@@ -11,6 +11,7 @@ import base64
 import json
 import os
 import re
+import time
 
 import requests
 
@@ -33,6 +34,8 @@ LEXICON = {
     "website": "वेबसाइट", "comment": "कमेंट", "message": "मैसेज", "reply": "रिप्लाई", "customer": "कस्टमर", "customers": "कस्टमर्स", "setup": "सेटअप",
     "free": "फ्री", "demo": "डेमो", "link": "लिंक", "dm": "डीएम", "instagram": "इंस्टाग्राम", "google": "गूगल", "online": "ऑनलाइन", "business": "बिज़नेस",
     "automation": "ऑटोमेशन", "ai": "ए आई", "minute": "मिनट", "minutes": "मिनट", "booking": "बुकिंग", "bookings": "बुकिंग्स", "follow": "फॉलो", "follow-up": "फॉलो-अप",
+    "mismatch": "मिसमैच", "mismatched": "मिसमैच्ड", "match": "मैच", "matched": "मैच्ड", "profile": "प्रोफ़ाइल", "details": "डिटेल्स", "search": "सर्च", "results": "रिज़ल्ट्स",
+    "mobile": "मोबाइल", "phone": "फ़ोन", "update": "अपडेट", "updated": "अपडेटेड", "map": "मैप", "reviews": "रिव्यूज़", "review": "रिव्यू", "listing": "लिस्टिंग", "local": "लोकल",
     "sales": "सेल्स", "app": "ऐप", "call": "कॉल", "number": "नंबर", "offer": "ऑफर",
 }
 _LATIN_WORD = re.compile(r"[A-Za-z][A-Za-z'\-]*")
@@ -68,7 +71,22 @@ def _request(key: str, text: str, model: str, speaker: str, params: tuple[float,
     body = {"text": text, "language_code": "hi-IN", "model": model, "speaker": speaker, "pace": pace, "speech_sample_rate": 24000, "output_audio_codec": "wav"}
     if model == "bulbul:v4-flash":
         body.update({"pitch": pitch, "loudness": loud})              # v3 has no pitch/loudness; v4-flash has no temperature
-    r = requests.post(URL, headers={"api-subscription-key": key, "Content-Type": "application/json"}, json=body, timeout=90)
+    r = None
+    for attempt in range(5):                       # a busy or rate-limited moment is waited out; the reel must never switch to another voice half way
+        try:
+            r = requests.post(URL, headers={"api-subscription-key": key, "Content-Type": "application/json"}, json=body, timeout=90)
+        except requests.RequestException as e:
+            log(f"sarvam: network error ({str(e)[:80]}), retry {attempt + 1}/5")
+            time.sleep(2 * (attempt + 1))
+            continue
+        if r.status_code == 429 or r.status_code >= 500:
+            wait = min(30.0, float(r.headers.get("Retry-After") or 3 * (attempt + 1)))
+            log(f"sarvam: {r.status_code}, waiting {wait:.0f}s (retry {attempt + 1}/5)")
+            time.sleep(wait)
+            continue
+        break
+    if r is None:
+        raise RuntimeError("Sarvam unreachable after 5 tries")
     if r.status_code in (400, 422):
         log(f"sarvam: {model}/{speaker} rejected ({r.status_code}): {r.text[:160]}")
         return None
@@ -116,7 +134,7 @@ def synth(text: str, mp3, scfg: dict, emotion: str | None = None, beat: str | No
     wavs = []
     for i, (sent, mood) in enumerate(zip(sentences, moods)):          # each sentence is its own take with its own pace/pitch/loudness
         wav_bytes = None
-        for cand in ([*_OK] + [c for c in cands if c not in _OK]):
+        for cand in ([*_OK] if _OK else cands):                       # once a speaker has been accepted it is the ONLY one used for the whole reel
             wav_bytes = _request(key, sent, cand["model"], cand["speaker"], EMOTION[mood])      # first model/speaker the account accepts wins
             if wav_bytes:
                 _OK[:] = [cand]

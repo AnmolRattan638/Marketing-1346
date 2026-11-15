@@ -3,6 +3,7 @@ import { Composition } from "remotion";
 import { Video } from "./Video";
 import manifest from "../manifest.json";
 import type { Manifest } from "./types";
+import { ReEdit, reeditDefaults, ReEditProps } from "./reedit/ReEdit";
 
 const m = manifest as Manifest;
 
@@ -22,6 +23,16 @@ export const RemotionRoot: React.FC = () => {
         fps={m.video.fps}
         width={m.video.width}
         height={m.video.height}
+      />
+      <Composition
+        id="ReEdit"
+        component={ReEdit as React.FC<any>}
+        durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={reeditDefaults}
+        calculateMetadata={({ props }: { props: any }) => ({ durationInFrames: Math.max(1, Math.round((props as ReEditProps).seconds * 30)) })}
       />
     </>
   );

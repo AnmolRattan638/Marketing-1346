@@ -201,5 +201,12 @@
     "topic": "The Morning Search Trap: Why starting your day with Google Maps is a productivity mistake.",
     "hook_style": "value",
     "status": "published"
+  },
+  {
+    "date": "2026-11-15",
+    "service": "animated_ads",
+    "topic": "The cost of a professional production crew vs. the cost of AI animation.",
+    "hook_style": "comparison",
+    "status": "published"
   }
 ]

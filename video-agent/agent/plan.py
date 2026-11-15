@@ -11,7 +11,7 @@ import requests
 
 from .common import ROOT, SKILLS, log
 from . import groqkeys, master_script
-from .schema import validate_plan
+from .schema import validate_plan, SFX_TYPES
 
 GROQ_CHAT_URL = "https://api.groq.com/openai/v1/chat/completions"
 MAX_SKILLS = 3  # every skill costs prompt tokens; free-tier rate limits are tight
@@ -87,6 +87,9 @@ def _blank(v) -> bool:
     return v is None or (isinstance(v, str) and not v.strip())
 
 
+FX_TYPES = ("stat", "glitch", "title", "lower_third", "shake", "quote")
+
+
 def tidy_plan(plan):
     """Clean the harmless slips a model makes before the plan is validated, so a run does not fail on them.
 
@@ -114,6 +117,11 @@ def tidy_plan(plan):
             sc["footage_query"] = q
         if isinstance(sc.get("broll"), list):
             sc["broll"] = [cut(b, 60) for b in sc["broll"] if isinstance(b, str) and len(b.strip()) >= 3]
+        # an effect or sound the vocabulary does not have (e.g. a "pop" sound listed under fx) is cosmetic: drop that one entry instead of failing the whole plan
+        if isinstance(sc.get("fx"), list):
+            sc["fx"] = [f for f in sc["fx"] if isinstance(f, dict) and f.get("type") in FX_TYPES]
+        if isinstance(sc.get("sfx"), list):
+            sc["sfx"] = [f for f in sc["sfx"] if isinstance(f, dict) and f.get("type") in SFX_TYPES]
         for key in ("hero_clip", "lottie", "transition", "graphic", "broll", "fx", "sfx", "beat", "camera"):
             if key in sc and (_blank(sc[key]) or sc[key] in ([], {})):
                 sc.pop(key)

@@ -64,3 +64,7 @@ assert _vp(framed) == []
 sysmsg = plan.build_system_prompt(load_config())
 assert "Pain, Poke, Fix, Payoff, Recap, CTA" in sysmsg and "truncated" not in sysmsg and "TESTIMONIALS" in sysmsg and "Topic first" in sysmsg
 print("script framework test: ok")
+
+# an unknown fx/sfx type (a "pop" sound written under fx) drops that entry instead of failing the plan
+_p = plan.tidy_plan({"scenes": [{"narration": "abcde", "fx": [{"type": "pop"}, {"type": "stat", "text": "1"}], "sfx": [{"type": "zap"}, {"type": "pop", "at": "cut"}]}]})
+assert _p["scenes"][0]["fx"] == [{"type": "stat", "text": "1"}] and _p["scenes"][0]["sfx"] == [{"type": "pop", "at": "cut"}]

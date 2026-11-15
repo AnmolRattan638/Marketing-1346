@@ -78,8 +78,13 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
     tail = cfg["video"]["tail_seconds"]
     # Each scene is either a motion graphic (the default look) or footage (your own clips, at most max_stock_shots stock shots in the reel).
     graphics: dict[str, dict] = {}
-    for sid, sc, sec, _, words in voiced:
-        if sc.get("graphic") or (editor and not editor.avail["raw"]):
+    no_raw = bool(editor and not editor.avail["raw"])      # nothing of yours to show: pure motion graphics, with a little stock video/photo as an option
+    stock_left = editor.hs.get("no_raw_stock_scenes", 2) if no_raw and (editor.avail["stock"] or editor.avail["photo"]) else 0
+    for idx, (sid, sc, sec, _, words) in enumerate(voiced):
+        if no_raw and not sc.get("graphic") and stock_left > 0 and 0 < idx < len(voiced) - 1:      # never the hook or the CTA
+            stock_left -= 1
+            log(f"{sid}: no raw clips, so this scene uses stock footage/photos")
+        elif sc.get("graphic") or no_raw:
             if not sc.get("graphic"):
                 log(f"{sid}: no raw clips to show, so this scene becomes a motion graphic instead of stock footage")
                 sc["graphic"] = fallback_graphic(sc)
@@ -122,8 +127,11 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
         shots = [x for b in built if b["clip"] for x in b["clip"].get("shots", [])]
         total = sum(x["seconds"] for x in shots) or 1
         share = {t: sum(x["seconds"] for x in shots if x["type"] == t) / total for t in ("raw", "stock", "photo")}
-        summary = (f"\nService: {service}. Hybrid: {len(shots)} shots, your raw {share['raw']:.0%}, stock {share['stock']:.0%}, photos {share['photo']:.0%}; "
-                   f"cut rhythm {editor.prof['shot_min']}-{editor.prof['shot_max']}s from {editor.prof['reels_measured']} hero reel(s). {'All rules passed.' if not editor.violations else 'RULES NOT MET: ' + '; '.join(editor.violations)}")
+        if no_raw:
+            summary = f"\nService: {service}. No raw clips found ({editor.no_raw_note}): made from motion graphics" + (f" + {len(shots)} stock/photo shot(s)." if shots else ".")
+        else:
+            summary = (f"\nService: {service}. Hybrid: {len(shots)} shots, your raw {share['raw']:.0%}, stock {share['stock']:.0%}, photos {share['photo']:.0%}; "
+                       f"cut rhythm {editor.prof['shot_min']}-{editor.prof['shot_max']}s from {editor.prof['reels_measured']} hero reel(s). {'All rules passed.' if not editor.violations else 'RULES NOT MET: ' + '; '.join(editor.violations)}")
         log(summary.strip())
     if no_render:
         log("--no-render: manifest written, stopping before Remotion")

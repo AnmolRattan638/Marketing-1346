@@ -23,7 +23,7 @@ from . import clipscore, edits, footage
 from .common import log, media_duration, run
 
 W, H, FPS = 1080, 1920, 30
-DEFAULTS = {"strict": True, "min_raw_shots": 1, "max_stock_shots": 1, "max_stock_share": 0.45, "min_photo_shots": 0, "max_same_in_row": 2, "fade_seconds": 0.2}
+DEFAULTS = {"strict": True, "require_raw": False, "no_raw_stock_scenes": 2, "min_raw_shots": 1, "max_stock_shots": 1, "max_stock_share": 0.45, "min_photo_shots": 0, "max_same_in_row": 2, "fade_seconds": 0.2}
 TYPES = ("raw", "stock", "photo")
 
 
@@ -263,7 +263,13 @@ class Editor:
         self.cfg, self.offline, self.hs, self.service = cfg, offline, settings(cfg), service
         self.rng = random.Random(date.today().toordinal())
         self.violations: list[str] = []      # filled when shots are cut; stays empty if no scene was cut
-        root = None if offline and not edits.configured() else edits.sync()
+        self.no_raw_note = ""
+        try:
+            root = None if offline and not edits.configured() else edits.sync()
+        except Exception as e:
+            if self.hs["require_raw"]:
+                raise
+            root, self.no_raw_note = None, f"the edits folder could not be read ({str(e)[:110]})"
         full = edits.raw_library(root) if root else {"videos": [], "images": []}
         self.unassigned = [x["name"] for k in full for x in full[k] if x["service"] == "unassigned"]
         ok = {service, "general"}
@@ -285,12 +291,13 @@ class Editor:
             log(f"hybrid: {len(self.unassigned)} raw file(s) have no service label and are never used: {', '.join(self.unassigned[:6])}")
         log(f"hybrid: service '{service}': raw videos {len(self.lib['videos'])}, raw photos {len(self.lib['images'])} ({self.others} belong to other services), hero reels measured {self.prof['reels_measured']}, "
             f"shot length {self.prof['shot_min']}-{self.prof['shot_max']}s (median {self.prof['shot_median']}s)")
-        if self.hs["strict"] and not offline:
-            if not self.configured:
-                raise HybridError("the edits folder is not connected (secret EDITS_DRIVE_URL). Strict hybrid mode needs your raw footage, so no reel was made.")
-            if not self.avail["raw"]:
-                raise HybridError(f"no raw video clip is labelled for '{service}' or 'general'. Put clips in edits/raw/{service}/ (or edits/raw/general/ for clips that fit any service), "
-                                  f"or name them {service}_something.mp4. {len(self.unassigned)} unlabelled file(s) are ignored. Strict mode needs your clips, so no reel was made.")
+        if not self.avail["raw"] and not offline:
+            why = self.no_raw_note or ("the edits folder is not connected (secret EDITS_DRIVE_URL)" if not self.configured else
+                                       f"no raw video clip is labelled for '{service}' or 'general' ({len(self.unassigned)} unlabelled file(s) are ignored)")
+            if self.hs["require_raw"]:             # opt-in: the old behaviour, no reel without your own clips
+                raise HybridError(f"{why}. require_raw is on, so no reel was made.")
+            self.no_raw_note = why
+            log(f"hybrid: {why}. Making the reel from motion graphics (plus up to {self.hs['no_raw_stock_scenes']} stock scene(s) when a stock key is set).")
 
     def _seed_offline(self) -> None:
         """Offline tests: pretend the edits folder has 3 landscape raw clips and 2 photos."""

@@ -42,7 +42,9 @@ def problems(plan: dict, master: dict) -> list[str]:
         if not seq or seq[-1] != s.get("beat"):
             seq.append(s.get("beat"))
     want = beat_order(master)
-    return [] if seq == want else [f"scene beats must follow the master script exactly: {want}, got {seq}"]
+    got = [b for b in seq if b in want]               # a beat the script does not have is dropped later by enforce_words; only a MISSING or misordered beat is an error
+    dedup = list(dict.fromkeys(got))                # first scene of each beat is the one enforce_words keeps
+    return [] if dedup == want else [f"scene beats must follow the master script exactly: {want}, got {seq}"]
 
 
 def make(topic: str, cfg: dict) -> dict:

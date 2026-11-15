@@ -2,6 +2,64 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "18137145995496048",
+      "url": "https://www.instagram.com/p/DfwoXYDkTeG/",
+      "published_at": "2026-11-15T11:05:03.000Z",
+      "text": "𝗖𝗔𝗠𝗘𝗥𝗔 𝗦𝗛𝗢𝗢𝗧 𝗞𝗔 𝗞𝗛र्च𝗔 𝗘𝗞 𝗕𝗔𝗗𝗔 𝗠𝗬𝗧𝗛 𝗛𝗔𝗜\n\n→ No expensive studio needed, direct script aur 𝗔𝗜 𝗔𝗡𝗜𝗠𝗔𝗧𝗜𝗢𝗡.\n→ Custom motion visuals that can catch attention and help",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 6,
+        "reach": 1,
+        "views": 6,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-15",
+        "service": "animated_ads",
+        "hook_style": "comparison",
+        "topic": "The cost of a professional production crew vs. the cost of AI animation."
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2dujte7wy2m",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2dujte7wy2m",
+      "published_at": "2026-11-15T11:04:17.407459+00:00",
+      "text": "TIRED OF PEOPLE SCROLLING PAST YOUR POSTS? AI animation gives your business clean video ads without camera crews. INR 999 to 2,199, pay after approval. DM ADS t",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-15",
+        "service": "animated_ads",
+        "hook_style": "comparison",
+        "topic": "The cost of a professional production crew vs. the cost of AI animation."
+      }
+    },
+    {
+      "platform": "instagram",
       "id": "17993115096119908",
       "url": "https://www.instagram.com/p/DftHAvMinlg/",
       "published_at": "2026-11-14T02:15:11.000Z",
@@ -1545,7 +1603,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 29
+      "posts": 30
     }
   },
   "coverage": {
@@ -1850,5 +1908,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-15T06:35:21+00:00"
+  "updated_at": "2026-11-15T18:52:37+00:00"
 }

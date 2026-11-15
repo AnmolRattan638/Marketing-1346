@@ -12,7 +12,7 @@ import { MockHost } from "../graphics/MockHost";
 import { LogoOutro } from "../graphics/LogoOutro";
 import { CircleWipe } from "../graphics/CircleWipe";
 import { ProgressBar } from "../graphics/ProgressBar";
-import { THEME, GraphicTimes, MockSpec } from "../graphics/theme";
+import { THEME, GraphicTimes, MockSpec, LOGO_SAFE_TOP } from "../graphics/theme";
 import { TemplateStage, TemplateSpec } from "../locomotion/TemplateStage";
 
 export interface GraphicSceneProps {
@@ -70,8 +70,8 @@ const GraphicScene: React.FC<GraphicSceneProps> = ({
   } else if (layout === "step") {
     body = (
       <>
-        <div style={{ position: "absolute", left: 80, top: 280 }}>{step ? <StepBadge text={step} at={Math.max(0, times.heading - 0.1)} /> : null}</div>
-        <div style={{ position: "absolute", left: 80, right: 80, top: 350 }}>
+        <div style={{ position: "absolute", left: 80, top: LOGO_SAFE_TOP }}>{step ? <StepBadge text={step} at={Math.max(0, times.heading - 0.1)} /> : null}</div>
+        <div style={{ position: "absolute", left: 80, right: 80, top: LOGO_SAFE_TOP + 70 }}>
           <Heading kicker={kicker} heading={heading} heading2={heading2} at={times.heading} size={112} />
         </div>
         {mock ? (
@@ -84,7 +84,7 @@ const GraphicScene: React.FC<GraphicSceneProps> = ({
   } else if (layout === "strike") {
     body = (
       <>
-        <div style={{ position: "absolute", left: 80, right: 80, top: 230 }}>
+        <div style={{ position: "absolute", left: 80, right: 80, top: LOGO_SAFE_TOP }}>
           {kicker ? <div style={{ fontFamily: '"Playfair Display", Georgia, serif', fontStyle: "italic", fontSize: 54, color: THEME.muted, marginBottom: 24 }}>{kicker}</div> : null}
           <StrikeList items={items} times={times.items} />
         </div>

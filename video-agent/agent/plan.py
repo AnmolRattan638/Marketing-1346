@@ -10,7 +10,7 @@ import re
 import requests
 
 from .common import ROOT, SKILLS, log
-from . import groqkeys, master_script
+from . import groqkeys, lessons, master_script
 from .schema import validate_plan, SFX_TYPES, PLAN_SCHEMA
 
 GROQ_CHAT_URL = "https://api.groq.com/openai/v1/chat/completions"
@@ -177,6 +177,7 @@ def make_plan(topic: str, cfg: dict, library: str = "", service: str = "general"
         f"Angle for this video: {angle}.\n"
         + (f"What the topic covers: {note}\n" if note else "")
         + (master_script.prompt_block(master) if master else evidence_block(evidence))
+        + lessons.prompt_block()
         + f"Narration language: {lang}\n"
         f"Background about the owner (use ONLY if it fits the topic, never as the topic): {cfg['brand']['notes']}\n"
         f"Target length: about {cfg['video']['target_seconds']} seconds in total.\n"
@@ -188,7 +189,8 @@ def make_plan(topic: str, cfg: dict, library: str = "", service: str = "general"
         {"role": "user", "content": user},
     ]
     last_problems: list[str] = []
-    for attempt in (1, 2):
+    concrete: list[str] = []
+    for attempt in (1, 2, 3):
         raw = _call_groq(messages, cfg)
         try:
             plan = tidy_plan(json.loads(raw))
@@ -197,13 +199,14 @@ def make_plan(topic: str, cfg: dict, library: str = "", service: str = "general"
             plan, last_problems = None, [f"not valid JSON: {e}"]
         if not last_problems:
             return master_script.enforce_words(plan, master) if master else plan
-        log(f"plan attempt {attempt} invalid: {last_problems[:3]}")
+        concrete = lessons.record(last_problems)      # plain-words mistakes, counted for future runs
+        log(f"plan attempt {attempt} rejected. Mistakes: " + " | ".join(concrete[:6]))
         messages += [
             {"role": "assistant", "content": raw},
-            {"role": "user", "content": "Fix these problems and return the full JSON again:\n- "
-             + "\n- ".join(last_problems[:6])},
+            {"role": "user", "content": "Your plan was rejected for these concrete mistakes. Fix every one and return the full JSON again; do not change anything else:\n- "
+             + "\n- ".join(concrete[:8])},
         ]
-    raise RuntimeError("planner failed twice: " + "; ".join(last_problems[:3]))
+    raise RuntimeError("planner rejected 3 times. Mistakes on the last try: " + " | ".join(concrete[:5]))
 
 
 def sample_plan() -> dict:

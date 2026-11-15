@@ -32,3 +32,6 @@ export interface MockSpec {
   items: string[];
   pressAt?: number; // comment box: when POST is pressed
 }
+
+// The logo bug sits top-left (config.json -> logo: margin 48/150, size 120 => x 48-168, y 150-270). Motion graphics and effects keep everything below LOGO_SAFE_TOP so nothing is drawn near it.
+export const LOGO_SAFE_TOP = 300;

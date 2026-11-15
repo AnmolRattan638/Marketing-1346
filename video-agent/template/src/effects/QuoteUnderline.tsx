@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { FONT_SERIF, THEME } from "../graphics/theme";
+import { FONT_SERIF, THEME, LOGO_SAFE_TOP } from "../graphics/theme";
 
 // A testimonial (or any quoted line) on screen while it is being read: every word lights up and gets underlined on the moment it is spoken,
 // so the eye follows the voice. wordTimes / wordEnds are seconds from the start of this graphic (agent/fx_plan.py aligns them to the Whisper words).
@@ -13,7 +13,7 @@ export const QuoteUnderline: React.FC<{ text: string; label?: string; wordTimes:
   const out = interpolate(frame, [durationInFrames - 9, durationInFrames], [1, 0], { extrapolateLeft: "clamp" });
   const size = words.length > 16 ? 58 : words.length > 10 ? 68 : 78;
   return (
-    <AbsoluteFill style={{ justifyContent: "flex-start", alignItems: "center", paddingTop: 250, opacity: out }}>
+    <AbsoluteFill style={{ justifyContent: "flex-start", alignItems: "center", paddingTop: LOGO_SAFE_TOP + 20, opacity: out }}>
       <div style={{ width: 920, padding: "40px 46px 46px", borderRadius: 36, background: "rgba(6,8,13,0.8)", border: `2px solid ${THEME.cardEdge}`, boxShadow: "0 24px 70px rgba(0,0,0,.5)", transform: `translateY(${(1 - Math.min(1, enter)) * 50}px) scale(${0.94 + 0.06 * Math.min(1, enter)})`, opacity: Math.min(1, enter * 1.5) }}>
         <div style={{ fontFamily: FONT_SERIF, fontSize: 120, lineHeight: 0.6, color: THEME.accent, height: 56 }}>“</div>
         <div style={{ fontFamily: FONT_SERIF, fontStyle: "italic", fontWeight: 700, fontSize: size, lineHeight: 1.4, color: THEME.text }}>

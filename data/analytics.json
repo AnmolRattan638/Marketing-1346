@@ -1593,7 +1593,7 @@
   ],
   "accounts": {
     "instagram": {
-      "followers": 10,
+      "followers": 9,
       "username": "ar__designerx"
     },
     "linkedin": {
@@ -1908,7 +1908,7 @@
     {
       "date": "2026-11-16",
       "followers": {
-        "instagram": 10,
+        "instagram": 9,
         "linkedin": 8,
         "bluesky": 1
       }
@@ -1916,5 +1916,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-16T06:32:13+00:00"
+  "updated_at": "2026-11-16T22:04:16+00:00"
 }

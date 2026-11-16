@@ -1,0 +1,56 @@
+[
+  {
+    "scene": "s1",
+    "graphic": "punch"
+  },
+  {
+    "scene": "s2",
+    "graphic": "strike"
+  },
+  {
+    "scene": "s3",
+    "source": "hybrid",
+    "shots": [
+      {
+        "type": "raw",
+        "seconds": 2.34,
+        "effect": "none",
+        "transition_in": "cut",
+        "file": "website_demo.mp4",
+        "service": "general",
+        "start": 0.75
+      },
+      {
+        "type": "stock",
+        "seconds": 2.74,
+        "effect": "push_in",
+        "transition_in": "cut",
+        "source": "synthetic"
+      }
+    ]
+  },
+  {
+    "scene": "s4",
+    "source": "hybrid",
+    "shots": [
+      {
+        "type": "raw",
+        "seconds": 1.81,
+        "effect": "none",
+        "transition_in": "cut",
+        "file": "desk_setup.mp4",
+        "service": "general",
+        "start": 2.0
+      },
+      {
+        "type": "raw",
+        "seconds": 1.73,
+        "effect": "none",
+        "transition_in": "cut",
+        "file": "chatbot_demo.mp4",
+        "service": "general",
+        "start": 2.0
+      }
+    ]
+  }
+]

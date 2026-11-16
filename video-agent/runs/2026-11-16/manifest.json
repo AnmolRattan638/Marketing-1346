@@ -1,0 +1,570 @@
+{
+  "video": {
+    "id": "daily",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "title": "Why local shops need a website"
+  },
+  "audio": {
+    "music": null
+  },
+  "brand": {
+    "logo": {
+      "src": "assets/run/brand/logo.png",
+      "position": "top-left",
+      "size": 120,
+      "opacity": 0.92,
+      "marginX": 48,
+      "marginY": 150
+    }
+  },
+  "look": {
+    "palette": {
+      "bgTop": "#06080D",
+      "bgBottom": "#0A1220",
+      "card": "#0D182B",
+      "cardEdge": "#1A2A44",
+      "ink": "#06080D",
+      "text": "#E8EBF2",
+      "muted": "#9AA3B2",
+      "accent": "#F0C040",
+      "accent2": "#C9A84C",
+      "hot": "#FFF0B3",
+      "ok": "#F0C040",
+      "glow": "rgba(240,192,64,0.45)",
+      "glowSoft": "rgba(240,192,64,0.14)"
+    },
+    "caption": "cinematic"
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "component": "sequences/GraphicScene",
+      "duration": 3.9333,
+      "narration": "assets/run/narration/s1.mp3",
+      "sfx": [
+        {
+          "src": "assets/run/sfx/boop_3.mp3",
+          "atSecond": 0.12,
+          "volume": 0.6
+        },
+        {
+          "src": "assets/run/sfx/ding_2.mp3",
+          "atSecond": 1.411,
+          "volume": 0.7
+        }
+      ],
+      "props": {
+        "words": [
+          {
+            "text": "Most",
+            "start": 0.0,
+            "end": 0.321
+          },
+          {
+            "text": "customers",
+            "start": 0.321,
+            "end": 0.962
+          },
+          {
+            "text": "search",
+            "start": 0.962,
+            "end": 1.411
+          },
+          {
+            "text": "online",
+            "start": 1.411,
+            "end": 1.86
+          },
+          {
+            "text": "before",
+            "start": 1.86,
+            "end": 2.309
+          },
+          {
+            "text": "they",
+            "start": 2.309,
+            "end": 2.63
+          },
+          {
+            "text": "visit",
+            "start": 2.63,
+            "end": 3.015
+          },
+          {
+            "text": "a",
+            "start": 3.015,
+            "end": 3.143
+          },
+          {
+            "text": "shop.",
+            "start": 3.143,
+            "end": 3.528
+          }
+        ],
+        "layout": "punch",
+        "step": "",
+        "kicker": "Most customers",
+        "heading": "Search online",
+        "heading2": "before they visit",
+        "ghost": "Search onlin",
+        "chips": [
+          "Phone",
+          "Google",
+          "Maps"
+        ],
+        "items": [],
+        "mock": null,
+        "times": {
+          "heading": 0.12,
+          "mock": 0.52,
+          "items": [],
+          "chips": 0.72
+        },
+        "progress": [
+          0.0,
+          0.2228
+        ],
+        "showProgress": true,
+        "emphasis": [
+          "online"
+        ],
+        "pulses": [
+          1.411
+        ],
+        "fx": [
+          {
+            "type": "lower_third",
+            "atSecond": 0.15,
+            "seconds": 2.6,
+            "text": "AR Designs",
+            "label": "Websites for local shops"
+          }
+        ],
+        "transitionIn": "settle",
+        "captionStyle": "cinematic"
+      }
+    },
+    {
+      "id": "s2",
+      "component": "sequences/GraphicScene",
+      "duration": 5.1,
+      "narration": "assets/run/narration/s2.mp3",
+      "sfx": [
+        {
+          "src": "assets/run/sfx/click_5.mp3",
+          "atSecond": 1.307,
+          "volume": 0.3
+        },
+        {
+          "src": "assets/run/sfx/click_4.mp3",
+          "atSecond": 2.343,
+          "volume": 0.3
+        },
+        {
+          "src": "assets/run/sfx/click_6.mp3",
+          "atSecond": 3.38,
+          "volume": 0.3
+        }
+      ],
+      "props": {
+        "words": [
+          {
+            "text": "If",
+            "start": 0.0,
+            "end": 0.27
+          },
+          {
+            "text": "you",
+            "start": 0.27,
+            "end": 0.63
+          },
+          {
+            "text": "do",
+            "start": 0.63,
+            "end": 0.9
+          },
+          {
+            "text": "not",
+            "start": 0.9,
+            "end": 1.26
+          },
+          {
+            "text": "show",
+            "start": 1.26,
+            "end": 1.71
+          },
+          {
+            "text": "up,",
+            "start": 1.71,
+            "end": 2.07
+          },
+          {
+            "text": "they",
+            "start": 2.07,
+            "end": 2.52
+          },
+          {
+            "text": "walk",
+            "start": 2.52,
+            "end": 2.97
+          },
+          {
+            "text": "into",
+            "start": 2.97,
+            "end": 3.42
+          },
+          {
+            "text": "the",
+            "start": 3.42,
+            "end": 3.78
+          },
+          {
+            "text": "next",
+            "start": 3.78,
+            "end": 4.23
+          },
+          {
+            "text": "one.",
+            "start": 4.23,
+            "end": 4.68
+          }
+        ],
+        "layout": "strike",
+        "step": "",
+        "kicker": "If you are not there",
+        "heading": "They walk next door",
+        "heading2": "",
+        "ghost": "They walk ne",
+        "chips": [],
+        "items": [
+          "Not found",
+          "Not trusted",
+          "Not visited"
+        ],
+        "mock": null,
+        "times": {
+          "heading": 4.28,
+          "mock": 1.007,
+          "items": [
+            1.307,
+            2.343,
+            3.38
+          ],
+          "chips": 3.88
+        },
+        "progress": [
+          0.2228,
+          0.5109
+        ],
+        "showProgress": true,
+        "emphasis": [],
+        "pulses": [],
+        "fx": [],
+        "transitionIn": "glitch",
+        "captionStyle": "cinematic"
+      }
+    },
+    {
+      "id": "s3",
+      "component": "sequences/FootageScene",
+      "duration": 5.1,
+      "narration": "assets/run/narration/s3.mp3",
+      "sfx": [
+        {
+          "src": "assets/run/sfx/whoosh_2.mp3",
+          "atSecond": 0.0,
+          "volume": 0.55
+        },
+        {
+          "src": "assets/run/sfx/pop_3.mp3",
+          "atSecond": 1.899,
+          "volume": 0.7
+        },
+        {
+          "src": "assets/run/sfx/riser_2.mp3",
+          "atSecond": 2.534,
+          "volume": 0.5
+        }
+      ],
+      "props": {
+        "words": [
+          {
+            "text": "A",
+            "start": 0.0,
+            "end": 0.136
+          },
+          {
+            "text": "simple",
+            "start": 0.136,
+            "end": 0.61
+          },
+          {
+            "text": "website",
+            "start": 0.61,
+            "end": 1.153
+          },
+          {
+            "text": "shows",
+            "start": 1.153,
+            "end": 1.56
+          },
+          {
+            "text": "your",
+            "start": 1.56,
+            "end": 1.899
+          },
+          {
+            "text": "hours,",
+            "start": 1.899,
+            "end": 2.374
+          },
+          {
+            "text": "your",
+            "start": 2.374,
+            "end": 2.713
+          },
+          {
+            "text": "location",
+            "start": 2.713,
+            "end": 3.323
+          },
+          {
+            "text": "and",
+            "start": 3.323,
+            "end": 3.595
+          },
+          {
+            "text": "your",
+            "start": 3.595,
+            "end": 3.934
+          },
+          {
+            "text": "best",
+            "start": 3.934,
+            "end": 4.273
+          },
+          {
+            "text": "work.",
+            "start": 4.273,
+            "end": 4.68
+          }
+        ],
+        "clip": "assets/run/footage/s3.mp4",
+        "clipSeconds": 5.07,
+        "emphasis": [
+          "best"
+        ],
+        "pulses": [
+          1.899,
+          3.934
+        ],
+        "fx": [
+          {
+            "type": "title",
+            "atSecond": 1.899,
+            "seconds": 1.9,
+            "text": "Hours \u00b7 Location \u00b7 Work"
+          }
+        ],
+        "transitionIn": "whip",
+        "captionStyle": "cinematic",
+        "camera": [
+          {
+            "move": "zoom_in",
+            "atSecond": 0.0,
+            "seconds": 0.9,
+            "scale": 1.3,
+            "focus": [
+              0.5,
+              0.5
+            ]
+          },
+          {
+            "move": "pan_right",
+            "atSecond": 0.9,
+            "seconds": 1.444,
+            "scale": 1.3
+          },
+          {
+            "move": "reset",
+            "atSecond": 2.344,
+            "seconds": 0.0,
+            "scale": 1.3
+          },
+          {
+            "move": "zoom_in",
+            "atSecond": 2.344,
+            "seconds": 0.9,
+            "scale": 1.3,
+            "focus": [
+              0.5,
+              0.35
+            ]
+          },
+          {
+            "move": "pan_left",
+            "atSecond": 3.244,
+            "seconds": 1.836,
+            "scale": 1.3
+          }
+        ],
+        "captionZones": [
+          {
+            "from": 0.0,
+            "y": 330,
+            "to": 2.25
+          },
+          {
+            "from": 2.25,
+            "y": 1140,
+            "to": 5.08
+          }
+        ]
+      }
+    },
+    {
+      "id": "s4",
+      "component": "sequences/FootageScene",
+      "duration": 3.5667,
+      "narration": "assets/run/narration/s4.mp3",
+      "sfx": [
+        {
+          "src": "assets/run/sfx/swipe_3.mp3",
+          "atSecond": 0.0,
+          "volume": 0.55
+        },
+        {
+          "src": "assets/run/sfx/tick_2.mp3",
+          "atSecond": 0.844,
+          "volume": 0.6
+        }
+      ],
+      "props": {
+        "words": [
+          {
+            "text": "Message",
+            "start": 0.0,
+            "end": 0.613
+          },
+          {
+            "text": "us",
+            "start": 0.613,
+            "end": 0.844
+          },
+          {
+            "text": "today",
+            "start": 0.844,
+            "end": 1.304
+          },
+          {
+            "text": "and",
+            "start": 1.304,
+            "end": 1.61
+          },
+          {
+            "text": "we",
+            "start": 1.61,
+            "end": 1.84
+          },
+          {
+            "text": "will",
+            "start": 1.84,
+            "end": 2.224
+          },
+          {
+            "text": "plan",
+            "start": 2.224,
+            "end": 2.607
+          },
+          {
+            "text": "yours.",
+            "start": 2.607,
+            "end": 3.144
+          }
+        ],
+        "clip": "assets/run/footage/s4.mp4",
+        "clipSeconds": 3.53,
+        "emphasis": [],
+        "pulses": [],
+        "fx": [],
+        "transitionIn": "zoom",
+        "captionStyle": "cinematic",
+        "camera": [
+          {
+            "move": "zoom_in",
+            "atSecond": 0.0,
+            "seconds": 0.724,
+            "scale": 1.3,
+            "focus": [
+              0.5,
+              0.35
+            ]
+          },
+          {
+            "move": "pan_left",
+            "atSecond": 0.724,
+            "seconds": 1.086,
+            "scale": 1.3
+          },
+          {
+            "move": "reset",
+            "atSecond": 1.81,
+            "seconds": 0.0,
+            "scale": 1.3
+          },
+          {
+            "move": "zoom_in",
+            "atSecond": 1.81,
+            "seconds": 0.694,
+            "scale": 1.3,
+            "focus": [
+              0.5,
+              0.35
+            ]
+          },
+          {
+            "move": "pan_down",
+            "atSecond": 2.504,
+            "seconds": 1.04,
+            "scale": 1.3
+          }
+        ],
+        "captionZones": [
+          {
+            "from": 0.0,
+            "y": 330,
+            "to": 3.54
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "component": "sequences/GraphicScene",
+      "duration": 1.8,
+      "narration": null,
+      "sfx": [
+        {
+          "src": "assets/run/sfx/boop_1.mp3",
+          "atSecond": 0.35,
+          "volume": 0.5
+        }
+      ],
+      "props": {
+        "layout": "logo",
+        "words": [],
+        "logo": "assets/run/brand/logo.png",
+        "cta": "Message us today",
+        "fadeOutFrames": 12,
+        "times": {
+          "heading": 0.1,
+          "mock": 0,
+          "items": [],
+          "chips": 0
+        }
+      }
+    }
+  ]
+}

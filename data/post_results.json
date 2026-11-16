@@ -1958,6 +1958,13 @@
           "likes": 0,
           "comments": 0,
           "shares": 0
+        },
+        "7d": {
+          "age_h": 169.5,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 1,
+          "shares": 0
         }
       },
       "latest": {
@@ -1989,6 +1996,18 @@
           "impressions": 17,
           "reach": 2,
           "views": 17,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        },
+        "7d": {
+          "age_h": 169.5,
+          "source": "zernio",
+          "impressions": 18,
+          "reach": 3,
+          "views": 18,
           "likes": 0,
           "comments": 0,
           "shares": 0,
@@ -2255,5 +2274,5 @@
       }
     }
   },
-  "updated_at": "2026-11-16T06:32:15+00:00"
+  "updated_at": "2026-11-16T11:56:43+00:00"
 }

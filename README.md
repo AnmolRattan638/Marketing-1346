@@ -192,3 +192,6 @@ Secrets needed: `TAVILY_API_KEY`, `EXA_API_KEY`, `UNSPLASH_ACCESS_KEY`, `VOICE_R
 
 ## Video: art directions (no two reels alike)
 `video-agent/agent/looks.py` rotates through 8 presets (colour mode night/ink/royal/paper from the brand colours, backdrop pattern, caption style, transition set, template variant, planner art direction) by day + run number, so consecutive reels never share a look and CI needs no history file. Force one with `config.json -> looks.force.preset`. Templates are no longer used on scenes over 7.5 s (they hold their last frame).
+
+## Video: before / after scenario
+Every reel's payoff (else recap) scene becomes a portrait before/after board (`graphics/BeforeAfter.tsx`, copy in `video-agent/agent/scenarios.py`): BEFORE = no website, no digital marketing (customers cannot find you, sales depend on walk-ins, missed enquiries) -> AFTER = website + chatbot (found on Google, instant reply, every enquiry saved). Capabilities only, no figures or guaranteed results. Turn off with `templates.before_after: false`.

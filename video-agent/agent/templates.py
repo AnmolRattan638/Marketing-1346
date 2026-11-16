@@ -13,6 +13,7 @@ import hashlib
 import json
 import random
 
+from . import scenarios
 from .common import ROOT, log
 
 FPS = 30
@@ -123,7 +124,7 @@ def _state() -> dict:
         return {}
 
 
-def apply(graphics: dict, voiced: list, cfg: dict, seed: str, variant_hint: str | None = None) -> list[dict]:
+def apply(graphics: dict, voiced: list, cfg: dict, seed: str, variant_hint: str | None = None, service: str | None = None) -> list[dict]:
     """Upgrade up to max_per_video graphic scenes in `graphics` (sid -> props) in place. Returns [{scene, template, variant}]."""
     tc = cfg.get("templates") or {}
     if not tc.get("enabled", True) or not graphics:
@@ -135,8 +136,17 @@ def apply(graphics: dict, voiced: list, cfg: dict, seed: str, variant_hint: str 
     variant = force.get("variant") or (variant_hint if variant_hint in VARIANTS else None) or rng.choice([v for v in variants if v != last.get("variant")] or variants)
     recent = set(last.get("ids", [])[-10:])
     used, done, prev_idx = [], [], -5
+    ba_idx = scenarios.target_index(voiced) if tc.get("before_after", True) else None
     for idx, (sid, sc, seconds, _mp3, _words) in enumerate(voiced):
         gp = graphics.get(sid)
+        if idx == ba_idx and gp and gp.get("layout") in ("title", "punch", "strike", "step"):        # the before / after scenario: no website vs website + chatbot
+            start = float((gp.get("times") or {}).get("heading", 0.3))
+            gp.update({"layout": "ba", "ba": scenarios.spec(service), "mock": None, "items": [], "chips": []})
+            gp["sfx"] = [{"type": "pop", "atSecond": round(start + 0.05, 3), "volume": 0.5}]
+            used.append("before-after")
+            done.append({"scene": sid, "template": "before-after", "variant": variant})
+            prev_idx = idx
+            continue
         if not gp or gp.get("layout") not in ("title", "punch", "strike") or len(done) >= int(tc.get("max_per_video", 2)) or idx - prev_idx < 2 or seconds > 7.5:      # a template holds its last frame, so long scenes keep a moving layout instead
             continue
         start = float((gp.get("times") or {}).get("heading", 0.3))

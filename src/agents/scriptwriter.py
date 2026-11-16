@@ -130,6 +130,12 @@ def problems(script, sheet, style):
     return out
 
 
+def capabilities(focus) -> str:
+    """What the service in focus really does (config/services.json), as one string for the writer and the meaning check."""
+    f = focus or {}
+    return "; ".join([str(f.get("pitch") or f.get("name") or "")] + [str(c) for c in f.get("capabilities") or []]).strip("; ")
+
+
 def fidelity(script, sheet, ask, focus=None):
     """One more model pass that only checks MEANING against the WHOLE fact sheet. Flags only: a number or cause that contradicts or changes a fact, an outcome promised that no fact claims,
     a source or brand named that no fact names, or a line that is unintelligible. Plain-language explanation of WHY (common sense, no new figure) is allowed. -> list of issues."""
@@ -139,7 +145,7 @@ def fidelity(script, sheet, ask, focus=None):
               "no fact claims AND is not a capability of the service in focus (e.g. 'calls will stop'; but 'the customer does not have to wait' is a true capability of an instant-reply chatbot and is FINE); (3) it names a company, person or study that no fact names; (4) it is unintelligible when heard once. "
               "Do NOT flag plain-language explanations, examples or reasons that add no figure or name, and do NOT flag plain statements of what the service does (see SERVICE CAPABILITIES): "
               "those are true even when no fact repeats them. Flag only invented figures, guaranteed sales/revenue results, named clients or testimonials, and contradictions of a fact. Each issue must say exactly how to fix it.\n"
-              "SERVICE CAPABILITIES (true, may be stated): " + str((focus or {}).get("pitch") or (focus or {}).get("name") or "") + "\n"
+              "SERVICE CAPABILITIES (true, may be stated): " + capabilities(focus) + "\n"
               "Return JSON {\"issues\": [\"beat: problem and the exact fix\"]}, empty if fine.\nFACTS: " + json.dumps(facts, ensure_ascii=False) + "\nLINES: " + json.dumps(rows, ensure_ascii=False))
     try:
         res = llm.ask_json(ask, prompt, "You check whether lines are faithful and clear. JSON only.")
@@ -167,7 +173,7 @@ Write ONE script. Rules: no greeting or intro; one idea;
 SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 2-3 full spoken sentences, and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. Do not worry about video length; worry about the viewer UNDERSTANDING.
 EXPLAIN, don't announce: pain = the moment AND why it hurts (what it costs: time, a lost customer); poke = why the obvious fix fails, the reason in plain words; fix = each step with a one-clause reason ("pehle ..., kyunki ..."); payoff = what the fact MEANS for this owner in plain words (do the arithmetic only if every number comes from a fact); recap = loop back to the pain.
 Use helping words (kyunki, isliye, matlab, jaise ki, phir, taaki, lekin) so each line connects to the one before it. A line must make sense when heard once, with no screen.
-CAPABILITIES: you may state what the service in focus does (it answers instantly, so the customer does not wait; it records every enquiry in one place) even when no fact says it; it is true. Never promise a business result (more sales, a number of leads).\nSTATISTICS: say a figure exactly as its fact states it. "X% of calls are repeat questions" never becomes "X% of calls will stop"; do not invent an outcome the fact does not claim.
+CAPABILITIES: you may state what the service in focus does even when no fact says it, because it is true: {capabilities(focus)}. Never promise a business result (more sales, a number of leads).\nSTATISTICS: say a figure exactly as its fact states it. "X% of calls are repeat questions" never becomes "X% of calls will stop"; do not invent an outcome the fact does not claim.
 Vary sentence length and mood inside a beat: a short punchy sentence, then a longer explaining one; a question where you are talking to the owner; "!" only for a real payoff.
 
 HOOK: a specific scene or number from the facts (a time, a thing, a loss), never a general statement or "the myth". PAIN/POKE: one concrete moment the owner has lived. FIX: walk through 2-3 concrete steps in the spoken line AND list them in `steps` (each 7 words max). PAYOFF: only a fact from the sheet, source named in words. CTA: the keyword {sheet.get('keyword', '')} plus exactly what they get and why it helps them (e.g. "Agar aapki website pe bhi yahi dikkat hai, toh comment mein BOT likho. Main aapko 3-step setup bhejunga, taaki aap kal se hi isse try kar sako.").

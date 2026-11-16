@@ -11,7 +11,7 @@ def service_facts(focus, brand):
     tiers = [f"{t['name']}: " + "; ".join(t.get("includes", [])) for t in det.get("tiers", []) if t.get("name")]
     steps = ("HOW WORK HAPPENS (true for every service; use these facts for 'how it works'): the owner tells me what the business sells and what customers keep asking; I build it; the owner reviews it and asks for changes; "
              + (brand.get("offers", {}).get("pay_after_approval") or "the client pays only after approving the work"))
-    what = f"WHAT IT IS: {focus.get('pitch', '')}"
+    what = f"WHAT IT IS: {focus.get('pitch', '')}" + (" It really does: " + "; ".join(focus["capabilities"]) + "." if focus.get("capabilities") else "")
     inc = ("INCLUDED (the only features you may name): " + " | ".join(tiers)) if tiers else "INCLUDED: nothing beyond the description above is known, so do not name features, counts or timelines; explain the idea and the process in general, honest terms."
     return f"SERVICE FACTS (everything the long LinkedIn post may say about the service)\n{what}\n{inc}\n{steps}"
 

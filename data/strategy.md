@@ -1,5 +1,5 @@
-- Hook style: rotate to **question** (1.53x) or **comparison** (1.39x); avoid curiosity (0.75x, n=1).
-- Angle: use **mistake** framing (1.35x); avoid how_to (0.5x) and question angles (0.48x).
-- Visual: try **bright-desk** (1.41x) or **silhouette** (1.29x); drop network style (0.39x).
-- Stop repeating "AI vs manual" contrast hooks — used 3× in last 14 days.
-- Posts must read like a developer sharing real work, never an ad. No demos, no free audits, no niche targeting.
+- Rotate to **question** or **mistake** hooks (top performers); pause contrast hooks (0.23x of top3).
+- Avoid repeating "morning search" or "scrolling fatigue" framings — already used.
+- Write as a developer showing real work, not an ad. No demos, no client claims, no guarantees.
+- Use bright-desk or silhouette images (1.5x).
+- Focus on universal problems: repeated basic queries, manual lead hunting, inconsistent info — relatable to any Indian small business.

@@ -1,20 +1,20 @@
 {
-  "date": "2026-11-15",
+  "date": "2026-11-16",
   "stage": "brand new under 100 followers",
-  "followers": 10,
-  "summary": "Animated ads service scores 0.99x (below median). Reels lose 77% viewers in first 3 seconds — hook fails. Instagram bio violates rules: names niches (hotels, cafes, gyms, homestays), region (Himachal), promises 24‑hr delivery, offers free site check outside website posts.",
-  "guidance": "- Hook style: rotate to **question** (1.53x) or **comparison** (1.39x); avoid curiosity (0.75x, n=1).\n- Angle: use **mistake** framing (1.35x); avoid how_to (0.5x) and question angles (0.48x).\n- Visual: try **bright-desk** (1.41x) or **silhouette** (1.29x); drop network style (0.39x).\n- Stop repeating \"AI vs manual\" contrast hooks — used 3× in last 14 days.\n- Posts must read like a developer sharing real work, never an ad. No demos, no free audits, no niche targeting.",
+  "followers": 19,
+  "summary": "Account is brand new (19 total followers). Instagram bio violates brand rules: names niches (hotels, cafes, gyms, homestays), region (Himachal), promises 24hr delivery, offers free site check in bio. Reels lose 77% viewers in first 3s. Lead_gen outperforms chatbot 3:1 per reach. Question hooks lead (1.75x), mistake angles lead (1.46x). Zero real engagement on LinkedIn.",
+  "guidance": "- Rotate to **question** or **mistake** hooks (top performers); pause contrast hooks (0.23x of top3).\n- Avoid repeating \"morning search\" or \"scrolling fatigue\" framings — already used.\n- Write as a developer showing real work, not an ad. No demos, no client claims, no guarantees.\n- Use bright-desk or silhouette images (1.5x).\n- Focus on universal problems: repeated basic queries, manual lead hunting, inconsistent info — relatable to any Indian small business.",
   "instructions": {
-    "research": "Find 2–3 real Indian small-business pain points about video ad costs (e.g. cafe owner can't afford shoot, gym needs daily story ads, D2C brand needs product motion). Cite generic sources, no client names.",
-    "analysis": "Compare last 3 animated_ads posts (myth, question, contrast hooks) — note which hook style got most saves/shares per reach. Feed that into today's hook choice.",
-    "writer": "Write a single carousel post (3–4 slides) using a **question** hook: \"What if your next Instagram ad cost less than a coffee and took minutes, not days?\" Show the problem (budget, time, skill) and the AI-animated-ad workflow in general terms. End with \"Pay after approval — DM to discuss fit.\" No demo offer.",
-    "image": "Create a bright-desk style carousel: slide 1 hook text on clean desk background; slide 2 simple 3-step workflow icons (script → AI animate → upload); slide 3 price note placeholder; slide 4 CTA. No client logos, no screenshots of unlisted work.",
-    "video": "Skip video today — reel skip rate 77% shows hook failure. Focus on carousel for higher save rate."
+    "research": "Find 3 real Indian small-business owners (any city, any sector) discussing on LinkedIn/Instagram how they lose time answering the same WhatsApp questions daily. Screenshot anonymized quotes for writer.",
+    "analysis": "Compare the last 3 chatbot posts (Nov 2, 8, 12) — note which phrasing got any saves/shares. Flag any repeated words to avoid today.",
+    "writer": "Draft a question-hook post: \"What happens to incoming WhatsApp enquiries while you're with a walk-in customer?\" Keep it under 130 words. End with: \"Pay after you approve. DM for a quick chat on whether a chatbot fits.\" No demo offer.",
+    "image": "Create a bright-desk style static image: split screen — left side a busy counter, right side a simple chat bubble flow labelled \"Example: auto-reply to common questions\". No logos, no client names.",
+    "video": "Skip video today. Reel retention is 77% drop at 3s; static image matches current best image style (bright-desk 1.53x)."
   },
   "manual_tips": [
-    "Update Instagram bio to: \"AI chatbots, animated ads, lead lists & websites for small businesses across India. Pay after approval. DM for honest advice.\" Remove niches, region, timeframes, free offers.",
-    "Comment thoughtfully on 5 posts by Indian freelancers/agencies discussing client acquisition or video marketing — add value, don't pitch.",
-    "Reply to any story mentions or tags from collaborators (editorxyz_official, shiven_xyz) to keep network warm."
+    "Update Instagram bio to: \"AI chatbots, animated ads, lead lists & websites for small businesses across India. Pay after approval. DM for honest advice.\" Removes niche, region, timeframe, and bio free-offer violations.",
+    "Comment thoughtfully on 5 posts by Indian freelancers/agencies discussing lead-gen pain points — use 'Freelancers' or 'Agencies' language, not 'web developer'.",
+    "Reply to the 1 comment on your best chatbot post (Nov 2) with a genuine follow-up question to keep conversation going."
   ],
   "weak_signals": [
     {
@@ -30,7 +30,7 @@
     {
       "id": "weak_hook_style",
       "platform": "instagram",
-      "detail": "by hook style, 'contrast' earns 29% of what 'top3' earns per person reached"
+      "detail": "by hook style, 'contrast' earns 23% of what 'top3' earns per person reached"
     },
     {
       "id": "follower_stall",

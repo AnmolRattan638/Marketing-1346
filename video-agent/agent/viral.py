@@ -60,21 +60,47 @@ def forecast(plan: dict, master: dict | None) -> dict:
     return res
 
 
-def report(res: dict) -> str:
-    """Telegram text. Shown before the video."""
-    out = ["Predictor check (ViralSim, before you see the reel):"]
-    v = res.get("virality") or {}
+def report(res: dict, video: dict | None = None, history: list | None = None) -> str:
+    """Telegram text, sent BEFORE the video: the bots' verdict, weak points left, and how many fix rounds ran."""
+    out = ["ViralSim check (before you see the reel):"]
+    v = (res or {}).get("virality") or {}
     ig = (v.get("platforms") or {}).get("instagram")
     if ig:
-        weak = sorted((ig.get("dims") or {}).items(), key=lambda kv: kv[1])[:2]
-        out.append(f"Score {ig['score']:.0f}/100 (coarse, advisory)" + (f"; weakest: {', '.join(f'{k} {x:g}' for k, x in weak)}" if weak else ""))
-        ab = v.get("ab")
-        if ab and ab.get("better") is not None:
-            out.append(f"Another hook simulates better (hook {ab['better'] + 1}); this reel kept the script's hook.")
-        hints = "; ".join(x["title"] for x in (ig.get("levers") or [])[:2])
-        if hints:
-            out.append("Could lift: " + hints)
-    else:
-        out.append("Predictor unavailable this run.")
-    out.append("Scroll-stop check: " + ("passed (bold punch slide, hook headline on frame 1, concrete opener)" if not res.get("stop") else "weak: " + "; ".join(res["stop"])))
+        out.append(f"Script/text score {ig['score']:.0f}/100 (coarse, advisory)")
+    if video and not video.get("failed") and video.get("bots"):
+        out.append(f"Video bots: score {video['score']}/100 -> {'WORTH POSTING' if video['worth_posting'] else 'NOT convincing (best of the rounds shipped)'}; "
+                   f"{video['hold3']:.0%} still watching at 3s, {video['avg_watch']:.0%} of the reel watched on average, {video['finish']:.0%} reach the end, muted viewers {video['sound_off_hold']:.0%}.")
+        out.append("Bots: " + ", ".join(f"{k} {b['verdict']}" for k, b in video["bots"].items()))
+        if history and len(history) > 1:
+            out.append(f"Planner fix rounds: {len(history) - 1} (max 2). Scores per round: " + " -> ".join(str(h["score"]) for h in history))
+        left = video.get("weak_points") or []
+        if left:
+            out.append("Weak points left: " + "; ".join(f"{w['kind']} at {w['t']}s ({w['detail']})" + ("" if w["planner"] else " [script-level]") for w in left[:4]))
+    elif video and video.get("failed"):
+        out.append("Video bot analysis was unavailable this run.")
+    out.append("Scroll-stop check: " + ("passed" if not (res or {}).get("stop") else "weak: " + "; ".join(res["stop"])))
     return "\n".join(out)
+
+
+def analyse_final(final, plan: dict, built: list, tail: float, rnd: int = 0) -> dict:
+    """The rendered reel goes to the ViralSim viewer bots (viralsim/video.py: ffmpeg measurements + 6 personas). Never raises."""
+    try:
+        from viralsim import video
+        total = sum(b["narration_seconds"] + tail for b in built) or 1.0
+        dur = video.probe(str(final))["duration"] or total
+        k, t0, spans = dur / total, 0.0, []
+        for b, sc in zip(built, plan["scenes"]):
+            d = (b["narration_seconds"] + tail) * k
+            spans.append({"id": b["id"], "beat": sc.get("beat"), "start": t0, "end": t0 + d})
+            t0 += d
+        res = video.analyze_video(str(final), spans, seed=rnd)
+        res["_feedback"] = video.feedback(res)
+        return res
+    except Exception as e:
+        print(f"[viral] video analysis failed (advisory): {str(e)[:150]}")
+        return {"score": 0.0, "worth_posting": True, "weak_points": [], "bots": {}, "threshold": 0, "curve": [], "failed": True}
+
+
+def feedback(res: dict) -> str:
+    """The detailed brief for the planner (weak points with times, scenes and fixes)."""
+    return res.get("_feedback") or ""

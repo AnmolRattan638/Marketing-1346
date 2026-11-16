@@ -188,4 +188,4 @@ A separate daily short-video maker (Groq plan, Pexels footage, Kokoro/edge-tts v
 Secrets needed: `TAVILY_API_KEY`, `EXA_API_KEY`, `UNSPLASH_ACCESS_KEY`, `VOICE_REF_B64`.
 
 ## Video: predictor gate
-`video-agent/agent/viral.py`: every reel is forced to open on a bold `punch` slide with the hook's 3-5 word headline, then ViralSim reads the script before render. The verdict (score, weakest dimensions, hook A/B, scroll-stop check) is sent to Telegram first, then the video. Advisory only: ViralSim is a coarse heuristic and nothing is blocked or rewritten by it.
+`video-agent/agent/viral.py`: every reel is forced to open on a bold `punch` slide with the hook's 3-5 word headline, then the rendered reel then goes to the ViralSim viewer bots (`viralsim/video.py`). Weak points (with scene, time and fix) go back to the planner, at most `VIDEO_FIX_ROUNDS` (default 2) times, re-using the voice so no extra TTS/Whisper calls; the best round ships. The verdict goes to Telegram first, then the video. Script-level problems (too long) are reported, not auto-fixed.

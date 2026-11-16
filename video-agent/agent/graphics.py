@@ -28,7 +28,7 @@ import re
 
 from .common import log
 
-LAYOUTS = ("title", "step", "strike", "punch")
+LAYOUTS = ("title", "step", "strike", "punch", "hook")          # "hook" is never chosen by the planner: viral.stop_fix forces it on scene 1
 MOCKS = ("terminal", "comment", "checklist", "browser", "file", "window")
 HEAD_AT = 0.12            # heading appears this long after the scene starts when no word is given
 HOLD = 0.8                # last element lands at least this long before the scene ends, so it can be read
@@ -137,6 +137,11 @@ def resolve_graphic(scene: dict, words: list[dict], seconds: float) -> dict | No
         cues.append({"type": "click", "atSecond": mock_at, "volume": 0.28})
     elif layout == "strike":
         cues += [{"type": "click", "atSecond": t, "volume": 0.3} for t in times[:3]]
+    if layout == "hook":                                                       # the breaking-phone opening: an impact on EVERY spoken word, a whoosh into it
+        from . import scenarios
+        props["hook"] = {"notifs": scenarios.HOOK_NOTIFS}
+        props["emphasis"] = [str(w)[:20] for w in (g.get("emphasis") or [])][:6]
+        cues = [{"type": "whoosh", "atSecond": 0.0, "volume": 0.5}] + [{"type": "impact", "atSecond": round(float(w["start"]), 3), "volume": 0.55 if i == 0 else 0.4} for i, w in enumerate(words[:9])]
     props["sfx"] = [c for c in cues if 0 <= c["atSecond"] < seconds - 0.1]
     return props
 

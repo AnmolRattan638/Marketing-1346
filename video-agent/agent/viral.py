@@ -1,6 +1,6 @@
 """Scroll-stop gate: the reel goes through the ViralSim predictor (src/virality.py) before it reaches Telegram.
 
- 1. stop_fix(plan, master): deterministic. Scene 1 is a full-colour `punch` slide whose headline is the hook's own 3-5 words (works on mute).
+ 1. stop_fix(plan, master): deterministic. Scene 1 is ALWAYS the `hook` layout: a phone that breaks while every spoken word slams in with a shake, cracks and an impact sound.
  2. forecast(plan, master): ViralSim scores the spoken script + on-screen hook, with the hook A/B; plus a scroll-stop checklist.
  3. report(): the text sent to Telegram BEFORE the video, so you read the verdict first. Advisory: the model is a coarse heuristic (see src/virality.py)."""
 import re
@@ -24,8 +24,8 @@ def stop_check(plan: dict, master: dict | None = None) -> list[str]:
     out = []
     if not 2 <= len(head) <= 6:
         out.append("first-frame headline is not 3-5 bold words")
-    if g.get("layout") not in ("punch", "title"):
-        out.append("first frame is not a bold full-screen slide")
+    if g.get("layout") != "hook":
+        out.append("scene 1 is not the breaking-phone hook (slammed words, shake, cracks)")
     if len(line.split()) > 16:
         out.append("spoken hook runs over 16 words")
     if not (NUM.search(line) or LOOP.search(line)):
@@ -41,8 +41,7 @@ def stop_fix(plan: dict, master: dict | None = None) -> dict:
     hook = " ".join(str(((master or {}).get("beats") or [{}])[0].get("screen") or "").split()[:5])
     g = scenes[0].get("graphic") if isinstance(scenes[0].get("graphic"), dict) else {}
     head = " ".join(str(g.get("heading") or hook or "").split()[:5])
-    if head:
-        scenes[0]["graphic"] = {**g, "layout": "punch", "heading": head[:30]}
+    scenes[0]["graphic"] = {**g, "layout": "hook", "heading": head[:30]}          # HARDCODED: every reel opens with the breaking-phone hook
     return plan
 
 

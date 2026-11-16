@@ -61,3 +61,7 @@ def demo_kind(service: str | None, seed: str) -> str:
     if service == "website":
         return "site"
     return "chat" if sum(map(ord, seed)) % 2 else "site"
+
+
+# The hook's missed-message pile (generic, illustrative, no figures): shows the pain of leads arriving while nobody answers.
+HOOK_NOTIFS = ["WhatsApp: Rate kya hai?", "Missed call: naya customer", "Instagram DM: Aap kal khule ho?"]

@@ -1,5 +1,3 @@
-- Rotate to **question** or **mistake** hooks (top performers); pause contrast hooks (0.23x of top3).
-- Avoid repeating "morning search" or "scrolling fatigue" framings — already used.
-- Write as a developer showing real work, not an ad. No demos, no client claims, no guarantees.
-- Use bright-desk or silhouette images (1.5x).
-- Focus on universal problems: repeated basic queries, manual lead hunting, inconsistent info — relatable to any Indian small business.
+- Hook style: rotate to **mistake** angle (1.46x) paired with **question** hook (1.75x); avoid pure comparison hooks for chatbot posts.
+- Avoid repeating 'same five questions' phrasing (used 2026-10-12 & 2026-11-02); vary the pain point.
+- Posts must read as a developer sharing real work, never an ad; no demo offers, no niche targeting.

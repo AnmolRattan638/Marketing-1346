@@ -1,20 +1,20 @@
 {
   "date": "2026-11-16",
   "stage": "brand new under 100 followers",
-  "followers": 19,
-  "summary": "Account is brand new (19 total followers). Instagram bio violates brand rules: names niches (hotels, cafes, gyms, homestays), region (Himachal), promises 24hr delivery, offers free site check in bio. Reels lose 77% viewers in first 3s. Lead_gen outperforms chatbot 3:1 per reach. Question hooks lead (1.75x), mistake angles lead (1.46x). Zero real engagement on LinkedIn.",
-  "guidance": "- Rotate to **question** or **mistake** hooks (top performers); pause contrast hooks (0.23x of top3).\n- Avoid repeating \"morning search\" or \"scrolling fatigue\" framings — already used.\n- Write as a developer showing real work, not an ad. No demos, no client claims, no guarantees.\n- Use bright-desk or silhouette images (1.5x).\n- Focus on universal problems: repeated basic queries, manual lead hunting, inconsistent info — relatable to any Indian small business.",
+  "followers": 10,
+  "summary": "All platforms under 100 followers; Instagram reels lose 77% viewers in first 3 seconds (hook failure). Bio violates rules: niche/region lock, '24 hrs' timeframe, free site check offer beyond website posts. LinkedIn shows zero real engagement.",
+  "guidance": "- Hook style: rotate to **mistake** angle (1.46x) paired with **question** hook (1.75x); avoid pure comparison hooks for chatbot posts.\n- Avoid repeating 'same five questions' phrasing (used 2026-10-12 & 2026-11-02); vary the pain point.\n- Posts must read as a developer sharing real work, never an ad; no demo offers, no niche targeting.",
   "instructions": {
-    "research": "Find 3 real Indian small-business owners (any city, any sector) discussing on LinkedIn/Instagram how they lose time answering the same WhatsApp questions daily. Screenshot anonymized quotes for writer.",
-    "analysis": "Compare the last 3 chatbot posts (Nov 2, 8, 12) — note which phrasing got any saves/shares. Flag any repeated words to avoid today.",
-    "writer": "Draft a question-hook post: \"What happens to incoming WhatsApp enquiries while you're with a walk-in customer?\" Keep it under 130 words. End with: \"Pay after you approve. DM for a quick chat on whether a chatbot fits.\" No demo offer.",
-    "image": "Create a bright-desk style static image: split screen — left side a busy counter, right side a simple chat bubble flow labelled \"Example: auto-reply to common questions\". No logos, no client names.",
-    "video": "Skip video today. Reel retention is 77% drop at 3s; static image matches current best image style (bright-desk 1.53x)."
+    "research": "Find 2-3 common chatbot misconceptions small Indian businesses hold (e.g., 'needs coding', 'only for big brands', 'replaces human touch') to fuel a mistake-busting angle.",
+    "analysis": "Compare today's chatbot topic against the last two chatbot posts (2026-11-02, 2026-11-08, 2026-11-12) to ensure a fresh pain point and hook style.",
+    "writer": "Write a single-image post using a **mistake** angle + **question** hook: highlight one misconception about chatbots, ask a relatable question, end with 'pay after approval' + DM for honest fit check. No niche examples; mention 2-3 varied business types max.",
+    "image": "Create a bright-desk style image (1.53x) showing a simple chat card mock-up labelled 'Example conversation' — no business name, no demo claim. Clean, developer-at-work aesthetic.",
+    "video": "Skip video today; reel hook retention is too weak (77% 3-sec drop). Focus on static image post to test hook/angle without retention risk."
   },
   "manual_tips": [
-    "Update Instagram bio to: \"AI chatbots, animated ads, lead lists & websites for small businesses across India. Pay after approval. DM for honest advice.\" Removes niche, region, timeframe, and bio free-offer violations.",
-    "Comment thoughtfully on 5 posts by Indian freelancers/agencies discussing lead-gen pain points — use 'Freelancers' or 'Agencies' language, not 'web developer'.",
-    "Reply to the 1 comment on your best chatbot post (Nov 2) with a genuine follow-up question to keep conversation going."
+    "Update Instagram bio: remove niche/region list, 'ready in 24 hrs', and free site check line. Replace with broad, rule-compliant description (e.g., 'AI chatbots, animated ads, lead sheets & websites for small businesses across India. Pay after approval. DM to discuss fit.')",
+    "Comment thoughtfully on 5 posts from Indian small business owners (cafes, gyms, clinics, coaches) discussing customer communication struggles — no pitching, just genuine insight.",
+    "Reply to any existing comments on your last 3 Instagram posts to boost signal; keep replies helpful, not promotional."
   ],
   "weak_signals": [
     {
@@ -25,7 +25,7 @@
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 35% of what 'lead_gen' earns per person reached"
+      "detail": "by service, 'animated_ads' earns 31% of what 'lead_gen' earns per person reached"
     },
     {
       "id": "weak_hook_style",
@@ -33,9 +33,14 @@
       "detail": "by hook style, 'contrast' earns 23% of what 'top3' earns per person reached"
     },
     {
+      "id": "weak_format",
+      "platform": "instagram",
+      "detail": "by format, 'carousel' earns 47% of what 'image' earns per person reached"
+    },
+    {
       "id": "follower_stall",
       "platform": "bluesky",
-      "detail": "6 posts in 7 days and followers changed by +0"
+      "detail": "5 posts in 7 days and followers changed by +0"
     }
   ]
 }

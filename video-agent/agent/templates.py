@@ -147,6 +147,8 @@ def apply(graphics: dict, voiced: list, cfg: dict, seed: str, variant_hint: str 
             done.append({"scene": sid, "template": "before-after", "variant": variant})
             prev_idx = idx
             continue
+        if ba_idx is not None and abs(idx - ba_idx) == 1:
+            continue                                                   # never two template scenes back to back, the before / after included
         if not gp or gp.get("layout") not in ("title", "punch", "strike") or len(done) >= int(tc.get("max_per_video", 2)) or idx - prev_idx < 2 or seconds > 7.5:      # a template holds its last frame, so long scenes keep a moving layout instead
             continue
         start = float((gp.get("times") or {}).get("heading", 0.3))

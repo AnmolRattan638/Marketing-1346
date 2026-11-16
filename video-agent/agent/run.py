@@ -66,7 +66,7 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
     for rnd in range(MAX_FIXES + 1):
         if rnd:
             editor = Editor(cfg, offline, service) if hybrid_on else None
-        plan = sample_plan() if offline else make_plan(topic, cfg, editor.library_summary() if editor else "", service, **({"evidence": ev_text} if ev_text else {}), **({"master": master} if master else {}), **({"feedback": feedback} if feedback else {}))
+        plan = sample_plan() if offline else make_plan(topic, cfg, editor.library_summary() if editor else "", service, **({"evidence": ev_text} if ev_text else {}), **({"master": master} if master else {}), **({"feedback": feedback} if feedback else {}), direction=look.get("direction", ""))
         if sources:
             plan["sources"] = sources
         viral.stop_fix(plan, master)                   # frame 1 = bold punch slide with the hook headline
@@ -112,7 +112,7 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
                     sc.pop("graphic", None)
             sc.setdefault("footage_query", "ai automation technology")
         if not offline:
-            tpl_lib.apply(graphics, [(sid, sc, sec + tail, mp3, w) for sid, sc, sec, mp3, w in voiced], cfg, f"{date.today().isoformat()}|{topic}")
+            tpl_lib.apply(graphics, [(sid, sc, sec + tail, mp3, w) for sid, sc, sec, mp3, w in voiced], cfg, f"{date.today().isoformat()}|{topic}", look.get("variant"))
         footage_scenes = [(sid, sc, sec + tail) for sid, sc, sec, _, _ in voiced if sid not in graphics]
         if editor and footage_scenes:   # the whole reel is planned at once so the hybrid rules apply to the reel, not to each scene
             editor.prepare(footage_scenes, WORK / "footage", {sid: words for sid, _, _, _, words in voiced})      # cuts are snapped to the spoken words

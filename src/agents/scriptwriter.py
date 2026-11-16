@@ -130,14 +130,16 @@ def problems(script, sheet, style):
     return out
 
 
-def fidelity(script, sheet, ask):
+def fidelity(script, sheet, ask, focus=None):
     """One more model pass that only checks MEANING against the WHOLE fact sheet. Flags only: a number or cause that contradicts or changes a fact, an outcome promised that no fact claims,
     a source or brand named that no fact names, or a line that is unintelligible. Plain-language explanation of WHY (common sense, no new figure) is allowed. -> list of issues."""
     facts = {f["id"]: f"{f['claim']} (source: {f.get('source')})" for f in sheet.get("facts", [])}
     rows = [{"beat": b.get("beat"), "line": b.get("line"), "cites": b.get("facts") or []} for b in script.get("beats", [])]
     prompt = ("You are an editor checking spoken lines against ALL verified facts. Flag a line ONLY if: (1) it changes or contradicts a number or cause stated in a fact; (2) it promises an outcome "
-              "no fact claims (e.g. 'calls will stop'); (3) it names a company, person or study that no fact names; (4) it is unintelligible when heard once. "
-              "Do NOT flag plain-language explanations, examples or reasons that add no figure or name. Each issue must say exactly how to fix it.\n"
+              "no fact claims AND is not a capability of the service in focus (e.g. 'calls will stop'; but 'the customer does not have to wait' is a true capability of an instant-reply chatbot and is FINE); (3) it names a company, person or study that no fact names; (4) it is unintelligible when heard once. "
+              "Do NOT flag plain-language explanations, examples or reasons that add no figure or name, and do NOT flag plain statements of what the service does (see SERVICE CAPABILITIES): "
+              "those are true even when no fact repeats them. Flag only invented figures, guaranteed sales/revenue results, named clients or testimonials, and contradictions of a fact. Each issue must say exactly how to fix it.\n"
+              "SERVICE CAPABILITIES (true, may be stated): " + str((focus or {}).get("pitch") or (focus or {}).get("name") or "") + "\n"
               "Return JSON {\"issues\": [\"beat: problem and the exact fix\"]}, empty if fine.\nFACTS: " + json.dumps(facts, ensure_ascii=False) + "\nLINES: " + json.dumps(rows, ensure_ascii=False))
     try:
         res = llm.ask_json(ask, prompt, "You check whether lines are faithful and clear. JSON only.")
@@ -165,7 +167,7 @@ Write ONE script. Rules: no greeting or intro; one idea;
 SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 2-3 full spoken sentences, and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. Do not worry about video length; worry about the viewer UNDERSTANDING.
 EXPLAIN, don't announce: pain = the moment AND why it hurts (what it costs: time, a lost customer); poke = why the obvious fix fails, the reason in plain words; fix = each step with a one-clause reason ("pehle ..., kyunki ..."); payoff = what the fact MEANS for this owner in plain words (do the arithmetic only if every number comes from a fact); recap = loop back to the pain.
 Use helping words (kyunki, isliye, matlab, jaise ki, phir, taaki, lekin) so each line connects to the one before it. A line must make sense when heard once, with no screen.
-STATISTICS: say a figure exactly as its fact states it. "X% of calls are repeat questions" never becomes "X% of calls will stop"; do not invent an outcome the fact does not claim.
+CAPABILITIES: you may state what the service in focus does (it answers instantly, so the customer does not wait; it records every enquiry in one place) even when no fact says it; it is true. Never promise a business result (more sales, a number of leads).\nSTATISTICS: say a figure exactly as its fact states it. "X% of calls are repeat questions" never becomes "X% of calls will stop"; do not invent an outcome the fact does not claim.
 Vary sentence length and mood inside a beat: a short punchy sentence, then a longer explaining one; a question where you are talking to the owner; "!" only for a real payoff.
 
 HOOK: a specific scene or number from the facts (a time, a thing, a loss), never a general statement or "the myth". PAIN/POKE: one concrete moment the owner has lived. FIX: walk through 2-3 concrete steps in the spoken line AND list them in `steps` (each 7 words max). PAYOFF: only a fact from the sheet, source named in words. CTA: the keyword {sheet.get('keyword', '')} plus exactly what they get and why it helps them (e.g. "Agar aapki website pe bhi yahi dikkat hai, toh comment mein BOT likho. Main aapko 3-step setup bhejunga, taaki aap kal se hi isse try kar sako.").
@@ -189,7 +191,7 @@ Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken",
                   "language": "hinglish", "facts": sheet["facts"], "topic": sheet.get("topic"), "service": focus.get("id") or focus.get("name"), "keyword": sheet.get("keyword")}
         bad = problems(script, sheet, style) + contentskills.problems(script)
         if not bad:
-            bad = [f"meaning: {x}" for x in fidelity(script, sheet, ask)]
+            bad = [f"meaning: {x}" for x in fidelity(script, sheet, ask, focus)]
         if not bad:
             bad = [f"skills: {x}" for x in contentskills.audit(script, ask)]
         if not bad:

@@ -85,4 +85,12 @@ def ask2(p, s="", **k):
     calls.append(p)
     return json.dumps({"issues": ["payoff: says calls stop, fact says they are repeats"]}) if "editor checking spoken lines" in p and len(calls) == 2 else (json.dumps({"issues": []}) if "editor checking spoken lines" in p else seq.pop(0))
 assert sw.run(sheet, {"name": "x", "dm_keyword": "BOT"}, style, ask=ask2, voice="v")["beats"] and sum("editor checking spoken lines" in c for c in calls) == 2
+
+# the meaning check is told what the service does, so "customer ko wait nahi karna padega" is not flagged as an unsupported promise
+seen = []
+def ask3(p, s="", **k):
+    seen.append(p)
+    return json.dumps({"issues": []})
+sw.fidelity({"beats": [{"beat": "recap", "line": "Customer ko wait nahi karna padega.", "facts": []}]}, {"facts": []}, ask3, {"name": "Chatbot", "pitch": "answers customer messages instantly, 24/7"})
+assert "answers customer messages instantly" in seen[0] and "SERVICE CAPABILITIES" in seen[0] and "does not have to wait" in seen[0]
 print("scriptwriter ok")

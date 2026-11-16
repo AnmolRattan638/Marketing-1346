@@ -125,6 +125,6 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
                   "title": plan["title"]},
         "audio": {"music": _stage_music(cfg)},
         "brand": {"logo": _stage_logo(cfg)},
-        "look": {"palette": (look or {}).get("palette") or load_palette(cfg), "caption": (look or {}).get("caption", "pill")},
+        "look": {"palette": (look or {}).get("palette") or load_palette(cfg), "caption": (look or {}).get("caption", "pill"), "bg": (look or {}).get("bg", "specks"), "vignette": (look or {}).get("vignette", 0.38), "name": (look or {}).get("name")},
         "scenes": scenes,
     }

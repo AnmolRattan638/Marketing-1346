@@ -119,7 +119,7 @@ def _state() -> dict:
         return {}
 
 
-def apply(graphics: dict, voiced: list, cfg: dict, seed: str) -> list[dict]:
+def apply(graphics: dict, voiced: list, cfg: dict, seed: str, variant_hint: str | None = None) -> list[dict]:
     """Upgrade up to max_per_video graphic scenes in `graphics` (sid -> props) in place. Returns [{scene, template, variant}]."""
     tc = cfg.get("templates") or {}
     if not tc.get("enabled", True) or not graphics:
@@ -128,12 +128,12 @@ def apply(graphics: dict, voiced: list, cfg: dict, seed: str) -> list[dict]:
     last = _state()
     force = tc.get("force") or {}
     variants = [v for v in tc.get("variants", VARIANTS) if v in VARIANTS] or list(VARIANTS)
-    variant = force.get("variant") or rng.choice([v for v in variants if v != last.get("variant")] or variants)
+    variant = force.get("variant") or (variant_hint if variant_hint in VARIANTS else None) or rng.choice([v for v in variants if v != last.get("variant")] or variants)
     recent = set(last.get("ids", [])[-10:])
     used, done, prev_idx = [], [], -5
     for idx, (sid, sc, seconds, _mp3, _words) in enumerate(voiced):
         gp = graphics.get(sid)
-        if not gp or gp.get("layout") not in ("title", "punch", "strike") or len(done) >= int(tc.get("max_per_video", 2)) or idx - prev_idx < 2:
+        if not gp or gp.get("layout") not in ("title", "punch", "strike") or len(done) >= int(tc.get("max_per_video", 2)) or idx - prev_idx < 2 or seconds > 7.5:      # a template holds its last frame, so long scenes keep a moving layout instead
             continue
         start = float((gp.get("times") or {}).get("heading", 0.3))
         pool = []

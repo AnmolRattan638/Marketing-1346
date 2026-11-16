@@ -14,6 +14,8 @@ export const THEME = {
   glow: "rgba(240,192,64,0.45)",
   glowSoft: "rgba(240,192,64,0.14)",
 };
+// Per-reel art direction (agent/looks.py presets travel in manifest.look): background pattern and vignette strength. applyTheme() sets it before the first frame.
+export const LOOK: { bg: string; vignette: number } = { bg: "specks", vignette: 0.38 };
 export const FONT_HEAD =
   '"Montserrat", "Poppins", "Inter", "Noto Sans Devanagari", "Noto Sans", "Helvetica Neue", Arial, sans-serif';
 export const FONT_SERIF = '"Playfair Display", "Noto Serif", "DejaVu Serif", Georgia, serif';

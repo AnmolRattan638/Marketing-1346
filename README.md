@@ -189,3 +189,6 @@ Secrets needed: `TAVILY_API_KEY`, `EXA_API_KEY`, `UNSPLASH_ACCESS_KEY`, `VOICE_R
 
 ## Video: predictor gate
 `video-agent/agent/viral.py`: every reel is forced to open on a bold `punch` slide with the hook's 3-5 word headline, then the rendered reel then goes to the ViralSim viewer bots (`viralsim/video.py`). Weak points (with scene, time and fix) go back to the planner, at most `VIDEO_FIX_ROUNDS` (default 2) times, re-using the voice so no extra TTS/Whisper calls; the best round ships. The verdict goes to Telegram first, then the video. Script-level problems (too long) are reported, not auto-fixed.
+
+## Video: art directions (no two reels alike)
+`video-agent/agent/looks.py` rotates through 8 presets (colour mode night/ink/royal/paper from the brand colours, backdrop pattern, caption style, transition set, template variant, planner art direction) by day + run number, so consecutive reels never share a look and CI needs no history file. Force one with `config.json -> looks.force.preset`. Templates are no longer used on scenes over 7.5 s (they hold their last frame).

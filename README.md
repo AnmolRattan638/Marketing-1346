@@ -198,3 +198,6 @@ Every reel's payoff (else recap) scene becomes a portrait before/after board (`g
 
 ## Video: device demos
 The fix beat (never next to the before/after scene) shows a phone with a customer / chatbot conversation or a browser where a cursor clicks "Enquiry bhejein" and a "Nayi enquiry mili" notice pops up (`graphics/Devices.tsx`, copy in `agent/scenarios.py`). chatbot -> phone, website -> browser, other services alternate by day. Generic, illustrative copy: no client, price or result. Disable with `templates.device_demo: false`.
+
+## Video: the hook (hardcoded)
+Scene 1 of every reel is the breaking-phone hook (`graphics/HookBlast.tsx`, forced by `viral.stop_fix`): each spoken word slams in huge with an RGB-split, the whole frame shakes on every word (numbers and keywords hit harder with a flash), a crack spreads across the phone glass, missed-message notifications pile in, there is an impact sound on every word, and the last 0.45 s tears into glitch slices into scene 2. No captions on that scene: the slammed words are the captions. Notification copy: `agent/scenarios.py` (`HOOK_NOTIFS`).

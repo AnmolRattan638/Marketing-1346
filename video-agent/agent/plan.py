@@ -166,7 +166,7 @@ def evidence_block(evidence: str) -> str:
             "Never apply it to the owner's own work, never use it to promise a result, and state no other statistic or study. If nothing fits the topic, ignore the evidence.\n")
 
 
-def make_plan(topic: str, cfg: dict, library: str = "", service: str = "general", evidence: str = "", master: dict | None = None) -> dict:
+def make_plan(topic: str, cfg: dict, library: str = "", service: str = "general", evidence: str = "", master: dict | None = None, feedback: str = "") -> dict:
     lang = cfg["language"]
     angle = random.SystemRandom().choice(ANGLES)          # a different angle every run, so scripts do not repeat
     note = (cfg.get("service_notes") or {}).get(service, "")
@@ -178,6 +178,8 @@ def make_plan(topic: str, cfg: dict, library: str = "", service: str = "general"
         + (f"What the topic covers: {note}\n" if note else "")
         + (master_script.prompt_block(master) if master else evidence_block(evidence))
         + lessons.prompt_block()
+        + ("\nVIEWER-RETENTION REPORT on your previous version of this reel (simulated viewers watched the rendered video). Fix every item below with PICTURE only: graphic layouts, fx, camera, sfx, footage_query, transitions. "
+           "You cannot change any spoken word, the beats or their order. Do not remove the first-frame hook headline.\n" + feedback + "\n" if feedback else "")
         + f"Narration language: {lang}\n"
         f"Background about the owner (use ONLY if it fits the topic, never as the topic): {cfg['brand']['notes']}\n"
         f"Target length: about {cfg['video']['target_seconds']} seconds in total.\n"

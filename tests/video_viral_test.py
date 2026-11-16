@@ -13,6 +13,6 @@ assert g["layout"] == "punch" and g["heading"] == "Raat 11 baje reply kaun" and 
 weak = {"scenes": [{"narration": "Aaj hum baat karenge ek bahut zaroori topic ke baare mein jo sab ke liye important hai aur sabko jaanna chahiye hamesha", "graphic": {"layout": "step", "heading": "x"}}]}
 assert len(viral.stop_check(weak)) >= 3
 r = viral.forecast(plan, master)
-assert "stop" in r and "Predictor check" in viral.report(r)
-assert "Predictor unavailable" in viral.report({"virality": None, "stop": []})
+assert "stop" in r and "ViralSim check" in viral.report(r)
+assert "ViralSim check" in viral.report({"virality": None, "stop": []})
 print("video viral ok")

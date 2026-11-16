@@ -61,89 +61,118 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
     ev_text, sources = ("", []) if (offline or master) else webresearch.for_topic(topic)       # real sources for the topic (Tavily + Exa), optional
     if master:
         sources = [{"title": f.get("claim", "")[:80], "url": f.get("url"), "domain": f.get("source")} for f in master.get("facts", []) if f.get("url")]
-    plan = sample_plan() if offline else make_plan(topic, cfg, editor.library_summary() if editor else "", service, **({"evidence": ev_text} if ev_text else {}), **({"master": master} if master else {}))
-    if sources:
-        plan["sources"] = sources
-    viral.stop_fix(plan, master)                   # frame 1 = bold punch slide with the hook headline
-    vres = viral.forecast(plan, master)            # the predictor reads the reel BEFORE it is rendered and sent to you
-    log(viral.report(vres).replace("\n", " | "))
-    (out_dir / "plan.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding="utf-8")
-    log(f"plan: '{plan['title']}' with {len(plan['scenes'])} scenes")
+    MAX_FIXES = int(os.environ.get("VIDEO_FIX_ROUNDS", "2"))         # hard cap on planner fix rounds (API usage)
+    feedback, vres, vcache, history = "", None, {}, []
+    for rnd in range(MAX_FIXES + 1):
+        if rnd:
+            editor = Editor(cfg, offline, service) if hybrid_on else None
+        plan = sample_plan() if offline else make_plan(topic, cfg, editor.library_summary() if editor else "", service, **({"evidence": ev_text} if ev_text else {}), **({"master": master} if master else {}), **({"feedback": feedback} if feedback else {}))
+        if sources:
+            plan["sources"] = sources
+        viral.stop_fix(plan, master)                   # frame 1 = bold punch slide with the hook headline
+        if rnd == 0:
+            vres = viral.forecast(plan, master)        # text forecast (ViralSim) once; the rendered video is analysed below
+        (out_dir / "plan.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding="utf-8")
+        log(f"plan: '{plan['title']}' with {len(plan['scenes'])} scenes")
 
-    sfx_ok, used_ids, built, credits = available_sfx(), set(), [], []
-    voiced = []
-    prepare_voice([sc["narration"] for sc in plan["scenes"]], cfg)
-    for i, sc in enumerate(plan["scenes"]):
-        sid = f"s{i + 1}"
-        mp3 = WORK / "narration" / f"{sid}.mp3"
-        seconds = synth(sc["narration"], mp3, cfg, offline, sc.get("emotion"), sc.get("beat"))
-        voiced.append((sid, sc, seconds, mp3, get_words(sc["narration"], mp3, seconds, cfg, offline)))
-    tail = cfg["video"]["tail_seconds"]
-    # Each scene is either a motion graphic (the default look) or footage (your own clips, at most max_stock_shots stock shots in the reel).
-    graphics: dict[str, dict] = {}
-    no_raw = bool(editor and not editor.avail["raw"])      # nothing of yours to show: pure motion graphics, with a little stock video/photo as an option
-    stock_left = editor.hs.get("no_raw_stock_scenes", 2) if no_raw and (editor.avail["stock"] or editor.avail["photo"]) else 0
-    for idx, (sid, sc, sec, _, words) in enumerate(voiced):
-        if no_raw and not sc.get("graphic") and stock_left > 0 and 0 < idx < len(voiced) - 1:      # never the hook or the CTA
-            stock_left -= 1
-            log(f"{sid}: no raw clips, so this scene uses stock footage/photos")
-        elif sc.get("graphic") or no_raw:
-            if not sc.get("graphic"):
-                log(f"{sid}: no raw clips to show, so this scene becomes a motion graphic instead of stock footage")
-                sc["graphic"] = fallback_graphic(sc)
-            gp = resolve_graphic(sc, words, sec + tail)
-            if gp:
-                graphics[sid] = gp
+        sfx_ok, used_ids, built, credits = available_sfx(), set(), [], []
+        voiced = []
+        prepare_voice([sc["narration"] for sc in plan["scenes"]], cfg)
+        for i, sc in enumerate(plan["scenes"]):
+            sid = f"s{i + 1}"
+            mp3 = WORK / "narration" / f"{sid}.mp3"
+            key = (sc["narration"], sc.get("emotion"), sc.get("beat"))
+            if key in vcache and vcache[key][0].exists():          # a fix round re-uses the voice: no second TTS/Whisper call for the same line
+                seconds, words = vcache[key][1], vcache[key][2]
+                shutil.copyfile(vcache[key][0], mp3)
             else:
-                sc.pop("graphic", None)
-        sc.setdefault("footage_query", "ai automation technology")
-    if not offline:
-        tpl_lib.apply(graphics, [(sid, sc, sec + tail, mp3, w) for sid, sc, sec, mp3, w in voiced], cfg, f"{date.today().isoformat()}|{topic}")
-    footage_scenes = [(sid, sc, sec + tail) for sid, sc, sec, _, _ in voiced if sid not in graphics]
-    if editor and footage_scenes:   # the whole reel is planned at once so the hybrid rules apply to the reel, not to each scene
-        editor.prepare(footage_scenes, WORK / "footage", {sid: words for sid, _, _, _, words in voiced})      # cuts are snapped to the spoken words
-    for i, (sid, sc, seconds, mp3, words) in enumerate(voiced):
-        transition = pick_transition(sc, i, look, cfg)
-        gp = graphics.get(sid)
-        if gp:
-            clip, fx, zones, camera = None, plan_fx(sc, words, seconds + tail, cfg), [], []
-            sfx = plan_sfx(i, sc, words, sfx_ok, None, fx, transition, gp["sfx"], cfg.get("sfx_policy"))
-            credits.append({"scene": sid, "graphic": gp["layout"]})
-        else:
-            clip = editor.render_scene(sid, WORK / "footage") if editor else fetch_clip(sc, sid, WORK / "footage", used_ids, offline)
-            fx = plan_fx(sc, words, seconds + tail, cfg)      # graphics anchored to spoken words
-            camera = plan_camera(sc, words, seconds + tail, clip.get("shots"), i, cfg)
-            zones = zones_for(WORK / "footage" / f"{sid}.mp4", seconds + tail) if (cfg.get("captions") or {}).get("smart_position", True) else []
-            sfx = plan_sfx(i, sc, words, sfx_ok, clip.get("cuts"), fx, transition, None, cfg.get("sfx_policy"))
-            credits.append(clip["credit"])
-        built.append({
-            "id": sid, "clip": clip, "graphic": gp, "narration": f"assets/run/narration/{sid}.mp3",
-            "narration_seconds": seconds, "words": words, "sfx": sfx, "fx": fx, "transition": transition, "zones": zones, "camera": camera,
-            "beats": emphasis_beats(sc, words),                           # the same words drive caption emphasis and the zoom pulse
-        })
+                seconds = synth(sc["narration"], mp3, cfg, offline, sc.get("emotion"), sc.get("beat"))
+                words = get_words(sc["narration"], mp3, seconds, cfg, offline)
+                keep = WORK / f"keep_{len(vcache)}.mp3"
+                shutil.copyfile(mp3, keep)
+                vcache[key] = (keep, seconds, words)
+            voiced.append((sid, sc, seconds, mp3, words))
+        tail = cfg["video"]["tail_seconds"]
+        # Each scene is either a motion graphic (the default look) or footage (your own clips, at most max_stock_shots stock shots in the reel).
+        graphics: dict[str, dict] = {}
+        no_raw = bool(editor and not editor.avail["raw"])      # nothing of yours to show: pure motion graphics, with a little stock video/photo as an option
+        stock_left = editor.hs.get("no_raw_stock_scenes", 2) if no_raw and (editor.avail["stock"] or editor.avail["photo"]) else 0
+        for idx, (sid, sc, sec, _, words) in enumerate(voiced):
+            if no_raw and not sc.get("graphic") and stock_left > 0 and 0 < idx < len(voiced) - 1:      # never the hook or the CTA
+                stock_left -= 1
+                log(f"{sid}: no raw clips, so this scene uses stock footage/photos")
+            elif sc.get("graphic") or no_raw:
+                if not sc.get("graphic"):
+                    log(f"{sid}: no raw clips to show, so this scene becomes a motion graphic instead of stock footage")
+                    sc["graphic"] = fallback_graphic(sc)
+                gp = resolve_graphic(sc, words, sec + tail)
+                if gp:
+                    graphics[sid] = gp
+                else:
+                    sc.pop("graphic", None)
+            sc.setdefault("footage_query", "ai automation technology")
+        if not offline:
+            tpl_lib.apply(graphics, [(sid, sc, sec + tail, mp3, w) for sid, sc, sec, mp3, w in voiced], cfg, f"{date.today().isoformat()}|{topic}")
+        footage_scenes = [(sid, sc, sec + tail) for sid, sc, sec, _, _ in voiced if sid not in graphics]
+        if editor and footage_scenes:   # the whole reel is planned at once so the hybrid rules apply to the reel, not to each scene
+            editor.prepare(footage_scenes, WORK / "footage", {sid: words for sid, _, _, _, words in voiced})      # cuts are snapped to the spoken words
+        for i, (sid, sc, seconds, mp3, words) in enumerate(voiced):
+            transition = pick_transition(sc, i, look, cfg)
+            gp = graphics.get(sid)
+            if gp:
+                clip, fx, zones, camera = None, plan_fx(sc, words, seconds + tail, cfg), [], []
+                sfx = plan_sfx(i, sc, words, sfx_ok, None, fx, transition, gp["sfx"], cfg.get("sfx_policy"))
+                credits.append({"scene": sid, "graphic": gp["layout"]})
+            else:
+                clip = editor.render_scene(sid, WORK / "footage") if editor else fetch_clip(sc, sid, WORK / "footage", used_ids, offline)
+                fx = plan_fx(sc, words, seconds + tail, cfg)      # graphics anchored to spoken words
+                camera = plan_camera(sc, words, seconds + tail, clip.get("shots"), i, cfg)
+                zones = zones_for(WORK / "footage" / f"{sid}.mp4", seconds + tail) if (cfg.get("captions") or {}).get("smart_position", True) else []
+                sfx = plan_sfx(i, sc, words, sfx_ok, clip.get("cuts"), fx, transition, None, cfg.get("sfx_policy"))
+                credits.append(clip["credit"])
+            built.append({
+                "id": sid, "clip": clip, "graphic": gp, "narration": f"assets/run/narration/{sid}.mp3",
+                "narration_seconds": seconds, "words": words, "sfx": sfx, "fx": fx, "transition": transition, "zones": zones, "camera": camera,
+                "beats": emphasis_beats(sc, words),                           # the same words drive caption emphasis and the zoom pulse
+            })
 
-    manifest = build_manifest(plan, built, cfg, look)
-    (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
-    (out_dir / "credits.json").write_text(json.dumps(credits, indent=2), encoding="utf-8")
-    summary = ""
-    if editor:
-        shots = [x for b in built if b["clip"] for x in b["clip"].get("shots", [])]
-        total = sum(x["seconds"] for x in shots) or 1
-        share = {t: sum(x["seconds"] for x in shots if x["type"] == t) / total for t in ("raw", "stock", "photo")}
-        if no_raw:
-            summary = f"\nService: {service}. No raw clips found ({editor.no_raw_note}): made from motion graphics" + (f" + {len(shots)} stock/photo shot(s)." if shots else ".")
-        else:
-            summary = (f"\nService: {service}. Hybrid: {len(shots)} shots, your raw {share['raw']:.0%}, stock {share['stock']:.0%}, photos {share['photo']:.0%}; "
-                       f"cut rhythm {editor.prof['shot_min']}-{editor.prof['shot_max']}s from {editor.prof['reels_measured']} hero reel(s). {'All rules passed.' if not editor.violations else 'RULES NOT MET: ' + '; '.join(editor.violations)}")
-        log(summary.strip())
-    if no_render:
-        log("--no-render: manifest written, stopping before Remotion")
-        return
+        manifest = build_manifest(plan, built, cfg, look)
+        (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+        (out_dir / "credits.json").write_text(json.dumps(credits, indent=2), encoding="utf-8")
+        summary = ""
+        if editor:
+            shots = [x for b in built if b["clip"] for x in b["clip"].get("shots", [])]
+            total = sum(x["seconds"] for x in shots) or 1
+            share = {t: sum(x["seconds"] for x in shots if x["type"] == t) / total for t in ("raw", "stock", "photo")}
+            if no_raw:
+                summary = f"\nService: {service}. No raw clips found ({editor.no_raw_note}): made from motion graphics" + (f" + {len(shots)} stock/photo shot(s)." if shots else ".")
+            else:
+                summary = (f"\nService: {service}. Hybrid: {len(shots)} shots, your raw {share['raw']:.0%}, stock {share['stock']:.0%}, photos {share['photo']:.0%}; "
+                           f"cut rhythm {editor.prof['shot_min']}-{editor.prof['shot_max']}s from {editor.prof['reels_measured']} hero reel(s). {'All rules passed.' if not editor.violations else 'RULES NOT MET: ' + '; '.join(editor.violations)}")
+            log(summary.strip())
+        if no_render:
+            log("--no-render: manifest written, stopping before Remotion")
+            return
 
-    final = out_dir / "final.mp4"
-    render(manifest, final)
-    log(f"done: {final} ({media_duration(final):.1f}s, {final.stat().st_size / 1e6:.1f} MB)")
-    notify.send_message(viral.report(vres))       # verdict first, then the video
+        final = out_dir / "final.mp4"
+        render(manifest, final)
+        log(f"done: {final} ({media_duration(final):.1f}s, {final.stat().st_size / 1e6:.1f} MB)")
+        if offline:
+            break
+        res = viral.analyse_final(final, plan, built, tail, rnd)
+        history.append(res)
+        shutil.copyfile(final, out_dir / f"round{rnd}.mp4")
+        log(f"viewer bots, round {rnd}: score {res['score']} worth_posting={res['worth_posting']} weak points: {[w['kind'] for w in res['weak_points'][:5]]}")
+        if res["worth_posting"] or rnd >= MAX_FIXES or not any(w["planner"] for w in res["weak_points"]):
+            break
+        feedback = viral.feedback(res)
+        log(f"fix round {rnd + 1}/{MAX_FIXES}: sending the weak points to the planner")
+    if history:                                                       # ship the best of the rounds
+        best = max(range(len(history)), key=lambda i: history[i]["score"])
+        shutil.copyfile(out_dir / f"round{best}.mp4", final)
+        notify.send_message(viral.report(vres, history[best], history))
+    else:
+        notify.send_message(viral.report(vres))
     notify.send_video(final, ("Reel for today's draft (same script as the carousel). Approving the draft posts the carousel; post this Reel yourself.\n" if master else "") + f"{plan['title']}\nTopic: {topic}{summary}{webresearch.caption_line(plan.get('sources') or [])}")
 
 

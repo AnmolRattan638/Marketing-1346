@@ -42,6 +42,14 @@ r = analyze("your post", llm=OpenAICompatClient(model="gpt-4o-mini"), with_netwo
 print(r["viral_score"], r["forecast"]["reach_p50"], r["suggestions"]["counterfactual"])
 ```
 
+## Video analysis (`viralsim/video.py`)
+
+`analyze_video(path, spans)` measures a rendered reel with ffmpeg (per-second motion, scene cuts, on-screen graphic density, voice level, silence), then six viewer bots
+(scroller, owner, skeptic, learner, commuter, binger, sampled from the 50k audience pool, each with its own patience, sound habit and boredom speed) watch it second by second.
+You get a retention curve, per-bot verdicts, a score, `worth_posting`, and ranked weak points (hook leaks, static stretches, dead air, empty frames, cliffs, weak ending),
+each tied to a scene with a concrete fix. `feedback()` turns that into the brief a video planner receives. Offline, no API calls. It is a heuristic over measured signals:
+it ranks and explains weaknesses, it does not forecast real views.
+
 ## Read this before trusting a number
 
 * **Offline mode scores content with a lexical heuristic.** It is coarse. On the bundled 50-campaign

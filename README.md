@@ -195,3 +195,6 @@ Secrets needed: `TAVILY_API_KEY`, `EXA_API_KEY`, `UNSPLASH_ACCESS_KEY`, `VOICE_R
 
 ## Video: before / after scenario
 Every reel's payoff (else recap) scene becomes a portrait before/after board (`graphics/BeforeAfter.tsx`, copy in `video-agent/agent/scenarios.py`): BEFORE = no website, no digital marketing (customers cannot find you, sales depend on walk-ins, missed enquiries) -> AFTER = website + chatbot (found on Google, instant reply, every enquiry saved). Capabilities only, no figures or guaranteed results. Turn off with `templates.before_after: false`.
+
+## Video: device demos
+The fix beat (never next to the before/after scene) shows a phone with a customer / chatbot conversation or a browser where a cursor clicks "Enquiry bhejein" and a "Nayi enquiry mili" notice pops up (`graphics/Devices.tsx`, copy in `agent/scenarios.py`). chatbot -> phone, website -> browser, other services alternate by day. Generic, illustrative copy: no client, price or result. Disable with `templates.device_demo: false`.

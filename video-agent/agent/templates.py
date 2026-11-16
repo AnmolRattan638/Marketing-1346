@@ -137,8 +137,17 @@ def apply(graphics: dict, voiced: list, cfg: dict, seed: str, variant_hint: str 
     recent = set(last.get("ids", [])[-10:])
     used, done, prev_idx = [], [], -5
     ba_idx = scenarios.target_index(voiced) if tc.get("before_after", True) else None
+    demo_idx = scenarios.demo_target(voiced, ba_idx) if tc.get("device_demo", True) else None
     for idx, (sid, sc, seconds, _mp3, _words) in enumerate(voiced):
         gp = graphics.get(sid)
+        if idx == demo_idx and gp and gp.get("layout") in ("title", "punch", "strike", "step"):           # a phone chat or a browser with a click, from your services
+            kind = scenarios.demo_kind(service, seed)
+            gp.update({"layout": kind, kind: dict(scenarios.CHAT if kind == "chat" else scenarios.SITE), "mock": None, "items": [], "chips": []})
+            gp["sfx"] = [{"type": "pop", "atSecond": round(float((gp.get("times") or {}).get("heading", 0.3)) + 0.05, 3), "volume": 0.5}]
+            used.append(f"device-{kind}")
+            done.append({"scene": sid, "template": f"device-{kind}", "variant": variant})
+            prev_idx = idx
+            continue
         if idx == ba_idx and gp and gp.get("layout") in ("title", "punch", "strike", "step"):        # the before / after scenario: no website vs website + chatbot
             start = float((gp.get("times") or {}).get("heading", 0.3))
             gp.update({"layout": "ba", "ba": scenarios.spec(service), "mock": None, "items": [], "chips": []})
@@ -147,7 +156,7 @@ def apply(graphics: dict, voiced: list, cfg: dict, seed: str, variant_hint: str 
             done.append({"scene": sid, "template": "before-after", "variant": variant})
             prev_idx = idx
             continue
-        if ba_idx is not None and abs(idx - ba_idx) == 1:
+        if (ba_idx is not None and abs(idx - ba_idx) == 1) or (demo_idx is not None and abs(idx - demo_idx) == 1):
             continue                                                   # never two template scenes back to back, the before / after included
         if not gp or gp.get("layout") not in ("title", "punch", "strike") or len(done) >= int(tc.get("max_per_video", 2)) or idx - prev_idx < 2 or seconds > 7.5:      # a template holds its last frame, so long scenes keep a moving layout instead
             continue

@@ -30,7 +30,7 @@ for day in range(6):
     done = T.apply(g, v, cfg, f"2026-11-{10+day}|topic")
     assert 1 <= len(done) <= 3, done
     seen_variants.append(done[0]["variant"]); seen_ids += [d["template"] for d in done]
-    for d in [d for d in done if d["template"] != "before-after"]:      # the before / after board has its own layout (video_beforeafter_test)
+    for d in [d for d in done if d["template"] != "before-after" and not d["template"].startswith("device-")]:      # the before / after board has its own layout (video_beforeafter_test)
         gp = g[d["scene"]]
         assert gp["layout"] == "tpl" and gp["tpl"]["id"] in T.SELECTABLE and gp["tpl"]["variant"] in T.VARIANTS
         assert T.SELECTABLE[gp["tpl"]["id"]] / 30 + gp["tpl"]["atFrame"] / 30 <= 4.5 + 0.4 + 1e-6      # finishes inside the scene
@@ -70,5 +70,5 @@ v = [(sid, sc, sec, m, words) for sid, sc, sec, m, _ in v]
 for sid in g: g[sid]["heading"] = "Leads go cold"
 T.STATE = pathlib.Path(tempfile.mkdtemp()) / "x.json"
 done = T.apply(g, v, cfg, "sync|test")
-assert done and all(g[d["scene"]]["tpl"]["anchors"] for d in done if d["template"] != "before-after")
+assert done and all(g[d["scene"]]["tpl"]["anchors"] for d in done if d["template"] != "before-after" and not d["template"].startswith("device-"))
 print("video templates ok")

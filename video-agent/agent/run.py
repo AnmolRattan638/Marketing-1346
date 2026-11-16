@@ -100,6 +100,9 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
         ba = scenarios.target_index(voiced)
         if ba is not None and not voiced[ba][1].get("graphic"):          # the before / after scene is always a graphic scene (templates.apply fills it)
             voiced[ba][1]["graphic"] = {"layout": "title", "heading": "Pehle vs ab"}
+        dm = scenarios.demo_target(voiced, ba)
+        if dm is not None and not voiced[dm][1].get("graphic"):
+            voiced[dm][1]["graphic"] = {"layout": "title", "heading": "Dekho kaise"}
         for idx, (sid, sc, sec, _, words) in enumerate(voiced):
             if no_raw and not sc.get("graphic") and stock_left > 0 and 0 < idx < len(voiced) - 1:      # never the hook or the CTA
                 stock_left -= 1

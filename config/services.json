@@ -11,7 +11,13 @@
       "name": "Website development",
       "pitch": "Fast, mobile-first websites for small businesses anywhere in India (hotels, cafes, gyms, clinics, coaching centres, salons, shops).",
       "price_note": "Packages from INR 1,499 (Basic) up to INR 3,599 (Bundle 2); domain setup INR 800.",
-      "dm_keyword": "SITE"
+      "dm_keyword": "SITE",
+      "capabilities": [
+        "it is open for customers 24 hours: they can see services, photos, rates and location at any time",
+        "it has click-to-call and WhatsApp buttons, so an enquiry is one tap away",
+        "it loads fast and fits a phone screen, which is how most customers browse",
+        "it gives the business one proper place on the internet that Google can show"
+      ]
     },
     {
       "id": "chatbot",
@@ -19,7 +25,14 @@
       "name": "AI chatbot development",
       "pitch": "AI chatbot that answers customer questions and takes enquiries automatically, so no lead goes unanswered.",
       "price_note": "INR 2,999 or INR 4,999, plus INR 299/month maintenance.",
-      "dm_keyword": "BOT"
+      "dm_keyword": "BOT",
+      "capabilities": [
+        "it replies instantly at any hour, so the customer does not have to wait",
+        "it answers the common questions (timings, rates, location, services) on its own",
+        "it asks for the customer's name and number and records the enquiry",
+        "every enquiry is saved in one place, so none is lost between chats",
+        "it works on WhatsApp, the website and DMs"
+      ]
     },
     {
       "id": "animated_ads",
@@ -27,7 +40,13 @@
       "name": "AI animated ads",
       "pitch": "Short animated ads for small businesses anywhere in India to use on Instagram and Facebook.",
       "price_note": "INR 999 / 1,499 / 2,199.",
-      "dm_keyword": "ADS"
+      "dm_keyword": "ADS",
+      "capabilities": [
+        "it is a short animated video made for Instagram and Facebook",
+        "it shows an offer or service in a few seconds with motion and text",
+        "it can be used as an ad, a reel or a story",
+        "it is sized and paced for a phone screen"
+      ]
     },
     {
       "id": "lead_gen",
@@ -35,7 +54,13 @@
       "name": "Lead generation (LocalSignal)",
       "pitch": "Daily Excel sheet of pre-qualified local businesses (found via Google Places plus website analysis) for ANY freelancer or agency that sells to local businesses, whatever the service (marketing, design, video, SEO, ads, web, software, photography, accounting, consulting, coaching and more), so they can pitch without cold-searching for hours.",
       "price_note": "Do not state a price; tell people to DM.",
-      "dm_keyword": "LEADS"
+      "dm_keyword": "LEADS",
+      "capabilities": [
+        "it delivers a daily Excel sheet of local businesses",
+        "each row has the business name and contact details found on Google Places plus a note from its website",
+        "it saves the hours of searching for prospects by hand",
+        "the sheet is ready to use for outreach by any freelancer or agency"
+      ]
     },
     {
       "id": "reel_scripts",
@@ -43,7 +68,13 @@
       "name": "Reel script writing",
       "pitch": "Hinglish/English reel scripts for small businesses across India.",
       "price_note": "INR 299 / 499 / 999.",
-      "dm_keyword": "SCRIPT"
+      "dm_keyword": "SCRIPT",
+      "capabilities": [
+        "it is a written reel script with a hook, the body and a call to action",
+        "it is in Hinglish or English, written the way people speak",
+        "it tells the owner exactly what to say on camera",
+        "it is paced for a 30 to 60 second reel"
+      ]
     },
     {
       "id": "seo_blogs",
@@ -51,7 +82,13 @@
       "name": "SEO blog writing",
       "pitch": "Monthly SEO blog writing for small businesses across India.",
       "price_note": "INR 1,499 / 2,499 / 3,999 per month.",
-      "dm_keyword": "BLOG"
+      "dm_keyword": "BLOG",
+      "capabilities": [
+        "it is a monthly set of blog posts written for the business's website",
+        "each post answers one question customers actually search for",
+        "it is written in plain language a customer understands",
+        "it keeps the website fresh with new content every month"
+      ]
     }
   ],
   "facts_rules": [

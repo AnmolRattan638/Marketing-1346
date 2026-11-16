@@ -93,4 +93,13 @@ def ask3(p, s="", **k):
     return json.dumps({"issues": []})
 sw.fidelity({"beats": [{"beat": "recap", "line": "Customer ko wait nahi karna padega.", "facts": []}]}, {"facts": []}, ask3, {"name": "Chatbot", "pitch": "answers customer messages instantly, 24/7"})
 assert "answers customer messages instantly" in seen[0] and "SERVICE CAPABILITIES" in seen[0] and "does not have to wait" in seen[0]
+
+# every service lists what it really does (config/services.json), used by the writer and the meaning check; no figures or results in them
+import json as _json, re as _re
+_svcs = _json.load(open(pathlib.Path(__file__).resolve().parent.parent / "config" / "services.json"))["services"]
+for _s in _svcs:
+    assert len(_s.get("capabilities") or []) >= 3, _s["id"]
+    assert not any(_re.search(r"\d|%|guarantee|more sales|increase", c, _re.I) for c in _s["capabilities"] if not _re.search(r"24 hours|30 to 60", c)), _s["id"]
+    assert all(c in sw.capabilities(_s) for c in _s["capabilities"])
+assert "instantly at any hour" in sw.capabilities(next(s for s in _svcs if s["id"] == "chatbot"))
 print("scriptwriter ok")

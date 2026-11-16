@@ -13,7 +13,7 @@ from .captions import get_words
 from .common import ROOT, WORK, load_config, log, media_duration
 from . import footage as _footage
 from .footage import fetch_clip
-from . import edits, master_script, viral, webresearch
+from . import edits, master_script, scenarios, viral, webresearch
 from .hybrid import Editor, HybridError
 from .manifest import available_sfx, build_manifest
 from .plan import make_plan, sample_plan
@@ -97,6 +97,9 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
         graphics: dict[str, dict] = {}
         no_raw = bool(editor and not editor.avail["raw"])      # nothing of yours to show: pure motion graphics, with a little stock video/photo as an option
         stock_left = editor.hs.get("no_raw_stock_scenes", 2) if no_raw and (editor.avail["stock"] or editor.avail["photo"]) else 0
+        ba = scenarios.target_index(voiced)
+        if ba is not None and not voiced[ba][1].get("graphic"):          # the before / after scene is always a graphic scene (templates.apply fills it)
+            voiced[ba][1]["graphic"] = {"layout": "title", "heading": "Pehle vs ab"}
         for idx, (sid, sc, sec, _, words) in enumerate(voiced):
             if no_raw and not sc.get("graphic") and stock_left > 0 and 0 < idx < len(voiced) - 1:      # never the hook or the CTA
                 stock_left -= 1
@@ -112,7 +115,7 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
                     sc.pop("graphic", None)
             sc.setdefault("footage_query", "ai automation technology")
         if not offline:
-            tpl_lib.apply(graphics, [(sid, sc, sec + tail, mp3, w) for sid, sc, sec, mp3, w in voiced], cfg, f"{date.today().isoformat()}|{topic}", look.get("variant"))
+            tpl_lib.apply(graphics, [(sid, sc, sec + tail, mp3, w) for sid, sc, sec, mp3, w in voiced], cfg, f"{date.today().isoformat()}|{topic}", look.get("variant"), service)
         footage_scenes = [(sid, sc, sec + tail) for sid, sc, sec, _, _ in voiced if sid not in graphics]
         if editor and footage_scenes:   # the whole reel is planned at once so the hybrid rules apply to the reel, not to each scene
             editor.prepare(footage_scenes, WORK / "footage", {sid: words for sid, _, _, _, words in voiced})      # cuts are snapped to the spoken words

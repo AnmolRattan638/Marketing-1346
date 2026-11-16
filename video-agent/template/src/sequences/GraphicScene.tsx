@@ -14,9 +14,11 @@ import { CircleWipe } from "../graphics/CircleWipe";
 import { ProgressBar } from "../graphics/ProgressBar";
 import { THEME, GraphicTimes, MockSpec, LOGO_SAFE_TOP } from "../graphics/theme";
 import { TemplateStage, TemplateSpec } from "../locomotion/TemplateStage";
+import { BeforeAfterBoard, BeforeAfterSpec } from "../graphics/BeforeAfter";
 
 export interface GraphicSceneProps {
-  layout: "title" | "step" | "strike" | "punch" | "logo" | "tpl";
+  layout: "title" | "step" | "strike" | "punch" | "logo" | "tpl" | "ba";
+  ba?: BeforeAfterSpec; // layout "ba": before (no website / no marketing) vs after (website + chatbot), agent/scenarios.py
   tpl?: TemplateSpec; // layout "tpl": one of the imported animation templates (agent/templates.py picks it)
   words: CaptionWord[];
   step?: string;
@@ -44,7 +46,7 @@ export interface GraphicSceneProps {
 // A motion-graphic scene: no footage, the layout draws the picture and every element lands on its spoken word (times come from agent/graphics.py).
 // Own palette and own captions; the layouts are inspired by explainer reels (step badge + heading + mock-up card, struck-through list, punch slide).
 const GraphicScene: React.FC<GraphicSceneProps> = ({
-  layout, tpl, words, step, kicker, heading = "", heading2, ghost, chips = [], items = [], mock, times, logo, cta,
+  layout, tpl, ba, words, step, kicker, heading = "", heading2, ghost, chips = [], items = [], mock, times, logo, cta,
   emphasis = [], pulses = [], fx = [], transitionIn = "settle", captionStyle, grain = 0, progress, showProgress = true, fadeOutFrames = 0,
 }) => {
   const frame = useCurrentFrame();
@@ -102,6 +104,8 @@ const GraphicScene: React.FC<GraphicSceneProps> = ({
         {chips.length ? <div style={{ marginTop: 60 }}><Chips items={chips} at={times.chips} align="center" /></div> : null}
       </AbsoluteFill>
     );
+  } else if (layout === "ba" && ba) {
+    body = <BeforeAfterBoard spec={ba} at={Math.max(0.2, times.heading)} />;
   } else if (layout === "tpl" && tpl) {
     body = <TemplateStage {...tpl} />;
   } else if (isLogo) {

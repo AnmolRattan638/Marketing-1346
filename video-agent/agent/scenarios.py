@@ -33,3 +33,31 @@ def spec(service: str | None = None) -> dict:
     s = pick(service)
     split = lambda x: [i.strip() for i in x.split(",") if i.strip()]
     return {"beforeTitle": s["beforeTitle"], "beforeItems": split(s["beforeItems"]), "afterTitle": s["afterTitle"], "afterItems": split(s["afterItems"])}
+
+
+# Device demos for the fix beat. Illustrative, generic copy (no client, price or result); the chat shows what a chatbot does, the site what an enquiry looks like.
+CHAT = {"title": "Aapka Business", "messages": [
+    {"from": "customer", "text": "Aapki service ka rate kya hai?"},
+    {"from": "bot", "text": "Namaste! Apni requirement bhejiye, hum aapko turant details dete hain."},
+    {"from": "customer", "text": "Raat ko bhi reply milega?"},
+    {"from": "bot", "text": "Ji haan, chatbot 24x7 jawab deta hai."}]}
+SITE = {"url": "aapkabusiness.in", "headline": "Aapka business, ab Google pe", "sub": "Services, kaam aur contact ek jagah", "button": "Enquiry bhejein", "toast": "Nayi enquiry mili"}
+
+
+def demo_target(voiced: list, avoid: int | None) -> int | None:
+    """The fix beat, else the scene after the hook, never next to the before/after scene or the last (CTA) scene."""
+    n = len(voiced)
+    order = [i for i, v in enumerate(voiced) if v[1].get("beat") == "fix"] + ([1] if n >= 4 else [])
+    for i in order:
+        if i != avoid and (avoid is None or abs(i - avoid) > 1) and 0 < i < n - 1:
+            return i
+    return None
+
+
+def demo_kind(service: str | None, seed: str) -> str:
+    """chatbot -> phone chat, website -> browser; any other service alternates by day so reels differ."""
+    if service == "chatbot":
+        return "chat"
+    if service == "website":
+        return "site"
+    return "chat" if sum(map(ord, seed)) % 2 else "site"

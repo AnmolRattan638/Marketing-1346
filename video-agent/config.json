@@ -216,7 +216,7 @@
   },
   "templates": {
     "enabled": true,
-    "max_per_video": 2,
+    "max_per_video": 3,
     "variants": [
       "default",
       "rounded",

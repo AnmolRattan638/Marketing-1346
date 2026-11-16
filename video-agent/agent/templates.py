@@ -24,7 +24,7 @@ TEXT = {
     "bold-text-punch": 30, "fade-slide-up": 30, "spring-scale-in": 30, "typewriter-reveal": 90, "staggered-words": 90,
     "gradient-text": 90, "toggle-switch": 90, "app-feature-callout": 90, "meme-card": 90,
 }
-LIST = {"screen-showcase": 90, "onboarding-flow": 150}      # need 3+ items from the script (bento-grid is imported but not picked: its icons are multi-coloured emoji)
+LIST = {"screen-showcase": 90, "onboarding-flow": 150, "changelog": 120, "day-summary": 120}      # need 3+ items from the script (bento-grid is imported but not picked: its icons are multi-coloured emoji)
 SELECTABLE = {**TEXT, **LIST}
 
 
@@ -39,10 +39,14 @@ def props_for(tid: str, gp: dict) -> dict | None:
         items = [_clean(x, 28) for x in (gp.get("items") or (gp.get("mock") or {}).get("items") or []) if _clean(x, 28)]
         if len(items) < 3:
             return None
-        items = items[:4] if tid == "onboarding-flow" else items[:3]
+        items = items[:4] if tid in ("onboarding-flow", "changelog", "day-summary") else items[:3]
+        title = heading or _clean(gp.get("kicker"), 30) or "Here is how"
+        if tid == "changelog":              # every prop comes from the scene (the pack's demo version/features never show)
+            return {"features": ",".join(items), "title": title, "version": _clean(gp.get("kicker"), 14) or "Steps"}
+        if tid == "day-summary":
+            return {"tasks": ",".join(items), "title": title, "metric": "Steps", "metricValue": str(len(items))}
         key = "steps" if tid == "onboarding-flow" else "features"
-        out = {key: ",".join(items), "title": heading or _clean(gp.get("kicker"), 30) or "Here is how"}
-        return out
+        return {key: ",".join(items), "title": title}
     if not heading:
         return None
     if tid == "meme-card":

@@ -28,7 +28,7 @@ seen_variants, seen_ids = [], []
 for day in range(6):
     g, v = reel(6)
     done = T.apply(g, v, cfg, f"2026-11-{10+day}|topic")
-    assert 1 <= len(done) <= 2, done
+    assert 1 <= len(done) <= 3, done
     seen_variants.append(done[0]["variant"]); seen_ids += [d["template"] for d in done]
     for d in done:
         gp = g[d["scene"]]

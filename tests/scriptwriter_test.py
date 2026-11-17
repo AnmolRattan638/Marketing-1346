@@ -2,6 +2,9 @@
 import pathlib, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 from src.agents import factsheet as fs, scriptwriter as sw
+import tempfile
+from src import scriptlessons as SL
+SL.STATE = pathlib.Path(tempfile.mkdtemp()) / "script_lessons.json"      # tests never touch the real memory file
 
 items = [{"title": "Reply study", "url": "https://a.com/1", "domain": "a.com", "date": "2026-09-01", "snippet": "Firms replying within 5 minutes win 21 times more leads."},
          {"title": "Site speed", "url": "https://b.com/2", "domain": "b.com", "date": "2026-08-01", "snippet": "53% of visits are abandoned if a page takes over 3 seconds."},
@@ -121,9 +124,6 @@ print("scriptwriter ok")
 
 
 # ------------------------------------------------------------------ concrete feedback: only the failing beat is rewritten; lessons are remembered; the run never stops
-import tempfile
-from src import scriptlessons as SL
-SL.STATE = pathlib.Path(tempfile.mkdtemp()) / "script_lessons.json"
 bad = copy.deepcopy(good); bad["beats"][3]["line"] = "a.com ke mutabiq 40 guna zyada leads mile, matlab speed hi sabse sasta sales tool hai"
 fixed = copy.deepcopy(good["beats"][3])
 calls = []

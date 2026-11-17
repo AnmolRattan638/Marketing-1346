@@ -9,12 +9,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DRAFTS = ROOT.parent / "data" / "drafts"
+EARLY = ROOT.parent / "data" / "master"       # the script handed over the moment it is ready, so the reel renders while the rest of the draft is still being written
 _W = re.compile(r"\W+")
 
 
 def load(path: str | None = None, today: str | None = None) -> dict | None:
     """--script PATH (a draft or a bare master script), else MASTER_SCRIPT env, else today's draft. None when there is no usable script."""
-    path = path or os.environ.get("MASTER_SCRIPT") or str(DRAFTS / f"{today or date.today().isoformat()}.json")
+    day = today or date.today().isoformat()
+    early = EARLY / f"{day}.json"
+    path = path or os.environ.get("MASTER_SCRIPT") or str(early if early.exists() else DRAFTS / f"{day}.json")
     try:
         d = json.loads(Path(path).read_text(encoding="utf-8"))
     except Exception:

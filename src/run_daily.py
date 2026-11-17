@@ -1,6 +1,6 @@
 """Daily draft run: strategist (incl. Instagram state check) -> research -> analysis -> writer -> fact-check -> ad-check -> image/video -> Telegram."""
 import datetime as dt
-import os, secrets
+import os, secrets, subprocess
 import sys, traceback
 import requests
 from . import marketingskills, analytics, browser_research, captions, carousel, config, diagrams, formats, ideas, learning, llm, tg, virality, web_research
@@ -50,6 +50,31 @@ def check_repo_public():
             WARNINGS.append("repo looks PRIVATE: image links will 404 for the posting tools and the approval wait will use your free Actions minutes. Make it public or change the design.")
     except Exception:
         pass
+
+
+def hand_off_to_video(master, focus) -> bool:
+    """Start the reel the moment the master script exists, so the video renders IN PARALLEL with the carousel and captions (same script, no waiting for the draft).
+    Saves the script to the repo, then starts the video workflow. Only inside GitHub Actions; any failure just means the old path (start after the draft) runs. -> True if started."""
+    token = os.getenv("GITHUB_TOKEN")
+    if not master or os.getenv("GITHUB_ACTIONS") != "true" or not token:
+        return False
+    try:
+        (config.DATA / "master").mkdir(parents=True, exist_ok=True)
+        config.save_json(config.DATA / "master" / f"{today}.json", {"master_script": master, "service": focus.get("id")})
+        if subprocess.run(["bash", "scripts/commit_state.sh", f"master: {today}"], cwd=config.ROOT, timeout=300).returncode != 0:
+            return False
+        r = requests.post(f"https://api.github.com/repos/{config.REPO}/actions/workflows/video-agent.yml/dispatches", timeout=30,
+                          headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"}, json={"ref": os.getenv("GITHUB_REF_NAME") or "main"})
+        ok = r.status_code == 204
+        if ok and os.getenv("GITHUB_OUTPUT"):
+            with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+                f.write("reel_started=1\n")
+        if not ok:
+            WARNINGS.append(f"reel handoff: HTTP {r.status_code}; it will start after the draft instead")
+        return ok
+    except Exception as e:
+        WARNINGS.append(f"reel handoff: {str(e)[:120]}; it will start after the draft instead")
+        return False
 
 
 def stage(name, fn, fallback=None):
@@ -185,6 +210,8 @@ def main():
             master = stage("scriptwriter", lambda: scriptwriter.run(sheet, focus, sty), fallback=False) or None   # never stop the day: the reason is a warning on the draft, the legacy path continues
         else:
             WARNINGS.append(f"fact sheet: only {len(sheet.get('facts', []))} verified facts, so no master script today (need {factsheet.MIN_FACTS}).")
+        if master:
+            hand_off_to_video(master, focus)                    # the reel starts now and renders while the carousel and captions are written
         if config.CAROUSEL:
             # hook -> problem -> solution -> CTA, told in one of the rotating tastes; the carousel's hook becomes the post's hook, so captions and the first slide agree
             car, why = stage("carousel", lambda: carousel_agent.build(plan, focus, brand, g('writer'), today, master=master, **ev_kw), fallback=(None, "the carousel step failed"))

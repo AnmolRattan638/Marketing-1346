@@ -51,3 +51,26 @@ for mode in ("master_ok", "master_fails", "carousel_none"):
     if mode == "master_fails":
         assert any("scriptwriter" in w for w in run_daily.WARNINGS), run_daily.WARNINGS
 print("daily master-path test passed")
+
+# ---- reel starts in PARALLEL: the master script is handed over the moment it exists
+import types, tempfile as _tf, pathlib as _pl
+assert run_daily.hand_off_to_video(MASTER, {"id": "chatbot"}) is False      # outside GitHub Actions nothing happens
+os.environ.update(GITHUB_ACTIONS="true", GITHUB_TOKEN="t", GITHUB_OUTPUT=str(_pl.Path(_tf.mkdtemp()) / "out"))
+config.DATA = _pl.Path(_tf.mkdtemp())
+calls = []
+run_daily.subprocess.run = lambda cmd, **k: calls.append(("git", cmd)) or types.SimpleNamespace(returncode=0)
+run_daily.requests.post = lambda url, **k: calls.append(("post", url, k["json"])) or types.SimpleNamespace(status_code=204)
+_r = run_daily.hand_off_to_video(MASTER, {"id": "chatbot"}); assert _r is True, (run_daily.WARNINGS, calls)
+assert (config.DATA / "master" / f"{run_daily.today}.json").exists()
+assert calls[0][0] == "git" and calls[1][0] == "post" and calls[1][1].endswith("/workflows/video-agent.yml/dispatches"), calls
+assert "reel_started=1" in open(os.environ["GITHUB_OUTPUT"]).read()
+run_daily.requests.post = lambda url, **k: types.SimpleNamespace(status_code=500)
+assert run_daily.hand_off_to_video(MASTER, {"id": "chatbot"}) is False and any("reel handoff" in w for w in run_daily.WARNINGS)
+sys.path.insert(0, str(_pl.Path(__file__).resolve().parent.parent / "video-agent"))
+from agent import master_script as ms
+ms.EARLY = _pl.Path(_tf.mkdtemp()); ms.DRAFTS = _pl.Path(_tf.mkdtemp())
+assert ms.load(today="2099-01-01") is None
+(ms.EARLY / "2099-01-01.json").write_text(json.dumps({"master_script": MASTER, "service": "chatbot"}))
+m = ms.load(today="2099-01-01")
+assert m and m["beats"][0]["beat"] == "pain" and m["service"] == "chatbot", "video reads the early script before any draft exists"
+print("parallel hand-off test passed")

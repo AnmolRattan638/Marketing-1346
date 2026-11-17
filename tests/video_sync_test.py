@@ -152,3 +152,12 @@ z = cz.plan_zones(tmp / "busy_bottom.mp4", 4)
 assert z and z[0]["y"] < 1000 and z[0]["from"] == 0.0 and z[-1]["to"] == 4, z
 assert cz.zones_for(tmp / "missing.mp4", 4) == []
 print("video sync test passed: cuts on words, SFX on cuts and emphasis words, per-shot B-roll, fx on spoken words, manifest lines up")
+
+# 5. listen-back: the share of script words the voice-over really says
+from agent import captions as _cap
+script_text = "Raat 11 baje customer ne WhatsApp kiya, bot ne turant jawab diya"
+heard = lambda t: [{"text": w} for w in t.split()]
+assert _cap.listen_back(script_text, heard(script_text)) == 1.0
+assert _cap.listen_back(script_text, heard("raat baje customer ne whatsapp kiya")) < 0.8      # a voice that drops words is flagged
+assert 0.8 <= _cap.listen_back(script_text, heard("Raat 11 baje customer ne WhatsApp kiya bot ne jawab diya")) < 1.0
+print("listen-back check ok")

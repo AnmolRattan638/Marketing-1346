@@ -111,7 +111,7 @@ import subprocess
 r = subprocess.run([sys.executable, "-m", "agent.run", "--offline", "--no-render"], capture_output=True, text=True)
 assert r.returncode == 0, r.stdout[-800:] + r.stderr[-800:]
 import glob, shutil
-run_dir = sorted(glob.glob(str(ROOT / "runs" / "*")))[-1]
+run_dir = max((d for d in glob.glob(str(ROOT / "runs" / "*")) if os.path.exists(os.path.join(d, "manifest.json"))), key=os.path.getmtime)      # the run just made
 m = json.loads((pathlib.Path(run_dir) / "manifest.json").read_text())
 credits = json.loads((pathlib.Path(run_dir) / "credits.json").read_text())
 fps = m["video"]["fps"]

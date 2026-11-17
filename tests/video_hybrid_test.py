@@ -76,15 +76,18 @@ except RuntimeError as e:
     assert "Anyone with the link" in str(e)
 del sys.modules["gdown"]; os.environ.pop("EDITS_DRIVE_URL")
 
-# 3. strict mode refuses to run without the edits folder or raw clips
+# 3. default: no edits folder -> the reel is made from motion graphics (not refused); strict mode (require_raw) refuses
+soft = hybrid.Editor(cfg, False)
+assert soft.no_raw_note and "EDITS_DRIVE_URL" in soft.no_raw_note and not soft.avail["raw"]
+cfg_strict = {**cfg, "hybrid": {**(cfg.get("hybrid") or {}), "require_raw": True}}
 try:
-    hybrid.Editor(cfg, False); raise SystemExit("must refuse without edits")
+    hybrid.Editor(cfg_strict, False); raise SystemExit("must refuse without edits")
 except hybrid.HybridError as e:
     assert "EDITS_DRIVE_URL" in str(e)
 tmp = pathlib.Path(tempfile.mkdtemp()); (tmp / "raw").mkdir(); (tmp / "hero").mkdir()
 os.environ["EDITS_DIR"] = str(tmp)
 try:
-    hybrid.Editor(cfg, False, "website"); raise SystemExit("must refuse an empty raw folder")
+    hybrid.Editor(cfg_strict, False, "website"); raise SystemExit("must refuse an empty raw folder")
 except hybrid.HybridError as e:
     assert "no raw video clip is labelled for 'website'" in str(e)
 
@@ -135,9 +138,9 @@ ed_chat = hybrid.Editor(cfg, False, "chatbot")
 assert {v["name"] for v in ed_chat.lib["videos"]} == {"bot_demo.mp4", "chatbot_phone.mp4"}
 assert ed_chat.library_summary() and "website" not in ed_chat.library_summary()
 try:
-    hybrid.Editor(cfg, False, "lead_gen"); raise SystemExit("no clips for lead_gen: must refuse")
+    hybrid.Editor(cfg_strict, False, "lead_gen"); raise SystemExit("no clips for lead_gen: must refuse")
 except hybrid.HybridError as e:
-    assert "lead_gen" in str(e) and "raw/lead_gen" in str(e)
+    assert "lead_gen" in str(e) and "labelled" in str(e)
 assert ed.avail["raw"] and ed.prof["shot_min"] == 1.6
 ed.avail["stock"] = ed.avail["photo"] = True
 ed._fill_orig = ed._fill

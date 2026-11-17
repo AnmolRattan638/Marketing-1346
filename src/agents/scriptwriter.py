@@ -70,7 +70,7 @@ def score_hook(text):
         return 0.0
 
 
-def problems(script, sheet, style):
+def problems(script, sheet, style, focus=None):
     """Every reason this script must not ship (empty list = fine)."""
     out, facts = [], {f["id"]: f for f in sheet.get("facts", [])}
     beats = script.get("beats") or []
@@ -87,6 +87,7 @@ def problems(script, sheet, style):
         if any(i not in facts for i in b.get("facts") or []):
             out.append(f"{b.get('beat')}: cites a fact id that is not on the sheet")
         allowed = set().union(*[_nums(f["claim"]) | _nums(f.get("figure") or "") for f in cited]) if cited else set()
+        allowed |= _nums(capabilities(focus))                  # '24x7' / '24 hours' is a listed capability of the service, so it is backed
         stray = _nums(COUNT.sub(" ", line + " " + str(b.get("screen") or ""))) - allowed
         if stray:
             out.append(f"{b.get('beat')}: number(s) {sorted(stray)} not backed by a cited fact")
@@ -154,6 +155,33 @@ def fidelity(script, sheet, ask, focus=None):
         return []
 
 
+def repair_missing(script, style, ask, focus, sheet):
+    """The model sometimes stops one beat early (no `cta`). Instead of throwing the whole script away, ask for ONLY the missing beat(s), in the voice of the beats already written."""
+    have = {b.get("beat"): b for b in script.get("beats") or [] if isinstance(b, dict)}
+    miss = [n for n in style["beats"] if n not in have]
+    if not miss or len(miss) > 2 or any(n not in style["beats"] for n in have):
+        return script
+    rows = [{"beat": n, "line": have[n].get("line")} for n in style["beats"] if n in have]
+    kw = sheet.get("keyword") or ""
+    prompt = (f"A short-video script for {focus.get('name')} is missing its beat(s) {miss}. Existing beats, in order: {json.dumps(rows, ensure_ascii=False)}\n"
+              f"Write ONLY the missing beat(s), continuing in the same Hinglish voice (Roman letters, everyday spoken Hindi). A normal beat is {WORDS[0]}-{WORDS[1]} words in 2-3 spoken sentences; "
+              f"the cta is {CTA_WORDS[0]}-{CTA_WORDS[1]} words, ONE ask only: tell the viewer to send the word {kw or 'the keyword'} and say exactly what they get (the setup steps, the checklist or the demo). "
+              f"No numbers except 3 steps style counts. Return JSON {{\"beats\": [{{\"beat\": \"{miss[0]}\", \"line\": \"spoken\", \"screen\": \"<=8 words\", \"visual\": \"what is shown\", \"emotion\": \"warm\", \"facts\": []}}], \"cta\": \"the one ask if cta is missing\"}}")
+    try:
+        data = llm.ask_json(ask, prompt, SYS)
+        new = {b.get("beat"): b for b in (data or {}).get("beats", []) if isinstance(b, dict) and b.get("beat") in miss and b.get("line")}
+    except Exception:
+        return script
+    if set(new) != set(miss):
+        return script
+    for b in new.values():
+        b.setdefault("facts", [])
+    script["beats"] = [have.get(n) or new[n] for n in style["beats"]]
+    if "cta" in new:
+        script["cta"] = str(new["cta"]["line"])
+    return script
+
+
 def run(sheet, focus, style, ask=None, voice=None, max_tries=6):
     sheet = {**sheet, "keyword": sheet.get("keyword") or focus.get("dm_keyword") or ""}
     """-> master script dict. Raises ValueError if no valid script after max_tries (caller's stage() reports it)."""
@@ -169,7 +197,7 @@ VERIFIED FACTS (the ONLY facts you may use; cite by id):
 VOICE: {voice[:900]}
 LANGUAGE (strict): every spoken line is HINGLISH in Roman letters, everyday spoken Hindi with English tech words, like talking to a shop owner. Example: "Raat 11 baje customer ne WhatsApp kiya, aur aapne subah reply diya. Tab tak woh dusri dukaan chala gaya." Not translated-sounding Hindi, not plain English.
 
-Write ONE script. Rules: no greeting or intro; one idea; 
+Write ONE script with EXACTLY {len(style['beats'])} beats, in this order: {style['beats']}. The LAST beat is `{style['beats'][-1]}`; never stop early and never drop it. Any digit you speak or put on screen (other than a clock time or an '3 steps' style count) must come from a cited fact or from the capabilities list below; otherwise say it in words with no digit. Rules: no greeting or intro; one idea; 
 SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 2-3 full spoken sentences, and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. Do not worry about video length; worry about the viewer UNDERSTANDING.
 EXPLAIN, don't announce: pain = the moment AND why it hurts (what it costs: time, a lost customer); poke = why the obvious fix fails, the reason in plain words; fix = each step with a one-clause reason ("pehle ..., kyunki ..."); payoff = what the fact MEANS for this owner in plain words (do the arithmetic only if every number comes from a fact); recap = loop back to the pain.
 Use helping words (kyunki, isliye, matlab, jaise ki, phir, taaki, lekin) so each line connects to the one before it. A line must make sense when heard once, with no screen.
@@ -195,7 +223,8 @@ Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken",
         script = {"style": style["id"], "hook": scored[0]["text"] if scored else "", "hooks": scored[:6], "beats": beats,
                   "cta": str(data.get("cta") or (beats[-1].get("line") if beats else "")), "linkedin_english": str(data.get("linkedin_english") or ""),
                   "language": "hinglish", "facts": sheet["facts"], "topic": sheet.get("topic"), "service": focus.get("id") or focus.get("name"), "keyword": sheet.get("keyword")}
-        bad = problems(script, sheet, style) + contentskills.problems(script)
+        script = repair_missing(script, style, ask, focus, sheet)
+        bad = problems(script, sheet, style, focus) + contentskills.problems(script)
         if not bad:
             bad = [f"meaning: {x}" for x in fidelity(script, sheet, ask, focus)]
         if not bad:

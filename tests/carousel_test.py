@@ -309,7 +309,7 @@ def gem(p, s="", **k):
     seen.append(p)
     if "STRICT ORDER" in p:
         return json.dumps({"slides": GOOD if state["carousel"] == "good" else []})
-    return json.dumps({"instagram": "ig", "linkedin": "li", "bluesky": "bs", "replies": []})
+    return json.dumps({"instagram": "Chatbot reply deta hai.\n\nDM BOT likho.", "linkedin": "li", "bluesky": "bs", "replies": []})
 def fcm(p, s="", **k):
     if '"service_id"' in p: return json.dumps({"service_id": "chatbot", "confidence": "high"})
     if "Fact-check this carousel" in p: return json.dumps({"ok": True, "issues": []})

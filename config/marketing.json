@@ -1,0 +1,164 @@
+{
+  "_about": "SINGLE SOURCE OF TRUTH for WHAT we say (marketing). Content skills decide HOW we say it (hook, retention, captions, video). Every script, caption, carousel and video plan reads this file. If the two ever disagree, this file wins.",
+  "icp": "Small business owner in India who talks to customers on WhatsApp, Instagram or phone (shop, cafe, gym, clinic, coaching centre, salon, hotel, D2C brand), busy, not technical, loses enquiries when they cannot reply fast. Lead-gen posts instead speak to freelancers, agencies and solo service sellers who need clients from local businesses.",
+  "positioning": "A solo Indian web developer (AR Designs) who builds simple, honest digital tools for small businesses and shows how they work in plain Hinglish. Teaches first, sells last.",
+  "pains": [
+    "customer messages at night and the reply comes the next morning, so the customer goes elsewhere",
+    "the same questions (timings, rates, location) answered again and again by hand",
+    "no website or a website that is slow on a phone, so customers cannot find or trust the business",
+    "enquiries scattered across chats and lost",
+    "freelancers and agencies spend hours searching for prospects by hand"
+  ],
+  "funnel": {
+    "goal": "earn a DM. One reel or carousel does one job: make the owner recognise their own problem, show how the fix works, then ask for ONE DM that names what they get.",
+    "beat_roles": {
+      "pain": "awareness: the owner's own moment",
+      "poke": "awareness: why the obvious fix fails",
+      "fix": "consideration: how it works, steps",
+      "payoff": "consideration: what it means for the owner (verified fact only)",
+      "recap": "loop back to the pain",
+      "cta": "decision: one DM keyword and exactly what they get"
+    },
+    "cta_only_on": "cta",
+    "hook_beat_never_contains": "price, brand name, the DM keyword, an offer"
+  },
+  "pillars": {
+    "note": "Calendar split from content-strategy (60/30/10), adapted: no testimonials or client results exist, so there is no 'proof' pillar.",
+    "educate": {
+      "share": 60,
+      "job": "explain a problem or how a tool works so it is useful even if they never DM"
+    },
+    "how_it_works": {
+      "share": 30,
+      "job": "show the steps of the service in plain words, no sales push"
+    },
+    "offer": {
+      "share": 10,
+      "job": "invite the DM directly; the only pillar that may say 'DM' in the hook area of a caption"
+    }
+  },
+  "offers_allowed": [
+    "pay after approval: the client pays only after approving the work",
+    "a short DM conversation with honest advice on whether the service fits the business",
+    "website posts only: a free quick look at a website with 3 things to fix"
+  ],
+  "offers_forbidden": [
+    "demo",
+    "sample",
+    "mock-up",
+    "prototype",
+    "free trial",
+    "free audit",
+    "discount",
+    "refund",
+    "money back",
+    "limited seats",
+    "only a few spots",
+    "offer ends",
+    "last chance",
+    "countdown"
+  ],
+  "claims_forbidden": [
+    "guaranteed",
+    "guarantee",
+    "100%",
+    "never lose a lead",
+    "eliminates",
+    "kills",
+    "ends your",
+    "khatam",
+    "more sales",
+    "double your",
+    "10x",
+    "overnight",
+    "get rich"
+  ],
+  "claims_rules": [
+    "Say what the service does (capabilities in services.json), never what result the owner will get.",
+    "No testimonials, client names, results or statistics except verified facts cited by id.",
+    "Say 'can help', 'makes it easier', 'reduces'; never an absolute."
+  ],
+  "voice": "Plain Hinglish in Roman letters for Instagram and video, simple English for LinkedIn and Bluesky. A developer talking to a shop owner. Specific nouns and times, short sentences next to a longer explaining one. Honest about limits.",
+  "ai_tells_forbidden": [
+    "em dashes in posts",
+    "contrast reveals ('it is not X, it is Y')",
+    "negation lists ('No X, no Y, no Z')",
+    "self-answered questions ('The result? ...')",
+    "stock phrases (say goodbye to, unlock the power, game-changer, take it to the next level, here's the thing, let that sink in)",
+    "engagement bait ('Agree?', 'Thoughts?', 'tag a friend')"
+  ],
+  "ctas": {
+    "website": {
+      "keyword": "SITE",
+      "gets": "a free quick look at your website with 3 things to fix, or honest advice on whether you need one",
+      "terms": [
+        "website",
+        "site",
+        "google",
+        "mobile",
+        "phone",
+        "online"
+      ]
+    },
+    "chatbot": {
+      "keyword": "BOT",
+      "gets": "how the setup would work for your business, step by step, and honest advice on whether it fits",
+      "terms": [
+        "chatbot",
+        "bot",
+        "reply",
+        "jawab",
+        "whatsapp",
+        "message",
+        "answer"
+      ]
+    },
+    "animated_ads": {
+      "keyword": "ADS",
+      "gets": "honest advice on what kind of short ad would suit your business",
+      "terms": [
+        "ad",
+        "ads",
+        "video",
+        "reel",
+        "animated",
+        "instagram"
+      ]
+    },
+    "lead_gen": {
+      "keyword": "LEADS",
+      "gets": "how the daily lead sheet works and whether it suits what you sell",
+      "terms": [
+        "lead",
+        "leads",
+        "prospect",
+        "client",
+        "sheet",
+        "excel",
+        "customer"
+      ]
+    },
+    "reel_scripts": {
+      "keyword": "SCRIPT",
+      "gets": "honest advice on what to say on camera for your business",
+      "terms": [
+        "script",
+        "reel",
+        "camera",
+        "bolna",
+        "hook"
+      ]
+    },
+    "seo_blogs": {
+      "keyword": "BLOG",
+      "gets": "honest advice on which questions your customers search for",
+      "terms": [
+        "blog",
+        "seo",
+        "google",
+        "search",
+        "article"
+      ]
+    }
+  }
+}

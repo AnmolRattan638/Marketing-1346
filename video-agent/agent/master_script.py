@@ -126,6 +126,16 @@ def enforce_words(plan: dict, master: dict) -> dict:
     return plan
 
 
+def _marketing_line(master: dict) -> str:
+    """MARKETING (hardcoded, outranks the content rules above): the plan carries the script's one ask and claims, nothing of its own."""
+    m = master.get("marketing") or {}
+    if not m.get("keyword"):
+        return ""
+    return (f"MARKETING (hardcoded; if it conflicts with the content rules above, it wins): the ONLY ask in the whole video is 'DM {m['keyword']}' in the cta scene, "
+            f"promising {m.get('gets', 'honest advice')}. No scene adds a price, offer, discount, demo, sample, guarantee, result claim or another service's keyword; no scene addresses a different audience than the script. "
+            f"Pillar today: {m.get('pillar', 'educate')} (educate and how_it_works teach, only an offer day may pitch).\n")
+
+
 def prompt_block(master: dict) -> str:
     beats = "\n".join(f"- {b['beat']}: \"{b['line']}\"  on screen: {b.get('screen', '')}  picture idea: {b.get('visual', '')}"
                       + (f"  STEPS to show as a step/checklist graphic, one per item: {' | '.join(b['steps'])}" if b.get("steps") else "") for b in master["beats"])
@@ -135,4 +145,5 @@ def prompt_block(master: dict) -> str:
             "CONTENT SKILLS (hardcoded, mandatory): scene 1 is the hook: show its `on screen` words (3-5 bold words) as a big title/punch graphic on the FIRST frame, top-centre and clear of the logo, "
             "so the hook works on mute; every later beat change gets a visible pattern reset (new graphic layout, zoom or cut); keep text out of the bottom 600px and right 150px; "
             "the cta scene shows ONE ask only, no 'like/follow/tag'. Opening visual must show the stake, not a logo.\n"
+            + _marketing_line(master) +
             f"Style: {master.get('style')}\n{beats}\n")

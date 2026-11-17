@@ -1,6 +1,6 @@
 """Agent 3: write the final per-platform posts (Gemini). Output keeps **bold** markers; captions.finalize_posts turns them into real bold last."""
 import json
-from .. import captions, config, contentskills, llm
+from .. import captions, config, contentskills, llm, marketingskills
 
 SYS = "You write social posts in the author's own voice. Follow the voice guide strictly."
 
@@ -82,7 +82,7 @@ LINKEDIN FORMAT (linkedin only; a LONG, plain-text explainer written like a deve
 - Teach first, sell last: at least two thirds of the post is explanation that is useful even if the reader never writes to me. Never sound like an ad: no exclamation marks, no 'game-changer', 'unlock', 'transform', 'boost', no urgency or scarcity, no slogans, no repeated calls to action. Never mention a price on LinkedIn.
 - Every sentence must carry information: if you cannot add concrete detail from the SERVICE FACTS or from ordinary working life, write fewer details, but still reach 300 words by explaining the reasoning behind the design (why it is built this way).
 - All the HARD RULES above still apply (no demo claims, no invented numbers, no single niche, not an advertisement).
-{li_block}{lead_gen_block}{facts_block}{master_block(master) if master else evidence_block(evidence)}{contentskills.block('caption')}Write one post per platform:
+{li_block}{lead_gen_block}{facts_block}{master_block(master) if master else evidence_block(evidence)}{marketingskills.block('caption', focus, plan.get('date', ''))}{contentskills.block('caption')}Write one post per platform:
 - instagram: {'REEL caption, 25-45 words in total' if ig_mode == 'manual_reel' else 'IMAGE caption, 35-60 words in total'} (hashtags not counted), in the format above, then a blank line and 3-5 hashtags
 - linkedin: follow the LINKEDIN FORMAT below
 - bluesky: ONE plain thought under 260 characters (Bluesky allows 300 per post, so it cannot carry the long explanation): a specific observation from the developer's desk in natural sentence case, no bold markers, no slogans, no hashtag stack (at most one), no 'pay after approval' line; an optional soft nudge to DM the keyword. It must read like a person, not an ad.
@@ -93,7 +93,8 @@ Return JSON: {{"instagram": "...", "linkedin": "...", "bluesky": "...", "replies
     def _notes(o):
         n = captions.over_limit(o, ig_mode)
         cs = contentskills.caption_problems(o.get("instagram")) if isinstance(o.get("instagram"), str) else ""
-        return "; ".join(x for x in (n, cs) if x)
+        ms = marketingskills.caption_problems(o.get("instagram"), focus) if isinstance(o.get("instagram"), str) else ""
+        return "; ".join(x for x in (n, cs, ms) if x)
     notes = _notes(out)
     for _ in range(2):                                                 # at most two automatic fix passes (too long, or LinkedIn under 300 words); never loops further
         if not notes:

@@ -3,7 +3,7 @@ import datetime as dt
 import os, secrets
 import sys, traceback
 import requests
-from . import analytics, browser_research, captions, carousel, config, diagrams, formats, ideas, learning, llm, tg, virality, web_research
+from . import marketingskills, analytics, browser_research, captions, carousel, config, diagrams, formats, ideas, learning, llm, tg, virality, web_research
 from .agents import analysis, carousel as carousel_agent, factcheck, factsheet, fit as fit_agent, image, scriptwriter, linkedin_edit, problems as problems_agent, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
@@ -208,6 +208,10 @@ def main():
         vir = stage("virality", lambda: virality.run(posts, plan["hooks"], plan.get("chosen_hook", 0), llm=groq_client), fallback={})   # advisory: never blocks or ranks anything
         vrev = stage("strategist.virality", lambda: strategist.virality_review(posts, virality.digest(vir, bt), brand.get("facts_rules")), fallback={}) if (vir and config.VIRALITY_REVIEW) else {}
         reasons, notes = [], []
+        mk = marketingskills.alignment_problems(focus, master, posts.get("instagram", ""), (car or {}).get("slides")) + marketingskills.caption_issues(posts.get("instagram", ""), focus)
+        if mk:                                                                       # marketing and content must agree: merged into the single rewrite, never a second one
+            reasons.append("marketing and content disagreed")
+            notes.append("MARKETING ALIGNMENT FIXES (the caption must carry the SAME service, ONE keyword, offer and claims as the script and carousel; change only these): " + " | ".join(dict.fromkeys(mk))[:600])
         if (rv.get("ad_score") or 0) >= 7:
             reasons.append("it read like an ad")
             notes.append(rv.get("notes", ""))
@@ -239,6 +243,9 @@ def main():
             WARNINGS.append("carousel: there is no hook image, so this goes out without a carousel.")
         vid = stage("video", lambda: video.run(plan, focus, posts, g('video'), brand), fallback={}) if ig_mode == "manual_reel" else {}
         WARNINGS.extend((vid or {}).get("warnings") or [])
+        left = marketingskills.alignment_problems(focus, master, posts.get("instagram", ""), (car or {}).get("slides"), {"scenes": [{"narration": (vid or {}).get("voiceover") or ""}]} if (vid or {}).get("voiceover") else None)
+        if left:
+            WARNINGS.append("marketing alignment: " + " | ".join(left)[:400])
         vir_after = vir
         if vsum["rewrote"] and vir:        # the rewritten captions get their own report (no A/B again, same hooks) so you can see what the one rewrite did; it never triggers another rewrite
             vir_after = stage("virality.after", lambda: virality.run(posts, None, 0, llm=groq_client), fallback={}) or vir

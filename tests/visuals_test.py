@@ -56,7 +56,7 @@ assert len(seen) == 2 and "FIX THIS" in seen[1] and "instagram caption has" in s
 p = seen[0]
 assert "CAPTION FORMAT" in p and "CAPITAL" in p and "DM **ADS**" in p and "35-60 words" in p and "NO paragraphs" in p and "80-140" not in p
 assert "**" in out["instagram"], "the writer keeps markers; bold is applied last, after fact-check"
-seen.clear(); llm.gemini = lambda prompt, system="", **k: seen.append(prompt) or json.dumps({"instagram": "**H** ok", "linkedin": "Clear sentence. " + "word " * 320, "bluesky": "**B**", "replies": []})
+seen.clear(); llm.gemini = lambda prompt, system="", **k: seen.append(prompt) or json.dumps({"instagram": "**H** ok\n\nDM **ADS** likho.", "linkedin": "Clear sentence. " + "word " * 320, "bluesky": "**B**", "replies": []})
 writer.run(plan, focus, brand, "VOICE", "g", ig_mode="manual_reel")
 assert len(seen) == 1 and "25-45 words" in seen[0], "a caption within limits costs no extra call; reels get the shorter limit"
 

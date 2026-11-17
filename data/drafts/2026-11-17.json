@@ -2,7 +2,7 @@
   "id": "2026-11-17-ad2e9a",
   "date": "2026-11-17",
   "created_at": "2026-11-17T10:00:31+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "chatbot",
   "topic": "Manual memory vs. Digital knowledge: The risk of the wrong price",
   "idea_id": null,
@@ -703,5 +703,19 @@
         "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6afc428cc3c14be73faedce9"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "socialapi: publishing 3b2bed8f-6daf-4204-a285-ca8c0b739935"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2iyrippyx2l"
+    }
   }
 }

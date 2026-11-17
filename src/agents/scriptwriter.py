@@ -4,7 +4,8 @@ Output: {"style", "hook", "hooks": [5 candidates with scores], "beats": [{"beat"
 Code enforces what a model drifts on: every number must come from a cited fact, 5-14 words per spoken line, no greeting/intro, hook scored and picked by code."""
 import json
 import re
-from .. import config, contentskills, llm
+import datetime
+from .. import config, contentskills, llm, marketingskills
 
 STYLES = [
     {"id": "pain-poke-fix", "name": "6-beat framework", "beats": ["pain", "poke", "fix", "payoff", "recap", "cta"],
@@ -122,7 +123,7 @@ def problems(script, sheet, style, focus=None):
         if kw and kw not in text.upper().split() and kw not in re.sub(r"[^A-Za-z ]", " ", text.upper()).split():
             out.append(f"cta: must contain the keyword {kw}")
         if not DELIVERABLE.search(text):
-            out.append("cta: must say what the viewer gets (setup steps, a checklist, a demo, a free review ...)")
+            out.append("cta: must say what the viewer gets (how the setup works step by step, or honest advice on whether it fits; never a demo or sample)")
     for b in beats:
         if b.get("emotion") not in EMOTIONS:
             b["emotion"] = DEFAULT_EMOTION.get(b.get("beat"), "calm")
@@ -165,7 +166,7 @@ def repair_missing(script, style, ask, focus, sheet):
     kw = sheet.get("keyword") or ""
     prompt = (f"A short-video script for {focus.get('name')} is missing its beat(s) {miss}. Existing beats, in order: {json.dumps(rows, ensure_ascii=False)}\n"
               f"Write ONLY the missing beat(s), continuing in the same Hinglish voice (Roman letters, everyday spoken Hindi). A normal beat is {WORDS[0]}-{WORDS[1]} words in 2-3 spoken sentences; "
-              f"the cta is {CTA_WORDS[0]}-{CTA_WORDS[1]} words, ONE ask only: tell the viewer to send the word {kw or 'the keyword'} and say exactly what they get (the setup steps, the checklist or the demo). "
+              f"the cta is {CTA_WORDS[0]}-{CTA_WORDS[1]} words, ONE ask only: tell the viewer to send the word {kw or 'the keyword'} and say exactly what they get (how the setup would work, or honest advice on whether it fits; never a demo or sample). "
               f"No numbers except 3 steps style counts. Return JSON {{\"beats\": [{{\"beat\": \"{miss[0]}\", \"line\": \"spoken\", \"screen\": \"<=8 words\", \"visual\": \"what is shown\", \"emotion\": \"warm\", \"facts\": []}}], \"cta\": \"the one ask if cta is missing\"}}")
     try:
         data = llm.ask_json(ask, prompt, SYS)
@@ -188,6 +189,7 @@ def run(sheet, focus, style, ask=None, voice=None, max_tries=6):
     ask = ask or llm.gemini
     voice = voice if voice is not None else config.voice()
     fixes = ""
+    today = sheet.get("date") or datetime.date.today().isoformat()
     for _ in range(max_tries):
         prompt = f"""Service in focus: {focus.get('name')} - {focus.get('pitch', '')}
 STYLE: {style['name']} - {style['how']}
@@ -209,7 +211,7 @@ Give each beat an `emotion` for the voice-over, one of: curious, empathetic, urg
 source is named in words when a figure is spoken; no invented clients, results or testimonials; replace any vague line with a concrete detail from the facts or delete it; read each line aloud
 and cut filler. Also give 5 alternative first lines using 5 different hook formulas (question, number, myth, scene, bold claim).
 Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken", "screen": "<=8 words on screen", "visual": "what is shown", "emotion": "empathetic", "steps": ["only for the fix beat"], "facts": ["f1"]}}], "cta": "the one ask", "linkedin_english": "2-3 plain English sentences of the same idea"}}
-{contentskills.block('script')}{fixes}"""
+{marketingskills.block('script', focus, today)}{contentskills.block('script')}{fixes}"""
         data = llm.ask_json(ask, prompt, SYS)
         if not isinstance(data, dict):
             continue
@@ -222,13 +224,13 @@ Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken",
             beats[0]["line"] = scored[0]["text"]       # best hook wins; it must still pass the checks below
         script = {"style": style["id"], "hook": scored[0]["text"] if scored else "", "hooks": scored[:6], "beats": beats,
                   "cta": str(data.get("cta") or (beats[-1].get("line") if beats else "")), "linkedin_english": str(data.get("linkedin_english") or ""),
-                  "language": "hinglish", "facts": sheet["facts"], "topic": sheet.get("topic"), "service": focus.get("id") or focus.get("name"), "keyword": sheet.get("keyword")}
+                  "marketing": {"keyword": marketingskills.cta_for(focus)["keyword"], "gets": marketingskills.cta_for(focus)["gets"], "pillar": marketingskills.pillar(today)}, "language": "hinglish", "facts": sheet["facts"], "topic": sheet.get("topic"), "service": focus.get("id") or focus.get("name"), "keyword": sheet.get("keyword")}
         script = repair_missing(script, style, ask, focus, sheet)
-        bad = problems(script, sheet, style, focus) + contentskills.problems(script)
+        bad = problems(script, sheet, style, focus) + marketingskills.script_problems(script, focus) + contentskills.problems(script)
         if not bad:
             bad = [f"meaning: {x}" for x in fidelity(script, sheet, ask, focus)]
         if not bad:
-            bad = [f"skills: {x}" for x in contentskills.audit(script, ask)]
+            bad = [f"skills: {x}" for x in contentskills.audit(script, ask)] + [f"marketing: {x}" for x in marketingskills.audit(script, focus, ask)]
         if not bad:
             return script
         fixes = "Your last script was rejected: " + "; ".join(bad[:6]) + ". Fix exactly these."

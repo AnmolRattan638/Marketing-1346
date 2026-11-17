@@ -12,7 +12,7 @@ short_li = "Short post. " * 20
 
 # 1) the prompt demands 300-380 words, the seven-part structure, and carries the real service facts
 seen = []
-llm.gemini = lambda p, s="", **k: seen.append(p) or json.dumps({"instagram": "**H** ok", "linkedin": long_li, "bluesky": "A plain thought.", "replies": []})
+llm.gemini = lambda p, s="", **k: seen.append(p) or json.dumps({"instagram": "**H** ok\n\nChatbot reply. DM **BOT** likho.", "linkedin": long_li, "bluesky": "A plain thought.", "replies": []})
 out = writer.run(plan, focus, brand, "VOICE", "g")
 p = seen[0]
 assert "300-380 words" in p and "HOW IT WORKS" in p and "HOW IT HELPS" in p and "AN HONEST LIMIT" in p and "Never mention a price on LinkedIn" in p
@@ -24,12 +24,12 @@ assert len(seen) == 1, "a good first draft needs no fix pass"
 assert "minimum is 300" in captions.over_limit({"linkedin": short_li})
 seen.clear()
 replies = [short_li, long_li]
-llm.gemini = lambda p, s="", **k: seen.append(p) or json.dumps({"instagram": "**H** ok", "linkedin": replies[min(len(seen) - 1, 1)], "bluesky": "x", "replies": []})
+llm.gemini = lambda p, s="", **k: seen.append(p) or json.dumps({"instagram": "**H** ok\n\nChatbot reply. DM **BOT** likho.", "linkedin": replies[min(len(seen) - 1, 1)], "bluesky": "x", "replies": []})
 out = writer.run(plan, focus, brand, "VOICE", "g")
 assert len(seen) == 2 and "only 20" in seen[1] or "minimum is 300" in seen[1]
 assert captions.words(out["linkedin"]) >= 300
 seen.clear()
-llm.gemini = lambda p, s="", **k: seen.append(p) or json.dumps({"instagram": "**H** ok", "linkedin": short_li, "bluesky": "x", "replies": []})
+llm.gemini = lambda p, s="", **k: seen.append(p) or json.dumps({"instagram": "**H** ok\n\nChatbot reply. DM **BOT** likho.", "linkedin": short_li, "bluesky": "x", "replies": []})
 writer.run(plan, focus, brand, "VOICE", "g")
 assert len(seen) <= 3, "never loops"
 

@@ -7,7 +7,7 @@ when config/facts.json holds a fact YOU verified, and the slides must quote it e
 import json
 import re
 
-from .. import config, llm
+from .. import config, llm, marketingskills
 from .problems import audience
 
 ORDER = ["hook", "problem", "solution", "cta"]
@@ -127,6 +127,7 @@ def validate(slides, focus, taste, fact, sheet=None):
         bad = BANNED.search(_strip_verified(f"{s['headline']} {s['body']}", sheet))
         if bad:
             probs.append(f"slide {i}: '{bad.group(0)}' is not allowed. Never write: {BANNED_TEXT}. Rewrite that slide without it; you may talk about cost or pricing in general terms")
+    probs += marketingskills.carousel_problems(slides, focus)
     if fact is None and not sheet and INVENTED_SOURCE.search(text):
         probs.append("do not attribute anything to a study, survey, expert or report; there is no verified source for this carousel")
     if fact is not None:
@@ -166,7 +167,7 @@ STRICT ORDER, never change it: 1 hook slide, then 1-2 problem slides, then 2-3 s
 - problem: {taste['problem']}
 - solution: {taste['solution']}
 - cta: {taste['cta']} The cta headline is exactly: DM {focus['dm_keyword']}
-{fact_block}{script_block(master) if master else web_block(evidence)}
+{fact_block}{script_block(master) if master else web_block(evidence)}{marketingskills.block('carousel', focus, post_plan.get('date', ''))}
 Brand rules that always apply: {json.dumps(brand['facts_rules'], ensure_ascii=False)}
 Slide rules: each slide has "headline" (max {MAX_WORDS['headline']} words) and "body" (max {MAX_WORDS['body']} words; the hook body max {MAX_WORDS['hook_body']}). Plain words a busy owner understands. One idea per slide.
 Never write: {BANNED_TEXT}{' (except a verified figure from the master script, written exactly)' if master else ''}. Also no invented numbers, clients, testimonials or demos. You MAY discuss cost or pricing as a topic in general words (for example, "pricing questions"), but never state an amount, an offer or a promise about it. Any scene must be clearly imaginary

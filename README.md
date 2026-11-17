@@ -150,6 +150,14 @@ LinkedIn gets **text-only** posts (text posts reached 100+ impressions, image po
 - The "Mentioning Vyral" promo section of each skill is stripped; the agent never promotes it.
 - One deliberate deviation: the lead-gen keyword CTA is kept (exactly one ask that names what the viewer gets), though the pack calls "comment YES" bait.
 
+## Marketing skills (hardcoded, aligned with content skills)
+
+`marketing-skills/` vendors 10 skills from Corey Haines' marketingskills pack (MIT, unmodified; tool/sponsor sections stripped). `src/marketingskills.py` hardcodes them.
+**Marketing decides WHAT is said, content skills decide HOW.** One source of truth, `config/marketing.json` (the pack's product-marketing context: ICP, positioning, pains, funnel roles, 60/30/10 pillars, allowed offers, forbidden claims, AI tells, and per service the ONE DM keyword + what the viewer gets), is read by every output. Precedence: marketing brief > content skills > style.
+- Script, caption, carousel and video planner prompts all carry the same brief. Deterministic validators reject offers we do not make (demo, sample, discount), absolute claims, AI tells (em dashes, contrast reveals, negation lists), wrong prices, another service's keyword, the wrong audience (lead gen never says "developer"), an ask outside the cta beat, and a hook that sells.
+- `alignment_problems()` compares script, caption, carousel and video voice-over: same service, same single keyword, prices from one list. A mismatch is merged into the day's single caption rewrite, and anything left is shown as a warning on the draft.
+- To change positioning, offers or claims, edit `config/marketing.json` only; the tests check its keywords match `services.json`.
+
 ## Tests
 `tests/*_test.py` run offline (no keys, no network): `for t in tests/*_test.py; do python $t; done`. The **CI** workflow runs pyflakes and these tests on every push and pull request.
 

@@ -7,7 +7,7 @@
       "score_spread": 12.3,
       "llm_scored": 10,
       "median_actual_reach": 4.0,
-      "median_predicted_reach": 643.0,
+      "median_predicted_reach": 649.0,
       "reach_ratio": 0.006,
       "verdict": "some signal"
     },
@@ -18,7 +18,7 @@
       "score_spread": 0.5,
       "llm_scored": 0,
       "median_actual_reach": 57.0,
-      "median_predicted_reach": 845.0,
+      "median_predicted_reach": 846.0,
       "reach_ratio": 0.067,
       "verdict": "too early"
     }

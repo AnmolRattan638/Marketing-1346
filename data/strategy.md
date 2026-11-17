@@ -1,3 +1,5 @@
-- Hook style: rotate to **mistake** angle (1.46x) paired with **question** hook (1.75x); avoid pure comparison hooks for chatbot posts.
-- Avoid repeating 'same five questions' phrasing (used 2026-10-12 & 2026-11-02); vary the pain point.
-- Posts must read as a developer sharing real work, never an ad; no demo offers, no niche targeting.
+- Rotate to **question** or **mistake** hooks next; avoid contrast (0.88x) and how_to (0.5x).
+- Pause animated_ads topics (31% of lead_gen per reach); focus on chatbot or lead_gen pain points.
+- Use **bright-desk** or **silhouette** image styles (~1.5x); avoid network (0.88x).
+- Keep voice as a developer showing real work, never an ad. Mention 2-3 varied Indian business types per post.
+- No demos, free audits, timeframes, or niche/region claims.

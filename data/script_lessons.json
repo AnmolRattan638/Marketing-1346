@@ -1,0 +1,10 @@
+{
+ "other:`screen` is the first-frame headline, N-": {
+  "count": 1,
+  "rule": "`screen` is the first-frame headline, N-N bold words that work on mute (now N)"
+ },
+ "other:Promises an absolute result ('koi bhi en": {
+  "count": 1,
+  "rule": "Promises an absolute result ('koi bhi enquiry miss nahi hoti') instead of describing capability. Fix: Replace 'aur koi bhi enquiry"
+ }
+}

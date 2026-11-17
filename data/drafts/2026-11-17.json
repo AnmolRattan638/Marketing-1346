@@ -1,0 +1,707 @@
+{
+  "id": "2026-11-17-ad2e9a",
+  "date": "2026-11-17",
+  "created_at": "2026-11-17T10:00:31+00:00",
+  "status": "pending",
+  "service": "chatbot",
+  "topic": "Manual memory vs. Digital knowledge: The risk of the wrong price",
+  "idea_id": null,
+  "problem_id": "inconsistent-information-given-to-custom",
+  "angle_type": "comparison",
+  "experiment": {
+    "mode": "exploit",
+    "variable": "hook_style",
+    "problem_id": "inconsistent-information-given-to-custom",
+    "angle_type": null,
+    "hook_style": "comparison"
+  },
+  "hooks": [
+    {
+      "style": "comparison",
+      "text": "Gym owners: old price slip vs AI‑exact rates—who loses?"
+    },
+    {
+      "style": "question",
+      "text": "Clinic managers, ever missed a booking because reply arrived late?"
+    },
+    {
+      "style": "mistake",
+      "text": "Salon owners, stop giving wrong timings—customers notice instantly."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "comparison",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "The GoDaddy article lists more than 55 small business ideas to start in India for 2026.",
+        "figure": "55+",
+        "source": "godaddy.com",
+        "title": "55+ small business ideas to start in India for 2026 - with low investment - GoDaddy Resources - India",
+        "url": "https://www.godaddy.com/resources/in/skills/small-business-ideas-in-india",
+        "date": null,
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "The Biizline article identifies two major problems with manual order management: the channel problem and the memory problem.",
+        "figure": null,
+        "source": "biizline.com",
+        "title": "Manual Order Management Problems MSMEs Face (And What They Cost You) Biizline",
+        "url": "https://biizline.com/manual-order-management-problems-msmes/",
+        "date": "2026-03-24",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Manual order handling often receives orders through phone calls, WhatsApp messages, voice notes, emails, or images of handwritten lists, all of which must be manually consolidated.",
+        "figure": null,
+        "source": "biizline.com",
+        "title": "Manual Order Management Problems MSMEs Face (And What They Cost You) Biizline",
+        "url": "https://biizline.com/manual-order-management-problems-msmes/",
+        "date": "2026-03-24",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "A ₹20 pricing error on each bill can add up quickly when dozens of bills are processed each week.",
+        "figure": "₹20",
+        "source": "localpos.in",
+        "title": "Manual Billing vs POS Billing Software: Which Is Better?",
+        "url": "https://localpos.in/blog/manual-billing-vs-pos-billing-software/",
+        "date": "2026-11-05",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "In a test of AI assistants, only about 20% gave the correct price from memory.",
+        "figure": "20%",
+        "source": "toolradar.com",
+        "title": "AI Pricing Knowledge Gap 2026: Assistants Right Only 20% of the Time Toolradar Research Toolradar Research",
+        "url": "https://toolradar.com/reports/ai-pricing-knowledge-gap-2026",
+        "date": "2026-09-01",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "The AI pricing knowledge test evaluated 70 published tools that scored 89 or higher editorially.",
+        "figure": "70",
+        "source": "toolradar.com",
+        "title": "AI Pricing Knowledge Gap 2026: Assistants Right Only 20% of the Time Toolradar Research Toolradar Research",
+        "url": "https://toolradar.com/reports/ai-pricing-knowledge-gap-2026",
+        "date": "2026-09-01",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Answers were judged correct if they fell within 12% of the verified price.",
+        "figure": "12%",
+        "source": "toolradar.com",
+        "title": "AI Pricing Knowledge Gap 2026: Assistants Right Only 20% of the Time Toolradar Research Toolradar Research",
+        "url": "https://toolradar.com/reports/ai-pricing-knowledge-gap-2026",
+        "date": "2026-09-01",
+        "verdict": "verified",
+        "id": "f7"
+      }
+    ],
+    "dropped": 0,
+    "topic": "Manual memory vs. Digital knowledge: The risk of the wrong price"
+  },
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Kya aapke WhatsApp par customer enquiries roz bina reply ke chhoot rahi hain?",
+    "hooks": [
+      {
+        "text": "Kya aapke WhatsApp par customer enquiries roz bina reply ke chhoot rahi hain?",
+        "score": 12.9
+      },
+      {
+        "text": "Toolradar ke mutabiq sirf 20% AI tools bina setup ke sahi price batate hain.",
+        "score": 11.8
+      },
+      {
+        "text": "Raat ko customer ne WhatsApp par rate pucha aur subah tak gayab ho gaya.",
+        "score": 7.9
+      },
+      {
+        "text": "Manual tareeke se WhatsApp enquiries sambhalna aapke customers ko dusri dukaan bhej raha hai.",
+        "score": 7.9
+      },
+      {
+        "text": "WhatsApp messages aur voice notes mein enquiry chhootne se customer turant dusri dukaan chala jaata hai.",
+        "score": 7.9
+      },
+      {
+        "text": "Aapko lagta hai har customer enquiry ka reply turant khud dena zaroori hai.",
+        "score": 7.8
+      }
+    ],
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Kya aapke WhatsApp par customer enquiries roz bina reply ke chhoot rahi hain?",
+        "screen": "WhatsApp enquiries pending hain?",
+        "visual": "Anmol holding phone showing unread WhatsApp message notifications",
+        "emotion": "empathetic",
+        "facts": []
+      },
+      {
+        "beat": "poke",
+        "line": "Aap sochte hain ki sab messages khud raat ko check kar lenge. Lekin din bhar ke phone calls aur handwritten notes ko manually sambhalna mushkil ho jaata hai, isliye zaroori leads bina reply ke reh jaati hain.",
+        "screen": "Manually sab yaad rakhna mushkil hai",
+        "visual": "Anmol showing a cluttered notebook with handwritten order lists next to a ringing phone.",
+        "emotion": "urgent",
+        "facts": [
+          "f2",
+          "f3"
+        ]
+      },
+      {
+        "beat": "fix",
+        "line": "Iska hal hai ek AI chatbot setup karna. Pehle bot aapke rates aur timings customer ko turant batata hai, taaki unhe intezar na karna pade. Phir woh unka phone number lekar saari enquiry ek jagah save kar deta hai.",
+        "screen": "24x7 chatbot se auto enquiry setup",
+        "visual": "Anmol typing on laptop, pointing to a clean chat window answering customer queries.",
+        "emotion": "calm",
+        "steps": [
+          "Rates aur timings turant batana",
+          "Customer ka phone number lena",
+          "Enquiry ek jagah save karna"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "payoff",
+        "line": "Toolradar ki research ke mutabiq, AI assistants ke test mein sirf 20% assistants ne sahi price batayi thi. Iska matlab bina sahi tarike se train kiye bot galat details de sakta hai, isliye structured setup hona behad zaroori hai.",
+        "screen": "Sirf 20% assistants sahi price dete",
+        "visual": "Anmol pointing to laptop screen displaying the Toolradar research statistic.",
+        "emotion": "curious",
+        "facts": [
+          "f5"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Toh jab aap busy hon ya raat ka waqt ho, customer ke WhatsApp messages aur calls ko pending mat chhodiye. Ek sahi setup se customer ko turant jawab milta hai aur enquiries miss hone ka risk kam ho sakta hai.",
+        "screen": "Enquiries miss hone ka risk kam",
+        "visual": "Anmol looks into camera, showing a neatly organized WhatsApp chat history on phone",
+        "emotion": "curious",
+        "facts": []
+      },
+      {
+        "beat": "cta",
+        "line": "Agar aap bhi enquiries sambhalna chahte hain, toh mujhe DM mein BOT likhiye. Main bataunga ki yeh setup aapke business ke liye kaise kaam karega aur yeh sahi fit hai ya nahi.",
+        "screen": "DM karein BOT honest advice ke liye",
+        "visual": "Anmol looking directly at camera, with DM BOT graphic overlay on screen.",
+        "emotion": "warm",
+        "facts": []
+      }
+    ],
+    "cta": "DM mein BOT likhiye, main bataunga ki yeh chatbot setup aapke business ke liye kaise kaam karega aur yeh sahi fit hai ya nahi.",
+    "linkedin_english": "When customer enquiries arrive across WhatsApp, calls, and voice notes, manual tracking often leads to missed opportunities. A structured AI chatbot answers routine questions 24x7 and logs customer details into one clear place. Send a DM with the word BOT to discuss how this setup would work for your business and whether it is the right fit.",
+    "marketing": {
+      "keyword": "BOT",
+      "gets": "how the setup would work for your business, step by step, and honest advice on whether it fits",
+      "pillar": "educate"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "The GoDaddy article lists more than 55 small business ideas to start in India for 2026.",
+        "figure": "55+",
+        "source": "godaddy.com",
+        "title": "55+ small business ideas to start in India for 2026 - with low investment - GoDaddy Resources - India",
+        "url": "https://www.godaddy.com/resources/in/skills/small-business-ideas-in-india",
+        "date": null,
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "The Biizline article identifies two major problems with manual order management: the channel problem and the memory problem.",
+        "figure": null,
+        "source": "biizline.com",
+        "title": "Manual Order Management Problems MSMEs Face (And What They Cost You) Biizline",
+        "url": "https://biizline.com/manual-order-management-problems-msmes/",
+        "date": "2026-03-24",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Manual order handling often receives orders through phone calls, WhatsApp messages, voice notes, emails, or images of handwritten lists, all of which must be manually consolidated.",
+        "figure": null,
+        "source": "biizline.com",
+        "title": "Manual Order Management Problems MSMEs Face (And What They Cost You) Biizline",
+        "url": "https://biizline.com/manual-order-management-problems-msmes/",
+        "date": "2026-03-24",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "A ₹20 pricing error on each bill can add up quickly when dozens of bills are processed each week.",
+        "figure": "₹20",
+        "source": "localpos.in",
+        "title": "Manual Billing vs POS Billing Software: Which Is Better?",
+        "url": "https://localpos.in/blog/manual-billing-vs-pos-billing-software/",
+        "date": "2026-11-05",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "In a test of AI assistants, only about 20% gave the correct price from memory.",
+        "figure": "20%",
+        "source": "toolradar.com",
+        "title": "AI Pricing Knowledge Gap 2026: Assistants Right Only 20% of the Time Toolradar Research Toolradar Research",
+        "url": "https://toolradar.com/reports/ai-pricing-knowledge-gap-2026",
+        "date": "2026-09-01",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "The AI pricing knowledge test evaluated 70 published tools that scored 89 or higher editorially.",
+        "figure": "70",
+        "source": "toolradar.com",
+        "title": "AI Pricing Knowledge Gap 2026: Assistants Right Only 20% of the Time Toolradar Research Toolradar Research",
+        "url": "https://toolradar.com/reports/ai-pricing-knowledge-gap-2026",
+        "date": "2026-09-01",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Answers were judged correct if they fell within 12% of the verified price.",
+        "figure": "12%",
+        "source": "toolradar.com",
+        "title": "AI Pricing Knowledge Gap 2026: Assistants Right Only 20% of the Time Toolradar Research Toolradar Research",
+        "url": "https://toolradar.com/reports/ai-pricing-knowledge-gap-2026",
+        "date": "2026-09-01",
+        "verdict": "verified",
+        "id": "f7"
+      }
+    ],
+    "topic": "Manual memory vs. Digital knowledge: The risk of the wrong price",
+    "service": "chatbot",
+    "keyword": "BOT"
+  },
+  "script_style": "pain-poke-fix",
+  "posts": {
+    "instagram": "𝗞𝗬𝗔 𝗔𝗔𝗣𝗞𝗘 𝗚𝗥𝗔𝗛𝗔𝗞 𝗞𝗢 𝗗𝗢 𝗔𝗟𝗔𝗚 𝗥𝗔𝗧𝗘 𝗦𝗨𝗡𝗔𝗜 𝗗𝗘𝗧𝗘 𝗛𝗔𝗜𝗡?\n\n→ Gym, clinic ya café mein purana 𝗣𝗥𝗜𝗖𝗘 batana aam galti hai.\n→ Price list update hote hi bot naye rate dikhata hai, bina kisi delay ke.\n→ Customer ko accurate jankari milti hai.\n\nDM 𝗕𝗢𝗧 to discuss your setup. Pay only after approving the work.\n\n#SmallBusinessIndia #CustomerSupport #ChatbotIndia #BusinessAutomation",
+    "linkedin": "A single wrong price quote can cost a small business a customer.\n\nRunning a daily operation such as a gym, a clinic, or a café means handling phone calls, WhatsApp messages, and walk‑in visitors at the same time. When a customer asks about package fees, service rates, or weekend timings, the owner often answers from memory while attending to another task. Providing an outdated rate creates confusion, leads to billing disputes, and can quietly erode trust before the relationship begins.\n\nAn AI chatbot can answer those routine questions and automatically log each enquiry. The bot is trained only on the business’s approved catalogue, so every reply matches the current price list. It works around the clock on WhatsApp, the website, and direct‑message channels, handling queries about pricing, timings, location, and services.\n\nThe setup process is straightforward. First, the owner shares the list of offerings, the up‑to‑date price list, and the common questions customers ask. Next, I configure the bot to respond accurately and to capture the customer’s name and contact number. Finally, we test the replies together and make any adjustments until the responses meet the owner’s standards.\n\nWith the bot in place, the risk of accidental pricing errors is reduced and hours spent repeating the same information are saved. Enquiries that arrive late at night receive an instant, correct answer instead of waiting for the next morning. All enquiries are stored in a single, organized place, making follow‑up simple and preventing leads from being lost between chat windows.\n\nThe bot is intended for routine enquiries only. It cannot replace personal consultations, negotiate bespoke packages, or handle complex custom requests. For specialised customer requirements, human attention remains essential.\n\nI am happy to discuss how this could work for your business. Payment is required only after you approve the completed setup. DM BOT and tell me what you sell to see if it is the right fit.",
+    "bluesky": "One wrong rate from memory can lose a customer. An AI chatbot can use the latest approved price list, 24/7. It answers routine questions and records leads automatically. DM BOT to see how it works."
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does a setup like this cost?",
+      "reply": "A basic FAQ bot is INR 2,999 and the AI-powered version is INR 4,999, plus INR 299/month for maintenance. You pay only after you approve the work. Quick question: what kind of business do you run, and what do customers ask most?"
+    },
+    {
+      "if_they_say": "Can this work for my clinic or gym?",
+      "reply": "Yes, it works well for clinics, gyms, and service businesses where customers repeatedly ask about timings, fees, and location. What are the two or three questions you find yourself answering most often?"
+    },
+    {
+      "if_they_say": "What if our prices or packages change later?",
+      "reply": "Whenever your rates change, the bot's knowledge base is updated so it immediately quotes only the new approved prices. Do you offer fixed packages, or do your rates change frequently?"
+    }
+  ],
+  "image": {
+    "prompt": "A brushed‑aluminum tablet with a deep‑navy frame rests on a walnut counter, its glass screen glowing electric cyan chat bubbles that hint at an AI conversation; the tablet fills the upper two‑thirds of the frame in an eye‑level view, leaving a calm lower 40 % for the headline. A cool key light shines from front‑left, casting soft shadows and a subtle cyan rim around the device, while an amber accent lamp adds depth. Behind, a blurred pastel‑tiled wall and a small potted succulent create foreground, midground and background depth. The palette is deep navy with electric cyan as the sole accent, evoking confidence. Captured with an 85 mm lens at f/1.8, shallow depth of field highlights the tablet’s metal texture, glass reflections and dust catching the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-17.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "inconsistent-information-given-to-custom",
+      "angle_type": "comparison",
+      "style": "bold",
+      "headline": "Manual notes vs AI: The pricing gap",
+      "highlight": [
+        "pricing gap"
+      ],
+      "sub": "For gyms, salons, and local cafes.",
+      "chat": [],
+      "cta": "DM \"BOT\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate",
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ],
+    "style_id": "glass-ui"
+  },
+  "carousel": null,
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [
+      "Instagram: absolute claim 'hamesha' softened",
+      "Bluesky: absolute claim 'always' softened"
+    ],
+    "revised": {
+      "instagram": "**KYA AAPKE GRAHAK KO DO ALAG RATE SUNAI DETE HAIN?**\n\n→ Gym, clinic ya café mein purana **PRICE** batana aam galti hai.\n→ Price list update hote hi bot naye rate dikhata hai, bina kisi delay ke.\n→ Customer ko accurate jankari milti hai.\n\nDM **BOT** to discuss your setup. Pay only after approving the work.\n\n#SmallBusinessIndia #CustomerSupport #ChatbotIndia #BusinessAutomation",
+      "linkedin": "A single wrong price quote can cost a small business a customer.\n\nRunning a daily operation such as a gym, a clinic, or a café means handling phone calls, WhatsApp messages, and walk‑in visitors at the same time. When a customer asks about package fees, service rates, or weekend timings, the owner often answers from memory while attending to another task. Providing an outdated rate creates confusion, leads to billing disputes, and can quietly erode trust before the relationship begins.\n\nAn AI chatbot can answer those routine questions and automatically log each enquiry. The bot is trained only on the business’s approved catalogue, so every reply matches the current price list. It works around the clock on WhatsApp, the website, and direct‑message channels, handling queries about pricing, timings, location, and services.\n\nThe setup process is straightforward. First, the owner shares the list of offerings, the up‑to‑date price list, and the common questions customers ask. Next, I configure the bot to respond accurately and to capture the customer’s name and contact number. Finally, we test the replies together and make any adjustments until the responses meet the owner’s standards.\n\nWith the bot in place, the risk of accidental pricing errors is reduced and hours spent repeating the same information are saved. Enquiries that arrive late at night receive an instant, correct answer instead of waiting for the next morning. All enquiries are stored in a single, organized place, making follow‑up simple and preventing leads from being lost between chat windows.\n\nThe bot is intended for routine enquiries only. It cannot replace personal consultations, negotiate bespoke packages, or handle complex custom requests. For specialised customer requirements, human attention remains essential.\n\nI am happy to discuss how this could work for your business. Payment is required only after you approve the completed setup. DM BOT and tell me what you sell to see if it is the right fit.",
+      "bluesky": "One wrong rate from memory can lose a customer. An AI chatbot can use the latest approved price list, 24/7. It answers routine questions and records leads automatically. DM BOT to see how it works."
+    }
+  },
+  "sources": [
+    {
+      "title": "55+ small business ideas to start in India for 2026 - with low investment - GoDaddy Resources - India",
+      "url": "https://www.godaddy.com/resources/in/skills/small-business-ideas-in-india",
+      "domain": "godaddy.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Manual Order Management Problems MSMEs Face (And What They Cost You) Biizline",
+      "url": "https://biizline.com/manual-order-management-problems-msmes/",
+      "domain": "biizline.com",
+      "date": "2026-03-24",
+      "provider": "exa"
+    },
+    {
+      "title": "Artificial intelligence for small business CGA",
+      "url": "https://www.cyber.gov.au/publication/artificial-intelligence-for-small-business",
+      "domain": "cyber.gov.au",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Manual Billing vs POS Billing Software: Which Is Better?",
+      "url": "https://localpos.in/blog/manual-billing-vs-pos-billing-software/",
+      "domain": "localpos.in",
+      "date": "2026-11-05",
+      "provider": "exa"
+    },
+    {
+      "title": "Real-world gen AI use cases from the world's leading organizations Google Cloud Blog",
+      "url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+      "domain": "cloud.google.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Pricing Memory at Scale: How to Stop Forgetting What You Charged Last Time Setell Blog",
+      "url": "https://setell.ai/blog/pricing-memory-stop-forgetting-what-you-charged",
+      "domain": "setell.ai",
+      "date": "2026-06-11",
+      "provider": "exa"
+    },
+    {
+      "title": "A Complete Analysis of the Winter 2026 eDiscovery Pricing Survey",
+      "url": "https://complexdiscovery.com/a-complete-analysis-of-the-winter-2026-ediscovery-pricing-survey",
+      "domain": "complexdiscovery.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "AI Pricing Knowledge Gap 2026: Assistants Right Only 20% of the Time Toolradar Research Toolradar Research",
+      "url": "https://toolradar.com/reports/ai-pricing-knowledge-gap-2026",
+      "domain": "toolradar.com",
+      "date": "2026-09-01",
+      "provider": "exa"
+    }
+  ],
+  "ad_score": 6,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 7.5,
+        "breakout_probability": 0.0,
+        "reach_p10": 298.0,
+        "reach_p50": 581.0,
+        "reach_p90": 1197.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'language/exclusion', 'severity': 'low', 'description': 'The content is primarily in Hindi, which may exclu"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 2.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 0,
+          "relatability": 5.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 381,
+            "share": 2,
+            "like": 1
+          },
+          "engagement_rate": 0.0078,
+          "by_role": {
+            "public": {
+              "n": 3,
+              "avg_sentiment": 0.627,
+              "share_rate": 0.667
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 6,
+          "reach_fraction": 0.0065,
+          "r_effective": 0.2,
+          "polarization": 0.481,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 3.0
+          },
+          {
+            "title": "Open a stronger curiosity gap",
+            "lift_pct": 2.8
+          },
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 2.8
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 9.3,
+        "breakout_probability": 0.0,
+        "reach_p10": 432.0,
+        "reach_p50": 837.0,
+        "reach_p90": 1724.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 3.0,
+          "educational": 5.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 5.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 369,
+            "share": 2,
+            "like": 1,
+            "reply": 1,
+            "dislike": 1
+          },
+          "engagement_rate": 0.0134,
+          "by_role": {
+            "public": {
+              "n": 5,
+              "avg_sentiment": 0.342,
+              "share_rate": 0.4
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 9,
+          "reach_fraction": 0.0145,
+          "r_effective": 0.8,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 10.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 202.0,
+        "reach_p50": 413.0,
+        "reach_p90": 867.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 3.0,
+          "practical_value": 5.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 362,
+            "share": 1,
+            "like": 2
+          },
+          "engagement_rate": 0.0082,
+          "by_role": {
+            "public": {
+              "n": 3,
+              "avg_sentiment": 0.88,
+              "share_rate": 0.333
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 6,
+          "reach_fraction": 0.0065,
+          "r_effective": 0.2,
+          "polarization": 0.481,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "question",
+          "p_beats_chosen": 0.03,
+          "lift_pct": -4.8,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "mistake",
+          "p_beats_chosen": 0.04,
+          "lift_pct": -4.8,
+          "decisive": true
+        }
+      ],
+      "better": null,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Replace hook with a question hook (e.g., 'KYA AAPKE GRAHAK KO DO ALAG RATE SUNAI DETE HAIN?') and add a line: '→ Price list update hote hi bot naye rate dikhata hai, bina kisi delay ke.'",
+      "linkedin: Sharpen first line to: 'A single wrong price quote can cost a small business a customer. An AI chatbot ensures every answer matches the current price list.'",
+      "bluesky: Sharpen first line to: 'One wrong rate from memory can lose a customer. An AI chatbot always uses the latest approved price list, 24/7.'"
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 9.8,
+      "bluesky": 10.2
+    },
+    "after": {
+      "instagram": 7.5,
+      "linkedin": 9.3,
+      "bluesky": 10.0
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "google:gemini-3.8-flash",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "google:gemini-3.7-flash",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemini-3.8-flash (HTTP 429)"
+    ],
+    "failures": [
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 37.8,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 10.8,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "429",
+        "seconds": 90.8,
+        "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
+      }
+    ]
+  }
+}

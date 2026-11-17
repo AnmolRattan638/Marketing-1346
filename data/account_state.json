@@ -1,26 +1,26 @@
 {
-  "date": "2026-11-16",
-  "stage": "brand new under 100 followers",
-  "followers": 10,
-  "summary": "All platforms under 100 followers; Instagram reels lose 77% viewers in first 3 seconds (hook failure). Bio violates rules: niche/region lock, '24 hrs' timeframe, free site check offer beyond website posts. LinkedIn shows zero real engagement.",
-  "guidance": "- Hook style: rotate to **mistake** angle (1.46x) paired with **question** hook (1.75x); avoid pure comparison hooks for chatbot posts.\n- Avoid repeating 'same five questions' phrasing (used 2026-10-12 & 2026-11-02); vary the pain point.\n- Posts must read as a developer sharing real work, never an ad; no demo offers, no niche targeting.",
+  "date": "2026-11-17",
+  "stage": "brand new under 100 followers, building trust",
+  "followers": 9,
+  "summary": "Account is brand new across all platforms (9 IG, 11 LI, 1 BS followers). Data too thin for reliable patterns: question hooks 1.75x (n=6), mistake angles 1.46x (n=7), lead_gen service 1.68x (n=7). High Reel skip rates (63-76%) show first 3 seconds fail. Instagram bio violates brand rules: niche/region targeting, promised timeframe, free offer outside website posts.",
+  "guidance": "- Rotate to **question** or **mistake** hooks next; avoid contrast (0.88x) and how_to (0.5x).\n- Pause animated_ads topics (31% of lead_gen per reach); focus on chatbot or lead_gen pain points.\n- Use **bright-desk** or **silhouette** image styles (~1.5x); avoid network (0.88x).\n- Keep voice as a developer showing real work, never an ad. Mention 2-3 varied Indian business types per post.\n- No demos, free audits, timeframes, or niche/region claims.",
   "instructions": {
-    "research": "Find 2-3 common chatbot misconceptions small Indian businesses hold (e.g., 'needs coding', 'only for big brands', 'replaces human touch') to fuel a mistake-busting angle.",
-    "analysis": "Compare today's chatbot topic against the last two chatbot posts (2026-11-02, 2026-11-08, 2026-11-12) to ensure a fresh pain point and hook style.",
-    "writer": "Write a single-image post using a **mistake** angle + **question** hook: highlight one misconception about chatbots, ask a relatable question, end with 'pay after approval' + DM for honest fit check. No niche examples; mention 2-3 varied business types max.",
-    "image": "Create a bright-desk style image (1.53x) showing a simple chat card mock-up labelled 'Example conversation' — no business name, no demo claim. Clean, developer-at-work aesthetic.",
-    "video": "Skip video today; reel hook retention is too weak (77% 3-sec drop). Focus on static image post to test hook/angle without retention risk."
+    "research": "List 5 common chatbot pain points for Indian small businesses (e.g. repeated WhatsApp queries, wrong info sent, after-hours messages) across hotels, clinics, gyms, shops, coaching centres.",
+    "analysis": "Compare the two published chatbot posts (question hooks) for engagement vs reach; note which phrasing got the 6 engagements on 2026-11-02.",
+    "writer": "Write a question-hook post about repeated customer questions. Open with the pain point, mention 2-3 varied business types in one line, end with 'pay after approval' and DM invite. No demo claims, no timeframes.",
+    "image": "Create a bright-desk style static image: code editor or chat interface snippet on a clean desk, subtle glow, no logos or business names.",
+    "video": "Not required for today's image post."
   },
   "manual_tips": [
-    "Update Instagram bio: remove niche/region list, 'ready in 24 hrs', and free site check line. Replace with broad, rule-compliant description (e.g., 'AI chatbots, animated ads, lead sheets & websites for small businesses across India. Pay after approval. DM to discuss fit.')",
-    "Comment thoughtfully on 5 posts from Indian small business owners (cafes, gyms, clinics, coaches) discussing customer communication struggles — no pitching, just genuine insight.",
-    "Reply to any existing comments on your last 3 Instagram posts to boost signal; keep replies helpful, not promotional."
+    "Update Instagram bio: remove 'hotels, cafes, gyms & homestays in Himachal', 'Rs 1499', 'ready in 24 hrs', 'Free 2-min site check'. Replace with national, niche-agnostic description and only 'pay after approval' offer.",
+    "Comment thoughtfully on 5 posts from Indian small business owners (varied industries, any city) about handling customer enquiries.",
+    "Send 3 connection requests on LinkedIn to freelancers/agencies who serve local businesses across India; add a brief note about shared audience."
   ],
   "weak_signals": [
     {
-      "id": "high_skip_rate",
+      "id": "follower_stall",
       "platform": "instagram",
-      "detail": "reels lose 77% of viewers in the first 3 seconds across 1 reels: the hook is not stopping the scroll"
+      "detail": "4 posts in 7 days and followers changed by +0"
     },
     {
       "id": "weak_service",

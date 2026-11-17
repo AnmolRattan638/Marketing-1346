@@ -77,6 +77,8 @@ jobs:
 
       - name: Generate draft and send to Telegram
         id: gen
+        env:
+          GITHUB_TOKEN: ${{ github.token }}      # lets the script start the reel in parallel as soon as the master script is ready
         run: python -m src.run_daily ${{ inputs.force && '--force' || '' }}
 
       - name: Save draft (image links need it in the repo)
@@ -84,8 +86,8 @@ jobs:
         run: |
           bash scripts/commit_state.sh "draft: $(date -u +%F)"
 
-      - name: Start today's reel (same master script as the carousel)
-        if: steps.gen.outcome == 'success'
+      - name: Start today's reel (only if it was not already started in parallel the moment the script was ready)
+        if: steps.gen.outcome == 'success' && steps.gen.outputs.reel_started != '1'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}

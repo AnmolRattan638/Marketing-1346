@@ -32,6 +32,8 @@ RULES = [
     (r"off-service", "off-service", "Talk about the service in focus only."),
     (r"fix: needs 2-3 concrete steps", "steps", "The fix beat walks through 2-3 short steps and the spoken line follows them."),
     (r"bare statements", "connectors", "Use helping words (kyunki, isliye, jaise ki, phir) so each line gives its reason."),
+    (r"absolute result|outcomes? no fact supports|promises? (an? )?(absolute|outcome)|never have to wait", "promise", "Describe what the service does (replies instantly, collects enquiries); never promise an outcome like 'no enquiry is missed' or 'you will never lose a lead'."),
+    (r"first-frame headline|`screen`", "screen", "`screen` text is a 2-6 word bold headline that works on mute; no full sentence."),
     (r"fact id", "fact-id", "Cite only fact ids that exist on the sheet."),
 ]
 
@@ -42,7 +44,8 @@ def explain(problem: str) -> tuple[str, str]:
     for rx, key, rule in RULES:
         if re.search(rx, msg, re.I):
             return key, rule
-    short = re.sub(r"\d+", "N", re.sub(r"^[\w, ]{2,30}:\s*", "", msg))[:130]
+    msg = re.split(r"\bFix:", msg)[0]
+    short = re.sub(r"\d+", "N", re.sub(r"'[^']{3,}'|\"[^\"]{3,}\"", "...", re.sub(r"^[\w, ]{2,30}:\s*", "", msg)))[:130]
     return "other:" + short[:40], short
 
 

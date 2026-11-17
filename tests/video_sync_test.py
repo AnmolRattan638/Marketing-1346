@@ -111,7 +111,7 @@ import subprocess
 r = subprocess.run([sys.executable, "-m", "agent.run", "--offline", "--no-render"], capture_output=True, text=True)
 assert r.returncode == 0, r.stdout[-800:] + r.stderr[-800:]
 import glob, shutil
-run_dir = sorted(glob.glob(str(ROOT / "runs" / "*")))[-1]
+run_dir = max((d for d in glob.glob(str(ROOT / "runs" / "*")) if os.path.exists(os.path.join(d, "manifest.json"))), key=os.path.getmtime)      # the run just made
 m = json.loads((pathlib.Path(run_dir) / "manifest.json").read_text())
 credits = json.loads((pathlib.Path(run_dir) / "credits.json").read_text())
 fps = m["video"]["fps"]
@@ -152,3 +152,12 @@ z = cz.plan_zones(tmp / "busy_bottom.mp4", 4)
 assert z and z[0]["y"] < 1000 and z[0]["from"] == 0.0 and z[-1]["to"] == 4, z
 assert cz.zones_for(tmp / "missing.mp4", 4) == []
 print("video sync test passed: cuts on words, SFX on cuts and emphasis words, per-shot B-roll, fx on spoken words, manifest lines up")
+
+# 5. listen-back: the share of script words the voice-over really says
+from agent import captions as _cap
+script_text = "Raat 11 baje customer ne WhatsApp kiya, bot ne turant jawab diya"
+heard = lambda t: [{"text": w} for w in t.split()]
+assert _cap.listen_back(script_text, heard(script_text)) == 1.0
+assert _cap.listen_back(script_text, heard("raat baje customer ne whatsapp kiya")) < 0.8      # a voice that drops words is flagged
+assert 0.8 <= _cap.listen_back(script_text, heard("Raat 11 baje customer ne WhatsApp kiya bot ne jawab diya")) < 1.0
+print("listen-back check ok")

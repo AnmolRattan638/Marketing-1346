@@ -123,12 +123,31 @@ def align_script(text: str, heard: list[dict]) -> list[dict]:
     return out
 
 
+LISTEN: list[str] = []          # listen-back findings of this run (read by run.py and put in the Telegram caption)
+
+
+def listen_back(text: str, heard: list[dict]) -> float:
+    """How much of the script the voice-over actually says: the share of script words found, in order, in what Whisper heard (1.0 = all of it).
+    Catches a voice that skips, garbles or cuts off words (a wrong number, a missing CTA) before you watch the video."""
+    import difflib
+    norm = lambda t: re.sub(r"[^\w]+", " ", str(t).lower()).split()
+    ours, said = norm(text), norm(" ".join(w.get("text", "") for w in heard))
+    if not ours:
+        return 1.0
+    got = sum(b.size for b in difflib.SequenceMatcher(None, ours, said, autojunk=False).get_matching_blocks())
+    return round(got / len(ours), 2)
+
+
 def get_words(text: str, mp3, seconds: float, cfg: dict, offline: bool) -> list[dict]:
     words: list[dict] = []
     if not offline and groqkeys.keys():
         try:
             lang = cfg.get("voice_language") or cfg["language"]
             words = _transcribe(mp3, lang, cfg, prompt=text[:400])      # our own script as the hint: Whisper then keeps the opening words
+            cov = listen_back(text, words)
+            if cov < 0.8:
+                LISTEN.append(f"voice-over check: only {cov:.0%} of the script words were heard in the audio, listen before approving")
+                log(LISTEN[-1])
             if lang != cfg["language"] or cfg.get("align_script"):
                 filled = fill_gaps(words, speech_spans(mp3, seconds))
                 if len(filled) > len(words):

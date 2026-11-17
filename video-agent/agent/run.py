@@ -10,6 +10,7 @@ from datetime import date
 
 from . import notify
 from .captions import get_words
+from . import captions
 from .common import ROOT, WORK, load_config, log, media_duration
 from . import footage as _footage
 from .footage import fetch_clip
@@ -179,7 +180,7 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
         notify.send_message(viral.report(vres, history[best], history))
     else:
         notify.send_message(viral.report(vres))
-    notify.send_video(final, ("Reel for today's draft (same script as the carousel). Approving the draft posts the carousel; post this Reel yourself.\n" if master else "") + f"{plan['title']}\nTopic: {topic}{summary}{webresearch.caption_line(plan.get('sources') or [])}")
+    notify.send_video(final, ("Reel for today's draft (same script as the carousel). Approving the draft posts the carousel; post this Reel yourself.\n" if master else "") + f"{plan['title']}\nTopic: {topic}{summary}" + ("\n" + "\n".join(sorted(set(captions.LISTEN))) if captions.LISTEN else "") + f"{webresearch.caption_line(plan.get('sources') or [])}")
 
 
 def main() -> None:

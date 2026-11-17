@@ -2,7 +2,7 @@
   "id": "2026-11-17-ad2e9a",
   "date": "2026-11-17",
   "created_at": "2026-11-17T10:00:31+00:00",
-  "status": "published",
+  "status": "partial",
   "service": "chatbot",
   "topic": "Manual memory vs. Digital knowledge: The risk of the wrong price",
   "idea_id": null,
@@ -706,16 +706,16 @@
   },
   "results": {
     "instagram": {
-      "ok": true,
-      "detail": "zernio: posted 6afc428cc3c14be73faedce9"
+      "ok": false,
+      "detail": "limesocial: HTTPSConnectionPool(host='api.limesocial.io', port=443): Max retries exceeded with url: /v1/post/image (Caused by SSLErr | socialapi: 400 [{'error': {'code': 'publishing.validation_failed', 'message': 'post failed validation; fix the listed issues or set | buffer: Invalid post: Instagram posts require a type (post, story, or reel). | zernio: 409 {\"error\":\"This exact content is already "
     },
     "linkedin": {
       "ok": true,
-      "detail": "socialapi: publishing 3b2bed8f-6daf-4204-a285-ca8c0b739935"
+      "detail": "buffer: sent to Buffer 6afc429005e48c214a9d8dc9 (due 2026-11-17T12:03:28.557Z)"
     },
     "bluesky": {
       "ok": true,
-      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2iyrippyx2l"
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2iyrhigjv2f"
     }
   }
 }

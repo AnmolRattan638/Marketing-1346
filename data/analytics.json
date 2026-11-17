@@ -2,6 +2,122 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "18136174078669092",
+      "url": "https://www.instagram.com/reel/Df141NPuzdl/",
+      "published_at": "2026-11-17T12:06:19.000Z",
+      "text": "𝗞𝗬𝗔 𝗔𝗔𝗣𝗞𝗘 𝗚𝗥𝗔𝗛𝗔𝗞 𝗞𝗢 𝗗𝗢 𝗔𝗟𝗔𝗚 𝗥𝗔𝗧𝗘 𝗦𝗨𝗡𝗔𝗜 𝗗𝗘𝗧𝗘 𝗛𝗔𝗜𝗡?\n\n→ Gym, clinic ya café mein purana 𝗣𝗥𝗜𝗖𝗘 batana aam galti hai.\n→ Price list update hote hi bot naye rate dikha",
+      "format": "reel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 68,
+        "reach": 62,
+        "views": 68,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": 61.5,
+        "avg_watch_s": 3.788,
+        "duration_s": 65
+      },
+      "matched": {
+        "date": "2026-11-17",
+        "service": "chatbot",
+        "hook_style": "comparison",
+        "topic": "Manual memory vs. Digital knowledge: The risk of the wrong price"
+      }
+    },
+    {
+      "platform": "instagram",
+      "id": "18039291716897445",
+      "url": "https://www.instagram.com/p/Df14vJsDpOU/",
+      "published_at": "2026-11-17T12:05:50.000Z",
+      "text": "𝗞𝗬𝗔 𝗔𝗔𝗣𝗞𝗘 𝗚𝗥𝗔𝗛𝗔𝗞 𝗞𝗢 𝗗𝗢 𝗔𝗟𝗔𝗚 𝗥𝗔𝗧𝗘 𝗦𝗨𝗡𝗔𝗜 𝗗𝗘𝗧𝗘 𝗛𝗔𝗜𝗡?\n\n→ Gym, clinic ya café mein purana 𝗣𝗥𝗜𝗖𝗘 batana aam galti hai.\n→ Price list update hote hi bot naye rate dikha",
+      "format": "image",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 4,
+        "reach": 2,
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-17",
+        "service": "chatbot",
+        "hook_style": "comparison",
+        "topic": "Manual memory vs. Digital knowledge: The risk of the wrong price"
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2iyrippyx2l",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2iyrippyx2l",
+      "published_at": "2026-11-17T12:03:31.461277+00:00",
+      "text": "One wrong rate from memory can lose a customer. An AI chatbot can use the latest approved price list, 24/7. It answers routine questions and records leads autom",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-17",
+        "service": "chatbot",
+        "hook_style": "comparison",
+        "topic": "Manual memory vs. Digital knowledge: The risk of the wrong price"
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2iyrhigjv2f",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2iyrhigjv2f",
+      "published_at": "2026-11-17T12:03:30.040919+00:00",
+      "text": "One wrong rate from memory can lose a customer. An AI chatbot can use the latest approved price list, 24/7. It answers routine questions and records leads autom",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-17",
+        "service": "chatbot",
+        "hook_style": "comparison",
+        "topic": "Manual memory vs. Digital knowledge: The risk of the wrong price"
+      }
+    },
+    {
+      "platform": "instagram",
       "id": "18137145995496048",
       "url": "https://www.instagram.com/p/DfwoXYDkTeG/",
       "published_at": "2026-11-15T11:05:03.000Z",
@@ -1603,7 +1719,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 30
+      "posts": 32
     }
   },
   "coverage": {
@@ -1924,5 +2040,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-17T07:56:30+00:00"
+  "updated_at": "2026-11-17T20:56:49+00:00"
 }

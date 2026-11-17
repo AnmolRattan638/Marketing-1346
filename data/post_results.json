@@ -2054,6 +2054,18 @@
           "shares": 0,
           "saves": 0,
           "clicks": 0
+        },
+        "7d": {
+          "age_h": 178.2,
+          "source": "zernio",
+          "impressions": 12,
+          "reach": 4,
+          "views": 12,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
         }
       },
       "latest": {
@@ -2086,6 +2098,13 @@
       "snap": {
         "48h": {
           "age_h": 57.2,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        },
+        "7d": {
+          "age_h": 178.2,
           "source": "bluesky",
           "likes": 0,
           "comments": 0,
@@ -2272,7 +2291,79 @@
         "comments": 1,
         "shares": 0
       }
+    },
+    "2026-11-15|instagram": {
+      "date": "2026-11-15",
+      "platform": "instagram",
+      "service": "animated_ads",
+      "problem_id": "lack-of-budget-for-professional-video-sh",
+      "angle_type": "mistake",
+      "hook_style": "comparison",
+      "format": "carousel",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "hook_style",
+      "image_style": "bright-desk",
+      "carousel_flavor": "script:pain-poke-fix",
+      "slides": 7,
+      "published_at": "2026-11-15T11:05:03.000Z",
+      "url": "https://www.instagram.com/p/DfwoXYDkTeG/",
+      "snap": {
+        "48h": {
+          "age_h": 57.9,
+          "source": "zernio",
+          "impressions": 6,
+          "reach": 1,
+          "views": 6,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 6,
+        "reach": 1,
+        "views": 6,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
+    },
+    "2026-11-15|bluesky": {
+      "date": "2026-11-15",
+      "platform": "bluesky",
+      "service": "animated_ads",
+      "problem_id": "lack-of-budget-for-professional-video-sh",
+      "angle_type": "mistake",
+      "hook_style": "comparison",
+      "format": "text",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "hook_style",
+      "image_style": "bright-desk",
+      "carousel_flavor": "script:pain-poke-fix",
+      "slides": 7,
+      "published_at": "2026-11-15T11:04:17.407459+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2dujte7wy2m",
+      "snap": {
+        "48h": {
+          "age_h": 57.9,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-11-16T11:56:43+00:00"
+  "updated_at": "2026-11-17T20:56:51+00:00"
 }

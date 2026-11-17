@@ -99,7 +99,22 @@ import json as _json, re as _re
 _svcs = _json.load(open(pathlib.Path(__file__).resolve().parent.parent / "config" / "services.json"))["services"]
 for _s in _svcs:
     assert len(_s.get("capabilities") or []) >= 3, _s["id"]
-    assert not any(_re.search(r"\d|%|guarantee|more sales|increase", c, _re.I) for c in _s["capabilities"] if not _re.search(r"24 hours|30 to 60", c)), _s["id"]
+    assert not any(_re.search(r"\d|%|guarantee|more sales|increase", c, _re.I) for c in _s["capabilities"] if not _re.search(r"24 hours|24x7|30 to 60", c)), _s["id"]
     assert all(c in sw.capabilities(_s) for c in _s["capabilities"])
 assert "instantly at any hour" in sw.capabilities(next(s for s in _svcs if s["id"] == "chatbot"))
+
+# regression (2026-11-16): the model dropped the last beat (cta) and spoke "24" (24x7) that no fact cites
+focus_bot = {"name": "Chatbot", "pitch": "answers customer messages", "capabilities": ["it works around the clock (24x7), nights and holidays included"]}
+b24 = copy.deepcopy(good["beats"])
+b24[1]["line"] = b24[1]["line"] + " Chatbot 24x7 jawab deta hai."
+assert any("not backed" in p for p in sw.problems({"beats": copy.deepcopy(b24)}, sheet2, style))                # still rejected without the capability
+assert not any("not backed" in p for p in sw.problems({"beats": copy.deepcopy(b24)}, sheet2, style, focus_bot))   # backed by the listed capability
+short = {"beats": copy.deepcopy(good["beats"][:-1]), "cta": ""}
+asked = []
+def ask_cta(p, s="", **k):
+    asked.append(p)
+    return json.dumps({"beats": [{"beat": "cta", "line": good["beats"][-1]["line"], "screen": "BOT", "visual": "x", "emotion": "warm", "facts": []}], "cta": good["beats"][-1]["line"]})
+fixed = sw.repair_missing(short, style, ask_cta, {"name": "Chatbot"}, {"keyword": "BOT"})
+assert [b["beat"] for b in fixed["beats"]] == style["beats"] and len(asked) == 1 and "ONLY the missing" in asked[0]
+assert sw.repair_missing({"beats": copy.deepcopy(good["beats"][:2])}, style, ask_cta, {"name": "x"}, {}) ["beats"][:2] and len(asked) == 1   # 4 missing beats: not repaired, normal retry
 print("scriptwriter ok")

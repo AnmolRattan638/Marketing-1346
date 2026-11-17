@@ -5,7 +5,7 @@ Code enforces what a model drifts on: every number must come from a cited fact, 
 import json
 import re
 import datetime
-from .. import config, contentskills, llm, marketingskills
+from .. import config, contentskills, llm, marketingskills, scriptlessons
 
 STYLES = [
     {"id": "pain-poke-fix", "name": "6-beat framework", "beats": ["pain", "poke", "fix", "payoff", "recap", "cta"],
@@ -183,7 +183,72 @@ def repair_missing(script, style, ask, focus, sheet):
     return script
 
 
-def run(sheet, focus, style, ask=None, voice=None, max_tries=6):
+BEAT_RX = re.compile(r"\b(pain|poke|fix|payoff|recap|cta)\b")
+
+
+def by_beat(bad, beats):
+    """Split rejection reasons into {beat name: [reason, ...]}. Returns (per_beat, global_reasons): a reason that names no beat (or is about the whole script) is global."""
+    names = [b.get("beat") for b in beats]
+    per, glob = {}, []
+    for p in bad:
+        msg = re.sub(r"^(meaning|skills|marketing):\s*", "", p)
+        head = msg.split(":", 1)[0] if ":" in msg else ""
+        found = [n for n in BEAT_RX.findall(head) if n in names]
+        if not found and re.match(r"(hook|opens with)", msg) and names:
+            found = [names[0]]
+        if not found or msg.startswith("beats must be"):
+            glob.append(p)
+            continue
+        for n in found:
+            per.setdefault(n, []).append(msg.split(":", 1)[1].strip() if ":" in msg else msg)
+    return per, glob
+
+
+def repair_beats(script, per, style, ask, focus, sheet, voice=""):
+    """Ask for a rewrite of ONLY the beats that failed, with the exact reasons for each; every other beat stays word for word. -> (script, True if anything changed)."""
+    beats = script.get("beats") or []
+    have = {b.get("beat"): b for b in beats}
+    targets = [n for n in style["beats"] if n in per and n in have]
+    if not targets:
+        return script, False
+    facts = {f["id"]: f for f in sheet.get("facts", [])}
+    ctx = [{"beat": n, "line": have[n].get("line"), "fixed": n not in targets} for n in style["beats"] if n in have]
+    prompt = (f"Service: {focus.get('name')}. A short-video script was rejected. Rewrite ONLY the beat(s) {targets}; all other beats stay exactly as they are and are shown for context.\n"
+              f"SCRIPT: {json.dumps(ctx, ensure_ascii=False)}\n"
+              "WHAT IS WRONG (fix exactly these and nothing else):\n" + "\n".join(f"- {n}: " + " | ".join(per[n]) for n in targets) + "\n"
+              f"RULES: Hinglish in Roman letters; a body beat is {WORDS[0]}-{WORDS[1]} words, the hook {HOOK_WORDS[0]}-{HOOK_WORDS[1]}, the cta {CTA_WORDS[0]}-{CTA_WORDS[1]} words; the cta asks for the ONE keyword "
+              f"{sheet.get('keyword') or ''} and says what they get; every digit must come from a cited fact id (or be 24x7); capabilities you may state: {capabilities(focus)}. Never promise a result.\n"
+              f"VERIFIED FACTS: {json.dumps(list(facts.values()), ensure_ascii=False)}\nVOICE: {voice[:500]}\n{scriptlessons.prompt_block(4)}"
+              'Return JSON {"beats": [{"beat": "<name>", "line": "spoken", "screen": "<=8 words", "visual": "what is shown", "emotion": "warm", "steps": ["fix only"], "facts": ["ids"]}]} with ONLY the rewritten beats.')
+    try:
+        data = llm.ask_json(ask, prompt, SYS)
+        new = {b.get("beat"): b for b in (data or {}).get("beats", []) if isinstance(b, dict) and b.get("beat") in targets and b.get("line")}
+    except Exception:
+        return script, False
+    if not new:
+        return script, False
+    for n, b in new.items():
+        b.setdefault("facts", have[n].get("facts") or [])
+        b.setdefault("emotion", have[n].get("emotion") or DEFAULT_EMOTION.get(n, "warm"))
+        have[n] = {**have[n], **b}
+    script["beats"] = [have[n] for n in style["beats"] if n in have]
+    script["hook"] = str(script["beats"][0].get("line") or script.get("hook") or "")
+    if "cta" in new:
+        script["cta"] = str(new["cta"]["line"])
+    return script, True
+
+
+def check_all(script, sheet, style, focus, ask):
+    """Every check in order; the cheap deterministic ones first, model passes only when those are clean."""
+    bad = problems(script, sheet, style, focus) + marketingskills.script_problems(script, focus) + contentskills.problems(script)
+    if not bad:
+        bad = [f"meaning: {x}" for x in fidelity(script, sheet, ask, focus)]
+    if not bad:
+        bad = [f"skills: {x}" for x in contentskills.audit(script, ask)] + [f"marketing: {x}" for x in marketingskills.audit(script, focus, ask)]
+    return bad
+
+
+def run(sheet, focus, style, ask=None, voice=None, max_tries=4, repair_rounds=3):
     sheet = {**sheet, "keyword": sheet.get("keyword") or focus.get("dm_keyword") or ""}
     """-> master script dict. Raises ValueError if no valid script after max_tries (caller's stage() reports it)."""
     ask = ask or llm.gemini
@@ -211,7 +276,7 @@ Give each beat an `emotion` for the voice-over, one of: curious, empathetic, urg
 source is named in words when a figure is spoken; no invented clients, results or testimonials; replace any vague line with a concrete detail from the facts or delete it; read each line aloud
 and cut filler. Also give 5 alternative first lines using 5 different hook formulas (question, number, myth, scene, bold claim).
 Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken", "screen": "<=8 words on screen", "visual": "what is shown", "emotion": "empathetic", "steps": ["only for the fix beat"], "facts": ["f1"]}}], "cta": "the one ask", "linkedin_english": "2-3 plain English sentences of the same idea"}}
-{marketingskills.block('script', focus, today)}{contentskills.block('script')}{fixes}"""
+{marketingskills.block('script', focus, today)}{contentskills.block('script')}{scriptlessons.prompt_block()}{fixes}"""
         data = llm.ask_json(ask, prompt, SYS)
         if not isinstance(data, dict):
             continue
@@ -226,14 +291,20 @@ Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken",
                   "cta": str(data.get("cta") or (beats[-1].get("line") if beats else "")), "linkedin_english": str(data.get("linkedin_english") or ""),
                   "marketing": {"keyword": marketingskills.cta_for(focus)["keyword"], "gets": marketingskills.cta_for(focus)["gets"], "pillar": marketingskills.pillar(today)}, "language": "hinglish", "facts": sheet["facts"], "topic": sheet.get("topic"), "service": focus.get("id") or focus.get("name"), "keyword": sheet.get("keyword")}
         script = repair_missing(script, style, ask, focus, sheet)
-        bad = problems(script, sheet, style, focus) + marketingskills.script_problems(script, focus) + contentskills.problems(script)
-        if not bad:
-            bad = [f"meaning: {x}" for x in fidelity(script, sheet, ask, focus)]
-        if not bad:
-            bad = [f"skills: {x}" for x in contentskills.audit(script, ask)] + [f"marketing: {x}" for x in marketingskills.audit(script, focus, ask)]
+        bad = check_all(script, sheet, style, focus, ask)
+        for _round in range(repair_rounds):                  # concrete feedback: rewrite ONLY the failing beats, keep the rest word for word
+            if not bad:
+                return script
+            scriptlessons.record(bad)
+            per, glob = by_beat(bad, script.get("beats") or [])
+            if glob or not per:
+                break                                        # a whole-script problem: only a fresh draft can fix it
+            script, changed = repair_beats(script, per, style, ask, focus, sheet, voice)
+            if not changed:
+                break
+            bad = check_all(script, sheet, style, focus, ask)
         if not bad:
             return script
-        fixes = "Your last script was rejected: " + "; ".join(bad[:6]) + ". Fix exactly these."
-        if scored and any("hook" in p or "pain" in p for p in bad) and len(scored) > 1:
-            pass
-    raise ValueError("scriptwriter: no valid script - " + fixes[:300])
+        scriptlessons.record(bad)
+        fixes = "Your last script was rejected: " + "; ".join(bad[:6]) + ". Fix exactly these and keep everything else."
+    raise ValueError("no valid script after targeted repairs - " + fixes[:300])

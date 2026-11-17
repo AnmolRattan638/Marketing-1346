@@ -1,0 +1,10 @@
+{
+ "beats-exact": {
+  "count": 24,
+  "rule": "Return exactly the style's beats in order, including the last one."
+ },
+ "other:says calls stop, fact says they are repe": {
+  "count": 3,
+  "rule": "says calls stop, fact says they are repeats"
+ }
+}

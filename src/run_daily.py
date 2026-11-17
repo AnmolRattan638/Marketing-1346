@@ -182,7 +182,7 @@ def main():
         master = None
         if sheet.get("ok"):
             sty = scriptwriter.pick_style(history)
-            master = stage("scriptwriter", lambda: scriptwriter.run(sheet, focus, sty), fallback=None)
+            master = stage("scriptwriter", lambda: scriptwriter.run(sheet, focus, sty), fallback=False) or None   # never stop the day: the reason is a warning on the draft, the legacy path continues
         else:
             WARNINGS.append(f"fact sheet: only {len(sheet.get('facts', []))} verified facts, so no master script today (need {factsheet.MIN_FACTS}).")
         if config.CAROUSEL:

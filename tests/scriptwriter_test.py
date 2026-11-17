@@ -118,3 +118,30 @@ fixed = sw.repair_missing(short, style, ask_cta, {"name": "Chatbot"}, {"keyword"
 assert [b["beat"] for b in fixed["beats"]] == style["beats"] and len(asked) == 1 and "ONLY the missing" in asked[0]
 assert sw.repair_missing({"beats": copy.deepcopy(good["beats"][:2])}, style, ask_cta, {"name": "x"}, {}) ["beats"][:2] and len(asked) == 1   # 4 missing beats: not repaired, normal retry
 print("scriptwriter ok")
+
+
+# ------------------------------------------------------------------ concrete feedback: only the failing beat is rewritten; lessons are remembered; the run never stops
+import tempfile
+from src import scriptlessons as SL
+SL.STATE = pathlib.Path(tempfile.mkdtemp()) / "script_lessons.json"
+bad = copy.deepcopy(good); bad["beats"][3]["line"] = "a.com ke mutabiq 40 guna zyada leads mile, matlab speed hi sabse sasta sales tool hai"
+fixed = copy.deepcopy(good["beats"][3])
+calls = []
+def ask(p, s="", **k):
+    calls.append(p)
+    if "Rewrite ONLY the beat" in p:
+        assert "['payoff']" in p and "not backed by a cited fact" in p and "MISTAKES YOU HAVE MADE BEFORE" in p
+        return json.dumps({"beats": [fixed]})
+    if "editor" in p or "strict marketing editor" in s or "issues" in p:
+        return json.dumps({"issues": []})
+    return json.dumps({"hooks": [], "beats": bad["beats"]})
+out = sw.run(sheet, {"name": "Chatbot", "dm_keyword": "BOT"}, style, ask=ask, voice="v")
+assert out["beats"][3]["line"] == fixed["line"], "the failing beat was rewritten"
+assert [b["line"] for i, b in enumerate(out["beats"]) if i != 3] == [b["line"] for i, b in enumerate(bad["beats"]) if i != 3], "every other beat is untouched"
+assert sum("Rewrite ONLY the beat" in c for c in calls) == 1 and sum("Write ONE script" in c for c in calls) == 1, "one draft + one targeted repair, no full regeneration"
+blk = SL.prompt_block()
+assert "Every digit must come from a cited fact" in blk and "rejected 1x before" in blk and "Never stop early" in blk
+per, glob = sw.by_beat(["fix: needs 2-3 concrete steps", "meaning: payoff: too much", "hook is too long; 16 words max", "beats must be exactly ['a'], got []", "script is off-service: x"], [{"beat": n} for n in style["beats"]])
+assert per == {"fix": ["needs 2-3 concrete steps"], "payoff": ["too much"], "pain": ["hook is too long; 16 words max"]} and len(glob) == 2, (per, glob)
+assert "fallback=False" in (pathlib.Path(__file__).resolve().parent.parent / "src/run_daily.py").read_text(), "a script failure is a warning, not a stopped run"
+print("targeted repair + lessons + non-fatal ok")

@@ -40,7 +40,7 @@ def explain(problem: str) -> tuple[str, str, str]:
         return ("beat:order", problem, "follow the master script's beats exactly, in order")
     m = re.match(r"^([\w/\-]+): (.*)$", problem, re.S)
     if not m:
-        return ("other:" + problem[:30], problem, "")
+        return ("other:" + problem[:30], problem, problem[:160])
     path, msg = m.group(1).split("/"), m.group(2)
     nums = [p for p in path if p.isdigit()]
     where = f"scene {int(nums[0]) + 1}" if path and path[0] == "scenes" and nums else "the plan"
@@ -68,7 +68,7 @@ def explain(problem: str) -> tuple[str, str, str]:
         return (f"{field}:too-short", f"{where}: `{field}` was too short (\"{val}\"). Give it real content or leave it out.", f"`{field}` must not be blank or tiny")
     if "beats must follow" in msg:
         return ("beat:order", f"{where}: {msg}", "follow the master script's beats exactly, in order")
-    return (f"{field}:other", f"{where}: `{field}` {msg}", "")
+    return (f"{field}:other", f"{where}: `{field}` {msg}", f"`{field}` {msg}"[:160])
 
 
 def load() -> dict:

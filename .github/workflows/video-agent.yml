@@ -60,7 +60,7 @@ jobs:
           restore-keys: edits-
 
       - name: Memory between runs (planner mistakes to avoid, last templates / looks used)
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: video-agent/state
           key: state-${{ github.run_id }}
@@ -112,3 +112,10 @@ jobs:
           name: run-output
           path: video-agent/runs/
           retention-days: 14
+
+      - name: Save memory (also after a failed run, which is when planner lessons are written)
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: video-agent/state
+          key: state-${{ github.run_id }}

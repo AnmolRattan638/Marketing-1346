@@ -1,5 +1,4 @@
-- Rotate to **question** or **mistake** hooks next; avoid contrast (0.88x) and how_to (0.5x).
-- Pause animated_ads topics (31% of lead_gen per reach); focus on chatbot or lead_gen pain points.
-- Use **bright-desk** or **silhouette** image styles (~1.5x); avoid network (0.88x).
-- Keep voice as a developer showing real work, never an ad. Mention 2-3 varied Indian business types per post.
-- No demos, free audits, timeframes, or niche/region claims.
+- Rotate hook styles: lead with **mistake** angle (1.38x, n=8) paired with **question** hook (1.75x, n=6); avoid overusing comparison/contrast (contrast earns 23% of top3).
+- Drop animated_ads topics — lowest service multiplier (1.21x) and "production crew cost" post got 0 engagement.
+- Keep carousel use minimal (earns 43% of image per reach); prefer single image in bright-desk style (1.38x, n=5).
+- Every post must read like a developer sharing real work, never an ad; no demos, guarantees, or niche targeting.

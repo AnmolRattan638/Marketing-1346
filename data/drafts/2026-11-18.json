@@ -1,0 +1,769 @@
+{
+  "id": "2026-11-18-2f3ac1",
+  "date": "2026-11-18",
+  "created_at": "2026-11-18T11:40:41+00:00",
+  "status": "pending",
+  "service": "seo_blogs",
+  "topic": "Do you know what your customers are actually typing into Google?",
+  "idea_id": null,
+  "problem_id": "lack-of-time-to-create-content",
+  "angle_type": "question",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "lack-of-time-to-create-content",
+    "angle_type": null,
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "Do you know what your customers type into Google?"
+    },
+    {
+      "style": "mistake",
+      "text": "Mistake: Assuming you know customers' search terms without data."
+    },
+    {
+      "style": "value",
+      "text": "A simple way to get ready‑to‑publish SEO posts monthly."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "SEO helps your site rank for the exact queries your customers type into Google",
+        "figure": null,
+        "source": "marksoftware.in",
+        "title": "Google SEO Guide for Small Business in India (2026)",
+        "url": "https://www.marksoftware.in/blog/google-seo-guide-small-business-india",
+        "date": null,
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "Most local searches do not include the name of a place",
+        "figure": null,
+        "source": "digitalsnot.com",
+        "title": "Local keyword research: near me, city and Hinglish terms",
+        "url": "https://digitalsnot.com/guide/local-keyword-research",
+        "date": "2026-10-20",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Adding the phrase “near me” to a query restored local listings in every test, 38 of 38",
+        "figure": "38 of 38",
+        "source": "digitalsnot.com",
+        "title": "Local keyword research: near me, city and Hinglish terms",
+        "url": "https://digitalsnot.com/guide/local-keyword-research",
+        "date": "2026-10-20",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "The Searches metric in your Google Business Profile shows the exact terms people used to find your business each month",
+        "figure": null,
+        "source": "digitalsnot.com",
+        "title": "Local keyword research: near me, city and Hinglish terms",
+        "url": "https://digitalsnot.com/guide/local-keyword-research",
+        "date": "2026-10-20",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Over 60% of Shopping and Apparel searches show broad intent rather than a specific product name",
+        "figure": "over 60%",
+        "source": "business.google.com",
+        "title": "Top search trends and marketing takeaways - Think with Google India",
+        "url": "https://business.google.com/in/think/search-and-video/search-trends-marketing-takeaways",
+        "date": null,
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "A large share of Indian users search in a mix of Hindi and English (Hinglish) and increasingly use voice, so keyword research should capture that natural phrasing",
+        "figure": null,
+        "source": "autobac.in",
+        "title": "Keyword Research for Indian Businesses (2026) Autobac",
+        "url": "https://autobac.in/blog/keyword-research-indian-businesses-what-customers-type/",
+        "date": "2026-07-27",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "The Google Ads Search Terms report displays the actual queries that triggered your ads, letting you see what users really typed",
+        "figure": null,
+        "source": "chamkomarketing.app",
+        "title": "How Indian Businesses Should Analyse the Google Ads Search Terms Report · Chamko",
+        "url": "https://chamkomarketing.app/guides/google-ads-search-terms-report-analysis-india/",
+        "date": "2026-11-01",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "An analysis of 1.3 million search‑term rows uncovered 133,912 distinct queries over a 12‑week period",
+        "figure": "133,912 distinct queries",
+        "source": "emprisedigital.co",
+        "title": "We Analyzed 1.3M Google Ads Search Terms Emprise Digital",
+        "url": "https://emprisedigital.co/blog/search-terms-study/",
+        "date": "2026-06-11",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "dropped": 0,
+    "topic": "Do you know what your customers are actually typing into Google?"
+  },
+  "master_script": null,
+  "script_style": null,
+  "posts": {
+    "instagram": "AAPKE BLOG KABHI GOOGLE PE NAHI AA TE? KYUN?\n\n→ Customers 𝗕𝗘𝗦𝗧 𝗖𝗔𝗙𝗘 𝗡𝗘𝗔𝗥 𝗠𝗘 search karte hain, jawab nahi milta\n→ Main monthly 𝗦𝗘𝗢 𝗕𝗟𝗢𝗚 likhta hoon jo sawalon ka jawab deta\n\nDM 𝗕𝗟𝗢𝗚 aur bataiye aapke customers kya search karte hain. Pay only after approval.\n\n#SmallBusinessIndia #SEOIndia #BlogWriting #IndiaBusiness #ContentMarketing",
+    "linkedin": "Many small businesses answer the same customer questions every day without ever publishing them online.\n\nA café owner spends the morning taking orders and the evening replying to the same WhatsApp messages. A gym coach repeats answers about class timings. A clinic receptionist types the address for every new patient. These repeated questions show what people type into Google, yet most business websites do not address them in a blog.\n\nI provide a monthly set of SEO blog posts for small businesses across India. Each post answers one question that a real customer types into Google, using plain language instead of marketing jargon. The posts keep the website fresh with new content every month.\n\nFirst the owner tells me what the business sells and which questions come up often. I then research the exact search queries behind those questions and write one article per month that answers them. The draft is sent to the owner for review, and the client pays only after approving the work.\n\nWhen a customer searches for “best breakfast near me” or “café with wifi” at night, the answer is already on the site. The owner spends less time typing the same reply and more time running the business. New content also signals to search engines that the site is active, which can help it appear more often in search results.\n\nThis service is for owners who want a steady stream of helpful content without writing it themselves. It does not replace a personal reply when a customer has a complicated or urgent question, and it does not guarantee a top ranking or a specific number of visitors.\n\nIf you would like to discuss which questions your customers are likely searching for and whether a monthly blog fits your business, feel free to send a message. Payment happens only after you approve the work. DM BLOG",
+    "bluesky": "Most small business blogs never get found because they do not answer what customers type into Google. I write monthly SEO blog posts that answer one real customer question each. DM BLOG if you want honest advice on whether this fits your business."
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I write monthly SEO blogs for small businesses that answer the questions customers search for on Google. Before I talk about cost, I need to know: do you want readers to call you, WhatsApp you, or fill out a form? Payment happens only after you approve the work."
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for messaging. I work with any small business that talks to customers online—shops, cafes, gyms, clinics, coaching centres. What do your customers ask you most often on WhatsApp or phone? I can tell you honestly if a monthly blog fits your business."
+    },
+    {
+      "if_they_say": "I'll think about it",
+      "reply": "Of course, no pressure. I can send a simple summary of what is included, the timeline, and how the approval process works. Is the hesitation about budget, timing, or whether blog content will actually bring enquiries? Payment is only after you approve the work."
+    }
+  ],
+  "image": {
+    "prompt": "a matte‑black laptop with a deep‑blue glowing screen showing a tidy keyword spreadsheet, its brushed‑metal chassis cool. the laptop occupies the upper two‑thirds, shot from an eye‑level angle slightly above, leaving a lower 40 % for headline space. a cool key light from the left creates a gentle blue rim around the screen, while faint amber fill adds subtle warmth and soft shadows. a wood café desk holds a white ceramic coffee mug and a thin notebook in front, with a blurred walnut wall and distant window behind. deep indigo background, blue accent with violet highlights, feeling focused and productive. 85 mm lens at f/1.8, shallow depth of field, crisp glass reflections, brushed‑metal texture. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-18.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "lack-of-time-to-create-content",
+      "angle_type": "question",
+      "style": "bold",
+      "headline": "Do you know what customers type into Google?",
+      "highlight": [
+        "type into Google"
+      ],
+      "sub": "You're too busy running the business to write it.",
+      "chat": [],
+      "cta": "DM \"BLOG\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate",
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ],
+    "style_id": "silhouette"
+  },
+  "carousel": {
+    "flavor": "self-test-signs",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-18.jpg",
+      "data/media/2026-11-18-s2.jpg",
+      "data/media/2026-11-18-s3.jpg",
+      "data/media/2026-11-18-s4.jpg",
+      "data/media/2026-11-18-s5.jpg",
+      "data/media/2026-11-18-s6.jpg"
+    ],
+    "alts": [
+      "Do you know what your customers type into Google?",
+      "Slide 2 of 6: You write blogs but no one reads them. You guess what customers search and spend hours writing posts that never show up in search results.",
+      "Slide 3 of 6: Your website stays quiet for months. Fresh posts give Google a reason to show your site when someone searches for your service.",
+      "Slide 4 of 6: Let us write your monthly SEO blogs. We find the real phrases your customers type, then publish ready-to-use posts that keep your site active.",
+      "Slide 5 of 6: You get posts ready to publish. We skip the guesswork and long writing hours. Topics come from what people actually search for in India.",
+      "Slide 6 of 6: DM BLOG. Message us for honest advice on which questions your customers search for, and whether monthly blogs fit your business."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      5
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Do you know what your customers type into Google?",
+        "body": "Three signs you need SEO blogs."
+      },
+      {
+        "role": "problem",
+        "headline": "You write blogs but no one reads them",
+        "body": "You guess what customers search and spend hours writing posts that never show up in search results."
+      },
+      {
+        "role": "problem",
+        "headline": "Your website stays quiet for months",
+        "body": "Fresh posts give Google a reason to show your site when someone searches for your service."
+      },
+      {
+        "role": "solution",
+        "headline": "Let us write your monthly SEO blogs",
+        "body": "We find the real phrases your customers type, then publish ready-to-use posts that keep your site active."
+      },
+      {
+        "role": "solution",
+        "headline": "You get posts ready to publish",
+        "body": "We skip the guesswork and long writing hours. Topics come from what people actually search for in India."
+      },
+      {
+        "role": "cta",
+        "headline": "DM BLOG",
+        "body": "Message us for honest advice on which questions your customers search for, and whether monthly blogs fit your business."
+      }
+    ],
+    "scene_prompts": {
+      "2": "A matte‑black laptop with a softly glowing indigo screen rests on a brushed‑metal desk, hands of a dark silhouette typing rapidly while a scattering of crumpled draft pages flutter around; the subject occupies the upper 55% of the frame, captured from a slightly elevated eye‑level angle, leaving the lower 45% a calm, dim area for overlay text. A cool, deep‑blue key light washes from the left, rim‑lighting the silhouette’s shoulders, while subtle violet rim light outlines the floating magnifying‑glass icon hovering above the drafts, casting soft shadows on the desk. In front, a thin layer of fine dust catches the light; mid‑ground shows a muted stack of paper and a ceramic mug; background fades into a deep indigo haze with faint, drifting particles. Palette: deep indigo base with a single accent of electric blue‑violet, mood contemplative and determined. Shot with an 85mm lens at f/1.8, shallow depth of field renders the desk’s brushed metal texture and paper fibers in crisp detail. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "4": "Dark silhouette of a person from behind, hands on a matte‑black laptop with a softly glowing screen. The figure occupies the upper 55% of the frame, seen from eye‑level slightly above, while the lower 45% remains calm dark for text. A cool blue‑violet rim light sweeps from the left, casting soft shadows and a gentle halo. In front, a brushed‑metal desk holds a sleek ceramic mug; above the keyboard a floating translucent holographic scroll of blog outlines hovers, hinting at monthly SEO posts. Behind, subtle network lines and drifting particles drift against a deep indigo wall. Palette: deep indigo with accent deep blue and violet, conveying calm productivity. Shot with an 85mm lens at f/1.8, shallow depth of field, glossy desk reflections and fine dust motes illuminated. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "5": "a matte‑black laptop with an indigo glow, a silhouette’s hands hovering over the keyboard, and a translucent blue‑violet holographic stack of finished blog posts floating above; the laptop and hands occupy the upper 55% of the frame, seen from above eye level, leaving the lower 45% dark and calm; key light from left‑front washes the screen and hands in blue‑violet, rim light outlines the silhouette, soft shadows fall downward; brushed‑metal desk in foreground, mid‑ground of thin light lines forming a network, deep. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate",
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate",
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate",
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ]
+  },
+  "instagram_mode": "manual_reel",
+  "linkedin_format": "text",
+  "video": {
+    "hook_first_3s": "What are they typing? | Do you know what your customers type into Google?",
+    "concept": "A busy owner watches Google search terms on a cold laptop, triggers an outline tool, warm light fills the desk as a blog draft forms, then invites a DM.",
+    "parts": [
+      {
+        "time": "0-10s",
+        "voiceover": "Do you know what your customers type into Google?",
+        "story": "Laptop glows blue, showing search queries and a blank blog draft; a hand hits a shortcut, blue shifts to warm gold as the outline appears.",
+        "flow_prompt": "A deeply relatable non-commercial indie-film style cinematic micro-story for 'AR Designs', shot on ARRI Alexa Mini LF with a 100mm Macro Anamorphic lens, 4K resolution, 60fps, Kodak Vision3 500T film emulation with rich halation, a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, in a minimalist white workspace with a Nordic oak wood desk, featuring a Space Silver MacBook Pro.\n[00:00-00:05 / Story 0-5s] Laptop glows blue, showing search queries and a blank blog draft; a hand hits a shortcut, blue shifts to warm gold as the outline appears. A slow micro-dolly push-in on a Space Silver MacBook Pro in a minimalist white workspace with a Nordic oak wood desk, shot on a 100mm Macro Anamorphic lens, lit by a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, with brushed aluminium, crisp glass reflections and volumetric dust motes floating in the golden lamp light.\n[00:05-00:10 / Story 5-10s] The screen shows a blog draft with clear headings and short paragraphs taking shape on the dark-mode page, beside a clean search results page. A heading being typed and the paragraph under it tidying itself into place, then the camera settles into a calm, balanced composition with a matte-white architectural lamp and a sleek studio microphone in soft focus.\nAudio & Voiceover Sync: Soft room tone, rhythmic key presses and a warm ambient pad that settles under the voiceover. Warm, conversational voiceover: \"Do you know what your customers type into Google?\"",
+        "beat_sheet": ""
+      },
+      {
+        "time": "10-20s",
+        "voiceover": "I paste the top queries, hit generate, and the blog outline fills in automatically.",
+        "story": "Hands copy the query list, drop it into a simple generator, press enter; headings pop up, the draft starts shaping itself.",
+        "flow_prompt": "Continuing the non-commercial indie-film style cinematic micro-story for 'AR Designs', shot on ARRI Alexa Mini LF with a 100mm Macro Anamorphic lens, 4K resolution, 60fps, Kodak Vision3 500T film emulation with rich halation, a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, in a minimalist white workspace with a Nordic oak wood desk, featuring a Space Silver MacBook Pro.\n[00:00-00:05 / Story 10-15s] Hands copy the query list, drop it into a simple generator, press enter; headings pop up, the draft starts shaping itself. A slow micro-dolly push-in on a Space Silver MacBook Pro in a minimalist white workspace with a Nordic oak wood desk, shot on a 100mm Macro Anamorphic lens, lit by a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, with brushed aluminium, crisp glass reflections and volumetric dust motes floating in the golden lamp light.\n[00:05-00:10 / Story 15-20s] The screen shows a blog draft with clear headings and short paragraphs taking shape on the dark-mode page, beside a clean search results page. A heading being typed and the paragraph under it tidying itself into place, then the camera settles into a calm, balanced composition with a matte-white architectural lamp and a sleek studio microphone in soft focus.\nAudio & Voiceover Sync: Soft room tone, rhythmic key presses and a warm ambient pad that settles under the voiceover. Warm, conversational voiceover: \"I paste the top queries, hit generate, and the blog outline fills in automatically.\"",
+        "beat_sheet": ""
+      },
+      {
+        "time": "20-30s",
+        "voiceover": "Your draft is ready—DM BLOG. Do you know what they type?",
+        "story": "The screen shows a completed blog draft, warm light steadies; a finger points to the DM prompt, then the question reappears on screen.",
+        "flow_prompt": "The final act of a non-commercial indie-film style cinematic micro-story for 'AR Designs', shot on ARRI Alexa Mini LF with a 50mm Anamorphic lens, 4K resolution, 60fps, Kodak Vision3 500T film emulation with rich halation, a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, in a minimalist white workspace with a Nordic oak wood desk, featuring a Space Silver MacBook Pro.\n[00:00-00:05 / Story 20-25s] The screen shows a completed blog draft, warm light steadies; a finger points to the DM prompt, then the question reappears on screen. A slow micro-dolly push-in on a Space Silver MacBook Pro in a minimalist white workspace with a Nordic oak wood desk, shot on a 50mm Anamorphic lens, lit by a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, with brushed aluminium, crisp glass reflections and volumetric dust motes floating in the golden lamp light.\n[00:05-00:10 / Story 25-30s] The screen shows a blog draft with clear headings and short paragraphs taking shape on the dark-mode page, beside a clean search results page. A heading being typed and the paragraph under it tidying itself into place, then the camera settles into a calm, balanced composition with a matte-white architectural lamp and a sleek studio microphone in soft focus.\nAudio & Voiceover Sync: Soft room tone, rhythmic key presses and a warm ambient pad that settles under the voiceover. Warm, conversational voiceover: \"Your draft is ready—DM BLOG. Do you know what they type?\"",
+        "beat_sheet": ""
+      }
+    ],
+    "voiceover": "Do you know what your customers type into Google? I paste the top queries, hit generate, and the blog outline fills in automatically. Your draft is ready—DM BLOG. Do you know what they type?",
+    "warnings": [
+      "reel clip 1: the model could not write a checked clip (the model failed: no JSON found in model reply), so a plain fallback clip is used. Read it before you generate.",
+      "reel clip 2: the model could not write a checked clip (reply with ONE JSON object), so a plain fallback clip is used. Read it before you generate.",
+      "reel clip 3: the model could not write a checked clip ('beats' needs 6-10 beats of 1-2 seconds, got 0; 'flow_beats' needs 4 beats of 2-3 seconds, got 0; 'audio' is too thin (1), so a plain fallback clip is used. Read it before you generate."
+    ]
+  },
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**AAPKE BLOG KABHI GOOGLE PE NAHI AA TE? KYUN?\n\n→ Customers **BEST CAFE NEAR ME** search karte hain, jawab nahi milta\n→ Main monthly **SEO BLOG** likhta hoon jo sawalon ka jawab deta\n\nDM **BLOG** aur bataiye aapke customers kya search karte hain. Pay only after approval.\n\n#SmallBusinessIndia #SEOIndia #BlogWriting #IndiaBusiness #ContentMarketing",
+      "linkedin": "Many small businesses answer the same customer questions every day without ever publishing them online.\n\nA café owner spends the morning taking orders and the evening replying to the same WhatsApp messages. A gym coach repeats answers about class timings. A clinic receptionist types the address for every new patient. These repeated questions show what people type into Google, yet most business websites do not address them in a blog.\n\nI provide a monthly set of SEO blog posts for small businesses across India. Each post answers one question that a real customer types into Google, using plain language instead of marketing jargon. The posts keep the website fresh with new content every month.\n\nFirst the owner tells me what the business sells and which questions come up often. I then research the exact search queries behind those questions and write one article per month that answers them. The draft is sent to the owner for review, and the client pays only after approving the work.\n\nWhen a customer searches for “best breakfast near me” or “café with wifi” at night, the answer is already on the site. The owner spends less time typing the same reply and more time running the business. New content also signals to search engines that the site is active, which can help it appear more often in search results.\n\nThis service is for owners who want a steady stream of helpful content without writing it themselves. It does not replace a personal reply when a customer has a complicated or urgent question, and it does not guarantee a top ranking or a specific number of visitors.\n\nIf you would like to discuss which questions your customers are likely searching for and whether a monthly blog fits your business, feel free to send a message. Payment happens only after you approve the work. DM BLOG",
+      "bluesky": "Most small business blogs never get found because they do not answer what customers type into Google. I write monthly SEO blog posts that answer one real customer question each. DM BLOG if you want honest advice on whether this fits your business."
+    }
+  },
+  "sources": [
+    {
+      "title": "Google SEO Guide for Small Business in India (2026)",
+      "url": "https://www.marksoftware.in/blog/google-seo-guide-small-business-india",
+      "domain": "marksoftware.in",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Local keyword research: near me, city and Hinglish terms",
+      "url": "https://digitalsnot.com/guide/local-keyword-research",
+      "domain": "digitalsnot.com",
+      "date": "2026-10-20",
+      "provider": "exa"
+    },
+    {
+      "title": "Google Ads for Local Businesses in India: Get More Leads",
+      "url": "https://adswithnikhil.com/blog/google-ads-for-local-businesses-india",
+      "domain": "adswithnikhil.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "How Indian Businesses Should Analyse the Google Ads Search Terms Report · Chamko",
+      "url": "https://chamkomarketing.app/guides/google-ads-search-terms-report-analysis-india/",
+      "domain": "chamkomarketing.app",
+      "date": "2026-11-01",
+      "provider": "exa"
+    },
+    {
+      "title": "Top search trends and marketing takeaways - Think with Google India",
+      "url": "https://business.google.com/in/think/search-and-video/search-trends-marketing-takeaways",
+      "domain": "business.google.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Keyword Research for Indian Businesses (2026) Autobac",
+      "url": "https://autobac.in/blog/keyword-research-indian-businesses-what-customers-type/",
+      "domain": "autobac.in",
+      "date": "2026-07-27",
+      "provider": "exa"
+    },
+    {
+      "title": "How to use Google Trends for SEO in 2026",
+      "url": "https://www.semrush.com/blog/google-trends",
+      "domain": "semrush.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "We Analyzed 1.3M Google Ads Search Terms Emprise Digital",
+      "url": "https://emprisedigital.co/blog/search-terms-study/",
+      "domain": "emprisedigital.co",
+      "date": "2026-06-11",
+      "provider": "exa"
+    }
+  ],
+  "ad_score": 7,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 2.7,
+        "breakout_probability": 0.0,
+        "reach_p10": 324.0,
+        "reach_p50": 646.0,
+        "reach_p90": 1436.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'language_exclusion', 'severity': 'low', 'description': \"The primary copy is written in Hindi with only has",
+          "{'category': 'tone', 'severity': 'low', 'description': 'The use of all‑caps (e.g., \"BEST CAFE NEAR ME\") can be perceived"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 6.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 365,
+            "share": 4,
+            "like": 2,
+            "reply": 3
+          },
+          "engagement_rate": 0.0241,
+          "by_role": {
+            "public": {
+              "n": 9,
+              "avg_sentiment": 0.627,
+              "share_rate": 0.444
+            }
+          },
+          "cascade_size": 5,
+          "r_effective": 1.1667,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 3.2
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.2
+          },
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 3.1
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 2.5,
+        "breakout_probability": 0.0,
+        "reach_p10": 464.0,
+        "reach_p50": 913.0,
+        "reach_p90": 2045.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'gender', 'severity': 'low', 'description': 'The example of a \"clinic receptionist\" subtly reinforces a com"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 7.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 6.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Hype or guarantee words",
+            "impact": "medium"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 350,
+            "share": 1,
+            "reply": 7,
+            "like": 4
+          },
+          "engagement_rate": 0.0331,
+          "by_role": {
+            "public": {
+              "n": 12,
+              "avg_sentiment": 0.913,
+              "share_rate": 0.083
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 15,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.6792,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 4.7,
+        "breakout_probability": 0.0,
+        "reach_p10": 208.0,
+        "reach_p50": 433.0,
+        "reach_p90": 933.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'tone-deafness', 'severity': 'low', 'description': 'The statement \"Most small business blogs never get foun"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 4.0,
+          "educational": 5.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 4.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 369,
+            "share": 2,
+            "like": 1,
+            "reply": 1,
+            "dislike": 1
+          },
+          "engagement_rate": 0.0134,
+          "by_role": {
+            "public": {
+              "n": 5,
+              "avg_sentiment": 0.352,
+              "share_rate": 0.4
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 12,
+          "reach_fraction": 0.019,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "mistake",
+          "p_beats_chosen": 0.08,
+          "lift_pct": -2.6,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "value",
+          "p_beats_chosen": 0.07,
+          "lift_pct": -3.2,
+          "decisive": true
+        }
+      ],
+      "better": null,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Rewrite hook and bullets in Hinglish (Roman script); sharpen hook to a mistake/value angle; add one illustrative example of a customer question turned blog topic.",
+      "linkedin: Shorten to 3-4 sentences; open with mistake/value hook; remove 'too tired' narrative; keep pay-after-approval and DM line.",
+      "bluesky: Rephrase to avoid 'too busy' assumption; use mistake/value hook; add one concrete detail; keep under 260 chars."
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 4.6,
+      "bluesky": 0.0
+    },
+    "after": {
+      "instagram": 2.7,
+      "linkedin": 2.5,
+      "bluesky": 4.7
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "google:gemma-4-26b-a4b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "google:gemini-3.8-flash",
+      "FAILED google:gemini-3.8-flash (ProviderDown)",
+      "FAILED google:gemini-3.8-flash (HTTP 429)",
+      "FAILED google:gemini-3.7-flash (HTTP 429)",
+      "google:gemma-4-31b-it",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 429)"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 27.2,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 240.8,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 131.8,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 53.6,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 248.5,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 93.8,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "503",
+        "seconds": 10.2,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 12.9,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 8.1,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "429",
+        "seconds": 90.6,
+        "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 194.3,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "429",
+        "seconds": 90.6,
+        "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "429",
+        "seconds": 90.6,
+        "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "429",
+        "seconds": 90.6,
+        "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "429",
+        "seconds": 170.0,
+        "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "429",
+        "seconds": 90.6,
+        "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "429",
+        "seconds": 90.6,
+        "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "429",
+        "seconds": 90.6,
+        "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "429",
+        "seconds": 90.6,
+        "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "429",
+        "seconds": 49.3,
+        "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
+      }
+    ]
+  }
+}

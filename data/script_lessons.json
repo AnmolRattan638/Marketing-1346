@@ -6,5 +6,73 @@
  "other:Promises an absolute result ('koi bhi en": {
   "count": 1,
   "rule": "Promises an absolute result ('koi bhi enquiry miss nahi hoti') instead of describing capability. Fix: Replace 'aur koi bhi enquiry"
+ },
+ "other:must say what the viewer gets (how the s": {
+  "count": 8,
+  "rule": "must say what the viewer gets (how the setup works step by step, or honest advice on whether it fits; never a demo or sample)"
+ },
+ "ask-early": {
+  "count": 3,
+  "rule": "Keep the DM ask out of every beat except cta."
+ },
+ "total-length": {
+  "count": 4,
+  "rule": "The whole script stays under 85 words (about 30 s); give each beat one concrete idea and its reason, nothing more."
+ },
+ "steps": {
+  "count": 3,
+  "rule": "The fix beat walks through 2-3 short steps and the spoken line follows them."
+ },
+ "other:demands the act of commenting (Comment B": {
+  "count": 2,
+  "rule": "demands the act of commenting (Comment BLOG) to receive the step-by-step explanation, which is engagement-gated payoff and bait-sh"
+ },
+ "other:promises a result/statistic instead of c": {
+  "count": 2,
+  "rule": "promises a result/statistic instead of capability (...); fix to capability-only language like ..."
+ },
+ "other:only restates the problem instead of giv": {
+  "count": 2,
+  "rule": "only restates the problem instead of giving the first new specific answer (...); fix to give the first specific answer like ..."
+ },
+ "other:the ask ... is not in offers_allowed; fi": {
+  "count": 2,
+  "rule": "the ask ... is not in offers_allowed; fix to use an allowed offer like ..."
+ },
+ "number-unbacked": {
+  "count": 3,
+  "rule": "Every digit must come from a cited fact; if no fact has the number, say it in words with no digit."
+ },
+ "abstract": {
+  "count": 2,
+  "rule": "Name a concrete moment or thing (11 pm message, unanswered enquiry) in pain and poke."
+ },
+ "connectors": {
+  "count": 3,
+  "rule": "Use helping words (kyunki, isliye, jaise ki, phir) so each line gives its reason."
+ },
+ "words": {
+  "count": 1,
+  "rule": "Keep each beat inside its word range, in full spoken sentences."
+ },
+ "screen": {
+  "count": 1,
+  "rule": "`screen` text is a 2-6 word bold headline that works on mute; no full sentence."
+ },
+ "other:CTA asks viewers to DM the keyword ... t": {
+  "count": 1,
+  "rule": "CTA asks viewers to DM the keyword ... to receive the step-by-step setup, which is engagement-act bait shaped like ... and gates t"
+ },
+ "other:Promises a result and cites a site (N of": {
+  "count": 1,
+  "rule": "Promises a result and cites a site (N of N local listings wapas aayi, digitalsnot.com) instead of stating a capability, breaching "
+ },
+ "other:Beat N only restates the problem (Sirf w": {
+  "count": 1,
+  "rule": "Beat N only restates the problem (Sirf website kaafi nahi, kyunki local search mein naam nahi hota) instead of giving the first ne"
+ },
+ "other:CTA asks for keyword BLOG but offers set": {
+  "count": 1,
+  "rule": "CTA asks for keyword BLOG but offers setup step-by-step explanation instead of the one ask (honest advice on which questions your "
  }
 }

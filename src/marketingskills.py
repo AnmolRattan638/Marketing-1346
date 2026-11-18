@@ -116,6 +116,11 @@ def _prices_ok(focus):
     return {n.replace(",", "") for n in re.findall(r"[\d,]{3,}", note)}
 
 
+def has_term(text: str, terms) -> bool:
+    """True if any service term appears as a word (or word start): 'ai' must not match inside 'hain'."""
+    return bool(re.search(r"\b(" + "|".join(re.escape(t) for t in terms) + r")", str(text).lower())) if terms else True
+
+
 def other_keywords(focus):
     mine = cta_for(focus)["keyword"]
     if not mine:
@@ -178,8 +183,9 @@ def script_problems(script: dict, focus: dict) -> list[str]:
     if beats and beats[-1].get("beat") == "cta" and c["keyword"] and not re.search(rf"\b{c['keyword']}\b", str(beats[-1].get("line") or ""), re.I):
         out.append(f"cta: must ask for exactly one thing: the word {c['keyword']}, and say what they get ({c['gets']})")
     full = re.sub(rf"\b{c['keyword'] or 'x'}\b", "", " ".join(str(b.get("line") or "") for b in beats), flags=re.I).lower()
-    if c["terms"] and beats and not any(t in full for t in c["terms"]):
-        out.append(f"script is off-service: it never mentions {focus.get('name')} (use one of: {', '.join(c['terms'][:5])})")
+    if c["terms"] and beats and not has_term(full, c["terms"]):
+        fixbeat = next((b.get("beat") for b in beats if b.get("beat") == "fix"), None) or (beats[1].get("beat") if len(beats) > 1 else beats[0].get("beat"))
+        out.append(f"{fixbeat}: the script never names {focus.get('name')}; say the service in this beat (use one of: {', '.join(c['terms'][:6])}) and keep the rest")
     return list(dict.fromkeys(out))
 
 
@@ -230,7 +236,7 @@ def alignment_problems(focus: dict, script: dict | None = None, caption: str = "
                 out.append(f"{name} asks for {k} but this post's keyword is {kw}; all outputs must ask for {kw}")
         if kw and name in ("caption", "carousel") and not re.search(rf"\b{kw}\b", txt):
             out.append(f"{name} does not carry the shared ask (DM {kw}) that the video script uses")
-        if c["terms"] and not any(t in re.sub(rf"\b{kw}\b", "", txt, flags=re.I).lower() for t in c["terms"]):
+        if c["terms"] and not has_term(re.sub(rf"\b{kw}\b", "", txt, flags=re.I), c["terms"]):
             out.append(f"{name} is off-service: it never mentions {focus.get('name')}")
         if focus.get("id") != "lead_gen":
             bad = [n for n in (p.replace(",", "") for p in PRICE.findall(txt)) if n not in _prices_ok(focus)]

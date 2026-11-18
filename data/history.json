@@ -215,5 +215,12 @@
     "topic": "Manual memory vs. Digital knowledge: The risk of the wrong price",
     "hook_style": "comparison",
     "status": "partial"
+  },
+  {
+    "date": "2026-11-18",
+    "service": "seo_blogs",
+    "topic": "Do you know what your customers are actually typing into Google?",
+    "hook_style": "question",
+    "status": "published"
   }
 ]

@@ -2,7 +2,7 @@
   "id": "2026-11-18-2f3ac1",
   "date": "2026-11-18",
   "created_at": "2026-11-18T11:40:41+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "seo_blogs",
   "topic": "Do you know what your customers are actually typing into Google?",
   "idea_id": null,
@@ -765,5 +765,15 @@
         "error": "HTTP 429 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
       }
     ]
+  },
+  "results": {
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6afd8f83c9f673f3ba7c4fd1 (due 2026-11-18T11:44:03.993Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2li5r45jx2z (4 slides)"
+    }
   }
 }

@@ -245,7 +245,7 @@ def audit(script: dict, focus: dict, ask) -> list[str]:
     rows = [{"beat": b.get("beat"), "line": b.get("line")} for b in script.get("beats", [])]
     guide = "\n\n".join(x for x in (load("copy-editing")[:2500], load("offers")[:1500]) if x)
     prompt = ("Check this short-video script against the MARKETING BRIEF. Flag ONLY clear failures: wrong audience for the brief's ICP; a promise of a result instead of a capability; "
-              "an offer that is not in offers_allowed; a hook that sells (price, brand, keyword) instead of showing the owner's pain; a CTA that asks for anything but the one keyword with what they get; "
+              "an offer that is not in offers_allowed; a hook that sells (price, brand, keyword) instead of showing the owner's pain; a poke (beat 2) that only restates the problem instead of giving the first new specific answer (viewers leave by second 5); a thin script that is short because it says nothing; a CTA that asks for anything but the one keyword with what they get; "
               "copy that reads as AI (contrast reveals, negation lists, stock phrases). Each issue must give the exact fix. Return JSON {\"issues\": [\"beat: problem and fix\"]}, empty if it passes.\n"
               f"BRIEF: {json.dumps({k: brief()[k] for k in ('icp', 'positioning', 'offers_allowed', 'claims_rules')}, ensure_ascii=False)}\nONE ASK FOR THIS POST: DM {cta_for(focus)['keyword']} to get {cta_for(focus)['gets']}\n"
               f"PACK GUIDANCE (copy editing and offers):\n{guide[:4000]}\nSCRIPT: {json.dumps(rows, ensure_ascii=False)}")

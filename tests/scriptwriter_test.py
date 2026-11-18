@@ -33,10 +33,10 @@ assert sw.pick_style(hist + [{"script_style": sw.STYLES[-1]["id"]}])["id"] == sw
 style = sw.BY_ID["myth-bust"]
 good = {"hooks": ["Raat 11 baje customer ka message aaya, jawab nahi gaya", "Aapke leads raat ko kahan jaate hain?", "21 guna zyada leads, bas ek aadat se", "Customer ne raat ko WhatsApp kiya", "Website se sale nahi hoti"],
         "beats": [{"beat": "pain", "line": "Raat 11 baje customer ne WhatsApp kiya, jawab nahi mila", "screen": "Raat ka message", "visual": "phone", "facts": []},
-                  {"beat": "poke", "line": "Subah reply dene se kuch nahi hota, kyunki customer ko jawab turant chahiye hota hai, aur tab tak woh dusri dukaan chala jaata hai", "screen": "Subah tak der", "visual": "x", "facts": []},
-                  {"beat": "fix", "line": "Pehle bot ko greet karna sikhao, kyunki pehla jawab hi trust banata hai. Phir ek sawaal pucho, aur end mein call book karwa do, taaki customer wapas na jaye", "screen": "3 steps", "visual": "chat", "facts": ["f3"], "steps": ["Greet karo", "Ek sawaal pucho", "Call book karo"]},
-                  {"beat": "payoff", "line": "a.com ke mutabiq jo firms paanch minute ke andar reply karti hain, unhe 21 guna zyada leads milti hain. Matlab speed hi aapka sabse sasta sales tool hai", "screen": "21x leads", "visual": "stat", "facts": ["f1"]},
-                  {"beat": "cta", "line": "Agar aapki dukaan pe bhi raat ko messages chhoot jaate hain, toh comment mein BOT likho. Main aapko 3-step setup bhejunga, taaki aap kal se hi shuru kar sako", "screen": "Comment BOT", "visual": "logo"}],
+                  {"beat": "poke", "line": "Subah reply se kuch nahi hota, kyunki customer ko jawab turant chahiye, warna woh dusri dukaan chala jaata hai", "screen": "Subah tak der", "visual": "x", "facts": []},
+                  {"beat": "fix", "line": "Pehle bot greet kare, kyunki pehla jawab trust banata hai. Phir sawaal puche aur call book kare.", "screen": "3 steps", "visual": "chat", "facts": ["f3"], "steps": ["Greet karo", "Ek sawaal pucho", "Call book karo"]},
+                  {"beat": "payoff", "line": "a.com ke mutabiq paanch minute mein reply karne wali firms ko 21 guna zyada leads milti hain. Matlab speed matter karti hai.", "screen": "21x leads", "visual": "stat", "facts": ["f1"]},
+                  {"beat": "cta", "line": "Agar raat ko messages chhoot jaate hain, toh comment mein BOT likho. Main 3-step setup bhejunga.", "screen": "Comment BOT", "visual": "logo"}],
         "cta": "Comment BOT, main aapko 3-step setup bhejunga", "linkedin_english": "Fast replies win leads."}
 script = sw.run(sheet, {"name": "Chatbot", "dm_keyword": "BOT"}, style, ask=lambda p, s="", **k: __import__("json").dumps(good), voice="v")
 assert script["style"] == "myth-bust" and script["hook"] and script["hooks"] and script["beats"][0]["line"] == script["hook"]
@@ -78,9 +78,9 @@ assert all(b["emotion"] in sw.EMOTIONS for b in script["beats"]) and script["bea
 bad = copy.deepcopy(good); bad["beats"][3]["line"] = "a.com ke mutabiq 21 guna zyada leads ab aapko pakka milengi, kyunki reply jaldi jaata hai aur isliye customer rukta hai"
 assert has(bad["beats"], "promise")
 bad = copy.deepcopy(good); bad["beats"][1]["line"] = "Subah reply dene se customer chala jaata hai"
-assert has(bad["beats"], "want 14-42")
+assert has(bad["beats"], "want 10-22")
 bad = copy.deepcopy(good)
-for b in bad["beats"][1:4]: b["line"] = b["line"].replace("kyunki", "").replace("Matlab", "").replace("taaki", "").replace("Phir", "Ab").replace("matlab", "")
+for b in bad["beats"][1:4]: b["line"] = b["line"].replace("kyunki", "").replace("Matlab", "").replace("taaki", "").replace("Phir", "Ab").replace("matlab", "").replace("warna", "")
 assert has(bad["beats"], "helping words") or has(bad["beats"], "bare statements")
 seq = [json.dumps(good), json.dumps(good)]
 calls = []
@@ -145,3 +145,15 @@ per, glob = sw.by_beat(["fix: needs 2-3 concrete steps", "meaning: payoff: too m
 assert per == {"fix": ["needs 2-3 concrete steps"], "payoff": ["too much"], "pain": ["hook is too long; 16 words max"]} and len(glob) == 2, (per, glob)
 assert "fallback=False" in (pathlib.Path(__file__).resolve().parent.parent / "src/run_daily.py").read_text(), "a script failure is a warning, not a stopped run"
 print("targeted repair + lessons + non-fatal ok")
+
+# ---- length budget: ~30 s reel, never cut by machine, never thin
+w = lambda n: " ".join(["shabd"] * n)
+long_ = [{"beat": "pain", "line": w(12)}, {"beat": "poke", "line": w(22)}, {"beat": "fix", "line": w(22)}, {"beat": "payoff", "line": w(22)}, {"beat": "recap", "line": w(18)}, {"beat": "cta", "line": w(20)}]
+bp = sw.budget_problems(long_)
+assert bp and all("tighten" in x and "cut filler" in x for x in bp) and not any(x.startswith(("pain", "cta")) for x in bp), bp
+per, glob = sw.by_beat(bp, long_)
+assert per and not glob, "over-length feedback is per beat, so only the long beats are rewritten"
+assert sw.budget_problems([{"beat": "pain", "line": w(10)}, {"beat": "poke", "line": w(15)}, {"beat": "cta", "line": w(10)}])[0].startswith("poke: script is only 35 words")
+assert sw.budget_problems([{"beat": "pain", "line": w(12)}, {"beat": "poke", "line": w(18)}, {"beat": "fix", "line": w(20)}, {"beat": "payoff", "line": w(18)}, {"beat": "cta", "line": w(16)}]) == []
+assert sw.TOTAL_WORDS[1] <= 90 and "FIRST 8 SECONDS" in open(sw.__file__).read()
+print("length budget ok")

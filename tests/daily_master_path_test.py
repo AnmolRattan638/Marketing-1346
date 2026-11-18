@@ -3,7 +3,7 @@ import json, pathlib, sys, tempfile
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 import os
 os.environ.update(BUFFER_API_KEY='x', ZERNIO_API_KEY='y')
-from src import config, llm, tg, buffer, publish
+from src import config, llm, tg
 
 tmp = pathlib.Path(tempfile.mkdtemp())
 for n in ("drafts", "media"):

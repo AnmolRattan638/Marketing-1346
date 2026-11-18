@@ -9,6 +9,7 @@ from pathlib import Path
 
 STATE = Path(__file__).resolve().parent.parent / "data" / "script_lessons.json"
 SEED = [
+    "Keep the WHOLE script at 52-85 words: short but never weak, beat 2 must give the first surprising specific answer within the first 8 seconds.",
     "Write EVERY beat of the style, in order, and finish with the last one (cta). Never stop early.",
     "Every digit you speak or show must appear in a cited fact or in the service capabilities (24x7 is allowed); otherwise say the idea in words.",
     "State what the service does; never promise a result for the owner (no 'never lose a lead', no 'guaranteed', no sales numbers).",
@@ -17,6 +18,7 @@ SEED = [
 RULES = [
     (r"not backed by a cited fact", "number-unbacked", "Every digit must come from a cited fact; if no fact has the number, say it in words with no digit."),
     (r"beats must be exactly", "beats-exact", "Return exactly the style's beats in order, including the last one."),
+    (r"script is \d+ words", "total-length", "The whole script stays under 85 words (about 30 s); give each beat one concrete idea and its reason, nothing more."),
     (r"line has \d+ words", "words", "Keep each beat inside its word range, in full spoken sentences."),
     (r"generic filler", "generic", "No filler like 'game changer' or 'next level'; say something only this business could say."),
     (r"not Hinglish", "hinglish", "Every spoken line is everyday Hindi in Roman letters with English tech words."),

@@ -29,9 +29,13 @@ BY_ID = {s["id"]: s for s in STYLES}
 SYS = "You write short vertical-video scripts for a solo web and AI developer in India talking to small-business owners. Plain, specific, spoken."
 BAD_OPEN = re.compile(r"^\s*(hi|hello|hey|namaste|welcome|in this (video|reel)|today (i|we)|aaj hum)\b", re.I)
 _NUM = re.compile(r"\d[\d,\.]*")
-WORDS = (14, 42)      # a body beat explains itself in 1-3 spoken sentences; length of the video does not matter, how clearly it explains does
-HOOK_WORDS = (5, 16)
-CTA_WORDS = (8, 36)
+# LENGTH BUDGET: a reel's viewers are gone by second 5 and almost nobody reaches 60 s (a 65 s reel kept ~0% after the first 10 s). Spoken Hinglish runs ~2.9 words/s, so
+# TOTAL_WORDS = 85 is a ~30 s reel. Short is not weak: every beat keeps ONE concrete idea plus its reason, nothing is cut by machine; an over-long script is sent back to the
+# model with per-beat "tighten to N words" feedback (see budget_problems), and the content/meaning checks still run on the tightened script.
+WORDS = (10, 22)      # a body beat: 1-2 spoken sentences, one concrete idea and its reason
+HOOK_WORDS = (5, 13)
+CTA_WORDS = (8, 20)
+TOTAL_WORDS = (52, 85)   # whole spoken script: ~18-30 seconds
 # helping words that join a thought to its reason or example; a script made only of short bare statements fails
 CONNECT = re.compile(r"\b(kyunki|kyuki|isliye|isiliye|matlab|yaani|jaise|jaise ki|maan lo|socho|yani|toh phir|phir|isse|taaki|warna|lekin|par asli|asli baat|dhyan rakho|iska matlab)\b", re.I)
 # a statistic describes how things are; a line must not turn it into a promise (e.g. "70-90% of calls are repeat questions" is not "70-90% of calls will stop")
@@ -71,6 +75,33 @@ def score_hook(text):
         return 0.0
 
 
+def budget_problems(beats) -> list[str]:
+    """Whole-script length: too long -> per-beat 'tighten to N words' on the longest body beats (the model rewrites them, nothing is cut by machine);
+    too short -> the script is thin (a weak reel), so name the beat to enrich."""
+    counts = [(b.get("beat"), len(str(b.get("line") or "").split())) for b in beats]
+    total = sum(n for _, n in counts)
+    lo, hi = TOTAL_WORDS
+    out = []
+    if total > hi:
+        over = total - hi
+        body = sorted(((n, name) for i, (name, n) in enumerate(counts) if i > 0 and name != "cta" and n > WORDS[0] + 2), reverse=True) or sorted(((n, name) for i, (name, n) in enumerate(counts) if i > 0), reverse=True)
+        cut = {}
+        while over > 0 and body:
+            body.sort(reverse=True)
+            n, name = body[0]
+            cut[name] = cut.get(name, 0) + 1
+            body[0] = (n - 1, name)
+            over -= 1
+            if body[0][0] <= WORDS[0]:
+                body.pop(0)
+        by = {name: n for name, n in counts}
+        for name, c in cut.items():
+            out.append(f"{name}: script is {total} words, the reel must stay under {hi} (about 30 seconds); tighten this beat from {by[name]} to {by[name] - c} words max, keep its concrete detail and its reason, cut filler and repeats")
+    elif beats and total < lo:
+        out.append(f"{beats[min(1, len(beats) - 1)].get('beat')}: script is only {total} words (min {lo}); the reel is too thin, add one concrete detail and its reason")
+    return out
+
+
 def problems(script, sheet, style, focus=None):
     """Every reason this script must not ship (empty list = fine)."""
     out, facts = [], {f["id"]: f for f in sheet.get("facts", [])}
@@ -82,7 +113,7 @@ def problems(script, sheet, style, focus=None):
         line = str(b.get("line") or "")
         n = len(line.split())
         lo, hi = HOOK_WORDS if b is (beats[0] if beats else None) else (CTA_WORDS if b.get("beat") == "cta" else WORDS)
-        if not lo <= n <= hi + 6:
+        if not lo <= n <= hi + 3:
             out.append(f"{b.get('beat')}: line has {n} words (want {lo}-{hi}; explain it in full spoken sentences, not a slogan)")
         cited = [facts[i] for i in b.get("facts") or [] if i in facts]
         if any(i not in facts for i in b.get("facts") or []):
@@ -92,6 +123,7 @@ def problems(script, sheet, style, focus=None):
         stray = _nums(COUNT.sub(" ", line + " " + str(b.get("screen") or ""))) - allowed
         if stray:
             out.append(f"{b.get('beat')}: number(s) {sorted(stray)} not backed by a cited fact")
+    out += budget_problems(beats)
     if beats and BAD_OPEN.search(str(beats[0].get("line") or "")):
         out.append("opens with a greeting/intro")
     for b in beats:
@@ -165,7 +197,7 @@ def repair_missing(script, style, ask, focus, sheet):
     rows = [{"beat": n, "line": have[n].get("line")} for n in style["beats"] if n in have]
     kw = sheet.get("keyword") or ""
     prompt = (f"A short-video script for {focus.get('name')} is missing its beat(s) {miss}. Existing beats, in order: {json.dumps(rows, ensure_ascii=False)}\n"
-              f"Write ONLY the missing beat(s), continuing in the same Hinglish voice (Roman letters, everyday spoken Hindi). A normal beat is {WORDS[0]}-{WORDS[1]} words in 2-3 spoken sentences; "
+              f"Write ONLY the missing beat(s), continuing in the same Hinglish voice (Roman letters, everyday spoken Hindi). A normal beat is {WORDS[0]}-{WORDS[1]} words in 1-2 spoken sentences; "
               f"the cta is {CTA_WORDS[0]}-{CTA_WORDS[1]} words, ONE ask only: tell the viewer to send the word {kw or 'the keyword'} and say exactly what they get (how the setup would work, or honest advice on whether it fits; never a demo or sample). "
               f"No numbers except 3 steps style counts. Return JSON {{\"beats\": [{{\"beat\": \"{miss[0]}\", \"line\": \"spoken\", \"screen\": \"<=8 words\", \"visual\": \"what is shown\", \"emotion\": \"warm\", \"facts\": []}}], \"cta\": \"the one ask if cta is missing\"}}")
     try:
@@ -265,7 +297,8 @@ VOICE: {voice[:900]}
 LANGUAGE (strict): every spoken line is HINGLISH in Roman letters, everyday spoken Hindi with English tech words, like talking to a shop owner. Example: "Raat 11 baje customer ne WhatsApp kiya, aur aapne subah reply diya. Tab tak woh dusri dukaan chala gaya." Not translated-sounding Hindi, not plain English.
 
 Write ONE script with EXACTLY {len(style['beats'])} beats, in this order: {style['beats']}. The LAST beat is `{style['beats'][-1]}`; never stop early and never drop it. Any digit you speak or put on screen (other than a clock time or an '3 steps' style count) must come from a cited fact or from the capabilities list below; otherwise say it in words with no digit. Rules: no greeting or intro; one idea; 
-SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 2-3 full spoken sentences, and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. Do not worry about video length; worry about the viewer UNDERSTANDING.
+SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 1-2 full spoken sentences, and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. TOTAL budget for the whole script: {TOTAL_WORDS[0]}-{TOTAL_WORDS[1]} words (about 25-30 seconds: viewers leave by second 5, so the reel is SHORT). Short must not mean weak: one concrete idea per beat plus its reason, no filler, no repeating what the last beat said.
+FIRST 8 SECONDS: the hook ends on an unfinished consequence or a question; the POKE (beat 2) must then give the first surprising, specific answer (a thing, a time, a cost) so there is a reason to keep watching; never spend beat 2 only restating the problem.
 EXPLAIN, don't announce: pain = the moment AND why it hurts (what it costs: time, a lost customer); poke = why the obvious fix fails, the reason in plain words; fix = each step with a one-clause reason ("pehle ..., kyunki ..."); payoff = what the fact MEANS for this owner in plain words (do the arithmetic only if every number comes from a fact); recap = loop back to the pain.
 Use helping words (kyunki, isliye, matlab, jaise ki, phir, taaki, lekin) so each line connects to the one before it. A line must make sense when heard once, with no screen.
 CAPABILITIES: you may state what the service in focus does even when no fact says it, because it is true: {capabilities(focus)}. Never promise a business result (more sales, a number of leads).\nSTATISTICS: say a figure exactly as its fact states it. "X% of calls are repeat questions" never becomes "X% of calls will stop"; do not invent an outcome the fact does not claim.

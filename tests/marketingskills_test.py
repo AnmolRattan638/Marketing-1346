@@ -46,7 +46,7 @@ def test_good_script_passes_and_each_break_is_caught():
     assert any("em dash" in p for p in m.script_problems(script(extra=" — ye dikkat hai"), BOT))
     assert any("contrast" in p for p in m.script_problems(script(extra=". It is not a cost, it is a loss"), BOT))
     off = {"beats": [{"beat": "pain", "line": "Raat 11 baje dukaan band hai", "screen": "x y z"}, {"beat": "cta", "line": "Comment BOT likho.", "screen": "x"}]}
-    assert any("off-service" in p for p in m.script_problems(off, {**SV["lead_gen"], "dm_keyword": "LEADS", "id": "website"} if False else {**BOT, "id": "reel_scripts", "dm_keyword": "BOT"}))
+    assert any("never names" in p for p in m.script_problems(off, {**SV["lead_gen"], "dm_keyword": "LEADS", "id": "website"} if False else {**BOT, "id": "reel_scripts", "dm_keyword": "BOT"}))
 
 
 def test_hook_is_clean_of_selling():
@@ -111,3 +111,14 @@ if __name__ == "__main__":
         if k.startswith("test_"):
             v()
     print("ok")
+
+# an off-service script is a ONE-BEAT fix (the fix beat names the service), so the targeted repair handles it instead of failing the day
+from src.agents import scriptwriter as _sw
+_off = {"beats": [{"beat": "pain", "line": "Raat 11 baje dukaan band hai aur customer wapas gaya", "screen": "x y z"}, {"beat": "fix", "line": "Ek page banao jo sab dikhaye", "screen": "x"}, {"beat": "cta", "line": "Comment SITE likho.", "screen": "x"}]}
+_web = {**SV["website"]}
+_pr = m.script_problems({"beats": [{**b, "line": b["line"].replace("page", "pizza")} for b in _off["beats"]]}, _web)
+assert any(p.startswith("fix: the script never names") for p in _pr), _pr
+_per, _glob = _sw.by_beat(_pr, _off["beats"])
+assert "fix" in _per and not _glob
+assert m.script_problems({"beats": [{"beat": "pain", "line": "Raat 11 baje customer ne online dhundha", "screen": "x y z"}, {"beat": "cta", "line": "Comment SITE likho.", "screen": "x"}]}, _web) == []
+print("off-service per-beat ok")

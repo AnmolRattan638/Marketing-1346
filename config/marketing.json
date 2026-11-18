@@ -97,7 +97,13 @@
         "google",
         "mobile",
         "phone",
-        "online"
+        "online",
+        "web",
+        "page",
+        "link",
+        "search",
+        "maps",
+        "listing"
       ]
     },
     "chatbot": {
@@ -110,7 +116,12 @@
         "jawab",
         "whatsapp",
         "message",
-        "answer"
+        "answer",
+        "auto",
+        "automatic",
+        "ai",
+        "instant",
+        "turant"
       ]
     },
     "animated_ads": {
@@ -122,7 +133,10 @@
         "video",
         "reel",
         "animated",
-        "instagram"
+        "instagram",
+        "animation",
+        "creative",
+        "promo"
       ]
     },
     "lead_gen": {
@@ -135,7 +149,9 @@
         "client",
         "sheet",
         "excel",
-        "customer"
+        "customer",
+        "enquiry",
+        "inquiry"
       ]
     },
     "reel_scripts": {
@@ -146,7 +162,10 @@
         "reel",
         "camera",
         "bolna",
-        "hook"
+        "hook",
+        "content",
+        "video",
+        "shoot"
       ]
     },
     "seo_blogs": {
@@ -157,7 +176,10 @@
         "seo",
         "google",
         "search",
-        "article"
+        "article",
+        "rank",
+        "ranking",
+        "content"
       ]
     }
   }

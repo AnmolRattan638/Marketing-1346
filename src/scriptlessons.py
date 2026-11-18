@@ -31,7 +31,7 @@ RULES = [
     (r"absolute / unverifiable claim", "claim", "No absolute claims; say 'can help' or 'makes it easier'."),
     (r"em dash|contrast reveal|negation list|self-answered|stock phrase", "ai-tell", "No em dashes, 'it is not X, it is Y', 'No X, no Y' or stock phrases; state the point directly."),
     (r"hook carries no price|hook is too long|opens with a greeting", "hook", "The hook is a short scene of the owner's pain: no greeting, price, brand or keyword."),
-    (r"off-service", "off-service", "Talk about the service in focus only."),
+    (r"off-service|never names", "off-service", "Talk about the service in focus only."),
     (r"fix: needs 2-3 concrete steps", "steps", "The fix beat walks through 2-3 short steps and the spoken line follows them."),
     (r"bare statements", "connectors", "Use helping words (kyunki, isliye, jaise ki, phir) so each line gives its reason."),
     (r"absolute result|outcomes? no fact supports|promises? (an? )?(absolute|outcome)|never have to wait", "promise", "Describe what the service does (replies instantly, collects enquiries); never promise an outcome like 'no enquiry is missed' or 'you will never lose a lead'."),

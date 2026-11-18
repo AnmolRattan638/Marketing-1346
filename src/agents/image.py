@@ -373,8 +373,20 @@ def _engines():
     """Engines to try, best first: Ideogram, Cloudflare FLUX, Gemini, Pollinations. IMAGE_ENGINE_ORDER overrides the order; unknown names are ignored.
     Functions are looked up by name at call time, so a test (or a hotfix) that replaces one is honoured."""
     names = [n.strip().lower() for n in (os.getenv("IMAGE_ENGINE_ORDER") or ENGINE_ORDER).split(",")]
-    order = [globals()["_" + n] for n in dict.fromkeys(names) if n in _AVAILABLE and _AVAILABLE[n]()]
+    order = [globals()["_" + n] for n in dict.fromkeys(names) if n in _AVAILABLE and _AVAILABLE[n]() and n not in _DEAD]
     return order or [globals()["_pollinations"]]
+
+
+_DEAD: set = set()      # engines that said 'payment required / unauthorized' this run: not tried again (every retry costs time and fails the same way)
+
+
+def _dead(engine, e) -> bool:
+    """True (and the engine is skipped for the rest of the run) when the error is out-of-credit / bad key, which retrying cannot fix."""
+    if re.search(r"\b(401|402|403)\b", str(e)):
+        _DEAD.add(engine.__name__.strip("_"))
+        print(f"[image] {engine.__name__.strip('_')} is out of credit or unauthorised ({str(e)[:60]}); skipped for the rest of this run")
+        return True
+    return False
 
 
 def _ai_picture(plan, focus, spec, guidance, out_path, errors, variant=None, recent=()):
@@ -388,6 +400,8 @@ def _ai_picture(plan, focus, spec, guidance, out_path, errors, variant=None, rec
             except Exception as e:
                 print(f"[image] {engine.__name__} failed: {e}")
                 errors.append(f"{engine.__name__.strip('_')}: {str(e)[:110]}")
+                if _dead(engine, e):
+                    break
     raise RuntimeError("no AI image engine worked")
 
 
@@ -446,6 +460,8 @@ def slide_picture(slide, focus, variant, out_path, errors):
             except Exception as e:
                 print(f"[image] slide {engine.__name__} failed: {e}")
                 errors.append(f"{engine.__name__.strip('_')}: {str(e)[:110]}")
+                if _dead(engine, e):
+                    break
     return None
 
 

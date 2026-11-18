@@ -1,6 +1,35 @@
 {
   "posts": [
     {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2li5r45jx2z",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2li5r45jx2z",
+      "published_at": "2026-11-18T11:44:06.414854+00:00",
+      "text": "Most small business blogs never get found because they do not answer what customers type into Google. I write monthly SEO blog posts that answer one real custom",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 1,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-18",
+        "service": "seo_blogs",
+        "hook_style": "question",
+        "topic": "Do you know what your customers are actually typing into Google?"
+      }
+    },
+    {
       "platform": "instagram",
       "id": "18136174078669092",
       "url": "https://www.instagram.com/reel/Df141NPuzdl/",
@@ -19,7 +48,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 64.7,
-        "avg_watch_s": 3.546,
+        "avg_watch_s": 3.552,
         "duration_s": 65
       },
       "matched": {
@@ -1440,7 +1469,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 76.7,
-        "avg_watch_s": 7.493,
+        "avg_watch_s": 7.384,
         "duration_s": 26
       },
       "matched": null
@@ -1719,7 +1748,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 32
+      "posts": 33
     }
   },
   "coverage": {
@@ -2048,5 +2077,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-18T07:31:03+00:00"
+  "updated_at": "2026-11-18T20:33:19+00:00"
 }

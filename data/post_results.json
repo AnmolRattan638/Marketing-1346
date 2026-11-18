@@ -2140,6 +2140,13 @@
           "likes": 0,
           "comments": 0,
           "shares": 0
+        },
+        "7d": {
+          "age_h": 176.9,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
         }
       },
       "latest": {
@@ -2365,5 +2372,5 @@
       }
     }
   },
-  "updated_at": "2026-11-17T20:56:51+00:00"
+  "updated_at": "2026-11-18T20:33:21+00:00"
 }

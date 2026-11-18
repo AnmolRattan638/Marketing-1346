@@ -251,7 +251,7 @@ def repair_beats(script, per, style, ask, focus, sheet, voice=""):
               f"RULES: Hinglish in Roman letters; a body beat is {WORDS[0]}-{WORDS[1]} words, the hook {HOOK_WORDS[0]}-{HOOK_WORDS[1]}, the cta {CTA_WORDS[0]}-{CTA_WORDS[1]} words; the cta asks for the ONE keyword "
               f"{sheet.get('keyword') or ''} and says what they get; every digit must come from a cited fact id (or be 24x7); capabilities you may state: {capabilities(focus)}. Never promise a result.\n"
               f"VERIFIED FACTS: {json.dumps(list(facts.values()), ensure_ascii=False)}\nVOICE: {voice[:500]}\n{scriptlessons.prompt_block(4)}"
-              'Return JSON {"beats": [{"beat": "<name>", "line": "spoken", "screen": "<=8 words", "visual": "what is shown", "emotion": "warm", "steps": ["fix only"], "facts": ["ids"]}]} with ONLY the rewritten beats.')
+              'Return JSON {"beats": [{"beat": "<name>", "line": "spoken", "screen": "<=8 words", "visual": "what is shown", "emotion": "warm", "steps": ["fix only: 2-3 strings of at most 7 words each, in the order the line says them"], "facts": ["ids"]}]} with ONLY the rewritten beats.')
     try:
         data = llm.ask_json(ask, prompt, SYS)
         new = {b.get("beat"): b for b in (data or {}).get("beats", []) if isinstance(b, dict) and b.get("beat") in targets and b.get("line")}
@@ -270,8 +270,30 @@ def repair_beats(script, per, style, ask, focus, sheet, voice=""):
     return script, True
 
 
+def derive_steps(line: str) -> list[str]:
+    """2-3 on-screen steps (7 words max each) taken from the fix line's OWN clauses, in order. [] when the line has fewer than two clauses."""
+    parts = [p.strip(" ,.;:!?") for p in re.split(r"(?<=[.!?])\s+|,\s+|\s+(?:phir|fir|aur phir|uske baad|aur)\s+", str(line or ""), flags=re.I)]
+    parts = [" ".join(p.split()[:7]) for p in parts if len(p.split()) >= 2]
+    if len(parts) > 3:
+        parts = [parts[0], parts[len(parts) // 2], parts[-1]]
+    return parts if len(parts) >= 2 else []
+
+
+def normalize_steps(script):
+    """The fix beat's `steps` is display text only. When the model left it missing or too long, build it from the beat's own spoken clauses (nothing new is invented)
+    instead of spending a rewrite round on it."""
+    fix = next((b for b in script.get("beats") or [] if b.get("beat") == "fix"), None)
+    if fix is None:
+        return script
+    steps = [str(x).strip() for x in (fix.get("steps") or []) if str(x).strip()]
+    if not 2 <= len(steps) <= 3 or any(len(x.split()) > 7 for x in steps):
+        fix["steps"] = derive_steps(fix.get("line")) or steps
+    return script
+
+
 def check_all(script, sheet, style, focus, ask):
     """Every check in order; the cheap deterministic ones first, model passes only when those are clean."""
+    normalize_steps(script)
     bad = problems(script, sheet, style, focus) + marketingskills.script_problems(script, focus) + contentskills.problems(script)
     if not bad:
         bad = [f"meaning: {x}" for x in fidelity(script, sheet, ask, focus)]

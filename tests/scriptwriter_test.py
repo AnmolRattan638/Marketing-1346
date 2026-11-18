@@ -157,3 +157,15 @@ assert sw.budget_problems([{"beat": "pain", "line": w(10)}, {"beat": "poke", "li
 assert sw.budget_problems([{"beat": "pain", "line": w(12)}, {"beat": "poke", "line": w(18)}, {"beat": "fix", "line": w(20)}, {"beat": "payoff", "line": w(18)}, {"beat": "cta", "line": w(16)}]) == []
 assert sw.TOTAL_WORDS[1] <= 90 and "FIRST 8 SECONDS" in open(sw.__file__).read()
 print("length budget ok")
+
+# ---- the on-screen `steps` never fails a day: built from the fix line's own clauses when the model leaves them out
+s1 = {"beats": [{"beat": "fix", "line": "Pehle bot greet kare, kyunki pehla jawab trust banata hai. Phir sawaal puche aur call book kare.", "steps": []}]}
+sw.normalize_steps(s1)
+st = s1["beats"][0]["steps"]
+assert 2 <= len(st) <= 3 and all(len(x.split()) <= 7 for x in st) and all(x.split()[0] in s1["beats"][0]["line"] for x in st), st
+s2 = {"beats": [{"beat": "fix", "line": "x y z w v u t s r q", "steps": ["a b"]}]}
+sw.normalize_steps(s2)
+assert s2["beats"][0]["steps"] == ["a b"], "nothing to derive from: left as is for the model to fix"
+bad = copy.deepcopy(good); bad["beats"][2]["steps"] = []
+assert not [p for p in sw.problems(sw.normalize_steps({"beats": bad["beats"]}), sheet, style) if "steps" in p]
+print("steps normalization ok")

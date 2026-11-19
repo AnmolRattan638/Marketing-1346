@@ -44,7 +44,7 @@ COUNT = re.compile(r"\b\d\s?-?\s?(steps?|tarike|tareeke|points?|baar)\b|\b\d{1,2
 EMOTIONS = ("curious", "empathetic", "urgent", "calm", "excited", "warm")
 DEFAULT_EMOTION = {"pain": "empathetic", "poke": "urgent", "fix": "calm", "payoff": "excited", "recap": "curious", "cta": "warm"}
 # lines that could be said by any brand about anything; the script is rejected until they are replaced by something concrete
-GENERIC = re.compile(r"\b(the myth|myth:|basic but powerful|game.?changer|unlock (your|the)|revolution|in today'?s (digital )?world|take your .{0,20} to the next level|"
+GENERIC = re.compile(r"\b(the myth|myth:|basic but powerful|game.?changer(?!.{0,30}\b(sakta|sakti|sakte|can|might)\b)|unlock (your|the)|revolution|in today'?s (digital )?world|take your .{0,20} to the next level(?!.{0,30}\b(sakta|sakti|sakte|can|might)\b)|"
                      r"comment learn|learn more|like and subscribe|stay tuned|let me know in the comments|dm me for more|follow for more)\b", re.I)
 HINDI = re.compile(r"\b(hai|hain|ka|ki|ke|ko|se|mein|me|par|pe|nahi|nahin|aap|aapka|aapki|aapke|kya|kyun|kaise|jab|to|toh|bhi|hi|raha|rahi|rahe|wala|wali|phir|fir|pehle|lekin|aur|koi|sab|karo|karna|kar|ho|hota|hoga|tha|thi|dena|lena|milta|milte|jaata|jaate|bas|sirf|ek)\b", re.I)
 SCENE = re.compile(r"\b(raat|baje|subah|shaam|din|hafte|mahine|pm|am|customer|enquiry|enquiries|inquiry|whatsapp|message|messages|order|booking|call|lead|leads|ad|ads|site|website|page|reply|jawab|dukaan|shop|menu|google|instagram|insta|form|number|phone|mobile)\b", re.I)
@@ -121,7 +121,8 @@ def problems(script, sheet, style, focus=None):
         allowed = set().union(*[_nums(f["claim"]) | _nums(f.get("figure") or "") for f in cited]) if cited else set()
         allowed |= _nums(capabilities(focus))                  # '24x7' / '24 hours' is a listed capability of the service, so it is backed
         stray = _nums(COUNT.sub(" ", line + " " + str(b.get("screen") or ""))) - allowed
-        if stray:
+        # the hook may use an invented number: its only job is to stop the scroll (it is noted in `notes`); every other beat needs a cited fact
+        if stray and b is not (beats[0] if beats else None):
             out.append(f"{b.get('beat')}: number(s) {sorted(stray)} not backed by a cited fact")
     out += budget_problems(beats)
     if beats and BAD_OPEN.search(str(beats[0].get("line") or "")):
@@ -177,6 +178,7 @@ def fidelity(script, sheet, ask, focus=None):
     rows = [{"beat": b.get("beat"), "line": b.get("line"), "cites": b.get("facts") or []} for b in script.get("beats", [])]
     prompt = ("You are an editor checking spoken lines against ALL verified facts. Flag a line ONLY if: (1) it changes or contradicts a number or cause stated in a fact; (2) it promises an outcome "
               "no fact claims AND is not a capability of the service in focus (e.g. 'calls will stop'; but 'the customer does not have to wait' is a true capability of an instant-reply chatbot and is FINE); (3) it names a company, person or study that no fact names; (4) it is unintelligible when heard once. "
+              "The HOOK (first line) may use an invented, relatable number or hedged exaggeration: never flag it. Hedged hype ('game changer ban sakta hai', 'can help') and short example scenarios ('maan lo ek cafe owner...') are FINE; flag only a promise stated as certain. "
               "Do NOT flag plain-language explanations, examples or reasons that add no figure or name, and do NOT flag plain statements of what the service does (see SERVICE CAPABILITIES): "
               "those are true even when no fact repeats them. Flag only invented figures, guaranteed sales/revenue results, named clients or testimonials, and contradictions of a fact. Each issue must say exactly how to fix it.\n"
               "SERVICE CAPABILITIES (true, may be stated): " + capabilities(focus) + "\n"
@@ -303,6 +305,20 @@ def check_all(script, sheet, style, focus, ask):
     return bad
 
 
+def finish(script, sheet, focus, extra=None):
+    """Attach notes for the owner: an invented number in the hook, or advisory meaning-check remarks that did not block the script."""
+    notes = list(extra or [])
+    beats = script.get("beats") or []
+    if beats:
+        facts = {f["id"]: f for f in sheet.get("facts", [])}
+        allowed = set().union(*[_nums(f["claim"]) | _nums(f.get("figure") or "") for f in facts.values()]) | _nums(capabilities(focus))
+        stray = _nums(COUNT.sub(" ", str(beats[0].get("line") or "") + " " + str(beats[0].get("screen") or ""))) - allowed
+        if stray:
+            notes.append(f"hook uses an invented number {sorted(stray)} (allowed for hooks, not a verified fact)")
+    script["notes"] = notes
+    return script
+
+
 def run(sheet, focus, style, ask=None, voice=None, max_tries=4, repair_rounds=3):
     sheet = {**sheet, "keyword": sheet.get("keyword") or focus.get("dm_keyword") or ""}
     """-> master script dict. Raises ValueError if no valid script after max_tries (caller's stage() reports it)."""
@@ -319,12 +335,12 @@ VERIFIED FACTS (the ONLY facts you may use; cite by id):
 VOICE: {voice[:900]}
 LANGUAGE (strict): every spoken line is HINGLISH in Roman letters, everyday spoken Hindi with English tech words, like talking to a shop owner. Example: "Raat 11 baje customer ne WhatsApp kiya, aur aapne subah reply diya. Tab tak woh dusri dukaan chala gaya." Not translated-sounding Hindi, not plain English.
 
-Write ONE script with EXACTLY {len(style['beats'])} beats, in this order: {style['beats']}. The LAST beat is `{style['beats'][-1]}`; never stop early and never drop it. Any digit you speak or put on screen (other than a clock time or an '3 steps' style count) must come from a cited fact or from the capabilities list below; otherwise say it in words with no digit. Rules: no greeting or intro; one idea; 
+Write ONE script with EXACTLY {len(style['beats'])} beats, in this order: {style['beats']}. The LAST beat is `{style['beats'][-1]}`; never stop early and never drop it. In the BODY, any digit you speak or put on screen (other than a clock time or an '3 steps' style count) must come from a cited fact or from the capabilities list below; otherwise say it in words with no digit. The HOOK is the exception: it may use a relatable invented number. Rules: no greeting or intro; one idea; 
 SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 1-2 full spoken sentences, and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. TOTAL budget for the whole script: {TOTAL_WORDS[0]}-{TOTAL_WORDS[1]} words (about 25-30 seconds: viewers leave by second 5, so the reel is SHORT). Short must not mean weak: one concrete idea per beat plus its reason, no filler, no repeating what the last beat said.
 FIRST 8 SECONDS: the hook ends on an unfinished consequence or a question; the POKE (beat 2) must then give the first surprising, specific answer (a thing, a time, a cost) so there is a reason to keep watching; never spend beat 2 only restating the problem.
 EXPLAIN, don't announce: pain = the moment AND why it hurts (what it costs: time, a lost customer); poke = why the obvious fix fails, the reason in plain words; fix = each step with a one-clause reason ("pehle ..., kyunki ..."); payoff = what the fact MEANS for this owner in plain words (do the arithmetic only if every number comes from a fact); recap = loop back to the pain.
 Use helping words (kyunki, isliye, matlab, jaise ki, phir, taaki, lekin) so each line connects to the one before it. A line must make sense when heard once, with no screen.
-CAPABILITIES: you may state what the service in focus does even when no fact says it, because it is true: {capabilities(focus)}. Never promise a business result (more sales, a number of leads).\nSTATISTICS: say a figure exactly as its fact states it. "X% of calls are repeat questions" never becomes "X% of calls will stop"; do not invent an outcome the fact does not claim.
+CAPABILITIES: you may state what the service in focus does even when no fact says it, because it is true: {capabilities(focus)}. Never promise a business result (more sales, a number of leads).\nSTORY AND HYPE ARE ALLOWED: a short example scenario ("maan lo ek cafe owner raat 11 baje..."), and hedged hype ("game changer ban sakta hai", "kaafi help kar sakta hai") are fine; a promise stated as certain ("ban jayega", "guaranteed") is not. The HOOK may use a relatable invented number to stop the scroll; the body may use only numbers from the cited facts.\nSTATISTICS: say a figure exactly as its fact states it. "X% of calls are repeat questions" never becomes "X% of calls will stop"; do not invent an outcome the fact does not claim.
 Vary sentence length and mood inside a beat: a short punchy sentence, then a longer explaining one; a question where you are talking to the owner; "!" only for a real payoff.
 
 HOOK: a specific scene or number from the facts (a time, a thing, a loss), never a general statement or "the myth". PAIN/POKE: one concrete moment the owner has lived. FIX: walk through 2-3 concrete steps in the spoken line AND list them in `steps` (each 7 words max). PAYOFF: only a fact from the sheet, source named in words. CTA: the keyword {sheet.get('keyword', '')} plus exactly what they get and why it helps them (e.g. "Agar aapki website pe bhi yahi dikkat hai, toh comment mein BOT likho. Main aapko 3-step setup bhejunga, taaki aap kal se hi isse try kar sako.").
@@ -350,7 +366,7 @@ Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken",
         bad = check_all(script, sheet, style, focus, ask)
         for _round in range(repair_rounds):                  # concrete feedback: rewrite ONLY the failing beats, keep the rest word for word
             if not bad:
-                return script
+                return finish(script, sheet, focus)
             scriptlessons.record(bad)
             per, glob = by_beat(bad, script.get("beats") or [])
             if glob or not per:
@@ -366,7 +382,9 @@ Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken",
                 if changed:
                     bad = check_all(script, sheet, style, focus, ask)
         if not bad:
-            return script
+            return finish(script, sheet, focus)
+        if all(x.startswith("meaning:") for x in bad):       # the model meaning check is advisory: it never blocks a script by itself
+            return finish(script, sheet, focus, [f"meaning check remark (not blocking): {x}"[:200] for x in bad[:2]])
         scriptlessons.record(bad)
         fixes = "Your last script was rejected: " + "; ".join(bad[:6]) + ". Fix exactly these and keep everything else."
     raise ValueError("no valid script after targeted repairs - " + fixes[:300])

@@ -236,7 +236,7 @@ def by_beat(bad, beats):
     return per, glob
 
 
-def repair_beats(script, per, style, ask, focus, sheet, voice=""):
+def repair_beats(script, per, style, ask, focus, sheet, voice="", strict=False):
     """Ask for a rewrite of ONLY the beats that failed, with the exact reasons for each; every other beat stays word for word. -> (script, True if anything changed)."""
     beats = script.get("beats") or []
     have = {b.get("beat"): b for b in beats}
@@ -250,6 +250,7 @@ def repair_beats(script, per, style, ask, focus, sheet, voice=""):
               "WHAT IS WRONG (fix exactly these and nothing else):\n" + "\n".join(f"- {n}: " + " | ".join(per[n]) for n in targets) + "\n"
               f"RULES: Hinglish in Roman letters; a body beat is {WORDS[0]}-{WORDS[1]} words, the hook {HOOK_WORDS[0]}-{HOOK_WORDS[1]}, the cta {CTA_WORDS[0]}-{CTA_WORDS[1]} words; the cta asks for the ONE keyword "
               f"{sheet.get('keyword') or ''} and says what they get; every digit must come from a cited fact id (or be 24x7); capabilities you may state: {capabilities(focus)}. Never promise a result.\n"
+              + ("STRICT MODE (earlier rewrites were still rejected): the line may ONLY restate what the cited fact says, in plain Hinglish, as a description of how things are. No prediction (no rahega/hoga/badhega), no outcome, no claim beyond the fact's own words.\n" if strict else "") +
               f"VERIFIED FACTS: {json.dumps(list(facts.values()), ensure_ascii=False)}\nVOICE: {voice[:500]}\n{scriptlessons.prompt_block(4)}"
               'Return JSON {"beats": [{"beat": "<name>", "line": "spoken", "screen": "<=8 words", "visual": "what is shown", "emotion": "warm", "steps": ["fix only: 2-3 strings of at most 7 words each, in the order the line says them"], "facts": ["ids"]}]} with ONLY the rewritten beats.')
     try:
@@ -358,6 +359,12 @@ Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken",
             if not changed:
                 break
             bad = check_all(script, sheet, style, focus, ask)
+        if bad:                                              # last resort before a fresh draft: one strict rewrite that may only restate the facts
+            per, glob = by_beat(bad, script.get("beats") or [])
+            if per and not glob:
+                script, changed = repair_beats(script, per, style, ask, focus, sheet, voice, strict=True)
+                if changed:
+                    bad = check_all(script, sheet, style, focus, ask)
         if not bad:
             return script
         scriptlessons.record(bad)

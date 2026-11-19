@@ -305,6 +305,14 @@ def check_all(script, sheet, style, focus, ask):
     return bad
 
 
+# style-only remarks: a script that is faithful, safe and on offer is never thrown away for these (they still get the repair rounds first)
+SOFT = ("meaning:", "lines are bare statements", "too abstract")
+
+
+def is_soft(problem: str) -> bool:
+    return any(k in problem for k in SOFT)
+
+
 def finish(script, sheet, focus, extra=None):
     """Attach notes for the owner: an invented number in the hook, or advisory meaning-check remarks that did not block the script."""
     notes = list(extra or [])
@@ -383,8 +391,8 @@ Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken",
                     bad = check_all(script, sheet, style, focus, ask)
         if not bad:
             return finish(script, sheet, focus)
-        if all(x.startswith("meaning:") for x in bad):       # the model meaning check is advisory: it never blocks a script by itself
-            return finish(script, sheet, focus, [f"meaning check remark (not blocking): {x}"[:200] for x in bad[:2]])
+        if all(is_soft(x) for x in bad):                     # style remarks and the model meaning check are advisory: they never block a script by themselves
+            return finish(script, sheet, focus, [f"style remark (not blocking): {x}"[:200] for x in bad[:3]])
         scriptlessons.record(bad)
         fixes = "Your last script was rejected: " + "; ".join(bad[:6]) + ". Fix exactly these and keep everything else."
     raise ValueError("no valid script after targeted repairs - " + fixes[:300])

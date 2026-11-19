@@ -20,3 +20,8 @@ n = sw.finish(sc("87 baar message aaya", "x"), sheet, focus)["notes"]
 assert n and "invented number" in n[0]
 assert not sw.finish(sc("Raat ko message aaya", "x"), sheet, focus)["notes"]
 print("open hook test passed")
+
+# style-only remarks never block a script; real problems still do
+assert sw.is_soft("lines are bare statements; use helping words") and sw.is_soft("meaning: payoff: x") and sw.is_soft("pain: too abstract; name a moment")
+assert not sw.is_soft("payoff: number(s) ['91'] not backed by a cited fact") and not sw.is_soft("cta: must contain the keyword SITE")
+print("soft style test passed")

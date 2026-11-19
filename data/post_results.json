@@ -2183,6 +2183,18 @@
           "shares": 0,
           "saves": 0,
           "clicks": 0
+        },
+        "7d": {
+          "age_h": 176.0,
+          "source": "zernio",
+          "impressions": 14,
+          "reach": 4,
+          "views": 14,
+          "likes": 1,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
         }
       },
       "latest": {
@@ -2215,6 +2227,13 @@
       "snap": {
         "48h": {
           "age_h": 53.4,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        },
+        "7d": {
+          "age_h": 176.0,
           "source": "bluesky",
           "likes": 0,
           "comments": 0,
@@ -2370,7 +2389,38 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-11-17|bluesky": {
+      "date": "2026-11-17",
+      "platform": "bluesky",
+      "service": "chatbot",
+      "problem_id": "inconsistent-information-given-to-custom",
+      "angle_type": "comparison",
+      "hook_style": "comparison",
+      "format": "text",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "hook_style",
+      "image_style": "glass-ui",
+      "carousel_flavor": null,
+      "slides": 1,
+      "published_at": "2026-11-17T12:03:31.461277+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2iyrippyx2l",
+      "snap": {
+        "48h": {
+          "age_h": 56.6,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-11-18T20:33:21+00:00"
+  "updated_at": "2026-11-19T20:39:12+00:00"
 }

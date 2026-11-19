@@ -1,6 +1,93 @@
 {
   "posts": [
     {
+      "platform": "instagram",
+      "id": "18110048846355799",
+      "url": "https://www.instagram.com/reel/Df6904zJEby/",
+      "published_at": "2026-11-19T11:27:22.000Z",
+      "text": "FREELANCERS AGENCIES: GOOGLE MAPS SEARCH MEIN GHANTE GAWAO YA DAILY SHEET?\n→ 𝗗𝗔𝗜𝗟𝗬 𝗦𝗛𝗘𝗘𝗧 se 𝗚𝗢𝗢𝗚𝗟𝗘 𝗣𝗟𝗔𝗖𝗘𝗦 leads milte hain subah\n→ NEWLY OPENED businesses bhi i",
+      "format": "reel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 124,
+        "reach": 80,
+        "views": 124,
+        "likes": 4,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": 55.7,
+        "avg_watch_s": 4.331,
+        "duration_s": 27
+      },
+      "matched": {
+        "date": "2026-11-19",
+        "service": "lead_gen",
+        "hook_style": "comparison",
+        "topic": "The myth that spending hours on Google Maps leads to 'higher quality' prospects than a curated list."
+      }
+    },
+    {
+      "platform": "instagram",
+      "id": "18110131472253623",
+      "url": "https://www.instagram.com/p/Df681pLCB-q/",
+      "published_at": "2026-11-19T11:15:42.000Z",
+      "text": "FREELANCERS AGENCIES: GOOGLE MAPS SEARCH MEIN GHANTE GAWAO YA DAILY SHEET?\n→ 𝗗𝗔𝗜𝗟𝗬 𝗦𝗛𝗘𝗘𝗧 se 𝗚𝗢𝗢𝗚𝗟𝗘 𝗣𝗟𝗔𝗖𝗘𝗦 leads milte hain subah\n→ NEWLY OPENED businesses bhi i",
+      "format": "image",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 3,
+        "reach": 1,
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-19",
+        "service": "lead_gen",
+        "hook_style": "comparison",
+        "topic": "The myth that spending hours on Google Maps leads to 'higher quality' prospects than a curated list."
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2nwzpiujt2j",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2nwzpiujt2j",
+      "published_at": "2026-11-19T11:15:38.173816+00:00",
+      "text": "Manual Google Maps searching eats billable hours. A daily sheet of local businesses from Google Places can make it easier. DM LEADS to ask if it fits whatever y",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-19",
+        "service": "lead_gen",
+        "hook_style": "comparison",
+        "topic": "The myth that spending hours on Google Maps leads to 'higher quality' prospects than a curated list."
+      }
+    },
+    {
       "platform": "bluesky",
       "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2li5r45jx2z",
       "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2li5r45jx2z",
@@ -38,17 +125,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 108,
-        "reach": 96,
-        "views": 108,
+        "impressions": 110,
+        "reach": 98,
+        "views": 110,
         "likes": 0,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 64.7,
-        "avg_watch_s": 3.552,
+        "skip_rate": 64.4,
+        "avg_watch_s": 3.534,
         "duration_s": 65
       },
       "matched": {
@@ -1459,17 +1546,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 44,
-        "reach": 29,
-        "views": 44,
+        "impressions": 45,
+        "reach": 30,
+        "views": 45,
         "likes": 2,
         "comments": 0,
         "shares": 0,
         "saves": 1,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 76.7,
-        "avg_watch_s": 7.384,
+        "skip_rate": 74.2,
+        "avg_watch_s": 7.329,
         "duration_s": 26
       },
       "matched": null
@@ -1748,7 +1835,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 33
+      "posts": 34
     }
   },
   "coverage": {
@@ -2085,5 +2172,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-19T07:27:43+00:00"
+  "updated_at": "2026-11-19T20:39:10+00:00"
 }

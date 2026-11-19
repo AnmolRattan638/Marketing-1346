@@ -47,12 +47,21 @@ def _retry_after(r):
     return float(m.group(1)) if m else None
 
 
+def out_of_time() -> bool:
+    """True once the run's time budget (RUN_DEADLINE_EPOCH, set by the workflow) is used up. After that every model call fails at once, so a slow or rate-limited
+    provider can never push the job past its timeout (a cancelled job sends no message); the stages fall back and the failure is reported."""
+    end = float(os.environ.get("RUN_DEADLINE_EPOCH") or 0)
+    return bool(end) and time.time() > end
+
+
 def _post(url, headers, body, tries=3, timeout=120):
     """429: wait as asked (capped) and retry. 5xx / unreachable: one quick retry, then raise ProviderDown so the caller can switch model.
     Other 4xx (bad key, bad request, unknown model): raise at once, retrying cannot help."""
     host = url.split("/")[2]
     last, net_fail, server_fail = None, 0, 0
     for i in range(tries):
+        if out_of_time():
+            raise RuntimeError("run time budget used up; stopping model calls so the job can report instead of timing out")
         try:
             r = requests.post(url, headers=headers, json=body, timeout=timeout)
         except requests.RequestException as e:

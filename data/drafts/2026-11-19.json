@@ -2,7 +2,7 @@
   "id": "2026-11-19-76283a",
   "date": "2026-11-19",
   "created_at": "2026-11-19T10:49:49+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "lead_gen",
   "topic": "The myth that spending hours on Google Maps leads to 'higher quality' prospects than a curated list.",
   "idea_id": null,
@@ -750,5 +750,19 @@
         "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8282, please reduce your message size and try again. Need more tokens? Upgrad"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6afeda4c216b31c6bc0f7f3b"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6afeda587c25de751c36a2a7 (due 2026-11-19T11:15:36.779Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2nwzpiujt2j"
+    }
   }
 }

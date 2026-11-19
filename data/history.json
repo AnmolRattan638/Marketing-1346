@@ -222,5 +222,12 @@
     "topic": "Do you know what your customers are actually typing into Google?",
     "hook_style": "question",
     "status": "published"
+  },
+  {
+    "date": "2026-11-19",
+    "service": "lead_gen",
+    "topic": "The myth that spending hours on Google Maps leads to 'higher quality' prospects than a curated list.",
+    "hook_style": "comparison",
+    "status": "published"
   }
 ]

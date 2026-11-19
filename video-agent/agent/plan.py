@@ -136,6 +136,20 @@ def tidy_plan(plan):
             sc.pop("footage_query")
         elif isinstance(q, str):
             sc["footage_query"] = q
+        g = sc.get("graphic")
+        if isinstance(g, dict) and not g.get("layout"):
+            # a graphic with no layout name at all is a slip, not a reason to fail the run: take the name from another key, else infer it from what the graphic carries
+            alt = next((str(g.get(k)).lower() for k in ("type", "template", "style", "kind", "name") if str(g.get(k)).lower() in ("title", "step", "strike", "punch")), None)
+            if alt:
+                g["layout"] = alt
+            elif isinstance(g.get("mock"), dict) and g["mock"].get("type"):
+                g["layout"] = "step"
+            elif g.get("items"):
+                g["layout"] = "strike"
+            elif str(g.get("heading") or "").strip():
+                g["layout"] = "title"
+            else:
+                sc.pop("graphic")                       # nothing to draw from: the scene falls back to footage
         if isinstance(sc.get("broll"), list):
             sc["broll"] = [cut(b, 60) for b in sc["broll"] if isinstance(b, str) and len(b.strip()) >= 3]
         # an effect or sound the vocabulary does not have (e.g. a "pop" sound listed under fx) is cosmetic: drop that one entry instead of failing the whole plan

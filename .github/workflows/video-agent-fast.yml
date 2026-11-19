@@ -20,6 +20,7 @@ jobs:
   make-video:
     defaults:
       run:
+        shell: bash          # the container's default is sh, which has no pipefail
         working-directory: video-agent
     runs-on: ubuntu-latest
     container:

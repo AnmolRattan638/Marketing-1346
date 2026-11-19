@@ -251,7 +251,7 @@ def render(car, focus, date, hook_path, style_id=None, fact=None):
             path = config.MEDIA / f"{date}-s{n}.jpg"
             diagrams.render_for(focus, date, path)
             rels.append(str(path.relative_to(config.ROOT)))
-            alts.append(f"Slide {n} of {total}: how {focus['name']} works. DM {focus['dm_keyword']} to enquire.")
+            alts.append(f"Slide {n} of {total}: how {focus['name']} works. Comment {focus['dm_keyword']} to get the checklist.")
             roles.append("diagram")
             record.append({"role": "diagram", "headline": f"How {focus['name']} works", "body": ""})
         n += 1

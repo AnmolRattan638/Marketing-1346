@@ -54,7 +54,7 @@ def _short(service, det):
 
 def steps(service):
     """The real process, in words that already exist in config/services.json (offers rule 2, audience, pay-after-approval). No price or payment wording."""
-    return [("DM " + service["dm_keyword"], "Send the word in a message"), ("Honest advice", "A reply on whether it fits your business"),
+    return [("Comment " + service["dm_keyword"], "Comment the word under the post"), ("Honest advice", "A reply on whether it fits your business"),
             ("Done online", "In English and Hindi/Hinglish"), ("You approve the work", "You review it and approve it")]
 
 
@@ -254,7 +254,7 @@ def render(service, path, brand=None, det=None, layout=None, palette=0):
     else:
         _checklist(d, f, service, pal, y0, y1, items)
 
-    label = "DM " + service["dm_keyword"]                           # the only thing at the bottom
+    label = "Comment " + service["dm_keyword"]                           # the only thing at the bottom
     fnt = f("ExtraBold", 40)
     pw = int(d.textlength(label, font=fnt)) + 120
     d.rounded_rectangle([W // 2 - pw // 2, H - 150, W // 2 + pw // 2, H - 62], radius=44, fill=INK)

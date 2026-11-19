@@ -81,10 +81,11 @@ def block(stage: str, focus: dict, date: str = "") -> str:
         f"AUDIENCE: {b['icp']}",
         f"POSITIONING: {b['positioning']} Voice: {b['voice']}",
         f"SERVICE IN FOCUS: {focus.get('name')}. It speaks ONLY about this service; do not drift to another service or promise what it does not do.",
-        f"ONE ASK: DM {c['keyword']} and say exactly what they get: {c['gets']}. The ask rides the last beat / last slide / last caption line only; the hook never carries a price, the brand, the keyword or an offer. Never another service's keyword.",
+        f"ONE ASK: say 'Comment {c['keyword']}' (a public comment, so it reaches more people) and that you will send what they get in their DM: {c['gets']}. The ask rides the last beat / last slide / last caption line only; the hook never carries a price, the brand, the keyword or an offer. Never another service's keyword.",
         "OFFERS ALLOWED: " + "; ".join(b["offers_allowed"]) + ". Nothing else free or discounted. Forbidden words: " + ", ".join(b["offers_forbidden"]) + ".",
         "CLAIMS: " + " ".join(b["claims_rules"]) + " Forbidden: " + ", ".join(b["claims_forbidden"]) + ".",
         f"FUNNEL: {b['funnel']['goal']} Beat roles: " + "; ".join(f"{k} = {v}" for k, v in b["funnel"]["beat_roles"].items()) + ".",
+        b.get("curiosity", ""),
         f"TODAY'S PILLAR: {pillar(date)} ({pil['job']}).",
         "NO AI TELLS: " + "; ".join(b["ai_tells_forbidden"]) + ". Fill every hook formula with a specific fact, number or scene.",
     ]
@@ -200,7 +201,9 @@ def script_problems(script: dict, focus: dict) -> list[str]:
         if b.get("beat") != "cta" and c["keyword"] and re.search(rf"\b{c['keyword']}\b", str(b.get("line") or ""), re.I) and re.search(r"\b(DM|comment|send|bhej|likho)\b", str(b.get("line") or ""), re.I):
             out.append(f"{name}: the ask belongs only in the cta beat")
     if beats and beats[-1].get("beat") == "cta" and c["keyword"] and not re.search(rf"\b{c['keyword']}\b", str(beats[-1].get("line") or ""), re.I):
-        out.append(f"cta: must ask for exactly one thing: the word {c['keyword']}, and say what they get ({c['gets']})")
+        out.append(f"cta: must ask for exactly one thing: 'Comment {c['keyword']}', and say what they get in the DM ({c['gets']})")
+    if beats and beats[-1].get("beat") == "cta" and not re.search(r"\bcomment\b", str(beats[-1].get("line") or ""), re.I):
+        out.append(f"cta: ask the viewer to comment the word {c['keyword']} (a public comment); the freebie arrives in their DM")
     full = re.sub(rf"\b{c['keyword'] or 'x'}\b", "", " ".join(str(b.get("line") or "") for b in beats), flags=re.I).lower()
     if c["terms"] and beats and not has_term(full, c["terms"]):
         fixbeat = next((b.get("beat") for b in beats if b.get("beat") == "fix"), None) or (beats[1].get("beat") if len(beats) > 1 else beats[0].get("beat"))
@@ -220,7 +223,7 @@ def caption_issues(text: str, focus: dict) -> list[str]:
     c = cta_for(focus)
     out = text_problems(body, focus, "caption") + text_problems(first, focus, "caption first line", hook=True)
     if c["keyword"] and not re.search(rf"\b{c['keyword']}\b", body):
-        out.append(f"caption: end with ONE soft ask: DM {c['keyword']} (the same keyword as the video and carousel)")
+        out.append(f"caption: end with ONE soft ask: Comment {c['keyword']} (the same keyword as the video and carousel)")
     return list(dict.fromkeys(out))
 
 
@@ -254,7 +257,7 @@ def alignment_problems(focus: dict, script: dict | None = None, caption: str = "
             if re.search(rf"\b{k}\b", txt):
                 out.append(f"{name} asks for {k} but this post's keyword is {kw}; all outputs must ask for {kw}")
         if kw and name in ("caption", "carousel") and not re.search(rf"\b{kw}\b", txt):
-            out.append(f"{name} does not carry the shared ask (DM {kw}) that the video script uses")
+            out.append(f"{name} does not carry the shared ask (Comment {kw}) that the video script uses")
         if c["terms"] and not has_term(re.sub(rf"\b{kw}\b", "", txt, flags=re.I), c["terms"]):
             out.append(f"{name} is off-service: it never mentions {focus.get('name')}")
         if focus.get("id") != "lead_gen":
@@ -272,7 +275,7 @@ def audit(script: dict, focus: dict, ask) -> list[str]:
     prompt = ("Check this short-video script against the MARKETING BRIEF. Flag ONLY clear failures: wrong audience for the brief's ICP; a promise of a result instead of a capability; "
               "an offer that is not in offers_allowed; a hook that sells (price, brand, keyword) instead of showing the owner's pain; a poke (beat 2) that only restates the problem instead of giving the first new specific answer (viewers leave by second 5); a thin script that is short because it says nothing; a CTA that asks for anything but the one keyword with what they get; "
               "copy that reads as AI (contrast reveals, negation lists, stock phrases). Each issue must give the exact fix. Return JSON {\"issues\": [\"beat: problem and fix\"]}, empty if it passes.\n"
-              f"BRIEF: {json.dumps({k: brief()[k] for k in ('icp', 'positioning', 'offers_allowed', 'claims_rules')}, ensure_ascii=False)}\nONE ASK FOR THIS POST: DM {cta_for(focus)['keyword']} to get {cta_for(focus)['gets']}\n"
+              f"BRIEF: {json.dumps({k: brief()[k] for k in ('icp', 'positioning', 'offers_allowed', 'claims_rules')}, ensure_ascii=False)}\nONE ASK FOR THIS POST: Comment {cta_for(focus)['keyword']} and receive {cta_for(focus)['gets']} in the DM\n"
               f"PACK GUIDANCE (copy editing and offers):\n{guide[:4000]}\nSCRIPT: {json.dumps(rows, ensure_ascii=False)}")
     try:
         res = llm.ask_json(ask, prompt, "You are a strict marketing editor. JSON only.")

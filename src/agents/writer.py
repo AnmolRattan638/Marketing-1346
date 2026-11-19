@@ -68,7 +68,7 @@ CAPTION FORMAT for instagram and bluesky (mandatory; it overrides any longer or 
 - Line 1 = the HOOK IN CAPITAL LETTERS, wrapped in **double asterisks**, 12 words max.
 - Then 2-3 short lines, 12 words max each, each starting with "→". Specific and concrete, plain words, no filler.
 - Wrap 2-4 KEY WORDS in **double asterisks** and write them in CAPITALS (6 bold spans in total at most; never bold hashtags). Do not write other whole sentences in capitals.
-- One soft DM line with the keyword bold, for example: DM **{focus.get('dm_keyword', 'HI')}** and tell me what you sell. Vary the wording.
+- One soft ask line with the keyword bold, for example: Comment **{focus.get('dm_keyword', 'HI')}** and I will send it to your DM. Vary the wording.
 LINKEDIN FORMAT (linkedin only; a LONG, plain-text explainer written like a developer talking to a business owner; it teaches, it does not sell):
 - 300-380 words, never fewer than 300. Plain text only: no ** markers, no bold or fancy letters, no arrows, bullets or numbered lists, no emoji, no hashtags, no lines or words in CAPITALS (the DM keyword and abbreviations such as SEO are the only exceptions). Complete, clear sentences a stranger understands on the first read.
 - Seven short paragraphs, a blank line between each, in this order:

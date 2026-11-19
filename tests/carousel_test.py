@@ -63,7 +63,7 @@ shutil.rmtree(config.DRAFTS); config.DRAFTS.mkdir()
 # ---- 3. validation: the order and counts are never negotiable
 norm = lambda s: ca.normalize(copy.deepcopy(s), bot)
 ok = norm(GOOD)
-assert ok[-1]["headline"] == "DM BOT", "the CTA headline always carries the real DM keyword"
+assert ok[-1]["headline"] == "Comment BOT", "the CTA headline always carries the real DM keyword"
 assert ca.validate(ok, bot, fl[0], None) == []
 def broken(mutate):
     s = norm(GOOD); mutate(s); return ca.validate(s, bot, fl[0], None)
@@ -109,9 +109,9 @@ llm.factcheck_model = checker
 G = lambda: copy.deepcopy(GOOD)
 replies[:] = [G()]; verdicts[:] = [{"ok": True, "issues": []}]
 car, why = ca.build(plan, bot, brand, "g", "2026-11-30")
-assert why is None and car["checked"] is True and len(car["slides"]) == 6 and car["slides"][-1]["headline"] == "DM BOT" and car["flavor"] in usable and car["fact_id"] is None
+assert why is None and car["checked"] is True and len(car["slides"]) == 6 and car["slides"][-1]["headline"] == "Comment BOT" and car["flavor"] in usable and car["fact_id"] is None
 q = prompts[-1]
-assert "STRICT ORDER" in q and "1 hook slide, then 1-2 problem slides, then 2-3 solution slides, then 1 cta slide" in q and "DM BOT" in q and json.dumps(brand["facts_rules"], ensure_ascii=False)[:60] in q
+assert "STRICT ORDER" in q and "1 hook slide, then 1-2 problem slides, then 2-3 solution slides, then 1 cta slide" in q and "Comment BOT" in q and json.dumps(brand["facts_rules"], ensure_ascii=False)[:60] in q
 
 bad = G(); bad[1]["body"] = "Only INR 999 today"                                            # a price: rejected before any fact-check, then repaired
 replies[:] = [bad, G()]; verdicts[:] = [{"ok": True, "issues": []}]; prompts.clear()
@@ -164,7 +164,7 @@ res = carousel.render(car6, bot, "2026-11-30", hook("2026-11-30"), style_id="gla
 assert res["roles"] == ["hook", "problem", "problem", "solution", "solution", "cta"] and res["bluesky"] == [0, 1, 3, 5] and len(res["paths"]) == len(res["alts"]) == 6
 for rel in res["paths"]:
     assert Image.open(ROOT / rel).size == (1080, 1350) and os.path.getsize(ROOT / rel) > 15000, rel
-assert res["alts"][1].startswith("Slide 2 of 6:") and res["slides"][-1]["headline"] == "DM BOT"
+assert res["alts"][1].startswith("Slide 2 of 6:") and res["slides"][-1]["headline"] == "Comment BOT"
 def count(path, rgb, tol=14):
     im = Image.open(path).convert("RGB")
     return sum(1 for px in im.getdata() if all(abs(px[i] - rgb[i]) <= tol for i in range(3)))
@@ -174,7 +174,7 @@ assert count(ROOT / res_plain["paths"][1], (255, 214, 10)) > 800 and count(ROOT 
 car7 = dict(car6, flavor="how-it-works", diagram=True)
 res7 = carousel.render(car7, bot, "2026-11-28", hook("2026-11-28"), style_id="glass-ui")
 assert res7["roles"] == ["hook", "problem", "problem", "solution", "solution", "diagram", "cta"] and res7["bluesky"] == [0, 1, 3, 6] and len(res7["paths"]) == 7
-assert res7["alts"][5].startswith("Slide 6 of 7:") and "DM BOT" in res7["alts"][5]
+assert res7["alts"][5].startswith("Slide 6 of 7:") and "Comment BOT" in res7["alts"][5]
 car5 = dict(car6, slides=norm([GOOD[0], GOOD[1], GOOD[3], GOOD[4], GOOD[5]]))
 res5 = carousel.render(car5, bot, "2026-11-27", hook("2026-11-27"), style_id="glass-ui")
 assert res5["roles"] == ["hook", "problem", "solution", "solution", "cta"] and res5["bluesky"] == [0, 1, 2, 4]

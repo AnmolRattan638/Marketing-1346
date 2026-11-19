@@ -54,7 +54,7 @@ llm.gemini = gemini_long_then_short
 out = writer.run(plan, focus, brand, "VOICE", "g")
 assert len(seen) == 2 and "FIX THIS" in seen[1] and "instagram caption has" in seen[1] and C.words(out["instagram"]) < 10, (len(seen), out["instagram"][:60])
 p = seen[0]
-assert "CAPTION FORMAT" in p and "CAPITAL" in p and "DM **ADS**" in p and "35-60 words" in p and "NO paragraphs" in p and "80-140" not in p
+assert "CAPTION FORMAT" in p and "CAPITAL" in p and "Comment **ADS**" in p and "35-60 words" in p and "NO paragraphs" in p and "80-140" not in p
 assert "**" in out["instagram"], "the writer keeps markers; bold is applied last, after fact-check"
 seen.clear(); llm.gemini = lambda prompt, system="", **k: seen.append(prompt) or json.dumps({"instagram": "**H** ok\n\nDM **ADS** likho.", "linkedin": "Clear sentence. " + "word " * 320, "bluesky": "**B**", "replies": []})
 writer.run(plan, focus, brand, "VOICE", "g", ig_mode="manual_reel")

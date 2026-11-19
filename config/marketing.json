@@ -10,14 +10,14 @@
     "freelancers and agencies spend hours searching for prospects by hand"
   ],
   "funnel": {
-    "goal": "earn a DM. One reel or carousel does one job: make the owner recognise their own problem, show how the fix works, then ask for ONE DM that names what they get.",
+    "goal": "earn a comment, then a DM. One reel or carousel does one job: give the owner something worth staying for (a surprising, useful fact), make them recognise their own situation, then ask for ONE public comment of the keyword; the freebie is sent to their DM.",
     "beat_roles": {
       "pain": "awareness: the owner's own moment",
       "poke": "awareness: why the obvious fix fails",
       "fix": "consideration: how it works, steps",
       "payoff": "consideration: what it means for the owner (verified fact only)",
       "recap": "loop back to the pain",
-      "cta": "decision: one DM keyword and exactly what they get"
+      "cta": "decision: 'Comment KEYWORD' and the one freebie they get in their DM"
     },
     "cta_only_on": "cta",
     "hook_beat_never_contains": "price, brand name, the DM keyword, an offer"
@@ -34,10 +34,11 @@
     },
     "offer": {
       "share": 10,
-      "job": "invite the DM directly; the only pillar that may say 'DM' in the hook area of a caption"
+      "job": "invite the comment directly; the only pillar that may say 'Comment' in the hook area of a caption"
     }
   },
   "offers_allowed": [
+    "a one-page checklist for the service, sent in the DM after the viewer comments the keyword (the files are in freebies/)",
     "pay after approval: the client pays only after approving the work",
     "a short DM conversation with honest advice on whether the service fits the business",
     "website posts only: a free quick look at a website with 3 things to fix"
@@ -90,7 +91,7 @@
   "ctas": {
     "website": {
       "keyword": "SITE",
-      "gets": "a free quick look at your website with 3 things to fix, or honest advice on whether you need one",
+      "gets": "a one-page checklist: 10 things a customer judges your website on, with an honest note on whether you need a new one",
       "terms": [
         "website",
         "site",
@@ -108,7 +109,7 @@
     },
     "chatbot": {
       "keyword": "BOT",
-      "gets": "how the setup would work for your business, step by step, and honest advice on whether it fits",
+      "gets": "a one-page checklist: the 10 questions a WhatsApp reply bot should answer for your business, so you can see if it fits",
       "terms": [
         "chatbot",
         "bot",
@@ -126,7 +127,7 @@
     },
     "animated_ads": {
       "keyword": "ADS",
-      "gets": "honest advice on what kind of short ad would suit your business",
+      "gets": "a one-page checklist: what a 20-second ad must show so a customer understands your business, in order",
       "terms": [
         "ad",
         "ads",
@@ -141,7 +142,7 @@
     },
     "lead_gen": {
       "keyword": "LEADS",
-      "gets": "how the daily lead sheet works and whether it suits what you sell",
+      "gets": "a one-page checklist: how to pick the 20 local businesses worth contacting first and what to say in the first message",
       "terms": [
         "lead",
         "leads",
@@ -156,7 +157,7 @@
     },
     "reel_scripts": {
       "keyword": "SCRIPT",
-      "gets": "honest advice on what to say on camera for your business",
+      "gets": "a one-page checklist: the 5 lines every business reel script needs, and a fill-in template",
       "terms": [
         "script",
         "reel",
@@ -170,7 +171,7 @@
     },
     "seo_blogs": {
       "keyword": "BLOG",
-      "gets": "honest advice on which questions your customers search for",
+      "gets": "a one-page checklist: 12 questions your customers type into Google, and how to turn each into a blog post",
       "terms": [
         "blog",
         "seo",
@@ -182,5 +183,6 @@
         "content"
       ]
     }
-  }
+  },
+  "curiosity": "CURIOSITY FIRST: every reel gives the viewer something they did not know and would repeat to a friend (a surprising fact, a feature most owners miss, a before/after, what customers silently judge). The hook opens a gap; each beat closes one piece and opens the next; the payoff delivers it. Only verified facts or capabilities; a real study is named only if it is on the fact sheet. Never a bare feature list, never a lecture."
 }

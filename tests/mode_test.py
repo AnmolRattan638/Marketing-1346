@@ -30,7 +30,7 @@ image.llm.gemma = lambda p, s="", **k: json.dumps({"style": "chat", "headline": 
     "highlight": ["reply?"], "sub": "No reply by morning.", "chat": [{"side": "left", "text": "Are you open tomorrow?", "time": "11:42 PM"}]}) if "JSON" in p else "a prompt"
 plan0 = {"topic": "t", "hooks": [{"text": "Your website is slow"}], "chosen_hook": 0}
 d0 = image.run(plan0, {"id": "chatbot", "name": "Chatbot"}, "2026-10-10")
-assert d0["engine"] == "designed_card" and d0["ai_generated"] is False and d0["spec"]["cta"] == 'DM "BOT"', d0
+assert d0["engine"] == "designed_card" and d0["ai_generated"] is False and d0["spec"]["cta"] == 'Comment "BOT"', d0
 assert b"trainedAlgorithmicMedia" not in (tmp / d0["path"]).read_bytes()
 from src.agents import cards
 def boom(*a, **k): raise RuntimeError("engine down")

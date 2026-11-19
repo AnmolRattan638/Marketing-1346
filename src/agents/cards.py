@@ -276,6 +276,6 @@ Return JSON: {{"style": "bold|chat", "headline": "...", "highlight": ["..."], "s
         spec["highlight"] = words[-1:]
     if spec.get("style") == "chat" and focus.get("id") != "chatbot":     # a chat mock-up reads as a chatbot ad: never on another service's post
         spec["style"], spec["chat"] = "bold", []
-    spec["cta"] = f'DM "{kw}"'
+    spec["cta"] = f'Comment "{kw}"'
     spec["tag"] = "FOR EVERY SMALL BUSINESS" if focus.get("id") != "lead_gen" else "FOR FREELANCERS & AGENCIES"
     return spec

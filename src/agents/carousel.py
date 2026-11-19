@@ -98,7 +98,7 @@ def normalize(slides, focus):
             out.append({"role": str(s.get("role", "")).strip().lower(), "headline": " ".join(str(s.get("headline", "")).split()), "body": " ".join(str(s.get("body", "")).split())})
     for s in out:
         if s["role"] == "cta":                               # the CTA slide always carries the real DM keyword
-            s["headline"] = f"DM {focus['dm_keyword']}"
+            s["headline"] = f"Comment {focus['dm_keyword']}"
     return out
 
 
@@ -166,7 +166,7 @@ STRICT ORDER, never change it: 1 hook slide, then 1-2 problem slides, then 2-3 s
 - hook: {taste['hook']}
 - problem: {taste['problem']}
 - solution: {taste['solution']}
-- cta: {taste['cta']} The cta headline is exactly: DM {focus['dm_keyword']}
+- cta: {taste['cta']} The cta headline is exactly: Comment {focus['dm_keyword']}
 {fact_block}{script_block(master) if master else web_block(evidence)}{marketingskills.block('carousel', focus, post_plan.get('date', ''))}
 Brand rules that always apply: {json.dumps(brand['facts_rules'], ensure_ascii=False)}
 Slide rules: each slide has "headline" (max {MAX_WORDS['headline']} words) and "body" (max {MAX_WORDS['body']} words; the hook body max {MAX_WORDS['hook_body']}). Plain words a busy owner understands. One idea per slide.

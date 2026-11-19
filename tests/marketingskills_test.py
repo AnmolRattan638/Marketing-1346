@@ -78,7 +78,7 @@ def test_alignment_across_outputs():
     bad = m.alignment_problems(BOT, script(), "Chatbot jawab. DM SITE likho.", slides)
     assert any("SITE" in p for p in bad) and any("shared ask" in p for p in bad)
     assert any("price" in p for p in m.alignment_problems(BOT, script(), cap + " INR 1,999", slides))
-    assert any("off-service" in p for p in m.alignment_problems(BOT, script(), "DM BOT. Kal subah milte hain", slides))
+    assert any("off-service" in p for p in m.alignment_problems(BOT, script(), "DM BOT. Kal cricket match dekhte hain", slides))
 
 
 def test_carousel_rules():
@@ -116,9 +116,25 @@ if __name__ == "__main__":
 from src.agents import scriptwriter as _sw
 _off = {"beats": [{"beat": "pain", "line": "Raat 11 baje dukaan band hai aur customer wapas gaya", "screen": "x y z"}, {"beat": "fix", "line": "Ek page banao jo sab dikhaye", "screen": "x"}, {"beat": "cta", "line": "Comment SITE likho.", "screen": "x"}]}
 _web = {**SV["website"]}
-_pr = m.script_problems({"beats": [{**b, "line": b["line"].replace("page", "pizza")} for b in _off["beats"]]}, _web)
+_pr = m.script_problems({"beats": [{"beat": "pain", "line": "Raat 11 baje chai thandi ho gayi", "screen": "x y z"}, {"beat": "fix", "line": "Ek pizza banao jo sabko pasand aaye", "screen": "x"}, {"beat": "cta", "line": "Comment SITE likho.", "screen": "x"}]}, _web)
 assert any(p.startswith("fix: the script never names") for p in _pr), _pr
 _per, _glob = _sw.by_beat(_pr, _off["beats"])
 assert "fix" in _per and not _glob
 assert m.script_problems({"beats": [{"beat": "pain", "line": "Raat 11 baje customer ne online dhundha", "screen": "x y z"}, {"beat": "cta", "line": "Comment SITE likho.", "screen": "x"}]}, _web) == []
 print("off-service per-beat ok")
+
+# ---- the 1000+ related words cover every service
+_t = json.load(open(ROOT / "config/service_terms.json"))["terms"]
+assert set(_t) == set(SV), "a word list for every service in services.json"
+assert sum(len(v) for v in _t.values()) >= 1000 and all(len(v) >= 150 for v in _t.values()), {k: len(v) for k, v in _t.items()}
+MUST = {"website": "website google mobile hosting domain contact form maps landing seo loading", "chatbot": "chatbot whatsapp reply faq enquiry bot automatic instant answer message", "animated_ads": "animated ad ads reel story promo festival video motion creative", "lead_gen": "lead prospect sheet outreach niche verified contacts email whatsapp", "reel_scripts": "script hook camera caption reel voiceover scene", "seo_blogs": "seo blog keyword ranking google article search"}
+for sid, words in MUST.items():
+    miss = [w for w in words.split() if not m.has_term(w, m.cta_for(SV[sid])["terms"])]
+    assert not miss, (sid, miss)
+# correct scripts about each service pass whatever words they pick; truly off-topic text still fails
+ok = {"website": "Customer ne Google pe dhundha, par aapka page nahi mila", "chatbot": "Raat ko message aaya aur reply nahi gaya", "animated_ads": "Ek chhota animated promo festival ke liye", "lead_gen": "Roz subah prospect ki fresh sheet milti hai", "reel_scripts": "Camera pe kya bolna hai, pehle hook likho", "seo_blogs": "Blog post Google ranking mein upar laata hai"}
+for sid, txt in ok.items():
+    assert m.has_term(txt, m.cta_for(SV[sid])["terms"]), sid
+assert not m.has_term("Kal cricket match dekhte hain", m.cta_for(BOT)["terms"])
+assert not m.has_term("yeh hain aise log", ["ai"]) and m.has_term("ek ai tool", ["ai"])
+print("vocabulary coverage ok")

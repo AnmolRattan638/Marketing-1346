@@ -56,10 +56,12 @@ def _call_groq(messages: list[dict], cfg: dict) -> str:
         for model in _models(cfg):
             body = {"model": model, "messages": messages, "temperature": 0.85, "max_tokens": 6000, "response_format": {"type": "json_object"}}
             if "gpt-oss" in model:
-                body["reasoning_effort"] = "low"      # thinking tokens count against max_tokens; low keeps the JSON answer from being cut off
+                # HIGH reasoning gives stronger decisions; thinking tokens count against the limit, so the limit is large and an empty answer is retried at low effort below
+                body["reasoning_effort"] = os.environ.get("GROQ_REASONING_EFFORT") or "high"
+                body["max_tokens"] = 16000
             for n, key in enumerate(keys, 1):
                 for attempt in (1, 2):
-                    r = requests.post(GROQ_CHAT_URL, headers={"Authorization": f"Bearer {key}"}, json=body, timeout=120)
+                    r = requests.post(GROQ_CHAT_URL, headers={"Authorization": f"Bearer {key}"}, json=body, timeout=240)
                     if r.status_code == 400 and attempt == 1 and "response_format" in body:
                         body.pop("response_format")       # this model rejects JSON mode: the prompt already asks for JSON only
                         continue
@@ -73,7 +75,14 @@ def _call_groq(messages: list[dict], cfg: dict) -> str:
                     log(f"groq model {model} unavailable ({r.status_code}), trying the next one")
                     break
                 r.raise_for_status()
-                return r.json()["choices"][0]["message"]["content"]
+                text = r.json()["choices"][0]["message"].get("content") or ""
+                if not text.strip() and body.get("reasoning_effort") not in (None, "low"):
+                    log(f"{model} used its whole budget thinking and answered nothing; asking again at low reasoning effort")
+                    low = {**body, "reasoning_effort": "low"}
+                    r2 = requests.post(GROQ_CHAT_URL, headers={"Authorization": f"Bearer {key}"}, json=low, timeout=240)
+                    r2.raise_for_status()
+                    text = r2.json()["choices"][0]["message"].get("content") or ""
+                return text
         if not limited or sweep == 2:
             break
         log("every Groq key is rate limited, waiting 30 s once")

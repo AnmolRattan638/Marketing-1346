@@ -114,9 +114,15 @@ def _chat(url, key, prompt, system, model, temperature, tries=3):
     provider, t0 = url.split("/")[2].replace("api.", ""), time.time()
     try:
         body = {"model": model, "messages": msgs, "temperature": temperature}
-        if provider == "groq.com" and "gpt-oss" in str(model):
-            body["reasoning_effort"] = "low"     # a long hidden reasoning pass can use up the reply and leave no JSON
-        d = _post(url, {"Authorization": f"Bearer {key}"}, body, tries=tries)
+        think = provider == "groq.com" and "gpt-oss" in str(model)
+        if think:
+            # HIGH reasoning for stronger decisions; a large limit leaves room for the answer after the thinking, and an empty answer is retried at low effort
+            body["reasoning_effort"] = os.environ.get("GROQ_REASONING_EFFORT") or "high"
+            body["max_completion_tokens"] = 16000
+        d = _post(url, {"Authorization": f"Bearer {key}"}, body, tries=tries, timeout=240 if think else 120)
+        if think and body["reasoning_effort"] != "low" and not (d["choices"][0]["message"].get("content") or "").strip():
+            print(f"[llm] {model} thought without answering; asking again at low reasoning effort")
+            d = _post(url, {"Authorization": f"Bearer {key}"}, {**body, "reasoning_effort": "low"}, tries=tries, timeout=240)
     except Exception as e:
         _fail(provider, model, e, t0)
         raise

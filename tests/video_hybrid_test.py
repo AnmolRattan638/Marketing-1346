@@ -206,6 +206,6 @@ def post(url, headers=None, json=None, timeout=None):
 os.environ["GROQ_API_KEY"] = "k"; os.environ.pop("GROQ_MODEL", None)
 with mock.patch.object(planmod.requests, "post", post):
     assert planmod._call_groq([{"role": "user", "content": "x"}], cfg) == "{}"
-assert seen == [("openai/gpt-oss-120b", True, "low"), ("llama-3.3-70b-versatile", True, None), ("llama-3.3-70b-versatile", False, None)], seen
+assert seen == [("openai/gpt-oss-120b", True, "high"), ("llama-3.3-70b-versatile", True, None), ("llama-3.3-70b-versatile", False, None)], seen
 assert cfg["planner"]["model"] == "openai/gpt-oss-120b"
 print("groq model fallback test passed")

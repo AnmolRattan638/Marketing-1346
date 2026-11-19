@@ -174,7 +174,7 @@ Never write: {BANNED_TEXT}{' (except a verified figure from the master script, w
 ("Imagine...", "Example"). Never say a person, company, study or report said something unless it is the FACT above.
 {notes}
 Return JSON: {{"slides": [{{"role": "hook|problem|solution|cta", "headline": "...", "body": "..."}}]}}"""
-    out = llm.ask_json(llm.gemini, prompt, SYS)
+    out = llm.ask_json(llm.primary, prompt, SYS)
     return normalize(out.get("slides") if isinstance(out, dict) else None, focus)
 
 

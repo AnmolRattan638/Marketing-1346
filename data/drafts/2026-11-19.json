@@ -1,0 +1,754 @@
+{
+  "id": "2026-11-19-76283a",
+  "date": "2026-11-19",
+  "created_at": "2026-11-19T10:49:49+00:00",
+  "status": "pending",
+  "service": "lead_gen",
+  "topic": "The myth that spending hours on Google Maps leads to 'higher quality' prospects than a curated list.",
+  "idea_id": null,
+  "problem_id": "manual-lead-searching-exhaustion",
+  "angle_type": "myth_bust",
+  "experiment": {
+    "mode": "exploit",
+    "variable": "angle_type",
+    "problem_id": "manual-lead-searching-exhaustion",
+    "angle_type": "myth_bust",
+    "hook_style": "comparison"
+  },
+  "hooks": [
+    {
+      "style": "comparison",
+      "text": "Google Maps scrolling vs. curated list: which wins your time?"
+    },
+    {
+      "style": "question",
+      "text": "Tired of losing billable hours hunting leads on Maps?"
+    },
+    {
+      "style": "myth",
+      "text": "Myth: More scrolling = better leads. Fact: Automation saves hours."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "comparison",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "Manual research on Google Maps is free but slow, suitable only for a few leads before becoming painful",
+        "figure": null,
+        "source": "leadx.dev",
+        "title": "How to Build a Local Business Lead List LeadX Blog",
+        "url": "https://leadx.dev/blog/how-to-build-local-business-lead-list",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "AI‑native tools can compress the time to build a local lead list from hours to minutes",
+        "figure": null,
+        "source": "leadx.dev",
+        "title": "How to Build a Local Business Lead List LeadX Blog",
+        "url": "https://leadx.dev/blog/how-to-build-local-business-lead-list",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "A strong lead list contains a few hundred highly relevant businesses, while a weak list may have thousands of random entries",
+        "figure": null,
+        "source": "leadx.dev",
+        "title": "How to Build a Local Business Lead List LeadX Blog",
+        "url": "https://leadx.dev/blog/how-to-build-local-business-lead-list",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Quality of a list beats quantity because outreach volume is cheap but attention is not",
+        "figure": null,
+        "source": "leadx.dev",
+        "title": "How to Build a Local Business Lead List LeadX Blog",
+        "url": "https://leadx.dev/blog/how-to-build-local-business-lead-list",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Phone numbers obtained from Google Maps have a 70% answer rate, compared with 30% for purchased email lists",
+        "figure": "70% answer rate vs 30%",
+        "source": "easymapleads.com",
+        "title": "Niche Specific Business Leads: Our 200k Monthly Data & Surprising Find",
+        "url": "https://easymapleads.com/articles/niche-specific-business-leads-our-200k-monthly-data-surprising-finds/",
+        "date": "2026-07-06",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "Calls to Google Maps phone numbers convert three times better than other cold‑contact methods",
+        "figure": "3x better conversion",
+        "source": "easymapleads.com",
+        "title": "Niche Specific Business Leads: Our 200k Monthly Data & Surprising Find",
+        "url": "https://easymapleads.com/articles/niche-specific-business-leads-our-200k-monthly-data-surprising-finds/",
+        "date": "2026-07-06",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Manual Google Maps lead generation fails because it often stops at name and phone number, leaving profiles incomplete for personalized outreach",
+        "figure": null,
+        "source": "notiq.io",
+        "title": "Google Maps lead generation with AI: turn Maps into a lead engine NotiQ",
+        "url": "https://notiq.io/blogs/google-maps-lead-generation-ai",
+        "date": "2025-12-03",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Using AI‑powered automation can turn Google Maps into a scalable lead engine, extracting thousands of leads with enrichment and verification",
+        "figure": null,
+        "source": "notiq.io",
+        "title": "Google Maps lead generation with AI: turn Maps into a lead engine NotiQ",
+        "url": "https://notiq.io/blogs/google-maps-lead-generation-ai",
+        "date": "2025-12-03",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "dropped": 0,
+    "topic": "The myth that spending hours on Google Maps leads to 'higher quality' prospects than a curated list."
+  },
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Aapka cafe har roz 20 customers lose karta hai?",
+    "hooks": [
+      {
+        "text": "Aapka cafe har roz 20 customers lose karta hai?",
+        "score": 14.4
+      },
+      {
+        "text": "Kya aapke salon ki bookings har din 15% kam hoti hain?",
+        "score": 14.4
+      },
+      {
+        "text": "Agar aapka gym har mahine 30 leads miss kar raha hai?",
+        "score": 14.4
+      },
+      {
+        "text": "Maan lo aapka dukan raat 11 baje WhatsApp ka reply nahi de paata.",
+        "score": 11.9
+      },
+      {
+        "text": "Ek choti kirana shop har hafte 5 potential customers lose karti hai.",
+        "score": 11.9
+      },
+      {
+        "text": "Google Maps pe manually business dhoondna hai, lekin ek ghante baad painful, kyunki aapka time reply mein ja raha.",
+        "score": 7.9
+      }
+    ],
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Aapka cafe har roz 20 customers lose karta hai?",
+        "screen": "Manual search painful",
+        "visual": "Phone screen showing Google Maps search, clock ticking, frustrated shop owner.",
+        "emotion": "empathetic",
+        "steps": [],
+        "facts": [
+          "f1"
+        ]
+      },
+      {
+        "beat": "poke",
+        "line": "AI tool se list minutes mein milti hai, ghanto ki mehnat nahi.",
+        "screen": "AI cuts time",
+        "visual": "Animated timer shrinking from hours to minutes, AI icon.",
+        "emotion": "curious",
+        "steps": [],
+        "facts": [
+          "f2"
+        ]
+      },
+      {
+        "beat": "fix",
+        "line": "Google Places se data lo, website note add karo, Excel sheet pao.",
+        "screen": "3 steps: fetch, note, sheet",
+        "visual": "Step‑by‑step graphic showing data extraction, note addition, Excel download.",
+        "emotion": "calm",
+        "steps": [
+          "Google Places se data lo",
+          "Website note add karo",
+          "Excel sheet pao"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "payoff",
+        "line": "Google Maps numbers ka 70% answer rate hai, cold call zyada kaam karegi.",
+        "screen": "70% answer rate",
+        "visual": "Bar chart comparing 70% vs 30% answer rates.",
+        "emotion": "excited",
+        "steps": [],
+        "facts": [
+          "f5"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Toh manual search ki ghante chhodo, reply mein time lagao.",
+        "screen": "Save hours now",
+        "visual": "Clock hands fast‑forward, owner smiling while replying on phone.",
+        "emotion": "warm",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "cta",
+        "line": "Daily lead sheet chahiye? DM LEADS, main setup bhejunga.",
+        "screen": "DM LEADS for sheet",
+        "visual": "Call‑to‑action text with DM icon, sample Excel preview.",
+        "emotion": "urgent",
+        "steps": [],
+        "facts": []
+      }
+    ],
+    "cta": "DM LEADS and get the daily pre‑qualified lead sheet setup details.",
+    "linkedin_english": "Manual Google Maps lead hunting wastes hours. AI tools can create a qualified lead list in minutes. I fetch data from Google Places, add website notes, and deliver a daily Excel sheet. Calls to these numbers have a 70% answer rate. DM LEADS for the setup.",
+    "marketing": {
+      "keyword": "LEADS",
+      "gets": "how the daily lead sheet works and whether it suits what you sell",
+      "pillar": "how_it_works"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Manual research on Google Maps is free but slow, suitable only for a few leads before becoming painful",
+        "figure": null,
+        "source": "leadx.dev",
+        "title": "How to Build a Local Business Lead List LeadX Blog",
+        "url": "https://leadx.dev/blog/how-to-build-local-business-lead-list",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "AI‑native tools can compress the time to build a local lead list from hours to minutes",
+        "figure": null,
+        "source": "leadx.dev",
+        "title": "How to Build a Local Business Lead List LeadX Blog",
+        "url": "https://leadx.dev/blog/how-to-build-local-business-lead-list",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "A strong lead list contains a few hundred highly relevant businesses, while a weak list may have thousands of random entries",
+        "figure": null,
+        "source": "leadx.dev",
+        "title": "How to Build a Local Business Lead List LeadX Blog",
+        "url": "https://leadx.dev/blog/how-to-build-local-business-lead-list",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Quality of a list beats quantity because outreach volume is cheap but attention is not",
+        "figure": null,
+        "source": "leadx.dev",
+        "title": "How to Build a Local Business Lead List LeadX Blog",
+        "url": "https://leadx.dev/blog/how-to-build-local-business-lead-list",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Phone numbers obtained from Google Maps have a 70% answer rate, compared with 30% for purchased email lists",
+        "figure": "70% answer rate vs 30%",
+        "source": "easymapleads.com",
+        "title": "Niche Specific Business Leads: Our 200k Monthly Data & Surprising Find",
+        "url": "https://easymapleads.com/articles/niche-specific-business-leads-our-200k-monthly-data-surprising-finds/",
+        "date": "2026-07-06",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "Calls to Google Maps phone numbers convert three times better than other cold‑contact methods",
+        "figure": "3x better conversion",
+        "source": "easymapleads.com",
+        "title": "Niche Specific Business Leads: Our 200k Monthly Data & Surprising Find",
+        "url": "https://easymapleads.com/articles/niche-specific-business-leads-our-200k-monthly-data-surprising-finds/",
+        "date": "2026-07-06",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Manual Google Maps lead generation fails because it often stops at name and phone number, leaving profiles incomplete for personalized outreach",
+        "figure": null,
+        "source": "notiq.io",
+        "title": "Google Maps lead generation with AI: turn Maps into a lead engine NotiQ",
+        "url": "https://notiq.io/blogs/google-maps-lead-generation-ai",
+        "date": "2025-12-03",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Using AI‑powered automation can turn Google Maps into a scalable lead engine, extracting thousands of leads with enrichment and verification",
+        "figure": null,
+        "source": "notiq.io",
+        "title": "Google Maps lead generation with AI: turn Maps into a lead engine NotiQ",
+        "url": "https://notiq.io/blogs/google-maps-lead-generation-ai",
+        "date": "2025-12-03",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "The myth that spending hours on Google Maps leads to 'higher quality' prospects than a curated list.",
+    "service": "lead_gen",
+    "keyword": "LEADS",
+    "notes": [
+      "style remark (not blocking): lines are bare statements; use helping words that give the reason or an example (kyunki, isliye, matlab, jaise ki, phir, taaki) so the viewer understands WHY",
+      "hook uses an invented number ['20'] (allowed for hooks, not a verified fact)"
+    ]
+  },
+  "script_style": "pain-poke-fix",
+  "posts": {
+    "instagram": "FREELANCERS AGENCIES: GOOGLE MAPS SEARCH MEIN GHANTE GAWAO YA DAILY SHEET?\n→ 𝗗𝗔𝗜𝗟𝗬 𝗦𝗛𝗘𝗘𝗧 se 𝗚𝗢𝗢𝗚𝗟𝗘 𝗣𝗟𝗔𝗖𝗘𝗦 leads milte hain subah\n→ NEWLY OPENED businesses bhi included hain\n→ PAY AFTER APPROVAL – sheet approve karo, phir payme\nDM 𝗟𝗘𝗔𝗗𝗦 aur batayein aap kya bechte hain.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+    "linkedin": "Freelancers and agencies lose hours each morning copying contact details from Google Maps instead of writing pitches.\n\nWhen you look for local clients you often open Google Places, copy a phone number, glance at a website, and paste the information into a spreadsheet. You repeat this for every prospect. By lunchtime the list is half‑finished and no outreach has begun. A café, a gym, or a clinic all appear the same way in search results, and gathering them one by one is slow.\n\nI offer a ready‑made daily lead sheet for anyone selling a service to local businesses. It is not a website, an ad campaign, or a sales funnel. It is an Excel file that contains businesses found through Google Places, their contact details, review counts, and a short note taken from their website. The sheet also flags newly opened businesses that appear in Google Places.\n\nThe process is simple. First you tell me what service you provide and the types of local businesses you want to target. I then pull the relevant data from Google Places, visit each website briefly, and add a concise comment about the business. When the sheet is ready you review it and request any changes. You pay only after you approve the work, so no money moves until you are satisfied.\n\nWith a completed sheet your morning starts with a list of qualified leads instead of a search bar. You can spend the time writing personalized pitches and sending messages rather than collecting names and numbers. The sheet makes the early part of outreach easier, but it does not write your pitch for you and it does not guarantee any specific result.\n\nThe lead sheet works for any service—marketing, accounting, coaching, or any other offering—to any local business across India. It is a starting point, not a complete sales system, and it leaves the conversation and relationship building entirely in your hands.\n\nIf you think this could fit your workflow, feel free to reach out. DM LEADS",
+    "bluesky": "Manual Google Maps searching eats billable hours. A daily sheet of local businesses from Google Places can make it easier. DM LEADS to ask if it fits whatever you sell. #FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia"
+  },
+  "replies": [
+    {
+      "if_they_say": "How much?",
+      "reply": "I do not quote a price until I know what you want customers to do. For the daily lead sheet, I can explain how it works and whether it fits whatever you sell. Want to continue on WhatsApp, or shall I send details here? Payment is only after you approve the work."
+    },
+    {
+      "if_they_say": "Do you do this for my kind of business?",
+      "reply": "The sheet works for any freelancer or agency selling to local businesses, whatever the service. What do you offer, and which local businesses do you want to reach?"
+    },
+    {
+      "if_they_say": "I'll think about it",
+      "reply": "Of course. I can send a short summary of what is in the sheet and how it works. Is the hesitation budget, timing, or whether it will actually help you find clients?"
+    }
+  ],
+  "image": {
+    "prompt": "a matte‑black laptop with a softly glowing cyan screen sits in the upper two‑thirds of the frame, eye‑level view slightly tilted down, the sleek brushed‑metal chassis reflecting a faint rim of warm amber from a desk lamp on the right; the lower 40% is a calm, uncluttered wood surface bathed in soft shadow, ready for headline overlay. the key light is a warm tungsten lamp casting a gentle pool of light onto the keyboard, while a cool cyan rim outlines the laptop’s edges, creating subtle contrast. in the foreground a minimalist ceramic mug rests beside a thin notebook, the midground shows a faint outline of an Indian map pin silhouette etched into the wood, and the background fades into a deep navy void. colour palette: deep navy, crisp white, cyan accent, warm amber mood: focused, relieved, efficient. captured with an 85mm lens at f/1.8, shallow depth of field isolates the laptop, revealing brushed metal texture, glass screen reflections, and fine dust particles catching the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-19.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "manual-lead-searching-exhaustion",
+      "angle_type": "myth_bust",
+      "style": "bold",
+      "headline": "Google Maps scrolling vs. curated lists: which wins?",
+      "highlight": [
+        "which wins"
+      ],
+      "sub": "Curated lists can reduce the time spent searching manually.",
+      "cta": "DM \"LEADS\"",
+      "tag": "FOR FREELANCERS & AGENCIES"
+    },
+    "errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ],
+    "style_id": "network"
+  },
+  "carousel": null,
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [],
+    "revised": {
+      "instagram": "**FREELANCERS AGENCIES: GOOGLE MAPS SEARCH MEIN GHANTE GAWAO YA DAILY SHEET?\n→ **DAILY SHEET** se **GOOGLE PLACES** leads milte hain subah\n→ NEWLY OPENED businesses bhi included hain\n→ PAY AFTER APPROVAL – sheet approve karo, phir payme\nDM **LEADS** aur batayein aap kya bechte hain.\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+      "linkedin": "Freelancers and agencies lose hours each morning copying contact details from Google Maps instead of writing pitches.\n\nWhen you look for local clients you often open Google Places, copy a phone number, glance at a website, and paste the information into a spreadsheet. You repeat this for every prospect. By lunchtime the list is half‑finished and no outreach has begun. A café, a gym, or a clinic all appear the same way in search results, and gathering them one by one is slow.\n\nI offer a ready‑made daily lead sheet for anyone selling a service to local businesses. It is not a website, an ad campaign, or a sales funnel. It is an Excel file that contains businesses found through Google Places, their contact details, review counts, and a short note taken from their website. The sheet also flags newly opened businesses that appear in Google Places.\n\nThe process is simple. First you tell me what service you provide and the types of local businesses you want to target. I then pull the relevant data from Google Places, visit each website briefly, and add a concise comment about the business. When the sheet is ready you review it and request any changes. You pay only after you approve the work, so no money moves until you are satisfied.\n\nWith a completed sheet your morning starts with a list of qualified leads instead of a search bar. You can spend the time writing personalized pitches and sending messages rather than collecting names and numbers. The sheet makes the early part of outreach easier, but it does not write your pitch for you and it does not guarantee any specific result.\n\nThe lead sheet works for any service—marketing, accounting, coaching, or any other offering—to any local business across India. It is a starting point, not a complete sales system, and it leaves the conversation and relationship building entirely in your hands.\n\nIf you think this could fit your workflow, feel free to reach out. DM LEADS",
+      "bluesky": "Manual Google Maps searching eats billable hours. A daily sheet of local businesses from Google Places can make it easier. DM LEADS to ask if it fits whatever you sell. #FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia"
+    }
+  },
+  "sources": [
+    {
+      "title": "Sanctoo Suites & Villas",
+      "url": "https://tavily.com/knowledge/company/FkHLBuabGXcS",
+      "domain": "tavily.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "How to Build a Local Business Lead List LeadX Blog",
+      "url": "https://leadx.dev/blog/how-to-build-local-business-lead-list",
+      "domain": "leadx.dev",
+      "date": "2026-04-15",
+      "provider": "exa"
+    },
+    {
+      "title": "Agriculture / Weights & Measures Department of Agriculture, Weights & Measures",
+      "url": "https://sonomacounty.gov/natural-resources/agriculture-weights-and-measures",
+      "domain": "sonomacounty.gov",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Google Maps lead generation with AI: turn Maps into a lead engine NotiQ",
+      "url": "https://notiq.io/blogs/google-maps-lead-generation-ai",
+      "domain": "notiq.io",
+      "date": "2025-12-03",
+      "provider": "exa"
+    },
+    {
+      "title": "City of Charlotte, NC",
+      "url": "https://www.charlottenc.gov/Home",
+      "domain": "charlottenc.gov",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Small Business Lead Generation: A Practical Playbook for 2026 — Outsoci",
+      "url": "https://www.outsoci.com/blog/lead-generation-for-small-business",
+      "domain": "outsoci.com",
+      "date": "2026-07-16",
+      "provider": "exa"
+    },
+    {
+      "title": "Niche Specific Business Leads: Our 200k Monthly Data & Surprising Find",
+      "url": "https://easymapleads.com/articles/niche-specific-business-leads-our-200k-monthly-data-surprising-finds/",
+      "domain": "easymapleads.com",
+      "date": "2026-07-06",
+      "provider": "exa"
+    },
+    {
+      "title": "All FPPC Forms FPPC",
+      "url": "https://www.fppc.ca.gov/forms",
+      "domain": "fppc.ca.gov",
+      "date": "",
+      "provider": "tavily"
+    }
+  ],
+  "ad_score": 3,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 309.0,
+        "reach_p50": 607.0,
+        "reach_p90": 1314.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'Language & Cultural Sensitivity', 'severity': 'medium', 'description': 'The content mixes English with Hin",
+          "{'category': 'Gender', 'severity': 'low', 'description': 'No explicit gender references are made, but the informal tone ",
+          "{'category': 'Age', 'severity': 'low', 'description': 'The use of slang and informal language targets a younger, tech‑sa"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 3.0,
+          "educational": 2.0,
+          "novelty": 3.0,
+          "controversy": 1.0,
+          "emotional_intensity": 2.0,
+          "relatability": 3.0,
+          "practical_value": 5.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 365,
+            "share": 2,
+            "like": 1
+          },
+          "engagement_rate": 0.0082,
+          "by_role": {
+            "public": {
+              "n": 3,
+              "avg_sentiment": 0.77,
+              "share_rate": 0.667
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 9,
+          "reach_fraction": 0.0135,
+          "r_effective": 0.4667,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.4
+          },
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 3.1
+          },
+          {
+            "title": "Add something actionable",
+            "lift_pct": 3.1
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 429.0,
+        "reach_p50": 844.0,
+        "reach_p90": 1813.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'Geographic/Cultural Sensitivity', 'severity': 'low', 'description': 'The copy states the service works for",
+          "{'category': 'Privacy/Data Ethics', 'severity': 'medium', 'description': \"Collecting and distributing contact details fr",
+          "{'category': 'Tone‑deafness / Workload Assumptions', 'severity': 'low', 'description': 'The narrative assumes that freel"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 4.0,
+          "educational": 5.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 5.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Hype or guarantee words",
+            "impact": "medium"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 354,
+            "share": 2,
+            "reply": 2,
+            "like": 2
+          },
+          "engagement_rate": 0.0167,
+          "by_role": {
+            "public": {
+              "n": 6,
+              "avg_sentiment": 0.747,
+              "share_rate": 0.333
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 209.0,
+        "reach_p50": 436.0,
+        "reach_p90": 931.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'Gender', 'severity': 'low', 'description': 'The content uses the term \"FreelanceIndia\" and \"Freelancers\" w",
+          "{'category': 'Race', 'severity': 'low', 'description': 'No references to race or ethnicity are present. No racial bias d",
+          "{'category': 'Age', 'severity': 'low', 'description': 'The language does not target or exclude any specific age group. N"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 3.0,
+          "educational": 5.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 4.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 373,
+            "share": 2,
+            "like": 2
+          },
+          "engagement_rate": 0.0106,
+          "by_role": {
+            "public": {
+              "n": 4,
+              "avg_sentiment": 0.705,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 9,
+          "reach_fraction": 0.0135,
+          "r_effective": 0.4667,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "question",
+          "p_beats_chosen": 0.5,
+          "lift_pct": 0.0,
+          "decisive": false
+        },
+        {
+          "hook": 2,
+          "style": "myth",
+          "p_beats_chosen": 0.13,
+          "lift_pct": -0.9,
+          "decisive": true
+        }
+      ],
+      "better": null,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "Instagram: Sharpen hook to 'FREELANCERS AGENCIES: GOOGLE MAPS SEARCH MEIN GHANTE GAWAO YA DAILY SHEET SE BACHAO?'; add -> line '→ NEWLY OPENED businesses bhi included hain'; add -> line '→ PAY AFTER APPROVAL – sheet approve karo, phir payme",
+      "LinkedIn: Replace 'waste their mornings' with 'spend their mornings'; add sentence 'The sheet includes newly opened businesses from Google Places.' after sheet description.",
+      "Bluesky: Append the 5 hashtags #FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia at end."
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 0.0
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 0.0
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 429)",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 413)",
+      "FAILED groq: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free"
+    ],
+    "failures": [
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5846, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6485, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.1,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8077, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7551, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.1,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8282, please reduce your message size and try again. Need more tokens? Upgrad"
+      }
+    ]
+  }
+}

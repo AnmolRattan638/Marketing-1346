@@ -137,8 +137,8 @@ def tidy_plan(plan):
         elif isinstance(q, str):
             sc["footage_query"] = q
         g = sc.get("graphic")
-        if isinstance(g, dict) and g.get("layout") not in ("title", "step", "strike", "punch"):
-            # a graphic without a usable layout name is a slip, not a reason to fail the run: take the name from another key, else infer it from what the graphic carries
+        if isinstance(g, dict) and not g.get("layout"):
+            # a graphic with no layout name at all is a slip, not a reason to fail the run: take the name from another key, else infer it from what the graphic carries
             alt = next((str(g.get(k)).lower() for k in ("type", "template", "style", "kind", "name") if str(g.get(k)).lower() in ("title", "step", "strike", "punch")), None)
             if alt:
                 g["layout"] = alt

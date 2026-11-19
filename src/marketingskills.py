@@ -33,6 +33,16 @@ def brief() -> dict:
     return _cache["b"]
 
 
+def service_terms(service_id: str) -> list[str]:
+    """The ~200 related words of one service (config/service_terms.json, ~1200 in all): a post that uses any of them is about that service."""
+    if "t" not in _cache:
+        try:
+            _cache["t"] = json.loads((ROOT / "config" / "service_terms.json").read_text(encoding="utf-8")).get("terms", {})
+        except Exception:
+            _cache["t"] = {}
+    return list(_cache["t"].get(service_id, []))
+
+
 def cta_for(focus: dict) -> dict:
     """{'keyword','gets','terms'} for the service in focus; the keyword always comes from services.json (the real DM keyword)."""
     c = dict(brief()["ctas"].get(focus.get("id") or "", {}))
@@ -40,7 +50,7 @@ def cta_for(focus: dict) -> dict:
         c["keyword"] = focus["dm_keyword"]
     c.setdefault("keyword", "")
     c.setdefault("gets", "honest advice on whether it fits your business")
-    c.setdefault("terms", [])
+    c["terms"] = list(dict.fromkeys(list(c.get("terms") or []) + service_terms(focus.get("id") or "")))
     return c
 
 
@@ -118,7 +128,16 @@ def _prices_ok(focus):
 
 def has_term(text: str, terms) -> bool:
     """True if any service term appears as a word (or word start): 'ai' must not match inside 'hain'."""
-    return bool(re.search(r"\b(" + "|".join(re.escape(t) for t in terms) + r")", str(text).lower())) if terms else True
+    if not terms:
+        return True
+    short = [t for t in terms if len(t) <= 3]
+    long_ = [t for t in terms if len(t) > 3]
+    rx = []
+    if long_:
+        rx.append(r"\b(?:" + "|".join(re.escape(t) for t in long_) + r")")
+    if short:
+        rx.append(r"\b(?:" + "|".join(re.escape(t) for t in short) + r")\b")
+    return bool(re.search("|".join(rx), str(text).lower()))
 
 
 def other_keywords(focus):

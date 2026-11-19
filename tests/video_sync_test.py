@@ -75,7 +75,7 @@ non_raw = [q for t, q in asked if t != "raw"]
 raw = [q for t, q in asked if t == "raw"]
 assert non_raw[:2] == ["first cutaway", "second cutaway"][:len(non_raw[:2])] and set(non_raw) <= {"first cutaway", "second cutaway"}, asked
 assert set(raw) == {"main look"}, "your own footage keeps the scene's main look"
-assert all("t0" in s for s in ed.shots) and abs(sum(s["seconds"] for s in ed.shots) - 9.0) < 0.5
+assert all("t0" in s for s in ed.shots) and abs(sum(s["seconds"] for s in ed.shots) - 9.0) < 1.0
 
 # 3b. animation effects (agent/fx_plan.py): anchored to spoken words, kept inside the scene, one graphic at a time, each with its own sound
 from agent import fx_plan

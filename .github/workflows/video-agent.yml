@@ -21,7 +21,7 @@ jobs:
       run:
         working-directory: video-agent
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60   # the apt step alone took 14 min on 19 Nov; the reel itself is capped at 38 min below
     steps:
       - uses: actions/checkout@v4
 
@@ -75,7 +75,7 @@ jobs:
           if [ -z "$(ls assets/sfx/*.mp3 2>/dev/null)" ]; then bash scripts/make_sfx.sh; fi
 
       - name: Make video
-        timeout-minutes: 38       # below the job's 45 so the alert step below still runs
+        timeout-minutes: 38       # below the job's 60 so the alert step below still runs
         env:
           PYTHONUNBUFFERED: "1"   # progress lines reach the log live (buffered output was lost when a run was cancelled)
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}

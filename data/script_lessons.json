@@ -8,7 +8,7 @@
   "rule": "Promises an absolute result ('koi bhi enquiry miss nahi hoti') instead of describing capability. Fix: Replace 'aur koi bhi enquiry"
  },
  "other:must say what the viewer gets (how the s": {
-  "count": 8,
+  "count": 10,
   "rule": "must say what the viewer gets (how the setup works step by step, or honest advice on whether it fits; never a demo or sample)"
  },
  "ask-early": {
@@ -48,11 +48,11 @@
   "rule": "Name a concrete moment or thing (11 pm message, unanswered enquiry) in pain and poke."
  },
  "connectors": {
-  "count": 3,
+  "count": 6,
   "rule": "Use helping words (kyunki, isliye, jaise ki, phir) so each line gives its reason."
  },
  "words": {
-  "count": 1,
+  "count": 9,
   "rule": "Keep each beat inside its word range, in full spoken sentences."
  },
  "screen": {
@@ -74,5 +74,9 @@
  "other:CTA asks for keyword BLOG but offers set": {
   "count": 1,
   "rule": "CTA asks for keyword BLOG but offers setup step-by-step explanation instead of the one ask (honest advice on which questions your "
+ },
+ "other:script is only N words (min N); the reel": {
+  "count": 2,
+  "rule": "script is only N words (min N); the reel is too thin, add one concrete detail and its reason"
  }
 }

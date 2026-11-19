@@ -1,0 +1,196 @@
+{
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Aapka cafe har roz 20 customers lose karta hai?",
+    "hooks": [
+      {
+        "text": "Aapka cafe har roz 20 customers lose karta hai?",
+        "score": 14.4
+      },
+      {
+        "text": "Kya aapke salon ki bookings har din 15% kam hoti hain?",
+        "score": 14.4
+      },
+      {
+        "text": "Agar aapka gym har mahine 30 leads miss kar raha hai?",
+        "score": 14.4
+      },
+      {
+        "text": "Maan lo aapka dukan raat 11 baje WhatsApp ka reply nahi de paata.",
+        "score": 11.9
+      },
+      {
+        "text": "Ek choti kirana shop har hafte 5 potential customers lose karti hai.",
+        "score": 11.9
+      },
+      {
+        "text": "Google Maps pe manually business dhoondna hai, lekin ek ghante baad painful, kyunki aapka time reply mein ja raha.",
+        "score": 7.9
+      }
+    ],
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Aapka cafe har roz 20 customers lose karta hai?",
+        "screen": "Manual search painful",
+        "visual": "Phone screen showing Google Maps search, clock ticking, frustrated shop owner.",
+        "emotion": "empathetic",
+        "steps": [],
+        "facts": [
+          "f1"
+        ]
+      },
+      {
+        "beat": "poke",
+        "line": "AI tool se list minutes mein milti hai, ghanto ki mehnat nahi.",
+        "screen": "AI cuts time",
+        "visual": "Animated timer shrinking from hours to minutes, AI icon.",
+        "emotion": "curious",
+        "steps": [],
+        "facts": [
+          "f2"
+        ]
+      },
+      {
+        "beat": "fix",
+        "line": "Google Places se data lo, website note add karo, Excel sheet pao.",
+        "screen": "3 steps: fetch, note, sheet",
+        "visual": "Step‑by‑step graphic showing data extraction, note addition, Excel download.",
+        "emotion": "calm",
+        "steps": [
+          "Google Places se data lo",
+          "Website note add karo",
+          "Excel sheet pao"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "payoff",
+        "line": "Google Maps numbers ka 70% answer rate hai, cold call zyada kaam karegi.",
+        "screen": "70% answer rate",
+        "visual": "Bar chart comparing 70% vs 30% answer rates.",
+        "emotion": "excited",
+        "steps": [],
+        "facts": [
+          "f5"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Toh manual search ki ghante chhodo, reply mein time lagao.",
+        "screen": "Save hours now",
+        "visual": "Clock hands fast‑forward, owner smiling while replying on phone.",
+        "emotion": "warm",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "cta",
+        "line": "Daily lead sheet chahiye? DM LEADS, main setup bhejunga.",
+        "screen": "DM LEADS for sheet",
+        "visual": "Call‑to‑action text with DM icon, sample Excel preview.",
+        "emotion": "urgent",
+        "steps": [],
+        "facts": []
+      }
+    ],
+    "cta": "DM LEADS and get the daily pre‑qualified lead sheet setup details.",
+    "linkedin_english": "Manual Google Maps lead hunting wastes hours. AI tools can create a qualified lead list in minutes. I fetch data from Google Places, add website notes, and deliver a daily Excel sheet. Calls to these numbers have a 70% answer rate. DM LEADS for the setup.",
+    "marketing": {
+      "keyword": "LEADS",
+      "gets": "how the daily lead sheet works and whether it suits what you sell",
+      "pillar": "how_it_works"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Manual research on Google Maps is free but slow, suitable only for a few leads before becoming painful",
+        "figure": null,
+        "source": "leadx.dev",
+        "title": "How to Build a Local Business Lead List LeadX Blog",
+        "url": "https://leadx.dev/blog/how-to-build-local-business-lead-list",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "AI‑native tools can compress the time to build a local lead list from hours to minutes",
+        "figure": null,
+        "source": "leadx.dev",
+        "title": "How to Build a Local Business Lead List LeadX Blog",
+        "url": "https://leadx.dev/blog/how-to-build-local-business-lead-list",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "A strong lead list contains a few hundred highly relevant businesses, while a weak list may have thousands of random entries",
+        "figure": null,
+        "source": "leadx.dev",
+        "title": "How to Build a Local Business Lead List LeadX Blog",
+        "url": "https://leadx.dev/blog/how-to-build-local-business-lead-list",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Quality of a list beats quantity because outreach volume is cheap but attention is not",
+        "figure": null,
+        "source": "leadx.dev",
+        "title": "How to Build a Local Business Lead List LeadX Blog",
+        "url": "https://leadx.dev/blog/how-to-build-local-business-lead-list",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Phone numbers obtained from Google Maps have a 70% answer rate, compared with 30% for purchased email lists",
+        "figure": "70% answer rate vs 30%",
+        "source": "easymapleads.com",
+        "title": "Niche Specific Business Leads: Our 200k Monthly Data & Surprising Find",
+        "url": "https://easymapleads.com/articles/niche-specific-business-leads-our-200k-monthly-data-surprising-finds/",
+        "date": "2026-07-06",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "Calls to Google Maps phone numbers convert three times better than other cold‑contact methods",
+        "figure": "3x better conversion",
+        "source": "easymapleads.com",
+        "title": "Niche Specific Business Leads: Our 200k Monthly Data & Surprising Find",
+        "url": "https://easymapleads.com/articles/niche-specific-business-leads-our-200k-monthly-data-surprising-finds/",
+        "date": "2026-07-06",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Manual Google Maps lead generation fails because it often stops at name and phone number, leaving profiles incomplete for personalized outreach",
+        "figure": null,
+        "source": "notiq.io",
+        "title": "Google Maps lead generation with AI: turn Maps into a lead engine NotiQ",
+        "url": "https://notiq.io/blogs/google-maps-lead-generation-ai",
+        "date": "2025-12-03",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Using AI‑powered automation can turn Google Maps into a scalable lead engine, extracting thousands of leads with enrichment and verification",
+        "figure": null,
+        "source": "notiq.io",
+        "title": "Google Maps lead generation with AI: turn Maps into a lead engine NotiQ",
+        "url": "https://notiq.io/blogs/google-maps-lead-generation-ai",
+        "date": "2025-12-03",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "The myth that spending hours on Google Maps leads to 'higher quality' prospects than a curated list.",
+    "service": "lead_gen",
+    "keyword": "LEADS",
+    "notes": [
+      "style remark (not blocking): lines are bare statements; use helping words that give the reason or an example (kyunki, isliye, matlab, jaise ki, phir, taaki) so the viewer understands WHY",
+      "hook uses an invented number ['20'] (allowed for hooks, not a verified fact)"
+    ]
+  },
+  "service": "lead_gen"
+}

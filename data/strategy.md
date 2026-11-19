@@ -1,4 +1,8 @@
-- Rotate hook styles: lead with **mistake** angle (1.38x, n=8) paired with **question** hook (1.75x, n=6); avoid overusing comparison/contrast (contrast earns 23% of top3).
-- Drop animated_ads topics — lowest service multiplier (1.21x) and "production crew cost" post got 0 engagement.
-- Keep carousel use minimal (earns 43% of image per reach); prefer single image in bright-desk style (1.38x, n=5).
-- Every post must read like a developer sharing real work, never an ad; no demos, guarantees, or niche targeting.
+- Use question hook for today's lead gen post (highest performer at 1.75x)
+- Avoid comparison hooks (used 4 of last 6 posts)
+- Target freelancers/agencies/anyone selling services — not web developers
+- Describe sheet generally: Google Places data, contacts, reviews, website checks, new openings
+- Use silhouette or desk-glow image style (both 1.5x)
+- Include only 'pay after approval' offer + DM conversation
+- Soft language: 'can reduce', 'helps', 'makes it easier'
+- Hashtags: #FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia

@@ -75,7 +75,9 @@ jobs:
           if [ -z "$(ls assets/sfx/*.mp3 2>/dev/null)" ]; then bash scripts/make_sfx.sh; fi
 
       - name: Make video
+        timeout-minutes: 38       # below the job's 45 so the alert step below still runs
         env:
+          PYTHONUNBUFFERED: "1"   # progress lines reach the log live (buffered output was lost when a run was cancelled)
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -100,11 +102,24 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TOPIC: ${{ github.event.inputs.topic }}
         run: |
+          set -o pipefail
+          export RUN_DEADLINE_EPOCH=$(( $(date +%s) + 32*60 ))     # model calls stop after 32 minutes, leaving time to render and report
           if [ "${{ github.event.inputs.offline }}" = "true" ]; then
-            python -m agent.run --offline
+            python -m agent.run --offline 2>&1 | tee "$RUNNER_TEMP/reel.log"
           else
-            python -m agent.run
+            python -m agent.run 2>&1 | tee "$RUNNER_TEMP/reel.log"
           fi
+
+      - name: Tell me on Telegram when the reel did not finish
+        if: failure() || cancelled()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          tail_log=$(grep -v "DeprecationWarning\|trace-deprecation" "$RUNNER_TEMP/reel.log" 2>/dev/null | tail -8 | cut -c1-300)
+          msg=$(printf "Today's reel did NOT finish (failed or ran out of time). Nothing was posted.\nLast lines:\n%s\n%s" "${tail_log:-no log lines}" "$RUN_URL")
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" -d chat_id="$TELEGRAM_CHAT_ID" --data-urlencode text="$msg" > /dev/null || true
 
       - uses: actions/upload-artifact@v4
         if: always()

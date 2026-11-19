@@ -79,7 +79,10 @@ jobs:
         id: gen
         env:
           GITHUB_TOKEN: ${{ github.token }}      # lets the script start the reel in parallel as soon as the master script is ready
-        run: python -m src.run_daily ${{ inputs.force && '--force' || '' }}
+          PYTHONUNBUFFERED: "1"                  # live log lines
+        run: |
+          export RUN_DEADLINE_EPOCH=$(( $(date +%s) + 50*60 ))   # model calls stop after 50 minutes: slow providers can no longer hold the draft back for hours
+          python -m src.run_daily ${{ inputs.force && '--force' || '' }}
 
       - name: Save draft (image links need it in the repo)
         if: always()

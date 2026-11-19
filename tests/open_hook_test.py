@@ -1,0 +1,22 @@
+import pathlib, sys, tempfile
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+from src import scriptlessons as SL
+SL.STATE = pathlib.Path(tempfile.mkdtemp()) / "l.json"
+from src.agents import scriptwriter as sw
+from src import marketingskills as ms
+# hedged hype passes, unhedged still flagged
+assert not sw.GENERIC.search("Ye chatbot aapke business ke liye game changer ban sakta hai")
+assert sw.GENERIC.search("Ye chatbot game changer banega")
+assert not ms.STOCK.search("ye game changer ban sakta hai") and ms.STOCK.search("ye game changer banega")
+sheet = {"facts": [{"id": "f1", "claim": "53% of visits are abandoned if a page takes over 3 seconds", "figure": "53%"}], "keyword": "SITE"}
+focus = {"name": "Website"}
+style = {"id": "x", "beats": ["pain", "payoff"]}
+def sc(hook, body): return {"beats": [{"beat": "pain", "line": hook, "facts": []}, {"beat": "payoff", "line": body, "facts": ["f1"]}]}
+hook_bad = [x for x in sw.problems(sc("73 percent dukaan wale raat ko customer kho dete hain 87 baar", "Dhyan rakho 53% log slow page chhod dete hain kyunki 3 second bahut hote hain"), sheet, style, focus) if "not backed" in x]
+assert not hook_bad, hook_bad                          # invented hook number is allowed
+body_bad = [x for x in sw.problems(sc("Raat ko message aaya", "Dhyan rakho 91% log slow page chhod dete hain kyunki 3 second bahut hote hain"), sheet, style, focus) if "not backed" in x]
+assert body_bad and body_bad[0].startswith("payoff"), body_bad   # an invented number in the body is still rejected
+n = sw.finish(sc("87 baar message aaya", "x"), sheet, focus)["notes"]
+assert n and "invented number" in n[0]
+assert not sw.finish(sc("Raat ko message aaya", "x"), sheet, focus)["notes"]
+print("open hook test passed")

@@ -95,6 +95,8 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
             voiced.append((sid, sc, seconds, mp3, words))
         tail = cfg["video"]["tail_seconds"]
         total_voice = sum(v[2] for v in voiced)
+        for n in (master or {}).get("notes") or []:
+            captions.LISTEN.append(f"note: {n}")
         if total_voice > 36:
             captions.LISTEN.append(f"length check: the voice-over alone runs {total_voice:.0f}s, over the 30s target; retention drops after second 5")
         # Each scene is either a motion graphic (the default look) or footage (your own clips, at most max_stock_shots stock shots in the reel).

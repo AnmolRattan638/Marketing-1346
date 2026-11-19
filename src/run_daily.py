@@ -63,7 +63,7 @@ def hand_off_to_video(master, focus) -> bool:
         config.save_json(config.DATA / "master" / f"{today}.json", {"master_script": master, "service": focus.get("id")})
         if subprocess.run(["bash", "scripts/commit_state.sh", f"master: {today}"], cwd=config.ROOT, timeout=300).returncode != 0:
             return False
-        r = requests.post(f"https://api.github.com/repos/{config.REPO}/actions/workflows/video-agent.yml/dispatches", timeout=30,
+        r = requests.post(f"https://api.github.com/repos/{config.REPO}/actions/workflows/video-agent-fast.yml/dispatches", timeout=30,
                           headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"}, json={"ref": os.getenv("GITHUB_REF_NAME") or "main"})
         ok = r.status_code == 204
         if ok and os.getenv("GITHUB_OUTPUT"):

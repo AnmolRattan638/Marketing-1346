@@ -62,7 +62,7 @@ run_daily.subprocess.run = lambda cmd, **k: calls.append(("git", cmd)) or types.
 run_daily.requests.post = lambda url, **k: calls.append(("post", url, k["json"])) or types.SimpleNamespace(status_code=204)
 _r = run_daily.hand_off_to_video(MASTER, {"id": "chatbot"}); assert _r is True, (run_daily.WARNINGS, calls)
 assert (config.DATA / "master" / f"{run_daily.today}.json").exists()
-assert calls[0][0] == "git" and calls[1][0] == "post" and calls[1][1].endswith("/workflows/video-agent.yml/dispatches"), calls
+assert calls[0][0] == "git" and calls[1][0] == "post" and calls[1][1].endswith("/workflows/video-agent-fast.yml/dispatches"), calls
 assert "reel_started=1" in open(os.environ["GITHUB_OUTPUT"]).read()
 run_daily.requests.post = lambda url, **k: types.SimpleNamespace(status_code=500)
 assert run_daily.hand_off_to_video(MASTER, {"id": "chatbot"}) is False and any("reel handoff" in w for w in run_daily.WARNINGS)

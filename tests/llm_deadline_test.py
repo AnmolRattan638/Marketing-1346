@@ -65,3 +65,17 @@ llm.gemini = lambda p, s="", **k: '{"ok": 1}'
 llm.ask_json = REAL_ASK_JSON
 assert llm.ask_json(llm.primary, "x") == {"ok": 1}
 print("json fallback test passed")
+
+# high reasoning effort on Groq; an empty answer is retried once at low effort
+os.environ.pop("GROQ_REASONING_EFFORT", None)
+sent = []
+def fake_post(url, headers, body, tries=3, timeout=120):
+    sent.append((body.get("reasoning_effort"), body.get("max_completion_tokens"), timeout))
+    return {"choices": [{"message": {"content": "" if body.get("reasoning_effort") == "high" else "ok"}}]}
+llm._post = fake_post
+out = llm._chat("https://api.groq.com/openai/v1/chat/completions", "k", "p", "", "openai/gpt-oss-120b", 0.5)
+assert out == "ok" and sent[0] == ("high", 16000, 240) and sent[1][0] == "low", sent
+sent.clear()
+llm._chat("https://api.groq.com/openai/v1/chat/completions", "k", "p", "", "llama-3.3-70b", 0.5)
+assert sent[0][0] is None                                   # only the gpt-oss reasoning model gets the setting
+print("groq high effort test passed")

@@ -25,3 +25,12 @@ print("open hook test passed")
 assert sw.is_soft("lines are bare statements; use helping words") and sw.is_soft("meaning: payoff: x") and sw.is_soft("pain: too abstract; name a moment")
 assert not sw.is_soft("payoff: number(s) ['91'] not backed by a cited fact") and not sw.is_soft("cta: must contain the keyword SITE")
 print("soft style test passed")
+
+# the cta must ask for a public comment of the keyword
+focus_bot = {"id": "chatbot", "name": "WhatsApp chatbot", "dm_keyword": "BOT"}
+mk = lambda cta: {"beats": [{"beat": "pain", "line": "Raat ko message aaya"}, {"beat": "cta", "line": cta}]}
+assert any("comment" in x for x in ms.script_problems(mk("DM BOT likho, main checklist bhejunga"), focus_bot))
+assert not any("ask the viewer to comment" in x for x in ms.script_problems(mk("Comment BOT likho, main checklist DM mein bhejunga"), focus_bot))
+import pathlib as _p
+assert all((_p.Path(__file__).resolve().parent.parent / "freebies" / f"{k}.md").exists() for k in ("website", "chatbot", "animated_ads", "lead_gen", "reel_scripts", "seo_blogs"))
+print("comment cta test passed")

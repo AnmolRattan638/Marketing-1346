@@ -69,9 +69,9 @@ chat_json = json.dumps({"style": "chat", "headline": "Too busy answering repeat 
                         "chat": [{"side": "left", "text": "What are your opening hours?", "time": "10:05 AM"}]})
 llm.gemma = lambda p, s="", **k: chat_json
 spec = cards.make_spec(drifted, seo, "")
-assert spec["style"] == "bold" and spec["chat"] == [] and spec["cta"] == 'DM "BLOG"', spec
+assert spec["style"] == "bold" and spec["chat"] == [] and spec["cta"] == 'Comment "BLOG"', spec
 spec = cards.make_spec(drifted, bot, "")
-assert spec["style"] == "chat" and len(spec["chat"]) == 1 and spec["cta"] == 'DM "BOT"'
+assert spec["style"] == "chat" and len(spec["chat"]) == 1 and spec["cta"] == 'Comment "BOT"'
 
 # ---- 4. the accent colour: set for the render, always restored, and really used by the designed chat card
 default = cards.ACCENT

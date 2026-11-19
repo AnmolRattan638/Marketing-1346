@@ -32,7 +32,7 @@ def test_pack_vendored_and_clean():
 
 def test_block_has_precedence_and_ask():
     b = m.block("script", BOT, "2026-11-17")
-    assert "MARKETING BRIEF" in b and "DM BOT" in b and "the brief wins" in b and "AUDIENCE" in b
+    assert "MARKETING BRIEF" in b and "Comment BOT" in b and "the brief wins" in b and "AUDIENCE" in b
     assert "ONE story" in m.block("caption", BOT)
     assert m.pillar("2026-11-17") in ("educate", "how_it_works", "offer")
 

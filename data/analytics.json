@@ -2073,9 +2073,17 @@
         "linkedin": 14,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-11-19",
+      "followers": {
+        "instagram": 9,
+        "linkedin": 14,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-18T20:33:19+00:00"
+  "updated_at": "2026-11-19T07:27:43+00:00"
 }

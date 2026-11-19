@@ -73,6 +73,8 @@ def _post(url, headers, body, tries=3, timeout=120):
             continue
         if r.status_code == 429:
             last = RateLimited(f"HTTP 429 from {host}: {_scrub(r.text[:200])}")
+            if "exceeded your current quota" in r.text.lower():
+                raise last   # daily/plan quota: waiting and retrying cannot help, switch model at once
             if i < tries - 1:
                 time.sleep(min(max(_retry_after(r) or 0, 5 * (i + 1)), 45))
             continue

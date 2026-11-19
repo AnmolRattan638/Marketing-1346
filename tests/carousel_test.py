@@ -315,6 +315,7 @@ def fcm(p, s="", **k):
     if "Fact-check this carousel" in p: return json.dumps({"ok": True, "issues": []})
     return json.dumps({"ok": True, "issues": [], "revised": {}})
 llm.groq, llm.gemma, llm.gemini, llm.factcheck_model = groq, gemma, gem, fcm
+llm.primary = gem
 tg.send = lambda text, buttons=None, reply_to=None: events.append(("text", text))
 tg.send_photo = lambda path, caption="": events.append(("photo", str(path), caption))
 tg.send_media_group = lambda paths, caption="": events.append(("album", [str(p) for p in paths], caption))

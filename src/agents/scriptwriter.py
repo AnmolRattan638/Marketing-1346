@@ -306,7 +306,7 @@ def check_all(script, sheet, style, focus, ask):
 def run(sheet, focus, style, ask=None, voice=None, max_tries=4, repair_rounds=3):
     sheet = {**sheet, "keyword": sheet.get("keyword") or focus.get("dm_keyword") or ""}
     """-> master script dict. Raises ValueError if no valid script after max_tries (caller's stage() reports it)."""
-    ask = ask or llm.gemini
+    ask = ask or llm.primary
     voice = voice if voice is not None else config.voice()
     fixes = ""
     today = sheet.get("date") or datetime.date.today().isoformat()

@@ -355,6 +355,19 @@ def factcheck_model(prompt, system="", **kw):
     return fn(prompt, system, model=m, **kw) if m else fn(prompt, system, **kw)
 
 
+def primary(prompt, system="", **kw):
+    """Main writing model: Groq first (Gemini's free quota ran out and every 429 slowed the runs), Gemini if Groq fails or has no key.
+    Set LLM_PRIMARY=gemini to put Gemini first again."""
+    if (os.getenv("LLM_PRIMARY") or "groq").lower() != "gemini" and groq_keys():
+        try:
+            return groq(prompt, system, **kw)
+        except Exception as e:
+            if "run time budget" in str(e):
+                raise
+            print(f"[llm] Groq failed ({str(e)[:100]}), trying Gemini")
+    return gemini(prompt, system, **kw)
+
+
 def parse_json(text):
     """Find the JSON in a model reply, even if the model also wrote reasoning (with stray braces) around it."""
     t = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M).strip()

@@ -43,3 +43,16 @@ sc = {"beats": [{"beat": "pain", "line": "x"}, {"beat": "payoff", "line": "site 
 out, ch = sw.repair_beats(sc, {"payoff": ["promises an outcome"]}, style, None, {"name": "Website"}, {"facts": [{"id": "f1"}], "keyword": "SITE"}, strict=True)
 assert ch and "STRICT MODE" in seen[0] and out["beats"][1]["line"].startswith("Fact bolta")
 print("strict repair test passed")
+# Groq is the primary model; Gemini only if Groq fails
+calls = []
+llm.groq_keys = lambda: ["k"]
+llm.groq = lambda p, s="", **k: (calls.append("groq"), "g")[1]
+llm.gemini = lambda p, s="", **k: (calls.append("gemini"), "m")[1]
+assert llm.primary("x") == "g" and calls == ["groq"]
+def boom(p, s="", **k): raise RuntimeError("HTTP 429")
+llm.groq = boom
+assert llm.primary("x") == "m"
+os.environ["LLM_PRIMARY"] = "gemini"; calls.clear(); llm.groq = lambda p, s="", **k: (calls.append("groq"), "g")[1]
+assert llm.primary("x") == "m" and calls == ["gemini"]
+os.environ.pop("LLM_PRIMARY")
+print("primary model test passed")

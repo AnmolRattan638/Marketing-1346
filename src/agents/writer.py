@@ -89,7 +89,7 @@ LINKEDIN FORMAT (linkedin only; a LONG, plain-text explainer written like a deve
 Audience is all of India: no city-specific assumptions; use broad hashtags like #SmallBusinessIndia, not city tags. Mention a price only for website/chatbot/animated ads and only copy it from price_note; never for lead gen.
 Also write 3 reply drafts for likely comments/DMs (e.g. "how much?", "do you do this for my kind of business?").
 Return JSON: {{"instagram": "...", "linkedin": "...", "bluesky": "...", "replies": [{{"if_they_say": "...", "reply": "..."}}]}}"""
-    out = llm.ask_json(llm.gemini, prompt, SYS)
+    out = llm.ask_json(llm.primary, prompt, SYS)
     def _notes(o):
         n = captions.over_limit(o, ig_mode)
         cs = contentskills.caption_problems(o.get("instagram")) if isinstance(o.get("instagram"), str) else ""
@@ -99,7 +99,7 @@ Return JSON: {{"instagram": "...", "linkedin": "...", "bluesky": "...", "replies
     for _ in range(2):                                                 # at most two automatic fix passes (too long, or LinkedIn under 300 words); never loops further
         if not notes:
             break
-        again = llm.ask_json(llm.gemini, prompt + f"\nFIX THIS (keep every format rule): {notes}.", SYS)
+        again = llm.ask_json(llm.primary, prompt + f"\nFIX THIS (keep every format rule): {notes}.", SYS)
         again_notes = _notes(again)
         if len(again_notes.split("; ")) <= len(notes.split("; ")) and isinstance(again.get("linkedin"), str) and isinstance(again.get("instagram"), str):
             out, notes = again, again_notes

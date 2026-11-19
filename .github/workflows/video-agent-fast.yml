@@ -1,4 +1,4 @@
-name: Daily video (video-agent, fast environment)
+name: Daily video (video-agent)
 
 on:
   # no schedule: the Daily draft workflow starts this right after it saves the draft, so the reel follows the same master script

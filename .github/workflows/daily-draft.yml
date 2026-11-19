@@ -94,7 +94,7 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run video-agent.yml -R "$GITHUB_REPOSITORY"
+        run: gh workflow run video-agent-fast.yml -R "$GITHUB_REPOSITORY"
 
       - name: Wait for your Approve tap and publish
         if: steps.gen.outcome == 'success'

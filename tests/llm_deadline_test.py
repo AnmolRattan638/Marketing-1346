@@ -1,6 +1,7 @@
 import os, pathlib, sys, time
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 from src import llm
+REAL_ASK_JSON = llm.ask_json
 os.environ.pop("RUN_DEADLINE_EPOCH", None)
 assert not llm.out_of_time()
 os.environ["RUN_DEADLINE_EPOCH"] = str(time.time() + 600)
@@ -56,3 +57,11 @@ os.environ["LLM_PRIMARY"] = "gemini"; calls.clear(); llm.groq = lambda p, s="", 
 assert llm.primary("x") == "m" and calls == ["gemini"]
 os.environ.pop("LLM_PRIMARY")
 print("primary model test passed")
+
+# Groq returns no JSON twice -> Gemini answers
+replies = iter(["", "no json here"])
+llm.groq = lambda p, s="", **k: next(replies)
+llm.gemini = lambda p, s="", **k: '{"ok": 1}'
+llm.ask_json = REAL_ASK_JSON
+assert llm.ask_json(llm.primary, "x") == {"ok": 1}
+print("json fallback test passed")

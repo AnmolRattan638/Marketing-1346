@@ -113,12 +113,15 @@ def _chat(url, key, prompt, system, model, temperature, tries=3):
     msgs = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": prompt}]
     provider, t0 = url.split("/")[2].replace("api.", ""), time.time()
     try:
-        d = _post(url, {"Authorization": f"Bearer {key}"}, {"model": model, "messages": msgs, "temperature": temperature}, tries=tries)
+        body = {"model": model, "messages": msgs, "temperature": temperature}
+        if provider == "groq.com" and "gpt-oss" in str(model):
+            body["reasoning_effort"] = "low"     # a long hidden reasoning pass can use up the reply and leave no JSON
+        d = _post(url, {"Authorization": f"Bearer {key}"}, body, tries=tries)
     except Exception as e:
         _fail(provider, model, e, t0)
         raise
     LOG.append(f"{provider}:{model}")
-    return d["choices"][0]["message"]["content"]
+    return d["choices"][0]["message"].get("content") or ""
 
 
 _FREE = None
@@ -395,4 +398,9 @@ def ask_json(fn, prompt, system="", **kw):
         return parse_json(out)
     except Exception:
         out = fn(prompt + "\n\nYour last reply was not valid JSON. Return ONLY the JSON object.", system, **kw)
-        return parse_json(out)
+        try:
+            return parse_json(out)
+        except Exception:
+            if fn is primary:                    # Groq answered twice without JSON: let Gemini try before the run gives up
+                return parse_json(gemini(prompt + "\n\nReturn ONLY valid JSON. No prose, no markdown fences.", system, **kw))
+            raise

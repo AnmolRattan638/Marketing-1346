@@ -34,3 +34,12 @@ assert not any("ask the viewer to comment" in x for x in ms.script_problems(mk("
 import pathlib as _p
 assert all((_p.Path(__file__).resolve().parent.parent / "freebies" / f"{k}.md").exists() for k in ("website", "chatbot", "animated_ads", "lead_gen", "reel_scripts", "seo_blogs"))
 print("comment cta test passed")
+
+# the content audit must tell the model that 'Comment KEYWORD' is the approved ask, not bait
+from src import contentskills as cs
+seen = []
+import src.llm as _llm
+_llm.ask_json = lambda ask, prompt, system, **k: (seen.append(prompt), {"issues": []})[1]
+cs.audit({"beats": [{"beat": "cta", "line": "Comment BOT"}]}, None)
+assert seen and "NOT engagement bait" in seen[0]
+print("bait audit test passed")

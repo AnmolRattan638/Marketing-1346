@@ -2,6 +2,30 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "18136610512590421",
+      "url": "https://www.instagram.com/reel/Df81oLFzoOt/",
+      "published_at": "2026-11-20T04:50:06.000Z",
+      "text": "𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 𝗦𝗘 𝗣𝗘𝗛𝗟𝗘 𝗖𝗨𝗦𝗧𝗢𝗠𝗘𝗥 𝗔𝗔𝗣𝗞𝗜 𝗦𝗜𝗧𝗘 𝗣𝗔𝗥 𝗞𝗬𝗔 𝗖𝗛𝗘𝗖𝗞 𝗞𝗔𝗥𝗧𝗔 𝗛𝗔𝗜?\n→ 𝗧𝗜𝗠𝗜𝗡𝗚𝗦 aur 𝗔𝗗𝗗𝗥𝗘𝗦𝗦 upfront hon, footer mein nahi.\n→ Mobile pe ek tap mein 𝗠𝗔𝗣 aur 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 but",
+      "format": "reel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 206,
+        "reach": 174,
+        "views": 206,
+        "likes": 5,
+        "comments": 0,
+        "shares": 0,
+        "saves": 2,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": 70.9,
+        "avg_watch_s": 4.561,
+        "duration_s": 32
+      },
+      "matched": null
+    },
+    {
+      "platform": "instagram",
       "id": "18118361558026668",
       "url": "https://www.instagram.com/p/Df8tbioCs03/",
       "published_at": "2026-11-20T03:39:31.000Z",
@@ -9,9 +33,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": null,
-        "reach": null,
-        "views": null,
+        "impressions": 3,
+        "reach": 2,
+        "views": 3,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -67,17 +91,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 125,
-        "reach": 81,
-        "views": 125,
-        "likes": 4,
+        "impressions": 128,
+        "reach": 83,
+        "views": 128,
+        "likes": 5,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 56.1,
-        "avg_watch_s": 4.285,
+        "skip_rate": 55.5,
+        "avg_watch_s": 4.263,
         "duration_s": 27
       },
       "matched": {
@@ -193,7 +217,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 64.4,
-        "avg_watch_s": 3.534,
+        "avg_watch_s": 3.522,
         "duration_s": 65
       },
       "matched": {
@@ -299,9 +323,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 6,
-        "reach": 1,
-        "views": 6,
+        "impressions": 8,
+        "reach": 2,
+        "views": 8,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -2238,5 +2262,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-20T07:18:12+00:00"
+  "updated_at": "2026-11-20T20:23:17+00:00"
 }

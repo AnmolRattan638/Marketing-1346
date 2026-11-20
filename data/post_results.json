@@ -2349,9 +2349,9 @@
         }
       },
       "latest": {
-        "impressions": 6,
-        "reach": 1,
-        "views": 6,
+        "impressions": 8,
+        "reach": 2,
+        "views": 8,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -2420,7 +2420,38 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-11-18|bluesky": {
+      "date": "2026-11-18",
+      "platform": "bluesky",
+      "service": "seo_blogs",
+      "problem_id": "lack-of-time-to-create-content",
+      "angle_type": "question",
+      "hook_style": "question",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "silhouette",
+      "carousel_flavor": "self-test-signs",
+      "slides": 6,
+      "published_at": "2026-11-18T11:44:06.414854+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2li5r45jx2z",
+      "snap": {
+        "48h": {
+          "age_h": 56.7,
+          "source": "bluesky",
+          "likes": 1,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 1,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-11-19T20:39:12+00:00"
+  "updated_at": "2026-11-20T20:23:19+00:00"
 }

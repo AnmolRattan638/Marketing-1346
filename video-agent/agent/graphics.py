@@ -139,7 +139,7 @@ def resolve_graphic(scene: dict, words: list[dict], seconds: float) -> dict | No
         cues += [{"type": "click", "atSecond": t, "volume": 0.3} for t in times[:3]]
     if layout == "hook":                                                       # the breaking-phone opening: an impact on EVERY spoken word, a whoosh into it
         from . import scenarios
-        props["hook"] = {"notifs": scenarios.HOOK_NOTIFS}
+        props["hook"] = {"notifs": scenarios.hook_notifs()}
         props["emphasis"] = [str(w)[:20] for w in (g.get("emphasis") or [])][:6]
         cues = [{"type": "whoosh", "atSecond": 0.0, "volume": 0.5}] + [{"type": "impact", "atSecond": round(float(w["start"]), 3), "volume": 0.55 if i == 0 else 0.4} for i, w in enumerate(words[:9])]
     props["sfx"] = [c for c in cues if 0 <= c["atSecond"] < seconds - 0.1]

@@ -56,6 +56,7 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
     if master and master.get("service"):
         service = master["service"]
     log(f"service for this reel: {service}")
+    scenarios.use(service)
     editor = Editor(cfg, offline, service) if hybrid_on else None
     look = pick_look(f"{date.today().isoformat()}|{topic}", cfg) if not offline else {"caption": "cinematic", "transitions": "mixed", "palette": load_palette(cfg)}
     # with a master script the research is already done and fact-checked (its fact sheet), so the video does no research of its own
@@ -107,7 +108,10 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
         if ba is not None and not voiced[ba][1].get("graphic"):          # the before / after scene is always a graphic scene (templates.apply fills it)
             voiced[ba][1]["graphic"] = {"layout": "title", "heading": "Pehle vs ab"}
         dm = scenarios.demo_target(voiced, ba)
-        if dm is not None and not voiced[dm][1].get("graphic"):
+        if dm is not None and scenarios.demo_kind(service, "") is None and service in scenarios.DEMO_STEPS:
+            d = scenarios.DEMO_STEPS[service]      # no phone chat / browser for this service: a checklist card about the service itself
+            voiced[dm][1]["graphic"] = {"layout": "step", "step": "STEP 1", "kicker": d["kicker"], "heading": d["heading"], "mock": {"type": "checklist", "items": d["items"]}}
+        elif dm is not None and not voiced[dm][1].get("graphic"):
             voiced[dm][1]["graphic"] = {"layout": "title", "heading": "Dekho kaise"}
         for idx, (sid, sc, sec, _, words) in enumerate(voiced):
             if no_raw and not sc.get("graphic") and stock_left > 0 and 0 < idx < len(voiced) - 1:      # never the hook or the CTA

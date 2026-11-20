@@ -11,6 +11,42 @@ SCENARIOS = {
         "afterTitle": "Website + chatbot",
         "afterItems": "Google pe customers aapko dhoondhte hain,Chatbot turant reply deta hai,Har enquiry aapke paas save hoti hai",
     },
+    "website": {
+        "beforeTitle": "Website nahi",
+        "beforeItems": "Google pe aapka naam nahi dikhta,Customer ko bharosa kahan se aaye,Details ke liye sirf phone ka raasta",
+        "afterTitle": "Simple website",
+        "afterItems": "Google pe aapka business milta hai,Rate timing location ek jagah,Mobile pe tez khulti hai",
+    },
+    "chatbot": {
+        "beforeTitle": "Sirf haath se reply",
+        "beforeItems": "Raat ke message subah tak pade rehte hain,Same sawal baar baar likhne padte hain,Customer dusri dukaan chala jaata hai",
+        "afterTitle": "WhatsApp chatbot",
+        "afterItems": "Turant jawab mil jaata hai,Timing aur rate khud bata deta hai,Zaroori baat aapko forward hoti hai",
+    },
+    "animated_ads": {
+        "beforeTitle": "Sirf photo wale posts",
+        "beforeItems": "Scroll karte log ruk nahi paate,Kaam samjhane mein der lagti hai,Post bina kisi action ke nikal jaati hai",
+        "afterTitle": "Short animated ad",
+        "afterItems": "Pehle second mein dhyan pakadta hai,Kaam kuch seconds mein dikh jaata hai,Ant mein ek saaf next step",
+    },
+    "lead_gen": {
+        "beforeTitle": "Haath se prospect dhoondhna",
+        "beforeItems": "Ghanton search karte rehna,Numbers alag alag jagah bikhre,Pehle kise contact karein pata nahi",
+        "afterTitle": "Daily lead sheet",
+        "afterItems": "Naye local businesses ek sheet mein,Naam number aur kami saath mein,Pehle kise contact karein saaf dikhta hai",
+    },
+    "reel_scripts": {
+        "beforeTitle": "Camera ke saamne atak jaana",
+        "beforeItems": "Kya bolna hai samajh nahi aata,Pehli line mein hi log nikal jaate hain,Reel bina plan ke ban jaati hai",
+        "afterTitle": "Ready reel script",
+        "afterItems": "Pehli line dhyan pakadti hai,Har line ka ek kaam hota hai,Ant mein ek hi saaf ask",
+    },
+    "seo_blogs": {
+        "beforeTitle": "Google pe blog nahi",
+        "beforeItems": "Customer ke sawal ka jawab nahi,Competitor ka page upar dikhta hai,Search se naye log nahi aate",
+        "afterTitle": "Sawal jawab wale blog",
+        "afterItems": "Customer ka sawal aapke page par,Seedhi bhasha mein jawab,Padhne ke baad contact ka raasta",
+    },
 }
 
 
@@ -54,14 +90,41 @@ def demo_target(voiced: list, avoid: int | None) -> int | None:
     return None
 
 
-def demo_kind(service: str | None, seed: str) -> str:
-    """chatbot -> phone chat, website -> browser; any other service alternates by day so reels differ."""
+def demo_kind(service: str | None, seed: str) -> str | None:
+    """chatbot -> phone chat, website -> browser. Any other service gets NO chat or website mock-up (they contradict it): its demo scene is a step card from DEMO_STEPS."""
     if service == "chatbot":
         return "chat"
     if service == "website":
         return "site"
-    return "chat" if sum(map(ord, seed)) % 2 else "site"
+    return None
 
 
-# The hook's missed-message pile (generic, illustrative, no figures): shows the pain of leads arriving while nobody answers.
-HOOK_NOTIFS = ["WhatsApp: Rate kya hai?", "Missed call: naya customer", "Instagram DM: Aap kal khule ho?"]
+# Demo scene for the services that have no phone/browser picture: a step card with a checklist about THAT service (capabilities, no figures, no results).
+DEMO_STEPS = {
+    "animated_ads": {"kicker": "Ek ad ka dhancha", "heading": "SHORT AD PLAN", "items": ["Pehle 3 second: customer ki dikkat", "Phir aapka kaam, dikhaya hua", "Ant mein ek saaf next step"]},
+    "lead_gen": {"kicker": "Daily sheet", "heading": "LEAD SHEET", "items": ["Business ka naam aur number", "Website ya Instagram ki kami", "Pehle kise contact karein"]},
+    "reel_scripts": {"kicker": "Script ka dhancha", "heading": "5 LINE SCRIPT", "items": ["Pehli line: dhyan pakdo", "Beech mein: ek wajah", "Ant mein: ek ask"]},
+    "seo_blogs": {"kicker": "Blog ka idea", "heading": "CUSTOMER KA SAWAL", "items": ["Google mein jo sawal likhte hain", "Seedha jawab ek page par", "Padhne ke baad contact ka raasta"]},
+}
+
+# The hook's pile of unanswered things, per service (illustrative, no figures). The old single list was WhatsApp-only and showed up on every service.
+HOOK_NOTIFS_BY = {
+    "chatbot": ["WhatsApp: Rate kya hai?", "Missed call: naya customer", "Instagram DM: Aap kal khule ho?"],
+    "website": ["Google: aapka business kahan hai?", "Customer: website ka link bhejiye", "Missed call: naya customer"],
+    "animated_ads": ["Instagram: scroll... scroll... scroll", "Aapki post: 2 second mein skip", "Customer: ye kya bechte hain?"],
+    "lead_gen": ["Search: restaurants Dehradun", "Sheet 1: 40 naam, 0 number", "Aaj ke prospects: abhi tak 0"],
+    "reel_scripts": ["Camera on... ab kya bolun?", "Draft 3: phir delete", "Reel: 2 second mein skip"],
+    "seo_blogs": ["Google: best cafe near me", "Customer ka sawal: jawab kahan?", "Competitor ka page: sabse upar"],
+}
+HOOK_NOTIFS = HOOK_NOTIFS_BY["chatbot"]
+_SERVICE = None
+
+
+def use(service: str | None) -> None:
+    """Called once per reel so every graphic of that reel speaks about its own service."""
+    global _SERVICE
+    _SERVICE = service
+
+
+def hook_notifs() -> list:
+    return list(HOOK_NOTIFS_BY.get(_SERVICE or "", HOOK_NOTIFS_BY["chatbot"]))

@@ -17,7 +17,7 @@ assert scenarios.target_index(voiced) == 3
 graphics = {sid: {"layout": "title", "heading": "X", "times": {"heading": 0.3}} for sid, *_ in voiced}
 done = templates.apply(graphics, voiced, {"templates": {"enabled": True, "max_per_video": 3}}, "seed", "default", "website")
 g = graphics["s3"]
-assert g["layout"] == "ba" and g["ba"]["afterTitle"] == "Website + chatbot", g
+assert g["layout"] == "ba" and g["ba"]["afterTitle"] == "Simple website", g
 assert any(d["template"] == "before-after" for d in done)
 print("before/after ok")
 

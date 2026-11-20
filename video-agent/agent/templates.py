@@ -137,7 +137,7 @@ def apply(graphics: dict, voiced: list, cfg: dict, seed: str, variant_hint: str 
     recent = set(last.get("ids", [])[-10:])
     used, done, prev_idx = [], [], -5
     ba_idx = scenarios.target_index(voiced) if tc.get("before_after", True) else None
-    demo_idx = scenarios.demo_target(voiced, ba_idx) if tc.get("device_demo", True) else None
+    demo_idx = scenarios.demo_target(voiced, ba_idx) if tc.get("device_demo", True) and scenarios.demo_kind(service, seed) else None
     for idx, (sid, sc, seconds, _mp3, _words) in enumerate(voiced):
         gp = graphics.get(sid)
         if idx == demo_idx and gp and gp.get("layout") in ("title", "punch", "strike", "step"):           # a phone chat or a browser with a click, from your services

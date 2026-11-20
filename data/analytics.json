@@ -2,6 +2,64 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "18118361558026668",
+      "url": "https://www.instagram.com/p/Df8tbioCs03/",
+      "published_at": "2026-11-20T03:39:31.000Z",
+      "text": "𝗠𝗬𝗧𝗛: 𝗔𝗡𝗜𝗠𝗔𝗧𝗘𝗗 𝗔𝗗 𝗞𝗘 𝗟𝗜𝗬𝗘 𝗗𝗘𝗦𝗜𝗚𝗡𝗘𝗥 𝗭𝗔𝗥𝗢𝗢𝗥𝗜 𝗡𝗔𝗛𝗜\n→ Ad mein 𝗢𝗙𝗙𝗘𝗥, 𝗣𝗥𝗜𝗖𝗘, WhatsApp number hona chahiye.\n→ 15‑second 𝗩𝗜𝗗𝗘𝗢 phone screen ke liye banaya jata hai.\n→ ",
+      "format": "image",
+      "source": "zernio",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-20",
+        "service": "animated_ads",
+        "hook_style": "comparison",
+        "topic": "The mistake of choosing the 'DIY struggle' over 'professional delivery' for your business ads."
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2pnyxgq7w24",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2pnyxgq7w24",
+      "published_at": "2026-11-20T03:39:29.544Z",
+      "text": "Myth: animated ads need a designer. A 15-second ready-to-upload video for Instagram and Facebook with your offer, call-to-action, and branding can save your mor",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-20",
+        "service": "animated_ads",
+        "hook_style": "comparison",
+        "topic": "The mistake of choosing the 'DIY struggle' over 'professional delivery' for your business ads."
+      }
+    },
+    {
+      "platform": "instagram",
       "id": "18110048846355799",
       "url": "https://www.instagram.com/reel/Df6904zJEby/",
       "published_at": "2026-11-19T11:27:22.000Z",
@@ -9,17 +67,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 124,
-        "reach": 80,
-        "views": 124,
+        "impressions": 125,
+        "reach": 81,
+        "views": 125,
         "likes": 4,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 55.7,
-        "avg_watch_s": 4.331,
+        "skip_rate": 56.1,
+        "avg_watch_s": 4.285,
         "duration_s": 27
       },
       "matched": {
@@ -1835,7 +1893,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 34
+      "posts": 35
     }
   },
   "coverage": {
@@ -2168,9 +2226,17 @@
         "linkedin": 14,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-11-20",
+      "followers": {
+        "instagram": 9,
+        "linkedin": 14,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-19T20:39:10+00:00"
+  "updated_at": "2026-11-20T07:18:12+00:00"
 }

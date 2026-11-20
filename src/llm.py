@@ -119,7 +119,19 @@ def _chat(url, key, prompt, system, model, temperature, tries=3):
             # HIGH reasoning for stronger decisions; a large limit leaves room for the answer after the thinking, and an empty answer is retried at low effort
             body["reasoning_effort"] = os.environ.get("GROQ_REASONING_EFFORT") or "high"
             body["max_completion_tokens"] = 16000
-        d = _post(url, {"Authorization": f"Bearer {key}"}, body, tries=tries, timeout=240 if think else 120)
+        d = None
+        for budget in ((16000, 8000, 4000, 2000) if think else (None,)):
+            if budget:
+                body["max_completion_tokens"] = budget
+                if budget < 16000:
+                    body["reasoning_effort"] = "medium" if budget >= 4000 else "low"   # 413 = the request (prompt + output allowance) is over the per-minute token limit: ask for less
+            try:
+                d = _post(url, {"Authorization": f"Bearer {key}"}, body, tries=tries, timeout=240 if think else 120)
+                break
+            except Exception as e:
+                if not (think and "HTTP 413" in str(e) and budget != 2000):
+                    raise
+                print(f"[llm] {model} says the request is too large with a {budget} token allowance; retrying with less")
         if think and body["reasoning_effort"] != "low" and not (d["choices"][0]["message"].get("content") or "").strip():
             print(f"[llm] {model} thought without answering; asking again at low reasoning effort")
             d = _post(url, {"Authorization": f"Bearer {key}"}, {**body, "reasoning_effort": "low"}, tries=tries, timeout=240)

@@ -62,6 +62,13 @@ def _call_groq(messages: list[dict], cfg: dict) -> str:
             for n, key in enumerate(keys, 1):
                 for attempt in (1, 2):
                     r = requests.post(GROQ_CHAT_URL, headers={"Authorization": f"Bearer {key}"}, json=body, timeout=240)
+                    while r.status_code == 413 and body["max_tokens"] > 2000:
+                        # prompt + output allowance is over the per-minute token limit: ask for a smaller allowance (and less thinking)
+                        body["max_tokens"] = body["max_tokens"] // 2
+                        if "reasoning_effort" in body:
+                            body["reasoning_effort"] = "medium" if body["max_tokens"] >= 4000 else "low"
+                        log(f"groq 413 on {model}, retrying with max_tokens={body['max_tokens']}")
+                        r = requests.post(GROQ_CHAT_URL, headers={"Authorization": f"Bearer {key}"}, json=body, timeout=240)
                     if r.status_code == 400 and attempt == 1 and "response_format" in body:
                         body.pop("response_format")       # this model rejects JSON mode: the prompt already asks for JSON only
                         continue
@@ -70,7 +77,7 @@ def _call_groq(messages: list[dict], cfg: dict) -> str:
                     limited += 1
                     log(f"groq key {n}/{len(keys)} rate limited on {model}, trying the next key")
                     continue
-                if r.status_code in (400, 403, 404):
+                if r.status_code in (400, 403, 404, 413):
                     errors.append(f"{model}: {r.status_code} {r.text[:160]}")
                     log(f"groq model {model} unavailable ({r.status_code}), trying the next one")
                     break

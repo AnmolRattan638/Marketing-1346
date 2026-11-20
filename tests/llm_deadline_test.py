@@ -79,3 +79,15 @@ sent.clear()
 llm._chat("https://api.groq.com/openai/v1/chat/completions", "k", "p", "", "llama-3.3-70b", 0.5)
 assert sent[0][0] is None                                   # only the gpt-oss reasoning model gets the setting
 print("groq high effort test passed")
+
+# Groq 413 (request over the per-minute token limit): the call retries with a smaller output allowance instead of failing
+sizes = []
+def fake_post(url, headers, body, tries=3, timeout=120):
+    sizes.append(body["max_completion_tokens"])
+    if body["max_completion_tokens"] > 4000:
+        raise RuntimeError("HTTP 413 from api.groq.com: Request too large")
+    return {"choices": [{"message": {"content": "ok"}}]}
+llm._post = fake_post
+assert llm._chat("https://api.groq.com/openai/v1/chat/completions", "k", "hi", "", "openai/gpt-oss-120b", 0.5) == "ok"
+assert sizes == [16000, 8000, 4000], sizes
+print("groq 413 shrink test passed")

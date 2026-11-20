@@ -17,7 +17,7 @@ HOOK = ("HOOK (viral-hooks, viral-instagram-reels): lands in ~2 seconds spoken; 
         "Three layers agree: spoken hook, 3-5 bold on-screen words on the first frame (works on mute), and an opening visual that shows the stake. Pick a different hook archetype each time.")
 RETENTION = ("RETENTION (viral-short-form): every beat earns the next 3 seconds; re-hook at each beat change (a question, a contrast, a number); the payoff arrives before the end, never saved for a promised 'later'; "
              "end on a loop back to the hook's stake, and put a pattern reset (new graphic, zoom, cut) at each beat change.")
-CTA = ("CTA (viral-captions-and-ctas bait check): ONE ask only, riding a value beat, not the opening. Ask for the content ('send me the word X, I reply with the setup'), never the act of engagement. "
+CTA = ("CTA (viral-captions-and-ctas bait check): ONE ask only, riding a value beat, not the opening. Ask for the content ('comment the word X and I send you the setup in DM'), never a vague act of engagement ('drop a comment', 'tag a friend'). "
        "Never: 'tag a friend', 'like for part 2', 'follow for more', 'double tap', 'share with N friends', or stacking like+save+share+follow+comment. "
        "The one allowed ask is the lead-gen keyword, and it must name exactly what the viewer gets (the checklist, the setup steps, the demo). A send/save ask may be used instead of the keyword: 'send this to the owner who ...'.")
 HONEST = ("HONESTY (metrics-honesty): no invented numbers, results, clients or guarantees; no 'viral', 'guaranteed', 'secret'; a figure is said exactly as its verified fact states it.")
@@ -111,7 +111,7 @@ def audit(script: dict, ask) -> list[str]:
     rows = [{"beat": b.get("beat"), "line": b.get("line"), "screen": b.get("screen")} for b in script.get("beats", [])]
     prompt = ("Audit this short-video script against the checklists. Flag ONLY clear failures of: hook (not concrete, no loop, would fail on mute), "
               "bait-shaped CTA (asks for the act of engagement, stacks asks), orphan clickbait (hook promises something no later beat pays off). "
-              "A single lead-gen keyword that names exactly what the viewer gets is allowed. Each issue must give the exact fix.\n"
+              "A single lead-gen keyword that names exactly what the viewer gets is allowed, including 'Comment KEYWORD and I will send X to your DM': that asks for one word in exchange for something specific, so it is NOT engagement bait. Flag only vague engagement asks ('comment your thoughts', 'tag a friend', 'like for more'). Each issue must give the exact fix.\n"
               "Return JSON {\"issues\": [\"beat: problem and fix\"]}, empty if it passes.\nCHECKLISTS:\n" + checklists()[:6000] + "\nSCRIPT: " + json.dumps(rows, ensure_ascii=False))
     try:
         res = llm.ask_json(ask, prompt, "You are a strict short-form editor. JSON only.")

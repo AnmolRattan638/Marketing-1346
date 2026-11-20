@@ -151,7 +151,8 @@ def main():
     skip, why = should_skip(path, force)
     if skip:
         print(why)
-        tg.send(why)          # never skip silently: say so in Telegram
+        if os.getenv("GITHUB_EVENT_NAME") != "schedule":       # a late backup timer finding the day already done is normal: stay quiet
+            tg.send(why)          # a manual run is never skipped silently: say so in Telegram
         return
     brand, voice = config.services(), config.voice()
     history = config.history()

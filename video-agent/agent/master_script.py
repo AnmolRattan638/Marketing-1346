@@ -16,8 +16,13 @@ _W = re.compile(r"\W+")
 def load(path: str | None = None, today: str | None = None) -> dict | None:
     """--script PATH (a draft or a bare master script), else MASTER_SCRIPT env, else today's draft. None when there is no usable script."""
     day = today or date.today().isoformat()
-    early = EARLY / f"{day}.json"
-    path = path or os.environ.get("MASTER_SCRIPT") or str(early if early.exists() else DRAFTS / f"{day}.json")
+    slot = os.environ.get("REEL_SLOT", "").strip()
+    if slot:                                    # second reel of the day: only its own script, never reel 1's
+        early = EARLY / f"{day}-{slot}.json"
+        path = path or os.environ.get("MASTER_SCRIPT") or str(early)
+    else:
+        early = EARLY / f"{day}.json"
+        path = path or os.environ.get("MASTER_SCRIPT") or str(early if early.exists() else DRAFTS / f"{day}.json")
     try:
         d = json.loads(Path(path).read_text(encoding="utf-8"))
     except Exception:

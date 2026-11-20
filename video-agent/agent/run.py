@@ -45,7 +45,7 @@ def pick_topic(arg_topic: str | None) -> str:
 def build(topic: str, offline: bool, no_render: bool, master: dict | None = None) -> None:
     cfg = load_config()
     _footage._CFG = cfg          # stock.keywords / stock.anchors keep stock strictly about AI and technology
-    out_dir = ROOT / "runs" / date.today().isoformat()
+    out_dir = ROOT / "runs" / (date.today().isoformat() + (f"-{os.environ['REEL_SLOT']}" if os.environ.get("REEL_SLOT") else ""))
     out_dir.mkdir(parents=True, exist_ok=True)
     shutil.rmtree(WORK, ignore_errors=True)
     (WORK / "footage").mkdir(parents=True)
@@ -185,7 +185,7 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
         notify.send_message(viral.report(vres, history[best], history))
     else:
         notify.send_message(viral.report(vres))
-    notify.send_video(final, ("Reel for today's draft (same script as the carousel). Approving the draft posts the carousel; post this Reel yourself.\n" if master else "") + f"{plan['title']}\nTopic: {topic}{summary}" + ("\n" + "\n".join(sorted(set(captions.LISTEN))) if captions.LISTEN else "") + f"{webresearch.caption_line(plan.get('sources') or [])}")
+    notify.send_video(final, ((f"Reel {os.environ['REEL_SLOT']} of today (its own script and service). Post it yourself.\n" if os.environ.get("REEL_SLOT") else "Reel for today's draft (same script as the carousel). Approving the draft posts the carousel; post this Reel yourself.\n") if master else "") + f"{plan['title']}\nTopic: {topic}{summary}" + ("\n" + "\n".join(sorted(set(captions.LISTEN))) if captions.LISTEN else "") + f"{webresearch.caption_line(plan.get('sources') or [])}")
 
 
 def main() -> None:

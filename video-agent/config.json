@@ -230,6 +230,8 @@
   "align_script": true,
   "avatar": {
     "enabled": true,
-    "max_scenes": 3
+    "max_scenes": 2,
+    "presenter": true,
+    "pose_seconds": 3.2
   }
 }

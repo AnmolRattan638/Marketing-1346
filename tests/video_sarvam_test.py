@@ -30,7 +30,7 @@ assert len(seen) == 1 and sarvam.PREP["Raat ko customer aaya"].startswith("рд░рд
 voice_prepare(["Raat ko customer aaya"], lambda p: seen.append(p) or {})                      # cached: no second call
 assert len(seen) == 1
 voice_prepare(["Naya line"], lambda p: (_ for _ in ()).throw(RuntimeError("rate limit")))
-assert sarvam.PREP["Naya line"] == "Naya line"
+assert sarvam.PREP["Naya line"] == "Naya line."          # a full stop is added so the voice knows where to stop
 # synth: first persona rejected -> second used; emotion changes pace/pitch; pause appended after the beat
 mp3 = d / "a.mp3"
 secs = voice.synth("Raat ko customer aaya", mp3, cfg, False, "excited", "payoff")

@@ -1,0 +1,10 @@
+{
+  "_help": "Short forms the script may use and how the voice must SAY them (whole words, lower case key). Edit freely. Applied before the voice text is built, so captions keep the short form but the voice says the full word.",
+  "sec": "second", "secs": "seconds", "min": "minute", "mins": "minutes", "hr": "hour", "hrs": "hours",
+  "pls": "please", "plz": "please", "vs": "versus", "approx": "approximately", "etc": "etcetera",
+  "w/": "with", "w/o": "without", "b/w": "between", "yr": "year", "yrs": "years", "mo": "month", "mth": "month",
+  "info": "information", "msg": "message", "msgs": "messages", "ppl": "people", "biz": "business", "govt": "government",
+  "insta": "Instagram", "ig": "Instagram", "yt": "YouTube", "fb": "Facebook", "wa": "WhatsApp", "tbh": "to be honest",
+  "asap": "A S A P", "faqs": "F A Q's", "roi": "R O I", "seo": "S E O", "ui": "U I", "ux": "U X", "cta": "C T A", "kpi": "K P I",
+  "b2b": "B two B", "b2c": "B two C", "24/7": "twenty four seven", "ok": "okay", "mob": "mobile", "ads": "ads"
+}

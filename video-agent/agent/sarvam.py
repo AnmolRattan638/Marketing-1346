@@ -16,6 +16,8 @@ from pathlib import Path
 
 import requests
 
+from . import speech_text
+
 from .common import log, run
 
 URL = "https://api.sarvam.ai/text-to-speech"
@@ -26,6 +28,7 @@ EMOTION = {
 }
 PAUSE_AFTER = {"pain": 0.45, "poke": 0.40, "fix": 0.35, "payoff": 0.40, "recap": 0.30, "cta": 0.0}      # seconds of silence after the beat
 PREP: dict[str, str] = {}
+MOODS: dict[str, list[str]] = {}     # per line: one mood per sentence, chosen by the model that converts the text (curious, excited, ...)
 _OK: list = []            # the model/speaker this account accepted, tried first from then on
 DEVANAGARI = re.compile(r"[ऀ-ॿ]")
 def _load_lexicon() -> dict[str, str]:
@@ -53,24 +56,33 @@ def prepare(texts: list[str], ask) -> None:
     todo = [t for t in dict.fromkeys(texts) if t not in PREP]
     if not todo:
         return
+    cleaned = [speech_text.clean(t) for t in todo]                      # short forms, 9:16, signs and full stops are fixed BEFORE the model sees the line
     prompt = ("Rewrite each Roman-letter Hinglish line for a Hindi text-to-speech engine so EVERY word is written in Devanagari, spelled the way an Indian speaker pronounces it: Hindi words "
               "in Devanagari, and English words transliterated phonetically into Devanagari (site -> साइट, mismatched -> मिसमैच्ड, WhatsApp -> व्हाट्सऐप, checklist -> चेकलिस्ट). "
-              "Acronyms are spelled letter by letter in Devanagari (CRM -> सी आर एम). Words already in Devanagari stay as they are. Keep the meaning, order, numbers, punctuation and the casual "
-              "spoken tone; do not translate English words into Hindi and do not add or drop words.\nReturn JSON {\"lines\": [...]} with exactly " + str(len(todo)) + " strings in the same order.\n"
-              + json.dumps([speakable(t) for t in todo], ensure_ascii=False))
+              "NEVER translate an English word into Hindi: customer/customers stay कस्टमर/कस्टमर्स (not ग्राहक), second stays सेकंड, website stays वेबसाइट. "
+              "Acronyms are spelled letter by letter in Devanagari (CRM -> सी आर एम). Words already in Devanagari stay as they are. Keep the meaning, order, numbers and the casual "
+              "spoken tone; do not add or drop words. KEEP every punctuation mark: each sentence must end with . or ? or ! (add the right one if missing) and keep commas where a speaker "
+              "breathes. Never write symbols, quotes, brackets, emoji or the words for them.\n"
+              "For every line also give one MOOD per sentence, how a person would say it, from: curious, excited, empathetic, urgent, calm, warm "
+              "(a question that teases an answer = curious, a big benefit or reveal = excited, a pain point = empathetic, a deadline or loss = urgent, an explanation = calm, a friendly ask = warm).\n"
+              "Return JSON {\"lines\": [{\"text\": \"...\", \"moods\": [\"curious\", ...]}]} with exactly " + str(len(todo)) + " items in the same order.\n"
+              + json.dumps([speakable(t) for t in cleaned], ensure_ascii=False))
     try:
         out = ask(prompt).get("lines") or []
         if len(out) != len(todo):
             raise ValueError(f"got {len(out)} lines for {len(todo)}")
         for src, dst in zip(todo, out):
-            PREP[src] = speakable(dst if isinstance(dst, str) and dst.strip() else src)
+            text, moods = (dst.get("text"), dst.get("moods")) if isinstance(dst, dict) else (dst, None)
+            PREP[src] = speakable(speech_text.untranslate(text if isinstance(text, str) and text.strip() else speech_text.clean(src)))
+            if isinstance(moods, list):
+                MOODS[src] = [str(m).lower() for m in moods]
             left = sorted({w.lower() for w in _LATIN_WORD.findall(PREP[src])})
             if left:
                 log(f"sarvam: still in Latin letters (add to pronunciations.json if one sounds wrong): {', '.join(left)}")
     except Exception as e:
-        log(f"sarvam: bilingual conversion skipped ({str(e)[:120]}), speaking the Roman text")
-        for t in todo:
-            PREP[t] = speakable(t)
+        log(f"sarvam: bilingual conversion skipped ({str(e)[:120]}), speaking the cleaned Roman text")
+        for t, c in zip(todo, cleaned):
+            PREP[t] = speakable(c)
 
 
 def _request(key: str, text: str, model: str, speaker: str, params: tuple[float, float, float]) -> bytes | None:
@@ -134,12 +146,19 @@ def synth(text: str, mp3, scfg: dict, emotion: str | None = None, beat: str | No
     key = os.environ.get("SARVAM_API_KEY", "").strip()
     if not key:
         raise RuntimeError("SARVAM_API_KEY is not set")
-    spoken = PREP.get(text) or speakable(text)
-    sentences = [x for x in _SENT.split(spoken.strip()) if x.strip()] or [spoken]
-    moods = sentence_emotions(sentences, emotion, beat)
+    spoken = PREP.get(text) or speakable(speech_text.clean(text))
+    takes = speech_text.sentences(spoken)                              # [(take, silence after, sentence index)]
+    n_sent = takes[-1][2] + 1
+    heard = MOODS.get(text) or []
+    if len(heard) == n_sent and all(m in EMOTION for m in heard):
+        sent_moods = heard                                             # the mood the converting model gave each sentence
+    else:
+        whole = [" ".join(t for t, _, si in takes if si == k) for k in range(n_sent)]
+        sent_moods = sentence_emotions(whole, emotion, beat)
     cands = scfg.get("candidates") or [{"model": scfg.get("model", "bulbul:v4-flash"), "speaker": scfg.get("speaker", "aayan_hi_conversational")}]
     wavs = []
-    for i, (sent, mood) in enumerate(zip(sentences, moods)):          # each sentence is its own take with its own pace/pitch/loudness
+    for i, (sent, _, si) in enumerate(takes):                          # each take is its own request with its own pace/pitch/loudness
+        mood = sent_moods[si]
         wav_bytes = None
         for cand in ([*_OK] if _OK else cands):                       # once a speaker has been accepted it is the ONLY one used for the whole reel
             wav_bytes = _request(key, sent, cand["model"], cand["speaker"], EMOTION[mood])      # first model/speaker the account accepts wins
@@ -151,12 +170,13 @@ def synth(text: str, mp3, scfg: dict, emotion: str | None = None, beat: str | No
         w = mp3.with_suffix(f".s{i}.wav")
         w.write_bytes(wav_bytes)
         wavs.append(w)
-    gap = float(scfg.get("sentence_gap", 0.22))                       # a breath between sentences
+    scale = float(scfg.get("gap_scale", 1.0))                         # every pause comes from the punctuation: , short   . normal   ? a little more   ... long
     pause = PAUSE_AFTER.get(beat or "", 0.3) * float(scfg.get("pause_scale", 1.0))
     cmd = ["ffmpeg", "-y", "-loglevel", "error"]
     for w in wavs:
         cmd += ["-i", w]
-    parts = [f"[{i}:a]apad=pad_dur={(gap if i < len(wavs) - 1 else pause):.2f}[a{i}]" for i in range(len(wavs))]
+    trim = "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.03,areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05,areverse"   # the engine's own dead air is cut so the pauses are exactly the ones above
+    parts = [f"[{i}:a]{trim},apad=pad_dur={(takes[i][1] * scale if i < len(wavs) - 1 else pause):.2f}[a{i}]" for i in range(len(wavs))]
     chain = ";".join(parts) + ";" + "".join(f"[a{i}]" for i in range(len(wavs))) + f"concat=n={len(wavs)}:v=0:a=1[out]"
     run(cmd + ["-filter_complex", chain, "-map", "[out]", "-ac", "1", "-b:a", "128k", mp3])
     for w in wavs:

@@ -11,6 +11,7 @@ import FootageScene from "./sequences/FootageScene";
 import GraphicScene from "./sequences/GraphicScene";
 import { LogoBug } from "./components/LogoBug";
 import { applyTheme } from "./graphics/themes";
+import { Presenter } from "./graphics/Presenter";
 
 // Map of component path (as used in manifest.scenes[].component) to the
 // actual React component. Add entries here as you create new scene files.
@@ -76,6 +77,7 @@ export const Video: React.FC = () => {
           </Sequence>
         );
       })}
+      {(manifest as any).presenter?.src?.length ? <Presenter spec={(manifest as any).presenter} /> : null}
       {manifest.brand?.logo && (
         <Sequence from={0} durationInFrames={Math.max(1, (resolved.find((r) => r.scene.id === "outro")?.startFrame ?? cursor))}>
           <LogoBug logo={manifest.brand.logo} />

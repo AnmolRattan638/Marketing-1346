@@ -17,9 +17,11 @@ import { TemplateStage, TemplateSpec } from "../locomotion/TemplateStage";
 import { BeforeAfterBoard, BeforeAfterSpec } from "../graphics/BeforeAfter";
 import { BrowserSite, ChatSpec, PhoneChat, SiteSpec } from "../graphics/Devices";
 import { HookBlast, HookSpec } from "../graphics/HookBlast";
+import { AvatarPanel, AvatarSpec } from "../graphics/AvatarPanel";
 
 export interface GraphicSceneProps {
-  layout: "title" | "step" | "strike" | "punch" | "logo" | "tpl" | "ba" | "chat" | "site" | "hook";
+  layout: "title" | "step" | "strike" | "punch" | "logo" | "tpl" | "ba" | "chat" | "site" | "hook" | "avatar";
+  avatar?: AvatarSpec; // layout "avatar": the masked character in the lower screen, heading above (agent/avatar.py)
   hook?: HookSpec; // layout "hook": the breaking-phone opening (agent/scenarios.py HOOK_NOTIFS), hardcoded for scene 1
   chat?: ChatSpec; // layout "chat": a phone with a customer / chatbot conversation (agent/scenarios.py)
   site?: SiteSpec; // layout "site": a browser with a website, a cursor click and an enquiry notification
@@ -51,7 +53,7 @@ export interface GraphicSceneProps {
 // A motion-graphic scene: no footage, the layout draws the picture and every element lands on its spoken word (times come from agent/graphics.py).
 // Own palette and own captions; the layouts are inspired by explainer reels (step badge + heading + mock-up card, struck-through list, punch slide).
 const GraphicScene: React.FC<GraphicSceneProps> = ({
-  layout, tpl, ba, chat, site, hook, words, step, kicker, heading = "", heading2, ghost, chips = [], items = [], mock, times, logo, cta,
+  layout, tpl, ba, chat, site, hook, avatar, words, step, kicker, heading = "", heading2, ghost, chips = [], items = [], mock, times, logo, cta,
   emphasis = [], pulses = [], fx = [], transitionIn = "settle", captionStyle, grain = 0, progress, showProgress = true, fadeOutFrames = 0,
 }) => {
   const frame = useCurrentFrame();
@@ -108,6 +110,16 @@ const GraphicScene: React.FC<GraphicSceneProps> = ({
         <Heading kicker={kicker} heading={heading} heading2={heading2} at={times.heading} align="center" size={150} accent={THEME.ink} second={THEME.bgBottom} />
         {chips.length ? <div style={{ marginTop: 60 }}><Chips items={chips} at={times.chips} align="center" /></div> : null}
       </AbsoluteFill>
+    );
+  } else if (layout === "avatar" && avatar) {
+    body = (
+      <>
+        <AvatarPanel spec={avatar} />
+        <div style={{ position: "absolute", left: 70, right: 70, top: LOGO_SAFE_TOP + 40 }}>
+          <Heading kicker={kicker} heading={heading} heading2={heading2} at={times.heading} align="center" size={118} />
+        </div>
+        {chips.length ? <div style={{ position: "absolute", left: 70, right: 70, top: LOGO_SAFE_TOP + 560 }}><Chips items={chips} at={times.chips} align="center" /></div> : null}
+      </>
     );
   } else if (layout === "hook") {
     body = <HookBlast words={words} emphasis={emphasis as any} spec={hook} duration={durationInFrames / fps} />;

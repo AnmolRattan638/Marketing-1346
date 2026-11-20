@@ -227,5 +227,9 @@
     ]
   },
   "voice_language": "hi",
-  "align_script": true
+  "align_script": true,
+  "avatar": {
+    "enabled": true,
+    "max_scenes": 3
+  }
 }

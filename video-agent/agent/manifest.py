@@ -67,6 +67,8 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
     stems = sfx_stems()
     outro_cues = [{"type": "pop", "atSecond": 0.35, "volume": 0.5}] if outro and "pop" in kinds_available(stems) else []
     assign_files([b["sfx"] for b in built] + [outro_cues], stems, seed=str(plan.get("title", "")))      # a different file per cue, none more than 3 times in the reel
+    from . import avatar
+    avatar.apply(built, cfg, fps, lambda b: math.ceil((b["narration_seconds"] + v["tail_seconds"]) * fps))
     for i, b in enumerate(built):
         # Round up to whole frames so Remotion's total length equals the sum of scenes.
         frames = math.ceil((b["narration_seconds"] + v["tail_seconds"]) * fps)

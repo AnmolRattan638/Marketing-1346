@@ -1,0 +1,208 @@
+{
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Kya aapki dukaan raat ko bhi customer lose karti hai?",
+    "hooks": [
+      {
+        "text": "Kya aapki dukaan raat ko bhi customer lose karti hai?",
+        "score": 12.9
+      },
+      {
+        "text": "Har 5 minute mein ek missed WhatsApp enquiry aapko nuksan de sakti hai.",
+        "score": 11.9
+      },
+      {
+        "text": "Maan lo aapka cafe raat 11 baje phone silent, koi reply nahi.",
+        "score": 11.9
+      },
+      {
+        "text": "Raat 11 baje customer WhatsApp pe enquiry bhejta, aap busy, reply nahi hota.",
+        "score": 11.9
+      },
+      {
+        "text": "Myth: FAQ page se sab enquiries automatically solve ho jati hain.",
+        "score": 10.9
+      },
+      {
+        "text": "Ek AI chatbot se aapke leads kabhi missed nahi honge, sach hai.",
+        "score": 7.9
+      }
+    ],
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Kya aapki dukaan raat ko bhi customer lose karti hai?",
+        "screen": "Unanswered WhatsApp enquiry",
+        "visual": "Phone screen shows missed notification, owner sleeping",
+        "emotion": "empathetic",
+        "steps": [],
+        "facts": [
+          "f8"
+        ]
+      },
+      {
+        "beat": "poke",
+        "line": "FAQ ya fixed replies lagane se kaam nahi chalta, kyunki phrasing alag hoti hai.",
+        "screen": "Static FAQs miss queries",
+        "visual": "Side‑by‑side of FAQ page vs chatbot conversation",
+        "emotion": "curious",
+        "steps": [],
+        "facts": [
+          "f2"
+        ]
+      },
+      {
+        "beat": "fix",
+        "line": "Pehle chatbot WhatsApp pe lagao, doosra context intents set karo, teesra handover rule lagao.",
+        "screen": "3 steps: integrate, intents, handover",
+        "visual": "Simple flow diagram showing integration → intents → handover",
+        "emotion": "calm",
+        "steps": [
+          "Chatbot WhatsApp pe lagao",
+          "Context intents set karo",
+          "Handover rule lagao"
+        ],
+        "facts": [
+          "f4",
+          "f8"
+        ]
+      },
+      {
+        "beat": "payoff",
+        "line": "Teen handover rules: bot jab poochta hai connect kare human se, out‑of‑scope queries admit kare, buyer ready ho to sales alert kare.",
+        "screen": "3 handover rules for human touch",
+        "visual": "Anmol points to three icons: chat, warning, buy",
+        "emotion": "warm",
+        "steps": [
+          "connect when asked",
+          "admit out‑of‑scope",
+          "alert when buyer ready"
+        ],
+        "facts": [
+          "f4"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Toh raat ki missed enquiry se lead na kho, chatbot se instant reply.",
+        "screen": "No more missed night leads",
+        "visual": "Instant reply notification popping up at night",
+        "emotion": "empathetic",
+        "steps": [],
+        "facts": [
+          "f5"
+        ]
+      },
+      {
+        "beat": "cta",
+        "line": "Comment BOT, milta hai quick handover checklist aur kaise kaam karta hai.",
+        "screen": "Comment BOT for checklist",
+        "visual": "Anmol gestures to comment box, shows BOT text",
+        "emotion": "warm",
+        "steps": [
+          "comment BOT",
+          "receive checklist info"
+        ],
+        "facts": []
+      }
+    ],
+    "cta": "Comment BOT, milta hai quick handover checklist aur kaise kaam karta hai.",
+    "linkedin_english": "Many small businesses lose enquiries after hours because static FAQs don’t understand varied questions. An AI chatbot integrated with WhatsApp, set with context intents and handover rules, can answer instantly and hand over to a human only when needed. Comment “BOT” to receive a checklist that helps you decide if this fits your shop.",
+    "marketing": {
+      "keyword": "BOT",
+      "gets": "a one-page checklist: the 10 questions a WhatsApp reply bot should answer for your business, so you can see if it fits",
+      "pillar": "how_it_works"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Generic chatbots risk sounding robotic and losing the personal connection that drives premium sales.",
+        "figure": null,
+        "source": "forbes.com",
+        "title": "How AI Is Helping Creators Scale Sales Without Losing ...",
+        "url": "https://www.forbes.com/sites/kolawolesamueladebayo/2026/02/13/how-ai-is-helping-creators-scale-sales-without-losing-the-personal-touch",
+        "date": null,
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "Early chatbots used decision‑tree scripts that gave generic fallback replies when customers phrased questions differently, making the experience feel mechanical, whereas AI bots in 2026 can understand context.",
+        "figure": "2026",
+        "source": "sabaylok.com",
+        "title": "WhatsApp Automation Feels Robotic\" — 5 Myths About...",
+        "url": "https://sabaylok.com/blogs/82565/WhatsApp-Automation-Feels-Robotic-5-Myths-About-Chatbots-Debunked",
+        "date": "2026-07-24",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "AI agents handle repetitive tasks so human staff can focus on complex, high‑value conversations where a personal touch matters.",
+        "figure": null,
+        "source": "salesforce.com",
+        "title": "AI Agent Vs. Chatbot: What's The Best For Small Biz?",
+        "url": "https://www.salesforce.com/blog/small-business/ai-agent-vs-chatbot-for-growing-teams",
+        "date": null,
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Effective chatbots follow three clear handover rules: connect to a human when asked, admit when a query is outside the knowledge base, and alert a salesperson when a customer is ready to buy.",
+        "figure": "3",
+        "source": "jitendrawadhwani.com",
+        "title": "How an AI Chatbot Can Answer Your Customers 24/7 (Without Losing the Human Touch) Jitendra Wadhwani",
+        "url": "https://jitendrawadhwani.com/insights/ai-chatbot-for-small-business/",
+        "date": "2026-10-08",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Chatbots are programmed to provide calm, level‑headed guidance regardless of how long the conversation lasts.",
+        "figure": null,
+        "source": "zendesk.com",
+        "title": "Top 22 benefits of chatbots for businesses and customers",
+        "url": "https://www.zendesk.com/blog/ai/chatbots/what-is-a-chatbot/benefits-of-chatbots",
+        "date": null,
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "The human touch is about having the right person intervene at the right moment, not that every interaction must be handled by a human.",
+        "figure": null,
+        "source": "lilachbullock.com",
+        "title": "AI for Customer Service in a Small Business Without Losing the Human Touch - Lilach Bullock AI Implementation Consultant",
+        "url": "https://www.lilachbullock.com/ai-customer-service-small-business-human-touch/",
+        "date": "2026-06-17",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "A study with 28 participants showed that human‑like cues and system competence increase users’ trust and perceived reliability of AI chatbots.",
+        "figure": "28",
+        "source": "pmc.ncbi.nlm.nih.gov",
+        "title": "Building user trust in AI chatbots for customer service through human-like cues and perceived reliability",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12953761/",
+        "date": "2026-02-09",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Chatbots can manage high volumes of routine queries such as store hours, shipping times, and password resets, freeing humans for more personalized support.",
+        "figure": null,
+        "source": "salesforce.com",
+        "title": "AI Agent Vs. Chatbot: What's The Best For Small Biz?",
+        "url": "https://www.salesforce.com/blog/small-business/ai-agent-vs-chatbot-for-growing-teams",
+        "date": null,
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "Myth: Chatbots sound robotic and lose the personal touch.",
+    "service": "chatbot",
+    "keyword": "BOT",
+    "notes": [
+      "style remark (not blocking): lines are bare statements; use helping words that give the reason or an example (kyunki, isliye, matlab, jaise ki, phir, taaki) so the viewer understands WHY"
+    ]
+  },
+  "service": "chatbot",
+  "slot": "2"
+}

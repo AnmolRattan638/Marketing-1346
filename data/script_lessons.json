@@ -16,7 +16,7 @@
   "rule": "Keep the DM ask out of every beat except cta."
  },
  "total-length": {
-  "count": 4,
+  "count": 8,
   "rule": "The whole script stays under 85 words (about 30 s); give each beat one concrete idea and its reason, nothing more."
  },
  "steps": {
@@ -32,8 +32,8 @@
   "rule": "promises a result/statistic instead of capability (...); fix to capability-only language like ..."
  },
  "other:only restates the problem instead of giv": {
-  "count": 2,
-  "rule": "only restates the problem instead of giving the first new specific answer (...); fix to give the first specific answer like ..."
+  "count": 3,
+  "rule": "only restates the problem instead of giving the first new specific answer; fix: rewrite the poke line to introduce a concrete solu"
  },
  "other:the ask ... is not in offers_allowed; fi": {
   "count": 2,
@@ -48,7 +48,7 @@
   "rule": "Name a concrete moment or thing (11 pm message, unanswered enquiry) in pain and poke."
  },
  "connectors": {
-  "count": 9,
+  "count": 12,
   "rule": "Use helping words (kyunki, isliye, jaise ki, phir) so each line gives its reason."
  },
  "words": {
@@ -102,5 +102,41 @@
  "other:the line promises a result (...) rather ": {
   "count": 1,
   "rule": "the line promises a result (...) rather than describing a capability; change to a capability statement like ..."
+ },
+ "other:line only restates problem; rewrite to g": {
+  "count": 1,
+  "rule": "line only restates problem; rewrite to give the first specific answer, e.g., ..."
+ },
+ "other:line promises a result (trust increase) ": {
+  "count": 1,
+  "rule": "line promises a result (trust increase) and cites an unverified statistic; change to describe capability only, e.g., ..."
+ },
+ "other:line promises a result (time saved); rew": {
+  "count": 1,
+  "rule": "line promises a result (time saved); rewrite to state capability, e.g., ..."
+ },
+ "other:payoff needs a cited verified fact": {
+  "count": 2,
+  "rule": "payoff needs a cited verified fact"
+ },
+ "other:the line names a person (Jitendra Wadhwa": {
+  "count": 1,
+  "rule": "the line names a person (Jitendra Wadhwani) who is not mentioned in any fact; remove the name or replace it with a generic referen"
+ },
+ "other:the line promises to DM a one-page check": {
+  "count": 1,
+  "rule": "the line promises to DM a one-page checklist, which is not a capability of the chatbot service and not supported by any fact; reph"
+ },
+ "other:promises a result (...) which violates t": {
+  "count": 1,
+  "rule": "promises a result (...) which violates the claim rules; fix: rewrite the recap line to describe a capability instead, e.g., ..."
+ },
+ "other:line misstates handover rules by saying ": {
+  "count": 1,
+  "rule": "line misstates handover rules by saying human step only when sale ready, contradicting fact fN; rephrase to include all three rule"
+ },
+ "other:line promises to DM a checklist, which i": {
+  "count": 1,
+  "rule": "line promises to DM a checklist, which is not a verified fact or a chatbot capability; remove the guarantee or rephrase to a neutr"
  }
 }

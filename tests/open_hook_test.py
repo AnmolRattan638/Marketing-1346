@@ -43,3 +43,7 @@ _llm.ask_json = lambda ask, prompt, system, **k: (seen.append(prompt), {"issues"
 cs.audit({"beats": [{"beat": "cta", "line": "Comment BOT"}]}, None)
 assert seen and "NOT engagement bait" in seen[0]
 print("bait audit test passed")
+
+# the model's content-skills audit (hook / clickbait remarks) is advisory too
+assert sw.is_soft("skills: pain: orphan clickbait - the hook asks about late replies") and not sw.is_soft("marketing: payoff promises a result")
+print("skills audit soft test passed")

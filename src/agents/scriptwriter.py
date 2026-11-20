@@ -306,7 +306,7 @@ def check_all(script, sheet, style, focus, ask):
 
 
 # style-only remarks: a script that is faithful, safe and on offer is never thrown away for these (they still get the repair rounds first)
-SOFT = ("meaning:", "lines are bare statements", "too abstract")
+SOFT = ("meaning:", "skills:", "lines are bare statements", "too abstract")
 
 
 def is_soft(problem: str) -> bool:

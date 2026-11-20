@@ -50,14 +50,14 @@ def palette_mode(mode: str, base: dict) -> dict:
 
 # Eight art directions. Each changes the colour mode, the backdrop pattern, the caption style, the transition set and the template variant together, so two reels never share a look.
 PRESETS = (
-    dict(name="night-stack",      mode="night", bg="specks",  caption="stack",      transitions="calm",      variant="default",    vignette=0.38, direction="calm, elegant: big single headlines, one idea per scene, slow zooms"),
+    dict(name="night-stack",      mode="night", bg="orbs",  caption="stack",      transitions="calm",      variant="default",    vignette=0.38, direction="calm, elegant: big single headlines, one idea per scene, slow zooms"),
     dict(name="paper-editorial",  mode="paper", bg="dots",    caption="pill",       transitions="calm",      variant="minimal",    vignette=0.10, direction="editorial, light paper look: strike-through lists and checklists, quiet camera"),
     dict(name="ink-karaoke",      mode="ink",   bg="grid",    caption="karaoke",    transitions="energetic", variant="glass",      vignette=0.45, direction="high-contrast and fast: punch slides, step lists, hard zooms and whips"),
     dict(name="royal-cinematic",  mode="royal", bg="aurora",  caption="cinematic",  transitions="calm",      variant="neo",        vignette=0.30, direction="cinematic: slow push-ins, big titles, soft glow, few but strong visuals"),
     dict(name="night-rays",       mode="night", bg="rays",    caption="pill",       transitions="mixed",     variant="rounded",    vignette=0.40, direction="radiant: punch slides and stats first, bold emphasis on the number"),
-    dict(name="ink-typewriter",   mode="ink",   bg="stripes", caption="typewriter", transitions="mixed",     variant="brutalist",  vignette=0.35, direction="raw and technical: terminal/checklist mocks, hard cuts, blunt headings"),
-    dict(name="paper-pop",        mode="paper", bg="grid",    caption="pill",       transitions="energetic", variant="rounded",    vignette=0.08, direction="bright and playful: strike lists, chips, quick pops"),
-    dict(name="royal-karaoke",    mode="royal", bg="dots",    caption="karaoke",    transitions="energetic", variant="glass",      vignette=0.34, direction="lively: step lists and stat reveals, rhythmic zooms"),
+    dict(name="ink-typewriter",   mode="ink",   bg="scan", caption="typewriter", transitions="mixed",     variant="brutalist",  vignette=0.35, direction="raw and technical: terminal/checklist mocks, hard cuts, blunt headings"),
+    dict(name="paper-pop",        mode="paper", bg="shapes",    caption="pill",       transitions="energetic", variant="rounded",    vignette=0.08, direction="bright and playful: strike lists, chips, quick pops"),
+    dict(name="royal-karaoke",    mode="royal", bg="waves",    caption="karaoke",    transitions="energetic", variant="glass",      vignette=0.34, direction="lively: step lists and stat reveals, rhythmic zooms"),
 )
 
 

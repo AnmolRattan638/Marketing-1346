@@ -98,7 +98,7 @@ def test_prompt_wiring():
     from agent import master_script as ms
     master = {"beats": [{"beat": "pain", "line": "x y z", "screen": "a b c", "visual": "v"}], "style": "s", "marketing": {"keyword": "BOT", "gets": "advice", "pillar": "educate"}}
     pb = ms.prompt_block(master)
-    assert "MARKETING (hardcoded" in pb and "DM BOT" in pb
+    assert "MARKETING (hardcoded" in pb and "Comment BOT" in pb
     src = (ROOT / "src/agents/scriptwriter.py").read_text()
     assert "marketingskills.block('script'" in src and "marketingskills.script_problems" in src and "marketingskills.audit" in src
     assert "marketingskills.block('caption'" in (ROOT / "src/agents/writer.py").read_text()

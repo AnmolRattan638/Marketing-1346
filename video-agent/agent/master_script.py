@@ -139,7 +139,7 @@ def _marketing_line(master: dict) -> str:
     m = master.get("marketing") or {}
     if not m.get("keyword"):
         return ""
-    return (f"MARKETING (hardcoded; if it conflicts with the content rules above, it wins): the ONLY ask in the whole video is 'DM {m['keyword']}' in the cta scene, "
+    return (f"MARKETING (hardcoded; if it conflicts with the content rules above, it wins): the ONLY ask in the whole video is 'Comment {m['keyword']}' in the cta scene (a public comment; the freebie arrives in their DM), "
             f"promising {m.get('gets', 'honest advice')}. No scene adds a price, offer, discount, demo, sample, guarantee, result claim or another service's keyword; no scene addresses a different audience than the script. "
             f"Pillar today: {m.get('pillar', 'educate')} (educate and how_it_works teach, only an offer day may pitch).\n")
 

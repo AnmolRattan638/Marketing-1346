@@ -1,0 +1,800 @@
+{
+  "id": "2026-11-20-20b009",
+  "date": "2026-11-20",
+  "created_at": "2026-11-20T03:36:06+00:00",
+  "status": "pending",
+  "service": "animated_ads",
+  "topic": "The mistake of choosing the 'DIY struggle' over 'professional delivery' for your business ads.",
+  "idea_id": null,
+  "problem_id": "content-creation-takes-too-much-time",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "exploit",
+    "variable": "hook_style",
+    "problem_id": "content-creation-takes-too-much-time",
+    "angle_type": "mistake",
+    "hook_style": "comparison"
+  },
+  "hooks": [
+    {
+      "style": "comparison",
+      "text": "Small business owners: DIY ads vs pro-ready ads— which drains your day?"
+    },
+    {
+      "style": "question",
+      "text": "Entrepreneurs: Ever wonder why your daily posts take all afternoon?"
+    },
+    {
+      "style": "myth",
+      "text": "Entrepreneurs: Myth—design skills required daily. Fact: Pro assets work."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "comparison",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "DIY campaigns can require 10 to 20 hours per week for a modest budget.",
+        "figure": "10-20 hours per week",
+        "source": "almostzeroreview.com",
+        "title": "Managed ads vs managing your own campaigns: what's right for small businesses in India? · AlmostZero Review",
+        "url": "https://almostzeroreview.com/blog/managed-ads-vs-diy-campaigns-india",
+        "date": "2026-06-24",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "DIY campaigns often plateau after 2 to 3 months.",
+        "figure": "2-3 months",
+        "source": "almostzeroreview.com",
+        "title": "Managed ads vs managing your own campaigns: what's right for small businesses in India? · AlmostZero Review",
+        "url": "https://almostzeroreview.com/blog/managed-ads-vs-diy-campaigns-india",
+        "date": "2026-06-24",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Technical tasks such as website design, tracking setup, and ad account setup are better outsourced because mistakes are costly.",
+        "figure": null,
+        "source": "wbzard.com",
+        "title": "DIY vs Hiring Digital Marketing for Small Business",
+        "url": "https://www.wbzard.com/blog/diy-vs-hire-digital-marketing-small-business",
+        "date": "2026-10-25",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Paid ads waste money fastest when done without experience; hiring help for setup and the first months can prevent this waste.",
+        "figure": null,
+        "source": "wbzard.com",
+        "title": "DIY vs Hiring Digital Marketing for Small Business",
+        "url": "https://www.wbzard.com/blog/diy-vs-hire-digital-marketing-small-business",
+        "date": "2026-10-25",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "DIY ad management typically requires 8 to 15 hours per week on an ongoing basis.",
+        "figure": "8-15 hours per week",
+        "source": "adsage.in",
+        "title": "Marketing Agency vs DIY: Cost and Time ADSage.in",
+        "url": "https://adsage.in/blog/hire-marketing-agency-vs-diy/",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "DIY ad management incurs opportunity cost, as the time spent could be used for core business activities like selling and hiring.",
+        "figure": null,
+        "source": "adsage.in",
+        "title": "Marketing Agency vs DIY: Cost and Time ADSage.in",
+        "url": "https://adsage.in/blog/hire-marketing-agency-vs-diy/",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "73% of SMEs make mistakes when handling marketing themselves.",
+        "figure": "73%",
+        "source": "secro.ee",
+        "title": "Why Do 73% of SMEs Make Mistakes? Full Marketing Solution vs DIY",
+        "url": "https://secro.ee/en/reality-check-73-percent-estonian-smes-doing-themselves-disservice/",
+        "date": "2026-04-16",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "48% of SMEs reported they do everything themselves (in-house) for their visibility.",
+        "figure": "48%",
+        "source": "secro.ee",
+        "title": "Why Do 73% of SMEs Make Mistakes? Full Marketing Solution vs DIY",
+        "url": "https://secro.ee/en/reality-check-73-percent-estonian-smes-doing-themselves-disservice/",
+        "date": "2026-04-16",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "dropped": 0,
+    "topic": "The mistake of choosing the 'DIY struggle' over 'professional delivery' for your business ads."
+  },
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Ad kuch seconds mein koi reply nahi milta, aapke cafe ke liye?",
+    "hooks": [
+      {
+        "text": "Aapke cafe ka ad 30 sec mein koi reply nahi?",
+        "score": 14.4
+      },
+      {
+        "text": "30% customers aapke ad dekh ke bhi swipe kar dete hain.",
+        "score": 11.9
+      },
+      {
+        "text": "Maan lo aapka salon 9 baje booking miss karta hai.",
+        "score": 11.9
+      },
+      {
+        "text": "Raat 11 baje WhatsApp se order aaya, aap busy, reply nahi diya.",
+        "score": 11.9
+      },
+      {
+        "text": "Myth: Sirf photo post se sales double ho jati hai.",
+        "score": 10.7
+      },
+      {
+        "text": "Ek animated ad aapke brand ko viral bana sakta hai.",
+        "score": 7.9
+      }
+    ],
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Ad kuch seconds mein koi reply nahi milta, aapke cafe ke liye?",
+        "screen": "Ad gets no replies?",
+        "visual": "Cafe sign with silent phone notification",
+        "emotion": "warm",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "poke",
+        "line": "Aap ready-made ad template se static ad sirf kuch minutes mein ready kar sakte hain.",
+        "screen": "Ready-made template in minutes",
+        "visual": "Template preview, click, ad appears quickly",
+        "emotion": "warm",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Hum aapke ad ke liye script likhne aur animation add karne ke liye ek simple tool ya template provide karte hain.",
+        "screen": "Simple script & animation tool",
+        "visual": "Screen showing tool interface with script and animation options",
+        "emotion": "warm",
+        "steps": [
+          "script likho",
+          "animation add karo",
+          "use simple tool"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "payoff",
+        "line": "Iska matlab hai aap har hafte 10-20 ghante waste kar rahe ho.",
+        "screen": "Save 10-20 hrs weekly",
+        "visual": "Clock showing saved hours, happy owner",
+        "emotion": "excited",
+        "steps": [],
+        "facts": [
+          "f1"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Toh jab 11pm ka order chala gaya, aapko aise animated ad chahiye.",
+        "screen": "Animated ad needed",
+        "visual": "Phone playing short animated ad, thumbs up",
+        "emotion": "warm",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "cta",
+        "line": "Comment ADS and get a step-by-step animated-ad checklist in the bio link.",
+        "screen": "Comment ADS for checklist",
+        "visual": "Comment box highlighted, bio link shown",
+        "emotion": "warm",
+        "steps": [],
+        "facts": []
+      }
+    ],
+    "cta": "Comment ADS and get a step-by-step animated-ad checklist in the bio link.",
+    "linkedin_english": "Small business owners often waste many hours creating static ads that don’t get attention. An AI‑generated short animated ad can convey your offer in seconds and saves you 10‑20 hours per week. Comment “ADS” and I’ll DM you a one‑page checklist showing what to include in a 20‑second ad.",
+    "marketing": {
+      "keyword": "ADS",
+      "gets": "a one-page checklist: what a 20-second ad must show so a customer understands your business, in order",
+      "pillar": "how_it_works"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "DIY campaigns can require 10 to 20 hours per week for a modest budget.",
+        "figure": "10-20 hours per week",
+        "source": "almostzeroreview.com",
+        "title": "Managed ads vs managing your own campaigns: what's right for small businesses in India? · AlmostZero Review",
+        "url": "https://almostzeroreview.com/blog/managed-ads-vs-diy-campaigns-india",
+        "date": "2026-06-24",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "DIY campaigns often plateau after 2 to 3 months.",
+        "figure": "2-3 months",
+        "source": "almostzeroreview.com",
+        "title": "Managed ads vs managing your own campaigns: what's right for small businesses in India? · AlmostZero Review",
+        "url": "https://almostzeroreview.com/blog/managed-ads-vs-diy-campaigns-india",
+        "date": "2026-06-24",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Technical tasks such as website design, tracking setup, and ad account setup are better outsourced because mistakes are costly.",
+        "figure": null,
+        "source": "wbzard.com",
+        "title": "DIY vs Hiring Digital Marketing for Small Business",
+        "url": "https://www.wbzard.com/blog/diy-vs-hire-digital-marketing-small-business",
+        "date": "2026-10-25",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Paid ads waste money fastest when done without experience; hiring help for setup and the first months can prevent this waste.",
+        "figure": null,
+        "source": "wbzard.com",
+        "title": "DIY vs Hiring Digital Marketing for Small Business",
+        "url": "https://www.wbzard.com/blog/diy-vs-hire-digital-marketing-small-business",
+        "date": "2026-10-25",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "DIY ad management typically requires 8 to 15 hours per week on an ongoing basis.",
+        "figure": "8-15 hours per week",
+        "source": "adsage.in",
+        "title": "Marketing Agency vs DIY: Cost and Time ADSage.in",
+        "url": "https://adsage.in/blog/hire-marketing-agency-vs-diy/",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "DIY ad management incurs opportunity cost, as the time spent could be used for core business activities like selling and hiring.",
+        "figure": null,
+        "source": "adsage.in",
+        "title": "Marketing Agency vs DIY: Cost and Time ADSage.in",
+        "url": "https://adsage.in/blog/hire-marketing-agency-vs-diy/",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "73% of SMEs make mistakes when handling marketing themselves.",
+        "figure": "73%",
+        "source": "secro.ee",
+        "title": "Why Do 73% of SMEs Make Mistakes? Full Marketing Solution vs DIY",
+        "url": "https://secro.ee/en/reality-check-73-percent-estonian-smes-doing-themselves-disservice/",
+        "date": "2026-04-16",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "48% of SMEs reported they do everything themselves (in-house) for their visibility.",
+        "figure": "48%",
+        "source": "secro.ee",
+        "title": "Why Do 73% of SMEs Make Mistakes? Full Marketing Solution vs DIY",
+        "url": "https://secro.ee/en/reality-check-73-percent-estonian-smes-doing-themselves-disservice/",
+        "date": "2026-04-16",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "The mistake of choosing the 'DIY struggle' over 'professional delivery' for your business ads.",
+    "service": "animated_ads",
+    "keyword": "ADS",
+    "notes": [
+      "style remark (not blocking): lines are bare statements; use helping words that give the reason or an example (kyunki, isliye, matlab, jaise ki, phir, taaki) so the viewer understands WHY"
+    ]
+  },
+  "script_style": "pain-poke-fix",
+  "posts": {
+    "instagram": "𝗠𝗬𝗧𝗛: 𝗔𝗡𝗜𝗠𝗔𝗧𝗘𝗗 𝗔𝗗 𝗞𝗘 𝗟𝗜𝗬𝗘 𝗗𝗘𝗦𝗜𝗚𝗡𝗘𝗥 𝗭𝗔𝗥𝗢𝗢𝗥𝗜 𝗡𝗔𝗛𝗜\n→ Ad mein 𝗢𝗙𝗙𝗘𝗥, 𝗣𝗥𝗜𝗖𝗘, WhatsApp number hona chahiye.\n→ 15‑second 𝗩𝗜𝗗𝗘𝗢 phone screen ke liye banaya jata hai.\n→ Time bachega, customer pe focus rahega.\nComment 𝗔𝗗𝗦 and I’ll DM you to discuss a short animated ad for your business.\n\n#SmallBusinessIndia #AnimatedAds #BusinessIndia #InstagramAds",
+    "linkedin": "Many small business owners waste hours creating animated ads with design tools that could be done faster.\n\nMany think that creating an animated ad requires a professional designer or many hours in a design program.\n\nA shop owner in India often opens a design tool late at night to prepare a single Instagram post. They move text, change the font, and export the image in several versions. By the next morning the promotion is already outdated. This pattern is common among cafés, clinics, and small stores that communicate with customers on WhatsApp.\n\nI create short animated videos that small businesses can use on Instagram and Facebook. Each video runs for a few seconds, displays an offer or service with motion and text, and is sized for a phone screen. It can serve as an ad, a reel, or a story. It is not a full website or a long commercial.\n\nFirst the owner tells me what the business sells and what customers frequently ask about. I then craft an animation based on that information. The owner reviews the draft and requests any changes. Payment is made only after the final video is approved – you pay after approval.\n\nThe service is priced at INR 999, INR 1,499, or INR 2,199 per video. This approach helps reduce the time spent adjusting colours, fonts, and layouts for a single post. Once approved, the video can be uploaded immediately, freeing time for answering messages and managing stock. It also makes it easier to showcase an offer on Instagram or Facebook without hiring a video crew.\n\nThe service is suitable for owners who want a simple, reusable asset for Instagram and Facebook. It does not replace personal replies to complex customer questions, and it does not guarantee more sales, higher rankings, or any specific results.\n\nIf you think this could fit your business, feel free to message me. Payment is required only after you approve the work. DM ADS to discuss further.",
+    "bluesky": "Myth: animated ads need a designer. A 15-second ready-to-upload video for Instagram and Facebook with your offer, call-to-action, and branding can save your morning. DM ADS to discuss if it fits your business. #SmallBusinessIndia"
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I make short animated ads for Instagram and Facebook. What do you want customers to do after seeing it—call, WhatsApp, or visit? Prices are INR 999, 1,499, or 2,199 based on scope, and payment happens only after you approve the work. Shall we start with what you sell?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, I work with small businesses across India that talk to customers on WhatsApp, Instagram, or phone. What do you sell, and what is the main offer you want to show? I can tell you honestly if a short animated ad fits your business."
+    },
+    {
+      "if_they_say": "can I see a demo?",
+      "reply": "Hi, I build short animated videos for Instagram and Facebook that show an offer, price, and WhatsApp number in a few seconds. What does your business sell? I can explain how it would work for you and we can take it from there."
+    }
+  ],
+  "image": {
+    "prompt": "a matte‑black laptop with brushed‑metal chassis and a softly glowing dark screen showing a golden AI‑animated swirl; laptop occupies the upper two‑thirds, eye‑level view slightly tilted down, leaving a calm lower 40% for headline; a warm amber desk lamp on the right bathes the keyboard, a cool rim highlights the screen edge, shadows fall gently; dark walnut desk with the lamp, a black ceramic mug, and a closed notebook with faint sketch lines hinting at DIY drafts, plus a plant silhouette behind; Colour & Mood: deep charcoal, warm amber, warm gold accent, focused and confident; Camera & Texture: 85mm lens at f/1.8, shallow depth blurs the lower desk, revealing brushed metal, glass reflections and dust motes catching light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-20.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "content-creation-takes-too-much-time",
+      "angle_type": "mistake",
+      "style": "bold",
+      "headline": "The mistake: DIY vs pro delivery",
+      "highlight": [
+        "The mistake"
+      ],
+      "sub": "Professional animation helps create high-quality content.",
+      "chat": [],
+      "cta": "Comment \"ADS\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ],
+    "style_id": "desk-glow"
+  },
+  "carousel": null,
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Instagram post offers a free checklist, which is not allowed under the rules (only pay‑after‑approval and short conversation are permitted).",
+      "LinkedIn post contains an absolute outcome claim \"This approach stops the owner from spending hours...\" which should be softened.",
+      "LinkedIn post says \"There is no fixed package beyond the short video itself,\" contradicting the defined price tiers and not quoting the price note.",
+      "LinkedIn post does not quote the service price tiers from the price_note; prices should be included."
+    ],
+    "revised": {
+      "instagram": "**MYTH: ANIMATED AD KE LIYE DESIGNER ZAROORI NAHI**\n→ Ad mein **OFFER**, **PRICE**, WhatsApp number hona chahiye.\n→ 15‑second **VIDEO** phone screen ke liye banaya jata hai.\n→ Time bachega, customer pe focus rahega.\nComment **ADS** and I’ll DM you to discuss a short animated ad for your business.\n\n#SmallBusinessIndia #AnimatedAds #BusinessIndia #InstagramAds",
+      "linkedin": "Many small business owners waste hours creating animated ads with design tools that could be done faster.\n\nMany think that creating an animated ad requires a professional designer or many hours in a design program.\n\nA shop owner in India often opens a design tool late at night to prepare a single Instagram post. They move text, change the font, and export the image in several versions. By the next morning the promotion is already outdated. This pattern is common among cafés, clinics, and small stores that communicate with customers on WhatsApp.\n\nI create short animated videos that small businesses can use on Instagram and Facebook. Each video runs for a few seconds, displays an offer or service with motion and text, and is sized for a phone screen. It can serve as an ad, a reel, or a story. It is not a full website or a long commercial.\n\nFirst the owner tells me what the business sells and what customers frequently ask about. I then craft an animation based on that information. The owner reviews the draft and requests any changes. Payment is made only after the final video is approved – you pay after approval.\n\nThe service is priced at INR 999, INR 1,499, or INR 2,199 per video. This approach helps reduce the time spent adjusting colours, fonts, and layouts for a single post. Once approved, the video can be uploaded immediately, freeing time for answering messages and managing stock. It also makes it easier to showcase an offer on Instagram or Facebook without hiring a video crew.\n\nThe service is suitable for owners who want a simple, reusable asset for Instagram and Facebook. It does not replace personal replies to complex customer questions, and it does not guarantee more sales, higher rankings, or any specific results.\n\nIf you think this could fit your business, feel free to message me. Payment is required only after you approve the work. DM ADS to discuss further.",
+      "bluesky": "Myth: animated ads need a designer. A 15-second ready-to-upload video for Instagram and Facebook with your offer, call-to-action, and branding can save your morning. DM ADS to discuss if it fits your business. #SmallBusinessIndia"
+    }
+  },
+  "sources": [
+    {
+      "title": "Best Small Business Loans: $2K - $5 Million - NerdWallet",
+      "url": "https://www.nerdwallet.com/business/loans/best",
+      "domain": "nerdwallet.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Managed ads vs managing your own campaigns: what's right for small businesses in India? · AlmostZero Review",
+      "url": "https://almostzeroreview.com/blog/managed-ads-vs-diy-campaigns-india",
+      "domain": "almostzeroreview.com",
+      "date": "2026-06-24",
+      "provider": "exa"
+    },
+    {
+      "title": "Federal Register :: Small Business Size Standards: Revised Size Standards Methodology",
+      "url": "https://www.federalregister.gov/documents/2026/08/20/2026-17039/small-business-size-standards-revised-size-standards-methodology",
+      "domain": "federalregister.gov",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "DIY vs Hiring Digital Marketing for Small Business",
+      "url": "https://www.wbzard.com/blog/diy-vs-hire-digital-marketing-small-business",
+      "domain": "wbzard.com",
+      "date": "2026-10-25",
+      "provider": "exa"
+    },
+    {
+      "title": "Professional development opportunities at GMAC",
+      "url": "https://www.gmac.com/professional-development-and-careers/pd-opportunities",
+      "domain": "gmac.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Marketing Agency vs DIY: Cost and Time ADSage.in",
+      "url": "https://adsage.in/blog/hire-marketing-agency-vs-diy/",
+      "domain": "adsage.in",
+      "date": "2026-04-15",
+      "provider": "exa"
+    },
+    {
+      "title": "Managed investment scheme manager",
+      "url": "https://www.fma.govt.nz/business/services/mis-manager",
+      "domain": "fma.govt.nz",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Why Do 73% of SMEs Make Mistakes? Full Marketing Solution vs DIY",
+      "url": "https://secro.ee/en/reality-check-73-percent-estonian-smes-doing-themselves-disservice/",
+      "domain": "secro.ee",
+      "date": "2026-04-16",
+      "provider": "exa"
+    }
+  ],
+  "ad_score": 8,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 333.0,
+        "reach_p50": 667.0,
+        "reach_p90": 1396.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'exclusion', 'severity': 'low', 'description': \"The content is primarily in Hindi, which may exclude non-Hi",
+          "{'category': 'class', 'severity': 'low', 'description': 'The claim that a designer is not necessary for animated ads may",
+          "{'category': 'disability', 'severity': 'low', 'description': 'No mention of accessibility features such as subtitles or "
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 3.0,
+          "educational": 5.0,
+          "novelty": 2.0,
+          "controversy": 2.0,
+          "emotional_intensity": 2.0,
+          "relatability": 6.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 357,
+            "share": 4,
+            "reply": 4,
+            "like": 4
+          },
+          "engagement_rate": 0.0325,
+          "by_role": {
+            "public": {
+              "n": 12,
+              "avg_sentiment": 0.484,
+              "share_rate": 0.333
+            }
+          },
+          "cascade_size": 5,
+          "r_effective": 1.6667,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 5.0
+          },
+          {
+            "title": "Open a stronger curiosity gap",
+            "lift_pct": 4.3
+          },
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 4.3
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 7.7,
+        "breakout_probability": 0.0,
+        "reach_p10": 462.0,
+        "reach_p50": 891.0,
+        "reach_p90": 2020.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 3.0,
+          "educational": 7.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 7.0,
+          "practical_value": 8.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Hype or guarantee words",
+            "impact": "medium"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 353,
+            "share": 7,
+            "reply": 4,
+            "like": 5
+          },
+          "engagement_rate": 0.0434,
+          "by_role": {
+            "public": {
+              "n": 16,
+              "avg_sentiment": 0.555,
+              "share_rate": 0.438
+            }
+          },
+          "cascade_size": 8,
+          "r_effective": 1.2917,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 25,
+          "reach_fraction": 0.034,
+          "r_effective": 0.8067,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 10.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 206.0,
+        "reach_p50": 427.0,
+        "reach_p90": 890.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 3.5,
+          "educational": 1.0,
+          "novelty": 3.5,
+          "controversy": 3.0,
+          "emotional_intensity": 2.8,
+          "relatability": 2.0,
+          "practical_value": 1.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 356,
+            "share": 2,
+            "like": 1,
+            "dislike": 1
+          },
+          "engagement_rate": 0.0111,
+          "by_role": {
+            "public": {
+              "n": 4,
+              "avg_sentiment": 0.542,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 9,
+          "reach_fraction": 0.0135,
+          "r_effective": 0.4667,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "heuristic"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "question",
+          "p_beats_chosen": 0.06,
+          "lift_pct": -4.4,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "myth",
+          "p_beats_chosen": 0.98,
+          "lift_pct": 10.8,
+          "decisive": true
+        }
+      ],
+      "better": 2,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Change hook to myth-busting Hinglish (e.g., 'MYTH: ANIMATED AD KE LIYE DESIGNER ZAROORI NAHI'), replace 'Dimaag khali...' with 'Time bachega, customer pe focus rahega', add one concrete detail like 'Ad mein offer, price, WhatsApp",
+      "linkedin: Open with myth-busting hook (e.g., 'Myth: You need a designer or hours in Canva for an animated ad.'), add concrete detail: 'The 15-second video shows your offer, a clear call-to-action (Call/WhatsApp/Visit), and your branding — s",
+      "bluesky: Rewrite as myth-busting hook under 260 chars: 'Myth: Animated ads need a designer. A 15-sec ready-to-upload video for Insta/FB with offer, CTA, branding frees your morning. Pay after approval. DM ADS to discuss fit. #SmallBusinessI"
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 9.5,
+      "bluesky": 0.0
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 7.7,
+      "bluesky": 10.0
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 429)",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 413)",
+      "FAILED groq: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free"
+    ],
+    "failures": [
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7152, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3063, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.1,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8697, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.1,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8793, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7853, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4770, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.1,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8033, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 1984, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.1,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 14615, please reduce your message size and try again. Need more tokens? Upgra"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.1,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 10473, please reduce your message size and try again. Need more tokens? Upgra"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.1,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 10619, please reduce your message size and try again. Need more tokens? Upgra"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.1,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8088, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.1,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 10561, please reduce your message size and try again. Need more tokens? Upgra"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.1,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8358, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7994, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.0,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 10579, please reduce your message size and try again. Need more tokens? Upgra"
+      }
+    ]
+  }
+}

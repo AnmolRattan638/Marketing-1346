@@ -44,11 +44,11 @@
   "rule": "Every digit must come from a cited fact; if no fact has the number, say it in words with no digit."
  },
  "abstract": {
-  "count": 2,
+  "count": 4,
   "rule": "Name a concrete moment or thing (11 pm message, unanswered enquiry) in pain and poke."
  },
  "connectors": {
-  "count": 6,
+  "count": 9,
   "rule": "Use helping words (kyunki, isliye, jaise ki, phir) so each line gives its reason."
  },
  "words": {
@@ -78,5 +78,29 @@
  "other:script is only N words (min N); the reel": {
   "count": 2,
   "rule": "script is only N words (min N); the reel is too thin, add one concrete detail and its reason"
+ },
+ "other:ask the viewer to comment the word ADS (": {
+  "count": 2,
+  "rule": "ask the viewer to comment the word ADS (a public comment); the freebie arrives in their DM"
+ },
+ "other:first spoken word not most interesting; ": {
+  "count": 1,
+  "rule": "first spoken word not most interesting; move the most compelling word to the start, e.g., ..."
+ },
+ "other:hook fails on mute because on-screen tex": {
+  "count": 1,
+  "rule": "hook fails on mute because on-screen text doesn't match spoken hook; change screen text to display the hook (e.g., ...)"
+ },
+ "other:bait‑shaped CTA asking for a comment and": {
+  "count": 1,
+  "rule": "bait‑shaped CTA asking for a comment and tying the checklist to that comment; replace with a single value‑driven ask such as ... o"
+ },
+ "other:the line only restates the problem (...)": {
+  "count": 1,
+  "rule": "the line only restates the problem (...) instead of giving the first specific answer; replace with a concrete solution such as ..."
+ },
+ "other:the line promises a result (...) rather ": {
+  "count": 1,
+  "rule": "the line promises a result (...) rather than describing a capability; change to a capability statement like ..."
  }
 }

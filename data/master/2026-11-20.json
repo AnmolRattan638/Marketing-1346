@@ -1,0 +1,191 @@
+{
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Ad kuch seconds mein koi reply nahi milta, aapke cafe ke liye?",
+    "hooks": [
+      {
+        "text": "Aapke cafe ka ad 30 sec mein koi reply nahi?",
+        "score": 14.4
+      },
+      {
+        "text": "30% customers aapke ad dekh ke bhi swipe kar dete hain.",
+        "score": 11.9
+      },
+      {
+        "text": "Maan lo aapka salon 9 baje booking miss karta hai.",
+        "score": 11.9
+      },
+      {
+        "text": "Raat 11 baje WhatsApp se order aaya, aap busy, reply nahi diya.",
+        "score": 11.9
+      },
+      {
+        "text": "Myth: Sirf photo post se sales double ho jati hai.",
+        "score": 10.7
+      },
+      {
+        "text": "Ek animated ad aapke brand ko viral bana sakta hai.",
+        "score": 7.9
+      }
+    ],
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Ad kuch seconds mein koi reply nahi milta, aapke cafe ke liye?",
+        "screen": "Ad gets no replies?",
+        "visual": "Cafe sign with silent phone notification",
+        "emotion": "warm",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "poke",
+        "line": "Aap ready-made ad template se static ad sirf kuch minutes mein ready kar sakte hain.",
+        "screen": "Ready-made template in minutes",
+        "visual": "Template preview, click, ad appears quickly",
+        "emotion": "warm",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Hum aapke ad ke liye script likhne aur animation add karne ke liye ek simple tool ya template provide karte hain.",
+        "screen": "Simple script & animation tool",
+        "visual": "Screen showing tool interface with script and animation options",
+        "emotion": "warm",
+        "steps": [
+          "script likho",
+          "animation add karo",
+          "use simple tool"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "payoff",
+        "line": "Iska matlab hai aap har hafte 10-20 ghante waste kar rahe ho.",
+        "screen": "Save 10-20 hrs weekly",
+        "visual": "Clock showing saved hours, happy owner",
+        "emotion": "excited",
+        "steps": [],
+        "facts": [
+          "f1"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Toh jab 11pm ka order chala gaya, aapko aise animated ad chahiye.",
+        "screen": "Animated ad needed",
+        "visual": "Phone playing short animated ad, thumbs up",
+        "emotion": "warm",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "cta",
+        "line": "Comment ADS and get a step-by-step animated-ad checklist in the bio link.",
+        "screen": "Comment ADS for checklist",
+        "visual": "Comment box highlighted, bio link shown",
+        "emotion": "warm",
+        "steps": [],
+        "facts": []
+      }
+    ],
+    "cta": "Comment ADS and get a step-by-step animated-ad checklist in the bio link.",
+    "linkedin_english": "Small business owners often waste many hours creating static ads that don’t get attention. An AI‑generated short animated ad can convey your offer in seconds and saves you 10‑20 hours per week. Comment “ADS” and I’ll DM you a one‑page checklist showing what to include in a 20‑second ad.",
+    "marketing": {
+      "keyword": "ADS",
+      "gets": "a one-page checklist: what a 20-second ad must show so a customer understands your business, in order",
+      "pillar": "how_it_works"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "DIY campaigns can require 10 to 20 hours per week for a modest budget.",
+        "figure": "10-20 hours per week",
+        "source": "almostzeroreview.com",
+        "title": "Managed ads vs managing your own campaigns: what's right for small businesses in India? · AlmostZero Review",
+        "url": "https://almostzeroreview.com/blog/managed-ads-vs-diy-campaigns-india",
+        "date": "2026-06-24",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "DIY campaigns often plateau after 2 to 3 months.",
+        "figure": "2-3 months",
+        "source": "almostzeroreview.com",
+        "title": "Managed ads vs managing your own campaigns: what's right for small businesses in India? · AlmostZero Review",
+        "url": "https://almostzeroreview.com/blog/managed-ads-vs-diy-campaigns-india",
+        "date": "2026-06-24",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Technical tasks such as website design, tracking setup, and ad account setup are better outsourced because mistakes are costly.",
+        "figure": null,
+        "source": "wbzard.com",
+        "title": "DIY vs Hiring Digital Marketing for Small Business",
+        "url": "https://www.wbzard.com/blog/diy-vs-hire-digital-marketing-small-business",
+        "date": "2026-10-25",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Paid ads waste money fastest when done without experience; hiring help for setup and the first months can prevent this waste.",
+        "figure": null,
+        "source": "wbzard.com",
+        "title": "DIY vs Hiring Digital Marketing for Small Business",
+        "url": "https://www.wbzard.com/blog/diy-vs-hire-digital-marketing-small-business",
+        "date": "2026-10-25",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "DIY ad management typically requires 8 to 15 hours per week on an ongoing basis.",
+        "figure": "8-15 hours per week",
+        "source": "adsage.in",
+        "title": "Marketing Agency vs DIY: Cost and Time ADSage.in",
+        "url": "https://adsage.in/blog/hire-marketing-agency-vs-diy/",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "DIY ad management incurs opportunity cost, as the time spent could be used for core business activities like selling and hiring.",
+        "figure": null,
+        "source": "adsage.in",
+        "title": "Marketing Agency vs DIY: Cost and Time ADSage.in",
+        "url": "https://adsage.in/blog/hire-marketing-agency-vs-diy/",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "73% of SMEs make mistakes when handling marketing themselves.",
+        "figure": "73%",
+        "source": "secro.ee",
+        "title": "Why Do 73% of SMEs Make Mistakes? Full Marketing Solution vs DIY",
+        "url": "https://secro.ee/en/reality-check-73-percent-estonian-smes-doing-themselves-disservice/",
+        "date": "2026-04-16",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "48% of SMEs reported they do everything themselves (in-house) for their visibility.",
+        "figure": "48%",
+        "source": "secro.ee",
+        "title": "Why Do 73% of SMEs Make Mistakes? Full Marketing Solution vs DIY",
+        "url": "https://secro.ee/en/reality-check-73-percent-estonian-smes-doing-themselves-disservice/",
+        "date": "2026-04-16",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "The mistake of choosing the 'DIY struggle' over 'professional delivery' for your business ads.",
+    "service": "animated_ads",
+    "keyword": "ADS",
+    "notes": [
+      "style remark (not blocking): lines are bare statements; use helping words that give the reason or an example (kyunki, isliye, matlab, jaise ki, phir, taaki) so the viewer understands WHY"
+    ]
+  },
+  "service": "animated_ads"
+}

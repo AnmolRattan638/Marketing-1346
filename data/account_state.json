@@ -1,20 +1,20 @@
 {
-  "date": "2026-11-19",
-  "stage": "Brand new under 100 followers across all platforms",
+  "date": "2026-11-20",
+  "stage": "brand new under 100 followers",
   "followers": 9,
-  "summary": "Account is brand new with 9 IG, 14 LI, 1 BS followers. Lead gen content outperforms (1.68x median). Question hooks work best (1.75x). Mistake angles perform (1.38x). Reels lose 65%+ viewers in first 3s. Last 4 IG posts zero engagement. Bio violates brand rules: niches, region, timeframe, free offer.",
-  "guidance": "- Use question hook for today's lead gen post (highest performer at 1.75x)\n- Avoid comparison hooks (used 4 of last 6 posts)\n- Target freelancers/agencies/anyone selling services — not web developers\n- Describe sheet generally: Google Places data, contacts, reviews, website checks, new openings\n- Use silhouette or desk-glow image style (both 1.5x)\n- Include only 'pay after approval' offer + DM conversation\n- Soft language: 'can reduce', 'helps', 'makes it easier'\n- Hashtags: #FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+  "summary": "Near-zero engagement and reach across all platforms; Instagram reels lose 64% viewers in first 3 seconds (hook failure), zero follower growth despite 23 posts/30 days, LinkedIn inactive for 30 days. Bio violates brand rules: names niches (hotels, cafes, gyms, homestays), region (Himachal), promises '24 hrs' delivery, offers free site check outside website posts.",
+  "guidance": "- Hook style: try **question** (1.75x median, n=6) or **myth** (unused recently) for animated ads; rotate away from repeated comparison/contrast.\n- Avoid re-phrasing cost/time comparisons (AI vs crew, hours vs minutes) — used in last 3 animated_ads posts.\n- Posts must read as a developer showing real work, never as an ad; no demos, samples, or niche targeting.\n- Use silhouette or desk-glow image style (1.5x median); consider bold-slow-reveal carousel (2.0x).\n- Address 'lack of budget for professional video shoots' problem (top winner) with soft wording: 'can reduce cost', 'helps create'.",
   "instructions": {
-    "research": "List 5 common lead-sourcing pains Indian freelancers/agencies mention in posts/comments (e.g., stale directories, no contact info, time wasted on unqualified leads).",
-    "analysis": "Compare the 3 published lead gen posts (Nov 5, 9, 13) — note which hook style each used and their engagement relative to median.",
-    "writer": "Write a question-hook post opening with 'Freelancers' or 'Agencies' about manual lead searching exhaustion. Describe the sheet in general terms only. End with 'pay after approval' + DM invite. No niche examples.",
-    "image": "Create a silhouette-style graphic showing a generic laptop/search screen with subtle Indian context (e.g., map pin outline). No business types, no logos, no demo UI.",
-    "video": "Skip video today — static image post aligns with better-performing format (image 44% > carousel)."
+    "research": "Find 2-3 real Indian small-business pain points about video ad costs (e.g., 'spent ₹15k on a shoot, got 10 views') without naming businesses; cite public forums or news.",
+    "analysis": "Compare the last 3 animated_ads posts: all use cost/time contrast. Note which hook style (question, comparison, contrast) got any saves/shares; flag repeated phrasing.",
+    "writer": "Draft a question-hook post: 'Ever quoted ₹20k for a 15-sec ad and heard \"budget nahi hai\"?' Explain how AI animation can reduce cost, end with 'pay after approval' and DM invite. No niche, no demo, no guarantees.",
+    "image": "Create a silhouette-style graphic: dark background, glowing phone screen showing a looping AI-animated ad frame, subtle code snippet overlay. No logos, no business names.",
+    "video": "Skip video today; static image carousel performs better (44% of image earnings) and avoids 64% first-3s drop-off."
   },
   "manual_tips": [
-    "Update Instagram bio: remove niches (hotels, cafes, gyms, homestays), region (Himachal), timeframe (24 hrs), and free site check offer. Keep only: 'Websites, AI chatbots, AI ads, lead gen for small businesses across India. Pay after approval. DM to chat.'",
-    "Comment thoughtfully on 5 posts from Indian freelancers/agencies discussing client acquisition — add value, don't pitch.",
-    "Message 3 connections (not cold) asking how they currently find local business leads — listen, don't sell."
+    "Update Instagram bio to: 'AI chatbots, animated ads, lead lists & websites for small businesses across India. Pay after approval. DM for honest advice.'",
+    "Comment thoughtfully on 5 posts by Indian freelancers/agencies discussing client acquisition or video marketing — no self-promo.",
+    "Post one LinkedIn text-only observation about AI ad adoption in Indian SMEs (no service pitch), tag #SmallBusinessIndia #FreelanceIndia."
   ],
   "weak_signals": [
     {
@@ -25,12 +25,12 @@
     {
       "id": "follower_stall",
       "platform": "instagram",
-      "detail": "5 posts in 7 days and followers changed by +0"
+      "detail": "6 posts in 7 days and followers changed by +0"
     },
     {
       "id": "high_skip_rate",
       "platform": "instagram",
-      "detail": "reels lose 65% of viewers in the first 3 seconds across 1 reels: the hook is not stopping the scroll"
+      "detail": "reels lose 64% of viewers in the first 3 seconds across 1 reels: the hook is not stopping the scroll"
     },
     {
       "id": "weak_service",
@@ -46,11 +46,6 @@
       "id": "weak_format",
       "platform": "instagram",
       "detail": "by format, 'carousel' earns 44% of what 'image' earns per person reached"
-    },
-    {
-      "id": "zero_engagement_streak",
-      "platform": "bluesky",
-      "detail": "the last 3 settled posts got zero likes, comments, shares and saves"
     },
     {
       "id": "follower_stall",

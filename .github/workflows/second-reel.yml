@@ -1,0 +1,92 @@
+name: Second reel
+
+# Writes reel 2 of the day (a different service from reel 1) and starts its video. Safe to trigger many times: it does nothing if today's second script exists.
+# GitHub's own schedule is unreliable for this repository (runs arrive hours late), so the real trigger should be an external timer; see docs/SCHEDULING.md.
+on:
+  schedule:
+    - cron: "37 11 * * *"      # 17:07 IST, backup only
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Redo today's second reel script even if one exists"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  reel2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      GROQ_API_KEY_2: ${{ secrets.GROQ_API_KEY_2 }}
+      GROQ_API_KEY_3: ${{ secrets.GROQ_API_KEY_3 }}
+      GROQ_API_KEY_4: ${{ secrets.GROQ_API_KEY_4 }}
+      TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+      EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
+      WEB_RESEARCH: ${{ vars.WEB_RESEARCH }}
+      WEB_RESEARCH_PROVIDERS: ${{ vars.WEB_RESEARCH_PROVIDERS }}
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      IDEOGRAM_API_KEY: ${{ secrets.IDEOGRAM_API_KEY }}
+      IDEOGRAM_RENDERING_SPEED: ${{ vars.IDEOGRAM_RENDERING_SPEED }}
+      IMAGE_ENGINE_ORDER: ${{ vars.IMAGE_ENGINE_ORDER }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+      UPLOAD_POST_API_KEY: ${{ secrets.UPLOAD_POST_API_KEY }}
+      UPLOAD_POST_USER: ${{ secrets.UPLOAD_POST_USER }}
+      LIMESOCIAL_API_KEY: ${{ secrets.LIMESOCIAL_API_KEY }}
+      LIMESOCIAL_INSTAGRAM_USERNAME: ${{ secrets.LIMESOCIAL_INSTAGRAM_USERNAME }}
+      SOCIALAPI_KEY: ${{ secrets.SOCIALAPI_KEY }}
+      BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+      PUBLISHER_ORDER: ${{ vars.PUBLISHER_ORDER }}
+      LINKEDIN_FORMAT: ${{ vars.LINKEDIN_FORMAT }}
+      LINKEDIN_PUBLISHER_ORDER: ${{ vars.LINKEDIN_PUBLISHER_ORDER }}
+      TELEGRAM_ALLOWED_USER_ID: ${{ secrets.TELEGRAM_ALLOWED_USER_ID || vars.TELEGRAM_ALLOWED_USER_ID }}
+      NVIDIA_MODEL: ${{ vars.NVIDIA_MODEL }}
+      OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
+      FACTCHECK_PROVIDER: ${{ vars.FACTCHECK_PROVIDER }}
+      FACTCHECK_MODEL: ${{ vars.FACTCHECK_MODEL }}
+      GEMMA_MODEL: ${{ vars.GEMMA_MODEL }}
+      GROQ_MODEL: ${{ vars.GROQ_MODEL }}
+      GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+      VIRALITY_REVIEW: ${{ vars.VIRALITY_REVIEW }}   # 0 = keep the virality report but never let it trigger the rewrite
+      VIRALITY_LLM: ${{ vars.VIRALITY_LLM }}         # 0 = predictor fully offline (no Groq calls)
+      CAROUSEL: ${{ vars.CAROUSEL }}            # set the repository variable to 0 to go back to one image per post
+      GEMINI_IMAGE_MODEL: ${{ vars.GEMINI_IMAGE_MODEL }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Write reel 2 and start its video
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          export RUN_DEADLINE_EPOCH=$(( $(date +%s) + 40*60 ))
+          python -m src.run_reel2 ${{ inputs.force && '--force' || '' }}
+
+      - name: Save state
+        if: always()
+        run: |
+          bash scripts/commit_state.sh "reel2: $(date -u +%F)"
+
+      - name: Alert if the run failed
+        if: failure()
+        run: |
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=Second reel workflow failed. Nothing was posted. Check the Actions tab." > /dev/null

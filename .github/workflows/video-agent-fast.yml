@@ -7,6 +7,10 @@ on:
       topic:
         description: "Optional topic (blank = next line from topics.txt)"
         required: false
+      slot:
+        description: "Reel number of the day (blank = reel 1 from the daily draft, 2 = second reel)"
+        required: false
+        default: ""
       offline:
         description: "Offline test (no API calls)"
         type: boolean
@@ -81,6 +85,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TOPIC: ${{ github.event.inputs.topic }}
+          REEL_SLOT: ${{ github.event.inputs.slot }}
         run: |
           set -o pipefail
           export RUN_DEADLINE_EPOCH=$(( $(date +%s) + 32*60 ))     # model calls stop after 32 minutes, leaving time to render and report

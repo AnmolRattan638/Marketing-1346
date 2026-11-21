@@ -15,7 +15,7 @@ Posts are read on a phone in two seconds, so a caption is a hook plus a few shor
 - The writer marks emphasis as **double asterisks**; the pipeline turns it into bold letters at the end.
 
 ## LinkedIn format (LinkedIn only; not the caption format above)
-- Plain text, written like a person talking to a business owner. No bold or fancy letters, no arrows or bullet symbols, no emoji, no hashtags, no lines or words in capitals (except the DM keyword and abbreviations like SEO).
+- Plain text, written like a person talking to a business owner. No bold or fancy letters, no arrows or bullet symbols, no hashtags, no lines or words in capitals (except the DM keyword and abbreviations like SEO). One or two plain emoji in the whole post are fine, at the end of a sentence, never as bullets or in the first line.
 - A long explainer of 300-380 words that teaches first and sells last: the situation, what the service is, how it works step by step, how it helps day to day, an honest limit, then one calm close. Complete grammatical sentences a stranger understands on the first read; no fragments, no stacked buzzwords, no hype, no price.
 - First line: one specific hook sentence in normal sentence case, 18 words or fewer.
 - Last line: a soft DM invite with the keyword, e.g. "DM SCRIPT and tell me what you sell."
@@ -29,7 +29,7 @@ Posts are read on a phone in two seconds, so a caption is a hook plus a few shor
 
 ## Style
 - Plain, specific, calm. Short sentences. One idea per post. Specific details beat adjectives.
-- Never sound like an ad: no "limited offer", "best", "stunning", "game-changer", "grow 10x", no fake urgency or scarcity ("only 2 slots"), no emoji spam (0-2 per post).
+- Never sound like an ad: no "limited offer", "best", "stunning", "game-changer", "grow 10x", no fake urgency or scarcity ("only 2 slots"), no emoji spam: 1-2 small relevant emoji per Instagram caption and per LinkedIn post, 0-1 on Bluesky, never as bullets or in a row.
 - No corporate jargon: avoid "full-stack solutions", "digital transformation", "conversion-optimized funnels". Say what it does: "more enquiries", "fewer missed messages".
 
 ## Language

@@ -2,7 +2,7 @@
   "id": "2026-11-21-33269e",
   "date": "2026-11-21",
   "created_at": "2026-11-21T10:27:39+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "website",
   "topic": "Are late-night calls for your address and timing eating into your personal time?",
   "idea_id": null,
@@ -646,5 +646,19 @@
         "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5295, Req"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6b01bd9e3cc81480b29cd548"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6b01bda9846b0ee9071cb9a9 (due 2026-11-21T15:50:02.142Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2thcdhylb2m"
+    }
   }
 }

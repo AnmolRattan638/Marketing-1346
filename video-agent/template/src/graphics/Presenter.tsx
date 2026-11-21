@@ -1,8 +1,19 @@
 import React, { useMemo } from "react";
-import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Img, interpolate, OffthreadVideo, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { THEME } from "./theme";
 
+export interface VideoCut {
+  f: number; n: number;                // global start frame and length in frames
+  src: string;                         // the source clip (private library)
+  from: number;                        // seconds into the source
+  rate: number; zoom: number;
+  frame: "full" | "compact" | "none";  // full: big presenter in the lower screen; compact: smaller, under a full-screen picture; none: hook / logo end
+}
+
 export interface PresenterSpec {
+  mode?: "video";                      // real clips of the character (agent/clips.py); without it the round still-image window below is used
+  clips?: VideoCut[];
+  frame?: { fullHeight?: number; compactHeight?: number; objectY?: number };
   src: string[];                       // the poses (agent/avatar.py stages them)
   energy: number[];                    // voice loudness 0..1 for EVERY frame of the whole reel
   cuts: { f: number; i: number }[];    // from frame f the pose is src[i] (a new pose on every scene and every few seconds, like a camera cut)
@@ -13,7 +24,31 @@ const SIZE = 300;                      // px, the round presenter window; bottom
 
 // The masked presenter, on screen the whole reel. The mouth is covered so nothing needs lip-sync: the voice shows as a nod when a sentence starts, a lift and swell
 // while he speaks, a glow ring that follows the loudness, and a slow breathing sway when he is quiet. The pose changes at every scene and every few seconds.
-export const Presenter: React.FC<{ spec: PresenterSpec }> = ({ spec }) => {
+// The presenter as real clips: the cut under each moment of the reel, in the lower screen, with the top edge melting into the backdrop.
+const VideoPresenter: React.FC<{ spec: PresenterSpec }> = ({ spec }) => {
+  const { fps } = useVideoConfig();
+  const fr = spec.frame ?? {};
+  return (
+    <AbsoluteFill style={{ pointerEvents: "none" }}>
+      {(spec.clips ?? []).filter((c) => c.frame !== "none").map((c, i) => {
+        const h = c.frame === "full" ? fr.fullHeight ?? 1040 : fr.compactHeight ?? 660;
+        return (
+          <Sequence key={i} from={c.f} durationInFrames={Math.max(1, c.n)} layout="none">
+            <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: h, overflow: "hidden",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, #000 24%)", maskImage: "linear-gradient(to bottom, transparent 0%, #000 24%)" }}>
+              <OffthreadVideo src={staticFile(c.src)} muted startFrom={Math.round(c.from * fps)} playbackRate={c.rate}
+                style={{ position: "absolute", left: 0, bottom: 0, width: "100%", height: "auto", minHeight: "100%", objectFit: "cover", objectPosition: `50% ${fr.objectY ?? 30}%`, transform: `scale(${c.zoom})`, transformOrigin: "50% 78%" }} />
+            </div>
+          </Sequence>
+        );
+      })}
+    </AbsoluteFill>
+  );
+};
+
+export const Presenter: React.FC<{ spec: PresenterSpec }> = ({ spec }) => (spec.mode === "video" ? <VideoPresenter spec={spec} /> : <StillPresenter spec={spec} />);
+
+const StillPresenter: React.FC<{ spec: PresenterSpec }> = ({ spec }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = frame / fps;

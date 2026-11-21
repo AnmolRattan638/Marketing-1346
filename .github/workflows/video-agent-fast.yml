@@ -33,8 +33,20 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ github.token }}
     timeout-minutes: 50   # the environment is prebuilt (no apt/pip); the reel itself is capped at 38 min below
+    env:
+      AVATAR_REPO_TOKEN: ${{ secrets.AVATAR_REPO_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Private avatar clips (private repo, needs the AVATAR_REPO_TOKEN secret; skipped without it)
+        if: env.AVATAR_REPO_TOKEN != ''
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.AVATAR_REPO || 'AnmolRattan638/avatar-assets' }}
+          token: ${{ env.AVATAR_REPO_TOKEN }}
+          path: video-agent/assets/avatar-private
+          persist-credentials: false
 
       - name: Edits folder cache (Google Drive downloads are re-used between runs)
         uses: actions/cache@v4

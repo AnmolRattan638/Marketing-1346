@@ -122,7 +122,7 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
     total = sum(s["duration"] for s in scenes)
     if total > 60:
         log(f"warning: video is {total:.0f}s, longer than a typical short")
-    presenter = avatar.presenter(built, [math.ceil((b["narration_seconds"] + v["tail_seconds"]) * fps) for b in built], cfg, fps, bool(outro))
+    presenter = avatar.presenter(built, [math.ceil((b["narration_seconds"] + v["tail_seconds"]) * fps) for b in built], cfg, fps, bool(outro), [str(sc.get("narration") or "") for sc in plan["scenes"]])
     return {
         **({"presenter": presenter} if presenter else {}),
         "video": {"id": "daily", "width": v["width"], "height": v["height"], "fps": fps,

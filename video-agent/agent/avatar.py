@@ -5,21 +5,31 @@ import shutil
 import subprocess
 from datetime import date
 
+from . import clips
 from .common import ROOT, WORK, log
 
 POSES = 4
 PLAIN = ("title", "punch")          # heading-only scenes that the character can take over without hiding a picture
 
 
+def pose_files() -> list:
+    """The still poses: the private checkout first (so they can be taken out of the public repo), then the bundled ones."""
+    for d in (ROOT / "assets" / "avatar-private" / "poses", ROOT / "assets" / "avatar-private", ROOT / "assets" / "avatar"):
+        f = sorted(d.glob("pose*.jpg"))
+        if f:
+            return f
+    return []
+
+
 def enabled(cfg: dict) -> bool:
     a = cfg.get("avatar") or {}
-    return bool(a.get("enabled")) and len(list((ROOT / "assets" / "avatar").glob("pose*.jpg"))) >= 1
+    return bool(a.get("enabled")) and (bool(clips.folder()) or len(pose_files()) >= 1)
 
 
 def stage() -> list[str]:
     (WORK / "avatar").mkdir(parents=True, exist_ok=True)
     out = []
-    for p in sorted((ROOT / "assets" / "avatar").glob("pose*.jpg")):
+    for p in pose_files():
         shutil.copy(p, WORK / "avatar" / p.name)
         out.append(f"assets/run/avatar/{p.name}")
     return out
@@ -59,7 +69,7 @@ def choose(graphics: list, cfg: dict) -> list[int]:
 
 def apply(built: list, cfg: dict, fps: int, frames_of) -> int:
     """Turn the chosen scenes into layout 'avatar'. Returns how many were changed."""
-    if not enabled(cfg):
+    if not enabled(cfg) or clips.folder():             # with real clips the presenter is on every scene already: no separate still-image scenes
         return 0
     files = stage()
     if not files:
@@ -82,12 +92,24 @@ def apply(built: list, cfg: dict, fps: int, frames_of) -> int:
     return len(idx)
 
 
-def presenter(built: list, scene_frames: list[int], cfg: dict, fps: int, has_outro: bool) -> dict | None:
+def presenter(built: list, scene_frames: list[int], cfg: dict, fps: int, has_outro: bool, texts: list[str] | None = None) -> dict | None:
     """The permanent presenter: one block for the whole reel (poses, voice loudness for every frame, pose cuts, and where he is hidden). None when switched off.
     The window stays out of the hook (first scene, a full-screen opening), out of the big avatar scenes (he is already there) and out of the logo end."""
     a = cfg.get("avatar") or {}
     if not enabled(cfg) or not a.get("presenter", True):
         return None
+    lib = clips.library()
+    if lib:                                            # the real clips: a large presenter that gestures (no still-image window)
+        layouts = [(b.get("graphic") or {}).get("layout") for b in built]
+        cuts = clips.plan(texts or [""] * len(built), layouts, scene_frames, fps, lib)
+        srcs = clips.stage(cuts, lib)
+        for c in cuts:
+            c["src"] = srcs[c["src"]]
+        hide = [[c["f"], c["f"] + c["n"]] for c in cuts if c["frame"] == "none"]
+        if has_outro:
+            hide.append([sum(scene_frames), sum(scene_frames) + int(float((cfg.get("look") or {}).get("outro_seconds", 1.8)) * fps) + 5])
+        log(f"avatar: presenter clips ({len(lib)} clips in the library), {len(cuts)} cuts: {clips.summary(cuts)}")
+        return {"mode": "video", "clips": cuts, "hide": hide, "src": [], "energy": [], "frame": a.get("frame") or {}}
     files = stage()
     if not files:
         return None

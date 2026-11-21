@@ -34,10 +34,10 @@ _NUM = re.compile(r"\d[\d,\.]*")
 # LENGTH BUDGET: a reel's viewers are gone by second 5 and almost nobody reaches 60 s (a 65 s reel kept ~0% after the first 10 s). Spoken Hinglish runs ~2.9 words/s, so
 # TOTAL_WORDS = 85 is a ~30 s reel. Short is not weak: every beat keeps ONE concrete idea plus its reason, nothing is cut by machine; an over-long script is sent back to the
 # model with per-beat "tighten to N words" feedback (see budget_problems), and the content/meaning checks still run on the tightened script.
-WORDS = (10, 22)      # a body beat: 1-2 spoken sentences, one concrete idea and its reason
+WORDS = (10, 26)      # a body beat: 1-2 spoken sentences, one concrete idea and its reason (26: a beat that names its source, gives the figure AND the consequence needs the room, or the verbs get cut)
 HOOK_WORDS = (5, 13)
 CTA_WORDS = (8, 20)
-TOTAL_WORDS = (52, 85)   # whole spoken script: ~18-30 seconds
+TOTAL_WORDS = (52, 92)   # whole spoken script: ~20-35 seconds
 # helping words that join a thought to its reason or example; a script made only of short bare statements fails
 CONNECT = re.compile(r"\b(kyunki|kyuki|isliye|isiliye|matlab|yaani|jaise|jaise ki|maan lo|socho|yani|toh phir|phir|isse|taaki|warna|lekin|par asli|asli baat|dhyan rakho|iska matlab)\b", re.I)
 # a statistic describes how things are; a line must not turn it into a promise (e.g. "70-90% of calls are repeat questions" is not "70-90% of calls will stop")
@@ -51,6 +51,62 @@ GENERIC = re.compile(r"\b(the myth|myth:|basic but powerful|game.?changer(?!.{0,
 HINDI = re.compile(r"\b(hai|hain|ka|ki|ke|ko|se|mein|me|par|pe|nahi|nahin|aap|aapka|aapki|aapke|kya|kyun|kaise|jab|to|toh|bhi|hi|raha|rahi|rahe|wala|wali|phir|fir|pehle|lekin|aur|koi|sab|karo|karna|kar|ho|hota|hoga|tha|thi|dena|lena|milta|milte|jaata|jaate|bas|sirf|ek)\b", re.I)
 SCENE = re.compile(r"\b(raat|baje|subah|shaam|din|hafte|mahine|pm|am|customer|enquiry|enquiries|inquiry|whatsapp|message|messages|order|booking|call|lead|leads|ad|ads|site|website|page|reply|jawab|dukaan|shop|menu|google|instagram|insta|form|number|phone|mobile)\b", re.I)
 DELIVERABLE = re.compile(r"\b(setup|set-up|checklist|template|steps|guide|demo|sample|list|script|plan|example|audit|review|file|pdf|link|video|reply|jawab)\b", re.I)
+
+
+# ---- complete sentences: the voice reads what is written, so a missing 'hain' or a line that stops mid-thought is heard as broken ----
+VSTEM = ("kar|chhod|de|le|jaa|aa|mil|ban|dikh|dekh|ruk|bhej|pad|lag|bol|puch|soch|samajh|mang|bech|chal|reh|rah|sun|dhund|uth|bhool|kha|rakh|laga|badh|ghat|bach|khol|"
+         "browse|click|scroll|check|search|reply|load|visit|order|book|call|message|leave|drop|switch|compare|judge|trust|open|close|stay|use")
+PARTICIPLE = re.compile(rf"^(?:{VSTEM})(?:ta|te|ti)$", re.I)                                    # karta / karte / chhodte ... needs hai/hain unless negated
+BARE_STEM = {"chhod", "de", "le", "ban", "mil", "dikh", "jaa", "bhej", "laga", "rakh", "ruk"}      # a sentence must not stop on a bare verb stem
+DANGLING = {"ki", "ke", "ka", "ko", "se", "mein", "pe", "par", "aur", "ya", "kyunki", "kyuki", "jab", "agar", "lekin", "jo", "taaki", "isliye", "jaise"}
+AUX = re.compile(r"\b(hai|hain|ho|hota|hoti|hote|hoga|hogi|honge|tha|thi|the|raha|rahi|rahe|sakta|sakti|sakte|chahiye|padta|padti|padte)\b", re.I)
+NEG = re.compile(r"\b(nahi|nahin|na|kabhi|mat)\b", re.I)
+VERBISH = re.compile(rf"\b(?:{VSTEM.split('|browse')[0]})(?:e|en|ein|o|ao|iye|na|ana|ega|egi|enge|aye|ayen)?\b|\b(hai|hain|ho|hota|hoti|hote|hoga|hogi|honge|tha|thi|the|raha|rahi|rahe|sakta|sakti|sakte|chahiye|padta|padti|padte|kijiye|karo|lo|do)\b|\b\w{3,}(?:ta|te|ti|o|iye|ao|ein|aya|ayi|aye|iya|liya|diya|kiya)\b", re.I)
+CONNECT_HEAD = re.compile(r"\b(kyunki|kyuki|isliye|taaki|jisse)\b", re.I)
+UNIT = re.compile(r"\b\d+\s*(?:second|seconds|sec|minute|minutes|min|ghante|din|hafte|mahine)\s+(?!mein\b|me\b|se\b|tak\b|ke\b|ka\b|ki\b|baad\b|pehle\b|ya\b|aur\b|hai\b|hain\b|ho\b|bhi\b|zyada\b|jyada\b|kam\b|lagta\b|lagte\b|lagti\b|lagega\b|ko\b|tak\b|bahut\b|ek\b)[a-z]", re.I)
+
+
+def _sentences(line):
+    return [x.strip() for x in re.split(r"(?<=[.!?;…])\s+|\.\.\.", str(line or "")) if x and len(x.split()) >= 3]
+
+
+def grammar_problems(line) -> list[str]:
+    """High-confidence signs of a broken spoken sentence: stops on a participle without hai/hain, on a bare verb stem or on a joining word, has no verb before 'kyunki', or a number of seconds with no 'mein'."""
+    out = []
+    for sent in _sentences(line):
+        words = [w.strip(",.;:!?…\"'()") for w in sent.split()]
+        words = [w for w in words if w]
+        if len(words) < 3:
+            continue
+        last = words[-1].lower()
+        tail = " ".join(words[-3:])
+        if last in DANGLING:
+            out.append(f"sentence stops mid-thought on '{last}': \"{sent[-50:]}\"")
+        elif last in BARE_STEM:
+            out.append(f"sentence ends on a bare verb '{last}' with no helper (chhod deta hai / chhod dete hain): \"{sent[-50:]}\"")
+        elif PARTICIPLE.match(last) and not AUX.search(tail) and not NEG.search(tail):
+            out.append(f"sentence ends on '{last}' without hai/hain: \"{sent[-50:]}\"")
+        m = CONNECT_HEAD.search(sent)
+        if m:
+            head = sent[:m.start()]
+            if len(head.split()) >= 2 and not VERBISH.search(head):
+                out.append(f"no verb before '{m.group(0)}', write the full clause (not a list of nouns): \"{sent[:60]}\"")
+    if UNIT.search(str(line or "")):
+        out.append(f"a number of seconds/minutes needs 'mein' or 'tak' right after it: \"{UNIT.search(str(line)).group(0)}\"")
+    return out
+
+
+def autofix_endings(line: str) -> str:
+    """The one mechanical repair that is safe: a sentence that ends on karte/karta/karti (a habitual verb) with no helper gets hain/hai ('... browse karte;' -> '... browse karte hain.')."""
+    parts = re.split(r"(?<=[.!?;])(\s+)", str(line or ""))
+    out = []
+    for p in parts:
+        w = p.rstrip(" .!?;,…").split()
+        if len(w) >= 3 and PARTICIPLE.match(w[-1].strip(",").lower()) and not AUX.search(" ".join(w[-3:])) and not NEG.search(" ".join(w[-3:])):
+            end = p[len(p.rstrip(" .!?;,…")):]
+            p = p.rstrip(" .!?;,…") + (" hain" if w[-1].lower().endswith("te") else " hai") + ("." if end.strip(" ;,") == "" or ";" in end else end)
+        out.append(p)
+    return "".join(out)
 
 
 def pick_style(history):
@@ -98,7 +154,7 @@ def budget_problems(beats) -> list[str]:
                 body.pop(0)
         by = {name: n for name, n in counts}
         for name, c in cut.items():
-            out.append(f"{name}: script is {total} words, the reel must stay under {hi} (about 30 seconds); tighten this beat from {by[name]} to {by[name] - c} words max, keep its concrete detail and its reason, cut filler and repeats")
+            out.append(f"{name}: script is {total} words, the reel must stay under {hi} (about 30 seconds); tighten this beat from {by[name]} to {by[name] - c} words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain, mein, tak), never delete small words to save space")
     elif beats and total < lo:
         out.append(f"{beats[min(1, len(beats) - 1)].get('beat')}: script is only {total} words (min {lo}); the reel is too thin, add one concrete detail and its reason")
     return out
@@ -133,6 +189,8 @@ def problems(script, sheet, style, focus=None):
         line = str(b.get("line") or "")
         if GENERIC.search(line) or GENERIC.search(str(b.get("screen") or "")):
             out.append(f"{b.get('beat')}: generic filler phrase ({GENERIC.search(line + ' ' + str(b.get('screen') or '')).group(0)!r}); say something only this business could say")
+        for gp in grammar_problems(line):
+            out.append(f"{b.get('beat')}: grammar: {gp}")
         if b.get("beat") != "cta" and not HINDI.search(line):
             out.append(f"{b.get('beat')}: not Hinglish (needs everyday spoken Hindi in Roman letters, like talking to a shop owner)")
         if b.get("beat") in ("pain", "poke", "fix") and not SCENE.search(line) and not (b.get("facts") or []):
@@ -252,7 +310,7 @@ def repair_beats(script, per, style, ask, focus, sheet, voice="", strict=False):
     prompt = (f"Service: {focus.get('name')}. A short-video script was rejected. Rewrite ONLY the beat(s) {targets}; all other beats stay exactly as they are and are shown for context.\n"
               f"SCRIPT: {json.dumps(ctx, ensure_ascii=False)}\n"
               "WHAT IS WRONG (fix exactly these and nothing else):\n" + "\n".join(f"- {n}: " + " | ".join(per[n]) for n in targets) + "\n"
-              f"RULES: Hinglish in Roman letters; a body beat is {WORDS[0]}-{WORDS[1]} words, the hook {HOOK_WORDS[0]}-{HOOK_WORDS[1]}, the cta {CTA_WORDS[0]}-{CTA_WORDS[1]} words; the cta asks for the ONE keyword "
+              f"RULES: Hinglish in Roman letters; every sentence COMPLETE with its verb and helper (karte hain, chhod dete hain), never ending on ki/ke/se/mein/aur/kyunki or a bare verb; drop a detail rather than grammar; a body beat is {WORDS[0]}-{WORDS[1]} words, the hook {HOOK_WORDS[0]}-{HOOK_WORDS[1]}, the cta {CTA_WORDS[0]}-{CTA_WORDS[1]} words; the cta asks for the ONE keyword "
               f"{sheet.get('keyword') or ''} and says what they get; every digit must come from a cited fact id (or be 24x7); capabilities you may state: {capabilities(focus)}. Never promise a result.\n"
               + ("STRICT MODE (earlier rewrites were still rejected): the line may ONLY restate what the cited fact says, in plain Hinglish, as a description of how things are. No prediction (no rahega/hoga/badhega), no outcome, no claim beyond the fact's own words.\n" if strict else "") +
               f"VERIFIED FACTS: {json.dumps(list(facts.values()), ensure_ascii=False)}\nVOICE: {voice[:500]}\n{scriptlessons.prompt_block(4)}"
@@ -299,6 +357,9 @@ def normalize_steps(script):
 def check_all(script, sheet, style, focus, ask):
     """Every check in order; the cheap deterministic ones first, model passes only when those are clean."""
     normalize_steps(script)
+    for b in script.get("beats") or []:
+        if b.get("line"):
+            b["line"] = autofix_endings(b["line"])
     bad = problems(script, sheet, style, focus) + marketingskills.script_problems(script, focus) + contentskills.problems(script)
     if not bad:
         bad = [f"meaning: {x}" for x in fidelity(script, sheet, ask, focus)]
@@ -308,7 +369,7 @@ def check_all(script, sheet, style, focus, ask):
 
 
 # style-only remarks: a script that is faithful, safe and on offer is never thrown away for these (they still get the repair rounds first)
-SOFT = ("meaning:", "skills:", "lines are bare statements", "too abstract")
+SOFT = ("meaning:", "skills:", "lines are bare statements", "too abstract", "grammar:")   # grammar is repaired in the rounds first (and the safe mechanical fix runs before); only a leftover ships, with a note
 
 
 def is_soft(problem: str) -> bool:
@@ -346,7 +407,8 @@ VOICE: {voice[:900]}
 LANGUAGE (strict): every spoken line is HINGLISH in Roman letters, everyday spoken Hindi with English tech words, like talking to a shop owner. Example: "Raat 11 baje customer ne WhatsApp kiya, aur aapne subah reply diya. Tab tak woh dusri dukaan chala gaya." Not translated-sounding Hindi, not plain English.
 
 Write ONE script with EXACTLY {len(style['beats'])} beats, in this order: {style['beats']}. The LAST beat is `{style['beats'][-1]}`; never stop early and never drop it. In the BODY, any digit you speak or put on screen (other than a clock time or an '3 steps' style count) must come from a cited fact or from the capabilities list below; otherwise say it in words with no digit. The HOOK is the exception: it may use a relatable invented number. Rules: no greeting or intro; one idea; 
-SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 1-2 full spoken sentences, and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. TOTAL budget for the whole script: {TOTAL_WORDS[0]}-{TOTAL_WORDS[1]} words (about 25-30 seconds: viewers leave by second 5, so the reel is SHORT). Short must not mean weak: one concrete idea per beat plus its reason, no filler, no repeating what the last beat said.
+SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 1-2 full spoken sentences, and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. TOTAL budget for the whole script: {TOTAL_WORDS[0]}-{TOTAL_WORDS[1]} words (about 25-35 seconds: viewers leave by second 5, so the reel is SHORT). Short must not mean weak: one concrete idea per beat plus its reason, no filler, no repeating what the last beat said.
+COMPLETE SENTENCES (the voice reads exactly what you write): every sentence needs its verb and helper word ("karte hain", "chhod dete hain", "hota hai", "sakte hain") and must end where the thought ends, never on ki/ke/se/mein/aur/kyunki or on a bare verb. Write "3 second mein" never "3 sec se" or "5 second batana". After "kyunki" and before it there must be a full clause, not a list of nouns. If a beat is too long, DROP a detail (a second source, an example) instead of dropping grammar; telegram-style fragments are rejected. BAD: "75% Indians mobile se browse karte; 3 sec se zyada load ho to site visitors chhod." GOOD: "75% Indians mobile se browse karte hain, aur site 3 second mein load na ho to zyadatar visitors chhod dete hain."
 FIRST 8 SECONDS: the hook ends on an unfinished consequence or a question; the POKE (beat 2) must then give the first surprising, specific answer (a thing, a time, a cost) so there is a reason to keep watching; never spend beat 2 only restating the problem.
 EXPLAIN, don't announce: pain = the moment AND why it hurts (what it costs: time, a lost customer); poke = why the obvious fix fails, the reason in plain words; fix = each step with a one-clause reason ("pehle ..., kyunki ..."); payoff = what the fact MEANS for this owner in plain words (do the arithmetic only if every number comes from a fact); recap = loop back to the pain.
 Use helping words (kyunki, isliye, matlab, jaise ki, phir, taaki, lekin) so each line connects to the one before it. A line must make sense when heard once, with no screen.

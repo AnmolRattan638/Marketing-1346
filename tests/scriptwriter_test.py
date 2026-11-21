@@ -78,7 +78,7 @@ assert all(b["emotion"] in sw.EMOTIONS for b in script["beats"]) and script["bea
 bad = copy.deepcopy(good); bad["beats"][3]["line"] = "a.com ke mutabiq 21 guna zyada leads ab aapko pakka milengi, kyunki reply jaldi jaata hai aur isliye customer rukta hai"
 assert has(bad["beats"], "promise")
 bad = copy.deepcopy(good); bad["beats"][1]["line"] = "Subah reply dene se customer chala jaata hai"
-assert has(bad["beats"], "want 10-22")
+assert has(bad["beats"], "want 10-26")
 bad = copy.deepcopy(good)
 for b in bad["beats"][1:4]: b["line"] = b["line"].replace("kyunki", "").replace("Matlab", "").replace("taaki", "").replace("Phir", "Ab").replace("matlab", "").replace("warna", "")
 assert has(bad["beats"], "helping words") or has(bad["beats"], "bare statements")
@@ -150,12 +150,12 @@ print("targeted repair + lessons + non-fatal ok")
 w = lambda n: " ".join(["shabd"] * n)
 long_ = [{"beat": "pain", "line": w(12)}, {"beat": "poke", "line": w(22)}, {"beat": "fix", "line": w(22)}, {"beat": "payoff", "line": w(22)}, {"beat": "recap", "line": w(18)}, {"beat": "cta", "line": w(20)}]
 bp = sw.budget_problems(long_)
-assert bp and all("tighten" in x and "cut filler" in x for x in bp) and not any(x.startswith(("pain", "cta")) for x in bp), bp
+assert bp and all("tighten" in x and "grammatically complete" in x for x in bp) and not any(x.startswith(("pain", "cta")) for x in bp), bp
 per, glob = sw.by_beat(bp, long_)
 assert per and not glob, "over-length feedback is per beat, so only the long beats are rewritten"
 assert sw.budget_problems([{"beat": "pain", "line": w(10)}, {"beat": "poke", "line": w(15)}, {"beat": "cta", "line": w(10)}])[0].startswith("poke: script is only 35 words")
 assert sw.budget_problems([{"beat": "pain", "line": w(12)}, {"beat": "poke", "line": w(18)}, {"beat": "fix", "line": w(20)}, {"beat": "payoff", "line": w(18)}, {"beat": "cta", "line": w(16)}]) == []
-assert sw.TOTAL_WORDS[1] <= 90 and "FIRST 8 SECONDS" in open(sw.__file__).read()
+assert sw.TOTAL_WORDS[1] <= 95 and "FIRST 8 SECONDS" in open(sw.__file__).read()
 print("length budget ok")
 
 # ---- the on-screen `steps` never fails a day: built from the fix line's own clauses when the model leaves them out

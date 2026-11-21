@@ -3,7 +3,6 @@ import base64, os, pathlib, subprocess, sys, tempfile
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "video-agent"))
 os.environ["SARVAM_API_KEY"] = "k"
 from agent import speech_text as st, sarvam, voice
-from agent.common import media_duration
 
 # 1. short forms and numbers are spoken in full
 t = st.clean("Sirf 30 sec mein 9:16 reel, 50% log, 5k leads & 3x sales, 2 min lagega")

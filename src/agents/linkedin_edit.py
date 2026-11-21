@@ -16,7 +16,8 @@ POST:
 Do this:
 - Remove anything that sounds like an advertisement (hype, urgency, slogans, stacked benefits); keep the plain explanation.
 - Fix every sentence that is ungrammatical, telegraphic, stuffed with buzzwords or hard to follow (bad example: "One script structure hooks value CTA in split screen example only."). Rewrite it as a clear sentence with the same meaning. If a line cannot be made both clear and true, delete it.
-- Plain text only: no ** markers, no bold or fancy Unicode letters, no arrows or bullet symbols, no emoji, no hashtags, no lines or words in CAPITALS (the DM keyword and abbreviations such as SEO are fine).
+- Plain text only: no ** markers, no bold or fancy Unicode letters, no arrows or bullet symbols, no hashtags, no lines or words in CAPITALS (the DM keyword and abbreviations such as SEO are fine).
+- Emoji: keep the one or two plain emoji the post already has (never add more, never as bullets or at the start of a line, none in the first line).
 - First line: a specific hook sentence in normal sentence case, 18 words or fewer. Then short paragraphs with a blank line between them. KEEP THE LENGTH: the post is meant to be 300-380 words; never shorten it below 300 words and never merge paragraphs. Keep its structure (the situation, what is built, how it works, how it helps, an honest limit, a calm close).
 - Last line: a soft DM invite using exactly the keyword '{kw}'.
 - Do NOT add facts, numbers, clients, prices, demos or claims. Do not claim anything was built for a specific business. Brand rules: {json.dumps(brand.get('facts_rules', []), ensure_ascii=False)}

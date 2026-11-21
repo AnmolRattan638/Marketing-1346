@@ -36,7 +36,7 @@ HOUSE_RULES = """HOUSE RULES (they override everything above wherever they confl
 This is a social media post written by a freelance web developer in India for small-business owners. Keep it clear and plain: a stranger must understand every sentence on the first read. No slang, no idiom that needs explaining, no journalist voice.
 Keep the language, names, numbers, prices, product names, words in CAPITALS, hashtags, @mentions and links exactly as they are. Do not add any fact, number, example, client, promise or claim, and do not make any sentence more salesy or more dramatic.
 Never use em dashes or en dashes. No "it's not X, it's Y" constructions, no stacked rhetorical questions, no hype words, no lists or bullets.
-Keep the SAME paragraphs (one blank line between them) and about the same length (within 10%). Vary sentence length and use contractions only where they sound natural: one real person talking."""
+Keep every emoji exactly where it is. Keep the SAME paragraphs (one blank line between them) and about the same length (within 10%). Vary sentence length and use contractions only where they sound natural: one real person talking."""
 
 _NUM = re.compile(r"\d[\d,.]*\d|\d")
 _state: dict = {}

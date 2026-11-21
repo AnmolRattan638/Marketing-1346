@@ -1,0 +1,650 @@
+{
+  "id": "2026-11-21-33269e",
+  "date": "2026-11-21",
+  "created_at": "2026-11-21T10:27:39+00:00",
+  "status": "pending",
+  "service": "website",
+  "topic": "Are late-night calls for your address and timing eating into your personal time?",
+  "idea_id": null,
+  "problem_id": "phone-calls-interrupting-personal-time-j",
+  "angle_type": "question",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "phone-calls-interrupting-personal-time-j",
+    "angle_type": null,
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "Shop owners, want to end late-night address calls?"
+    },
+    {
+      "style": "myth",
+      "text": "Shop owners, myth: you need calls for hours. Fact: One page solves."
+    },
+    {
+      "style": "comparison",
+      "text": "Shop owners, website page vs phone call: which saves evenings?"
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "Late-night calls can come at 7:00 PM, 2:00 AM, or on Sunday morning.",
+        "figure": "7:00 PM, 2:00 AM",
+        "source": "serviceagent.ai",
+        "title": "Out of Hours Call Handling: Complete Guide for Service Businesses",
+        "url": "https://serviceagent.ai/blogs/out-of-hours-call-handling/",
+        "date": "2025-12-23",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "66% of workers reported receiving work‑related contact after work hours.",
+        "figure": "66%",
+        "source": "ngonews.kr",
+        "title": "\"밤 10시에도 울리는 업무 메시지\"...직장인 66% ‘보이지 않는 노동’ 시달려 < 노동·복지 < 공정사회 < 기사본문 - 한국NGO신문",
+        "url": "https://www.ngonews.kr/news/articleView.html?idxno=224782",
+        "date": "2026-02-22",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "30.8% of those receiving after‑hours contact said the call came at 10 pm.",
+        "figure": "30.8%",
+        "source": "ngonews.kr",
+        "title": "\"밤 10시에도 울리는 업무 메시지\"...직장인 66% ‘보이지 않는 노동’ 시달려 < 노동·복지 < 공정사회 < 기사본문 - 한국NGO신문",
+        "url": "https://www.ngonews.kr/news/articleView.html?idxno=224782",
+        "date": "2026-02-22",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Among after‑hours contacts, 21.2% occur 1–3 times per month, 20.6% 1–2 times per week, 18.6% 1–10 times per year, and 5.6% three or more times per week.",
+        "figure": "21.2%, 20.6%, 18.6%, 5.6%",
+        "source": "ngonews.kr",
+        "title": "\"밤 10시에도 울리는 업무 메시지\"...직장인 66% ‘보이지 않는 노동’ 시달려 < 노동·복지 < 공정사회 < 기사본문 - 한국NGO신문",
+        "url": "https://www.ngonews.kr/news/articleView.html?idxno=224782",
+        "date": "2026-02-22",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Half of after‑hours messages ask about cost, availability, and location.",
+        "figure": "Half",
+        "source": "hydz.in",
+        "title": "How to make your business answer enquiries at 11pm Hydz",
+        "url": "https://hydz.in/blog/answer-enquiries-at-11pm/",
+        "date": "2026-08-06",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "Many small businesses close at 7 pm or 8 pm, yet customers continue browsing until midnight.",
+        "figure": "7 pm, 8 pm, midnight",
+        "source": "sitebot.in",
+        "title": "After Hours Customer Support: A Small Business Playbook · SiteBot",
+        "url": "https://sitebot.in/blog/after-hours-customer-support/",
+        "date": "2026-11-11",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Out‑of‑hours call handling can be done by live agents, automated systems, or AI voice assistants.",
+        "figure": null,
+        "source": "serviceagent.ai",
+        "title": "Out of Hours Call Handling: Complete Guide for Service Businesses",
+        "url": "https://serviceagent.ai/blogs/out-of-hours-call-handling/",
+        "date": "2025-12-23",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Missing after‑hours calls can result in lost revenue because the lead may be taken by a competitor.",
+        "figure": null,
+        "source": "serviceagent.ai",
+        "title": "Out of Hours Call Handling: Complete Guide for Service Businesses",
+        "url": "https://serviceagent.ai/blogs/out-of-hours-call-handling/",
+        "date": "2025-12-23",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "dropped": 0,
+    "topic": "Are late-night calls for your address and timing eating into your personal time?"
+  },
+  "master_script": null,
+  "script_style": null,
+  "posts": {
+    "instagram": "RAAT KE 11 BAJE ADDRESS POOCHTE HAIN KYUN?\n\n→ 𝗠𝗢𝗕𝗜𝗟𝗘 par timings, location aur 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 button saaf dikhe.\n→ Customer khud samajh le, aapko raat mein phone nahi uthana padega.\n→ Main fast website banata hoon jo Google par dikhane ke liye optimize hoti hai.\n\nComment 𝗦𝗜𝗧𝗘 aur main aapke liye 3 things to fix bhejunga DM mein.\n\n#SmallBusinessIndia #WebsiteIndia #LocalBusiness #MobileFirst #IndiaBusiness",
+    "linkedin": "Small businesses waste hours answering the same address and timing questions over the phone or chat.\n\nA café owner may be cooking dinner when a call comes in about opening hours. A clinic receptionist might repeat the clinic’s address to several callers in one evening. A shop owner can lose track of how many times they have typed the street name on WhatsApp. These interruptions add up to lost personal time each week.\n\nI create a fast, mobile‑first website that works on any phone and serves small businesses across India. It is a simple informational site with a responsive layout and a period of edits after launch. Packages can include up to five pages, a floating WhatsApp button linked to your number, and optional features such as an AI chatbot or a Google business profile.\n\nThe process starts when you tell me what you sell and the questions customers ask most often. I build the pages, you review them and request changes, and we repeat until the site matches your needs. You pay only after you approve the final version. There is no upfront fee or long‑term contract.\n\nCustomers can view your timings, photos, rates and location at any hour, even when you are asleep. Click‑to‑call and WhatsApp buttons let a visitor start a conversation with a single tap. Because the site loads quickly and fits a phone screen, most visitors can read the information without zooming or waiting. This can free you from repeating the same answers and give you more time for core work.\n\nA website does not replace a person for complex or unique questions. It can answer repeat queries about address, hours and services, but a customer with a specific problem will still need to speak with you. The site also does not guarantee higher search rankings or more revenue; it simply provides a proper online place that search engines can show.\n\nIf this sounds useful, I can discuss what fits your business and answer any questions. Payment is required only after you approve the final site. Message me with the word SITE.",
+    "bluesky": "11 pm: a customer asks for your address. A mobile site shows timings, map and a tap-to-call button, so you can finish dinner instead of answering the phone. DM SITE if you want to talk about one. #SmallBusinessIndia"
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I build fast, mobile-first websites for small businesses in India so customers can find your address and hours without calling you. Packages start at INR 1,499 and go up to INR 3,599, with domain setup at INR 800. To give you an exact number, I need to know: do you want customers to call you, WhatsApp you, or book directly? I can explain how it would work for you and give a fixed-price scope. Prefer a 5-minute WhatsApp chat or details here? Payment is only after you approve the work."
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for reaching out. I build websites for any small business that talks to customers - shops, cafes, clinics, gyms, salons, coaching centres. What kind of business do you run, and what do customers ask you most often?"
+    },
+    {
+      "if_they_say": "will it stop all calls?",
+      "reply": "Hi, thanks for asking. A website handles the repeat questions about address and timings, but it will not replace a personal reply when a customer has a unique or complicated question. What kind of calls are you getting most often?"
+    }
+  ],
+  "image": {
+    "prompt": "a matte-black smartphone with brushed-metal frame, soft gold accent, screen glowing soft blue showing a clean contact page with map and hours. phone rests on upper two-thirds of frame, eye-level slight tilt down, lower 40% empty calm space. warm amber key light from left side, soft cool blue rim glow from screen, gentle shadows. foreground smooth walnut cafe counter, midground a small potted succulent, background blurred café interior with muted pastel walls. neutral warm wood palette with soft blue accent, calm and relieved. 85mm lens at f/1.8, shallow depth of field, brushed metal texture, glass reflections, fine dust specks catching light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-21.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "phone-calls-interrupting-personal-time-j",
+      "angle_type": "question",
+      "style": "bold",
+      "headline": "Still answering calls for your address?",
+      "highlight": [
+        "answering calls"
+      ],
+      "sub": "Put your location and hours online.",
+      "chat": [],
+      "cta": "Comment \"SITE\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ],
+    "style_id": "bright-desk"
+  },
+  "carousel": null,
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Instagram post contains an absolute claim that the website will appear on Google (\"jo Google par dikhti hai\"), which is not allowed. It should be softened to a non‑guaranteed statement."
+    ],
+    "revised": {
+      "instagram": "**RAAT KE 11 BAJE ADDRESS POOCHTE HAIN KYUN?\n\n→ **MOBILE** par timings, location aur **WHATSAPP** button saaf dikhe.\n→ Customer khud samajh le, aapko raat mein phone nahi uthana padega.\n→ Main fast website banata hoon jo Google par dikhane ke liye optimize hoti hai.\n\nComment **SITE** aur main aapke liye 3 things to fix bhejunga DM mein.\n\n#SmallBusinessIndia #WebsiteIndia #LocalBusiness #MobileFirst #IndiaBusiness",
+      "linkedin": "Small businesses waste hours answering the same address and timing questions over the phone or chat.\n\nA café owner may be cooking dinner when a call comes in about opening hours. A clinic receptionist might repeat the clinic’s address to several callers in one evening. A shop owner can lose track of how many times they have typed the street name on WhatsApp. These interruptions add up to lost personal time each week.\n\nI create a fast, mobile‑first website that works on any phone and serves small businesses across India. It is a simple informational site with a responsive layout and a period of edits after launch. Packages can include up to five pages, a floating WhatsApp button linked to your number, and optional features such as an AI chatbot or a Google business profile.\n\nThe process starts when you tell me what you sell and the questions customers ask most often. I build the pages, you review them and request changes, and we repeat until the site matches your needs. You pay only after you approve the final version. There is no upfront fee or long‑term contract.\n\nCustomers can view your timings, photos, rates and location at any hour, even when you are asleep. Click‑to‑call and WhatsApp buttons let a visitor start a conversation with a single tap. Because the site loads quickly and fits a phone screen, most visitors can read the information without zooming or waiting. This can free you from repeating the same answers and give you more time for core work.\n\nA website does not replace a person for complex or unique questions. It can answer repeat queries about address, hours and services, but a customer with a specific problem will still need to speak with you. The site also does not guarantee higher search rankings or more revenue; it simply provides a proper online place that search engines can show.\n\nIf this sounds useful, I can discuss what fits your business and answer any questions. Payment is required only after you approve the final site. Message me with the word SITE.",
+      "bluesky": "11 pm: a customer asks for your address. A mobile site shows timings, map and a tap-to-call button, so you can finish dinner instead of answering the phone. DM SITE if you want to talk about one. #SmallBusinessIndia"
+    }
+  },
+  "sources": [
+    {
+      "title": "Search Jobs GE Vernova Careers Portal",
+      "url": "https://careers.gevernova.com/jobs",
+      "domain": "careers.gevernova.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Out of Hours Call Handling: Complete Guide for Service Businesses",
+      "url": "https://serviceagent.ai/blogs/out-of-hours-call-handling/",
+      "domain": "serviceagent.ai",
+      "date": "2025-12-23",
+      "provider": "exa"
+    },
+    {
+      "title": "SoFi: Banking, Loans, Invest, Credit Card, & Mortgages",
+      "url": "https://www.sofi.com",
+      "domain": "sofi.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "After Hours Customer Support: A Small Business Playbook · SiteBot",
+      "url": "https://sitebot.in/blog/after-hours-customer-support/",
+      "domain": "sitebot.in",
+      "date": "2026-11-11",
+      "provider": "exa"
+    },
+    {
+      "title": "Private Jet Charter Book Instantly Worldwide XO",
+      "url": "https://flyxo.com",
+      "domain": "flyxo.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "How to make your business answer enquiries at 11pm Hydz",
+      "url": "https://hydz.in/blog/answer-enquiries-at-11pm/",
+      "domain": "hydz.in",
+      "date": "2026-08-06",
+      "provider": "exa"
+    },
+    {
+      "title": "Bankrate's 2026 Emergency Savings Report Bankrate",
+      "url": "https://www.bankrate.com/banking/savings/emergency-savings-report",
+      "domain": "bankrate.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "\"밤 10시에도 울리는 업무 메시지\"...직장인 66% ‘보이지 않는 노동’ 시달려 < 노동·복지 < 공정사회 < 기사본문 - 한국NGO신문",
+      "url": "https://www.ngonews.kr/news/articleView.html?idxno=224782",
+      "domain": "ngonews.kr",
+      "date": "2026-02-22",
+      "provider": "exa"
+    }
+  ],
+  "ad_score": 4,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 352.0,
+        "reach_p50": 699.0,
+        "reach_p90": 1490.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'exclusion', 'severity': 'medium', 'description': 'The copy is entirely in Hindi, which makes it inaccessib",
+          "{'category': 'class', 'severity': 'low', 'description': 'The phrase \"Customer khud samajh le\" can be read as condescendi",
+          "{'category': 'tone-deafness', 'severity': 'low', 'description': 'The rhetorical question \"RAAT KE 11 BAJE ADDRESS POOCHT"
+        ],
+        "dims": {
+          "humor": 3.0,
+          "curiosity": 5.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 5.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 340,
+            "share": 2,
+            "like": 3,
+            "reply": 5
+          },
+          "engagement_rate": 0.0286,
+          "by_role": {
+            "public": {
+              "n": 10,
+              "avg_sentiment": 0.648,
+              "share_rate": 0.2
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 2.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 15,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.6792,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 4.0
+          },
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 4.0
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.5
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 430.0,
+        "reach_p50": 821.0,
+        "reach_p90": 1728.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'gender', 'severity': 'medium', 'description': 'The phrase \"café owner may be cooking dinner\" reinforces a ",
+          "{'category': 'class', 'severity': 'medium', 'description': 'The copy assumes all small business owners have access to sm",
+          "{'category': 'disability', 'severity': 'medium', 'description': 'No reference is made to accessibility features (e.g., s"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 3.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 5.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Hype or guarantee words",
+            "impact": "medium"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 373,
+            "share": 2,
+            "like": 1,
+            "reply": 1,
+            "dislike": 1
+          },
+          "engagement_rate": 0.0132,
+          "by_role": {
+            "public": {
+              "n": 5,
+              "avg_sentiment": 0.334,
+              "share_rate": 0.4
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 221.0,
+        "reach_p50": 469.0,
+        "reach_p90": 1044.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'culture', 'severity': 'low', 'description': 'The phrase \"finish dinner\" assumes a dinner schedule that may",
+          "{'category': 'class', 'severity': 'low', 'description': 'The content assumes that small business owners have the resourc",
+          "{'category': 'tone-deafness', 'severity': 'low', 'description': \"Suggesting that a business can ignore a customer's requ"
+        ],
+        "dims": {
+          "humor": 4.0,
+          "curiosity": 5.0,
+          "educational": 4.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 6.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 348,
+            "share": 4,
+            "reply": 3,
+            "like": 2
+          },
+          "engagement_rate": 0.0252,
+          "by_role": {
+            "public": {
+              "n": 9,
+              "avg_sentiment": 0.599,
+              "share_rate": 0.444
+            }
+          },
+          "cascade_size": 5,
+          "r_effective": 1.6667,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 25,
+          "reach_fraction": 0.039,
+          "r_effective": 0.8139,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "myth",
+          "p_beats_chosen": 0.36,
+          "lift_pct": -0.1,
+          "decisive": false
+        },
+        {
+          "hook": 2,
+          "style": "comparison",
+          "p_beats_chosen": 0.5,
+          "lift_pct": 0.0,
+          "decisive": false
+        }
+      ],
+      "better": null,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Replace hook with a curiosity-driven question in Hinglish (e.g., 'WHY DO CUSTOMERS CALL AT 11 PM FOR YOUR ADDRESS?'); change 'checklist' to '3 things to fix' to match allowed offer.",
+      "linkedin: Cut length by 50%; rewrite as a developer showing work — lead with one concrete feature you build (e.g., tap-to-call button, map embed), not the problem; keep pay-after-approval and DM SITE at end.",
+      "bluesky: Sharpen hook to a relatable 11 pm scenario with a concrete benefit (e.g., '11 pm: customer asks for address. A mobile site lets them tap-to-call, you sleep.'); keep under 260 chars."
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 0.0
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 0.0
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "FAILED google:gemma-4-26b-a4b-it (HTTP 503)",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED gemma: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 429)",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 413)",
+      "FAILED groq: all its models",
+      "google:gemma-4-26b-a4b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 5.0,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "503",
+        "seconds": 4.9,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 118.4,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5552, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7989, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7459, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4335, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5727, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 72.8,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 20882, please reduce your message size and try again. Need more tokens? Upgra"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 124, Requ"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6332, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6522, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 36.9,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8868, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 2517, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4127, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3985, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 33.9,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8013, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4113, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5358, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5295, Req"
+      }
+    ]
+  }
+}

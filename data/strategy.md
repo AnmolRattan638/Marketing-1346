@@ -1,5 +1,5 @@
-- Hook style: try **question** (1.75x median, n=6) or **myth** (unused recently) for animated ads; rotate away from repeated comparison/contrast.
-- Avoid re-phrasing cost/time comparisons (AI vs crew, hours vs minutes) — used in last 3 animated_ads posts.
-- Posts must read as a developer showing real work, never as an ad; no demos, samples, or niche targeting.
-- Use silhouette or desk-glow image style (1.5x median); consider bold-slow-reveal carousel (2.0x).
-- Address 'lack of budget for professional video shoots' problem (top winner) with soft wording: 'can reduce cost', 'helps create'.
+- Hook: rotate question, contrast, comparison styles; kill the DIY-vs-pro comparison (used 4× recently).
+- Format: images outperform reels 6×; use silhouette or desk-glow static visuals.
+- Content: show developer's real work (code, config, wireframes), never ad copy.
+- Service focus: lead_gen and chatbot earn more per reach; website is median.
+- Bio must be fixed: remove niches, region, '24 hrs', and 'free check' phrasing.

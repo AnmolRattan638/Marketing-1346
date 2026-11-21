@@ -16,7 +16,7 @@
   "rule": "Keep the DM ask out of every beat except cta."
  },
  "total-length": {
-  "count": 8,
+  "count": 11,
   "rule": "The whole script stays under 85 words (about 30 s); give each beat one concrete idea and its reason, nothing more."
  },
  "steps": {
@@ -40,7 +40,7 @@
   "rule": "the ask ... is not in offers_allowed; fix to use an allowed offer like ..."
  },
  "number-unbacked": {
-  "count": 3,
+  "count": 13,
   "rule": "Every digit must come from a cited fact; if no fact has the number, say it in words with no digit."
  },
  "abstract": {
@@ -48,7 +48,7 @@
   "rule": "Name a concrete moment or thing (11 pm message, unanswered enquiry) in pain and poke."
  },
  "connectors": {
-  "count": 12,
+  "count": 15,
   "rule": "Use helping words (kyunki, isliye, jaise ki, phir) so each line gives its reason."
  },
  "words": {
@@ -56,7 +56,7 @@
   "rule": "Keep each beat inside its word range, in full spoken sentences."
  },
  "screen": {
-  "count": 1,
+  "count": 5,
   "rule": "`screen` text is a 2-6 word bold headline that works on mute; no full sentence."
  },
  "other:CTA asks viewers to DM the keyword ... t": {
@@ -138,5 +138,69 @@
  "other:line promises to DM a checklist, which i": {
   "count": 1,
   "rule": "line promises to DM a checklist, which is not a verified fact or a chatbot capability; remove the guarantee or rephrase to a neutr"
+ },
+ "offer": {
+  "count": 1,
+  "rule": "No demo, sample, discount, free trial or limited-seats offer."
+ },
+ "other:ask the viewer to comment the word SITE ": {
+  "count": 1,
+  "rule": "ask the viewer to comment the word SITE (a public comment); the freebie arrives in their DM"
+ },
+ "other:Hook is not concrete; replace vague ... ": {
+  "count": 1,
+  "rule": "Hook is not concrete; replace vague ... with a specific figure (e.g., ...) to make it concrete."
+ },
+ "other:Hook does not lead with payoff or stake;": {
+  "count": 1,
+  "rule": "Hook does not lead with payoff or stake; rewrite to start with a payoff or stake (e.g., ...)"
+ },
+ "other:Hook may fail on mute; add on-screen tex": {
+  "count": 1,
+  "rule": "Hook may fail on mute; add on-screen text that conveys the hook (e.g., display ...)"
+ },
+ "other:line restates the problem instead of giv": {
+  "count": 1,
+  "rule": "line restates the problem instead of giving the first specific answer; replace with a concrete suggestion such as “Set up a simple"
+ },
+ "other:line promises a result (“website answers": {
+  "count": 1,
+  "rule": "line promises a result (“website answers customers until N”) which violates the claims_rules; rephrase to a capability like “A mob"
+ },
+ "hinglish": {
+  "count": 5,
+  "rule": "Every spoken line is everyday Hindi in Roman letters with English tech words."
+ },
+ "other:hook does not lead with a clear payoff o": {
+  "count": 1,
+  "rule": "hook does not lead with a clear payoff or stake; rewrite the opening line to state the consequence or benefit, e.g., ..."
+ },
+ "other:hook is not visible on mute because the ": {
+  "count": 1,
+  "rule": "hook is not visible on mute because the first frame shows ...; replace the on‑screen text with the hook phrase or add bold on‑scre"
+ },
+ "other:restates problem instead of giving the f": {
+  "count": 1,
+  "rule": "restates problem instead of giving the first specific answer; replace with a concrete tip such as ..."
+ },
+ "other:The line misstates the categories of aft": {
+  "count": 1,
+  "rule": "The line misstates the categories of after‑hours messages; replace ... with ... to accurately reflect fact fN."
+ },
+ "other:The line guarantees that customers will ": {
+  "count": 1,
+  "rule": "The line guarantees that customers will leave if the site is not open at night, which is not supported by any fact and not a servi"
+ },
+ "other:The line claims that customers judge ten": {
+  "count": 1,
+  "rule": "The line claims that customers judge ten things, an unsupported numeric figure. Remove the specific number or provide a citation, "
+ },
+ "other:beat only restates problem; rewrite to g": {
+  "count": 1,
+  "rule": "beat only restates problem; rewrite to give the first specific solution, e.g., ..."
+ },
+ "other:beat promises a result; change to a capa": {
+  "count": 1,
+  "rule": "beat promises a result; change to a capability statement, e.g., ..."
  }
 }

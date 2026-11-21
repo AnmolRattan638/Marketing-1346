@@ -7,3 +7,7 @@ template/out/
 runs/*/final.mp4
 edits_cache/
 state/
+
+# the private character: clips and poses come from a private repo at run time and must never be committed here
+assets/avatar-private/
+assets/avatar/clips/

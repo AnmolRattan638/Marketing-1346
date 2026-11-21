@@ -77,7 +77,7 @@ export const Video: React.FC = () => {
           </Sequence>
         );
       })}
-      {(manifest as any).presenter?.src?.length ? <Presenter spec={(manifest as any).presenter} /> : null}
+      {((manifest as any).presenter?.src?.length || (manifest as any).presenter?.clips?.length) ? <Presenter spec={(manifest as any).presenter} /> : null}
       {manifest.brand?.logo && (
         <Sequence from={0} durationInFrames={Math.max(1, (resolved.find((r) => r.scene.id === "outro")?.startFrame ?? cursor))}>
           <LogoBug logo={manifest.brand.logo} />

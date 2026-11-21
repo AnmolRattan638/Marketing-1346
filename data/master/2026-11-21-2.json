@@ -1,0 +1,160 @@
+{
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Aapki website 3 second se slow ho toh customers nikal jaate hain…",
+    "hooks": [
+      {
+        "text": "Aapki website 3 second se slow ho toh customers nikal jaate hain…",
+        "score": 13.4,
+        "formula": ""
+      },
+      {
+        "text": "Har din 10 minute ka time website load hone mein waste ho raha hai…",
+        "score": 13.4,
+        "formula": ""
+      },
+      {
+        "text": "Bohot kam dukaan wale ye ek cheez miss karte hain…",
+        "score": 11.4,
+        "formula": "nobody"
+      },
+      {
+        "text": "Kaash mujhe apni dukaan ki website ke baare mein ye pehle pata hota…",
+        "score": 11.4,
+        "formula": "wish"
+      },
+      {
+        "text": "Kabhi dhyan diya hai, log website dekhkar pehle kya judge karte hain…",
+        "score": 11.4,
+        "formula": "noticed"
+      },
+      {
+        "text": "Kal raat 11 baje customer booking chahta tha, website der se load hui, dusri cafe chuni.",
+        "score": 9.4,
+        "formula": ""
+      }
+    ],
+    "hook_formula": "",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Aapki website 3 second se slow ho toh customers nikal jaate hain…",
+        "screen": "Website der se load",
+        "visual": "Phone screen showing loading spinner, clock 11 PM, customer walking away",
+        "emotion": "empathetic",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "poke",
+        "line": "Log sochte hain fast internet se site tez hogi, lekin mobile pe heavy design slow rehta hai.",
+        "screen": "Fast internet se nahi hota",
+        "visual": "Split screen: server rack vs. slow mobile site on phone",
+        "emotion": "urgent",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Mobile-first theme lagao, click-to-call button daalo, images compress karo, site turant load hogi.",
+        "screen": "Mobile-first, click-to-call, compress",
+        "visual": "Developer coding, then mobile showing fast site with call button",
+        "emotion": "excited",
+        "steps": [
+          "Mobile-first theme lagao",
+          "Click-to-call button daalo",
+          "Images compress karo"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "payoff",
+        "line": "Fewer than 5% MSMEs ke paas fixed broadband hai, mobile-friendly site zaroori hai.",
+        "screen": "<5% broadband",
+        "visual": "Bar graph showing <5% broadband, mobile users scrolling",
+        "emotion": "calm",
+        "steps": [],
+        "facts": [
+          "f2"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Website der se load hoti hai, customer dusri dukaan chunta hai, loss hota hai.",
+        "screen": "Load delay = lost",
+        "visual": "Side‑by‑side: slow site vs. fast site, customer choosing fast one",
+        "emotion": "warm",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "cta",
+        "line": "Comment SITE, main DM mein website checklist bhejunga.",
+        "screen": "Comment SITE for checklist",
+        "visual": "Comment box with word SITE typed, DM icon appearing",
+        "emotion": "curious",
+        "steps": [],
+        "facts": []
+      }
+    ],
+    "cta": "Comment SITE, main DM mein website checklist bhejunga.",
+    "linkedin_english": "A slow, non‑mobile website can cost you a customer. Even fast internet won’t help if the site isn’t mobile‑first. Comment “SITE” to receive a free website checklist.",
+    "marketing": {
+      "keyword": "SITE",
+      "gets": "a one-page checklist: 10 things a customer judges your website on, with an honest note on whether you need a new one",
+      "pillar": "offer"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Only 43% of micro, small and medium-sized enterprises (MSMEs) are proficient in digital technologies such as enterprise resource planning and customer relationship management.",
+        "figure": "43%",
+        "source": "lightreading.com",
+        "title": "India's 6G ambition faces a 5G monetization reality check",
+        "url": "https://www.lightreading.com/5g/india-s-6g-ambition-faces-a-5g-monetization-reality-check",
+        "date": "2026-05-04",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "Fewer than 5% of MSMEs had fixed broadband connections as of March 31 2026.",
+        "figure": "<5%",
+        "source": "bajajbrokingmarkets.substack.com",
+        "title": "Jio Changed How India Uses the Internet. Can It Change How India Pays for It?",
+        "url": "https://bajajbrokingmarkets.substack.com/p/jio-changed-how-india-uses-the-internet",
+        "date": "2026-10-19",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Wireless average revenue per user (ARPU) has remained between Rs 180 and Rs 200 despite tariff hikes and 5G investments.",
+        "figure": "Rs 180‑200",
+        "source": "brandequity.economictimes.indiatimes.com",
+        "title": "India Telecom Market: Telcos Face Revenue Challenges Despite Growth Opportunities in India's 60 Million MSME Sector, ETBrandEquity",
+        "url": "https://brandequity.economictimes.indiatimes.com/news/business-of-brands/growth-slows-for-telcos-as-subscribers-plateau-prices-stay-low/130015784",
+        "date": "2026-04-04",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "India’s active mobile subscriber base has crossed 1.17 billion, limiting room for new additions.",
+        "figure": "1.17 billion",
+        "source": "brandequity.economictimes.indiatimes.com",
+        "title": "India Telecom Market: Telcos Face Revenue Challenges Despite Growth Opportunities in India's 60 Million MSME Sector, ETBrandEquity",
+        "url": "https://brandequity.economictimes.indiatimes.com/news/business-of-brands/growth-slows-for-telcos-as-subscribers-plateau-prices-stay-low/130015784",
+        "date": "2026-04-04",
+        "verdict": "verified",
+        "id": "f4"
+      }
+    ],
+    "topic": "The mobile data reality check",
+    "service": "website",
+    "keyword": "SITE",
+    "notes": [
+      "style remark (not blocking): lines are bare statements; use helping words that give the reason or an example (kyunki, isliye, matlab, jaise ki, phir, taaki) so the viewer understands WHY",
+      "hook uses an invented number ['3'] (allowed for hooks, not a verified fact)"
+    ]
+  },
+  "service": "website",
+  "slot": "2"
+}

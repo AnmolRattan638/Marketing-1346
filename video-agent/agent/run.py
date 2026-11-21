@@ -10,7 +10,7 @@ from datetime import date
 
 from . import notify
 from .captions import get_words
-from . import captions
+from . import captions, reel_text
 from .common import ROOT, WORK, load_config, log, media_duration
 from . import footage as _footage
 from .footage import fetch_clip
@@ -190,7 +190,14 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
         notify.send_message(viral.report(vres, history[best], history))
     else:
         notify.send_message(viral.report(vres))
-    notify.send_video(final, ((f"Reel {os.environ['REEL_SLOT']} of today (its own script and service). Post it yourself.\n" if os.environ.get("REEL_SLOT") else "Reel for today's draft (same script as the carousel). Approving the draft posts the carousel; post this Reel yourself.\n") if master else "") + f"{plan['title']}\nTopic: {topic}{summary}" + ("\n" + "\n".join(sorted(set(captions.LISTEN))) if captions.LISTEN else "") + f"{webresearch.caption_line(plan.get('sources') or [])}")
+    notify.send_video(final, ((f"Reel {os.environ['REEL_SLOT']} of today (its own script and service). Post it yourself. Its script and caption are in the next message.\n" if os.environ.get("REEL_SLOT") else "Reel for today's draft (same script as the carousel). Approving the draft posts the carousel; post this Reel yourself. Its script and caption are in the next message.\n") if master else "") + f"{plan['title']}\nTopic: {topic}{summary}" + ("\n" + "\n".join(sorted(set(captions.LISTEN))) if captions.LISTEN else "") + f"{webresearch.caption_line(plan.get('sources') or [])}")
+    if not offline:
+        try:
+            txt = reel_text.message(plan, master, service)
+            if txt:
+                notify.send_message(txt)                   # the spoken script and a paste-ready caption, right after the reel
+        except Exception as e:
+            log(f"script/caption message skipped: {e}")
 
 
 def main() -> None:

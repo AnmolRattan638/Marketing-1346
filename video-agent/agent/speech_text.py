@@ -100,7 +100,7 @@ def sentences(text: str) -> list[tuple[str, float, int]]:
     """Cut the cleaned line into takes: (text, silence after it in seconds). Sentence ends get a real stop (? a little more, ... most); a sentence of more than ~11 words is cut at a
     comma into shorter takes with a small breath between them. Each take also carries the index of the sentence it belongs to (one mood per sentence)."""
     cleaned = strip_signs(expand(text))
-    head, sep, tail = re.split(r"(?<=[.?!।…])\s+", cleaned)[:-1], " ", re.split(r"(?<=[.?!।…])\s+", cleaned)[-1]
+    head, tail = re.split(r"(?<=[.?!।…])\s+", cleaned)[:-1], re.split(r"(?<=[.?!।…])\s+", cleaned)[-1]
     cleaned = " ".join([*head, punctuate(tail)])                  # only the LAST sentence can be missing its sign here; its own words decide if it is a question
     out: list[tuple[str, float, int]] = []
     for si, s in enumerate(x for x in re.split(r"(?<=[.?!।…])\s+", cleaned) if x.strip() and x.strip() not in tuple(END + "…")):

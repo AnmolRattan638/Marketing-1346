@@ -14,7 +14,7 @@ from . import captions
 from .common import ROOT, WORK, load_config, log, media_duration
 from . import footage as _footage
 from .footage import fetch_clip
-from . import edits, master_script, scenarios, viral, webresearch
+from . import edits, finish, master_script, scenarios, viral, webresearch
 from .hybrid import Editor, HybridError
 from .manifest import available_sfx, build_manifest
 from .plan import make_plan, sample_plan
@@ -172,6 +172,7 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
 
         final = out_dir / "final.mp4"
         render(manifest, final)
+        finish.normalize(final)          # -14 LUFS for the feed; leaves the file as rendered if anything is off
         log(f"done: {final} ({media_duration(final):.1f}s, {final.stat().st_size / 1e6:.1f} MB)")
         if offline:
             break

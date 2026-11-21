@@ -12,6 +12,17 @@ Personal daily short-video agent. Groq writes the plan, Pexels gives footage, Ko
 4. Edit `topics.txt` (one topic per line, picked by date) and `config.json` (language `en` or `hi`, voice, brand notes).
 5. Actions → "Daily video" → Run workflow. Tick `offline` first to test the pipeline without any API.
 
+## Sound effects (SFX kit) and loudness
+Sound effects come from the CC0 **SFX Kit** (`assets/sfxkit/`: 320 sounds as MP3, levels unchanged, `catalog.json` with each sound's data). The planner still only picks a kind
+(whoosh, pop, click, riser, impact) and a moment; the code (`agent/sfxkit.py`, `agent/sfx_plan.py`) then:
+- starts the sound at **moment minus its sync point**, so the hit lands on the frame (a riser's arrival on its word, a whoosh's peak on the move) instead of a fixed lead per kind;
+- sets its level from the kit's own **under-voice amount**, and never uses a sound the kit marks as masking a voice (bass hits, stings, rings, busy celebrations);
+- gives every cue a different file (none more than 3 times, never the same twice in a row); a stat counter landing plays the kit's number-landing sound;
+- falls back to the old `assets/sfx` files if the kit, its catalog or a file is missing, so a draft can never fail on a sound.
+
+After the render, `agent/finish.py` measures loudness and, only when off target, brings the audio to **-14 LUFS, true peak -1.5 dBTP** with ffmpeg's two-pass loudnorm (the video stream is copied, the result is checked, and any problem leaves the file as rendered). `LOUDNESS_NORMALIZE=0` switches it off; `LOUDNESS_LUFS` / `LOUDNESS_TP` change the target.
+`knowledge/` holds reference copies of the two video-editing skill packs (MIT) and the SFX kit guide; `knowledge/INDEX.md` says what each skill is used for (in code, in the planner prompt, or reference only). Rebuild the sounds with `python tools/import_sfx_kit.py <sfx-kit folder>`. Tests: `tests/video_sfxkit_test.py`, `video_finish_test.py`, `video_knowledge_test.py`.
+
 ## How it works
 
 `agent/run.py` → `plan.py` (Groq JSON plan, validated, one retry) → per scene: `footage.py`, `voice.py`, `captions.py`, `sfx_plan.py` → `manifest.py` → `render.py` (Remotion, template in `template/`) → `notify.py` (Telegram).

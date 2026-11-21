@@ -13,7 +13,10 @@ from .common import ROOT, WORK, log
 def _stage_sfx(types: set) -> None:
     (WORK / "sfx").mkdir(parents=True, exist_ok=True)
     for t in types:
-        shutil.copy(ROOT / "assets" / "sfx" / f"{t}.mp3", WORK / "sfx" / f"{t}.mp3")
+        src = ROOT / "assets" / "sfx" / f"{t}.mp3"
+        if not src.exists():
+            src = ROOT / "assets" / "sfxkit" / f"{t}.mp3"          # a sound from the SFX kit
+        shutil.copy(src, WORK / "sfx" / f"{t}.mp3")
 
 
 def _stage_music(cfg: dict):

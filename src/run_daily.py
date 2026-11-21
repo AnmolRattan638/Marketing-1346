@@ -3,7 +3,7 @@ import datetime as dt
 import os, secrets, subprocess
 import sys, traceback
 import requests
-from . import marketingskills, analytics, browser_research, captions, carousel, config, diagrams, formats, ideas, learning, llm, tg, virality, web_research
+from . import marketingskills, analytics, browser_research, captions, carousel, config, diagrams, formats, humanize, ideas, learning, llm, tg, virality, web_research
 from .agents import analysis, carousel as carousel_agent, factcheck, factsheet, fit as fit_agent, image, scriptwriter, linkedin_edit, problems as problems_agent, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
@@ -258,6 +258,7 @@ def main():
                 if k in posts and v:
                     posts[k] = v[:300] if k == "bluesky" else v
             fc = fc2
+        posts, hz = stage("humanizer", lambda: humanize.humanize_posts(posts, focus), fallback=(posts, {}))     # open-humanizer on the body of each long-enough post; guarded, fail-open
         posts = captions.finalize_posts(posts, focus_id=focus.get("id"))             # LAST: markers -> real bold, layout tidy, Bluesky <= 300 (fact-check may have rewritten the text)
         img = stage("image", lambda: image.run(plan, focus, today, g('image')), fallback={"prompt": None, "path": None})
         if img.get("engine") == "text_card" or not img.get("path"):
@@ -295,7 +296,7 @@ def main():
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
              "fact_sheet": sheet if sheet.get("facts") else None, "master_script": master, "script_style": (master or {}).get("style"),
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),
-             "image": img, "carousel": car_data, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "sources": web_research.sources_for_draft(ev), "ad_score": rv.get("ad_score"), "virality": vir_after or None, "virality_review": vsum,
+             "image": img, "carousel": car_data, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "sources": web_research.sources_for_draft(ev), "humanizer": hz, "ad_score": rv.get("ad_score"), "virality": vir_after or None, "virality_review": vsum,
              "llm": {"answered": list(dict.fromkeys(llm.LOG)), "failures": llm.FAILURES[:20]}}
     config.save_json(path, draft)
 
@@ -304,6 +305,7 @@ def main():
             f"Instagram today: {'MANUAL reel (post it yourself)' if ig_mode == 'manual_reel' else 'auto-posted image + caption'}\nLinkedIn today: {'TEXT ONLY (no image)' if li_fmt == 'text' else 'with the image'}\nFact-check: {'OK' if fc.get('ok') else fc.get('issues')}\nAd-score: {rv.get('ad_score')} (lower is better)\n{virality.telegram_line(vir_after, bt, vsum)}\n"
             f"Account check ({state.get('stage')}): {state.get('summary')}" +
             (("\nLive weak spots: " + "; ".join(f"[{s['platform']}] {s['detail']}" for s in live_signals[:2])) if live_signals else "") +
+            (("\nHumanizer: " + humanize.summary_line(hz)) if hz else "") +
             (("\n\nWeb sources behind today's facts (open one if the post quotes a number):\n" + web_research.sources_line(ev)) if ev else "") +
             "\n\nModels that answered: " + (" | ".join(dict.fromkeys(llm.LOG))[:700] or "n/a") +
             ("\nManual tips:\n- " + "\n- ".join(map(str, state.get("manual_tips") or [])) if state.get("manual_tips") else ""))

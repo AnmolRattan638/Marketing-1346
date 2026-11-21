@@ -16,7 +16,7 @@ from pathlib import Path
 
 import requests
 
-from . import speech_text
+from . import grade, speech_text
 
 from .common import log, run
 
@@ -177,7 +177,7 @@ def synth(text: str, mp3, scfg: dict, emotion: str | None = None, beat: str | No
         cmd += ["-i", w]
     trim = "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.03,areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05,areverse"   # the engine's own dead air is cut so the pauses are exactly the ones above
     parts = [f"[{i}:a]{trim},apad=pad_dur={(takes[i][1] * scale if i < len(wavs) - 1 else pause):.2f}[a{i}]" for i in range(len(wavs))]
-    chain = ";".join(parts) + ";" + "".join(f"[a{i}]" for i in range(len(wavs))) + f"concat=n={len(wavs)}:v=0:a=1[out]"
+    chain = ";".join(parts) + ";" + "".join(f"[a{i}]" for i in range(len(wavs))) + f"concat=n={len(wavs)}:v=0:a=1" + (f",{grade.voice_filter()}" if grade.voice_filter() else "") + "[out]"
     run(cmd + ["-filter_complex", chain, "-map", "[out]", "-ac", "1", "-b:a", "128k", mp3])
     for w in wavs:
         w.unlink()

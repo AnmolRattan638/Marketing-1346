@@ -48,3 +48,14 @@ def send_audio(path: Path, caption: str) -> None:
         requests.post(f"https://api.telegram.org/bot{c[0]}/sendAudio",
                       data={"chat_id": c[1], "caption": caption[:1000]},
                       files={"audio": fh}, timeout=120).raise_for_status()
+
+
+def send_cover(full: Path, grid: Path) -> None:
+    """The cover still (full 9:16) and how Instagram's profile grid will crop it, as files so Telegram does not recompress them."""
+    c = _creds()
+    if not c:
+        return
+    for path, cap in ((full, "Cover for the Reel (1080x1920). Upload it as the cover image."), (grid, "How it looks in the profile grid (centre 3:4 crop). Keep the key text inside this.")):
+        with open(path, "rb") as fh:
+            requests.post(f"https://api.telegram.org/bot{c[0]}/sendDocument", data={"chat_id": c[1], "caption": cap},
+                          files={"document": fh}, timeout=120).raise_for_status()

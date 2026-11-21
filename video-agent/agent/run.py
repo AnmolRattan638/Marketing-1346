@@ -14,7 +14,7 @@ from . import captions, reel_text
 from .common import ROOT, WORK, load_config, log, media_duration
 from . import footage as _footage
 from .footage import fetch_clip
-from . import edits, finish, master_script, scenarios, viral, webresearch
+from . import edits, finish, grade, master_script, scenarios, viral, webresearch
 from .hybrid import Editor, HybridError
 from .manifest import available_sfx, build_manifest
 from .plan import make_plan, sample_plan
@@ -198,6 +198,12 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
                 notify.send_message(txt)                   # the spoken script and a paste-ready caption, right after the reel
         except Exception as e:
             log(f"script/caption message skipped: {e}")
+        try:
+            covers = grade.cover(final)              # a cover still + the centre-cropped grid preview of the SHIPPED round, so none is picked by hand
+            if covers:
+                notify.send_cover(*covers)
+        except Exception as e:
+            log(f"cover not sent: {e}")
 
 
 def main() -> None:

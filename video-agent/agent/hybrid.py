@@ -19,7 +19,7 @@ import subprocess
 from datetime import date
 from pathlib import Path
 
-from . import clipscore, edits, footage
+from . import clipscore, edits, footage, grade
 from .common import log, media_duration, run
 
 W, H, FPS = 1080, 1920, 30
@@ -209,16 +209,16 @@ def make_shot(shot: dict, dest: Path, rng: random.Random) -> None:
         zoom = "1+0.10*on/%d" % max(frames, 1)
         vf = (f"scale=2160:3840:force_original_aspect_ratio=increase,crop=2160:3840,"
               f"zoompan=z='{zoom}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={W}x{H}:fps={FPS},format=yuv420p")
-        run(["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", src, "-vf", vf, "-frames:v", frames, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", dest])
+        run(["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", src, "-vf", vf, "-frames:v", frames, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", dest])
         return
     dur = media_duration(src)
     start = shot.get("start")
     if start is None:     # stock clips (and raw clips that could not be analysed): a random slice
         start = rng.uniform(0, max(0.0, dur - sec - 0.1)) if dur > sec + 0.2 else 0.0
     loop = ["-stream_loop", "-1"] if dur < sec + 0.1 else []
-    vf = _fit_filter(shot["type"] == "raw" and _is_landscape(src)) + f",fps={FPS}" + _zoom(shot["effect"], frames) + ",format=yuv420p"
+    vf = _fit_filter(shot["type"] == "raw" and _is_landscape(src)) + f",fps={FPS}" + _zoom(shot["effect"], frames) + "," + grade.grade_filter() + "format=yuv420p"
     run(["ffmpeg", "-y", "-loglevel", "error", *loop, "-ss", f"{start:.2f}", "-i", src, "-t", f"{sec:.3f}", "-vf", vf,
-         "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-r", FPS, dest])
+         "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-r", FPS, dest])
 
 
 def _xfade(parts: list[Path], durs: list[float], f: float, dest: Path) -> None:
@@ -230,7 +230,7 @@ def _xfade(parts: list[Path], durs: list[float], f: float, dest: Path) -> None:
         chain.append(f"{cur}[{i}:v]xfade=transition=fade:duration={f}:offset={length:.3f}{out}")
         cur, length = out, length + durs[i]
     run(["ffmpeg", "-y", "-loglevel", "error", *ins, "-filter_complex", ";".join(chain), "-map", cur, "-c:v", "libx264", "-preset", "veryfast",
-         "-crf", "22", "-pix_fmt", "yuv420p", "-r", FPS, dest])
+         "-crf", "18", "-pix_fmt", "yuv420p", "-r", FPS, dest])
 
 
 def join(parts: list[Path], shots: list[dict], hs: dict, dest: Path) -> None:
@@ -252,7 +252,7 @@ def join(parts: list[Path], shots: list[dict], hs: dict, dest: Path) -> None:
             segs.append(seg)
     lst = dest.with_suffix(".txt")
     lst.write_text("".join(f"file '{p.resolve()}'\n" for p in segs), encoding="utf-8")
-    run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c:v", "libx264", "-preset", "veryfast", "-crf", "22",
+    run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
          "-pix_fmt", "yuv420p", "-r", FPS, dest])
     lst.unlink()
 

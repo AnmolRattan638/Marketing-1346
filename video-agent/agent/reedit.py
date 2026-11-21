@@ -315,7 +315,7 @@ def cut_video(src: Path, dest: Path, segs: list[tuple[float, float]], seconds: f
 def render(props: dict, out: Path) -> None:
     pf = TEMPLATE / "reedit_props.json"
     pf.write_text(json.dumps(props), encoding="utf-8")
-    cmd = ["npx", "remotion", "render", "src/index.ts", "ReEdit", out, "--props", str(pf), "--overwrite", "--codec", "h264", "--crf", "20"]
+    cmd = ["npx", "remotion", "render", "src/index.ts", "ReEdit", out, "--props", str(pf), "--overwrite", "--codec", "h264", "--crf", os.environ.get("REEL_CRF") or "18"]
     if os.environ.get("REMOTION_BROWSER_EXECUTABLE"):
         cmd += ["--browser-executable", os.environ["REMOTION_BROWSER_EXECUTABLE"]]
     run(cmd, cwd=TEMPLATE)

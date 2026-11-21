@@ -7,6 +7,7 @@ from pathlib import Path
 
 import requests
 
+from . import grade
 from .stockquery import relevant, tech_queries
 from .common import ROOT, log, media_duration, run
 
@@ -73,8 +74,8 @@ def _unsplash_search(query: str, key: str) -> list[dict]:
 def _to_portrait(src: Path, dest: Path) -> None:
     """Fill a 1080x1920 frame from any footage (centre crop), 30 fps, no audio."""
     run(["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-an",
-         "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30,format=yuv420p",
-         "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", dest])
+         "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30," + grade.grade_filter() + "format=yuv420p",
+         "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", dest])
 
 
 def _download(url: str, dest: Path) -> None:

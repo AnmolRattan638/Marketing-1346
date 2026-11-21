@@ -2,6 +2,64 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "18420480280085222",
+      "url": "https://www.instagram.com/p/DgAl1P3CFrz/",
+      "published_at": "2026-11-21T15:50:07.000Z",
+      "text": "RAAT KE 11 BAJE ADDRESS POOCHTE HAIN KYUN?\n\n→ 𝗠𝗢𝗕𝗜𝗟𝗘 par timings, location aur 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 button saaf dikhe.\n→ Customer khud samajh le, aapko raat mein phone nahi",
+      "format": "image",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 3,
+        "reach": 1,
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-21",
+        "service": "website",
+        "hook_style": "question",
+        "topic": "Are late-night calls for your address and timing eating into your personal time?"
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2thcdhylb2m",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2thcdhylb2m",
+      "published_at": "2026-11-21T15:50:05.516095+00:00",
+      "text": "11 pm: a customer asks for your address. A mobile site shows timings, map and a tap-to-call button, so you can finish dinner instead of answering the phone. DM ",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-21",
+        "service": "website",
+        "hook_style": "question",
+        "topic": "Are late-night calls for your address and timing eating into your personal time?"
+      }
+    },
+    {
+      "platform": "instagram",
       "id": "18136610512590421",
       "url": "https://www.instagram.com/reel/Df81oLFzoOt/",
       "published_at": "2026-11-20T04:50:06.000Z",
@@ -9,17 +67,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 227,
-        "reach": 186,
-        "views": 227,
+        "impressions": 230,
+        "reach": 193,
+        "views": 230,
         "likes": 5,
         "comments": 0,
         "shares": 0,
         "saves": 2,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 71.5,
-        "avg_watch_s": 4.348,
+        "skip_rate": 72.4,
+        "avg_watch_s": 4.283,
         "duration_s": 32
       },
       "matched": null
@@ -91,17 +149,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 128,
-        "reach": 83,
-        "views": 128,
+        "impressions": 130,
+        "reach": 85,
+        "views": 130,
         "likes": 5,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 55.5,
-        "avg_watch_s": 4.263,
+        "skip_rate": 56.3,
+        "avg_watch_s": 4.2,
         "duration_s": 27
       },
       "matched": {
@@ -120,9 +178,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 3,
-        "reach": 1,
-        "views": 3,
+        "impressions": 4,
+        "reach": 2,
+        "views": 4,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -217,7 +275,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 64.4,
-        "avg_watch_s": 3.522,
+        "avg_watch_s": 3.52,
         "duration_s": 65
       },
       "matched": {
@@ -1917,7 +1975,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 35
+      "posts": 36
     }
   },
   "coverage": {
@@ -2270,5 +2328,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-21T07:10:25+00:00"
+  "updated_at": "2026-11-21T19:17:45+00:00"
 }

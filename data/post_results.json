@@ -2470,7 +2470,82 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-11-19|instagram": {
+      "date": "2026-11-19",
+      "platform": "instagram",
+      "service": "lead_gen",
+      "problem_id": "manual-lead-searching-exhaustion",
+      "angle_type": "myth_bust",
+      "hook_style": "comparison",
+      "format": "reel",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "angle_type",
+      "image_style": "network",
+      "carousel_flavor": null,
+      "slides": 1,
+      "published_at": "2026-11-19T11:27:22.000Z",
+      "url": "https://www.instagram.com/reel/Df6904zJEby/",
+      "snap": {
+        "48h": {
+          "age_h": 55.8,
+          "source": "zernio",
+          "impressions": 130,
+          "reach": 85,
+          "views": 130,
+          "likes": 5,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0,
+          "skip_rate": 56.3,
+          "avg_watch_s": 4.2,
+          "duration_s": 27
+        }
+      },
+      "latest": {
+        "impressions": 4,
+        "reach": 2,
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
+    },
+    "2026-11-19|bluesky": {
+      "date": "2026-11-19",
+      "platform": "bluesky",
+      "service": "lead_gen",
+      "problem_id": "manual-lead-searching-exhaustion",
+      "angle_type": "myth_bust",
+      "hook_style": "comparison",
+      "format": "text",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "angle_type",
+      "image_style": "network",
+      "carousel_flavor": null,
+      "slides": 1,
+      "published_at": "2026-11-19T11:15:38.173816+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2nwzpiujt2j",
+      "snap": {
+        "48h": {
+          "age_h": 56.0,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-11-21T07:10:27+00:00"
+  "updated_at": "2026-11-21T19:17:47+00:00"
 }

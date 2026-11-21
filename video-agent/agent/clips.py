@@ -16,7 +16,7 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
-from .common import ROOT, WORK, log
+from .common import ROOT, WORK
 
 SLOT = 3.2          # seconds of source per slot
 EDGE = 0.3          # the first / last moments of a clip are the rest pose: never used as a cut point

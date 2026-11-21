@@ -1,0 +1,140 @@
+{
+ "_about": "Hook formulas taken from a 'Top 10 Hooks for Creators' reel (9 formulas shown on screen + 'Hook #10 ???'), turned into Hinglish with one example per service. Every hook is an OPEN LOOP: it ends on '...' and the next beat must answer it. Used by src/hooks.py; edit freely.",
+ "formulas": [
+  {
+   "id": "nobody",
+   "english": "Nobody is doing this…",
+   "hinglish": "Bohot kam log ye kar rahe hain",
+   "kind": "scarcity: something most owners skip",
+   "match": "\\b(bohot|bahut|kaafi)\\s+kam\\b.*\\b(karte|kar rahe|use|dete|likhte|rakhte)\\b|\\bnobody\\b|\\bkoi nahi (kar|karta)\\b",
+   "examples": {
+    "website": "Bohot kam dukaan wale ye ek cheez apni website par rakhte hain…",
+    "chatbot": "Bohot kam business raat ke messages ka ye jawab dete hain…",
+    "animated_ads": "Bohot kam brands apne ads mein ye ek cheez karte hain…",
+    "lead_gen": "Bohot kam log enquiry aane ke baad ye karte hain…",
+    "reel_scripts": "Bohot kam creators reel likhne se pehle ye karte hain…",
+    "seo_blogs": "Bohot kam dukaan wale Google ke liye ye likhte hain…"
+   }
+  },
+  {
+   "id": "wish",
+   "english": "I wish I knew this earlier…",
+   "hinglish": "Kaash mujhe ye pehle pata hota",
+   "kind": "hindsight: a lesson, then the lesson is the body",
+   "match": "\\bkaash\\b.*\\bpehle\\b|\\bwish i knew\\b",
+   "examples": {
+    "website": "Kaash mujhe apni dukaan ki website ke baare mein ye pehle pata hota…",
+    "chatbot": "Kaash maine raat ke messages ke liye ye pehle laga liya hota…",
+    "animated_ads": "Kaash mujhe ads ke baare mein ye pehle pata hota…",
+    "lead_gen": "Kaash mujhe enquiry sambhalne ka ye tareeka pehle pata hota…",
+    "reel_scripts": "Kaash mujhe reel likhne ka ye tareeka pehle pata hota…",
+    "seo_blogs": "Kaash maine Google ke liye blog pehle aise likha hota…"
+   }
+  },
+  {
+   "id": "noticed",
+   "english": "Have you ever noticed…",
+   "hinglish": "Kabhi dhyan diya hai",
+   "kind": "observation: something the viewer has seen but never named",
+   "match": "\\bkabhi (dhyan|notice|dekha|socha)\\b|\\bhave you ever noticed\\b",
+   "examples": {
+    "website": "Kabhi dhyan diya hai, log website dekhkar pehle kya judge karte hain…",
+    "chatbot": "Kabhi dhyan diya hai, raat ko aaye messages ka kya hota hai…",
+    "animated_ads": "Kabhi dhyan diya hai, ads mein log pehle kya dekhte hain…",
+    "lead_gen": "Kabhi dhyan diya hai, enquiry aate hi log kyun gayab ho jaate hain…",
+    "reel_scripts": "Kabhi dhyan diya hai, kuch reels pehle second mein hi rok leti hain…",
+    "seo_blogs": "Kabhi dhyan diya hai, Google par pehla result kaisa hota hai…"
+   }
+  },
+  {
+   "id": "wrong",
+   "english": "I was wrong about this…",
+   "hinglish": "Main iske baare mein galat tha",
+   "kind": "confession: admits a mistake, the correction is the payoff",
+   "match": "\\b(main|mai|maine)\\b.*\\bgalat\\b|\\bi was wrong\\b",
+   "examples": {
+    "website": "Main website ke baare mein ek cheez mein bilkul galat tha…",
+    "chatbot": "Main chatbot ke baare mein ek baat mein galat tha…",
+    "animated_ads": "Main animated ads ke baare mein galat soch raha tha…",
+    "lead_gen": "Main leads ke baare mein ek cheez mein galat tha…",
+    "reel_scripts": "Main reel scripts ke baare mein ek baat mein galat tha…",
+    "seo_blogs": "Main blogs ke baare mein ek baat mein galat tha…"
+   }
+  },
+  {
+   "id": "truth",
+   "english": "Here's the real truth…",
+   "hinglish": "Asli sachchai ye hai",
+   "kind": "reveal: the unspoken truth about the topic",
+   "match": "\\basli (sachchai|sach|baat)\\b|\\breal truth\\b",
+   "examples": {
+    "website": "Dukaan ki website ki asli sachchai ye hai…",
+    "chatbot": "Chatbot ki asli sachchai ye hai…",
+    "animated_ads": "Animated ads ki asli sachchai ye hai…",
+    "lead_gen": "Leads ki asli sachchai ye hai…",
+    "reel_scripts": "Reels ki asli sachchai ye hai…",
+    "seo_blogs": "Blogs ki asli sachchai ye hai…"
+   }
+  },
+  {
+   "id": "stop",
+   "english": "Stop doing this…",
+   "hinglish": "Ye karna band karo",
+   "kind": "command: names a habit to drop",
+   "match": "\\bband karo\\b|\\bmat karo\\b|\\bstop doing\\b",
+   "examples": {
+    "website": "Website par ye ek cheez karna band karo…",
+    "chatbot": "Raat ke messages ko ignore karna band karo…",
+    "animated_ads": "Ads mein ye ek galti karna band karo…",
+    "lead_gen": "Enquiry ka jawab der se dena band karo…",
+    "reel_scripts": "Reels ka pehla second waste karna band karo…",
+    "seo_blogs": "Blog mein ye ek galti karna band karo…"
+   }
+  },
+  {
+   "id": "disagree",
+   "english": "You may not agree with this…",
+   "hinglish": "Shayad aap agree na karo",
+   "kind": "contrarian: a take that makes people argue or save",
+   "match": "\\bagree na\\b|\\bagree nahi\\b|\\bmay not agree\\b|\\bsehmat nahi\\b",
+   "examples": {
+    "website": "Shayad aap agree na karo, par dukaan ko website chahiye…",
+    "chatbot": "Shayad aap agree na karo, par chatbot raat ka staff ban sakta hai…",
+    "animated_ads": "Shayad aap agree na karo, par ads ko animation chahiye…",
+    "lead_gen": "Shayad aap agree na karo, par har enquiry ek lead nahi hoti…",
+    "reel_scripts": "Shayad aap agree na karo, par reel ka script pehle likhna chahiye…",
+    "seo_blogs": "Shayad aap agree na karo, par blog Google ke liye likhna chahiye…"
+   }
+  },
+  {
+   "id": "surprise",
+   "english": "This might surprise you…",
+   "hinglish": "Ye aapko hairan kar sakta hai",
+   "kind": "surprise: a fact that breaks an assumption",
+   "match": "\\bhairan\\b|\\bsurprise\\b|\\bchaunk",
+   "examples": {
+    "website": "Ye aapko hairan kar sakta hai: log website pe kitni der rukte hain…",
+    "chatbot": "Ye aapko hairan kar sakta hai: chatbot kitne kaam kar leta hai…",
+    "animated_ads": "Ye aapko hairan kar sakta hai: ad ke pehle teen second ka kaam…",
+    "lead_gen": "Ye aapko hairan kar sakta hai: leads kahan kho jaati hain…",
+    "reel_scripts": "Ye aapko hairan kar sakta hai: reel kahan se skip hoti hai…",
+    "seo_blogs": "Ye aapko hairan kar sakta hai: log Google par kya search karte hain…"
+   }
+  },
+  {
+   "id": "reason",
+   "english": "X is the reason why you are Y…",
+   "hinglish": "X hi wajah hai ki aap Y",
+   "kind": "cause: names the hidden cause of a loss the viewer feels",
+   "match": "\\bwajah\\b|\\bis the reason\\b|\\bkaaran\\b",
+   "examples": {
+    "website": "Website na hona hi wajah hai ki customers aapko dhundh nahi paate…",
+    "chatbot": "Der se reply hi wajah hai ki customers kahin aur chale jaate hain…",
+    "animated_ads": "Plain ads hi wajah hain ki log scroll karke aage badh jaate hain…",
+    "lead_gen": "Follow-up ki kami hi wajah hai ki leads thandi pad jaati hain…",
+    "reel_scripts": "Kamzor pehli line hi wajah hai ki reel chal nahi paati…",
+    "seo_blogs": "Galat keywords hi wajah hain ki blog Google par nahi dikhta…"
+   }
+  }
+ ]
+}

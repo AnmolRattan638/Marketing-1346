@@ -3,9 +3,11 @@
 Output: {"style", "hook", "hooks": [5 candidates with scores], "beats": [{"beat","line","screen","visual","facts"}], "cta", "language"}.
 Code enforces what a model drifts on: every number must come from a cited fact, 5-14 words per spoken line, no greeting/intro, hook scored and picked by code."""
 import json
+import os
 import re
 import datetime
 from .. import config, contentskills, llm, marketingskills, scriptlessons
+from .. import hooks as hooks_mod
 
 STYLES = [
     {"id": "pain-poke-fix", "name": "6-beat framework", "beats": ["pain", "poke", "fix", "payoff", "recap", "cta"],
@@ -357,6 +359,7 @@ Give each beat an `emotion` for the voice-over, one of: curious, empathetic, urg
 source is named in words when a figure is spoken; no invented clients, results or testimonials; replace any vague line with a concrete detail from the facts or delete it; read each line aloud
 and cut filler. Also give 5 alternative first lines using 5 different hook formulas (question, number, myth, scene, bold claim).
 Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken", "screen": "<=8 words on screen", "visual": "what is shown", "emotion": "empathetic", "steps": ["only for the fix beat"], "facts": ["f1"]}}], "cta": "the one ask", "linkedin_english": "2-3 plain English sentences of the same idea"}}
+{hooks_mod.block(str(focus.get('id') or focus.get('name') or ''), datetime.date.fromisoformat(str(today)[:10]), int(os.getenv('REEL_SLOT') or 1) - 1)}
 {marketingskills.block('script', focus, today)}{contentskills.block('script')}{scriptlessons.prompt_block()}{fixes}"""
         data = llm.ask_json(ask, prompt, SYS)
         if not isinstance(data, dict):
@@ -365,10 +368,10 @@ Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken",
         beats = data.get("beats") or []
         if beats and beats[0].get("beat") == "pain" and beats[0].get("line"):
             hooks.append(str(beats[0]["line"]))       # the pain line is itself a candidate
-        scored = sorted(({"text": h, "score": score_hook(h)} for h in dict.fromkeys(hooks) if not BAD_OPEN.search(h)), key=lambda x: -x["score"])
+        scored = sorted(({"text": h, "score": score_hook(h) + (hooks_mod.BONUS if hooks_mod.formula_of(h) else 0), "formula": hooks_mod.formula_of(h)} for h in dict.fromkeys(hooks) if not BAD_OPEN.search(h)), key=lambda x: -x["score"])
         if scored and beats:
             beats[0]["line"] = scored[0]["text"]       # best hook wins; it must still pass the checks below
-        script = {"style": style["id"], "hook": scored[0]["text"] if scored else "", "hooks": scored[:6], "beats": beats,
+        script = {"style": style["id"], "hook": scored[0]["text"] if scored else "", "hooks": scored[:6], "hook_formula": (scored[0].get("formula") if scored else "") or "", "beats": beats,
                   "cta": str(data.get("cta") or (beats[-1].get("line") if beats else "")), "linkedin_english": str(data.get("linkedin_english") or ""),
                   "marketing": {"keyword": marketingskills.cta_for(focus)["keyword"], "gets": marketingskills.cta_for(focus)["gets"], "pillar": marketingskills.pillar(today)}, "language": "hinglish", "facts": sheet["facts"], "topic": sheet.get("topic"), "service": focus.get("id") or focus.get("name"), "keyword": sheet.get("keyword")}
         script = repair_missing(script, style, ask, focus, sheet)

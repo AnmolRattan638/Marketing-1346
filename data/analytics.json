@@ -2,6 +2,88 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "18135391598497595",
+      "url": "https://www.instagram.com/p/DgCnUhbCNh3/",
+      "published_at": "2026-11-22T10:41:34.000Z",
+      "text": "𝗥𝗔𝗔𝗧 𝟭𝟭 𝗕𝗔𝗝𝗘 𝗖𝗨𝗦𝗧𝗢𝗠𝗘𝗥 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 𝗞𝗔𝗥𝗧𝗔, 𝗔𝗔𝗣 𝗥𝗘𝗣𝗟𝗬 𝗡𝗔𝗛𝗜 𝗞𝗔𝗥𝗧𝗘?\n\n→ Ek custom 𝗖𝗛𝗔𝗧𝗕𝗢𝗧 sirf aapke diye jawab deta hai.\n\n→ Bot nahi jaanta toh chat aapko handover kar ",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 5,
+        "reach": 1,
+        "views": 5,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-22",
+        "service": "chatbot",
+        "hook_style": "comparison",
+        "topic": "Myth: a chatbot sounds robotic and makes up details about your services."
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2vgjkumxa23",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2vgjkumxa23",
+      "published_at": "2026-11-22T10:41:31.504048+00:00",
+      "text": "A customer asks about your timings or prices at 11 pm. A custom chatbot replies using only the answers you gave it, and hands the chat to you if it does not kno",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-22",
+        "service": "chatbot",
+        "hook_style": "comparison",
+        "topic": "Myth: a chatbot sounds robotic and makes up details about your services."
+      }
+    },
+    {
+      "platform": "instagram",
+      "id": "18177868864488994",
+      "url": "https://www.instagram.com/reel/DgCLfoNpTys/",
+      "published_at": "2026-11-22T06:47:11.000Z",
+      "text": "AAPKI WEBSITE 3 SECOND SE SLOW HO TOH CUSTOMERS NIKAL JAATE HAIN\n\n→ Log sochte hain fast internet se site tez hogi, lekin mobile pe heavy design slow rehta hai.",
+      "format": "reel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 147,
+        "reach": 117,
+        "views": 147,
+        "likes": 3,
+        "comments": 0,
+        "shares": 0,
+        "saves": 2,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": 51.2,
+        "avg_watch_s": 7.059,
+        "duration_s": 32
+      },
+      "matched": null
+    },
+    {
+      "platform": "instagram",
       "id": "18420480280085222",
       "url": "https://www.instagram.com/p/DgAl1P3CFrz/",
       "published_at": "2026-11-21T15:50:07.000Z",
@@ -1965,7 +2047,7 @@
   ],
   "accounts": {
     "instagram": {
-      "followers": 9,
+      "followers": 8,
       "username": "ar__designerx"
     },
     "linkedin": {
@@ -1975,7 +2057,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 36
+      "posts": 37
     }
   },
   "coverage": {
@@ -2328,7 +2410,7 @@
     {
       "date": "2026-11-22",
       "followers": {
-        "instagram": 9,
+        "instagram": 8,
         "linkedin": 15,
         "bluesky": 1
       }
@@ -2336,5 +2418,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-22T06:50:26+00:00"
+  "updated_at": "2026-11-22T19:42:22+00:00"
 }

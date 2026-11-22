@@ -39,3 +39,18 @@ assert "rehook" in sarvam.PAUSE_AFTER and "rehook" in reel_text.BEAT_NAMES
 plan = {"scenes": [{"beat": b} for b in ("pain", "poke", "rehook", "fix", "cta")]}
 assert not [p for p in schema._beat_problems(plan) if "order" in p]
 print("structure test passed")
+
+# ---- Part 2: labels that travel with the draft into the learning loop
+from src import structure, learning
+m = {"style": "myth-bust", "hook_formula": "nobody", "beats": good}
+d = structure.describe(m)
+assert d["structure"] == "retention-v2" and d["vertical"] == "clinic" and d["rehook"] and d["context_first"] and d["open_loops"] == 3 and d["hook_formula"] == "nobody", d
+assert structure.describe({"beats": [{"beat": "pain", "line": "Business ka phone band hai."}, {"beat": "fix", "line": "x"}]})["structure"] == "classic"
+assert structure.describe({"beats": beats("Business ka phone band?", "p", "q")})["structure"] == "rehook-only"
+assert structure.describe({}) == {} and structure.describe(None) == {}
+attrs = learning._attrs({"date": "2026-11-22", "structure": d}, "instagram", "reel")
+assert attrs["structure"] == "retention-v2" and attrs["vertical"] == "clinic" and attrs["hook_formula"] == "nobody"
+assert learning._attrs({"date": "2026-11-22"}, "instagram", "reel")["structure"] is None, "old drafts without labels still work"
+rows = [{"structure": s, "composite": c} for s, c in (("retention-v2", 1.4), ("retention-v2", 1.2), ("classic", 0.9), ("classic", 1.0), (None, 5.0))]
+assert learning.lessons(rows, "structure") == [("retention-v2", 1.3, 2), ("classic", 0.95, 2)]
+print("structure labels ok")

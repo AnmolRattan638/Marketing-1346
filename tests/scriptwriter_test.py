@@ -33,7 +33,7 @@ assert sw.pick_style(hist + [{"script_style": sw.STYLES[-1]["id"]}])["id"] == sw
 style = sw.BY_ID["myth-bust"]
 good = {"hooks": ["Raat 11 baje customer ka message aaya, jawab nahi gaya", "Aapke leads raat ko kahan jaate hain?", "21 guna zyada leads, bas ek aadat se", "Customer ne raat ko WhatsApp kiya", "Website se sale nahi hoti"],
         "beats": [{"beat": "pain", "line": "Raat 11 baje customer ne WhatsApp kiya, jawab nahi mila", "screen": "Raat ka message", "visual": "phone", "facts": []},
-                  {"beat": "poke", "line": "Subah reply se kuch nahi hota, kyunki customer ko jawab turant chahiye, warna woh dusri dukaan chala jaata hai", "screen": "Subah tak der", "visual": "x", "facts": []},
+                  {"beat": "poke", "line": "Subah reply se kuch nahi hota, kyunki customer ko jawab turant chahiye, warna woh dusre business ke paas chala jaata hai", "screen": "Subah tak der", "visual": "x", "facts": []},
                   {"beat": "fix", "line": "Pehle bot greet kare, kyunki pehla jawab trust banata hai. Phir sawaal puche aur call book kare.", "screen": "3 steps", "visual": "chat", "facts": ["f3"], "steps": ["Greet karo", "Ek sawaal pucho", "Call book karo"]},
                   {"beat": "payoff", "line": "a.com ke mutabiq paanch minute mein reply karne wali firms ko 21 guna zyada leads milti hain. Matlab speed matter karti hai.", "screen": "21x leads", "visual": "stat", "facts": ["f1"]},
                   {"beat": "cta", "line": "Agar raat ko messages chhoot jaate hain, toh comment mein BOT likho. Main 3-step setup bhejunga.", "screen": "Comment BOT", "visual": "logo"}],

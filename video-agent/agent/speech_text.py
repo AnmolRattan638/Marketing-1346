@@ -33,8 +33,16 @@ def _word(n: int) -> str:
     return NUM.get(n, str(n))
 
 
-UNTRANSLATE = {"ग्राहकों": "कस्टमर्स", "ग्राहक": "कस्टमर", "उपभोक्ताओं": "कस्टमर्स", "उपभोक्ता": "कस्टमर"}   # the voice says the English word the script means
-ROMAN_BACK = [(re.compile(r"\bgrahak(?:on|o)?\b", re.I), "customers")]
+UNTRANSLATE = {"दुकानदारों": "बिज़नेस ओनर्स", "दुकानदार": "बिज़नेस ओनर", "दुकानों": "बिज़नेस", "दुकान": "बिज़नेस", "ग्राहकों": "कस्टमर्स", "ग्राहक": "कस्टमर", "उपभोक्ताओं": "कस्टमर्स", "उपभोक्ता": "कस्टमर"}   # the voice says the English word the script means
+NOM = {"aapki": "aapka", "tumhari": "tumhara", "hamari": "hamara", "meri": "mera", "apni": "apna", "uski": "uska", "unki": "unka", "iski": "iska"}
+OBL = {"aapki": "aapke", "tumhari": "tumhare", "hamari": "hamare", "meri": "mere", "apni": "apne", "uski": "uske", "unki": "unke", "iski": "iske"}
+ROMAN_BACK = [
+    (re.compile(r"\b(aapki|tumhari|hamari|meri|apni|uski|unki|iski)\s+(?:dukaan|dukan)(?:on|en)?\b(\s+(?:ki|ke|ka|ko|par|pe|mein|me|se|tak)\b)?", re.I), lambda m: (OBL if m[2] else NOM)[m[1].lower()] + " business" + (m[2] or "")),
+    (re.compile(r"\b(?:dukaan|dukan|dukaandaar|dukandar)\s+(?:wale|walon|walo|waale)\b", re.I), "business owners"),
+    (re.compile(r"\b(?:dukaandaar|dukandar|dukaandar)(?:on)?\b", re.I), "business owner"),
+    (re.compile(r"\b(?:dusri|doosri)\s+(?:dukaan|dukan)\b", re.I), "dusra business"),
+    (re.compile(r"\b(?:dukaan|dukan)(?:on|en)?\b", re.I), "business"),
+    (re.compile(r"\bgrahak(?:on|o)?\b", re.I), "customers")]
 
 
 def untranslate(text: str) -> str:

@@ -45,7 +45,29 @@ ROMAN_BACK = [
     (re.compile(r"\bgrahak(?:on|o)?\b", re.I), "customers")]
 
 
+FEM_VERBS = {"karti": "karta", "hoti": "hota", "jaati": "jaata", "jati": "jata", "chalti": "chalta", "rukti": "rukta", "lagti": "lagta", "milti": "milta", "dikhti": "dikhta",
+             "aati": "aata", "banti": "banta", "rehti": "rehta", "padti": "padta", "sakti": "sakta", "paati": "paata", "deti": "deta", "leti": "leta", "rahi": "raha", "thi": "tha",
+             "gayi": "gaya", "gai": "gaya", "hui": "hua", "chali": "chala", "ruki": "ruka", "mili": "mila", "bani": "bana", "kho": "kho", "dikhi": "dikha", "lagi": "laga", "padi": "pada"}
+FEM_NOUNS = re.compile(r"\b(website|site|page|call|calls|enquiry|enquiries|booking|bookings|speed|sales|reply|replies|baat|cheez|problem|salary|team|ad|ads|post|posts|search|ranking|image|photo|list|app|visibility|query|queries|report|service|kami|galti|wajah|jagah|chat|dukaan)\b", re.I)
+CLAUSE = re.compile(r"([,;.!?:\u2026]|\s(?:aur|lekin|par|kyunki|toh|isliye|jab|agar|ki)\s)", re.I)
+SUBJECT = re.compile(r"\b(?:dukaan|dukan)(?!\s+(?:ki|ke|ka|ko|se|mein|me|par|pe|tak|wale|walon)\b)(?!on|en)", re.I)
+
+
+def _agree(clause):
+    """A clause whose SUBJECT was 'dukaan' (feminine) but is now 'business' (masculine): karti -> karta, hoti -> hota, gayi -> gaya. Left alone when another feminine noun
+    (website, call, enquiry...) is in the clause, because then the verb belongs to that noun."""
+    if not SUBJECT.search(clause) or re.search(r"\b(?:dusri|doosri)\s+(?:dukaan|dukan)", clause, re.I) or FEM_NOUNS.search(SUBJECT.sub("", clause)):
+        return clause
+    return re.sub(r"\b(" + "|".join(k for k in FEM_VERBS if k != "kho") + r")\b", lambda m: FEM_VERBS[m.group(1).lower()], clause, flags=re.I)
+
+
+def agree_business(text):
+    parts = CLAUSE.split(str(text or ""))
+    return "".join(_agree(p) if i % 2 == 0 else p for i, p in enumerate(parts))
+
+
 def untranslate(text: str) -> str:
+    text = agree_business(text)
     for k in sorted(UNTRANSLATE, key=len, reverse=True):
         text = text.replace(k, UNTRANSLATE[k])
     for rx, rep in ROMAN_BACK:

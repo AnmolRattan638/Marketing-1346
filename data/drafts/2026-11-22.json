@@ -1,0 +1,967 @@
+{
+  "id": "2026-11-22-3d3ef8",
+  "date": "2026-11-22",
+  "created_at": "2026-11-22T10:20:18+00:00",
+  "status": "pending",
+  "service": "chatbot",
+  "topic": "Myth: a chatbot sounds robotic and makes up details about your services.",
+  "idea_id": "bot-myth-robotic",
+  "problem_id": "inconsistent-information-given-to-custom",
+  "angle_type": "comparison",
+  "experiment": {
+    "mode": "exploit",
+    "variable": "hook_style",
+    "problem_id": "inconsistent-information-given-to-custom",
+    "angle_type": null,
+    "hook_style": "comparison"
+  },
+  "hooks": [
+    {
+      "style": "comparison",
+      "text": "Raat 11 baje aapke cafe ka customer WhatsApp karta, aap reply nahi karte?"
+    },
+    {
+      "style": "myth",
+      "text": "Small businesses: myth: chatbots lie. Fact: they repeat exactly what you teach."
+    },
+    {
+      "style": "value",
+      "text": "Service owners: feed bot one master FAQ, get consistent answers always."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "comparison",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "Around 80% of Indian consumers now use AI chatbots for complaints, recommendations, and self‑help.",
+        "figure": "80%",
+        "source": "tisatech.in",
+        "title": "Best Prompts for Building Your First AI Chatbot - Step by Step",
+        "url": "https://www.tisatech.in/blog/best-prompts-for-building-ai-chatbot",
+        "date": null,
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "Most made‑up chatbot answers on small‑business sites stem from missing, outdated, or conflicting content, or from vague questions.",
+        "figure": null,
+        "source": "chatbento.com",
+        "title": "Why Chatbots Make Things Up, and How to Stop It ChatBento",
+        "url": "https://chatbento.com/blog/ai-chatbot-hallucinations",
+        "date": "2026-10-24",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "The US National Institute of Standards and Technology defines hallucination as confidently stated but erroneous or false content.",
+        "figure": null,
+        "source": "chatbento.com",
+        "title": "Why Chatbots Make Things Up, and How to Stop It ChatBento",
+        "url": "https://chatbento.com/blog/ai-chatbot-hallucinations",
+        "date": "2026-10-24",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Chatbots sound robotic mainly because the scripts are stiff and formal, not because of the underlying technology.",
+        "figure": null,
+        "source": "simplihi.com",
+        "title": "Why Your Chatbot Sounds Like a Robot (And How to Fix the Script)",
+        "url": "https://simplihi.com/blogs/your-chatbot-sounds-like-a-robot-because-you-wrote-it-like-one-3193",
+        "date": "2026-09-10",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Starting with the 20 most common customer questions and providing accurate answers helps prevent hallucinations and improves chatbot performance.",
+        "figure": "20",
+        "source": "ommsaionline.com",
+        "title": "What an AI chatbot can, and cannot, do for a small business in India Omm Sai Online",
+        "url": "https://ommsaionline.com/guides/ai-chatbot-for-small-business",
+        "date": "2026-11-07",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "More than half of the 80,000‑plus errors logged in a study were invented specific details the company never published.",
+        "figure": "80,000",
+        "source": "resonancecrowd.com",
+        "title": "What AI Gets Wrong About B2B Brands: Accuracy Study Resonance",
+        "url": "https://www.resonancecrowd.com/research/ai-accuracy-b2b-tech-brands",
+        "date": "2026-09-24",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "When a bot says 'I don’t have that information,' it is not hallucinating; it is correctly indicating lack of data.",
+        "figure": null,
+        "source": "chatbento.com",
+        "title": "Why Chatbots Make Things Up, and How to Stop It ChatBento",
+        "url": "https://chatbento.com/blog/ai-chatbot-hallucinations",
+        "date": "2026-10-24",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Language models generate plausible answers based on learned patterns, so without specific info they may guess common industry practices.",
+        "figure": null,
+        "source": "chatbento.com",
+        "title": "Why Chatbots Make Things Up, and How to Stop It ChatBento",
+        "url": "https://chatbento.com/blog/ai-chatbot-hallucinations",
+        "date": "2026-10-24",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "dropped": 0,
+    "topic": "Myth: a chatbot sounds robotic and makes up details about your services."
+  },
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Raat 11 baje aapke cafe ka customer WhatsApp karta, aap reply nahi karte?",
+    "hooks": [
+      {
+        "text": "Raat 11 baje aapke cafe ka customer WhatsApp karta, aap reply nahi karte?",
+        "score": 14.4,
+        "formula": ""
+      },
+      {
+        "text": "Har din 30+ missed WhatsApp leads aapke cafe ko nuksan pahucha rahe hain...",
+        "score": 13.4,
+        "formula": ""
+      },
+      {
+        "text": "Subah 8 baje coffee shop mein line, par aapka reply pending hai...",
+        "score": 13.4,
+        "formula": ""
+      },
+      {
+        "text": "Main chatbot ke baare mein galat tha...",
+        "score": 11.4,
+        "formula": "wrong"
+      },
+      {
+        "text": "Chatbot ki asli sachchai ye hai...",
+        "score": 11.4,
+        "formula": "truth"
+      },
+      {
+        "text": "Raat ke messages ko ignore karna band karo...",
+        "score": 11.4,
+        "formula": "stop"
+      }
+    ],
+    "hook_formula": "",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Raat 11 baje aapke cafe ka customer WhatsApp karta, aap reply nahi karte?",
+        "screen": "WhatsApp lead miss",
+        "visual": "Phone shows WhatsApp notification at night, owner sleeping",
+        "emotion": "empathetic",
+        "facts": []
+      },
+      {
+        "beat": "poke",
+        "line": "Ek chatbot 24x7 reply karta hai, lekin kya aapne uska content sahi se set kiya hai?",
+        "screen": "Chatbot 24x7, content sahi?",
+        "visual": "Phone screen showing chatbot auto‑reply and a messy script panel",
+        "emotion": "warm",
+        "facts": [],
+        "steps": [
+          "Chatbot 24x7 reply karta hai",
+          "par content sahi set nahi",
+          "ab theek karein"
+        ]
+      },
+      {
+        "beat": "rehook",
+        "line": "Par asli wajah ye nahi hai ki aap busy ho...",
+        "screen": "Par asli wajah?",
+        "visual": "Thought bubble with question mark",
+        "emotion": "curious",
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Pehle 20 sawaal likho, kyunki hallucination ho sakta hai; phir WhatsApp jod kar enquiry save karo.",
+        "screen": "20 sawaal likho, WhatsApp jod",
+        "visual": "Anmol typing 20 FAQs on laptop, then linking WhatsApp icon to chatbot, then a sheet icon appears",
+        "emotion": "warm",
+        "steps": [
+          "Pehle 20 sawaal likho",
+          "kyunki hallucination ho sakta hai",
+          "phir WhatsApp jod kar enquiry save karo"
+        ],
+        "facts": [
+          "f5"
+        ]
+      },
+      {
+        "beat": "payoff",
+        "line": "Taqreeban 80% customers chatbot se help lete hain (tisatech.in), isliye cafe ke customers reply expect karenge.",
+        "screen": "80% customers use bots",
+        "visual": "Bar chart showing 80% with happy customers",
+        "emotion": "excited",
+        "facts": [
+          "f1"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Raat 11 baje message aaye, aapka chatbot turant reply dega, lead loss risk kam.",
+        "screen": "Reduced lead loss",
+        "visual": "Chatbot reply bubble appearing instantly on phone",
+        "emotion": "empathetic",
+        "facts": []
+      },
+      {
+        "beat": "cta",
+        "line": "Agar aapko yeh setup chahiye, comment BOT, main DM mein checklist bhejunga.",
+        "screen": "Comment BOT for checklist",
+        "visual": "Comment box with 'BOT' typed, arrow pointing to DM",
+        "emotion": "urgent",
+        "facts": []
+      }
+    ],
+    "cta": "Agar aapko yeh setup chahiye, comment BOT, main DM mein checklist bhejunga.",
+    "linkedin_english": "About 80% of Indian consumers use chatbots for help, so customers expect instant replies. A simple AI chatbot that answers common questions and records enquiries can reduce the risk of missing leads for your cafe. Comment “BOT” and I’ll DM you a checklist of the key questions your bot should handle.",
+    "marketing": {
+      "keyword": "BOT",
+      "gets": "a one-page checklist: the 10 questions a WhatsApp reply bot should answer for your business, so you can see if it fits",
+      "pillar": "educate"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Around 80% of Indian consumers now use AI chatbots for complaints, recommendations, and self‑help.",
+        "figure": "80%",
+        "source": "tisatech.in",
+        "title": "Best Prompts for Building Your First AI Chatbot - Step by Step",
+        "url": "https://www.tisatech.in/blog/best-prompts-for-building-ai-chatbot",
+        "date": null,
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "Most made‑up chatbot answers on small‑business sites stem from missing, outdated, or conflicting content, or from vague questions.",
+        "figure": null,
+        "source": "chatbento.com",
+        "title": "Why Chatbots Make Things Up, and How to Stop It ChatBento",
+        "url": "https://chatbento.com/blog/ai-chatbot-hallucinations",
+        "date": "2026-10-24",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "The US National Institute of Standards and Technology defines hallucination as confidently stated but erroneous or false content.",
+        "figure": null,
+        "source": "chatbento.com",
+        "title": "Why Chatbots Make Things Up, and How to Stop It ChatBento",
+        "url": "https://chatbento.com/blog/ai-chatbot-hallucinations",
+        "date": "2026-10-24",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Chatbots sound robotic mainly because the scripts are stiff and formal, not because of the underlying technology.",
+        "figure": null,
+        "source": "simplihi.com",
+        "title": "Why Your Chatbot Sounds Like a Robot (And How to Fix the Script)",
+        "url": "https://simplihi.com/blogs/your-chatbot-sounds-like-a-robot-because-you-wrote-it-like-one-3193",
+        "date": "2026-09-10",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Starting with the 20 most common customer questions and providing accurate answers helps prevent hallucinations and improves chatbot performance.",
+        "figure": "20",
+        "source": "ommsaionline.com",
+        "title": "What an AI chatbot can, and cannot, do for a small business in India Omm Sai Online",
+        "url": "https://ommsaionline.com/guides/ai-chatbot-for-small-business",
+        "date": "2026-11-07",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "More than half of the 80,000‑plus errors logged in a study were invented specific details the company never published.",
+        "figure": "80,000",
+        "source": "resonancecrowd.com",
+        "title": "What AI Gets Wrong About B2B Brands: Accuracy Study Resonance",
+        "url": "https://www.resonancecrowd.com/research/ai-accuracy-b2b-tech-brands",
+        "date": "2026-09-24",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "When a bot says 'I don’t have that information,' it is not hallucinating; it is correctly indicating lack of data.",
+        "figure": null,
+        "source": "chatbento.com",
+        "title": "Why Chatbots Make Things Up, and How to Stop It ChatBento",
+        "url": "https://chatbento.com/blog/ai-chatbot-hallucinations",
+        "date": "2026-10-24",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Language models generate plausible answers based on learned patterns, so without specific info they may guess common industry practices.",
+        "figure": null,
+        "source": "chatbento.com",
+        "title": "Why Chatbots Make Things Up, and How to Stop It ChatBento",
+        "url": "https://chatbento.com/blog/ai-chatbot-hallucinations",
+        "date": "2026-10-24",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "Myth: a chatbot sounds robotic and makes up details about your services.",
+    "service": "chatbot",
+    "keyword": "BOT",
+    "notes": [
+      "style remark (not blocking): fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Pehle 20 sawaal likho, kyunki hallucination ho sakta hai;\""
+    ]
+  },
+  "script_style": "pain-poke-fix",
+  "structure": {
+    "structure": "retention-v2",
+    "vertical": "restaurant",
+    "context_first": true,
+    "rehook": true,
+    "open_loops": 3,
+    "style": "pain-poke-fix",
+    "hook_formula": "none",
+    "words": 97
+  },
+  "posts": {
+    "instagram": "𝗥𝗔𝗔𝗧 𝟭𝟭 𝗕𝗔𝗝𝗘 𝗖𝗨𝗦𝗧𝗢𝗠𝗘𝗥 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 𝗞𝗔𝗥𝗧𝗔, 𝗔𝗔𝗣 𝗥𝗘𝗣𝗟𝗬 𝗡𝗔𝗛𝗜 𝗞𝗔𝗥𝗧𝗘?\n\n→ Ek custom 𝗖𝗛𝗔𝗧𝗕𝗢𝗧 sirf aapke diye jawab deta hai.\n\n→ Bot nahi jaanta toh chat aapko handover kar deta hai.\n\n→ Tone aur accuracy wahi hoti hai jo aap set karte ho.\n\nDM 𝗕𝗢𝗧 for details. Pay after approval. 💬\n\n#SmallBusinessIndia #ChatbotIndia #WhatsAppBusiness #AIHelp",
+    "linkedin": "Late-night messages often sit unanswered, causing missed opportunities for small businesses.\n\nA customer may send a message at 11 pm and not receive a reply until the next morning. Many shop owners in India spend their evenings typing the same answers on WhatsApp or Instagram. A café owner repeats opening‑hour information, a gym owner repeats membership rates, and a clinic owner repeats location details. When messages arrive at night, they are often seen only the following day, and some customers leave without ever getting a response.\n\nI create a simple AI chatbot that can answer common customer questions and collect enquiries automatically. The bot is not a live agent and does not replace your own judgement. The basic version can reply to the most common questions you provide and forward WhatsApp leads. A more advanced version can be trained on your product catalogue and can help collect leads automatically.\n\nFirst, you tell me what you sell and the questions you receive most often. I then build the chatbot using those answers as its sole knowledge base. You review the replies and request changes until the tone matches yours. You pay only after you approve the final setup.\n\nThe bot can reduce repetitive messaging by answering common queries at any hour, including nights and holidays. All enquiries are stored in a single place, helping keep them organized and reducing the chance of them being missed between WhatsApp, your website, or other direct messages. This saves you time searching old chats and lets you focus on the work that matters.\n\nThe solution works best for owners who receive the same questions every day and want a single inbox for enquiries. It does not handle complex issues that require a human response, and it cannot guarantee increased sales or any specific result.\n\nIf you think this could help your business, I am happy to discuss the details. Payment is required only after you approve the work. DM BOT",
+    "bluesky": "A customer asks about your timings or prices at 11 pm. A custom chatbot replies using only the answers you gave it, and hands the chat to you if it does not know. Pay after approval. DM BOT to discuss fit. 💬"
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I build AI chatbots that answer common questions and record enquiries so nothing is missed. Quick question: what do you want customers to do—call, WhatsApp, book, or fill a form? Pricing is INR 2,999 or INR 4,999, plus INR 299 per month maintenance, and you pay only after approving the work. I can explain how it would work for you. Prefer a short WhatsApp chat or details here?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for messaging. I help small businesses in India set up a chatbot that answers repeated questions and saves enquiries in one place. What kind of business do you run, and what do your customers ask most often? I can tell you honestly if a chatbot fits your setup."
+    },
+    {
+      "if_they_say": "will it sound robotic?",
+      "reply": "Hi, thanks for messaging. The tone and accuracy come from what you teach the bot, so it uses only your answers and hands over to you when it does not know something. What is one question your customers ask every day? I can explain how the knowledge base works for your business."
+    }
+  ],
+  "image": {
+    "prompt": null,
+    "path": "data/media/2026-11-22.jpg",
+    "engine": "designed_card",
+    "style": "chat",
+    "ai_generated": false,
+    "spec": {
+      "problem_id": "inconsistent-information-given-to-custom",
+      "angle_type": "comparison",
+      "style": "chat",
+      "headline": "Human errors vs. consistent AI replies",
+      "highlight": [
+        "consistent AI replies"
+      ],
+      "sub": "Confusion costs you customers.",
+      "chat": [
+        {
+          "side": "left",
+          "text": "Is the Sunday deal still active?",
+          "time": "9:12 PM"
+        },
+        {
+          "side": "left",
+          "text": "The price is different from before.",
+          "time": "9:15 PM"
+        },
+        {
+          "side": "left",
+          "text": "Which one is the right one?",
+          "time": "9:20 PM"
+        }
+      ],
+      "cta": "Comment \"BOT\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [],
+    "style_id": "glass-ui"
+  },
+  "carousel": {
+    "flavor": "script:pain-poke-fix",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-22.jpg",
+      "data/media/2026-11-22-s2.jpg",
+      "data/media/2026-11-22-s3.jpg",
+      "data/media/2026-11-22-s4.jpg",
+      "data/media/2026-11-22-s5.jpg",
+      "data/media/2026-11-22-s6.jpg"
+    ],
+    "alts": [
+      "Raat 11 baje aapke cafe ka customer WhatsApp karta, aap reply nahi karte?",
+      "Slide 2 of 6: Ek chatbot 24x7 reply karta, lekin content sahi set?. Bot hamesha available hai, par agar aapne uska knowledge base sahi tarah se fill nahi kiya, woh robotic ya galat jawab de sakta hai. Par asli problem busy hona nahi, content hi hai.",
+      "Slide 3 of 6: 20 sawaal likho, hallucination roko, WhatsApp jod kar save karo. Starting with 20 sabse common customer questions aur unke sahi jawaab dene se bot galat ya invented jawab dene se bachega. Phir WhatsApp ko integrate karke enquiries ko seedha aapke inbox mein save kiya ja sakta hai. (ommsaionline.com)",
+      "Slide 4 of 6: Customers chatbot se help lete hain, reply expect karte hain. tisatech.in ke mutabik, bahut saare Indian consumers ab AI chatbots ka use karte hain complaints, recommendations, aur self‑help ke liye. Isliye aapke customers bhi turant reply ki ummeed karenge.",
+      "Slide 5 of 6: Raat 11 baje message, bot turant reply, lead loss kam. Jab aapka bot sahi knowledge base ke saath set hota, raat ke messages ko turant handle karega, isse lead loss ka risk bahut kam ho jata.",
+      "Slide 6 of 6: Comment BOT. Agar aapko yeh setup chahiye, comment BOT, main DM mein checklist bhejunga."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "solution",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Raat 11 baje aapke cafe ka customer WhatsApp karta, aap reply nahi karte?",
+        "body": "Customer wait karta, aap offline."
+      },
+      {
+        "role": "problem",
+        "headline": "Ek chatbot 24x7 reply karta, lekin content sahi set?",
+        "body": "Bot hamesha available hai, par agar aapne uska knowledge base sahi tarah se fill nahi kiya, woh robotic ya galat jawab de sakta hai. Par asli problem busy hona nahi, content hi hai."
+      },
+      {
+        "role": "solution",
+        "headline": "20 sawaal likho, hallucination roko, WhatsApp jod kar save karo",
+        "body": "Starting with 20 sabse common customer questions aur unke sahi jawaab dene se bot galat ya invented jawab dene se bachega. Phir WhatsApp ko integrate karke enquiries ko seedha aapke inbox mein save kiya ja sakta hai. (ommsaionline.com)"
+      },
+      {
+        "role": "solution",
+        "headline": "Customers chatbot se help lete hain, reply expect karte hain",
+        "body": "tisatech.in ke mutabik, bahut saare Indian consumers ab AI chatbots ka use karte hain complaints, recommendations, aur self‑help ke liye. Isliye aapke customers bhi turant reply ki ummeed karenge."
+      },
+      {
+        "role": "solution",
+        "headline": "Raat 11 baje message, bot turant reply, lead loss kam",
+        "body": "Jab aapka bot sahi knowledge base ke saath set hota, raat ke messages ko turant handle karega, isse lead loss ka risk bahut kam ho jata."
+      },
+      {
+        "role": "cta",
+        "headline": "Comment BOT",
+        "body": "Agar aapko yeh setup chahiye, comment BOT, main DM mein checklist bhejunga."
+      }
+    ],
+    "scene_prompts": {
+      "2": "hands adjusting a matte‑black console with a glowing electric cyan chatbot button, occupying the upper half of the frame from a low angle, leaving a calm dark lower area for overlay; key light from the left casts white highlights and shadows, an electric cyan rim outlines the hands and console while an amber fill glows from a desk lamp; foreground a walnut desk strewn with sticky notes, a coffee mug and cables, midground glass‑like interface cards angled toward the viewer showing blank bars and line graphs, background a navy wall with a neon cyan strip; palette navy, charcoal, steel grey with electric cyan accent conveys focused tension; shot with an 85mm lens at f/1.8, shallow depth isolates metal surface and glass reflections, fine dust motes catch the cyan rim light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "3": "Black laptop with a holographic electric‑cyan interface rests on a desk, a hand lightly touching the keyboard while a stylus hovers above a floating cluster of twenty cyan question‑mark icons and a chat bubble with an electric cyan outline. The laptop fills the upper half of the frame, captured from an angle, leaving the lower portion smooth for overlay. Side key light creates a cyan rim glow around the device and shadows, while a rim outlines background. Two translucent interface cards float nearby, displaying cyan line accents, their reflections glint on the floor. A palette of navy, charcoal and electric cyan conveys calm confidence and organized progress. Shot with an 85mm lens at f/1.8, shallow depth of field keeps the laptop crisp and background smooth, while dust motes catch light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "4": "matte‑black laptop with a glowing screen sits on a metal desk, lid open to reveal faint electric‑cyan chat bubble above keyboard while relaxed hands rest on palm‑rest; laptop and hands occupy upper fifty‑five percent of frame from eye‑level view, leaving dark lower forty‑five percent; left‑front key light washes scene in cyan, electric‑cyan rim light outlines hands, shadows fall on desk; desk glints, translucent cards drift with blank bars and line charts, and navy wall with neon strip recedes behind; navy, charcoal gray, muted silver and electric cyan give calm confident mood; shot with 85mm f/1.8 lens, shallow depth of field keeps laptop and hands razor‑sharp, bokeh blurs cards, dust catches cyan glow, glass reflects sheen. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "5": "A matte‑black laptop with an electric‑cyan screen rests on a brushed‑metal desk, its keys pressed by relaxed hands; the laptop fills the upper half of the frame while the lower portion stays a calm dark area for overlay. The camera looks slightly above eye level, showing a three‑quarter angle, lit by a cool cyan key light from the right and a subtle cyan rim tracing the edges, casting shadows on the floor. Behind a deep‑navy wall float a few glass‑like interface cards with blank bars and a faint line chart, their edges rimmed in cyan. The palette blends charcoal, deep navy and electric cyan, conveying confidence. Shot with an 85 mm lens at f/1.8, shallow depth of field keeps the laptop sharp and the brushed metal and glossy floor softly blurred. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ]
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [
+      "Instagram post used comment CTA and offered a free checklist, missing the required pay‑after‑approval mention.",
+      "LinkedIn post claimed \"most frequent twenty questions\" and said \"nothing is lost\", which are absolute/fabricated claims.",
+      "Bluesky post lacked the required \"pay after approval\" offer."
+    ],
+    "revised": {
+      "instagram": "**RAAT 11 BAJE CUSTOMER WHATSAPP KARTA, AAP REPLY NAHI KARTE?**\n\n→ Ek custom **CHATBOT** sirf aapke diye jawab deta hai.\n\n→ Bot nahi jaanta toh chat aapko handover kar deta hai.\n\n→ Tone aur accuracy wahi hoti hai jo aap set karte ho.\n\nDM **BOT** for details. *Pay after approval.* 💬\n\n#SmallBusinessIndia #ChatbotIndia #WhatsAppBusiness #AIHelp",
+      "linkedin": "Late-night messages often sit unanswered, causing missed opportunities for small businesses.\n\nA customer may send a message at 11 pm and not receive a reply until the next morning. Many shop owners in India spend their evenings typing the same answers on WhatsApp or Instagram. A café owner repeats opening‑hour information, a gym owner repeats membership rates, and a clinic owner repeats location details. When messages arrive at night, they are often seen only the following day, and some customers leave without ever getting a response.\n\nI create a simple AI chatbot that can answer common customer questions and collect enquiries automatically. The bot is not a live agent and does not replace your own judgement. The basic version can reply to the most common questions you provide and forward WhatsApp leads. A more advanced version can be trained on your product catalogue and can help collect leads automatically.\n\nFirst, you tell me what you sell and the questions you receive most often. I then build the chatbot using those answers as its sole knowledge base. You review the replies and request changes until the tone matches yours. You pay only after you approve the final setup.\n\nThe bot can reduce repetitive messaging by answering common queries at any hour, including nights and holidays. All enquiries are stored in a single place, helping keep them organized and reducing the chance of them being missed between WhatsApp, your website, or other direct messages. This saves you time searching old chats and lets you focus on the work that matters.\n\nThe solution works best for owners who receive the same questions every day and want a single inbox for enquiries. It does not handle complex issues that require a human response, and it cannot guarantee increased sales or any specific result.\n\nIf you think this could help your business, I am happy to discuss the details. Payment is required only after you approve the work. DM BOT",
+      "bluesky": "A customer asks about your timings or prices at 11 pm. A custom chatbot replies using only the answers you gave it, and hands the chat to you if it does not know. Pay after approval. DM BOT to discuss fit. 💬"
+    }
+  },
+  "sources": [
+    {
+      "title": "Best Prompts for Building Your First AI Chatbot - Step by Step",
+      "url": "https://www.tisatech.in/blog/best-prompts-for-building-ai-chatbot",
+      "domain": "tisatech.in",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Why Chatbots Make Things Up, and How to Stop It ChatBento",
+      "url": "https://chatbento.com/blog/ai-chatbot-hallucinations",
+      "domain": "chatbento.com",
+      "date": "2026-10-24",
+      "provider": "exa"
+    },
+    {
+      "title": "From Zero to Your First AI Voice Agent in 18 Minutes (No Coding)",
+      "url": "https://www.youtube.com/watch?v=oB7gia1kC_g",
+      "domain": "youtube.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "What an AI chatbot can, and cannot, do for a small business in India Omm Sai Online",
+      "url": "https://ommsaionline.com/guides/ai-chatbot-for-small-business",
+      "domain": "ommsaionline.com",
+      "date": "2026-11-07",
+      "provider": "exa"
+    },
+    {
+      "title": "Real-world gen AI use cases from the world's leading organizations Google Cloud Blog",
+      "url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+      "domain": "cloud.google.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Why Your Chatbot Sounds Like a Robot (And How to Fix the Script)",
+      "url": "https://simplihi.com/blogs/your-chatbot-sounds-like-a-robot-because-you-wrote-it-like-one-3193",
+      "domain": "simplihi.com",
+      "date": "2026-09-10",
+      "provider": "exa"
+    },
+    {
+      "title": "What AI Gets Wrong About B2B Brands: Accuracy Study Resonance",
+      "url": "https://www.resonancecrowd.com/research/ai-accuracy-b2b-tech-brands",
+      "domain": "resonancecrowd.com",
+      "date": "2026-09-24",
+      "provider": "exa"
+    },
+    {
+      "title": "How Accurate Is ChatGPT About Companies? New Data",
+      "url": "https://www.resonancecrowd.com/blog/how-accurate-is-chatgpt",
+      "domain": "resonancecrowd.com",
+      "date": "2026-09-25",
+      "provider": "exa"
+    }
+  ],
+  "humanizer": {
+    "model": "openai/gpt-oss-20b",
+    "platforms": {
+      "linkedin": {
+        "status": "error",
+        "reason": "BadRequestError: Error code: 400 - Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for mo"
+      },
+      "instagram": {
+        "status": "skipped",
+        "reason": "body under 30 words"
+      },
+      "bluesky": {
+        "status": "skipped",
+        "reason": "body under 30 words"
+      }
+    }
+  },
+  "ad_score": 3,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 366.0,
+        "reach_p50": 721.0,
+        "reach_p90": 1637.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'exclusion', 'severity': 'medium', 'description': 'The copy is primarily in Hindi, which may exclude non‑Hi",
+          "{'category': 'tone-deafness', 'severity': 'low', 'description': \"Mentioning that customers may contact at 11\\u202fPM ('R",
+          "{'category': 'class', 'severity': 'low', 'description': 'The messaging assumes small business owners have the resources "
+        ],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 5.0,
+          "educational": 4.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 3.0,
+          "relatability": 7.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 358,
+            "share": 7,
+            "reply": 4,
+            "like": 3
+          },
+          "engagement_rate": 0.0376,
+          "by_role": {
+            "public": {
+              "n": 14,
+              "avg_sentiment": 0.624,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 8,
+          "r_effective": 2.0833,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 22,
+          "reach_fraction": 0.032,
+          "r_effective": 0.7767,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 3.8
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.7
+          },
+          {
+            "title": "Add something actionable",
+            "lift_pct": 3.2
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 424.0,
+        "reach_p50": 812.0,
+        "reach_p90": 1705.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'culture', 'severity': 'medium', 'description': 'The statement \"Many shop owners in India spend their eveni",
+          "{'category': 'class', 'severity': 'low', 'description': 'The messaging frames small business owners as needing low-cost ",
+          "{'category': 'tone-deafness', 'severity': 'low', 'description': 'Suggesting the bot can answer queries at any hour, incl"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 4.0,
+          "practical_value": 5.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Hype or guarantee words",
+            "impact": "medium"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 370,
+            "share": 1,
+            "like": 1,
+            "reply": 1
+          },
+          "engagement_rate": 0.008,
+          "by_role": {
+            "public": {
+              "n": 3,
+              "avg_sentiment": 0.883,
+              "share_rate": 0.333
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 9,
+          "reach_fraction": 0.0145,
+          "r_effective": 0.8,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 10.3,
+        "breakout_probability": 0.0,
+        "reach_p10": 196.0,
+        "reach_p50": 402.0,
+        "reach_p90": 851.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 0,
+          "relatability": 3.0,
+          "practical_value": 4.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 358,
+            "share": 1,
+            "like": 2,
+            "reply": 1
+          },
+          "engagement_rate": 0.011,
+          "by_role": {
+            "public": {
+              "n": 4,
+              "avg_sentiment": 0.9,
+              "share_rate": 0.25
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 6,
+          "reach_fraction": 0.0065,
+          "r_effective": 0.2,
+          "polarization": 0.481,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "myth",
+          "p_beats_chosen": 0.1,
+          "lift_pct": -1.4,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "value",
+          "p_beats_chosen": 0.09,
+          "lift_pct": -1.4,
+          "decisive": true
+        }
+      ],
+      "better": null,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Soften 'koi chutti nahi' to 'raat bhi jawab de sakta hai' and 'Galat detail na de' to 'sirf aapke diye jawab deta hai'; replace checklist offer with 'DM BOT for a short conversation'.",
+      "linkedin: Change first line to address small business owners; soften 'you receive fewer repetitive messages' to 'can reduce repetitive messages' and 'customers get correct information' to 'customers can get correct information'.",
+      "bluesky: Sharpen first line with a concrete example of what the chatbot handles (e.g., timings, prices, booking) and keep under 260 chars."
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 10.0
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 10.3
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "FAILED google:gemma-4-26b-a4b-it (HTTP 503)",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED gemma: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 429)",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 413)",
+      "FAILED groq: all its models",
+      "google:gemma-4-31b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 49.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "503",
+        "seconds": 4.7,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 18.5,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 34.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7992, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7988, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7991, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5722, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 33.9,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7990, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7981, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5721, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4415, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6228, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.3,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 10069, please reduce your message size and try again. Need more tokens? Upgra"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3650, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.4,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 10274, please reduce your message size and try again. Need more tokens? Upgra"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.3,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 10361, please reduce your message size and try again. Need more tokens? Upgra"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6392, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5485, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3751, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7705, Req"
+      }
+    ]
+  }
+}

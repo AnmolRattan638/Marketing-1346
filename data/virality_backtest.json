@@ -1,13 +1,13 @@
 {
   "platforms": {
     "instagram": {
-      "n": 24,
-      "spearman": 0.53,
-      "p_value": 0.01,
-      "score_spread": 12.7,
-      "llm_scored": 11,
+      "n": 26,
+      "spearman": 0.58,
+      "p_value": 0.0,
+      "score_spread": 12.6,
+      "llm_scored": 13,
       "median_actual_reach": 4.0,
-      "median_predicted_reach": 673.0,
+      "median_predicted_reach": 665.5,
       "reach_ratio": 0.006,
       "verdict": "some signal"
     },

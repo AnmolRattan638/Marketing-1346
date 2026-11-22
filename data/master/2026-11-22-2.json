@@ -1,0 +1,219 @@
+{
+  "master_script": {
+    "style": "myth-bust",
+    "hook": "Raat 11 baje cafe ka customer WhatsApp karta, aap reply nahi karte?",
+    "hooks": [
+      {
+        "text": "Raat 11 baje cafe ka customer WhatsApp karta, aap reply nahi karte?",
+        "score": 14.4,
+        "formula": ""
+      },
+      {
+        "text": "Cafe owner, pehle reel ke baad abhi bhi enquiries unanswered?",
+        "score": 12.9,
+        "formula": ""
+      },
+      {
+        "text": "Main iske baare mein galat tha…",
+        "score": 11.4,
+        "formula": "wrong"
+      },
+      {
+        "text": "Asli sachchai ye hai…",
+        "score": 11.4,
+        "formula": "truth"
+      },
+      {
+        "text": "Ye karna band karo...",
+        "score": 11.4,
+        "formula": "stop"
+      },
+      {
+        "text": "Aapke cafe ki chatbot abhi bhi galat jawab de rahi hai...",
+        "score": 9.4,
+        "formula": ""
+      }
+    ],
+    "hook_formula": "",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Raat 11 baje cafe ka customer WhatsApp karta, aap reply nahi karte?",
+        "screen": "Raat 11 Baje Customer",
+        "visual": "Phone screen showing WhatsApp notification at 11 PM, owner ignoring it",
+        "emotion": "warm",
+        "steps": [
+          "Customer WhatsApp karta",
+          "Aap reply nahi karte"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "poke",
+        "line": "Log sirf script likhte hain, lekin purani ya conflicting info se bot galat jawab deta hai?",
+        "screen": "Bot galat jawab?",
+        "visual": "Chatbot replying with irrelevant answer",
+        "emotion": "curious",
+        "steps": [],
+        "facts": [
+          "f2"
+        ]
+      },
+      {
+        "beat": "rehook",
+        "line": "Par kya aapka bot sach samajh pa raha hai?",
+        "screen": "Samajh pa raha?",
+        "visual": "Thought bubble over chatbot icon",
+        "emotion": "urgent",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "WhatsApp bot common questions answer karta hai, natural tone mein reply karta hai, isliye bot robot jaisa nahi lagta.",
+        "screen": "Bot replies naturally, not robotic",
+        "visual": "WhatsApp chat UI showing bot answering a query in friendly tone",
+        "emotion": "warm",
+        "steps": [
+          "Bot common questions answer karta",
+          "Bot natural tone mein reply karta",
+          "Bot robot jaisa nahi lagta"
+        ],
+        "facts": [
+          "f4",
+          "f5"
+        ]
+      },
+      {
+        "beat": "payoff",
+        "line": "Ek study mein 80,000 galat details dekhe gaye; aapka bot galat info dekar trust kho sakta hai.",
+        "screen": "80,000 Galat Details",
+        "visual": "Graph highlighting 80,000 errors from study",
+        "emotion": "warm",
+        "steps": [
+          "Study shows 80,000 errors",
+          "Bot may lose trust"
+        ],
+        "facts": [
+          "f6"
+        ]
+      },
+      {
+        "beat": "cta",
+        "line": "Agar aapki cafe ki WhatsApp replies miss ho rahi hain, comment BOT, main DM mein ek checklist bhejunga, taaki aap dekh saken fit hai ya nahi.",
+        "screen": "Missed Replies? Comment BOT",
+        "visual": "Comment box with keyword BOT highlighted, DM icon appears",
+        "emotion": "warm",
+        "steps": [
+          "Comment BOT",
+          "Get checklist via DM",
+          "Check if it fits"
+        ],
+        "facts": []
+      }
+    ],
+    "cta": "Agar aapki cafe ki WhatsApp replies miss ho rahi hain, comment BOT, main DM mein ek checklist bhejunga, taaki aap dekh saken fit hai ya nahi.",
+    "linkedin_english": "Many cafe owners lose enquiries because their chatbot gives wrong answers. Using a list of the 20 most common questions and a natural script prevents hallucinations. Comment “BOT” to receive a checklist of the 10 essential questions for your WhatsApp bot.",
+    "marketing": {
+      "keyword": "BOT",
+      "gets": "a one-page checklist: the 10 questions a WhatsApp reply bot should answer for your business, so you can see if it fits",
+      "pillar": "educate"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Around 80% of Indian consumers now use AI chatbots for complaints, recommendations, and self‑help.",
+        "figure": "80%",
+        "source": "tisatech.in",
+        "title": "Best Prompts for Building Your First AI Chatbot - Step by Step",
+        "url": "https://www.tisatech.in/blog/best-prompts-for-building-ai-chatbot",
+        "date": null,
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "Most made‑up chatbot answers on small‑business sites stem from missing, outdated, or conflicting content, or from vague questions.",
+        "figure": null,
+        "source": "chatbento.com",
+        "title": "Why Chatbots Make Things Up, and How to Stop It ChatBento",
+        "url": "https://chatbento.com/blog/ai-chatbot-hallucinations",
+        "date": "2026-10-24",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "The US National Institute of Standards and Technology defines hallucination as confidently stated but erroneous or false content.",
+        "figure": null,
+        "source": "chatbento.com",
+        "title": "Why Chatbots Make Things Up, and How to Stop It ChatBento",
+        "url": "https://chatbento.com/blog/ai-chatbot-hallucinations",
+        "date": "2026-10-24",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Chatbots sound robotic mainly because the scripts are stiff and formal, not because of the underlying technology.",
+        "figure": null,
+        "source": "simplihi.com",
+        "title": "Why Your Chatbot Sounds Like a Robot (And How to Fix the Script)",
+        "url": "https://simplihi.com/blogs/your-chatbot-sounds-like-a-robot-because-you-wrote-it-like-one-3193",
+        "date": "2026-09-10",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Starting with the 20 most common customer questions and providing accurate answers helps prevent hallucinations and improves chatbot performance.",
+        "figure": "20",
+        "source": "ommsaionline.com",
+        "title": "What an AI chatbot can, and cannot, do for a small business in India Omm Sai Online",
+        "url": "https://ommsaionline.com/guides/ai-chatbot-for-small-business",
+        "date": "2026-11-07",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "More than half of the 80,000‑plus errors logged in a study were invented specific details the company never published.",
+        "figure": "80,000",
+        "source": "resonancecrowd.com",
+        "title": "What AI Gets Wrong About B2B Brands: Accuracy Study Resonance",
+        "url": "https://www.resonancecrowd.com/research/ai-accuracy-b2b-tech-brands",
+        "date": "2026-09-24",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "When a bot says 'I don’t have that information,' it is not hallucinating; it is correctly indicating lack of data.",
+        "figure": null,
+        "source": "chatbento.com",
+        "title": "Why Chatbots Make Things Up, and How to Stop It ChatBento",
+        "url": "https://chatbento.com/blog/ai-chatbot-hallucinations",
+        "date": "2026-10-24",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Language models generate plausible answers based on learned patterns, so without specific info they may guess common industry practices.",
+        "figure": null,
+        "source": "chatbento.com",
+        "title": "Why Chatbots Make Things Up, and How to Stop It ChatBento",
+        "url": "https://chatbento.com/blog/ai-chatbot-hallucinations",
+        "date": "2026-10-24",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "Myth: a chatbot sounds robotic and makes up details about your services.",
+    "service": "chatbot",
+    "keyword": "BOT",
+    "notes": [
+      "style remark (not blocking): meaning: payoff: overstates the proportion of errors by saying 80,000 galat details, contradicting fact f6 which states only more than half of the 80,000‑plus errors were ",
+      "style remark (not blocking): meaning: cta: promises to send a checklist, which is not a capability of the AI chatbot service and not supported by any fact; remove the promise or rephrase to an optiona"
+    ],
+    "series": {
+      "part": 2,
+      "of": "Raat 11 baje aapke cafe ka customer WhatsApp karta, aap reply nahi karte?"
+    }
+  },
+  "service": "chatbot",
+  "slot": "2"
+}

@@ -41,7 +41,7 @@ _NUM = re.compile(r"\d[\d,\.]*")
 # model with per-beat "tighten to N words" feedback (see budget_problems), and the content/meaning checks still run on the tightened script.
 WORDS = (10, 26)      # a body beat: 1-2 spoken sentences, one concrete idea and its reason (26: a beat that names its source, gives the figure AND the consequence needs the room, or the verbs get cut)
 HOOK_WORDS = (5, 13)
-CTA_WORDS = (8, 20)
+CTA_WORDS = (8, 28)      # 20 + room for the carousel pointer (see tease_carousel)
 REHOOK_WORDS = (6, 16)    # one short open-loop line
 TOTAL_WORDS = (52, 100)   # whole spoken script: ~20-35 seconds
 # helping words that join a thought to its reason or example; a script made only of short bare statements fails
@@ -283,6 +283,27 @@ OPEN_LOOP_WORDS = re.compile(r"\b(teesra|teesri|tisra|aakhri|sabse|asli|wahi|ek 
 LOOP_END = re.compile(r"(\?|\u2026|\.\.\.|:)\s*$")
 
 
+TEASE = "Poora breakdown aaj ke carousel mein hai."
+
+
+def tease_carousel(script) -> bool:
+    """Reel 1 of the day shares its script with the carousel posted the same day, so its CTA points there: the comment is still the ONE ask, the carousel is only where the full answer lives
+    (saves and profile visits). Added by code, not by the model, and only when it fits the CTA budget. Not for reel 2 (no carousel) or with CAROUSEL=0."""
+    beats = script.get("beats") or []
+    if not beats or beats[-1].get("beat") != "cta" or not config.CAROUSEL or (os.getenv("REEL_SLOT") or "1") != "1":
+        return False
+    line = str(beats[-1].get("line") or "")
+    if "carousel" in line.lower():
+        script["carousel_tease"] = True
+        return True
+    if len(line.split()) + len(TEASE.split()) > CTA_WORDS[1]:
+        return False
+    beats[-1]["line"] = line.rstrip() + ("" if line.rstrip()[-1:] in ".?!…" else ".") + " " + TEASE
+    script["cta"] = beats[-1]["line"]
+    script["carousel_tease"] = True
+    return True
+
+
 def open_loops(beats) -> int:
     """How many beats before the fix end on a question or an unfinished thought (the viewer must keep watching to hear the answer)."""
     n = 0
@@ -444,6 +465,7 @@ def normalize_steps(script):
 def check_all(script, sheet, style, focus, ask):
     """Every check in order; the cheap deterministic ones first, model passes only when those are clean."""
     normalize_steps(script)
+    tease_carousel(script)
     for b in script.get("beats") or []:
         if b.get("line"):
             b["line"] = businessify(autofix_endings(b["line"]))

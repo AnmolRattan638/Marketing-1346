@@ -137,7 +137,8 @@ def ask(p, s="", **k):
     return json.dumps({"hooks": [], "beats": bad["beats"]})
 out = sw.run(sheet, {"name": "Chatbot", "dm_keyword": "BOT"}, style, ask=ask, voice="v")
 assert out["beats"][3]["line"] == fixed["line"], "the failing beat was rewritten"
-assert [b["line"] for i, b in enumerate(out["beats"]) if i != 3] == [b["line"] for i, b in enumerate(bad["beats"]) if i != 3], "every other beat is untouched"
+assert [b["line"] for i, b in enumerate(out["beats"][:-1]) if i != 3] == [b["line"] for i, b in enumerate(bad["beats"][:-1]) if i != 3], "every other beat is untouched"
+assert out["beats"][-1]["line"].startswith(bad["beats"][-1]["line"].rstrip(". ")), "the cta only gains the carousel pointer"
 assert sum("Rewrite ONLY the beat" in c for c in calls) == 1 and sum("Write ONE script" in c for c in calls) == 1, "one draft + one targeted repair, no full regeneration"
 blk = SL.prompt_block()
 assert "Every digit must come from a cited fact" in blk and "rejected 1x before" in blk and "Never stop early" in blk

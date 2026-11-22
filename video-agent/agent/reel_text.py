@@ -51,7 +51,8 @@ def caption_text(plan: dict, master: dict | None, service: str = "") -> str:
         d = f.get("source") or ""
         if d and d not in src:
             src.append(d)
-    parts = [hook.upper() if hook else "", "\n".join(f"→ {t}" for t in body), ask, ("Sources: " + ", ".join(src[:3])) if src else "", " ".join(HASHTAGS.get(service, ["#SmallBusinessIndia", "#DigitalIndia"]))]
+    tease = "Poora breakdown aaj ke carousel post mein hai (profile par swipe karo)." if (master or {}).get("carousel_tease") else ""
+    parts = [hook.upper() if hook else "", "\n".join(f"→ {t}" for t in body), ask, tease, ("Sources: " + ", ".join(src[:3])) if src else "", " ".join(HASHTAGS.get(service, ["#SmallBusinessIndia", "#DigitalIndia"]))]
     return "\n\n".join(p for p in parts if p)
 
 

@@ -18,4 +18,4 @@ def describe(master) -> dict:
     return {"structure": "retention-v2" if (has_rehook and vertical) else ("rehook-only" if has_rehook else "classic"),
             "vertical": vertical or "none", "context_first": bool(vertical), "rehook": has_rehook, "open_loops": loops,
             "style": (master or {}).get("style"), "hook_formula": (master or {}).get("hook_formula") or "none",
-            "words": sum(len(str(b.get("line") or "").split()) for b in beats)}
+            "series": bool((master or {}).get("series")), "words": sum(len(str(b.get("line") or "").split()) for b in beats)}

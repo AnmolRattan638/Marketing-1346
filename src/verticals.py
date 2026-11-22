@@ -37,8 +37,8 @@ def of(line: str) -> str:
     return ""
 
 
-def block(focus: str = "", today: date | None = None, slot: int = 0) -> str:
-    v = pick(focus, today, slot)
+def block(focus: str = "", today: date | None = None, slot: int = 0, force: str = "") -> str:
+    v = next((x for x in all_verticals() if x["id"] == force), None) or pick(focus, today, slot)
     if not v:
         return ""
     return (f"CONTEXT FIRST (the viewer must know in 2 seconds who this is for): the HOOK names the viewer's business, today: a {v['label']} (use the everyday word: clinic, salon, cafe, "

@@ -502,7 +502,16 @@ def finish(script, sheet, focus, extra=None):
     return script
 
 
-def run(sheet, focus, style, ask=None, voice=None, max_tries=4, repair_rounds=3):
+def series_block(series) -> str:
+    """Part 2 of today's series: the second reel answers what the first left open (reel 1 is posted first, so a viewer of both gets one story in two parts)."""
+    if not series:
+        return ""
+    return ("THIS IS PART 2 of a two-reel series posted today (reel 1 came first). Reel 1 hook: " + json.dumps(series.get("hook", ""), ensure_ascii=False) + "; its held-back line: " + json.dumps(series.get("rehook", ""), ensure_ascii=False)
+            + "; its fix steps: " + json.dumps(series.get("steps", []), ensure_ascii=False) + ". Do NOT repeat reel 1. The hook calls back to it in one clause (like 'Pehle reel ke baad ek sawal bacha...') and still names the same business type. Then answer ONE thing reel 1 left open: the deeper reason, "
+            "the mistake people make right after the fix, or what to check next. Prefer verified facts reel 1 did not cite (it cited " + json.dumps(series.get("facts_used", [])) + "). Part 2 stands alone too: a viewer who missed reel 1 must still understand it.\n")
+
+
+def run(sheet, focus, style, ask=None, voice=None, max_tries=4, repair_rounds=3, series=None):
     sheet = {**sheet, "keyword": sheet.get("keyword") or focus.get("dm_keyword") or ""}
     """-> master script dict. Raises ValueError if no valid script after max_tries (caller's stage() reports it)."""
     ask = ask or llm.primary
@@ -521,7 +530,7 @@ LANGUAGE (strict): every spoken line is HINGLISH in Roman letters, everyday spok
 Write ONE script with EXACTLY {len(style['beats'])} beats, in this order: {style['beats']}. The LAST beat is `{style['beats'][-1]}`; never stop early and never drop it. In the BODY, any digit you speak or put on screen (other than a clock time or an '3 steps' style count) must come from a cited fact or from the capabilities list below; otherwise say it in words with no digit. The HOOK is the exception: it may use a relatable invented number. Rules: no greeting or intro; one idea; 
 SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 1-2 full spoken sentences, the rehook {REHOOK_WORDS[0]}-{REHOOK_WORDS[1]} words (one line), and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. TOTAL budget for the whole script: {TOTAL_WORDS[0]}-{TOTAL_WORDS[1]} words (about 25-35 seconds: viewers leave by second 5, so the reel is SHORT). Short must not mean weak: one concrete idea per beat plus its reason, no filler, no repeating what the last beat said.
 COMPLETE SENTENCES (the voice reads exactly what you write): every sentence needs its verb and helper word ("karte hain", "chhod dete hain", "hota hai", "sakte hain") and must end where the thought ends, never on ki/ke/se/mein/aur/kyunki or on a bare verb. Write "3 second mein" never "3 sec se" or "5 second batana". After "kyunki" and before it there must be a full clause, not a list of nouns. If a beat is too long, DROP a detail (a second source, an example) instead of dropping grammar; telegram-style fragments are rejected. BAD: "75% Indians mobile se browse karte; 3 sec se zyada load ho to site visitors chhod." GOOD: "75% Indians mobile se browse karte hain, aur site 3 second mein load na ho to zyadatar visitors chhod dete hain."
-{verticals.block(str(focus.get('id') or focus.get('name') or ''), datetime.date.fromisoformat(str(today)[:10]), int(os.getenv('REEL_SLOT') or 1) - 1)}HOLD THE ANSWER BACK: after the poke comes the REHOOK, one short line that keeps the viewer waiting (a question or a held-back promise), and only then the fix. The hook, the poke and the rehook should end on a question or an unfinished thought, so each beat answers the last one and opens the next.
+{verticals.block(str(focus.get('id') or focus.get('name') or ''), datetime.date.fromisoformat(str(today)[:10]), int(os.getenv('REEL_SLOT') or 1) - 1, force=str((series or {}).get('vertical') or ''))}{series_block(series)}HOLD THE ANSWER BACK: after the poke comes the REHOOK, one short line that keeps the viewer waiting (a question or a held-back promise), and only then the fix. The hook, the poke and the rehook should end on a question or an unfinished thought, so each beat answers the last one and opens the next.
 FIRST 8 SECONDS: the hook ends on an unfinished consequence or a question; the POKE (beat 2) must then give the first surprising, specific answer (a thing, a time, a cost) so there is a reason to keep watching; never spend beat 2 only restating the problem.
 EXPLAIN, don't announce: pain = the moment AND why it hurts (what it costs: time, a lost customer); poke = why the obvious fix fails, the reason in plain words; fix = each step with a one-clause reason ("pehle ..., kyunki ..."); payoff = what the fact MEANS for this owner in plain words (do the arithmetic only if every number comes from a fact); recap = loop back to the pain.
 Use helping words (kyunki, isliye, matlab, jaise ki, phir, taaki, lekin) so each line connects to the one before it. A line must make sense when heard once, with no screen.

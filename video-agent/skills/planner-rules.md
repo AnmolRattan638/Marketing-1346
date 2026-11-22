@@ -56,7 +56,7 @@ Return exactly one JSON object:
   video/photo overall, so give at most one scene a `footage_query` and no `graphic`. A scene with a `graphic` has NO `footage_query` key at all
   (leave it out, never write an empty string). Layouts:
   `step` (`step` "STEP 1", `kicker`, `heading`, and a `mock` card: type `browser` for a website being built (only when the topic is about a website), `terminal` for commands/automation,
-  `comment` for a comment being typed, `checklist` for things done, `file` for a file extracted, `window` for a list; `mock.items` 2-4 short lines
+  `comment` for a comment being typed, `checklist` for things done, `file` for a file extracted, `window` for a list; PROOF CARDS (a picture of the problem, drawn with an EXAMPLE tag, no figures): `chat` for a customer message waiting for a reply (items = bubbles, a line starting "you:" is the business, "..." is an unanswered state), `maps` for a business listing on a map (items = [name, category, status such as Closed now]), `gauge` for a slow website (items = [label, one verdict word, zone slow|ok|fast]); use a proof card on the pain or poke scene when the script describes that moment; `mock.items` 2-4 short lines
   in the order the narration says them), `strike` (`items` 2-5 single words struck out one by one, optional `heading`), `title` (`kicker`, `heading`,
   `heading2`, `chips`), `punch` (a loud one-line slide for the key point: `heading`, `heading2`, `ghost` one big background word).
   Every text is short (heading max 4 words, items 1-3 words) and uses words that are really spoken, so it can appear on its spoken word.

@@ -1,5 +1,5 @@
 """Offline: retention structure. Every style holds the answer back with a rehook, the hook names the viewer's business, open loops are counted; the downstream pieces know the new beat."""
-import os, sys
+import json, os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT); sys.path.insert(0, os.path.join(ROOT, "video-agent"))
 from datetime import date
@@ -71,3 +71,42 @@ mm = {"service": "chatbot", "marketing": {"keyword": "BOT", "gets": "a setup che
       "beats": [{"beat": "pain", "line": "Clinic ka phone raat ko band?"}, {"beat": "fix", "line": "Bot lagao."}, {"beat": "cta", "line": "Comment BOT likho."}]}
 assert "carousel post mein hai" in reel_text.caption_text(plan, mm, "chatbot") and "carousel post" not in reel_text.caption_text(plan, {**mm, "carousel_tease": False}, "chatbot")
 print("carousel tease ok")
+
+# ---- Part 4a: reel 2 as part 2 of reel 1
+import tempfile
+from pathlib import Path
+from src import config, run_reel2
+assert "restaurant" in V.block("x", date(2026, 11, 22), 1, force="restaurant") and "clinic" in V.block("x", date(2026, 11, 22), 1, force="clinic")
+blk = sw.series_block({"hook": "Clinic ka phone raat ko kaun uthata hai?", "rehook": "Par asli wajah ye nahi hai?", "steps": ["Bot lagao"], "facts_used": ["43%"]})
+assert "PART 2" in blk and "Do NOT repeat reel 1" in blk and "43%" in blk and sw.series_block(None) == ""
+tmp = Path(tempfile.mkdtemp()); (tmp / "master").mkdir()
+old = config.DATA; config.DATA = tmp
+brand = {"services": [{"id": "chatbot", "name": "AI chatbot"}, {"id": "website", "name": "Website"}]}
+facts = [{"claim": f"fact {i}", "figure": f"{i}0%"} for i in range(4)]
+m1 = {"style": "myth-bust", "topic": "night leads", "service": "chatbot", "facts": facts, "beats": [
+    {"beat": "pain", "line": "Clinic ka phone raat ko kaun uthata hai?"}, {"beat": "poke", "line": "Patient chala jaata hai"}, {"beat": "rehook", "line": "Par asli wajah ye nahi hai?"},
+    {"beat": "fix", "line": "10% log bot lagate hain"}, {"beat": "cta", "line": "Comment BOT"}]}
+config.save_json(tmp / "master" / "2026-11-22.json", {"master_script": m1, "service": "chatbot"})
+got = run_reel2.series_from("2026-11-22", brand)
+assert got["focus"]["id"] == "chatbot" and got["sheet"]["ok"] and len(got["sheet"]["facts"]) == 4 and got["series"]["vertical"] == "clinic" and got["series"]["rehook"].startswith("Par asli") and got["series"]["facts_used"] == ["10%"], got
+os.environ["REEL2_LOOP"] = "0"; assert run_reel2.series_from("2026-11-22", brand) is None; del os.environ["REEL2_LOOP"]
+assert run_reel2.series_from("2026-11-23", brand) is None, "no reel 1 script: the old separate reel 2"
+config.save_json(tmp / "master" / "2026-11-24.json", {"master_script": {**m1, "facts": facts[:2]}, "service": "chatbot"}); assert run_reel2.series_from("2026-11-24", brand) is None, "too few facts"
+config.DATA = old
+from agent import reel_text
+note = reel_text.message({"scenes": []}, {"series": {"part": 2}, "beats": []}, "x")
+assert note.startswith("PART 2 of today's series"), note
+assert structure.describe({**m, "series": {"part": 2}})["series"] is True and structure.describe(m)["series"] is False
+print("series loop ok")
+
+# ---- Part 4b: proof cards are real mock types end to end
+from agent import graphics, schema
+for typ, items in (("chat", ["Kya raat ko booking ho sakti hai?", "...", "you: Subah reply milega"]), ("maps", ["Your Clinic", "Dental clinic", "Closed now"]), ("gauge", ["Mobile speed", "Slow", "slow"])):
+    assert typ in graphics.MOCKS and typ in json.dumps(schema.PLAN_SCHEMA), typ
+    props = graphics.resolve_graphic({"graphic": {"layout": "step", "step": "STEP 1", "heading": "Raat ka message", "mock": {"type": typ, "items": items}}}, [], 5.0)
+    assert props and props["mock"]["type"] == typ and len(props["mock"]["items"]) == 3, typ
+tsx = open(os.path.join(ROOT, "video-agent/template/src/graphics/mocks/ProofCards.tsx")).read()
+assert "EXAMPLE" in tsx and "#" not in tsx.replace("//", "").split("import")[-1].split("THEME")[0][:0], "labelled as an example"
+import re
+assert not re.search(r"#[0-9a-fA-F]{3,6}\b", tsx), "brand palette only, no hardcoded hex"
+print("proof cards ok")

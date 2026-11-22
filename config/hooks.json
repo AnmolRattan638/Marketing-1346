@@ -8,12 +8,12 @@
    "kind": "scarcity: something most owners skip",
    "match": "\\b(bohot|bahut|kaafi)\\s+kam\\b.*\\b(karte|kar rahe|use|dete|likhte|rakhte)\\b|\\bnobody\\b|\\bkoi nahi (kar|karta)\\b",
    "examples": {
-    "website": "Bohot kam dukaan wale ye ek cheez apni website par rakhte hain…",
+    "website": "Bohot kam business owners ye ek cheez apni website par rakhte hain…",
     "chatbot": "Bohot kam business raat ke messages ka ye jawab dete hain…",
     "animated_ads": "Bohot kam brands apne ads mein ye ek cheez karte hain…",
     "lead_gen": "Bohot kam log enquiry aane ke baad ye karte hain…",
     "reel_scripts": "Bohot kam creators reel likhne se pehle ye karte hain…",
-    "seo_blogs": "Bohot kam dukaan wale Google ke liye ye likhte hain…"
+    "seo_blogs": "Bohot kam business owners Google ke liye ye likhte hain…"
    }
   },
   {
@@ -23,7 +23,7 @@
    "kind": "hindsight: a lesson, then the lesson is the body",
    "match": "\\bkaash\\b.*\\bpehle\\b|\\bwish i knew\\b",
    "examples": {
-    "website": "Kaash mujhe apni dukaan ki website ke baare mein ye pehle pata hota…",
+    "website": "Kaash mujhe apne business ki website ke baare mein ye pehle pata hota…",
     "chatbot": "Kaash maine raat ke messages ke liye ye pehle laga liya hota…",
     "animated_ads": "Kaash mujhe ads ke baare mein ye pehle pata hota…",
     "lead_gen": "Kaash mujhe enquiry sambhalne ka ye tareeka pehle pata hota…",
@@ -68,7 +68,7 @@
    "kind": "reveal: the unspoken truth about the topic",
    "match": "\\basli (sachchai|sach|baat)\\b|\\breal truth\\b",
    "examples": {
-    "website": "Dukaan ki website ki asli sachchai ye hai…",
+    "website": "Business ki website ki asli sachchai ye hai…",
     "chatbot": "Chatbot ki asli sachchai ye hai…",
     "animated_ads": "Animated ads ki asli sachchai ye hai…",
     "lead_gen": "Leads ki asli sachchai ye hai…",
@@ -98,7 +98,7 @@
    "kind": "contrarian: a take that makes people argue or save",
    "match": "\\bagree na\\b|\\bagree nahi\\b|\\bmay not agree\\b|\\bsehmat nahi\\b",
    "examples": {
-    "website": "Shayad aap agree na karo, par dukaan ko website chahiye…",
+    "website": "Shayad aap agree na karo, par business ko website chahiye…",
     "chatbot": "Shayad aap agree na karo, par chatbot raat ka staff ban sakta hai…",
     "animated_ads": "Shayad aap agree na karo, par ads ko animation chahiye…",
     "lead_gen": "Shayad aap agree na karo, par har enquiry ek lead nahi hoti…",

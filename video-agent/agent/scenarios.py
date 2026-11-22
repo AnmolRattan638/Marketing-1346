@@ -19,7 +19,7 @@ SCENARIOS = {
     },
     "chatbot": {
         "beforeTitle": "Sirf haath se reply",
-        "beforeItems": "Raat ke message subah tak pade rehte hain,Same sawal baar baar likhne padte hain,Customer dusri dukaan chala jaata hai",
+        "beforeItems": "Raat ke message subah tak pade rehte hain,Same sawal baar baar likhne padte hain,Customer dusre business ke paas chala jaata hai",
         "afterTitle": "WhatsApp chatbot",
         "afterItems": "Turant jawab mil jaata hai,Timing aur rate khud bata deta hai,Zaroori baat aapko forward hoti hai",
     },

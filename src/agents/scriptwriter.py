@@ -66,6 +66,30 @@ CONNECT_HEAD = re.compile(r"\b(kyunki|kyuki|isliye|taaki|jisse)\b", re.I)
 UNIT = re.compile(r"\b\d+\s*(?:second|seconds|sec|minute|minutes|min|ghante|din|hafte|mahine)\s+(?!mein\b|me\b|se\b|tak\b|ke\b|ka\b|ki\b|baad\b|pehle\b|ya\b|aur\b|hai\b|hain\b|ho\b|bhi\b|zyada\b|jyada\b|kam\b|lagta\b|lagte\b|lagti\b|lagega\b|ko\b|tak\b|bahut\b|ek\b)[a-z]", re.I)
 
 
+BUSINESS_RULES = [  # the voice and the captions say 'business', never 'dukaan' (sounds like a corner shop, not a professional); the possessive keeps its gender
+    (r"\b(?:dukaan|dukan|dukaandaar|dukandar|dukaandar)\s+(?:wale|walon|walo|waale)\b", "business owners"),
+    (r"\b(?:dukaandaar|dukandar|dukaandar)(?:on)?\b", "business owner"),
+    (r"\b(dusri|doosri|dusre)\s+(?:dukaan|dukan)\b", "dusra business"),
+    (r"\b(?:dukaan|dukan)(?:on|en)?\b", "business"),
+]
+OBL_POSS = {"aapki": "aapke", "tumhari": "tumhare", "hamari": "hamare", "meri": "mere", "apni": "apne", "uski": "uske", "unki": "unke", "iski": "iske"}
+POSS = {"aapki": "aapka", "tumhari": "tumhara", "hamari": "hamara", "meri": "mera", "apni": "apna", "uski": "uska", "unki": "unka", "iski": "iska"}
+
+
+def _poss(m):
+    w = m.group(1).lower()
+    out = (OBL_POSS if m.group(2) else POSS)[w]
+    return (out.capitalize() if m.group(1)[0].isupper() else out) + " business" + (m.group(2) or "")
+
+
+def businessify(text):
+    """'aapki dukaan' -> 'aapka business', 'dukaan wale' -> 'business owners', 'dusri dukaan' -> 'dusra business', any other 'dukaan' -> 'business'."""
+    t = re.sub(r"\b(aapki|tumhari|hamari|meri|apni|uski|unki|iski)\s+(?:dukaan|dukan)(?:on|en)?\b(\s+(?:ki|ke|ka|ko|par|pe|mein|me|se|tak)\b)?", _poss, str(text or ""), flags=re.I)
+    for pat, rep in BUSINESS_RULES:
+        t = re.sub(pat, rep, t, flags=re.I)
+    return t
+
+
 def _sentences(line):
     return [x.strip() for x in re.split(r"(?<=[.!?;…])\s+|\.\.\.", str(line or "")) if x and len(x.split()) >= 3]
 
@@ -359,7 +383,10 @@ def check_all(script, sheet, style, focus, ask):
     normalize_steps(script)
     for b in script.get("beats") or []:
         if b.get("line"):
-            b["line"] = autofix_endings(b["line"])
+            b["line"] = businessify(autofix_endings(b["line"]))
+        for k in ("screen", "visual"):
+            if b.get(k):
+                b[k] = businessify(b[k])
     bad = problems(script, sheet, style, focus) + marketingskills.script_problems(script, focus) + contentskills.problems(script)
     if not bad:
         bad = [f"meaning: {x}" for x in fidelity(script, sheet, ask, focus)]
@@ -404,7 +431,7 @@ Beats, in this exact order: {style['beats']}
 VERIFIED FACTS (the ONLY facts you may use; cite by id):
 {json.dumps(sheet['facts'], ensure_ascii=False)}
 VOICE: {voice[:900]}
-LANGUAGE (strict): every spoken line is HINGLISH in Roman letters, everyday spoken Hindi with English tech words, like talking to a shop owner. Example: "Raat 11 baje customer ne WhatsApp kiya, aur aapne subah reply diya. Tab tak woh dusri dukaan chala gaya." Not translated-sounding Hindi, not plain English.
+LANGUAGE (strict): every spoken line is HINGLISH in Roman letters, everyday spoken Hindi with English tech words, like talking to a business owner. Say "business", never "dukaan" (it sounds like a corner shop). Example: "Raat 11 baje customer ne WhatsApp kiya, aur aapne subah reply diya. Tab tak woh dusre business ke paas chala gaya." Not translated-sounding Hindi, not plain English.
 
 Write ONE script with EXACTLY {len(style['beats'])} beats, in this order: {style['beats']}. The LAST beat is `{style['beats'][-1]}`; never stop early and never drop it. In the BODY, any digit you speak or put on screen (other than a clock time or an '3 steps' style count) must come from a cited fact or from the capabilities list below; otherwise say it in words with no digit. The HOOK is the exception: it may use a relatable invented number. Rules: no greeting or intro; one idea; 
 SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 1-2 full spoken sentences, and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. TOTAL budget for the whole script: {TOTAL_WORDS[0]}-{TOTAL_WORDS[1]} words (about 25-35 seconds: viewers leave by second 5, so the reel is SHORT). Short must not mean weak: one concrete idea per beat plus its reason, no filler, no repeating what the last beat said.

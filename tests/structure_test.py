@@ -54,3 +54,20 @@ assert learning._attrs({"date": "2026-11-22"}, "instagram", "reel")["structure"]
 rows = [{"structure": s, "composite": c} for s, c in (("retention-v2", 1.4), ("retention-v2", 1.2), ("classic", 0.9), ("classic", 1.0), (None, 5.0))]
 assert learning.lessons(rows, "structure") == [("retention-v2", 1.3, 2), ("classic", 0.95, 2)]
 print("structure labels ok")
+
+# ---- Part 3: the reel's CTA points to the day's carousel (the comment stays the one ask)
+os.environ.pop("REEL_SLOT", None)
+cta = lambda t: {"beats": [{"beat": "pain", "line": "x"}, {"beat": "cta", "line": t}]}
+s = cta("Comment BOT likho, main aapko setup ke steps DM kar dunga")
+assert sw.tease_carousel(s) and s["beats"][-1]["line"].endswith("Poora breakdown aaj ke carousel mein hai.") and s["carousel_tease"] and "." in s["beats"][-1]["line"][:-1]
+assert len(s["beats"][-1]["line"].split()) <= sw.CTA_WORDS[1]
+assert s["beats"][-1]["line"].lower().count("comment") == 1, "still one ask"
+s = cta("Comment BOT likho. Poora breakdown carousel mein hai."); assert sw.tease_carousel(s) and s["beats"][-1]["line"].count("carousel") == 1
+long = cta("Comment BOT likho aur main aapko pura setup step by step DM mein bhej dunga taaki aap aaj hi shuru kar sako aur customer na khoye"); assert not sw.tease_carousel(long) and "carousel_tease" not in long
+os.environ["REEL_SLOT"] = "2"; s = cta("Comment BOT likho"); assert not sw.tease_carousel(s) and "carousel_tease" not in s; del os.environ["REEL_SLOT"]
+from agent import reel_text
+plan = {"scenes": [{"beat": "pain", "narration": "Clinic ka phone raat ko band?"}, {"beat": "fix", "narration": "Bot lagao."}, {"beat": "cta", "narration": "Comment BOT likho."}]}
+mm = {"service": "chatbot", "marketing": {"keyword": "BOT", "gets": "a setup checklist"}, "carousel_tease": True,
+      "beats": [{"beat": "pain", "line": "Clinic ka phone raat ko band?"}, {"beat": "fix", "line": "Bot lagao."}, {"beat": "cta", "line": "Comment BOT likho."}]}
+assert "carousel post mein hai" in reel_text.caption_text(plan, mm, "chatbot") and "carousel post" not in reel_text.caption_text(plan, {**mm, "carousel_tease": False}, "chatbot")
+print("carousel tease ok")

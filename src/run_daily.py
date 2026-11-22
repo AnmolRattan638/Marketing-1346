@@ -224,6 +224,8 @@ def main():
                     WARNINGS.append("carousel: the fact-check was unavailable, so read every slide before approving.")
             else:
                 WARNINGS.append(f"carousel skipped (single image instead): {why}")
+                if (master or {}).get("carousel_tease"):
+                    WARNINGS.append("the reel's CTA and caption say the full breakdown is in today's carousel, but no carousel was made: post a single-image carousel or edit that line before you post the reel.")
         posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer'), ig_mode=ig_mode, linkedin_format=li_fmt, master=master, **ev_kw))
         posts = polish_linkedin(posts, focus, brand)
         fc = stage("factcheck", lambda: factcheck.run(posts, focus, brand, **ev_kw), fallback={"ok": None, "issues": ["fact-check unavailable"], "revised": {}})

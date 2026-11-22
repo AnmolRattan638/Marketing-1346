@@ -243,5 +243,12 @@
     "topic": "Are late-night calls for your address and timing eating into your personal time?",
     "hook_style": "question",
     "status": "published"
+  },
+  {
+    "date": "2026-11-22",
+    "service": "chatbot",
+    "topic": "Myth: a chatbot sounds robotic and makes up details about your services.",
+    "hook_style": "comparison",
+    "status": "published"
   }
 ]

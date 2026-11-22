@@ -18,6 +18,9 @@ browser page, file extract), struck-through lists, full-colour punch slides with
   browser     [headline, sub line, button label]: a small website building up (your trade is websites)
   file        [file name, folder name]: the file turns into an extracted folder
   window      rows that fade in
+  chat        bubbles: a customer message, "you: ..." is the business reply, "..." an unanswered state (PROOF CARD, drawn with an EXAMPLE tag)
+  maps        [business name, category, status like "Closed now"]: a map listing (PROOF CARD)
+  gauge       [label, verdict word, zone slow|ok|fast]: a speed gauge with no figure (PROOF CARD)
 
 Timing: `heading_at` (a word) places the heading, `reveal` is one word per item (or fewer: the rest are spread evenly).
 A word that is not spoken is replaced by an even spread, so nothing is ever placed at a random moment.
@@ -29,7 +32,7 @@ import re
 from .common import log
 
 LAYOUTS = ("title", "step", "strike", "punch", "hook")          # "hook" is never chosen by the planner: viral.stop_fix forces it on scene 1
-MOCKS = ("terminal", "comment", "checklist", "browser", "file", "window")
+MOCKS = ("terminal", "comment", "checklist", "browser", "file", "window", "chat", "maps", "gauge")
 HEAD_AT = 0.12            # heading appears this long after the scene starts when no word is given
 HOLD = 0.8                # last element lands at least this long before the scene ends, so it can be read
 GAP = 0.35                # minimum seconds between two reveals

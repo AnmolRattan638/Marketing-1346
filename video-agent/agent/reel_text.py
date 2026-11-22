@@ -58,4 +58,5 @@ def caption_text(plan: dict, master: dict | None, service: str = "") -> str:
 
 def message(plan: dict, master: dict | None, service: str = "") -> str:
     s, c = script_text(plan, master), caption_text(plan, master, service)
-    return "\n\n".join(x for x in (s, ("CAPTION (copy and paste under the reel)\n" + "-" * 24 + "\n" + c) if c else "") if x)
+    note = "PART 2 of today's series: post it AFTER reel 1 (it answers what reel 1 left open)." if (master or {}).get("series") else ""
+    return "\n\n".join(x for x in (note, s, ("CAPTION (copy and paste under the reel)\n" + "-" * 24 + "\n" + c) if c else "") if x)

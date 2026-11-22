@@ -73,7 +73,7 @@ PLAN_SCHEMA = {
                                 "type": "object",
                                 "required": ["type"],
                                 "properties": {
-                                    "type": {"enum": ["terminal", "comment", "checklist", "browser", "file", "window"]},
+                                    "type": {"enum": ["terminal", "comment", "checklist", "browser", "file", "window", "chat", "maps", "gauge"]},
                                     "title": {"type": "string", "maxLength": 30},
                                     "items": {"type": "array", "maxItems": 6, "items": {"type": "string", "maxLength": 60}},
                                 },

@@ -198,7 +198,8 @@ def ask_p(p, s="", **k):
     return json.dumps({"hooks": [], "beats": bad_p["beats"]})
 out_p = sw.run(sheet, focus_p, style, ask=ask_p, voice="v")
 assert out_p["beats"][2]["line"] == fixed_fix["line"], "the failing beat was rewritten"
-assert [b["line"] for i, b in enumerate(out_p["beats"]) if i != 2] == [b["line"] for i, b in enumerate(bad_p["beats"]) if i != 2], "every other beat untouched"
+tease = " Poora breakdown aaj ke carousel mein hai."
+assert [b["line"].replace(tease, "") for i, b in enumerate(out_p["beats"]) if i != 2] == [b["line"] for i, b in enumerate(bad_p["beats"]) if i != 2], "every other beat untouched (bar the carousel pointer)"
 lessons = SL.load()
 assert lessons["pronounce-caps"]["count"] == 1 and "SERP" in lessons["pronounce-caps"]["recent"][-1]["mistake"] and lessons["pronounce-caps"]["recent"][-1]["on"], lessons
 assert "2BHK" in lessons["pronounce-glued"]["recent"][-1]["mistake"], lessons

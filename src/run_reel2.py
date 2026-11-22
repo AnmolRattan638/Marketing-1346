@@ -7,7 +7,7 @@ import sys
 
 import requests
 
-from . import config, ideas, web_research, browser_research, tg
+from . import config, ideas, verticals, web_research, browser_research, tg
 from .agents import analysis, factsheet, research, scriptwriter
 from .run_daily import WARNINGS, ensure_fit, pick_focus, stage, today
 
@@ -30,6 +30,26 @@ def first_reel(day):
     return d.get("service") or m.get("service"), m.get("topic")
 
 
+def series_from(day, brand):
+    """Reel 2 as PART 2 of reel 1: same service, same verified facts (no new research, no extra LLM credits), and a script that answers what reel 1 left open.
+    None (the old different-service reel 2) when REEL2_LOOP=0 or reel 1 has no usable script."""
+    if os.getenv("REEL2_LOOP", "1").strip().lower() in ("0", "false", "off", "no"):
+        return None
+    d = config.load_json(config.DATA / "master" / f"{day}.json", {}) or {}
+    m = d.get("master_script") or {}
+    beats = m.get("beats") or []
+    facts = [f for f in (m.get("facts") or []) if isinstance(f, dict) and f.get("claim")]
+    sid = d.get("service") or m.get("service")
+    focus = next((s for s in brand["services"] if s["id"] == sid), None)
+    if len(beats) < 4 or len(facts) < 3 or not focus:
+        return None
+    rehook = next((b.get("line") for b in beats if b.get("beat") == "rehook"), "")
+    steps = [b.get("line") for b in beats if b.get("beat") in ("fix", "payoff")][:3]
+    cited = [str(f.get("figure")) for f in facts if f.get("figure") and str(f.get("figure")) in " ".join(str(b.get("line")) for b in beats)]
+    return {"focus": focus, "sheet": {"ok": True, "facts": facts, "topic": m.get("topic")}, "style_used": m.get("style"),
+            "series": {"hook": beats[0].get("line"), "rehook": rehook, "steps": steps, "facts_used": cited, "vertical": verticals.of(beats[0].get("line"))}}
+
+
 def start_video(master, focus):
     token = os.getenv("GITHUB_TOKEN")
     if os.getenv("GITHUB_ACTIONS") != "true" or not token:
@@ -49,6 +69,22 @@ def main():
         return 0
     brand, history = config.services(), config.history()
     first_id, first_topic = first_reel(today)
+    loop = series_from(today, brand)
+    if loop:                                                    # part 2 of reel 1: same service and facts, no research
+        style = scriptwriter.pick_style(history + [{"script_style": loop["style_used"], "date": today}])
+        if style["id"] == loop["style_used"]:
+            style = next(s for s in scriptwriter.STYLES if s["id"] != loop["style_used"])
+        focus = loop["focus"]
+        master = stage("scriptwriter", lambda: scriptwriter.run(loop["sheet"], focus, style, series=loop["series"]), fallback=False)
+        if master:
+            master["service"] = focus["id"]
+            master["series"] = {"part": 2, "of": loop["series"]["hook"]}
+            config.save_json(path, {"master_script": master, "service": focus["id"], "slot": SLOT})
+            if not start_video(master, focus):
+                tg.send(f"Reel 2 (part 2 of reel 1, {focus['name']}) script is ready but the video could not be started automatically. Run 'Daily video' with slot 2.")
+            print(f"reel 2 (part 2) started: {focus['id']}")
+            return 0
+        print("part 2 script failed; falling back to a separate reel 2")
     focus = other_focus(brand, history, first_id or "")
     used = [h.get("topic") for h in history] + ([first_topic] if first_topic else [])
     guidance = ""

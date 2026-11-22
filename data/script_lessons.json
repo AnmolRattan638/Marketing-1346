@@ -16,7 +16,7 @@
   "rule": "Keep the DM ask out of every beat except cta."
  },
  "total-length": {
-  "count": 11,
+  "count": 12,
   "rule": "The whole script stays under 85 words (about 30 s); give each beat one concrete idea and its reason, nothing more."
  },
  "steps": {
@@ -40,7 +40,7 @@
   "rule": "the ask ... is not in offers_allowed; fix to use an allowed offer like ..."
  },
  "number-unbacked": {
-  "count": 13,
+  "count": 14,
   "rule": "Every digit must come from a cited fact; if no fact has the number, say it in words with no digit."
  },
  "abstract": {
@@ -116,7 +116,7 @@
   "rule": "line promises a result (time saved); rewrite to state capability, e.g., ..."
  },
  "other:payoff needs a cited verified fact": {
-  "count": 2,
+  "count": 4,
   "rule": "payoff needs a cited verified fact"
  },
  "other:the line names a person (Jitendra Wadhwa": {
@@ -202,5 +202,25 @@
  "other:beat promises a result; change to a capa": {
   "count": 1,
   "rule": "beat promises a result; change to a capability statement, e.g., ..."
+ },
+ "other:restates problem instead of giving first": {
+  "count": 1,
+  "rule": "restates problem instead of giving first specific answer; fix: rewrite poke to provide a concrete first step, e.g., ..."
+ },
+ "other:includes unverified statistic without ci": {
+  "count": 1,
+  "rule": "includes unverified statistic without citation ID; fix: remove the statistic or add a verified citation ID (e.g., (id:XYZ))."
+ },
+ "other:promises a result (...) instead of descr": {
+  "count": 1,
+  "rule": "promises a result (...) instead of describing capability; fix: rephrase to ..."
+ },
+ "other:grammar: sentence stops mid-thought on '": {
+  "count": 1,
+  "rule": "grammar: sentence stops mid-thought on 'ki': ..."
+ },
+ "other:grammar: no verb before ..., write the f": {
+  "count": 3,
+  "rule": "grammar: no verb before ..., write the full clause (not a list of nouns): ..."
  }
 }

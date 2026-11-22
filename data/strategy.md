@@ -1,5 +1,4 @@
-- Hook: rotate question, contrast, comparison styles; kill the DIY-vs-pro comparison (used 4× recently).
-- Format: images outperform reels 6×; use silhouette or desk-glow static visuals.
-- Content: show developer's real work (code, config, wireframes), never ad copy.
-- Service focus: lead_gen and chatbot earn more per reach; website is median.
-- Bio must be fixed: remove niches, region, '24 hrs', and 'free check' phrasing.
+- Hook style: rotate to **question** (1.83x) or **top3** (1.5x) for chatbot post; avoid **contrast** (0.36x of top3).
+- Avoid repeating "wrong price/timing" and "same questions" angles — used in last 3 chatbot posts.
+- Use **silhouette** or **bright-desk** image style (1.5x) for carousel/image; reels underperform (0.21x of image).
+- Posts must read as a developer sharing real work, never an ad. No demos, samples, or niche targeting.

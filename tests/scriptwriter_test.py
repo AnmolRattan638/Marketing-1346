@@ -30,9 +30,9 @@ assert sw.pick_style(hist)["id"] == sw.STYLES[-1]["id"]
 assert sw.pick_style([])["id"] in sw.BY_ID
 assert sw.pick_style(hist + [{"script_style": sw.STYLES[-1]["id"]}])["id"] == sw.STYLES[0]["id"]
 
-style = sw.BY_ID["myth-bust"]
-good = {"hooks": ["Raat 11 baje customer ka message aaya, jawab nahi gaya", "Aapke leads raat ko kahan jaate hain?", "21 guna zyada leads, bas ek aadat se", "Customer ne raat ko WhatsApp kiya", "Website se sale nahi hoti"],
-        "beats": [{"beat": "pain", "line": "Raat 11 baje customer ne WhatsApp kiya, jawab nahi mila", "screen": "Raat ka message", "visual": "phone", "facts": []},
+style = {**sw.BY_ID["myth-bust"], "beats": [b for b in sw.BY_ID["myth-bust"]["beats"] if b != "rehook"]}      # the legacy 5-beat shape; the rehook shape is tested in structure_test.py
+good = {"hooks": ["Raat 11 baje clinic mein patient ka message aaya, jawab nahi gaya", "Aapke clinic ke leads raat ko kahan jaate hain?", "21 guna zyada leads, bas ek aadat se", "Customer ne raat ko WhatsApp kiya", "Website se sale nahi hoti"],
+        "beats": [{"beat": "pain", "line": "Raat 11 baje clinic mein patient ne WhatsApp kiya, jawab nahi mila", "screen": "Raat ka message", "visual": "phone", "facts": []},
                   {"beat": "poke", "line": "Subah reply se kuch nahi hota, kyunki customer ko jawab turant chahiye, warna woh dusre business ke paas chala jaata hai", "screen": "Subah tak der", "visual": "x", "facts": []},
                   {"beat": "fix", "line": "Pehle bot greet kare, kyunki pehla jawab trust banata hai. Phir sawaal puche aur call book kare.", "screen": "3 steps", "visual": "chat", "facts": ["f3"], "steps": ["Greet karo", "Ek sawaal pucho", "Call book karo"]},
                   {"beat": "payoff", "line": "a.com ke mutabiq paanch minute mein reply karne wali firms ko 21 guna zyada leads milti hain. Matlab speed matter karti hai.", "screen": "21x leads", "visual": "stat", "facts": ["f1"]},
@@ -155,7 +155,7 @@ per, glob = sw.by_beat(bp, long_)
 assert per and not glob, "over-length feedback is per beat, so only the long beats are rewritten"
 assert sw.budget_problems([{"beat": "pain", "line": w(10)}, {"beat": "poke", "line": w(15)}, {"beat": "cta", "line": w(10)}])[0].startswith("poke: script is only 35 words")
 assert sw.budget_problems([{"beat": "pain", "line": w(12)}, {"beat": "poke", "line": w(18)}, {"beat": "fix", "line": w(20)}, {"beat": "payoff", "line": w(18)}, {"beat": "cta", "line": w(16)}]) == []
-assert sw.TOTAL_WORDS[1] <= 95 and "FIRST 8 SECONDS" in open(sw.__file__).read()
+assert sw.TOTAL_WORDS[1] <= 100 and "FIRST 8 SECONDS" in open(sw.__file__).read()
 print("length budget ok")
 
 # ---- the on-screen `steps` never fails a day: built from the fix line's own clauses when the model leaves them out

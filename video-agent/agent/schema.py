@@ -1,7 +1,7 @@
 """JSON schema for the plan Groq returns. The planner never writes code, only this."""
 from __future__ import annotations
 
-BEATS = ("pain", "poke", "fix", "payoff", "recap", "cta")      # the script framework (skills/script-framework.md)
+BEATS = ("pain", "poke", "rehook", "fix", "payoff", "recap", "cta")      # the script framework (skills/script-framework.md)
 
 from jsonschema import Draft202012Validator
 
@@ -112,7 +112,7 @@ _validator = Draft202012Validator(PLAN_SCHEMA)
 
 
 def _beat_problems(plan) -> list[str]:
-    """The framework order: pain first, then poke / fix / payoff / recap / cta in that order (fix may repeat), each at most once. Plans with no beats are left alone."""
+    """The framework order: pain first, then poke / rehook / fix / payoff / recap / cta in that order (fix may repeat), each at most once. Plans with no beats are left alone."""
     scenes = plan.get("scenes") if isinstance(plan, dict) else None
     beats = [s.get("beat") for s in scenes or [] if isinstance(s, dict) and s.get("beat")]
     if not beats:
@@ -122,7 +122,7 @@ def _beat_problems(plan) -> list[str]:
         out.append("scenes/0/beat: the first scene must be the pain (the hook)")
     rank = [BEATS.index(b) for b in beats if b in BEATS]
     if rank != sorted(rank):
-        out.append("beats are out of order: use pain, poke, fix, payoff, recap, cta")
+        out.append("beats are out of order: use pain, poke, rehook, fix, payoff, recap, cta")
     for b in BEATS:
         if b != "fix" and beats.count(b) > 1:
             out.append(f"beat '{b}' is used more than once")

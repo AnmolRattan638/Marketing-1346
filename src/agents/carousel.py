@@ -88,7 +88,7 @@ def script_block(master):
     facts = "\n".join(f"{f['id']}: {f['claim']} (source: {f['source']})" for f in master.get("facts", []))
     return (f"\nMASTER SCRIPT (already written and fact-checked; the carousel TELLS THIS SAME STORY, same idea, same order, same facts):\nStyle: {master['style']}\nHook: {master['hook']}\n" + "\n".join(lines) +
             f"\nVERIFIED FACTS (the only facts allowed; you MAY write a verified figure exactly as given when the slide names its source in words, e.g. '{(master.get('facts') or [{'source': 'source'}])[0]['source']} found...'):\n{facts}\n"
-            "Map it: hook slide = the hook; problem slide(s) = pain/poke; solution slides = fix (and payoff/recap if it is a fact or result); cta = the cta. Do not add a new idea.\n")
+            "Map it: hook slide = the hook; problem slide(s) = pain/poke (the rehook is a teaser: fold it into the last problem slide or skip it); solution slides = fix (and payoff/recap if it is a fact or result); cta = the cta. Do not add a new idea.\n")
 
 
 FREE_SPARE = re.compile(r"(?i)\bfree(?=\s+(?:time|hours?|space|up|from|of)\b)")

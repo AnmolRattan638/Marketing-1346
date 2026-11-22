@@ -26,7 +26,7 @@ EMOTION = {
     "curious": (1.00, 0.06, 1.00), "empathetic": (0.92, -0.06, 0.95), "urgent": (1.08, 0.04, 1.10),
     "calm": (0.98, 0.00, 1.00), "excited": (1.10, 0.10, 1.15), "warm": (0.95, -0.02, 1.00),
 }
-PAUSE_AFTER = {"pain": 0.45, "poke": 0.40, "fix": 0.35, "payoff": 0.40, "recap": 0.30, "cta": 0.0}      # seconds of silence after the beat
+PAUSE_AFTER = {"pain": 0.45, "poke": 0.40, "rehook": 0.50, "fix": 0.35, "payoff": 0.40, "recap": 0.30, "cta": 0.0}      # seconds of silence after the beat
 PREP: dict[str, str] = {}
 MOODS: dict[str, list[str]] = {}     # per line: one mood per sentence, chosen by the model that converts the text (curious, excited, ...)
 _OK: list = []            # the model/speaker this account accepted, tried first from then on

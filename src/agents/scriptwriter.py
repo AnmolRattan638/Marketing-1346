@@ -7,7 +7,7 @@ import os
 import re
 import datetime
 from .. import config, contentskills, llm, marketingskills, scriptlessons
-from .. import hooks as hooks_mod
+from .. import hooks as hooks_mod, verticals
 
 STYLES = [
     {"id": "pain-poke-fix", "name": "6-beat framework", "beats": ["pain", "poke", "fix", "payoff", "recap", "cta"],
@@ -27,6 +27,11 @@ STYLES = [
     {"id": "loop-ending", "name": "Loop ending", "beats": ["pain", "fix", "payoff", "recap", "cta"],
      "how": "The recap repeats the first line word for word so the reel replays."},
 ]
+REHOOK_HOW = (" rehook = ONE short open-loop line between the problem and the fix (a question or a held-back promise: 'aur ye teesra step zyada log chhod dete hain', "
+              "'par asli wajah ye nahi hai'), so the viewer has to stay for the answer; it never gives the answer itself.")
+for _s in STYLES:                                  # every style holds the answer back once: hook -> problem -> rehook -> answer
+    _s["beats"].insert(_s["beats"].index("fix"), "rehook")
+    _s["how"] += REHOOK_HOW
 BY_ID = {s["id"]: s for s in STYLES}
 SYS = "You write short vertical-video scripts for a solo web and AI developer in India talking to small-business owners. Plain, specific, spoken."
 BAD_OPEN = re.compile(r"^\s*(hi|hello|hey|namaste|welcome|in this (video|reel)|today (i|we)|aaj hum)\b", re.I)
@@ -37,14 +42,15 @@ _NUM = re.compile(r"\d[\d,\.]*")
 WORDS = (10, 26)      # a body beat: 1-2 spoken sentences, one concrete idea and its reason (26: a beat that names its source, gives the figure AND the consequence needs the room, or the verbs get cut)
 HOOK_WORDS = (5, 13)
 CTA_WORDS = (8, 20)
-TOTAL_WORDS = (52, 92)   # whole spoken script: ~20-35 seconds
+REHOOK_WORDS = (6, 16)    # one short open-loop line
+TOTAL_WORDS = (52, 100)   # whole spoken script: ~20-35 seconds
 # helping words that join a thought to its reason or example; a script made only of short bare statements fails
 CONNECT = re.compile(r"\b(kyunki|kyuki|isliye|isiliye|matlab|yaani|jaise|jaise ki|maan lo|socho|yani|toh phir|phir|isse|taaki|warna|lekin|par asli|asli baat|dhyan rakho|iska matlab)\b", re.I)
 # a statistic describes how things are; a line must not turn it into a promise (e.g. "70-90% of calls are repeat questions" is not "70-90% of calls will stop")
 PROMISE = re.compile(r"\b(nahi aayenge|nahi aayegi|nahi aaenge|band ho (jayenge|jayegi|jaenge)|khatam ho|zero ho|guarantee|pakka|100 ?%)\b", re.I)
 COUNT = re.compile(r"\b\d\s?-?\s?(steps?|tarike|tareeke|points?|baar)\b|\b\d{1,2}(:\d\d)?\s?(baje|bje|pm|am)\b", re.I)      # '3 steps' counts our own list, not a statistic
 EMOTIONS = ("curious", "empathetic", "urgent", "calm", "excited", "warm")
-DEFAULT_EMOTION = {"pain": "empathetic", "poke": "urgent", "fix": "calm", "payoff": "excited", "recap": "curious", "cta": "warm"}
+DEFAULT_EMOTION = {"pain": "empathetic", "poke": "urgent", "fix": "calm", "payoff": "excited", "recap": "curious", "cta": "warm", "rehook": "curious"}
 # lines that could be said by any brand about anything; the script is rejected until they are replaced by something concrete
 GENERIC = re.compile(r"\b(the myth|myth:|basic but powerful|game.?changer(?!.{0,30}\b(sakta|sakti|sakte|can|might)\b)|unlock (your|the)|revolution|in today'?s (digital )?world|take your .{0,20} to the next level(?!.{0,30}\b(sakta|sakti|sakte|can|might)\b)|"
                      r"comment learn|learn more|like and subscribe|stay tuned|let me know in the comments|dm me for more|follow for more)\b", re.I)
@@ -188,7 +194,7 @@ def budget_problems(beats) -> list[str]:
     out = []
     if total > hi:
         over = total - hi
-        body = sorted(((n, name) for i, (name, n) in enumerate(counts) if i > 0 and name != "cta" and n > WORDS[0] + 2), reverse=True) or sorted(((n, name) for i, (name, n) in enumerate(counts) if i > 0), reverse=True)
+        body = sorted(((n, name) for i, (name, n) in enumerate(counts) if i > 0 and name not in ("cta", "rehook") and n > WORDS[0] + 2), reverse=True) or sorted(((n, name) for i, (name, n) in enumerate(counts) if i > 0), reverse=True)
         cut = {}
         while over > 0 and body:
             body.sort(reverse=True)
@@ -216,7 +222,7 @@ def problems(script, sheet, style, focus=None):
     for b in beats:
         line = str(b.get("line") or "")
         n = len(line.split())
-        lo, hi = HOOK_WORDS if b is (beats[0] if beats else None) else (CTA_WORDS if b.get("beat") == "cta" else WORDS)
+        lo, hi = HOOK_WORDS if b is (beats[0] if beats else None) else (CTA_WORDS if b.get("beat") == "cta" else (REHOOK_WORDS if b.get("beat") == "rehook" else WORDS))
         if not lo <= n <= hi + 3:
             out.append(f"{b.get('beat')}: line has {n} words (want {lo}-{hi}; explain it in full spoken sentences, not a slogan)")
         cited = [facts[i] for i in b.get("facts") or [] if i in facts]
@@ -255,6 +261,7 @@ def problems(script, sheet, style, focus=None):
         steps = [str(x).strip() for x in (fix.get("steps") or []) if str(x).strip()]
         if not 2 <= len(steps) <= 3 or any(len(x.split()) > 7 for x in steps):
             out.append("fix: needs 2-3 concrete steps (each 7 words max) in `steps`, and the spoken line must walk through them")
+    out += structure_problems(beats)
     cta = beats[-1] if beats else {}
     if cta.get("beat") == "cta":
         text = str(cta.get("line") or "")
@@ -268,6 +275,39 @@ def problems(script, sheet, style, focus=None):
             b["emotion"] = DEFAULT_EMOTION.get(b.get("beat"), "calm")
     if "payoff" in names and not any(b.get("facts") for b in beats if b.get("beat") == "payoff") and "before-after" != style["id"]:
         out.append("payoff needs a cited verified fact")
+    return out
+
+
+OPEN_LOOP_WORDS = re.compile(r"\b(teesra|teesri|tisra|aakhri|sabse|asli|wahi|ek cheez|ek step|ek tarika|raaz|pata hai|jaante|kaun|kaise|kyun|kya |par |lekin|ruko|sunna|dekho|zyada log|bohot kam|kam log)\b|\?|\u2026|\.\.\.", re.I)
+LOOP_END = re.compile(r"(\?|\u2026|\.\.\.|:)\s*$")
+
+
+def open_loops(beats) -> int:
+    """How many beats before the fix end on a question or an unfinished thought (the viewer must keep watching to hear the answer)."""
+    n = 0
+    for b in beats:
+        if b.get("beat") in ("pain", "poke", "rehook") and LOOP_END.search(str(b.get("line") or "").strip()):
+            n += 1
+    return n
+
+
+def structure_problems(beats) -> list[str]:
+    """Retention structure (merged from the 'what comes right after the hook' and 'triple hook' research): the hook names the viewer's business (context in 2 seconds), a rehook
+    holds the answer back, and the beats before the fix end on open loops. All soft: they are repaired in the rounds first, then shipped with a note."""
+    out = []
+    if not beats:
+        return out
+    if not verticals.of(beats[0].get("line")):
+        out.append("pain: context: the hook must name the viewer's business type (clinic, salon, cafe, coaching centre, homestay, gym, shop...) so it is clear in 2 seconds who this is for; never just 'business owners'")
+    rh = next((b for b in beats if b.get("beat") == "rehook"), None)
+    if rh is not None:
+        line = str(rh.get("line") or "")
+        if not OPEN_LOOP_WORDS.search(line):
+            out.append("rehook: loops: it must hold the answer back with a question or a promise ('aur ye teesra step zyada log chhod dete hain', 'par asli wajah ye nahi hai'), not state the fix")
+        if re.search(r"\d", COUNT.sub(" ", line)):
+            out.append("rehook: loops: no figures in the rehook, it only keeps the viewer waiting")
+    if rh is not None and open_loops(beats) < 2:
+        out.append("poke: loops: end the hook and the poke (or the rehook) on a question or an unfinished thought (... or ?) so the next beat has to answer; at least two of them")
     return out
 
 
@@ -323,7 +363,7 @@ def repair_missing(script, style, ask, focus, sheet):
     return script
 
 
-BEAT_RX = re.compile(r"\b(pain|poke|fix|payoff|recap|cta)\b")
+BEAT_RX = re.compile(r"\b(pain|poke|rehook|fix|payoff|recap|cta)\b")
 
 
 def by_beat(bad, beats):
@@ -418,7 +458,7 @@ def check_all(script, sheet, style, focus, ask):
 
 
 # style-only remarks: a script that is faithful, safe and on offer is never thrown away for these (they still get the repair rounds first)
-SOFT = ("meaning:", "skills:", "lines are bare statements", "too abstract", "grammar:")   # grammar is repaired in the rounds first (and the safe mechanical fix runs before); only a leftover ships, with a note
+SOFT = ("meaning:", "skills:", "lines are bare statements", "too abstract", "grammar:", "context:", "loops:")   # grammar is repaired in the rounds first (and the safe mechanical fix runs before); only a leftover ships, with a note
 
 
 def is_soft(problem: str) -> bool:
@@ -456,8 +496,9 @@ VOICE: {voice[:900]}
 LANGUAGE (strict): every spoken line is HINGLISH in Roman letters, everyday spoken Hindi with English tech words, like talking to a business owner. Say "business", never "dukaan" (it sounds like a corner shop). Example: "Raat 11 baje customer ne WhatsApp kiya, aur aapne subah reply diya. Tab tak woh dusre business ke paas chala gaya." Not translated-sounding Hindi, not plain English.
 
 Write ONE script with EXACTLY {len(style['beats'])} beats, in this order: {style['beats']}. The LAST beat is `{style['beats'][-1]}`; never stop early and never drop it. In the BODY, any digit you speak or put on screen (other than a clock time or an '3 steps' style count) must come from a cited fact or from the capabilities list below; otherwise say it in words with no digit. The HOOK is the exception: it may use a relatable invented number. Rules: no greeting or intro; one idea; 
-SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 1-2 full spoken sentences, and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. TOTAL budget for the whole script: {TOTAL_WORDS[0]}-{TOTAL_WORDS[1]} words (about 25-35 seconds: viewers leave by second 5, so the reel is SHORT). Short must not mean weak: one concrete idea per beat plus its reason, no filler, no repeating what the last beat said.
+SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 1-2 full spoken sentences, the rehook {REHOOK_WORDS[0]}-{REHOOK_WORDS[1]} words (one line), and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. TOTAL budget for the whole script: {TOTAL_WORDS[0]}-{TOTAL_WORDS[1]} words (about 25-35 seconds: viewers leave by second 5, so the reel is SHORT). Short must not mean weak: one concrete idea per beat plus its reason, no filler, no repeating what the last beat said.
 COMPLETE SENTENCES (the voice reads exactly what you write): every sentence needs its verb and helper word ("karte hain", "chhod dete hain", "hota hai", "sakte hain") and must end where the thought ends, never on ki/ke/se/mein/aur/kyunki or on a bare verb. Write "3 second mein" never "3 sec se" or "5 second batana". After "kyunki" and before it there must be a full clause, not a list of nouns. If a beat is too long, DROP a detail (a second source, an example) instead of dropping grammar; telegram-style fragments are rejected. BAD: "75% Indians mobile se browse karte; 3 sec se zyada load ho to site visitors chhod." GOOD: "75% Indians mobile se browse karte hain, aur site 3 second mein load na ho to zyadatar visitors chhod dete hain."
+{verticals.block(str(focus.get('id') or focus.get('name') or ''), datetime.date.fromisoformat(str(today)[:10]), int(os.getenv('REEL_SLOT') or 1) - 1)}HOLD THE ANSWER BACK: after the poke comes the REHOOK, one short line that keeps the viewer waiting (a question or a held-back promise), and only then the fix. The hook, the poke and the rehook should end on a question or an unfinished thought, so each beat answers the last one and opens the next.
 FIRST 8 SECONDS: the hook ends on an unfinished consequence or a question; the POKE (beat 2) must then give the first surprising, specific answer (a thing, a time, a cost) so there is a reason to keep watching; never spend beat 2 only restating the problem.
 EXPLAIN, don't announce: pain = the moment AND why it hurts (what it costs: time, a lost customer); poke = why the obvious fix fails, the reason in plain words; fix = each step with a one-clause reason ("pehle ..., kyunki ..."); payoff = what the fact MEANS for this owner in plain words (do the arithmetic only if every number comes from a fact); recap = loop back to the pain.
 Use helping words (kyunki, isliye, matlab, jaise ki, phir, taaki, lekin) so each line connects to the one before it. A line must make sense when heard once, with no screen.

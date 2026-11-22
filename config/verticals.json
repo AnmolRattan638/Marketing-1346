@@ -1,0 +1,17 @@
+{
+  "_about": "The viewer's business type, named in the hook so the reel passes 'is the context immediately clear?' in the first 2 seconds. One is offered per reel (rotating); a hook that names ANY of them counts as context-first.",
+  "verticals": [
+    {"id": "clinic", "label": "clinic or doctor", "rx": "\\b(clinic|doctor|dentist|dental|hospital|physio|diagnostic)s?\\b"},
+    {"id": "salon", "label": "salon, parlour or spa", "rx": "\\b(salon|parlou?r|spa|barber|beauty)s?\\b"},
+    {"id": "restaurant", "label": "restaurant, cafe or dhaba", "rx": "\\b(restaurant|cafe|café|dhaba|bakery|cloud kitchen|food)s?\\b"},
+    {"id": "homestay", "label": "homestay, hotel or resort", "rx": "\\b(homestay|hotel|resort|guest ?house|lodge|villa)s?\\b"},
+    {"id": "coaching", "label": "coaching centre, tuition or school", "rx": "\\b(coaching|tuition|institute|academy|school|classes)\\b"},
+    {"id": "gym", "label": "gym or fitness studio", "rx": "\\b(gym|fitness|yoga|zumba)\\b"},
+    {"id": "retail", "label": "shop, showroom or kirana store", "rx": "\\b(showroom|kirana|retail|store|shop(?:keeper)?s?)\\b"},
+    {"id": "boutique", "label": "boutique or tailor", "rx": "\\b(boutique|tailor|designer|garment)s?\\b"},
+    {"id": "realestate", "label": "property dealer or builder", "rx": "\\b(property|real estate|builder|dealer|broker)s?\\b"},
+    {"id": "repair", "label": "garage or repair shop", "rx": "\\b(garage|mechanic|repair|workshop|service centre)\\b"},
+    {"id": "studio", "label": "photographer or studio", "rx": "\\b(photographer|photography|studio|videographer)s?\\b"},
+    {"id": "consultant", "label": "CA, lawyer or consultant", "rx": "\\b(lawyer|advocate|consultant|CA|accountant)s?\\b"}
+  ]
+}

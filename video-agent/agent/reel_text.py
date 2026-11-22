@@ -11,7 +11,7 @@ HASHTAGS = {
     "reel_scripts": ["#ReelsIndia", "#ContentCreator", "#ReelScripts", "#SocialMediaTips", "#ContentStrategy"],
     "seo_blogs": ["#SEOIndia", "#BlogWriting", "#GoogleRanking", "#ContentMarketing", "#SmallBusinessIndia"],
 }
-BEAT_NAMES = {"pain": "Hook", "poke": "Problem", "fix": "Fix", "payoff": "Payoff", "recap": "Recap", "cta": "Ask"}
+BEAT_NAMES = {"pain": "Hook", "poke": "Problem", "rehook": "Rehook", "fix": "Fix", "payoff": "Payoff", "recap": "Recap", "cta": "Ask"}
 
 
 def _lines(plan: dict, master: dict | None) -> list[tuple[str, str]]:

@@ -149,7 +149,7 @@ def prompt_block(master: dict) -> str:
                       + (f"  STEPS to show as a step/checklist graphic, one per item: {' | '.join(b['steps'])}" if b.get("steps") else "") for b in master["beats"])
     return ("\nMASTER SCRIPT (fixed, fact-checked; you are the DIRECTOR). One scene per beat, in exactly this order, each with its `beat` field. Do NOT write or change any words: "
             "the scene's narration is the beat's line, copied. Your job is the picture: choose graphic layout, fx, camera, footage_query for each beat "
-            "(pain = bold title/punch, poke = strike, fix = step/checklist/terminal, payoff = stat/punch, recap = title, cta = outro). Add no fact, number or claim.\n"
+            "(pain = bold title/punch, poke = strike, rehook = a quick question/teaser card or a hard zoom, held for under 3 seconds, fix = step/checklist/terminal, payoff = stat/punch, recap = title, cta = outro). Add no fact, number or claim.\n"
             "CONTENT SKILLS (hardcoded, mandatory): scene 1 is the hook: show its `on screen` words (3-5 bold words) as a big title/punch graphic on the FIRST frame, top-centre and clear of the logo, "
             "so the hook works on mute; every later beat change gets a visible pattern reset (new graphic layout, zoom or cut); keep text out of the bottom 600px and right 150px; "
             "the cta scene shows ONE ask only, no 'like/follow/tag'. Opening visual must show the stake, not a logo.\n"

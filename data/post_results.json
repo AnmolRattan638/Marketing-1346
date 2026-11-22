@@ -2545,7 +2545,79 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-11-20|instagram": {
+      "date": "2026-11-20",
+      "platform": "instagram",
+      "service": "animated_ads",
+      "problem_id": "content-creation-takes-too-much-time",
+      "angle_type": "mistake",
+      "hook_style": "comparison",
+      "format": "image",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "hook_style",
+      "image_style": "desk-glow",
+      "carousel_flavor": null,
+      "slides": 1,
+      "published_at": "2026-11-20T03:39:31.000Z",
+      "url": "https://www.instagram.com/p/Df8tbioCs03/",
+      "snap": {
+        "48h": {
+          "age_h": 51.2,
+          "source": "zernio",
+          "impressions": 3,
+          "reach": 2,
+          "views": 3,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 3,
+        "reach": 2,
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
+    },
+    "2026-11-20|bluesky": {
+      "date": "2026-11-20",
+      "platform": "bluesky",
+      "service": "animated_ads",
+      "problem_id": "content-creation-takes-too-much-time",
+      "angle_type": "mistake",
+      "hook_style": "comparison",
+      "format": "text",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "hook_style",
+      "image_style": "desk-glow",
+      "carousel_flavor": null,
+      "slides": 1,
+      "published_at": "2026-11-20T03:39:29.544Z",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2pnyxgq7w24",
+      "snap": {
+        "48h": {
+          "age_h": 51.2,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-11-21T19:17:47+00:00"
+  "updated_at": "2026-11-22T06:50:28+00:00"
 }

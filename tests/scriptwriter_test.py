@@ -169,3 +169,53 @@ assert s2["beats"][0]["steps"] == ["a b"], "nothing to derive from: left as is f
 bad = copy.deepcopy(good); bad["beats"][2]["steps"] = []
 assert not [p for p in sw.problems(sw.normalize_steps({"beats": bad["beats"]}), sheet, style) if "steps" in p]
 print("steps normalization ok")
+
+
+# ------------------------------------------------------------------ pronunciation gate + concrete lessons
+# A word the voice would say wrong is rejected like any other mistake, ONLY that beat is rewritten, and the concrete mistake is remembered and shown to the writer next time.
+SL.STATE = pathlib.Path(tempfile.mkdtemp()) / "pron_lessons.json"
+focus_p = {"name": "Chatbot", "dm_keyword": "BOT"}
+bad_p = copy.deepcopy(good)
+bad_p["beats"][2]["line"] = "Pehle bot greet kare, kyunki pehla jawab trust banata hai. Phir sawaal puche aur SERP 2BHK kare."
+reasons = [r for r in sw.problems({"beats": copy.deepcopy(bad_p["beats"])}, sheet, style, focus_p) if "pronunciation" in r]
+assert len(reasons) == 2 and all(r.startswith("fix: pronunciation:") for r in reasons) and "SERP" in reasons[0] and "2BHK" in reasons[1], reasons
+assert "SERP 2BHK" in reasons[0], "the reason shows where the word was heard"
+assert not [r for r in sw.problems({"beats": copy.deepcopy(good["beats"])}, sheet, style, focus_p) if "pronunciation" in r], "the DM keyword BOT, 24x7-style words and UPI are fine"
+cta_ok = copy.deepcopy(good["beats"]); cta_ok[-1]["line"] = "Agar raat ko messages chhoot jaate hain, toh comment mein BOT likho. UPI aur 24x7 setup bhejunga."
+assert not [r for r in sw.problems({"beats": cta_ok}, sheet, style, focus_p) if "pronunciation" in r]
+per, glob = sw.by_beat(reasons, [{"beat": n} for n in style["beats"]])
+assert list(per) == ["fix"] and not glob, "routed to the fix beat only"
+fixed_fix = copy.deepcopy(good["beats"][2])
+calls_p = []
+def ask_p(p, s="", **k):
+    calls_p.append(p)
+    if "Rewrite ONLY the beat" in p:
+        assert "['fix']" in p and "SERP" in p and "pronunciation" in p, p[:300]
+        return json.dumps({"beats": [fixed_fix]})
+    if "editor" in p or "strict marketing editor" in s or "issues" in p:
+        return json.dumps({"issues": []})
+    return json.dumps({"hooks": [], "beats": bad_p["beats"]})
+out_p = sw.run(sheet, focus_p, style, ask=ask_p, voice="v")
+assert out_p["beats"][2]["line"] == fixed_fix["line"], "the failing beat was rewritten"
+assert [b["line"] for i, b in enumerate(out_p["beats"]) if i != 2] == [b["line"] for i, b in enumerate(bad_p["beats"]) if i != 2], "every other beat untouched"
+lessons = SL.load()
+assert lessons["pronounce-caps"]["count"] == 1 and "SERP" in lessons["pronounce-caps"]["recent"][-1]["mistake"] and lessons["pronounce-caps"]["recent"][-1]["on"], lessons
+assert "2BHK" in lessons["pronounce-glued"]["recent"][-1]["mistake"], lessons
+blk = SL.prompt_block()
+assert "LAST TIME you wrote this and it was rejected" in blk and "SERP" in blk and "Never write an unknown ALL-CAPS word" in blk and "no ALL-CAPS word except the DM keyword" in blk, blk
+SL.record(reasons); SL.record(reasons)
+assert SL.load()["pronounce-caps"]["count"] == 1, "the same reason shown again in the same run is counted once"
+SL.record([f'fix: pronunciation: "XQ{i}" (heard in: "...a XQ{i} b...") is written in capitals but has no spelling' for i in range(5)])
+assert len(SL.load()["pronounce-caps"]["recent"]) == 3, "only the latest concrete mistakes are kept"
+SL.STATE.write_text(json.dumps({"old": {"count": 2, "rule": "An old rule from before concrete lessons"}}), encoding="utf-8")
+assert "An old rule from before concrete lessons (rejected 2x before)" in SL.prompt_block() and "LAST TIME" not in SL.prompt_block(), "old lesson files still work"
+print("pronunciation gate + concrete lessons ok")
+
+# the gate fails OPEN: if the voice rules file is missing, scripts are not blocked and the day goes on
+from src import pronounce as _pr
+_saved = (_pr._SPEECH, _pr._mod)
+_pr._SPEECH, _pr._mod = pathlib.Path("/nonexistent/speech_text.py"), None
+assert _pr.problems({"beats": [{"beat": "fix", "line": "Ye SERP dekho"}]}) == []
+_pr._SPEECH, _pr._mod = _saved
+assert _pr.problems({"beats": [{"beat": "fix", "line": "Ye SERP dekho"}]}), "and it checks again once the file is back"
+print("pronunciation gate fails open ok")

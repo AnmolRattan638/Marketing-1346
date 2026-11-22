@@ -153,6 +153,7 @@ Every line is cleaned before ANY voice engine reads it; captions keep the script
 - `agent/speech_text.py`: symbols and glued forms, as rules: `24x7`/`24*7`/`24-7`/`24/7` -> "twenty four by seven", `30sec`/`24hrs` -> "30 second"/"24 hours", `1st` -> "first", `4K video` -> "four K video", `5G`, `#1` -> "number 1",
   `10+` -> "10 plus", `10-15` -> "10 to 15", `5kg`, `3,199` -> `3199`, `₹999/month` -> "999 rupees per month", `999/-`, phone numbers digit by digit, `www`/`.com`/`@` ("at the rate" in e-mails).
 - `agent/pronunciations.json` (Sarvam only): the Devanagari spelling of an English word that stays in English letters (`netlify`, `lovable`, `dot`, `com`).
+The gate: `speech_text.audit()` lists what the voice would STILL say wrong (unknown ALL-CAPS words, digits glued to letters, leftover symbols). The script writer (`src/pronounce.py`) rejects such a script and the video stage re-checks it before recording; a rejection becomes a lesson in `data/script_lessons.json` (see `docs/SCHEDULING.md`).
 `tests/voice_pronounce_test.py` pins all of it; add a line there when you add a rule.
 
 ## Re-edit a finished clip (`re-edit` workflow)

@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import re
+from dataclasses import dataclass
 from pathlib import Path
 
 NUM = {0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen",
@@ -131,20 +132,35 @@ def _symbols(t: str) -> str:
     t = re.sub(r"\$\s*(\d+(?:,\d+)*(?:\.\d+)?)", r"\1 dollars", t)
     t = re.sub(r"\be\.\s?g\b\.?", "for example", t, flags=re.I)
     t = re.sub(r"\bi\.\s?e\b\.?", "that is", t, flags=re.I)
+    t = re.sub(r"\b([ap])\.m\b\.?", lambda m: m[1].lower() + "m", t, flags=re.I)         # 10 a.m. -> 10 am
+    t = re.sub(r"\b(?:[A-Za-z]\.){2,}(?:[A-Za-z]\b)?", _dotted, t)                         # S.E.O. -> SEO (the voice used to stop at every dot)
     return t
+
+
+def _dotted(m: re.Match) -> str:
+    letters = m[0].replace(".", "")
+    if not m[0].endswith("."):
+        return letters
+    nxt = m.string[m.end():].lstrip()[:1]
+    return letters + ("" if nxt.islower() or nxt.isdigit() or nxt in ",;:)" else ".")        # the last dot stays only when it ends a sentence
 
 
 def _short(m: re.Match) -> str:
     """One word of shortforms.json. A full stop after it is dropped only when it belongs to the abbreviation (Dr. Sharma, approx. 5), kept when it ends the sentence (30 sec. Phir)."""
     k = m[1].lower()
-    if k not in SHORT or "/" in k:
+    word = SHORT.get(k)
+    if word is None and k.endswith("s") and "/" not in k:
+        base = SHORT.get(k[:-1])
+        if base and re.fullmatch(r"(?:[A-Za-z0-9] )+[A-Za-z0-9]", base):               # UPIs, CTAs, KPIs: letter by letter, then 's
+            word = base + "'s"
+    if word is None or "/" in k:
         return m[0]
     keep = ""
     if m[2]:
         nxt = m.string[m.end():].lstrip()[:1]
         if k not in TITLES and not (nxt.islower() or nxt.isdigit() or nxt in ",;:)"):
             keep = "."
-    return SHORT[k] + keep
+    return word + keep
 
 
 def expand(text: str) -> str:
@@ -238,3 +254,53 @@ def sentences(text: str) -> list[tuple[str, float, int]]:
 def clean(text: str) -> str:
     """The voice text for a line as ONE string (expanded, signs removed, punctuated). Used before the Devanagari conversion."""
     return " ".join(s for s, _, _ in sentences(text))
+
+
+# --- the gate: what the voice would STILL say wrong after all the rules above. The script writer rejects a script that has any of these, so the writer fixes the words
+#     before the voice ever sees them (see src/pronounce.py). Each finding says what was written, what the voice would do with it and what to write instead.
+CAPS_OK = {"am", "pm", "ist"}
+
+
+def _lexicon() -> set[str]:
+    try:
+        return {str(k).lower() for k in json.loads(Path(__file__).with_name("pronunciations.json").read_text(encoding="utf-8"))}
+    except Exception:
+        return set()
+
+
+LEXICON = _lexicon()
+
+
+@dataclass(frozen=True)
+class Finding:
+    kind: str          # caps-word | glued | symbol
+    token: str
+    message: str       # concrete: the word, where it was heard, what the voice would do, what to write instead
+
+
+def audit(text: str, allow=()) -> list[Finding]:
+    """Everything in `text` that the voice would still mispronounce after the cleaner has done its work. `allow` = capital-letter words that ARE meant as words (the DM keywords)."""
+    names = {str(a).lower() for a in allow if a} | CAPS_OK | set(SHORT) | LEXICON
+    spoken = strip_signs(expand(text))
+    found: list[Finding] = []
+    seen: set[tuple[str, str]] = set()
+
+    def add(kind: str, m: re.Match, why: str) -> None:
+        if (kind, m[0]) in seen:
+            return
+        seen.add((kind, m[0]))
+        ctx = spoken[max(0, m.start() - 28): m.end() + 28].strip()
+        found.append(Finding(kind, m[0], f'"{m[0]}" (heard in: "...{ctx}...") {why}'))
+
+    for m in re.finditer(r"\b[A-Z]{2,6}s?\b", spoken):
+        low = m[0].lower()
+        if low in names or low.rstrip("s") in names:
+            continue
+        add("caps-word", m, f'is written in capitals but has no spelling in the pronunciation list, so the voice would say it as one word ("{low}"). Write a plain word instead, or spell it with spaces (S E R P).')
+    for m in re.finditer(r"\b(?=[A-Za-z0-9]*\d)(?=[A-Za-z0-9]*[A-Za-z])[A-Za-z0-9]+\b", spoken):
+        if re.fullmatch(r"\d{1,2}(am|pm)|\d+(st|nd|rd|th)", m[0], re.I) or m[0].lower() in names:
+            continue
+        add("glued", m, "mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words.")
+    for m in re.finditer(r"[+=$@%]", spoken):
+        add("symbol", m, "is a symbol the voice would read out or drop. Say it in words (plus, equals, dollars, at, percent).")
+    return found

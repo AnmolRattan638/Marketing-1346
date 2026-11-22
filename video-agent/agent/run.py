@@ -43,6 +43,10 @@ def pick_topic(arg_topic: str | None) -> str:
 
 
 def build(topic: str, offline: bool, no_render: bool, master: dict | None = None) -> None:
+    if master:
+        bad = master_script.pronunciation_problems(master)        # before any voice, footage or render work: a script the voice would mispronounce is stopped here
+        if bad:
+            raise master_script.PronunciationError("; ".join(bad[:4]))
     cfg = load_config()
     _footage._CFG = cfg          # stock.keywords / stock.anchors keep stock strictly about AI and technology
     out_dir = ROOT / "runs" / (date.today().isoformat() + (f"-{os.environ['REEL_SLOT']}" if os.environ.get("REEL_SLOT") else ""))
@@ -231,6 +235,13 @@ def main() -> None:
     topic = (master or {}).get("topic") or (pick_topic(args.topic) if not args.offline else "offline sample")
     try:
         build(topic, args.offline, args.no_render, master)
+    except master_script.PronunciationError as e:
+        print(e)
+        try:
+            notify.send_message(f"Video not made: the script has words the voice would say wrong, so nothing was recorded. {str(e)[:500]} Start Daily draft again with Redo; the script writer now reads this mistake as a lesson.")
+        except Exception:
+            pass
+        raise SystemExit(1)
     except HybridError as e:
         print(e)
         try:

@@ -11,6 +11,10 @@ on:
         description: "Redo today's second reel script even if one exists"
         type: boolean
         default: false
+      attempt:
+        description: "Automatic restart counter. The workflow sets it itself after a failure; leave it blank."
+        required: false
+        default: "1"
 
 permissions:
   contents: write
@@ -72,6 +76,7 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Write reel 2 and start its video
+        id: gen
         env:
           GITHUB_TOKEN: ${{ github.token }}
           PYTHONUNBUFFERED: "1"
@@ -90,3 +95,14 @@ jobs:
           curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
             --data-urlencode "text=Second reel workflow failed. Nothing was posted. Check the Actions tab." > /dev/null
+
+      - name: Start again automatically (runs AFTER the lessons above are saved, so the new run reads them)
+        if: failure() && steps.gen.outcome == 'failure'        # failure() is needed: without a status function GitHub adds success() and would skip this step
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RETRY_ATTEMPT: ${{ inputs.attempt || '1' }}
+          RETRY_MAX: ${{ vars.RETRY_MAX || '3' }}
+          RETRY_DELAY: ${{ vars.RETRY_DELAY || '120' }}
+        run: python -m src.retry --workflow second-reel.yml

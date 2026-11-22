@@ -7,6 +7,8 @@ import re
 from datetime import date
 from pathlib import Path
 
+from . import speech_text
+
 ROOT = Path(__file__).resolve().parent.parent
 DRAFTS = ROOT.parent / "data" / "drafts"
 EARLY = ROOT.parent / "data" / "master"       # the script handed over the moment it is ready, so the reel renders while the rest of the draft is still being written
@@ -41,6 +43,42 @@ def _norm(t: str) -> str:
 
 def beat_order(master: dict) -> list[str]:
     return [b["beat"] for b in master["beats"]]
+
+
+class PronunciationError(RuntimeError):
+    """The script has words the voice would say wrong. Raised BEFORE any paid voice, footage or render work, so nothing is wasted."""
+
+
+def keywords(*extra: str) -> set[str]:
+    """Every DM keyword (SITE, BOT, ADS...): capital-letter words that are meant as words."""
+    found = {str(e) for e in extra if e}
+    try:
+        def walk(x):
+            if isinstance(x, dict):
+                for k, v in x.items():
+                    if k == "dm_keyword" and v:
+                        found.add(str(v))
+                    else:
+                        walk(v)
+            elif isinstance(x, list):
+                for v in x:
+                    walk(v)
+        walk(json.loads((ROOT.parent / "config" / "services.json").read_text(encoding="utf-8")))
+    except Exception:
+        pass
+    return found
+
+
+def pronunciation_problems(master: dict) -> list[str]:
+    """The script writer's own gate, run again on the words the voice is about to read (the same speech_text.audit, so they cannot disagree)."""
+    allow = keywords((master.get("marketing") or {}).get("keyword"), master.get("keyword"))
+    return [f"{b.get('beat')}: {f.message}" for b in master.get("beats") or [] for f in speech_text.audit(str(b.get("line") or ""), allow)]
+
+
+def narration_problems(plan: dict) -> list[str]:
+    """Same gate for a plan whose narration the PLANNER wrote (no master script, e.g. a topic typed by hand). Paths look like the schema's, so lessons.explain can read them."""
+    allow = keywords()
+    return [f"scenes/{i}/narration: pronunciation: {f.message}" for i, sc in enumerate(plan.get("scenes") or []) for f in speech_text.audit(str(sc.get("narration") or ""), allow)]
 
 
 def problems(plan: dict, master: dict) -> list[str]:

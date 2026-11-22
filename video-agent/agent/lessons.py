@@ -51,6 +51,9 @@ def explain(problem: str) -> tuple[str, str, str]:
     val = re.match(r"^'(.*?)'? is", msg, re.S)
     val = val.group(1) if val else ""
     node = _node(path)
+    if msg.startswith("pronunciation:"):
+        return ("narration:pronunciation", f"{where}: the narration has a word the voice would say wrong. {msg[len('pronunciation:'):].strip()}",
+                "narration must be speakable: no unknown ALL-CAPS words (use a plain word or spell it S E R P), no digits glued to letters (2BHK, Q4), no symbols (+ = $ @)")
     if msg.endswith("is too long"):
         lim = node.get("maxLength")
         return (f"{field}:too-long", f"{where}: `{field}` was {len(val)} characters (\"{val}\"), the limit is {lim}. Rewrite it to {lim} characters or fewer.",

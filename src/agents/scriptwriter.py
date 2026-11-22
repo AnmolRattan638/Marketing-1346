@@ -6,7 +6,7 @@ import json
 import os
 import re
 import datetime
-from .. import config, contentskills, llm, marketingskills, scriptlessons
+from .. import config, contentskills, llm, marketingskills, pronounce, scriptlessons
 from .. import hooks as hooks_mod, verticals
 
 STYLES = [
@@ -235,6 +235,7 @@ def problems(script, sheet, style, focus=None):
         if stray and b is not (beats[0] if beats else None):
             out.append(f"{b.get('beat')}: number(s) {sorted(stray)} not backed by a cited fact")
     out += budget_problems(beats)
+    out += pronounce.problems(script, sheet.get("keyword"), (focus or {}).get("dm_keyword"))      # words the voice would say wrong: rejected here, so the writer fixes them before the voice ever sees them
     if beats and BAD_OPEN.search(str(beats[0].get("line") or "")):
         out.append("opens with a greeting/intro")
     for b in beats:

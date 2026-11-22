@@ -64,3 +64,42 @@ voice.media_duration = lambda p: 1.0
 voice.synth(line, pathlib.Path(tempfile.mkdtemp()) / "e.mp3", {"voice_engine": "edge", "language": "hi", "voices": {"hi": {"edge": "x"}}}, False)
 assert seen == ["Humari team twenty four by seven available hai, 999 rupees mein website, call 9 8 7 6 5, 4 3 2 1 0."], seen
 print("end to end: Sarvam prompt and edge voice both get the spoken forms")
+
+# 12. tighter rules: dotted acronyms and plural acronyms are fixed, and audit() flags what the voice would STILL say wrong
+assert say("Ye S.E.O. kaam karta hai") == "Ye S E O kaam karta hai." and say("S.E.O. Phir aage") == "S E O. Phir aage." and say("10 a.m. ko call") == "10 am ko call."
+assert say("UPIs aur KPIs") == "U P I's aur K P I's."
+kinds = lambda s, allow=(): [(f.kind, f.token) for f in st.audit(s, allow)]
+assert kinds("SERP ranking aur CRO") == [("caps-word", "SERP"), ("caps-word", "CRO")]
+assert kinds("2BHK flat aur mp3") == [("glued", "2BHK"), ("glued", "mp3")] and kinds("Q4 ka plan") == [("glued", "Q4")]
+assert kinds("A+ grade = best") == [("symbol", "+"), ("symbol", "=")]
+assert kinds("comment SCRIPT likho", ["SCRIPT"]) == [] and kinds("comment SCRIPT likho") == [("caps-word", "SCRIPT")], "a DM keyword the voice has no spelling for is allowed only when it is passed in"
+assert kinds("comment SITE likho") == [], "SITE is already in the pronunciation lexicon"
+assert kinds("AI, UPI, GST, SEO, CRM, FAQ, DM, 24x7, WhatsApp aur 10am, 5th tarikh, 9:16, ₹999, 5G") == [], "everything the voice knows is clean"
+f = st.audit("Ye SERP dekho")[0]
+assert f.kind == "caps-word" and "SERP" in f.message and "Ye SERP dekho" in f.message and "S E R P" in f.message, f.message     # concrete: the word, where it was heard, what to write
+# 13. the video stage is a safety net with the very same audit: it stops BEFORE any work and says why in plain words
+from agent import master_script, lessons, run as run_mod
+master = {"marketing": {"keyword": "BOT"}, "beats": [{"beat": "fix", "line": "Ye SERP aur 2BHK dekho"}, {"beat": "cta", "line": "Comment BOT likho, 24x7 UPI"}]}
+mp = master_script.pronunciation_problems(master)
+assert len(mp) == 2 and all(x.startswith("fix: ") for x in mp) and "SERP" in mp[0] and "2BHK" in mp[1], mp
+assert master_script.pronunciation_problems({"marketing": {"keyword": "BOT"}, "beats": [master["beats"][1]]}) == []
+try:
+    run_mod.build("t", True, True, master); assert False, "must raise before doing any work"
+except master_script.PronunciationError as e:
+    assert "SERP" in str(e)
+sent = []
+run_mod.notify.send_message = lambda text: sent.append(text)
+run_mod.master_script.load = lambda path=None, today=None: master
+run_mod.build = lambda *a, **k: (_ for _ in ()).throw(master_script.PronunciationError("fix: \"SERP\" (heard in: ...)"))
+sys.argv = ["x"]
+try:
+    run_mod.main(); assert False
+except SystemExit as e:
+    assert e.code == 1
+assert sent and "Video not made" in sent[0] and "SERP" in sent[0] and "Redo" in sent[0], sent
+# 14. a planner that wrote its own narration is rejected the same way, and the lesson is concrete
+np = master_script.narration_problems({"scenes": [{"narration": "Pehla scene theek hai"}, {"narration": "Ye SERP dekho"}]})
+assert len(np) == 1 and np[0].startswith("scenes/1/narration: pronunciation:"), np
+key, concrete, rule = lessons.explain(np[0])
+assert key == "narration:pronunciation" and concrete.startswith("scene 2:") and "SERP" in concrete and "speakable" in rule, (key, concrete, rule)
+print("tighter rules + video stage gate + planner lesson ok")

@@ -227,7 +227,7 @@ def make_plan(topic: str, cfg: dict, library: str = "", service: str = "general"
         raw = _call_groq(messages, cfg)
         try:
             plan = tidy_plan(json.loads(raw))
-            last_problems = validate_plan(plan) + (master_script.problems(plan, master) if master else [])
+            last_problems = validate_plan(plan) + (master_script.problems(plan, master) if master else master_script.narration_problems(plan))
         except json.JSONDecodeError as e:
             plan, last_problems = None, [f"not valid JSON: {e}"]
         if not last_problems:

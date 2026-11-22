@@ -3,6 +3,7 @@
 Every time a script is rejected, each reason is turned into a general rule and counted in data/script_lessons.json (data/ is committed by the workflow even when the run fails, so the
 memory survives). The most frequent rules go into the NEXT script prompt as "mistakes you made before", so they are avoided from the first try. A few rules the model really broke are
 always present (SEED), so a fresh repo still starts with them."""
+import datetime
 import json
 import re
 from pathlib import Path
@@ -14,8 +15,12 @@ SEED = [
     "Every digit you speak or show must appear in a cited fact or in the service capabilities (24x7 is allowed); otherwise say the idea in words.",
     "State what the service does; never promise a result for the owner (no 'never lose a lead', no 'guaranteed', no sales numbers).",
     "Only the cta beat asks; it asks for the ONE keyword and says what they get. No demo, sample, discount or free trial.",
+    "Write every spoken line so a voice can say it: no ALL-CAPS word except the DM keyword (write 'SERP' as a plain word or as S E R P), no digits glued to letters (2BHK, Q4, mp3), no symbols (+ = $ @); acronyms the voice knows are fine (UPI, GST, SEO, CRM, FAQ, 24x7).",
 ]
 RULES = [
+    (r"pronunciation: .*capitals", "pronounce-caps", "Never write an unknown ALL-CAPS word in a spoken line (the voice says it as one word); use a plain word or spell it with spaces (S E R P). Only the DM keyword may be in capitals."),
+    (r"pronunciation: .*digits and letters", "pronounce-glued", "Never glue digits to letters in a spoken line (2BHK, Q4, mp3); write the number and the word apart or in full words."),
+    (r"pronunciation: .*symbol", "pronounce-symbol", "Never leave a symbol (+ = $ @) in a spoken line; say it in words."),
     (r"not backed by a cited fact", "number-unbacked", "Every digit must come from a cited fact; if no fact has the number, say it in words with no digit."),
     (r"beats must be exactly", "beats-exact", "Return exactly the style's beats in order, including the last one."),
     (r"script is \d+ words", "total-length", "The whole script stays under 85 words (about 30 s); give each beat one concrete idea and its reason, nothing more."),
@@ -58,13 +63,32 @@ def load() -> dict:
         return {}
 
 
+_COUNTED: set[tuple[str, str, str]] = set()      # one rejection reason is counted once per run, however many repair rounds show it again
+KEEP_RECENT = 3
+
+
+def concrete(problem: str) -> str:
+    """The rejection as it happened: which beat, what was written, why it failed, how to fix it (the validator's own words, trimmed)."""
+    return re.sub(r"\s+", " ", str(problem)).strip()[:260]
+
+
 def record(problems: list[str]) -> None:
+    """Count each rejection AND keep the concrete mistake with its date, so the next script prompt can say exactly what went wrong last time."""
     data = load()
+    today = datetime.date.today().isoformat()
     for p in problems:
         key, rule = explain(p)
+        what = concrete(p)
+        once = (str(STATE), key, what)
+        if once in _COUNTED:
+            continue
+        _COUNTED.add(once)
         row = data.setdefault(key, {"count": 0})
         row["count"] += 1
         row["rule"] = rule
+        recent = [r for r in row.get("recent", []) if r.get("mistake") != what]
+        recent.append({"on": today, "mistake": what})
+        row["recent"] = recent[-KEEP_RECENT:]
     try:
         STATE.parent.mkdir(parents=True, exist_ok=True)
         STATE.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -76,5 +100,6 @@ def prompt_block(limit: int = 6) -> str:
     rules = list(SEED)
     for _, row in sorted(load().items(), key=lambda kv: -kv[1].get("count", 0))[:limit]:
         if row.get("rule") and row["rule"] not in rules:
-            rules.append(f"{row['rule']} (rejected {row['count']}x before)")
+            last = (row.get("recent") or [{}])[-1].get("mistake")
+            rules.append(f"{row['rule']} (rejected {row['count']}x before)" + (f" LAST TIME you wrote this and it was rejected: {last}" if last else ""))
     return "\nMISTAKES YOU HAVE MADE BEFORE (a rejected script costs the whole day; check each before answering):\n- " + "\n- ".join(rules) + "\n"

@@ -3,7 +3,7 @@ import datetime as dt
 import os, secrets, subprocess
 import sys, traceback
 import requests
-from . import marketingskills, analytics, browser_research, captions, carousel, config, diagrams, formats, humanize, ideas, learning, llm, tg, virality, web_research
+from . import marketingskills, analytics, browser_research, captions, carousel, config, diagrams, formats, humanize, ideas, learning, llm, structure, tg, virality, web_research
 from .agents import analysis, carousel as carousel_agent, factcheck, factsheet, fit as fit_agent, image, scriptwriter, linkedin_edit, problems as problems_agent, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
@@ -296,7 +296,7 @@ def main():
              "experiment": {k: exp.get(k) for k in ("mode", "variable", "problem_id", "angle_type", "hook_style")} if followed else None,
              "hooks": plan["hooks"], "chosen_hook": plan.get("chosen_hook", 0),
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
-             "fact_sheet": sheet if sheet.get("facts") else None, "master_script": master, "script_style": (master or {}).get("style"),
+             "fact_sheet": sheet if sheet.get("facts") else None, "master_script": master, "script_style": (master or {}).get("style"), "structure": structure.describe(master) or None,
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),
              "image": img, "carousel": car_data, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "sources": web_research.sources_for_draft(ev), "humanizer": hz, "ad_score": rv.get("ad_score"), "virality": vir_after or None, "virality_review": vsum,
              "llm": {"answered": list(dict.fromkeys(llm.LOG)), "failures": llm.FAILURES[:20]}}

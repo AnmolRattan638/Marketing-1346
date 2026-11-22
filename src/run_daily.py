@@ -218,7 +218,9 @@ def main():
             car, why = stage("carousel", lambda: carousel_agent.build(plan, focus, brand, g('writer'), today, master=master, **ev_kw), fallback=(None, "the carousel step failed"))
             if car:
                 plan["hooks"][plan.get("chosen_hook", 0)]["text"] = car["slides"][0]["headline"]
-                if not car.get("checked"):
+                if car.get("unresolved"):
+                    WARNINGS.append("carousel: the fact-check still objected after 3 tries, read every slide before approving: " + " | ".join(car["unresolved"])[:350])
+                elif not car.get("checked"):
                     WARNINGS.append("carousel: the fact-check was unavailable, so read every slide before approving.")
             else:
                 WARNINGS.append(f"carousel skipped (single image instead): {why}")

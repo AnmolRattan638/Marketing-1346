@@ -132,6 +132,20 @@ assert car and car["checked"] is False, "a down fact-checker never blocks; the d
 replies[:] = [[]] * ca.ATTEMPTS
 assert ca.build(plan, bot, brand, "g", "2026-11-30")[0] is None
 
+# ---- fail-soft: the day 2026-11-19 / 2026-11-21 failures
+fs = G(); fs[1]["body"] = "A free checklist and some free time"; fs[2]["headline"] = "Free tools help"
+scr = ca.scrub(copy.deepcopy(fs))
+assert not ca.BANNED.search(" ".join(s["headline"] + " " + s["body"] for s in scr)) and "spare time" in scr[1]["body"] and scr[2]["headline"] == "Simple tools help"
+replies[:] = [copy.deepcopy(fs)]; verdicts[:] = [{"ok": True, "issues": []}]
+car, why = ca.build(plan, bot, brand, "g", "2026-11-30")
+assert car and why is None, "a stray 'free' no longer costs the whole carousel"
+replies[:] = [G()] * ca.ATTEMPTS; verdicts[:] = [{"ok": False, "issues": ["slide 1: absolute outcome claim"]}] * ca.ATTEMPTS
+car, why = ca.build(plan, bot, brand, "g", "2026-11-30")
+assert car and car["checked"] is False and car["unresolved"] == ["slide 1: absolute outcome claim"], "only the second model objects: ship with the objections shown"
+replies[:] = [bad] * ca.ATTEMPTS
+assert ca.build(plan, bot, brand, "g", "2026-11-30")[0] is None, "a real rule break (a price) still fails closed"
+print("carousel fail-soft ok")
+
 # the factual taste: a model-made attribution can never pass, the fact is quoted exactly
 ca.facts_for = lambda sid: [FACT]
 for d in range(1, 15):
@@ -442,3 +456,4 @@ assert bgs[0].tobytes() != bgs[1].tobytes() != bgs[2].tobytes()
 assert sum(ImageStat.Stat(cr._backdrop(2, 6, None)).stddev) > 8, "no-hook backdrop looks flat"
 assert cr._hook_image("data/media/does-not-exist.jpg") is None
 print("carousel backdrop tests ok")
+

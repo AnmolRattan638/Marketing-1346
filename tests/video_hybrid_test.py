@@ -150,6 +150,7 @@ def synth_fill(s, words, scene, base, i):
     dest = base.with_suffix(".jpg" if s["type"] == "photo" else ".mp4")
     ed._synthetic(s["type"], dest, i); s.update(src=dest, credit={"source": "synthetic"})
 ed._fill = synth_fill
+import random as _r; ed.rng = _r.Random(1)      # the editor seeds by date; pin it so this test does not depend on the day
 ed.prof["transitions"] = {"cut": 20, "fade": 80}
 out = pathlib.Path(tempfile.mkdtemp())
 ed.prepare([("s1", {"footage_query": "website demo", "narration": "x"}, 6.0), ("s2", {"footage_query": "owner desk", "narration": "y"}, 5.0)], out)

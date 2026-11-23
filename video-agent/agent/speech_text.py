@@ -145,6 +145,11 @@ def _dotted(m: re.Match) -> str:
     return letters + ("" if nxt.islower() or nxt.isdigit() or nxt in ",;:)" else ".")        # the last dot stays only when it ends a sentence
 
 
+def _decimal(m: re.Match) -> str:
+    whole = int(m[1])
+    return f"{_word(whole)} point {' '.join(NUM[int(d)] for d in m[2])}"                    # digits after the point are read one by one, in English words
+
+
 def _short(m: re.Match) -> str:
     """One word of shortforms.json. A full stop after it is dropped only when it belongs to the abbreviation (Dr. Sharma, approx. 5), kept when it ends the sentence (30 sec. Phir)."""
     k = m[1].lower()
@@ -178,6 +183,8 @@ def expand(text: str) -> str:
     t = t.replace("&", " and ")
     for k in sorted((k for k in SHORT if "/" in k and k != "24/7"), key=len, reverse=True):   # w/ w/o b/w a/b and/or: whole words only, so show/hide and new/old are left alone
         t = re.sub(r"(?<![A-Za-z0-9])" + re.escape(k) + (r"(?![A-Za-z0-9])" if k[-1].isalnum() else ""), SHORT[k], t, flags=re.I)
+    t = re.sub(r"\bv(?=\d+\.\d)", "version ", t, flags=re.I)                                 # v2.5 -> version 2.5
+    t = re.sub(r"(?<![\d.,/:\-])(\d{1,3})\.(\d{1,3})(?![\d.]|/\d|:\d)", _decimal, t)       # 2.5 -> two point five, never "do point panch" (dates, IPs, 1.2.3 are left alone)
     t = re.sub(r"\b([A-Za-z][A-Za-z0-9]{0,11})(\.?)(?=\W|$)", _short, t)
     return t
 

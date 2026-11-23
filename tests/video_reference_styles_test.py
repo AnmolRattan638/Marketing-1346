@@ -3,7 +3,7 @@ new graphic layouts / mocks / transitions pass the schema and the resolver, and 
 import pathlib, re, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "video-agent"))
-from agent import graphics, looks, schema, fx_plan
+from agent import graphics, looks, fx_plan
 
 SRC = ROOT / "video-agent/template/src"
 ref = (SRC / "components/RefCaptions.tsx").read_text()

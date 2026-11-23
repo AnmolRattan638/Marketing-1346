@@ -1,4 +1,5 @@
-- Hook style: rotate to **question** (1.83x) or **top3** (1.5x) for chatbot post; avoid **contrast** (0.36x of top3).
-- Avoid repeating "wrong price/timing" and "same questions" angles — used in last 3 chatbot posts.
-- Use **silhouette** or **bright-desk** image style (1.5x) for carousel/image; reels underperform (0.21x of image).
-- Posts must read as a developer sharing real work, never an ad. No demos, samples, or niche targeting.
+- Hook style: rotate to **question** (1.83x) or **top3** (1.5x); pause contrast hooks.
+- Format: favour **images** over reels (reels earn 30% of images per reach); if video, keep hook under 3 seconds.
+- Angle: use **mistake** (1.36x) or **myth_bust** (1.25x) frames; lead-gen posts must address freelancers/agencies/any service seller, not developers.
+- Visual: try **silhouette** or **bright-desk** styles (1.5x).
+- Voice: every post reads like a developer showing real work, never an ad; no demos, samples, guarantees, or niche/region targeting.

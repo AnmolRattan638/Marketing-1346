@@ -7,19 +7,19 @@
       "score_spread": 12.6,
       "llm_scored": 13,
       "median_actual_reach": 4.0,
-      "median_predicted_reach": 665.5,
+      "median_predicted_reach": 667.0,
       "reach_ratio": 0.006,
       "verdict": "some signal"
     },
     "linkedin": {
       "n": 3,
-      "spearman": -0.87,
-      "p_value": 0.33,
+      "spearman": -0.5,
+      "p_value": 0.67,
       "score_spread": 0.4,
       "llm_scored": 0,
       "median_actual_reach": 57.0,
-      "median_predicted_reach": 828.0,
-      "reach_ratio": 0.069,
+      "median_predicted_reach": 845.0,
+      "reach_ratio": 0.067,
       "verdict": "too early"
     }
   },

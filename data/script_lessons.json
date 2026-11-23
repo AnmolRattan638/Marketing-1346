@@ -8,11 +8,11 @@
   "rule": "Promises an absolute result ('koi bhi enquiry miss nahi hoti') instead of describing capability. Fix: Replace 'aur koi bhi enquiry"
  },
  "other:must say what the viewer gets (how the s": {
-  "count": 11,
+  "count": 12,
   "rule": "must say what the viewer gets (how the setup works step by step, or honest advice on whether it fits; never a demo or sample)",
   "recent": [
    {
-    "on": "2026-11-22",
+    "on": "2026-11-23",
     "mistake": "cta: must say what the viewer gets (how the setup works step by step, or honest advice on whether it fits; never a demo or sample)"
    }
   ]
@@ -28,20 +28,20 @@
   ]
  },
  "total-length": {
-  "count": 16,
+  "count": 29,
   "rule": "The whole script stays under 85 words (about 30 s); give each beat one concrete idea and its reason, nothing more.",
   "recent": [
    {
-    "on": "2026-11-22",
-    "mistake": "payoff: script is 119 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 17 to 12 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte ha"
+    "on": "2026-11-23",
+    "mistake": "fix: script is 106 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 17 to 15 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
    },
    {
-    "on": "2026-11-22",
-    "mistake": "poke: script is 119 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 15 to 11 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain"
+    "on": "2026-11-23",
+    "mistake": "poke: script is 106 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 16 to 14 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain"
    },
    {
-    "on": "2026-11-22",
-    "mistake": "payoff: script is 104 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 21 to 17 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte ha"
+    "on": "2026-11-23",
+    "mistake": "payoff: script is 106 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 16 to 14 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte ha"
    }
   ]
  },
@@ -66,16 +66,20 @@
   "rule": "the ask ... is not in offers_allowed; fix to use an allowed offer like ..."
  },
  "number-unbacked": {
-  "count": 16,
+  "count": 22,
   "rule": "Every digit must come from a cited fact; if no fact has the number, say it in words with no digit.",
   "recent": [
    {
-    "on": "2026-11-22",
-    "mistake": "payoff: number(s) ['80'] not backed by a cited fact"
+    "on": "2026-11-23",
+    "mistake": "cta: number(s) ['20'] not backed by a cited fact"
    },
    {
-    "on": "2026-11-22",
-    "mistake": "cta: number(s) ['10'] not backed by a cited fact"
+    "on": "2026-11-23",
+    "mistake": "fix: number(s) ['2'] not backed by a cited fact"
+   },
+   {
+    "on": "2026-11-23",
+    "mistake": "payoff: number(s) ['2', '3'] not backed by a cited fact"
    }
   ]
  },
@@ -90,16 +94,30 @@
   ]
  },
  "connectors": {
-  "count": 16,
-  "rule": "Use helping words (kyunki, isliye, jaise ki, phir) so each line gives its reason."
+  "count": 17,
+  "rule": "Use helping words (kyunki, isliye, jaise ki, phir) so each line gives its reason.",
+  "recent": [
+   {
+    "on": "2026-11-23",
+    "mistake": "lines are bare statements; use helping words that give the reason or an example (kyunki, isliye, matlab, jaise ki, phir, taaki) so the viewer understands WHY"
+   }
+  ]
  },
  "words": {
-  "count": 10,
+  "count": 14,
   "rule": "Keep each beat inside its word range, in full spoken sentences.",
   "recent": [
    {
-    "on": "2026-11-22",
-    "mistake": "pain: line has 26 words (want 5-13; explain it in full spoken sentences, not a slogan)"
+    "on": "2026-11-23",
+    "mistake": "fix: line has 8 words (want 10-26; explain it in full spoken sentences, not a slogan)"
+   },
+   {
+    "on": "2026-11-23",
+    "mistake": "payoff: line has 8 words (want 10-26; explain it in full spoken sentences, not a slogan)"
+   },
+   {
+    "on": "2026-11-23",
+    "mistake": "poke: line has 9 words (want 10-26; explain it in full spoken sentences, not a slogan)"
    }
   ]
  },
@@ -194,8 +212,14 @@
   "rule": "line promises to DM a checklist, which is not a verified fact or a chatbot capability; remove the guarantee or rephrase to a neutr"
  },
  "offer": {
-  "count": 1,
-  "rule": "No demo, sample, discount, free trial or limited-seats offer."
+  "count": 2,
+  "rule": "No demo, sample, discount, free trial or limited-seats offer.",
+  "recent": [
+   {
+    "on": "2026-11-23",
+    "mistake": "cta: 'sample' is an offer we do not make (only pay-after-approval and a short DM chat are allowed); remove it"
+   }
+  ]
  },
  "other:ask the viewer to comment the word SITE ": {
   "count": 1,
@@ -258,8 +282,14 @@
   "rule": "beat promises a result; change to a capability statement, e.g., ..."
  },
  "other:restates problem instead of giving first": {
-  "count": 1,
-  "rule": "restates problem instead of giving first specific answer; fix: rewrite poke to provide a concrete first step, e.g., ..."
+  "count": 2,
+  "rule": "restates problem instead of giving first specific answer; rewrite to provide a specific solution (e.g., ...)",
+  "recent": [
+   {
+    "on": "2026-11-23",
+    "mistake": "marketing: poke: restates problem instead of giving first specific answer; rewrite to provide a specific solution (e.g., 'Hum aapke liye verified WhatsApp numbers ki list banate hain.')"
+   }
+  ]
  },
  "other:includes unverified statistic without ci": {
   "count": 1,
@@ -318,22 +348,122 @@
   ]
  },
  "other:loops: end the hook and the poke (or the": {
-  "count": 1,
+  "count": 2,
   "rule": "loops: end the hook and the poke (or the rehook) on a question or an unfinished thought (... or ?) so the next beat has to answer;",
   "recent": [
    {
-    "on": "2026-11-22",
+    "on": "2026-11-23",
     "mistake": "poke: loops: end the hook and the poke (or the rehook) on a question or an unfinished thought (... or ?) so the next beat has to answer; at least two of them"
    }
   ]
  },
  "other:context: the hook must name the viewer..": {
-  "count": 1,
+  "count": 2,
   "rule": "context: the hook must name the viewer...business owners'",
   "recent": [
    {
-    "on": "2026-11-22",
+    "on": "2026-11-23",
     "mistake": "pain: context: the hook must name the viewer's business type (clinic, salon, cafe, coaching centre, homestay, gym, shop...) so it is clear in 2 seconds who this is for; never just 'business owners'"
+   }
+  ]
+ },
+ "ai-tell": {
+  "count": 1,
+  "rule": "No em dashes, 'it is not X, it is Y', 'No X, no Y' or stock phrases; state the point directly.",
+  "recent": [
+   {
+    "on": "2026-11-23",
+    "mistake": "rehook: contrast reveal ('it is not X, it is Y'); state the point directly"
+   }
+  ]
+ },
+ "other:The line guarantees that competitors won": {
+  "count": 1,
+  "rule": "The line guarantees that competitors won’t get a chance, which is not a proven capability of the service; rephrase it as a hedged ",
+  "recent": [
+   {
+    "on": "2026-11-23",
+    "mistake": "meaning: recap: The line guarantees that competitors won’t get a chance, which is not a proven capability of the service; rephrase it as a hedged benefit or remove the guarantee."
+   }
+  ]
+ },
+ "other:starts with context ... instead of leadi": {
+  "count": 1,
+  "rule": "starts with context ... instead of leading with the payoff; fix: begin the line with the payoff/number, e.g., ...",
+  "recent": [
+   {
+    "on": "2026-11-23",
+    "mistake": "skills: pain: starts with context 'Agar aap salon chalate hain' instead of leading with the payoff; fix: begin the line with the payoff/number, e.g., 'Only 56.3% of phone numbers are correct for salon owners.'"
+   }
+  ]
+ },
+ "other:first spoken word ... is not the most in": {
+  "count": 1,
+  "rule": "first spoken word ... is not the most interesting word; fix: make the payoff or number the first word, e.g., ...",
+  "recent": [
+   {
+    "on": "2026-11-23",
+    "mistake": "skills: pain: first spoken word 'Agar' is not the most interesting word; fix: make the payoff or number the first word, e.g., 'Only 56.3%...'"
+   }
+  ]
+ },
+ "other:promises a result (N.N% correct numbers)": {
+  "count": 1,
+  "rule": "promises a result (N.N% correct numbers) rather than describing capability; rewrite to describe the capability (e.g., ...)",
+  "recent": [
+   {
+    "on": "2026-11-23",
+    "mistake": "marketing: payoff: promises a result (56.3% correct numbers) rather than describing capability; rewrite to describe the capability (e.g., 'Google Places se list lete, WhatsApp verify karte, aapko zyada accurate numbers milte hain.')"
+   }
+  ]
+ },
+ "other:offers an Excel sheet and template which": {
+  "count": 1,
+  "rule": "offers an Excel sheet and template which is not an allowed offer; change CTA to offer the allowed one‑page checklist after comment",
+  "recent": [
+   {
+    "on": "2026-11-23",
+    "mistake": "marketing: cta: offers an Excel sheet and template which is not an allowed offer; change CTA to offer the allowed one‑page checklist after commenting the keyword \"LEADS\""
+   }
+  ]
+ },
+ "other:The line says N.N% of emails are wrong, ": {
+  "count": 1,
+  "rule": "The line says N.N% of emails are wrong, contradicting fact fN which states N.N% are correct. Fix by changing ... to ... or rephras",
+  "recent": [
+   {
+    "on": "2026-11-23",
+    "mistake": "meaning: poke: The line says 59.6% of emails are wrong, contradicting fact f5 which states 59.6% are correct. Fix by changing 'galat' to 'sahi' or rephrase to reflect that 59.6% of emails are correct."
+   }
+  ]
+ },
+ "other:The line mentions the company ..., which": {
+  "count": 1,
+  "rule": "The line mentions the company ..., which is not referenced in any fact. Remove the company name or replace it with a generic refer",
+  "recent": [
+   {
+    "on": "2026-11-23",
+    "mistake": "meaning: fix: The line mentions the company 'LocalSignal', which is not referenced in any fact. Remove the company name or replace it with a generic reference to 'the service' to avoid naming an unverified company."
+   }
+  ]
+ },
+ "other:The line guarantees that WhatsApp messag": {
+  "count": 1,
+  "rule": "The line guarantees that WhatsApp messages always get a reply, which is not supported by fact fN (which only says businesses often",
+  "recent": [
+   {
+    "on": "2026-11-23",
+    "mistake": "meaning: payoff: The line guarantees that WhatsApp messages always get a reply, which is not supported by fact f7 (which only says businesses often reply faster). Rephrase to a hedged statement like 'WhatsApp messages often get quicker replies than email' inst"
+   }
+  ]
+ },
+ "other:The line promises a ..., which is not pa": {
+  "count": 1,
+  "rule": "The line promises a ..., which is not part of the stated service capabilities. Remove the checklist promise or add it as a verifie",
+  "recent": [
+   {
+    "on": "2026-11-23",
+    "mistake": "meaning: cta: The line promises a 'WhatsApp outreach checklist', which is not part of the stated service capabilities. Remove the checklist promise or add it as a verified capability before claiming it."
    }
   ]
  }

@@ -1,46 +1,51 @@
 {
-  "date": "2026-11-22",
+  "date": "2026-11-23",
   "stage": "brand new under 100 followers",
-  "followers": 9,
-  "summary": "High reel skip rate (64% in first 3s) shows hooks fail; chatbot posts earn 26% of website per reach. Bio violates rules: niche, region, timeframe, free offer. Need stronger hooks, rotate styles, fix bio.",
-  "guidance": "- Hook style: rotate to **question** (1.83x) or **top3** (1.5x) for chatbot post; avoid **contrast** (0.36x of top3).\n- Avoid repeating \"wrong price/timing\" and \"same questions\" angles — used in last 3 chatbot posts.\n- Use **silhouette** or **bright-desk** image style (1.5x) for carousel/image; reels underperform (0.21x of image).\n- Posts must read as a developer sharing real work, never an ad. No demos, samples, or niche targeting.",
+  "followers": 8,
+  "summary": "Reels lose 62% viewers in first 3 seconds; contrast hooks earn 33% of top3; Instagram bio violates niche/region/timeframe/free-offer rules.",
+  "guidance": "- Hook style: rotate to **question** (1.83x) or **top3** (1.5x); pause contrast hooks.\n- Format: favour **images** over reels (reels earn 30% of images per reach); if video, keep hook under 3 seconds.\n- Angle: use **mistake** (1.36x) or **myth_bust** (1.25x) frames; lead-gen posts must address freelancers/agencies/any service seller, not developers.\n- Visual: try **silhouette** or **bright-desk** styles (1.5x).\n- Voice: every post reads like a developer showing real work, never an ad; no demos, samples, guarantees, or niche/region targeting.",
   "instructions": {
-    "research": "Find 2-3 common FAQ patterns across diverse Indian small businesses (e.g., clinic timings, salon pricing, gym membership) to illustrate chatbot value without naming a niche.",
-    "analysis": "Compare last 3 chatbot post metrics (reach, skip rate) to identify which hook style (question vs comparison) held attention longer; note the drop-off second.",
-    "writer": "Write a question-hook carousel: \"What are the 3 questions your customers ask every day?\" Show a generic example conversation (labelled \"Example\") and end with \"Pay after approval — DM to discuss fit.\"",
-    "image": "Create a 3-slide carousel using **bright-desk** style: slide 1 hook question, slide 2 labelled example chat bubbles, slide 3 offer + DM CTA. No branding, no demo implication.",
-    "video": "Skip reel today; static carousel outperforms reels 5x per reach. If video needed later, script a 3-second hook showing a phone notification sound with \"New query\" text."
+    "research": "Find 3 common pain points Indian freelancers/agencies voice about manual lead searching (time wasted, outdated contacts, missed new openings).",
+    "analysis": "Compare last 3 lead-gen posts' hook styles and engagement; note which got any DMs or saves.",
+    "writer": "Draft a lead-gen post using a **question** hook about manual lead searching exhaustion; address 'Freelancers, agencies, anyone selling a service'; describe the sheet only as 'local businesses from Google Places with contact details, review counts, website checks, including newly opened ones'; end with 'pay after approval' and DM invite.",
+    "image": "Create a clean silhouette-style graphic: a simple desk with a laptop showing a spreadsheet outline, soft glow, no text-heavy UI.",
+    "video": "Skip video today; if needed later, script a 5-second hook showing a cluttered browser vs. a clean sheet, but only after image tests."
   },
   "manual_tips": [
-    "Update Instagram bio to: \"AI chatbots, animated ads, lead lists & websites for small businesses across India. Pay after approval. DM for honest advice.\" Remove niche, region, timeframe, free offer.",
-    "Comment thoughtfully on 5 posts from Indian small business owners (cafes, clinics, gyms) about handling customer queries — no self-promo, just genuine engagement.",
-    "Reply to any story mentions or tags from collaborators (editorxyz_official, shiven_xyz) to maintain relationship without asking for shares."
+    "Update Instagram bio: remove niches (hotels, cafes, gyms, homestays), region (Himachal), timeframe (24 hrs), and free site check; replace with broad developer description and 'pay after approval' + DM for advice.",
+    "Comment thoughtfully on 5 posts by Indian freelancers/agencies discussing client acquisition; add value, don't pitch.",
+    "Reply to any existing comments on your posts within 2 hours to boost algorithm signals."
   ],
   "weak_signals": [
     {
       "id": "follower_stall",
       "platform": "instagram",
-      "detail": "8 posts in 7 days and followers changed by -1"
+      "detail": "9 posts in 7 days and followers changed by -1"
     },
     {
       "id": "high_skip_rate",
       "platform": "instagram",
-      "detail": "reels lose 64% of viewers in the first 3 seconds across 3 reels: the hook is not stopping the scroll"
+      "detail": "reels lose 62% of viewers in the first 3 seconds across 4 reels: the hook is not stopping the scroll"
     },
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 26% of what 'website' earns per person reached"
+      "detail": "by service, 'chatbot' earns 29% of what 'website' earns per person reached"
     },
     {
       "id": "weak_hook_style",
       "platform": "instagram",
-      "detail": "by hook style, 'contrast' earns 36% of what 'top3' earns per person reached"
+      "detail": "by hook style, 'contrast' earns 33% of what 'top3' earns per person reached"
     },
     {
       "id": "weak_format",
       "platform": "instagram",
-      "detail": "by format, 'reel' earns 21% of what 'image' earns per person reached"
+      "detail": "by format, 'reel' earns 30% of what 'image' earns per person reached"
+    },
+    {
+      "id": "zero_engagement_streak",
+      "platform": "bluesky",
+      "detail": "the last 4 settled posts got zero likes, comments, shares and saves"
     },
     {
       "id": "follower_stall",

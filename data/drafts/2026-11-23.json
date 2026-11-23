@@ -1,0 +1,737 @@
+{
+  "id": "2026-11-23-96deac",
+  "date": "2026-11-23",
+  "created_at": "2026-11-23T11:20:15+00:00",
+  "status": "pending",
+  "service": "lead_gen",
+  "topic": "Ever found a perfect client on Google Maps, only to spend 20 minutes searching for a working email or phone number?",
+  "idea_id": null,
+  "problem_id": "the-digital-scavenger-hunt-for-contact-i",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "the-digital-scavenger-hunt-for-contact-i",
+    "angle_type": null,
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "Stop spending 20 minutes hunting contacts. Start pitching instantly."
+    },
+    {
+      "style": "top3",
+      "text": "Freelancers, top 3 ways to eliminate contact hunting and close faster"
+    },
+    {
+      "style": "myth",
+      "text": "Freelancers, myth: manual search saves time. Fact: verified lists save hours"
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "Indian businesses typically list a mobile number and a WhatsApp button before the email on their Contact Us page.",
+        "figure": null,
+        "source": "useleadtrapper.com",
+        "title": "B2B Leads in India: Find Business Emails, Phones and WhatsApp",
+        "url": "https://useleadtrapper.com/articles/b2b-leads-india/",
+        "date": "2026-11-17",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "Decision makers in Indian businesses are commonly titled Managing Director, Director, Proprietor, Founder, or CEO.",
+        "figure": null,
+        "source": "useleadtrapper.com",
+        "title": "B2B Leads in India: Find Business Emails, Phones and WhatsApp",
+        "url": "https://useleadtrapper.com/articles/b2b-leads-india/",
+        "date": "2026-11-17",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Indian mobile numbers have 10 digits and start with 6, 7, 8, or 9.",
+        "figure": "10 digits",
+        "source": "useleadtrapper.com",
+        "title": "B2B Leads in India: Find Business Emails, Phones and WhatsApp",
+        "url": "https://useleadtrapper.com/articles/b2b-leads-india/",
+        "date": "2026-11-17",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Indian landline numbers start with area codes like 011 for Delhi or 022 for Mumbai.",
+        "figure": "011, 022",
+        "source": "useleadtrapper.com",
+        "title": "B2B Leads in India: Find Business Emails, Phones and WhatsApp",
+        "url": "https://useleadtrapper.com/articles/b2b-leads-india/",
+        "date": "2026-11-17",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "LeadTrapper found that 59.6% of published emails and 56.3% of phone numbers on Indian business websites were correct.",
+        "figure": "59.6%, 56.3%",
+        "source": "useleadtrapper.com",
+        "title": "B2B Leads in India: Find Business Emails, Phones and WhatsApp",
+        "url": "https://useleadtrapper.com/articles/b2b-leads-india/",
+        "date": "2026-11-17",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "Most Indian SMBs aren't on LinkedIn but are listed on Google Maps, making Google Maps a good starting point for outreach.",
+        "figure": null,
+        "source": "grabnear.com",
+        "title": "Google Maps Email Finder India — Find Business Emails Free GrabNear",
+        "url": "https://grabnear.com/blog/google-maps-email-extractor",
+        "date": "2026-05-31",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Small Indian businesses often answer WhatsApp messages faster than email, making WhatsApp a primary communication channel.",
+        "figure": null,
+        "source": "useleadtrapper.com",
+        "title": "B2B Leads in India: Find Business Emails, Phones and WhatsApp",
+        "url": "https://useleadtrapper.com/articles/b2b-leads-india/",
+        "date": "2026-11-17",
+        "verdict": "verified",
+        "id": "f7"
+      }
+    ],
+    "dropped": 1,
+    "topic": "Ever found a perfect client on Google Maps, only to spend 20 minutes searching for a working email or phone number?"
+  },
+  "master_script": null,
+  "script_style": null,
+  "structure": null,
+  "posts": {
+    "instagram": "𝗚𝗢𝗢𝗚𝗟𝗘 𝗠𝗔𝗣𝗦 𝗣𝗔𝗥 𝗕𝗨𝗦𝗜𝗡𝗘𝗦𝗦 𝗠𝗜𝗟 𝗚𝗔𝗬𝗔, 𝗣𝗔𝗥 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗡𝗨𝗠𝗕𝗘𝗥 𝗡𝗔𝗛𝗜?\n→ Freelancers, agencies, anyone selling a service: stop hunting contacts by hand.\n→ Local businesses from Google Places: contact details and website note.\n→ Works for any business you sell to.\nComment 𝗟𝗘𝗔𝗗𝗦 and I will send the 𝗖𝗛𝗘𝗖𝗞𝗟𝗜𝗦𝗧 to your DM. 🙂\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+    "linkedin": "Freelancers often find a local business on Google Maps but no phone number.\n\nWhen you search for a cafe, a gym, a clinic or any other small business, the location appears instantly. The website link may open, but the contact page is often hidden or missing, and a working phone number can be hard to locate. You can spend many minutes trying to find a way to reach the business. Often the only way to contact them is to walk to the door.\n\nI create a daily Excel sheet that lists pre‑qualified local businesses. The list is useful for freelancers, agencies and solo service sellers who need local clients. The sheet is compiled from Google Places and includes the business name, address, phone number and a brief note from the website.\n\nThe process is simple. First you tell me the type of local businesses you want to target. Then I pull the relevant entries from Google Places, verify the contact details and add a short note from each website. Finally I send you the spreadsheet so you can begin outreach without spending hours on cold searching.\n\nWith the sheet you can start sending emails, making calls or sending WhatsApp messages right away. Because the contact information is already gathered, you spend less time hunting for details and more time talking to potential clients. It makes it easier to reach businesses that are visible on Maps but otherwise hard to contact.\n\nThe sheet does not guarantee replies or sales, and it does not replace personal follow‑up on complex queries. It is a starting point, not a finished conversation, and you will still need to craft your own messages.\n\nIf you think this could fit your outreach workflow, feel free to message me. Payment is required only after you approve the work. DM LEADS and tell me what you sell. 🙂",
+    "bluesky": "Found a business on Google Maps but no phone number anywhere? My daily sheet lists local businesses from Google Places with contact details. DM LEADS for the checklist. #FreelanceIndia"
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I do not list a price for the lead sheet here; it depends on what you need. What kind of local businesses are you trying to reach?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, thanks for asking. The sheet covers local businesses from Google Places, whatever service you sell to them. Is your main goal finding businesses to pitch, or getting more enquiries for your own work?"
+    },
+    {
+      "if_they_say": "is the data accurate or just scraped randomly?",
+      "reply": "Hi, good question. Names and contact details come from Google Places plus a note from each website, so it is not random scraping. It still saves hours of manual searching. What do you usually look for first when you find a business?"
+    }
+  ],
+  "image": {
+    "prompt": "a matte‑black smartphone with brushed‑metal frame and gold edge, screen a soft blue glow showing a translucent contact card with an email envelope icon, phone handset icon and hourglass overlay. phone centered on light‑wood desk, filling upper two‑thirds, shot eye‑level slightly above, lower forty percent left as space for headline. blue‑white key light left, rim light right adds violet edge glow and shadows. wood grain with coffee ring foreground, phone midground, blurred dark city silhouette with map‑pin shapes and haze background. indigo backdrop, blue and violet accent, gold on phone, feeling focused and efficient. 85mm lens at f/1.8, shallow depth of field blurs background, highlighting brushed‑metal texture, glass reflections and dust particles catching light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-23.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "the-digital-scavenger-hunt-for-contact-i",
+      "angle_type": "mistake",
+      "style": "bold",
+      "headline": "Still spending 20 minutes hunting for emails?",
+      "highlight": [
+        "20 minutes"
+      ],
+      "sub": "Get direct contact info in one place.",
+      "chat": [],
+      "cta": "Comment \"LEADS\"",
+      "tag": "FOR FREELANCERS & AGENCIES"
+    },
+    "errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ],
+    "style_id": "silhouette"
+  },
+  "carousel": {
+    "flavor": "contrarian",
+    "fact_id": null,
+    "checked": false,
+    "paths": [
+      "data/media/2026-11-23.jpg",
+      "data/media/2026-11-23-s2.jpg",
+      "data/media/2026-11-23-s3.jpg",
+      "data/media/2026-11-23-s4.jpg",
+      "data/media/2026-11-23-s5.jpg",
+      "data/media/2026-11-23-s6.jpg",
+      "data/media/2026-11-23-s7.jpg"
+    ],
+    "alts": [
+      "Stop spending 20 minutes hunting contacts. Start pitching instantly.",
+      "Slide 2 of 7: Why the hunt wastes your day. You find a business on Maps, then spend minutes digging for email or phone on their site. The clock keeps ticking while you could be writing proposals.",
+      "Slide 3 of 7: Missing the pitch window. Every extra minute you search, the business may move on to another vendor. Your outreach volume stays low.",
+      "Slide 4 of 7: Get a ready‑made contact sheet. LocalSignal delivers a daily Excel file with verified emails, phones, review scores and website checks for local businesses found via Google Places.",
+      "Slide 5 of 7: How to use it in three steps. 1️⃣ Open the sheet. 2️⃣ Pick 5‑10 businesses that match your service. 3️⃣ Copy the contact details and start pitching – no more hunting.",
+      "Slide 6 of 7: What this change can do for you. It can reduce the time you spend on research, letting you send more proposals each day and respond faster to inquiries.",
+      "Slide 7 of 7: Comment LEADS. I'll DM you a one‑page checklist on picking the first 20 local businesses and a quick opening line. Drop the word below to get it."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Stop spending 20 minutes hunting contacts. Start pitching instantly.",
+        "body": "Freelancers, agencies, solo sellers – stop the manual hunt and get ready to pitch."
+      },
+      {
+        "role": "problem",
+        "headline": "Why the hunt wastes your day",
+        "body": "You find a business on Maps, then spend minutes digging for email or phone on their site. The clock keeps ticking while you could be writing proposals."
+      },
+      {
+        "role": "problem",
+        "headline": "Missing the pitch window",
+        "body": "Every extra minute you search, the business may move on to another vendor. Your outreach volume stays low."
+      },
+      {
+        "role": "solution",
+        "headline": "Get a ready‑made contact sheet",
+        "body": "LocalSignal delivers a daily Excel file with verified emails, phones, review scores and website checks for local businesses found via Google Places."
+      },
+      {
+        "role": "solution",
+        "headline": "How to use it in three steps",
+        "body": "1️⃣ Open the sheet. 2️⃣ Pick 5‑10 businesses that match your service. 3️⃣ Copy the contact details and start pitching – no more hunting."
+      },
+      {
+        "role": "solution",
+        "headline": "What this change can do for you",
+        "body": "It can reduce the time you spend on research, letting you send more proposals each day and respond faster to inquiries."
+      },
+      {
+        "role": "cta",
+        "headline": "Comment LEADS",
+        "body": "I'll DM you a one‑page checklist on picking the first 20 local businesses and a quick opening line. Drop the word below to get it."
+      }
+    ],
+    "scene_prompts": {
+      "2": "Matte‑black laptop with a glowing indigo screen sits on a brushed‑metal desk; dark‑gloved hands hover over the keyboard while a translucent glass hourglass levitates above, sand slipping slowly. The laptop fills the upper 55 % of the frame, viewed from an angle that leaves the lower 45 % dark and empty for overlay. Cool left key light bathes the scene in deep‑blue hue, rim‑lighting the hourglass with violet glimmer and casting shadows on the desk. In front, scattered sticky notes and a ceramic mug add texture; behind, a blurred wall suggests map pins and faint network lines. Palette: deep indigo with a deep‑blue accent and violet highlights, mood focused and tense. Shot with a 50 mm lens at f/1.8, shallow depth of field renders brushed metal and floating dust particles in crisp detail. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "3": "a dark silhouette of a person from behind, shoulders, hands hovering over a matte‑black tablet that emits a blue glow, fingers poised as if scrolling through endless contacts; the figure occupies the upper 55% of the frame, shot from an eye‑level angle, leaving the lower 45% as a dark area for overlay; cool violet rim light from the left outlines the silhouette, with amber fill on the right creating shadows; foreground a stack of sticky notes and a ceramic mug, midground a brushed‑metal desk with dust catching the light, background a blurred wall of fading translucent network nodes; indigo with a blue‑violet accent, tense anticipation; 85mm lens at f/1.8, shallow depth of field, glossy tablet surface and brushed metal texture. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "4": "a matte‑black laptop with a glowing screen, a translucent blue contact sheet hovering above the keyboard, and a dark silhouette of a person seen from behind, hands poised on the keys; the laptop and sheet occupy the upper 55 % of the frame, viewed from eye‑level, while the lower 45 % fades into a calm dark area; blue key light from the left, violet rim light outlining the silhouette, and a blue‑violet halo from the sheet casting soft shadows; brushed‑metal desk with dust motes and an indigo wall; indigo, cyan‑blue and violet accent, conveying relief; 85 mm lens at f/1.8, depth of field keeping the laptop and sheet razor‑sharp, glass reflections on the desk. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "5": "a brushed‑metal laptop on a matte‑black desk glows deep‑blue, a dark silhouette hand hovers over the keyboard, fingertips touching three floating translucent sheets that emit a violet halo; laptop and hand fill the upper 55% of the frame, low angle view, lower 45% fades to dark area for overlay; cool left key light adds a subtle violet rim to the silhouette and highlights the laptop edge, casting soft shadows; desk surface reflects dust motes, glass cup in foreground, indigo walls behind; indigo palette, deep‑blue accent, calm confidence, organized progress; 85mm lens f/1.8, shallow depth isolates laptop and hand, showing brushed metal grain and glass reflections. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "6": "a matte‑black laptop with a blue glow, keyboard cradling hands hovering over a faint holographic stream of lead icons; the laptop and hands fill the upper 55% of the frame from an eye‑level angle, leaving the lower 45% as an area for text; a left key light washes the scene in cool, a violet rim light outlines the silhouette and the screen emits a halo, casting shadows; a dark indigo wall recedes with particles, a desk holds a ceramic mug and a succulent, and network lines drift between laptop and wall; indigo with a blue‑violet accent, conveying calm efficiency and progress; 85 mm lens at f/1.8, depth of field keeps laptop and hands sharp, blurred background, dust catches light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": []
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Instagram draft mentions 'review count' and 'newly opened' which are not listed in the lead generation capabilities.",
+      "LinkedIn draft mentions 'email', 'review count', and flags 'newly opened locations', which are not part of the defined lead generation capabilities.",
+      "Bluesky draft mentions 'review counts' and 'including newly opened ones', which are not part of the defined lead generation capabilities."
+    ],
+    "revised": {
+      "instagram": "**GOOGLE MAPS PAR BUSINESS MIL GAYA, PAR CONTACT NUMBER NAHI?**\n→ Freelancers, agencies, anyone selling a service: stop hunting contacts by hand.\n→ Local businesses from Google Places: contact details and website note.\n→ Works for any business you sell to.\nComment **LEADS** and I will send the **CHECKLIST** to your DM. 🙂\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+      "linkedin": "Freelancers often find a local business on Google Maps but no phone number.\n\nWhen you search for a cafe, a gym, a clinic or any other small business, the location appears instantly. The website link may open, but the contact page is often hidden or missing, and a working phone number can be hard to locate. You can spend many minutes trying to find a way to reach the business. Often the only way to contact them is to walk to the door.\n\nI create a daily Excel sheet that lists pre‑qualified local businesses. The list is useful for freelancers, agencies and solo service sellers who need local clients. The sheet is compiled from Google Places and includes the business name, address, phone number and a brief note from the website.\n\nThe process is simple. First you tell me the type of local businesses you want to target. Then I pull the relevant entries from Google Places, verify the contact details and add a short note from each website. Finally I send you the spreadsheet so you can begin outreach without spending hours on cold searching.\n\nWith the sheet you can start sending emails, making calls or sending WhatsApp messages right away. Because the contact information is already gathered, you spend less time hunting for details and more time talking to potential clients. It makes it easier to reach businesses that are visible on Maps but otherwise hard to contact.\n\nThe sheet does not guarantee replies or sales, and it does not replace personal follow‑up on complex queries. It is a starting point, not a finished conversation, and you will still need to craft your own messages.\n\nIf you think this could fit your outreach workflow, feel free to message me. Payment is required only after you approve the work. DM LEADS and tell me what you sell. 🙂",
+      "bluesky": "Found a business on Google Maps but no phone number anywhere? My daily sheet lists local businesses from Google Places with contact details. DM LEADS for the checklist. #FreelanceIndia"
+    }
+  },
+  "sources": [
+    {
+      "title": "Sanctoo Suites & Villas",
+      "url": "https://tavily.com/knowledge/company/FkHLBuabGXcS",
+      "domain": "tavily.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "B2B Leads in India: Find Business Emails, Phones and WhatsApp",
+      "url": "https://useleadtrapper.com/articles/b2b-leads-india/",
+      "domain": "useleadtrapper.com",
+      "date": "2026-11-17",
+      "provider": "exa"
+    },
+    {
+      "title": "The largest selection of hotels, homes, and vacation rentals",
+      "url": "https://www.booking.com",
+      "domain": "booking.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Google Maps Email Finder India — Find Business Emails Free GrabNear",
+      "url": "https://grabnear.com/blog/google-maps-email-extractor",
+      "domain": "grabnear.com",
+      "date": "2026-05-31",
+      "provider": "exa"
+    },
+    {
+      "title": "SAP Center",
+      "url": "https://www.sapcenter.com",
+      "domain": "sapcenter.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "How to Get Leads Without Buying Lists or Spending Money",
+      "url": "https://mantisai.in/resources/how-to-get-leads-without-buying-lists",
+      "domain": "mantisai.in",
+      "date": "2026-10-23",
+      "provider": "exa"
+    },
+    {
+      "title": "What % of Local Businesses Don't List an Email on Google Maps? · LeadGrid",
+      "url": "https://leadgrid.eu/guides/what-percent-of-local-businesses-have-no-email-on-google-maps",
+      "domain": "leadgrid.eu",
+      "date": "2026-10-26",
+      "provider": "exa"
+    },
+    {
+      "title": "Brevard County Supervisor of Elections",
+      "url": "https://www.votebrevard.gov",
+      "domain": "votebrevard.gov",
+      "date": "",
+      "provider": "tavily"
+    }
+  ],
+  "humanizer": {
+    "model": "openai/gpt-oss-20b",
+    "platforms": {
+      "linkedin": {
+        "status": "error",
+        "reason": "BadRequestError: Error code: 400 - Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for mo"
+      },
+      "instagram": {
+        "status": "skipped",
+        "reason": "body under 30 words"
+      },
+      "bluesky": {
+        "status": "skipped",
+        "reason": "body under 30 words"
+      }
+    }
+  },
+  "ad_score": 9,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 336.0,
+        "reach_p50": 661.0,
+        "reach_p90": 1396.0,
+        "risk": "high",
+        "risk_issues": [
+          "{'category': 'culture', 'severity': 'low', 'description': 'The post mixes English with Hindi (\"GOOGLE MAPS PAR BUSINESS ",
+          "{'category': 'tone-deafness', 'severity': 'low', 'description': 'The phrase \"stop hunting contacts by hand\" uses a hunti",
+          "{'category': 'exclusion', 'severity': 'low', 'description': 'The Hindi phrase and India‑specific hashtags (#FreelanceInd"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 5.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 363,
+            "share": 2,
+            "like": 1,
+            "reply": 1
+          },
+          "engagement_rate": 0.0109,
+          "by_role": {
+            "public": {
+              "n": 4,
+              "avg_sentiment": 0.518,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 12,
+          "reach_fraction": 0.019,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Open a stronger curiosity gap",
+            "lift_pct": 3.0
+          },
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 3.0
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.0
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 433.0,
+        "reach_p50": 856.0,
+        "reach_p90": 1796.0,
+        "risk": "high",
+        "risk_issues": [
+          "{'category': 'Privacy/Data Protection', 'severity': 'high', 'description': 'The content promotes scraping contact detail",
+          "{'category': 'Spam/Unsolicited Outreach', 'severity': 'medium', 'description': 'Encouraging freelancers to use the provi",
+          "{'category': 'Tone‑deafness', 'severity': 'medium', 'description': \"The messaging assumes that businesses are willing to"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 4.0,
+          "practical_value": 8.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Hype or guarantee words",
+            "impact": "medium"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 365,
+            "share": 1,
+            "like": 2
+          },
+          "engagement_rate": 0.0082,
+          "by_role": {
+            "public": {
+              "n": 3,
+              "avg_sentiment": 0.883,
+              "share_rate": 0.333
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 8,
+          "reach_fraction": 0.013,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 12.1,
+        "breakout_probability": 0.0,
+        "reach_p10": 196.0,
+        "reach_p50": 404.0,
+        "reach_p90": 867.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 1.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 2.0,
+          "practical_value": 5.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 358,
+            "share": 1,
+            "like": 2,
+            "reply": 2
+          },
+          "engagement_rate": 0.0138,
+          "by_role": {
+            "public": {
+              "n": 5,
+              "avg_sentiment": 0.91,
+              "share_rate": 0.2
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 6,
+          "reach_fraction": 0.0065,
+          "r_effective": 0.2,
+          "polarization": 0.481,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "top3",
+          "p_beats_chosen": 0.12,
+          "lift_pct": -1.3,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "myth",
+          "p_beats_chosen": 0.07,
+          "lift_pct": -2.5,
+          "decisive": true
+        }
+      ],
+      "better": null,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Rewrite hook in Hinglish (not full Hindi), remove the free checklist offer entirely, keep only DM conversation; make tone conversational like a developer sharing a real observation.",
+      "linkedin: Condense to 4-5 short sentences: one observation about the contact hunt, what the sheet provides (name, contact, review count, website check, new businesses), pay-after-approval, DM LEADS. Remove process details and English-site a",
+      "bluesky: Sharpen first line with a relatable moment (e.g., 'Map shows the cafe, but no phone number anywhere'), add one concrete sheet detail (review count + website check), keep under 260 chars."
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 10.0
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 12.1
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 429)",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 413)",
+      "FAILED groq: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free"
+    ],
+    "failures": [
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7985, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5074, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7968, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 33.9,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7984, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7992, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7972, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6848, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7970, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7769, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.3,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4564, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5183, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.3,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7921, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7978, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6976, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 34.3,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7972, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6376, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7971, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7990, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7342, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7628, Req"
+      }
+    ]
+  }
+}

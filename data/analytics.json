@@ -2,6 +2,88 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "18129610487313157",
+      "url": "https://www.instagram.com/reel/DgFYD20Jpxa/",
+      "published_at": "2026-11-23T12:29:54.000Z",
+      "text": "SALON OWNERS, KYA AAPKO PATA HAI KI GOOGLE PE 61% LOG APNI LOCAL SEARCH SHURU KARTE HAIN?\n Asli problem sirf ek cheez hai – aapke website par naam aur phone num",
+      "format": "reel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 107,
+        "reach": 90,
+        "views": 107,
+        "likes": 1,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": 56.9,
+        "avg_watch_s": 5.334,
+        "duration_s": 42
+      },
+      "matched": null
+    },
+    {
+      "platform": "instagram",
+      "id": "18103987835425754",
+      "url": "https://www.instagram.com/p/DgFRAJtDpnI/",
+      "published_at": "2026-11-23T11:24:17.000Z",
+      "text": "𝗚𝗢𝗢𝗚𝗟𝗘 𝗠𝗔𝗣𝗦 𝗣𝗔𝗥 𝗕𝗨𝗦𝗜𝗡𝗘𝗦𝗦 𝗠𝗜𝗟 𝗚𝗔𝗬𝗔, 𝗣𝗔𝗥 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗡𝗨𝗠𝗕𝗘𝗥 𝗡𝗔𝗛𝗜?\n→ Freelancers, agencies, anyone selling a service: stop hunting contacts by hand.\n→ Local businesses",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 3,
+        "reach": 1,
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-23",
+        "service": "lead_gen",
+        "hook_style": "question",
+        "topic": "Ever found a perfect client on Google Maps, only to spend 20 minutes searching for a working email or phone number?"
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2xzeuk5i22j",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2xzeuk5i22j",
+      "published_at": "2026-11-23T11:24:14.519767+00:00",
+      "text": "Found a business on Google Maps but no phone number anywhere? My daily sheet lists local businesses from Google Places with contact details. DM LEADS for the ch",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-23",
+        "service": "lead_gen",
+        "hook_style": "question",
+        "topic": "Ever found a perfect client on Google Maps, only to spend 20 minutes searching for a working email or phone number?"
+      }
+    },
+    {
+      "platform": "instagram",
       "id": "18135391598497595",
       "url": "https://www.instagram.com/p/DgCnUhbCNh3/",
       "published_at": "2026-11-22T10:41:34.000Z",
@@ -77,7 +159,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 53.7,
-        "avg_watch_s": 6.602,
+        "avg_watch_s": 6.558,
         "duration_s": 32
       },
       "matched": null
@@ -231,17 +313,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 130,
-        "reach": 85,
-        "views": 130,
+        "impressions": 131,
+        "reach": 86,
+        "views": 131,
         "likes": 5,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 56.3,
-        "avg_watch_s": 4.2,
+        "skip_rate": 56.6,
+        "avg_watch_s": 4.169,
         "duration_s": 27
       },
       "matched": {
@@ -1937,9 +2019,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 327,
-        "reach": 136,
-        "views": 327,
+        "impressions": 328,
+        "reach": 137,
+        "views": 328,
         "likes": 10,
         "comments": 0,
         "shares": 1,
@@ -2057,7 +2139,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 37
+      "posts": 38
     }
   },
   "coverage": {
@@ -2426,5 +2508,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-23T07:41:24+00:00"
+  "updated_at": "2026-11-23T23:55:12+00:00"
 }

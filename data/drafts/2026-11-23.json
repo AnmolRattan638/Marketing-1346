@@ -2,7 +2,7 @@
   "id": "2026-11-23-96deac",
   "date": "2026-11-23",
   "created_at": "2026-11-23T11:20:15+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "lead_gen",
   "topic": "Ever found a perfect client on Google Maps, only to spend 20 minutes searching for a working email or phone number?",
   "idea_id": null,
@@ -733,5 +733,19 @@
         "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7628, Req"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6b04221eb51882f4187a2402 (7 slides)"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6b04225b01adccb6f537a940 (due 2026-11-23T11:24:11.896Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n2xzeuk5i22j (4 slides)"
+    }
   }
 }

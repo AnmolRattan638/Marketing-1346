@@ -250,5 +250,12 @@
     "topic": "Myth: a chatbot sounds robotic and makes up details about your services.",
     "hook_style": "comparison",
     "status": "published"
+  },
+  {
+    "date": "2026-11-23",
+    "service": "lead_gen",
+    "topic": "Ever found a perfect client on Google Maps, only to spend 20 minutes searching for a working email or phone number?",
+    "hook_style": "question",
+    "status": "published"
   }
 ]

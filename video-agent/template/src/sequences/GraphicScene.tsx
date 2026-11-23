@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 import { CaptionWord } from "../components/Captions";
 import { CaptionLayer, CaptionStyle } from "../components/CaptionStyles";
+import { REF_FIXED } from "../components/RefCaptions";
 import { FxItem, FxLayer } from "../effects/FxLayer";
 import { FilmGrain } from "../effects/FilmGrain";
 import { Arrival, arrival } from "../effects/motion";
@@ -11,6 +12,7 @@ import { StrikeList } from "../graphics/StrikeList";
 import { MockHost } from "../graphics/MockHost";
 import { LogoOutro } from "../graphics/LogoOutro";
 import { CircleWipe } from "../graphics/CircleWipe";
+import { ArrivalOverlay, HookTiles, InverseCard, NumeralCard } from "../graphics/RefScenes";
 import { ProgressBar } from "../graphics/ProgressBar";
 import { THEME, GraphicTimes, MockSpec, LOGO_SAFE_TOP } from "../graphics/theme";
 import { TemplateStage, TemplateSpec } from "../locomotion/TemplateStage";
@@ -20,7 +22,7 @@ import { HookBlast, HookSpec } from "../graphics/HookBlast";
 import { AvatarPanel, AvatarSpec } from "../graphics/AvatarPanel";
 
 export interface GraphicSceneProps {
-  layout: "title" | "step" | "strike" | "punch" | "logo" | "tpl" | "ba" | "chat" | "site" | "hook" | "avatar";
+  layout: "title" | "step" | "strike" | "punch" | "logo" | "tpl" | "ba" | "chat" | "site" | "hook" | "avatar" | "numeral" | "inverse" | "tiles";
   avatar?: AvatarSpec; // layout "avatar": the masked character in the lower screen, heading above (agent/avatar.py)
   hook?: HookSpec; // layout "hook": the breaking-phone opening (agent/scenarios.py HOOK_NOTIFS), hardcoded for scene 1
   chat?: ChatSpec; // layout "chat": a phone with a customer / chatbot conversation (agent/scenarios.py)
@@ -121,6 +123,12 @@ const GraphicScene: React.FC<GraphicSceneProps> = ({
         {chips.length ? <div style={{ position: "absolute", left: 70, right: 70, top: LOGO_SAFE_TOP + 560 }}><Chips items={chips} at={times.chips} align="center" /></div> : null}
       </>
     );
+  } else if (layout === "numeral") {
+    body = <NumeralCard numeral={step || "1"} title={heading} line={kicker} at={Math.max(0.2, times.heading)} />;
+  } else if (layout === "inverse") {
+    body = <InverseCard text={heading} at={Math.max(0.1, times.heading)} />;
+  } else if (layout === "tiles") {
+    body = <HookTiles title={heading} sub={kicker} tiles={items} times={times.items} />;
   } else if (layout === "hook") {
     body = <HookBlast words={words} emphasis={emphasis as any} spec={hook} duration={durationInFrames / fps} />;
   } else if (layout === "chat" && chat) {
@@ -149,10 +157,11 @@ const GraphicScene: React.FC<GraphicSceneProps> = ({
         {body}
       </AbsoluteFill>
       <FxLayer items={fx} />
-      {isLogo || layout === "hook" ? null : <CaptionLayer words={words} emphasis={emphasis} upper style={captionStyle} />}
+      {isLogo || layout === "hook" || layout === "inverse" ? null : <CaptionLayer words={words} emphasis={emphasis} upper style={captionStyle && REF_FIXED.has(captionStyle) ? undefined : captionStyle} />}   {/* the placed reference styles are for footage scenes: a card with its own heading keeps the bottom pill; the inverse card already carries the words */}
       {grain > 0 ? <FilmGrain opacity={grain} /> : null}
       {showProgress && progress && !isLogo ? <ProgressBar progress={progress} light={isPunch} /> : null}
       {circle ? <CircleWipe /> : null}
+      {transitionIn === "sweep" || transitionIn === "leak" ? <ArrivalOverlay kind={transitionIn} /> : null}
     </AbsoluteFill>
   );
 };

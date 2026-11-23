@@ -8,6 +8,9 @@ browser page, file extract), struck-through lists, full-colour punch slides with
   title    kicker + big heading (+ chips)              opening / topic
   step     step badge, kicker, heading, mock-up card   one idea shown as an interface
   strike   list of words struck through one by one, then the heading   "no editing, no cutting, no software"
+  numeral  card with a huge italic numeral (step) fading into the card, the item title (heading) built word by word, one small line (kicker)   "1  Music selection" list items
+  inverse  the inverse (ice-white) card: one sentence (heading + heading2) fades in word by word, the last word bold italic   the line to remember
+  tiles    hook title (heading, kicker) with number tiles (items: "1","2"...) popping in step with the count, hairlines to the title   "5 easy edits" openers
   punch    full-colour slide with a ghost word behind a short line   the one line that must land
   logo     your logo animation + call to action        added automatically at the end, never planned
 
@@ -21,6 +24,9 @@ browser page, file extract), struck-through lists, full-colour punch slides with
   chat        bubbles: a customer message, "you: ..." is the business reply, "..." an unanswered state (PROOF CARD, drawn with an EXAMPLE tag)
   maps        [business name, category, status like "Closed now"]: a map listing (PROOF CARD)
   gauge       [label, verdict word, zone slow|ok|fast]: a speed gauge with no figure (PROOF CARD)
+  tracker     rows of a list (title = topic): a "02/05" counter chip, a typed command bar, rows ticking one by one: the "wait for the end" counter
+  follow      [handle, one line] (title = name): a profile card, a pointer glides to Follow and clicks on the first reveal word
+  stickers    [starburst word, live pill, count badge, handwritten note]: badges that pop on their words
 
 Timing: `heading_at` (a word) places the heading, `reveal` is one word per item (or fewer: the rest are spread evenly).
 A word that is not spoken is replaced by an even spread, so nothing is ever placed at a random moment.
@@ -31,8 +37,8 @@ import re
 
 from .common import log
 
-LAYOUTS = ("title", "step", "strike", "punch", "hook")          # "hook" is never chosen by the planner: viral.stop_fix forces it on scene 1
-MOCKS = ("terminal", "comment", "checklist", "browser", "file", "window", "chat", "maps", "gauge")
+LAYOUTS = ("title", "step", "strike", "punch", "hook", "numeral", "inverse", "tiles")          # "hook" is never chosen by the planner: viral.stop_fix forces it on scene 1
+MOCKS = ("terminal", "comment", "checklist", "browser", "file", "window", "chat", "maps", "gauge", "tracker", "follow", "stickers")
 HEAD_AT = 0.12            # heading appears this long after the scene starts when no word is given
 HOLD = 0.8                # last element lands at least this long before the scene ends, so it can be read
 GAP = 0.35                # minimum seconds between two reveals
@@ -92,16 +98,16 @@ def resolve_graphic(scene: dict, words: list[dict], seconds: float) -> dict | No
     if layout == "step" and not mock:
         layout = "title"                          # a step without a mock-up is a title
     items = [str(x)[:60] for x in ((mock or {}).get("items") if layout == "step" else g.get("items")) or []][:MAX_ITEMS]
-    if layout in ("title", "step", "punch") and not str(g.get("heading") or "").strip():
+    if layout in ("title", "step", "punch", "numeral", "inverse", "tiles") and not str(g.get("heading") or "").strip():
         log(f"graphic '{layout}' has no heading, scene falls back to footage")
         return None
-    if layout == "strike" and not items:
+    if layout in ("strike", "tiles") and not items:
         log("graphic 'strike' has no items, scene falls back to footage")
         return None
 
     last = max(seconds - HOLD, 0.8)
     head = _find(words, g.get("heading_at")) if g.get("heading_at") else None
-    if layout == "strike":
+    if layout in ("strike", "tiles"):
         # the list comes first, the heading lands after the last strike
         first = HEAD_AT + 0.5
         times = spread([_find(words, w) for w in (g.get("reveal") or [])], len(items), first, max(last - 0.9, first + GAP * len(items)))
@@ -118,11 +124,11 @@ def resolve_graphic(scene: dict, words: list[dict], seconds: float) -> dict | No
         "layout": layout,
         "step": str(g.get("step") or "")[:14],
         "kicker": str(g.get("kicker") or "")[:40],
-        "heading": str(g.get("heading") or "")[:30],
+        "heading": (f"{g.get('heading') or ''} {g.get('heading2') or ''}".strip()[:60] if layout == "inverse" else str(g.get("heading") or "")[:30]),
         "heading2": str(g.get("heading2") or "")[:30],
         "ghost": str(g.get("ghost") or g.get("heading") or "")[:12],
         "chips": chips,
-        "items": items if layout == "strike" else [],
+        "items": items if layout in ("strike", "tiles") else [],
         "mock": {"type": mock["type"], "title": str(mock.get("title") or "")[:30], "items": items} if mock and layout == "step" else None,
         "times": {"heading": round(head, 3), "mock": mock_at, "items": times, "chips": chips_at},
     }

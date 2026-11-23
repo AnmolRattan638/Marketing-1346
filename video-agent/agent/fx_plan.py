@@ -11,7 +11,7 @@ A scene can carry `fx` (overlays and camera moves) and a `transition` (how the s
   quote       a testimonial/quote whose words light up and get underlined as they are SPOKEN (QuoteUnderline)
 
 Transitions (how a scene ARRIVES; the cut itself stays a hard cut so audio and captions never move):
-  settle (default), whip (whip-pan landing), zoom (zoom-through arrival), iris (iris open), glitch (RGB-glitch flash), circle (colour circle wipe)
+  settle (default), whip (whip-pan landing), zoom (zoom-through arrival), iris (iris open), glitch (RGB-glitch flash), circle (colour circle wipe), sweep (the picture resolves out of a heavy blur with a colour pass), leak (a warm light-leak flash)
 """
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ import re
 from .common import log
 
 FX_TYPES = ("stat", "glitch", "title", "lower_third", "shake", "quote")
-TRANSITIONS = ("settle", "whip", "zoom", "iris", "glitch", "circle")      # circle = a colour disc opens onto the scene
+TRANSITIONS = ("settle", "whip", "zoom", "iris", "glitch", "circle", "sweep", "leak")      # circle = a colour disc opens onto the scene
 DEFAULT_SECONDS = {"stat": 2.4, "glitch": 1.4, "title": 1.9, "lower_third": 2.6, "shake": 0.7, "quote": 5.0}
 SFX_FOR = {"stat": "pop", "glitch": "click", "title": "pop", "lower_third": "whoosh", "shake": "impact", "quote": "click"}
 MIN_SECONDS = 0.5

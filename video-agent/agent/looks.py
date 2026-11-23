@@ -12,11 +12,11 @@ from datetime import date
 from .brand import load_palette
 from .common import ROOT, log
 
-CAPTIONS = ("pill", "cinematic", "karaoke", "stack", "typewriter")
+CAPTIONS = ("pill", "cinematic", "karaoke", "stack", "typewriter", "chest", "glass", "depth", "smoke", "wallink", "orbit", "bounce", "neon", "giant", "explode", "retro", "outline", "hierarchy", "goldcta", "serifface", "quoted")
 TRANSITION_SETS = {
-    "calm": ("settle", "zoom", "iris"),
+    "calm": ("settle", "zoom", "iris", "sweep"),
     "energetic": ("whip", "glitch", "zoom", "circle"),
-    "mixed": ("settle", "whip", "circle", "zoom"),
+    "mixed": ("settle", "whip", "circle", "zoom", "leak", "sweep"),
 }
 STATE = ROOT / "state" / "last_look.json"
 
@@ -58,6 +58,22 @@ PRESETS = (
     dict(name="ink-typewriter",   mode="ink",   bg="scan", caption="typewriter", transitions="mixed",     variant="brutalist",  vignette=0.35, direction="raw and technical: terminal/checklist mocks, hard cuts, blunt headings"),
     dict(name="paper-pop",        mode="paper", bg="shapes",    caption="pill",       transitions="energetic", variant="rounded",    vignette=0.08, direction="bright and playful: strike lists, chips, quick pops"),
     dict(name="royal-karaoke",    mode="royal", bg="waves",    caption="karaoke",    transitions="energetic", variant="glass",      vignette=0.34, direction="lively: step lists and stat reveals, rhythmic zooms"),
+    # Looks built from the two reference reels (reference_styles.json): each caption style from them gets its own art direction.
+    dict(name="glass-studio",     mode="royal", bg="aurora",  caption="glass",      transitions="calm",      variant="glass",      vignette=0.30, direction="frosted widgets and gold italic keywords: calm, premium, one idea per line"),
+    dict(name="hierarchy-gold",   mode="night", bg="orbs",    caption="hierarchy",  transitions="calm",      variant="neo",        vignette=0.34, direction="clean two-level type (sans line over a big gold italic word): the most repeatable editorial look"),
+    dict(name="kinetic-bounce",   mode="ink",   bg="shapes",  caption="bounce",     transitions="energetic", variant="rounded",    vignette=0.32, direction="stacked words that bounce in, one word per beat: loud and playful"),
+    dict(name="neon-wall",        mode="ink",   bg="waves",   caption="neon",       transitions="mixed",     variant="neo",        vignette=0.42, direction="glowing rounded type, colour per word, a big keyword: night-club energy"),
+    dict(name="smoke-exit",       mode="night", bg="rays",    caption="smoke",      transitions="mixed",     variant="default",    vignette=0.38, direction="heavy type that dissolves like smoke as the next line lands"),
+    dict(name="giant-word",       mode="ink",   bg="grid",    caption="giant",      transitions="energetic", variant="brutalist",  vignette=0.40, direction="one huge word per line that rises or drops; blunt headings, hard zooms"),
+    dict(name="explosive",        mode="royal", bg="rays",    caption="explode",    transitions="energetic", variant="glass",      vignette=0.36, direction="the verb bursts into sparks: punchy, short lines, big reveals"),
+    dict(name="retro-typer",      mode="paper", bg="scan",    caption="retro",      transitions="mixed",     variant="minimal",    vignette=0.12, direction="typewriter type with a cursor on a light page: raw, personal, lists and checklists"),
+    dict(name="serif-cards",      mode="paper", bg="specks",  caption="serifface",  transitions="calm",      variant="minimal",    vignette=0.10, direction="serif phrases placed near the action, numbered cards, sweeping blur transitions"),
+    dict(name="orbit-chest",      mode="royal", bg="dots",    caption="orbit",      transitions="mixed",     variant="rounded",    vignette=0.30, direction="words travelling an arc around the speaker, small chest captions"),
+    dict(name="depth-gold",       mode="night", bg="aurora",  caption="depth",      transitions="calm",      variant="neo",        vignette=0.34, direction="staggered small words and one giant gold italic word with a glow"),
+    dict(name="outline-arc",      mode="ink",   bg="orbs",    caption="outline",    transitions="mixed",     variant="glass",      vignette=0.36, direction="the line curves in an arc over the head, keyword in gold"),
+    dict(name="chest-clean",      mode="night", bg="grid",    caption="chest",      transitions="calm",      variant="default",    vignette=0.26, direction="small clear captions over the chest, keywords in gold: the quiet, readable look"),
+    dict(name="wall-ink",         mode="paper", bg="shapes",  caption="wallink",    transitions="calm",      variant="rounded",    vignette=0.08, direction="serif words soaking in like ink, top-left, last word bigger"),
+    dict(name="quoted-terms",     mode="royal", bg="specks",  caption="quoted",     transitions="mixed",     variant="minimal",    vignette=0.28, direction="named things shown in quotes so the viewer knows what to look for"),
 )
 
 

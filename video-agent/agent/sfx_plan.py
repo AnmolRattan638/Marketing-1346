@@ -29,7 +29,7 @@ MIN_GAP = 0.3
 MAX_PER_SCENE = 3          # fewer, better placed sounds; a sound on every cut and every scene felt like noise
 POLICY = {"cut_sounds": False, "scene_whoosh": "wipes", "max_per_scene": MAX_PER_SCENE}
 # cut_sounds: whoosh/click on the shot cuts inside a footage scene. scene_whoosh: "wipes" = only when the scene arrives with a visible
-# transition (whip, zoom, iris, glitch, circle), "always" = every scene start, "never".
+# transition (whip, zoom, iris, glitch, circle, sweep, leak), "always" = every scene start, "never".
 
 
 # ---- variety: which FILE plays each cue ----------------------------------------------------------------------------------------------------------

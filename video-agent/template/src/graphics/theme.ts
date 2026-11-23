@@ -27,7 +27,7 @@ export interface GraphicTimes {
   items: number[]; // one per item (list row / terminal line / checklist tick / strike), each on its spoken word
   chips: number;
 }
-export type MockType = "terminal" | "comment" | "checklist" | "browser" | "file" | "window" | "chat" | "maps" | "gauge";
+export type MockType = "terminal" | "comment" | "checklist" | "browser" | "file" | "window" | "chat" | "maps" | "gauge" | "tracker" | "follow" | "stickers";
 export interface MockSpec {
   type: MockType;
   title?: string;

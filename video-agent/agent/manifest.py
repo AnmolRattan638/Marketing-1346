@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import math
+import re
 import shutil
 from datetime import date
 
@@ -91,6 +92,11 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
         props["transitionIn"] = b.get("transition", "settle")
         if look:
             props["captionStyle"] = look["caption"]
+        if i == len(built) - 1 and not b.get("graphic"):
+            kw = next((w for w in re.findall(r"\b[A-Z][A-Z0-9]{2,}\b", " ".join(str(w.get("text", "")) for w in b.get("words") or []))), None)
+            if kw:                                          # the "comment KEYWORD" line: the keyword in metallic gold with a light sweep
+                props["captionStyle"] = "goldcta"
+                props["emphasis"] = list(props["emphasis"]) + [kw]
         if b.get("camera"):
             props["camera"] = b["camera"]               # directed zoom / pan on the footage (agent/camera_plan.py)
         if b.get("zones"):

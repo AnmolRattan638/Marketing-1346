@@ -145,6 +145,28 @@ def _dotted(m: re.Match) -> str:
     return letters + ("" if nxt.islower() or nxt.isdigit() or nxt in ",;:)" else ".")        # the last dot stays only when it ends a sentence
 
 
+MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+TENS = {2: "twenty", 3: "thirty", 4: "forty", 5: "fifty", 6: "sixty", 7: "seventy", 8: "eighty", 9: "ninety"}
+
+
+def _below100(n: int) -> str:
+    if n in NUM:
+        return NUM[n]
+    return TENS[n // 10] + (" " + NUM[n % 10] if n % 10 else "")
+
+
+def _fmt_date(d_: str, mo_: str, y: str, orig: str) -> str:
+    """12.05.2026 / 12/05/2026 / 12-05-2026 / 22.11 -> "twelve May twenty twenty six" / "twenty two November" (never read as a decimal or a range)."""
+    d, mo = int(d_), int(mo_)
+    if not (1 <= d <= 31 and 1 <= mo <= 12):
+        return orig
+    out = f"{_below100(d)} {MONTHS[mo - 1]}"
+    if y:
+        yi = int(y) if len(y) == 4 else 2000 + int(y)
+        out += f" twenty {_below100(yi - 2000)}" if 2010 <= yi <= 2099 else f" {yi}"
+    return out
+
+
 def _decimal(m: re.Match) -> str:
     whole = int(m[1])
     return f"{_word(whole)} point {' '.join(NUM[int(d)] for d in m[2])}"                    # digits after the point are read one by one, in English words
@@ -184,6 +206,8 @@ def expand(text: str) -> str:
     for k in sorted((k for k in SHORT if "/" in k and k != "24/7"), key=len, reverse=True):   # w/ w/o b/w a/b and/or: whole words only, so show/hide and new/old are left alone
         t = re.sub(r"(?<![A-Za-z0-9])" + re.escape(k) + (r"(?![A-Za-z0-9])" if k[-1].isalnum() else ""), SHORT[k], t, flags=re.I)
     t = re.sub(r"\bv(?=\d+\.\d)", "version ", t, flags=re.I)                                 # v2.5 -> version 2.5
+    t = re.sub(r"(?<![\d.,/:\-])(\d{1,2})([./-])(\d{1,2})\2(\d{4}|\d{2})(?![\d.]|/\d)", lambda m: _fmt_date(m[1], m[3], m[4], m[0]), t)   # full dates with a year
+    t = re.sub(r"(?<![\d.,/:\-])(1[3-9]|2\d|3[01])\.(0[1-9]|1[0-2])(?![\d.]|/\d|:\d)", lambda m: _fmt_date(m[1], m[2], "", m[0]), t)   # 22.11: a day above 12 and a two digit month
     t = re.sub(r"(?<![\d.,/:\-])(\d{1,3})\.(\d{1,3})(?![\d.]|/\d|:\d)", _decimal, t)       # 2.5 -> two point five, never "do point panch" (dates, IPs, 1.2.3 are left alone)
     t = re.sub(r"\b([A-Za-z][A-Za-z0-9]{0,11})(\.?)(?=\W|$)", _short, t)
     return t

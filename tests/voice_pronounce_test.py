@@ -10,7 +10,7 @@ def say(s): return st.clean(s)
 for w in ["24x7", "24X7", "24×7", "24*7", "24 x 7", "24-7", "24by7", "24/7", "24 / 7"]:
     assert say(f"Humari team {w} available hai") == "Humari team twenty four by seven available hai.", (w, say(w))
 assert say("24/7/365 uptime") == "twenty four by seven by three sixty five uptime."
-assert say("Date 24/7/2026 ko") == "Date 24/7/2026 ko." and say("12-11-2026 ko") == "12-11-2026 ko."
+assert say("Date 24/7/2026 ko") == "Date twenty four July twenty twenty six ko." and say("12-11-2026 ko") == "twelve November twenty twenty six ko.", "dates are spoken as dates"
 # 2. digits glued to a unit
 assert say("30sec mein ready") == "30 second mein ready." and say("24hrs mein delivery") == "24 hours mein delivery." and say("2mins me") == "2 minutes me."
 assert say("5kg aur 2GB") == "5 kilogram aur 2 gigabyte."

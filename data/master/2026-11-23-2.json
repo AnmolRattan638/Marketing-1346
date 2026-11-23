@@ -1,0 +1,232 @@
+{
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Salon owners, aap teen services aur do offers ek ad mein daalte hain, jo viewers ko confuse karte hain?",
+    "hooks": [
+      {
+        "text": "Shayad aap agree na karo, teen products aur do discount codes confuse karte hain…",
+        "score": 11.4,
+        "formula": "disagree"
+      },
+      {
+        "text": "Ye aapko hairan kar sakta hai: teen offers, do codes, viewers scroll karte hain…",
+        "score": 11.4,
+        "formula": "surprise"
+      },
+      {
+        "text": "Teen products aur do discount codes wajah hai ki salon ad scroll hota hai…",
+        "score": 11.3,
+        "formula": "reason"
+      },
+      {
+        "text": "Ek simple animated ad se aapke salon ki service highlight ho sakti hai…",
+        "score": 9.4,
+        "formula": ""
+      },
+      {
+        "text": "Aapka salon Instagram ad abhi bhi static aur boring lagta hai…",
+        "score": 9.4,
+        "formula": ""
+      },
+      {
+        "text": "Salon ke Instagram ad mein teen products aur do discount codes dikhaye, lekin layout bhara tha, isliye customers scroll kar gaye.",
+        "score": 7.9,
+        "formula": ""
+      }
+    ],
+    "hook_formula": "disagree",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Salon owners, aap teen services aur do offers ek ad mein daalte hain, jo viewers ko confuse karte hain?",
+        "screen": "Too many offers confuse viewers",
+        "visual": "Cluttered ad with three service icons and two discount tags overlapping",
+        "emotion": "warm",
+        "steps": [
+          "Salon owners",
+          "teen services aur do offers",
+          "ek ad mein daalte hain"
+        ],
+        "facts": [
+          "f1"
+        ]
+      },
+      {
+        "beat": "poke",
+        "line": "Log sochte hain ki aur text daalne se samjha denge, lekin ek ad mein paanch selling points rakhna visual noise banata hai.",
+        "screen": "More text = noise",
+        "visual": "Designer adding extra text and icons to the ad, making it cluttered, viewer looking confused.",
+        "emotion": "urgent",
+        "steps": [],
+        "facts": [
+          "f2"
+        ]
+      },
+      {
+        "beat": "rehook",
+        "line": "Par aapko pata hai, is confusion ka asli culprit kaun sa step hota hai?",
+        "screen": "Kaun sa step?",
+        "visual": "Question mark appears over the ad, highlighting missing clear offer.",
+        "emotion": "curious",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Animated ad ke liye pehle simple story line decide karo, phir text do se teen points tak rakho, brand colors aur logo add karo.",
+        "screen": "Tin steps",
+        "visual": "Three quick frames: storyboard sketch, concise bullet text, brand colors/logo overlay.",
+        "emotion": "calm",
+        "steps": [
+          "Simple story line decide karo",
+          "Text do se teen points tak rakho",
+          "Brand colors aur logo add karo"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "payoff",
+        "line": "GraphicDesignEye ke mutabik, teen products aur do offers ad ko confuse karte hain; overcrowded layout visual fatigue paida karta hai.",
+        "screen": "Too many offers cause fatigue",
+        "visual": "Side‑by‑side: left side crowded ad, right side simple ad, viewer stress vs calm",
+        "emotion": "warm",
+        "steps": [
+          "Cite GraphicDesignEye",
+          "State teen products, do offers confuse",
+          "Explain layout causes visual fatigue"
+        ],
+        "facts": [
+          "f1",
+          "f3"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Jab ad mein teen products aur do offers daale jate hain, viewers ko confusion hoti hai. Overcrowded layout jo har pixel bhar deta hai, visual fatigue paida karta hai.",
+        "screen": "Multiple offers cause confusion",
+        "visual": "Ad with three products and two offers looks cluttered",
+        "emotion": "warm",
+        "steps": [
+          "ad mein teen products aur do offers",
+          "overcrowded layout har pixel bhar deta hai"
+        ],
+        "facts": [
+          "f1",
+          "f3"
+        ]
+      },
+      {
+        "beat": "cta",
+        "line": "Comment ADS likho, aapko carousel mein ek simple checklist mil jayegi jo animated ad banane ke steps dikhati hai.",
+        "screen": "Comment ADS for checklist",
+        "visual": "Carousel shows checklist for animated ad",
+        "emotion": "warm",
+        "steps": [
+          "ADS likho, checklist milti hai",
+          "carousel mein steps dikhaye jate hain"
+        ],
+        "facts": []
+      }
+    ],
+    "cta": "Comment ADS likho, aapko carousel mein ek simple checklist mil jayegi jo animated ad banane ke steps dikhati hai.",
+    "linkedin_english": "A crowded Instagram ad with multiple offers confuses viewers. Using a short AI‑generated animated ad with a single clear message reduces visual noise. Comment “ADS” to receive a one‑page checklist for creating an effective ad.",
+    "marketing": {
+      "keyword": "ADS",
+      "gets": "a one-page checklist: what a 20-second ad must show so a customer understands your business, in order",
+      "pillar": "educate"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Cramming multiple offers into a single ad—such as three products, two discount codes, and a seasonal message—confuses viewers.",
+        "figure": "three products, two discount codes",
+        "source": "graphicdesigneye.com",
+        "title": "Facebook Ad Design Tips and Tricks 15 Rules That Convert",
+        "url": "https://graphicdesigneye.com/facebook-ad-design-tips-and-tricks/",
+        "date": "2026-08-14",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "Trying to convey more than one benefit, proof point, or call to action in a single static ad creates visual noise; five selling points require five separate creatives.",
+        "figure": "five selling points",
+        "source": "100creatives.com",
+        "title": "What Makes a Good Static Ad? Feed + Display 100 Creatives",
+        "url": "https://www.100creatives.com/what-makes-a-good-static-ad",
+        "date": "2026-04-06",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Overcrowded layouts that fill every pixel with information cause visual fatigue and make the ad unreadable.",
+        "figure": null,
+        "source": "projectsupply.in",
+        "title": "Meta Ads Creative Best Practices (2026): Design for Higher Conversion",
+        "url": "https://projectsupply.in/blog/meta-ads-design-best-practices",
+        "date": "2026-03-03",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Placing excessive text on the ad image reduces headline impact and makes the layout harder to scan.",
+        "figure": null,
+        "source": "designflux.net",
+        "title": "Static Ad Design Guide: The Complete Guide for Meta Advertisers in 2026",
+        "url": "https://designflux.net/static-ad-design-guide/",
+        "date": "2026-10-20",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Using generic stock imagery that feels disconnected from the product or audience weakens the ad’s relevance.",
+        "figure": null,
+        "source": "designflux.net",
+        "title": "Static Ad Design Guide: The Complete Guide for Meta Advertisers in 2026",
+        "url": "https://designflux.net/static-ad-design-guide/",
+        "date": "2026-10-20",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "Keeping the service description overly general makes freelancers memorable for nothing, reducing ad effectiveness.",
+        "figure": null,
+        "source": "creativepool.com",
+        "title": "Freelance Day Rates in 2026: What Creative Talent Should Charge",
+        "url": "https://creativepool.com/magazine/industry/freelance-day-rates-in-2026-what-creative-talent-should-charge.34695",
+        "date": null,
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Freelancer ads often fail because the offer is unclear; viewers cannot tell what is being sold.",
+        "figure": null,
+        "source": "ksnk.media",
+        "title": "10 Questions for Effective Freelancer Ads",
+        "url": "https://ksnk.media/10-questions-i-ask-before-every-ad-after-wasting-400/",
+        "date": "2026-09-29",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Running an entire campaign with only one creative typically yields no results.",
+        "figure": null,
+        "source": "ksnk.media",
+        "title": "10 Questions for Effective Freelancer Ads",
+        "url": "https://ksnk.media/10-questions-i-ask-before-every-ad-after-wasting-400/",
+        "date": "2026-09-29",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "Top 3 mistakes freelancers make when designing their service showcase ads.",
+    "service": "animated_ads",
+    "keyword": "ADS",
+    "carousel_tease": true,
+    "notes": [
+      "style remark (not blocking): meaning: payoff: The line names 'GraphicDesignEye', which is not mentioned in any fact; remove the name or replace it with a generic attribution (e.g., 'according to resea",
+      "style remark (not blocking): meaning: cta: The line guarantees that a checklist will be provided, which is not a service capability nor supported by any fact; change to a non‑guaranteed offer (e.g., '"
+    ]
+  },
+  "service": "animated_ads",
+  "slot": "2"
+}

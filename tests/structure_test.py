@@ -32,7 +32,7 @@ assert sw.open_loops(good) == 3
 assert all(sw.is_soft(p) for p in sw.structure_problems(beats("Raat ko business ka phone band hai.", "poke", "Ye hai fix.")))
 
 # 4. the rehook has its own word budget and the new beat is known downstream
-assert sw.REHOOK_WORDS == (6, 16) and sw.DEFAULT_EMOTION["rehook"] == "curious"
+assert sw.REHOOK_WORDS == (8, 40) and sw.DEFAULT_EMOTION["rehook"] == "curious"
 from agent import schema, sarvam, reel_text
 assert "rehook" in schema.BEATS and schema.BEATS.index("rehook") == schema.BEATS.index("poke") + 1
 assert "rehook" in sarvam.PAUSE_AFTER and "rehook" in reel_text.BEAT_NAMES
@@ -63,7 +63,7 @@ assert sw.tease_carousel(s) and s["beats"][-1]["line"].endswith("Poora breakdown
 assert len(s["beats"][-1]["line"].split()) <= sw.CTA_WORDS[1]
 assert s["beats"][-1]["line"].lower().count("comment") == 1, "still one ask"
 s = cta("Comment BOT likho. Poora breakdown carousel mein hai."); assert sw.tease_carousel(s) and s["beats"][-1]["line"].count("carousel") == 1
-long = cta("Comment BOT likho aur main aapko pura setup step by step DM mein bhej dunga taaki aap aaj hi shuru kar sako aur customer na khoye"); assert not sw.tease_carousel(long) and "carousel_tease" not in long
+long = cta("Comment BOT likho aur main aapko pura setup step by step DM mein bhej dunga taaki aap aaj hi shuru kar sako aur customer na khoye, aur saath mein ye bhi bataunga ki aapke business ke liye kaun sa plan theek rahega, kitna time lagega aur kya kya chahiye hoga"); assert not sw.tease_carousel(long) and "carousel_tease" not in long
 os.environ["REEL_SLOT"] = "2"; s = cta("Comment BOT likho"); assert not sw.tease_carousel(s) and "carousel_tease" not in s; del os.environ["REEL_SLOT"]
 from agent import reel_text
 plan = {"scenes": [{"beat": "pain", "narration": "Clinic ka phone raat ko band?"}, {"beat": "fix", "narration": "Bot lagao."}, {"beat": "cta", "narration": "Comment BOT likho."}]}

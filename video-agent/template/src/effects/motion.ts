@@ -1,6 +1,6 @@
 import { interpolate, random } from "remotion";
 
-export type Arrival = "settle" | "whip" | "zoom" | "iris" | "glitch";
+export type Arrival = "settle" | "whip" | "zoom" | "iris" | "glitch" | "sweep" | "leak";
 export interface Look {
   scale: number;
   translateX: number; // px
@@ -50,6 +50,16 @@ export function arrival(kind: Arrival, frame: number, fps: number): Look {
         hue: (random(`ah${frame}`) - 0.5) * 120 * d,
         brightness: 1 + 0.5 * d * (random(`ab${frame}`) > 0.5 ? 1 : 0),
       };
+    }
+    case "sweep": {
+      // blur-through colour sweep: the picture resolves out of a heavy blur (the colour pass is drawn by ArrivalOverlay)
+      const p = clamp01(frame / (fps * 0.35));
+      return { ...base, scale: 1 + (1 - easeOut(p)) * 0.06, blur: (1 - easeOut(p)) * 22 };
+    }
+    case "leak": {
+      // warm light-leak flash: softened and brighter for ~0.4 s (the glow is drawn by ArrivalOverlay)
+      const p = clamp01(frame / (fps * 0.45));
+      return { ...base, blur: (1 - p) * 4, brightness: 1 + 0.25 * (1 - p) };
     }
     default: {
       // settle: arrives slightly zoomed in and eases back as the whoosh dies

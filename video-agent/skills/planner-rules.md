@@ -60,7 +60,8 @@ Return exactly one JSON object:
   in the order the narration says them), `strike` (`items` 2-5 single words struck out one by one, optional `heading`), `title` (`kicker`, `heading`,
   `heading2`, `chips`), `punch` (a loud one-line slide for the key point: `heading`, `heading2`, `ghost` one big background word).
   Every text is short (heading max 4 words, items 1-3 words) and uses words that are really spoken, so it can appear on its spoken word.
-  Use `punch` once at most, `strike` once at most. Never invent facts in graphics.
+  More layouts: `numeral` (`step`=the numeral, `heading`=title, `kicker`=one line; one per list item), `inverse` (one sentence in `heading`+`heading2`), `tiles` (`heading`, `kicker`, `items` "1".."5": a count-along opener). More mocks: `tracker` (counter + ticking rows for an N-item list), `follow` (CTA scene only), `stickers`. Use `punch` once at most, `strike` once at most.
+  RHYTHM: alternate a talking/footage shot and a card every 1.5-3 s; something new every 2-3 s. Never invent facts in graphics.
 - CAMERA on footage (your raw clips are never shown static): `camera` is up to 4 moves, each `{move, at_word, focus, seconds}`. `move`: zoom_in, zoom_out,
   pan_down, pan_up, pan_left, pan_right, reset. `focus`: top, upper, center, lower, bottom, left, right (the part of the picture the camera goes to). Example: opening
   line -> `{"move":"zoom_in","focus":"top"}`, then on the word where the story moves on -> `{"move":"pan_down","at_word":"testimonials","seconds":1.5}`. Leave `camera` out and
@@ -71,7 +72,7 @@ Return exactly one JSON object:
   robots, coding, dashboards, data, futuristic interfaces, laptops/screens with software. Always put an AI/tech word in the query ("ai agents typing on laptop",
   "robot working at a computer", "ai automation dashboard", "neural network visualization"). Never people-with-cameras, cafes, nature, generic offices or lifestyle.
   The agent also adds an AI/tech keyword to any query that lacks one and rejects results that are not tech.
-- `transition` may also be `circle` (a colour circle opens the scene). Your logo animation is added at the end automatically.
+- `transition` may also be `circle` (a colour circle opens the scene), `sweep` (resolves out of a blur: talking shot to card) or `leak` (warm flash, once per reel at most). Your logo animation is added at the end automatically.
 - Never mention prices, guarantees or results you cannot back up.
 - If the request carries WEB EVIDENCE, at most ONE scene may rest on ONE fact from it, said with who found it; a `stat` fx may show its number. No other statistic, study or
   source is allowed, and nothing from the evidence may become a promise about the owner's results.

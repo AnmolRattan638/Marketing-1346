@@ -11,6 +11,7 @@ import {
   useVideoConfig,
 } from "remotion";
 import { CaptionWord } from "../components/Captions";
+import { ArrivalOverlay } from "../graphics/RefScenes";
 import { CaptionLayer, CaptionStyle, CaptionZone } from "../components/CaptionStyles";
 import { FxItem, FxLayer } from "../effects/FxLayer";
 import { FilmGrain } from "../effects/FilmGrain";
@@ -28,7 +29,7 @@ export interface FootageSceneProps {
   fadeOutFrames?: number; // fade to black at the END of the scene; only the last scene of the video uses it
   upperCaptions?: boolean;
   fx?: FxItem[]; // animated graphics and camera shakes anchored to spoken words (agent/fx_plan.py)
-  transitionIn?: Arrival; // how the scene arrives: settle | whip | zoom | iris | glitch
+  transitionIn?: Arrival; // how the scene arrives: settle | whip | zoom | iris | glitch | sweep | leak
   camera?: CameraMove[]; // zoom / pan moves on the footage (agent/camera_plan.py)
   captionZones?: CaptionZone[]; // smart caption placement for this scene
   captionStyle?: CaptionStyle; // from the reel's look (agent/looks.py)
@@ -102,6 +103,7 @@ const FootageScene: React.FC<FootageSceneProps> = ({
       <FxLayer items={fx} />
       <CaptionLayer words={words} emphasis={emphasis} upper={upperCaptions} style={captionStyle} zones={captionZones} />
       {grain > 0 ? <FilmGrain opacity={grain} /> : null}
+      {transitionIn === "sweep" || transitionIn === "leak" ? <ArrivalOverlay kind={transitionIn} /> : null}
       {overlayText ? (
         <AbsoluteFill
           style={{ justifyContent: "flex-start", alignItems: "center", paddingTop: LOGO_SAFE_TOP }}

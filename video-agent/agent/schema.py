@@ -53,13 +53,13 @@ PLAN_SCHEMA = {
                             "scale": {"type": "number", "minimum": 1.1, "maximum": 1.8},
                         },
                     }},
-                    "transition": {"enum": ["settle", "whip", "zoom", "iris", "glitch", "circle"]},
+                    "transition": {"enum": ["settle", "whip", "zoom", "iris", "glitch", "circle", "sweep", "leak"]},
                     # Motion-graphic scene (agent/graphics.py): the visual is built from animated components instead of footage.
                     "graphic": {
                         "type": "object",
                         "required": ["layout"],
                         "properties": {
-                            "layout": {"enum": ["title", "step", "strike", "punch"]},
+                            "layout": {"enum": ["title", "step", "strike", "punch", "numeral", "inverse", "tiles"]},
                             "step": {"type": "string", "maxLength": 14},
                             "kicker": {"type": "string", "maxLength": 40},
                             "heading": {"type": "string", "maxLength": 30},
@@ -73,7 +73,7 @@ PLAN_SCHEMA = {
                                 "type": "object",
                                 "required": ["type"],
                                 "properties": {
-                                    "type": {"enum": ["terminal", "comment", "checklist", "browser", "file", "window", "chat", "maps", "gauge"]},
+                                    "type": {"enum": ["terminal", "comment", "checklist", "browser", "file", "window", "chat", "maps", "gauge", "tracker", "follow", "stickers"]},
                                     "title": {"type": "string", "maxLength": 30},
                                     "items": {"type": "array", "maxItems": 6, "items": {"type": "string", "maxLength": 60}},
                                 },

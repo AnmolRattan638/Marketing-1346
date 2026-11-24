@@ -497,7 +497,7 @@ def finish(script, sheet, focus, extra=None):
         pid = [x for x in (b.get("facts") or []) if re.fullmatch(r"p\d+", str(x))]
         if pid:
             b["facts"] = [x for x in b["facts"] if x not in pid]
-            b["proof"] = [f["proof"] for f in proof_facts.facts() if f["id"] in pid]
+            b["proof"] = [f["proof"] for f in proof_facts.facts() if f["id"] in pid and f["proof"]]
     if beats:
         facts = {f["id"]: f for f in sheet.get("facts", [])}
         allowed = set().union(*[_nums(f["claim"]) | _nums(f.get("figure") or "") for f in facts.values()]) | _nums(capabilities(focus))

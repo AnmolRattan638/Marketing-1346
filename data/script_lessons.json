@@ -28,20 +28,20 @@
   ]
  },
  "total-length": {
-  "count": 33,
+  "count": 39,
   "rule": "The whole script stays under 85 words (about 30 s); give each beat one concrete idea and its reason, nothing more.",
   "recent": [
    {
-    "on": "2026-11-23",
-    "mistake": "fix: script is 155 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 30 to 25 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
+    "on": "2026-11-24",
+    "mistake": "fix: script is 154 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 31 to 27 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
    },
    {
     "on": "2026-11-24",
-    "mistake": "fix: script is 151 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 34 to 33 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
+    "mistake": "recap: script is 161 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 28 to 22 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hai"
    },
    {
     "on": "2026-11-24",
-    "mistake": "fix: script is 154 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 35 to 31 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
+    "mistake": "fix: script is 161 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 27 to 22 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
    }
   ]
  },
@@ -66,58 +66,58 @@
   "rule": "the ask ... is not in offers_allowed; fix to use an allowed offer like ..."
  },
  "number-unbacked": {
-  "count": 28,
+  "count": 34,
   "rule": "Every digit must come from a cited fact; if no fact has the number, say it in words with no digit.",
   "recent": [
    {
     "on": "2026-11-24",
-    "mistake": "fix: number(s) ['3'] not backed by a cited fact"
+    "mistake": "recap: number(s) ['3', '32', '4'] not backed by a cited fact"
    },
    {
     "on": "2026-11-24",
-    "mistake": "cta: number(s) ['20'] not backed by a cited fact"
+    "mistake": "cta: number(s) ['10'] not backed by a cited fact"
    },
    {
     "on": "2026-11-24",
-    "mistake": "fix: number(s) ['20'] not backed by a cited fact"
+    "mistake": "payoff: number(s) ['6', '9'] not backed by a cited fact"
    }
   ]
  },
  "abstract": {
-  "count": 5,
+  "count": 6,
   "rule": "Name a concrete moment or thing (11 pm message, unanswered enquiry) in pain and poke.",
   "recent": [
    {
-    "on": "2026-11-22",
+    "on": "2026-11-24",
     "mistake": "pain: too abstract; name a concrete moment or thing (a 11 pm message, an unanswered enquiry, the WhatsApp reply)"
    }
   ]
  },
  "connectors": {
-  "count": 17,
+  "count": 18,
   "rule": "Use helping words (kyunki, isliye, jaise ki, phir) so each line gives its reason.",
   "recent": [
    {
-    "on": "2026-11-23",
+    "on": "2026-11-24",
     "mistake": "lines are bare statements; use helping words that give the reason or an example (kyunki, isliye, matlab, jaise ki, phir, taaki) so the viewer understands WHY"
    }
   ]
  },
  "words": {
-  "count": 15,
+  "count": 17,
   "rule": "Keep each beat inside its word range, in full spoken sentences.",
   "recent": [
    {
     "on": "2026-11-23",
-    "mistake": "payoff: line has 8 words (want 10-26; explain it in full spoken sentences, not a slogan)"
-   },
-   {
-    "on": "2026-11-23",
-    "mistake": "poke: line has 9 words (want 10-26; explain it in full spoken sentences, not a slogan)"
-   },
-   {
-    "on": "2026-11-23",
     "mistake": "pain: line has 23 words (want 5-18; explain it in full spoken sentences, not a slogan)"
+   },
+   {
+    "on": "2026-11-24",
+    "mistake": "recap: line has 11 words (want 12-36; explain it in full spoken sentences, not a slogan)"
+   },
+   {
+    "on": "2026-11-24",
+    "mistake": "pain: line has 4 words (want 5-18; explain it in full spoken sentences, not a slogan)"
    }
   ]
  },
@@ -152,8 +152,14 @@
   "rule": "CTA asks for keyword BLOG but offers setup step-by-step explanation instead of the one ask (honest advice on which questions your "
  },
  "other:script is only N words (min N); the reel": {
-  "count": 2,
-  "rule": "script is only N words (min N); the reel is too thin, add one concrete detail and its reason"
+  "count": 3,
+  "rule": "script is only N words (min N); the reel is too thin, add one concrete detail and its reason",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "poke: script is only 78 words (min 80); the reel is too thin, add one concrete detail and its reason"
+   }
+  ]
  },
  "other:ask the viewer to comment the word ADS (": {
   "count": 2,
@@ -264,8 +270,14 @@
   "rule": "line promises a result (“website answers customers until N”) which violates the claims_rules; rephrase to a capability like “A mob"
  },
  "hinglish": {
-  "count": 5,
-  "rule": "Every spoken line is everyday Hindi in Roman letters with English tech words."
+  "count": 6,
+  "rule": "Every spoken line is everyday Hindi in Roman letters with English tech words.",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "pain: not Hinglish (needs everyday spoken Hindi in Roman letters, like talking to a shop owner)"
+   }
+  ]
  },
  "other:hook does not lead with a clear payoff o": {
   "count": 1,
@@ -364,17 +376,17 @@
   ]
  },
  "other:loops: it must hold the answer back with": {
-  "count": 2,
+  "count": 3,
   "rule": "loops: it must hold the answer back with a question or a promise (..., ...), not state the fix",
   "recent": [
    {
-    "on": "2026-11-23",
+    "on": "2026-11-24",
     "mistake": "rehook: loops: it must hold the answer back with a question or a promise ('aur ye teesra step zyada log chhod dete hain', 'par asli wajah ye nahi hai'), not state the fix"
    }
   ]
  },
  "other:loops: end the hook and the poke (or the": {
-  "count": 3,
+  "count": 4,
   "rule": "loops: end the hook and the poke (or the rehook) on a question or an unfinished thought (... or ?) so the next beat has to answer;",
   "recent": [
    {
@@ -384,7 +396,7 @@
   ]
  },
  "other:context: the hook must name the viewer..": {
-  "count": 4,
+  "count": 5,
   "rule": "context: the hook must name the viewer...business owners'",
   "recent": [
    {
@@ -394,16 +406,20 @@
   ]
  },
  "ai-tell": {
-  "count": 3,
+  "count": 8,
   "rule": "No em dashes, 'it is not X, it is Y', 'No X, no Y' or stock phrases; state the point directly.",
   "recent": [
    {
-    "on": "2026-11-23",
-    "mistake": "rehook: contrast reveal ('it is not X, it is Y'); state the point directly"
+    "on": "2026-11-24",
+    "mistake": "payoff: no em dashes; use a full stop"
    },
    {
     "on": "2026-11-24",
-    "mistake": "recap: contrast reveal ('it is not X, it is Y'); state the point directly"
+    "mistake": "cta: no em dashes; use a full stop"
+   },
+   {
+    "on": "2026-11-24",
+    "mistake": "rehook: contrast reveal ('it is not X, it is Y'); state the point directly"
    }
   ]
  },
@@ -498,7 +514,7 @@
   ]
  },
  "other:needs a number, a time, a question or a ": {
-  "count": 2,
+  "count": 3,
   "rule": "needs a number, a time, a question or a named situation (a concrete stake)",
   "recent": [
    {
@@ -508,12 +524,20 @@
   ]
  },
  "pronounce-glued": {
-  "count": 1,
+  "count": 5,
   "rule": "Never glue digits to letters in a spoken line (2BHK, Q4, mp3); write the number and the word apart or in full words.",
   "recent": [
    {
-    "on": "2026-11-23",
-    "mistake": "pain: pronunciation: \"f1\" (heard in: \"...ek ad mein daalte hain, jo f1 ke mutabik viewers ko confu...\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
+    "on": "2026-11-24",
+    "mistake": "fix: pronunciation: \"f1\" (heard in: \"...iye opening hours set karo, f1, phir after‑hours away mess...\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
+   },
+   {
+    "on": "2026-11-24",
+    "mistake": "fix: pronunciation: \"f2\" (heard in: \"...gao jo phone number maange, f2, aur har enquiry ko ek C R...\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
+   },
+   {
+    "on": "2026-11-24",
+    "mistake": "payoff: pronunciation: \"p0\" (heard in: \"...minute mein reply de gaya, p0,....\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
    }
   ]
  },
@@ -578,6 +602,26 @@
    {
     "on": "2026-11-24",
     "mistake": "payoff: price ['100'] is not in the price list; copy a price only from the service's price note"
+   }
+  ]
+ },
+ "other:loops: no figures in the rehook, it only": {
+  "count": 1,
+  "rule": "loops: no figures in the rehook, it only keeps the viewer waiting",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "rehook: loops: no figures in the rehook, it only keeps the viewer waiting"
+   }
+  ]
+ },
+ "other:a percentage from a handful of tests; sa": {
+  "count": 1,
+  "rule": "a percentage from a handful of tests; say the count (...) as my own small test",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "proof: a percentage from a handful of tests; say the count ('5 mein se 4') as my own small test"
    }
   ]
  }

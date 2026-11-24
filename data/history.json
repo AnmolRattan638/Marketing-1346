@@ -257,5 +257,12 @@
     "topic": "Ever found a perfect client on Google Maps, only to spend 20 minutes searching for a working email or phone number?",
     "hook_style": "question",
     "status": "published"
+  },
+  {
+    "date": "2026-11-24",
+    "service": "animated_ads",
+    "topic": "Does your Instagram ad look like every other business in your area?",
+    "hook_style": "question",
+    "status": "published"
   }
 ]

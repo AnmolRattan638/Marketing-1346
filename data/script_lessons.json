@@ -28,20 +28,20 @@
   ]
  },
  "total-length": {
-  "count": 39,
+  "count": 42,
   "rule": "The whole script stays under 85 words (about 30 s); give each beat one concrete idea and its reason, nothing more.",
   "recent": [
    {
     "on": "2026-11-24",
-    "mistake": "fix: script is 154 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 31 to 27 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
+    "mistake": "fix: script is 153 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 32 to 29 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
    },
    {
     "on": "2026-11-24",
-    "mistake": "recap: script is 161 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 28 to 22 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hai"
+    "mistake": "fix: script is 156 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 29 to 24 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
    },
    {
     "on": "2026-11-24",
-    "mistake": "fix: script is 161 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 27 to 22 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
+    "mistake": "poke: script is 156 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 24 to 23 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain"
    }
   ]
  },
@@ -66,12 +66,12 @@
   "rule": "the ask ... is not in offers_allowed; fix to use an allowed offer like ..."
  },
  "number-unbacked": {
-  "count": 34,
+  "count": 37,
   "rule": "Every digit must come from a cited fact; if no fact has the number, say it in words with no digit.",
   "recent": [
    {
     "on": "2026-11-24",
-    "mistake": "recap: number(s) ['3', '32', '4'] not backed by a cited fact"
+    "mistake": "payoff: number(s) ['0'] not backed by a cited fact"
    },
    {
     "on": "2026-11-24",
@@ -79,7 +79,7 @@
    },
    {
     "on": "2026-11-24",
-    "mistake": "payoff: number(s) ['6', '9'] not backed by a cited fact"
+    "mistake": "payoff: number(s) ['1'] not backed by a cited fact"
    }
   ]
  },
@@ -104,13 +104,9 @@
   ]
  },
  "words": {
-  "count": 17,
+  "count": 18,
   "rule": "Keep each beat inside its word range, in full spoken sentences.",
   "recent": [
-   {
-    "on": "2026-11-23",
-    "mistake": "pain: line has 23 words (want 5-18; explain it in full spoken sentences, not a slogan)"
-   },
    {
     "on": "2026-11-24",
     "mistake": "recap: line has 11 words (want 12-36; explain it in full spoken sentences, not a slogan)"
@@ -118,11 +114,15 @@
    {
     "on": "2026-11-24",
     "mistake": "pain: line has 4 words (want 5-18; explain it in full spoken sentences, not a slogan)"
+   },
+   {
+    "on": "2026-11-24",
+    "mistake": "recap: line has 10 words (want 12-36; explain it in full spoken sentences, not a slogan)"
    }
   ]
  },
  "screen": {
-  "count": 7,
+  "count": 8,
   "rule": "`screen` text is a 2-6 word bold headline that works on mute; no full sentence.",
   "recent": [
    {
@@ -130,7 +130,7 @@
     "mistake": "hook: `screen` is the first-frame headline, 3-5 bold words that work on mute (now 2)"
    },
    {
-    "on": "2026-11-23",
+    "on": "2026-11-24",
     "mistake": "hook: `screen` is the first-frame headline, 3-5 bold words that work on mute (now 6)"
    }
   ]
@@ -334,20 +334,20 @@
   "rule": "grammar: sentence stops mid-thought on 'ki': ..."
  },
  "other:grammar: no verb before ..., write the f": {
-  "count": 9,
+  "count": 13,
   "rule": "grammar: no verb before ..., write the full clause (not a list of nouns): ...",
   "recent": [
    {
     "on": "2026-11-24",
-    "mistake": "poke: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Budget badhaane ya sirf caption badalne se engagement nahi b\""
+    "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Pehle bot ko sawal batayein, kyunki wo jawab degi.\""
    },
    {
     "on": "2026-11-24",
-    "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Pehle apna alag ad banayein, kyunki template se ads jaise la\""
+    "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Pehle bot ko sawal batayein, kyunki wo turant jawab degi, au\""
    },
    {
     "on": "2026-11-24",
-    "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Pehle apna alag ad banayein, kyunki template se banaye ads g\""
+    "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Bot ko pehle sawal dene se, kyunki wo turant jawab degi, aap\""
    }
   ]
  },
@@ -386,7 +386,7 @@
   ]
  },
  "other:loops: end the hook and the poke (or the": {
-  "count": 4,
+  "count": 5,
   "rule": "loops: end the hook and the poke (or the rehook) on a question or an unfinished thought (... or ?) so the next beat has to answer;",
   "recent": [
    {
@@ -396,7 +396,7 @@
   ]
  },
  "other:context: the hook must name the viewer..": {
-  "count": 5,
+  "count": 6,
   "rule": "context: the hook must name the viewer...business owners'",
   "recent": [
    {
@@ -524,13 +524,9 @@
   ]
  },
  "pronounce-glued": {
-  "count": 5,
+  "count": 6,
   "rule": "Never glue digits to letters in a spoken line (2BHK, Q4, mp3); write the number and the word apart or in full words.",
   "recent": [
-   {
-    "on": "2026-11-24",
-    "mistake": "fix: pronunciation: \"f1\" (heard in: \"...iye opening hours set karo, f1, phir after‑hours away mess...\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
-   },
    {
     "on": "2026-11-24",
     "mistake": "fix: pronunciation: \"f2\" (heard in: \"...gao jo phone number maange, f2, aur har enquiry ko ek C R...\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
@@ -538,6 +534,10 @@
    {
     "on": "2026-11-24",
     "mistake": "payoff: pronunciation: \"p0\" (heard in: \"...minute mein reply de gaya, p0,....\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
+   },
+   {
+    "on": "2026-11-24",
+    "mistake": "payoff: pronunciation: \"p0\" (heard in: \"...ek minute mein reply mila, p0,....\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
    }
   ]
  },
@@ -616,12 +616,142 @@
   ]
  },
  "other:a percentage from a handful of tests; sa": {
-  "count": 1,
+  "count": 2,
   "rule": "a percentage from a handful of tests; say the count (...) as my own small test",
   "recent": [
    {
     "on": "2026-11-24",
     "mistake": "proof: a percentage from a handful of tests; say the count ('5 mein se 4') as my own small test"
+   }
+  ]
+ },
+ "other:more than one ask; keep ONE": {
+  "count": 1,
+  "rule": "more than one ask; keep ONE",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "cta: more than one ask; keep ONE"
+   }
+  ]
+ },
+ "other:grammar: sentence ends on a bare verb 'd": {
+  "count": 1,
+  "rule": "grammar: sentence ends on a bare verb 'de' with no helper (chhod deta hai / chhod dete hain): ...",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "fix: grammar: sentence ends on a bare verb 'de' with no helper (chhod deta hai / chhod dete hain): \"ra, AI chatbot integrate karo, jo turant jawab de.\""
+   }
+  ]
+ },
+ "other:ask the viewer to comment the word BOT (": {
+  "count": 1,
+  "rule": "ask the viewer to comment the word BOT (a public comment); the freebie arrives in their DM",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "cta: ask the viewer to comment the word BOT (a public comment); the freebie arrives in their DM"
+   }
+  ]
+ },
+ "other:Hook starts with context (...) instead o": {
+  "count": 1,
+  "rule": "Hook starts with context (...) instead of a payoff or stake; rewrite to start with the compelling moment, e.g., ...",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "skills: pain: Hook starts with context ('Salon owner') instead of a payoff or stake; rewrite to start with the compelling moment, e.g., '11 baje client ne WhatsApp kiya, aapne reply nahi kiya?'"
+   }
+  ]
+ },
+ "other:First spoken word (...) is not the most ": {
+  "count": 1,
+  "rule": "First spoken word (...) is not the most interesting hook element; cut the address and begin with the striking detail, e.g., ...",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "skills: pain: First spoken word ('Salon') is not the most interesting hook element; cut the address and begin with the striking detail, e.g., 'Raat ko 11 baje client ne WhatsApp kiya, aapne reply nahi kiya?'"
+   }
+  ]
+ },
+ "other:line only restates the problem; replace ": {
+  "count": 1,
+  "rule": "line only restates the problem; replace with a specific first answer, e.g., ...",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "marketing: poke: line only restates the problem; replace with a specific first answer, e.g., 'Aap WhatsApp Business API ya auto‑reply bot set kar sakte hain jo har inbound message ko turant capture karta hai.'"
+   }
+  ]
+ },
+ "other:line promises a result (...); change to ": {
+  "count": 1,
+  "rule": "line promises a result (...); change to a capability, e.g., ...",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "marketing: payoff: line promises a result ('har enquiry turant milti hai'); change to a capability, e.g., 'AI assistant can reply within a minute, making immediate responses possible.'"
+   }
+  ]
+ },
+ "other:line promises the outcome (...); rephras": {
+  "count": 1,
+  "rule": "line promises the outcome (...); rephrase to a capability, e.g., ...",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "marketing: recap: line promises the outcome ('salon turant jawab dega'); rephrase to a capability, e.g., 'Ab aapka salon AI assistant ke saath turant reply kar sakta hai, bina delay ke.'"
+   }
+  ]
+ },
+ "other:hook would fail on mute because on-scree": {
+  "count": 1,
+  "rule": "hook would fail on mute because on-screen text is vague; fix: replace screen text with a clear, concise statement of the problem a",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "skills: pain: hook would fail on mute because on-screen text is vague; fix: replace screen text with a clear, concise statement of the problem and stakes, e.g., \"Client messaged at 11 pm and you missed it – losing sales\""
+   }
+  ]
+ },
+ "other:the CTA promises a free step‑by‑step set": {
+  "count": 1,
+  "rule": "the CTA promises a free step‑by‑step setup guide and fit‑check, which is not in offers_allowed. Fix – change the CTA to offer the ",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "marketing: offer: the CTA promises a free step‑by‑step setup guide and fit‑check, which is not in offers_allowed. Fix – change the CTA to offer the one‑page checklist (the 10 questions) that is sent in DM after the viewer comments the keyword."
+   }
+  ]
+ },
+ "other:line ... promises a specific outcome. Fi": {
+  "count": 1,
+  "rule": "line ... promises a specific outcome. Fix – rephrase to a capability, e.g., ... or ....",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "marketing: promise of result: line \"AI assistant ek minute reply karta hai, isliye turant response possible hota hai\" promises a specific outcome. Fix – rephrase to a capability, e.g., \"AI assistant aapko turant reply karne mein madad karta hai\" or \"can help y"
+   }
+  ]
+ },
+ "other:the CTA says ... which adds an extra off": {
+  "count": 1,
+  "rule": "the CTA says ... which adds an extra offer. Fix – keep only the keyword and the allowed deliverable: ...",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "marketing: cta wording: the CTA says \"comment mein sirf BOT likho, main DM mein free step‑by‑step setup guide aur fit‑check bhejunga\" which adds an extra offer. Fix – keep only the keyword and the allowed deliverable: \"Comment BOT and you’ll receive the 10‑que"
+   }
+  ]
+ },
+ "pronounce-caps": {
+  "count": 1,
+  "rule": "Never write an unknown ALL-CAPS word in a spoken line (the voice says it as one word); use a plain word or spell it with spaces (S E R P). Only the DM keyword may be in capitals.",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "payoff: pronunciation: \"IT\" (heard in: \"...Global IT Research ke mutabiq 73 perc...\") is written in capitals but has no spelling in the pronunciation list, so the voice would say it as one word (\"it\"). Write a plain word instead, or spell it with spaces (S E R"
    }
   ]
  }

@@ -1,0 +1,215 @@
+{
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Kya aapki clinic raat ke eleven baje ke messages ka jawab deti hai?",
+    "hooks": [
+      {
+        "text": "Kya aapki clinic raat 11 baje ke messages ka jawab deti hai…",
+        "score": 13.4,
+        "formula": ""
+      },
+      {
+        "text": "Raat 11 baje clinic ko message aata hai, subah tak reply nahi aata…",
+        "score": 13.3,
+        "formula": ""
+      },
+      {
+        "text": "Clinic par raat 11 baje WhatsApp sawal aata hai, lekin reply nahi hota.",
+        "score": 11.9,
+        "formula": ""
+      },
+      {
+        "text": "Bohot kam clinic raat ke messages ka jawab dete hain…",
+        "score": 11.4,
+        "formula": "nobody"
+      },
+      {
+        "text": "Kabhi dhyan diya hai, raat ko aaye clinic messages ka kya hota hai…",
+        "score": 11.3,
+        "formula": "noticed"
+      },
+      {
+        "text": "Kaash mujhe clinic ke raat ke messages ke liye ye pehle pata hota…",
+        "score": 11.2,
+        "formula": "wish"
+      }
+    ],
+    "hook_formula": "",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Kya aapki clinic raat ke eleven baje ke messages ka jawab deti hai?",
+        "screen": "Raat eleven baje, reply nahi",
+        "visual": "Phone shows incoming WhatsApp message at night, clinic owner sleeping",
+        "emotion": "warm",
+        "facts": [],
+        "steps": [
+          "clinic receives message",
+          "at eleven baje",
+          "no reply"
+        ]
+      },
+      {
+        "beat": "poke",
+        "line": "WhatsApp message deliver hota hai, lekin clinic ko koi email alert nahi aata.",
+        "screen": "Koi email alert nahi aata",
+        "visual": "A delivered WhatsApp message with no notification or email alert on the owner's phone.",
+        "emotion": "urgent",
+        "facts": [
+          "f4"
+        ]
+      },
+      {
+        "beat": "rehook",
+        "line": "Par raat ko 11 baje kaun reply dega?",
+        "screen": "Raat 11 baje kaun reply?",
+        "visual": "Dark clinic exterior with a phone lighting up on the reception desk.",
+        "emotion": "curious",
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Bot ko pehle sawal dene se aapka kaam asaan ho jata hai, kyunki wo turant jawab degi.",
+        "screen": "Bot turant jawab degi",
+        "visual": "WhatsApp chat screen with bot sending instant reply",
+        "emotion": "warm",
+        "steps": [
+          "Bot ko pehle sawal dene se",
+          "aapka kaam asaan ho jata hai",
+          "kyunki wo turant jawab degi"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "payoff",
+        "line": "GlobalITResearch.com ke mutabiq 73% consumers kehte hain ki messaging unka preferred way hai business se baat karne ka.",
+        "screen": "73% prefer messaging",
+        "visual": "stat graphic with 73% and source logo",
+        "emotion": "warm",
+        "facts": [
+          "f7"
+        ],
+        "steps": [
+          "show source name",
+          "show percentage",
+          "show preference"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Message ab bot se jawab pa sakta hai, kyunki bot hamesha kaam karta hai.",
+        "screen": "Raat ka message ab bot jawab deta hai",
+        "visual": "The chatbot replying instantly at night while the clinic owner sleeps.",
+        "emotion": "warm",
+        "facts": []
+      },
+      {
+        "beat": "cta",
+        "line": "Comment BOT. DM mein ek page ki checklist milegi, jisme WhatsApp reply bot ke das sawal honge, taaki aap fit check kar sako. Poora breakdown aaj ke carousel mein hai.",
+        "screen": "Comment BOT, checklist milegi DM mein",
+        "visual": "Text overlay saying Comment BOT, with the developer pointing to the comment section.",
+        "emotion": "warm",
+        "facts": []
+      }
+    ],
+    "cta": "Comment BOT. DM mein ek page ki checklist milegi, jisme WhatsApp reply bot ke das sawal honge, taaki aap fit check kar sako. Poora breakdown aaj ke carousel mein hai.",
+    "linkedin_english": "If you run a clinic, a customer may message you on WhatsApp at 11 p.m. and get no reply until morning. I build AI chatbots that answer common questions and save every enquiry on WhatsApp, your website, and DMs. Comment BOT and I will send you a one-page checklist with ten questions a WhatsApp reply bot should answer, so you can see if it fits your clinic.",
+    "marketing": {
+      "keyword": "BOT",
+      "gets": "a one-page checklist: the 10 questions a WhatsApp reply bot should answer for your business, so you can see if it fits",
+      "pillar": "educate"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Inbound customer messages on WhatsApp Business do not cost the business; every message a customer sends is free.",
+        "figure": null,
+        "source": "chatmitra.com",
+        "title": "WhatsApp Business Cost per Message in India: 2026 Rates",
+        "url": "https://chatmitra.com/blog/whatsapp-business-cost-per-message",
+        "date": null,
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "WhatsApp Business only charges for messages that are successfully delivered; if a template message fails to reach the phone, it is not billed.",
+        "figure": null,
+        "source": "chatmitra.com",
+        "title": "WhatsApp Business Cost per Message in India: 2026 Rates",
+        "url": "https://chatmitra.com/blog/whatsapp-business-cost-per-message",
+        "date": null,
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "When a customer sends a WhatsApp message, a 24‑hour service window opens and resets each time the customer sends a new message.",
+        "figure": null,
+        "source": "chatmitra.com",
+        "title": "WhatsApp Business Cost per Message in India: 2026 Rates",
+        "url": "https://chatmitra.com/blog/whatsapp-business-cost-per-message",
+        "date": null,
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "A message sent via WhatsApp, a marketplace, or social media may appear in that platform even though no email alert is generated for the business.",
+        "figure": null,
+        "source": "anagataitsolutions.in",
+        "title": "Why Are Customer Enquiries Missing from My Inbox? - Anagata IT Solutions",
+        "url": "https://anagataitsolutions.in/why-are-customer-enquiries-missing-from-my-inbox/",
+        "date": "2026-10-26",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Missing enquiries can result from website forms rejecting submissions, saving records without sending email, sending notifications to outdated addresses, or routing them to filtered folders.",
+        "figure": null,
+        "source": "anagataitsolutions.in",
+        "title": "Why Are Customer Enquiries Missing from My Inbox? - Anagata IT Solutions",
+        "url": "https://anagataitsolutions.in/why-are-customer-enquiries-missing-from-my-inbox/",
+        "date": "2026-10-26",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "When the source of a customer enquiry cannot be identified, it should be labeled as \"unknown\" rather than forcing it into a specific campaign category.",
+        "figure": null,
+        "source": "chamkomarketing.app",
+        "title": "Reconcile Customer Enquiries Across Calls, Forms and Messaging Apps · Chamko",
+        "url": "https://chamkomarketing.app/guides/reconcile-marketing-enquiries-across-channels/",
+        "date": "2026-10-26",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "73% of consumers say messaging is their preferred way to communicate with a business.",
+        "figure": "73%",
+        "source": "globalitresearch.com",
+        "title": "The State of Business Messaging: What 11,000+ Consumers Reveal About the Future of Customer Service - Global IT Research",
+        "url": "https://globalitresearch.com/whitepaper/the-state-of-business-messaging-what-11000-consumers-reveal-about-the-future-of-customer-service/",
+        "date": "2026-03-13",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "69% of consumers find waiting on hold frustrating and a waste of time.",
+        "figure": "69%",
+        "source": "globalitresearch.com",
+        "title": "The State of Business Messaging: What 11,000+ Consumers Reveal About the Future of Customer Service - Global IT Research",
+        "url": "https://globalitresearch.com/whitepaper/the-state-of-business-messaging-what-11000-consumers-reveal-about-the-future-of-customer-service/",
+        "date": "2026-03-13",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "Where did that customer message go?",
+    "service": "chatbot",
+    "keyword": "BOT",
+    "carousel_tease": true,
+    "notes": [
+      "style remark (not blocking): payoff: grammar: sentence stops mid-thought on 'ka': \" unka preferred way hai business se baat karne ka.\""
+    ]
+  },
+  "service": "chatbot",
+  "slot": "2"
+}

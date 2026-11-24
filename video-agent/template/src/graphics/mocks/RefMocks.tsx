@@ -1,5 +1,5 @@
 import React from "react";
-import { useCurrentFrame, useVideoConfig } from "remotion";
+import { Img, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { blink, fade, pop, typed } from "../anim";
 import { FONT_HEAD, FONT_SERIF, THEME } from "../theme";
 import { WindowCard } from "./WindowCard";
@@ -80,6 +80,25 @@ export const StickersCard: React.FC<{ at: number; items: string[]; times: number
       {items[2] ? <div style={{ position: "absolute", left: 120, top: 290, padding: "16px 34px", borderRadius: 22, background: THEME.card, border: `2px solid ${THEME.accent2}`, fontSize: 52, fontWeight: 800, color: THEME.hot, transform: `scale(${P(2)}) rotate(2deg)` }}>{items[2]}</div> : null}
       {items[3] ? <div style={{ position: "absolute", right: 40, top: 400, fontFamily: '"Caveat","Reenie Beanie",cursive', fontSize: 74, color: THEME.accent, transform: `rotate(-8deg) scale(${P(3)})`, textShadow: "0 3px 10px rgba(0,0,0,.6)" }}>{items[3]}</div> : null}
       <div style={{ display: "none", fontFamily: FONT_SERIF }} />
+    </div>
+  );
+};
+
+// A REAL blurred screenshot (assets/proof): items = [tag line, image path, height/width ratio]. The tag states only what the picture shows; a "no reply" stamp lands on the first reveal word.
+export const ProofShot: React.FC<{ at: number; items: string[]; times: number[] }> = ({ at, items, times }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const p = pop(frame, fps, at, { damping: 15, stiffness: 170, mass: 0.8 });
+  const stamp = pop(frame, fps, times[0] ?? at + 1.0, { damping: 9, stiffness: 260, mass: 0.5 });
+  const ratio = parseFloat(items[2]) || 0.8;
+  const W = 760;
+  return (
+    <div style={{ width: 920, display: "flex", flexDirection: "column", alignItems: "center", fontFamily: FONT_HEAD }}>
+      <div style={{ marginBottom: 18, padding: "10px 22px", borderRadius: 999, background: THEME.glowSoft, border: `2px solid ${THEME.accent2}`, color: THEME.hot, fontSize: 28, fontWeight: 700, letterSpacing: 1, opacity: Math.min(1, p * 2) }}>{items[0]}</div>
+      <div style={{ position: "relative", width: W, borderRadius: 30, overflow: "hidden", border: `2px solid ${THEME.cardEdge}`, boxShadow: "0 30px 80px rgba(0,0,0,.55)", opacity: Math.min(1, p * 2.2), transform: `translateY(${(1 - p) * 100}px) scale(${0.92 + 0.08 * p})` }}>
+        <Img src={staticFile(items[1])} style={{ width: W, height: W * ratio, display: "block", objectFit: "cover" }} />
+        <div style={{ position: "absolute", right: 28, bottom: 30, padding: "12px 26px", borderRadius: 14, background: THEME.accent, color: THEME.ink, fontSize: 40, fontWeight: 900, letterSpacing: 1, transform: `rotate(-6deg) scale(${stamp})`, opacity: Math.min(1, stamp * 3), boxShadow: "0 10px 26px rgba(0,0,0,.5)" }}>NO REPLY</div>
+      </div>
     </div>
   );
 };

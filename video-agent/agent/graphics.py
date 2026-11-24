@@ -24,6 +24,8 @@ browser page, file extract), struck-through lists, full-colour punch slides with
   chat        bubbles: a customer message, "you: ..." is the business reply, "..." an unanswered state (PROOF CARD, drawn with an EXAMPLE tag)
   maps        [business name, category, status like "Closed now"]: a map listing (PROOF CARD)
   gauge       [label, verdict word, zone slow|ok|fast]: a speed gauge with no figure (PROOF CARD)
+  proof       [id] (gym | restaurant | cafe | hotel): a REAL blurred WhatsApp screenshot of a message sent to a local business, delivered, never answered (assets/proof, agent/proof.py). The
+              card says only what the screenshot shows (sent date, no reply by the check date); say it the same way, never a percentage or "all businesses"
   tracker     rows of a list (title = topic): a "02/05" counter chip, a typed command bar, rows ticking one by one: the "wait for the end" counter
   follow      [handle, one line] (title = name): a profile card, a pointer glides to Follow and clicks on the first reveal word
   stickers    [starburst word, live pill, count badge, handwritten note]: badges that pop on their words
@@ -38,7 +40,7 @@ import re
 from .common import log
 
 LAYOUTS = ("title", "step", "strike", "punch", "hook", "numeral", "inverse", "tiles")          # "hook" is never chosen by the planner: viral.stop_fix forces it on scene 1
-MOCKS = ("terminal", "comment", "checklist", "browser", "file", "window", "chat", "maps", "gauge", "tracker", "follow", "stickers")
+MOCKS = ("terminal", "comment", "checklist", "browser", "file", "window", "chat", "maps", "gauge", "tracker", "follow", "stickers", "proof")
 HEAD_AT = 0.12            # heading appears this long after the scene starts when no word is given
 HOLD = 0.8                # last element lands at least this long before the scene ends, so it can be read
 GAP = 0.35                # minimum seconds between two reveals
@@ -95,6 +97,12 @@ def resolve_graphic(scene: dict, words: list[dict], seconds: float) -> dict | No
     if layout not in LAYOUTS:
         return None
     mock = g.get("mock") if isinstance(g.get("mock"), dict) and g["mock"].get("type") in MOCKS else None
+    proof = None
+    if mock and mock.get("type") == "proof":
+        from . import proof as _proof
+        proof = _proof.props(str((mock.get("items") or [""])[0]))
+        if not proof:
+            mock = None                           # no usable proof (unknown id or stale check): never fake one
     if layout == "step" and not mock:
         layout = "title"                          # a step without a mock-up is a title
     items = [str(x)[:60] for x in ((mock or {}).get("items") if layout == "step" else g.get("items")) or []][:MAX_ITEMS]
@@ -132,6 +140,10 @@ def resolve_graphic(scene: dict, words: list[dict], seconds: float) -> dict | No
         "mock": {"type": mock["type"], "title": str(mock.get("title") or "")[:30], "items": items} if mock and layout == "step" else None,
         "times": {"heading": round(head, 3), "mock": mock_at, "items": times, "chips": chips_at},
     }
+    if proof and props["mock"]:
+        from . import proof as _proof
+        _proof.stage(proof["id"])
+        props["mock"]["items"] = [proof["tag"], proof["src"], str(proof["ratio"])]
     if props["mock"] and mock["type"] == "comment" and items:
         props["mock"]["pressAt"] = round(times[0] + len(items[0]) / TYPE_CPS + 0.4, 3)     # POST is pressed when the typing ends
 

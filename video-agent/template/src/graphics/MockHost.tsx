@@ -7,7 +7,7 @@ import { BrowserMock } from "./mocks/BrowserMock";
 import { FileExtract } from "./mocks/FileExtract";
 import { WindowRows } from "./mocks/WindowRows";
 import { ChatCard, MapsCard, GaugeCard } from "./mocks/ProofCards";
-import { TrackerCard, FollowCard, StickersCard } from "./mocks/RefMocks";
+import { TrackerCard, FollowCard, StickersCard, ProofShot } from "./mocks/RefMocks";
 
 // Picks the mock-up component for `mock.type`.
 export const MockHost: React.FC<{ mock: MockSpec; at: number; times: number[] }> = ({ mock, at, times }) => {
@@ -32,6 +32,8 @@ export const MockHost: React.FC<{ mock: MockSpec; at: number; times: number[] }>
       return <TrackerCard at={at} title={mock.title} items={mock.items} times={times} />;
     case "follow":
       return <FollowCard at={at} title={mock.title} items={mock.items} times={times} />;
+    case "proof":
+      return <ProofShot at={at} items={mock.items} times={times} />;
     case "stickers":
       return <StickersCard at={at} items={mock.items} times={times} />;
     default:

@@ -1,0 +1,262 @@
+{
+ "source": "AR Designs custom SFX pack; sync_at = loudest moment (auto-detected, verify by ear); lufs measured",
+ "sounds": {
+  "v1_build_up": {
+   "file": "v1_build_up.wav",
+   "category": "custom",
+   "duration": 1.5,
+   "channels": 2,
+   "sync_at": 1.314,
+   "meets": "peak",
+   "lufs": -20.1,
+   "peak_dbfs": -8.4,
+   "tags": [
+    "tension",
+    "build",
+    "intro"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v1_cinematic_hit": {
+   "file": "v1_cinematic_hit.wav",
+   "category": "custom",
+   "duration": 0.98,
+   "channels": 2,
+   "sync_at": 0.084,
+   "meets": "peak",
+   "lufs": -16.5,
+   "peak_dbfs": -0.8,
+   "tags": [
+    "impact",
+    "hook",
+    "reveal"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v1_ding": {
+   "file": "v1_ding.wav",
+   "category": "custom",
+   "duration": 0.86,
+   "channels": 2,
+   "sync_at": 0.148,
+   "meets": "peak",
+   "lufs": -10.9,
+   "peak_dbfs": -4.2,
+   "tags": [
+    "notification",
+    "highlight",
+    "success"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v1_gear_metal": {
+   "file": "v1_gear_metal.wav",
+   "category": "custom",
+   "duration": 0.52,
+   "channels": 2,
+   "sync_at": 0.089,
+   "meets": "peak",
+   "lufs": -15.2,
+   "peak_dbfs": -2.3,
+   "tags": [
+    "mechanical",
+    "process",
+    "tech"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v1_paper": {
+   "file": "v1_paper.wav",
+   "category": "custom",
+   "duration": 0.9,
+   "channels": 2,
+   "sync_at": 0.831,
+   "meets": "peak",
+   "lufs": -21.2,
+   "peak_dbfs": -2.2,
+   "tags": [
+    "transition",
+    "swipe",
+    "document"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v1_reverse_ticktock": {
+   "file": "v1_reverse_ticktock.wav",
+   "category": "custom",
+   "duration": 1.78,
+   "channels": 2,
+   "sync_at": 1.673,
+   "meets": "peak",
+   "lufs": -12.0,
+   "peak_dbfs": -0.6,
+   "tags": [
+    "time",
+    "urgency",
+    "rewind"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v1_riser": {
+   "file": "v1_riser.wav",
+   "category": "custom",
+   "duration": 1.05,
+   "channels": 2,
+   "sync_at": 0.849,
+   "meets": "peak",
+   "lufs": -12.8,
+   "peak_dbfs": -0.3,
+   "tags": [
+    "tension",
+    "build",
+    "transition"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v2_camera_flash": {
+   "file": "v2_camera_flash.wav",
+   "category": "custom",
+   "duration": 1.6,
+   "channels": 2,
+   "sync_at": 0.108,
+   "meets": "peak",
+   "lufs": -16.8,
+   "peak_dbfs": -1.1,
+   "tags": [
+    "photo",
+    "reveal",
+    "highlight"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v2_camera_flash_shutter_combined": {
+   "file": "v2_camera_flash_shutter_combined.wav",
+   "category": "custom",
+   "duration": 0.66,
+   "channels": 2,
+   "sync_at": 0.193,
+   "meets": "peak",
+   "lufs": -13.5,
+   "peak_dbfs": -0.1,
+   "tags": [
+    "photo",
+    "reveal",
+    "quick"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v2_cinematic_whoosh": {
+   "file": "v2_cinematic_whoosh.wav",
+   "category": "custom",
+   "duration": 0.73,
+   "channels": 2,
+   "sync_at": 0.042,
+   "meets": "peak",
+   "lufs": -13.5,
+   "peak_dbfs": -0.0,
+   "tags": [
+    "transition",
+    "swipe",
+    "motion"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v2_counting": {
+   "file": "v2_counting.wav",
+   "category": "custom",
+   "duration": 1.44,
+   "channels": 2,
+   "sync_at": 1.278,
+   "meets": "peak",
+   "lufs": -12.2,
+   "peak_dbfs": -1.1,
+   "tags": [
+    "numbers",
+    "stats",
+    "counter"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v2_low_hit": {
+   "file": "v2_low_hit.wav",
+   "category": "custom",
+   "duration": 3.54,
+   "channels": 2,
+   "sync_at": 0.293,
+   "meets": "peak",
+   "lufs": -12.9,
+   "peak_dbfs": -1.9,
+   "tags": [
+    "impact",
+    "hook",
+    "drop"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v2_metallic_riser": {
+   "file": "v2_metallic_riser.wav",
+   "category": "custom",
+   "duration": 3.47,
+   "channels": 2,
+   "sync_at": 3.331,
+   "meets": "peak",
+   "lufs": -14.7,
+   "peak_dbfs": -0.1,
+   "tags": [
+    "tension",
+    "build",
+    "tech"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v2_pop": {
+   "file": "v2_pop.wav",
+   "category": "custom",
+   "duration": 0.5,
+   "channels": 2,
+   "sync_at": 0.089,
+   "meets": "peak",
+   "lufs": -19.0,
+   "peak_dbfs": -2.3,
+   "tags": [
+    "ui",
+    "text-appear",
+    "quick"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v2_pop_flip_shine": {
+   "file": "v2_pop_flip_shine.wav",
+   "category": "custom",
+   "duration": 1.97,
+   "channels": 2,
+   "sync_at": 0.307,
+   "meets": "peak",
+   "lufs": -17.2,
+   "peak_dbfs": -6.0,
+   "tags": [
+    "ui",
+    "highlight",
+    "cta"
+   ],
+   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v2_glitch": {
+   "file": "v2_glitch.wav",
+   "category": "custom",
+   "duration": 0.5,
+   "channels": 2,
+   "sync_at": 0.0,
+   "meets": "start",
+   "lufs": -19.5,
+   "peak_dbfs": -6.8,
+   "tags": [
+    "tech",
+    "hook",
+    "pattern-interrupt"
+   ],
+   "note": "rebuilt: everything below 3.8 kHz removed so it cannot mask a voice; verify by ear",
+   "source": "user-supplied pack, reprocessed 2026-11-24"
+  }
+ }
+}

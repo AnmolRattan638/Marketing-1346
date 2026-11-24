@@ -1,5 +1,5 @@
 {
- "_about": "Real WhatsApp messages Anmol sent to local businesses as a mystery customer. Names, numbers and photos are blurred. A claim may only say what the screenshot shows: sent on `sent`, delivered, no reply as of `checked`. Update `checked` (and drop an entry the moment a business replies). Entries older than 45 days since `checked` are not used.",
+ "_about": "Real WhatsApp messages Anmol sent to local businesses as a mystery customer. Names, numbers and photos are blurred. A claim may only say what the screenshot shows: sent on `sent`, delivered, no reply as of `checked`. Update `checked` (and drop an entry the moment a business replies). Entries older than 45 days since `checked` are not used. Entries with kind=ai_reply show a business's own WhatsApp AI answering a mystery customer within about a minute; they say only that, never that it is our product or that it converts.",
  "proofs": [
   {
    "id": "gym",
@@ -51,6 +51,21 @@
    "size": [
     720,
     725
+   ]
+  },
+  {
+   "id": "chatbot",
+   "business_type": "chatbot",
+   "kind": "ai_reply",
+   "sent": "2026-10-30",
+   "sent_time": "2:08 pm",
+   "reply_time": "2:09 pm",
+   "status": "AI replied in 1 minute",
+   "checked": "2026-11-24",
+   "file": "chatbot.jpg",
+   "size": [
+    648,
+    832
    ]
   }
  ]

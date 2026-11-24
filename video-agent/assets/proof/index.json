@@ -1,0 +1,57 @@
+{
+ "_about": "Real WhatsApp messages Anmol sent to local businesses as a mystery customer. Names, numbers and photos are blurred. A claim may only say what the screenshot shows: sent on `sent`, delivered, no reply as of `checked`. Update `checked` (and drop an entry the moment a business replies). Entries older than 45 days since `checked` are not used.",
+ "proofs": [
+  {
+   "id": "gym",
+   "business_type": "gym",
+   "sent": "2026-06-29",
+   "sent_time": "8:01 pm",
+   "status": "delivered, no reply",
+   "checked": "2026-11-23",
+   "file": "gym.jpg",
+   "size": [
+    720,
+    725
+   ]
+  },
+  {
+   "id": "restaurant",
+   "business_type": "restaurant",
+   "sent": "2026-10-21",
+   "sent_time": "7:30 pm",
+   "status": "delivered, no reply",
+   "checked": "2026-11-23",
+   "file": "restaurant.jpg",
+   "size": [
+    720,
+    1005
+   ]
+  },
+  {
+   "id": "cafe",
+   "business_type": "cafe",
+   "sent": "2026-10-21",
+   "sent_time": "7:32 pm",
+   "status": "delivered, no reply",
+   "checked": "2026-11-23",
+   "file": "cafe.jpg",
+   "size": [
+    720,
+    665
+   ]
+  },
+  {
+   "id": "hotel",
+   "business_type": "hotel",
+   "sent": "2026-10-21",
+   "sent_time": "7:36 pm",
+   "status": "delivered, no reply",
+   "checked": "2026-11-23",
+   "file": "hotel.jpg",
+   "size": [
+    720,
+    725
+   ]
+  }
+ ]
+}

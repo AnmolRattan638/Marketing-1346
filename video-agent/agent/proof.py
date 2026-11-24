@@ -31,7 +31,7 @@ def entry(pid: str, today: date | None = None) -> dict | None:
                 age = (today - datetime.strptime(p["checked"], "%Y-%m-%d").date()).days
             except (KeyError, ValueError):
                 continue
-            if 0 <= age <= MAX_AGE_DAYS and "no reply" in str(p.get("status", "")):
+            if 0 <= age <= MAX_AGE_DAYS and ("no reply" in str(p.get("status", "")) or p.get("kind") == "ai_reply"):
                 return p
     return None
 
@@ -42,6 +42,8 @@ def _d(s: str) -> str:
 
 def tag(p: dict) -> str:
     """The only claim the card makes: when it was sent and when it was last checked."""
+    if p.get("kind") == "ai_reply":                                   # the business's own AI answered: say how fast, nothing more
+        return f"REAL · sent {_d(p['sent'])}, {p['sent_time']} · AI replied by {p['reply_time']}"
     return f"REAL · sent {_d(p['sent'])}, {p['sent_time']} · no reply by {_d(p['checked'])}"
 
 

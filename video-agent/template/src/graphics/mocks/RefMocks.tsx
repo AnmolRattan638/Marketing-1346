@@ -92,12 +92,15 @@ export const ProofShot: React.FC<{ at: number; items: string[]; times: number[] 
   const stamp = pop(frame, fps, times[0] ?? at + 1.0, { damping: 9, stiffness: 260, mass: 0.5 });
   const ratio = parseFloat(items[2]) || 0.8;
   const W = 760;
+  const ai = /AI replied/.test(items[0]);
   return (
     <div style={{ width: 920, display: "flex", flexDirection: "column", alignItems: "center", fontFamily: FONT_HEAD }}>
       <div style={{ marginBottom: 18, padding: "10px 22px", borderRadius: 999, background: THEME.glowSoft, border: `2px solid ${THEME.accent2}`, color: THEME.hot, fontSize: 28, fontWeight: 700, letterSpacing: 1, opacity: Math.min(1, p * 2) }}>{items[0]}</div>
-      <div style={{ position: "relative", width: W, borderRadius: 30, overflow: "hidden", border: `2px solid ${THEME.cardEdge}`, boxShadow: "0 30px 80px rgba(0,0,0,.55)", opacity: Math.min(1, p * 2.2), transform: `translateY(${(1 - p) * 100}px) scale(${0.92 + 0.08 * p})` }}>
+      <div style={{ position: "relative", width: W, opacity: Math.min(1, p * 2.2), transform: `translateY(${(1 - p) * 100}px) scale(${0.92 + 0.08 * p})` }}>
+        <div style={{ borderRadius: 30, overflow: "hidden", border: `2px solid ${THEME.cardEdge}`, boxShadow: "0 30px 80px rgba(0,0,0,.55)" }}>
         <Img src={staticFile(items[1])} style={{ width: W, height: W * ratio, display: "block", objectFit: "cover" }} />
-        <div style={{ position: "absolute", right: 28, bottom: 30, padding: "12px 26px", borderRadius: 14, background: THEME.accent, color: THEME.ink, fontSize: 40, fontWeight: 900, letterSpacing: 1, transform: `rotate(-6deg) scale(${stamp})`, opacity: Math.min(1, stamp * 3), boxShadow: "0 10px 26px rgba(0,0,0,.5)" }}>NO REPLY</div>
+        </div>
+        <div style={{ position: "absolute", right: 28, ...(ai ? { bottom: -84 } : { bottom: 30 }), padding: "12px 26px", borderRadius: 14, background: THEME.accent, color: THEME.ink, fontSize: 40, fontWeight: 900, letterSpacing: 1, transform: `rotate(-6deg) scale(${stamp})`, opacity: Math.min(1, stamp * 3), boxShadow: "0 10px 26px rgba(0,0,0,.5)" }}>{ai ? "AI REPLIED" : "NO REPLY"}</div>
       </div>
     </div>
   );

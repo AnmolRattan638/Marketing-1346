@@ -24,7 +24,7 @@ browser page, file extract), struck-through lists, full-colour punch slides with
   chat        bubbles: a customer message, "you: ..." is the business reply, "..." an unanswered state (PROOF CARD, drawn with an EXAMPLE tag)
   maps        [business name, category, status like "Closed now"]: a map listing (PROOF CARD)
   gauge       [label, verdict word, zone slow|ok|fast]: a speed gauge with no figure (PROOF CARD)
-  proof       [id] (gym | restaurant | cafe | hotel): a REAL blurred WhatsApp screenshot of a message sent to a local business, delivered, never answered (assets/proof, agent/proof.py). The
+  proof       [id] (gym | restaurant | cafe | hotel = never answered; chatbot = a business's own WhatsApp AI that answered a mystery customer within a minute): a REAL blurred WhatsApp screenshot of a message sent to a local business, delivered, never answered (assets/proof, agent/proof.py). The
               card says only what the screenshot shows (sent date, no reply by the check date); say it the same way, never a percentage or "all businesses"
   tracker     rows of a list (title = topic): a "02/05" counter chip, a typed command bar, rows ticking one by one: the "wait for the end" counter
   follow      [handle, one line] (title = name): a profile card, a pointer glides to Follow and clicks on the first reveal word

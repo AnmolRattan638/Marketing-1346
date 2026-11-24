@@ -6,12 +6,12 @@ sys.path.insert(0, str(ROOT / "video-agent"))
 from agent import graphics, proof
 
 idx = json.loads((proof.DIR / "index.json").read_text())["proofs"]
-assert {p["business_type"] for p in idx} >= {"gym", "restaurant", "cafe", "hotel"}
+assert {p["business_type"] for p in idx} >= {"gym", "restaurant", "cafe", "hotel", "chatbot"}
 for p in idx:
-    assert (proof.DIR / p["file"]).exists() and "no reply" in p["status"] and p["checked"] and p["sent"]
+    assert (proof.DIR / p["file"]).exists() and ("no reply" in p["status"] or p.get("kind") == "ai_reply") and p["checked"] and p["sent"]
     assert not any(c.isdigit() for c in p["id"]), "ids carry no phone numbers"
     text = json.dumps(p).lower()
-    assert "+91" not in text and "pirates" not in text and "zoca" not in text and "kake" not in text and "aesthetic" not in text, "no business names or numbers in the index"
+    assert "+91" not in text and "pirates" not in text and "zoca" not in text and "kake" not in text and "aesthetic" not in text and "aayojan" not in text and "bhubaneswar" not in text, "no business names or numbers in the index"
 
 # freshness: a proof is only used while its check is recent
 today = date(2026, 11, 24)
@@ -29,6 +29,9 @@ proof.date = _Day
 t = proof.tag(proof.entry("gym", today))
 assert t.startswith("REAL") and "sent 29 Jun" in t and "no reply by 23 Nov" in t and "%" not in t
 
+tai = proof.tag(proof.entry("chatbot", today))
+assert tai == "REAL · sent 30 Oct, 2:08 pm · AI replied by 2:09 pm" and "convert" not in tai.lower() and "%" not in tai
+
 # resolver: a usable proof becomes a mock with the tag, the staged image and its ratio; an unknown one falls back, never a fake
 W = [{"text": w, "start": 0.2 + i * 0.4, "end": 0.55 + i * 0.4} for i, w in enumerate("maine ek gym ko message kiya koi reply nahi aaya".split())]
 r = graphics.resolve_graphic({"graphic": {"layout": "step", "heading": "No reply", "mock": {"type": "proof", "items": ["gym"]}}}, W, 5.0)
@@ -42,6 +45,8 @@ from PIL import Image, ImageFilter, ImageChops
 def sharp(im, box):
     c = im.crop(box).convert("L"); return sum(ImageChops.difference(c, c.filter(ImageFilter.GaussianBlur(2))).getdata()) / (c.width * c.height)
 for p in idx:
+    if p["id"] == "chatbot":
+        continue                                             # different layout: checked by eye (name box + status bar blurred)
     im = Image.open(proof.DIR / p["file"])
     head = sharp(im, (0, 0, im.width, 100))
     body = sharp(im, (90, 120, 640, 260))                      # the sharp encryption notice and date

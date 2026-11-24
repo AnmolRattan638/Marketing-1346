@@ -2,6 +2,30 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "17958118242331826",
+      "url": "https://www.instagram.com/reel/DgHCeKsJ2Vq/",
+      "published_at": "2026-11-24T03:57:21.000Z",
+      "text": "SALON OWNERS, AAP TEEN SERVICES AUR DO OFFERS EK AD MEIN DAALTE HAIN, JO VIEWERS KO CONFUSE KARTE HAIN?\n\n→ Par aapko pata hai, is confusion ka asli culprit kaun",
+      "format": "reel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 112,
+        "reach": 104,
+        "views": 112,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": 49.1,
+        "avg_watch_s": 5.542,
+        "duration_s": 57
+      },
+      "matched": null
+    },
+    {
+      "platform": "instagram",
       "id": "18129610487313157",
       "url": "https://www.instagram.com/reel/DgFYD20Jpxa/",
       "published_at": "2026-11-23T12:29:54.000Z",
@@ -9,17 +33,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 107,
-        "reach": 90,
-        "views": 107,
+        "impressions": 109,
+        "reach": 92,
+        "views": 109,
         "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 56.9,
-        "avg_watch_s": 5.334,
+        "skip_rate": 57.7,
+        "avg_watch_s": 5.314,
         "duration_s": 42
       },
       "matched": null
@@ -2504,9 +2528,17 @@
         "linkedin": 19,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-11-24",
+      "followers": {
+        "instagram": 8,
+        "linkedin": 19,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-23T23:55:12+00:00"
+  "updated_at": "2026-11-24T09:55:49+00:00"
 }

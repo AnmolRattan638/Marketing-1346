@@ -7,7 +7,7 @@ import os
 import re
 import datetime
 from .. import config, contentskills, llm, marketingskills, pronounce, scriptlessons
-from .. import hooks as hooks_mod, verticals
+from .. import hooks as hooks_mod, proof_facts, verticals
 
 STYLES = [
     {"id": "pain-poke-fix", "name": "6-beat framework", "beats": ["pain", "poke", "fix", "payoff", "recap", "cta"],
@@ -263,6 +263,7 @@ def problems(script, sheet, style, focus=None):
         if not 2 <= len(steps) <= 3 or any(len(x.split()) > 7 for x in steps):
             out.append("fix: needs 2-3 concrete steps (each 7 words max) in `steps`, and the spoken line must walk through them")
     out += structure_problems(beats)
+    out += proof_facts.problems([str(b.get('line') or '') for b in beats])
     cta = beats[-1] if beats else {}
     if cta.get("beat") == "cta":
         text = str(cta.get("line") or "")
@@ -492,6 +493,11 @@ def finish(script, sheet, focus, extra=None):
     """Attach notes for the owner: an invented number in the hook, or advisory meaning-check remarks that did not block the script."""
     notes = list(extra or [])
     beats = script.get("beats") or []
+    for b in beats:                                          # a proof citation becomes a `proof` marker, so the video can show the matching screenshot
+        pid = [x for x in (b.get("facts") or []) if re.fullmatch(r"p\d+", str(x))]
+        if pid:
+            b["facts"] = [x for x in b["facts"] if x not in pid]
+            b["proof"] = [f["proof"] for f in proof_facts.facts() if f["id"] in pid]
     if beats:
         facts = {f["id"]: f for f in sheet.get("facts", [])}
         allowed = set().union(*[_nums(f["claim"]) | _nums(f.get("figure") or "") for f in facts.values()]) | _nums(capabilities(focus))
@@ -516,6 +522,8 @@ def run(sheet, focus, style, ask=None, voice=None, max_tries=4, repair_rounds=3,
     """-> master script dict. Raises ValueError if no valid script after max_tries (caller's stage() reports it)."""
     ask = ask or llm.primary
     voice = voice if voice is not None else config.voice()
+    real_facts = sheet["facts"]
+    sheet = {**sheet, "facts": real_facts + proof_facts.facts()}      # the proofs are citeable in this run only; they never reach the fact sheet downstream
     fixes = ""
     today = sheet.get("date") or datetime.date.today().isoformat()
     for _ in range(max_tries):
@@ -530,7 +538,7 @@ LANGUAGE (strict): every spoken line is HINGLISH in Roman letters, everyday spok
 Write ONE script with EXACTLY {len(style['beats'])} beats, in this order: {style['beats']}. The LAST beat is `{style['beats'][-1]}`; never stop early and never drop it. In the BODY, any digit you speak or put on screen (other than a clock time or an '3 steps' style count) must come from a cited fact or from the capabilities list below; otherwise say it in words with no digit. The HOOK is the exception: it may use a relatable invented number. Rules: no greeting or intro; one idea; 
 SPOKEN LINES: the hook is {HOOK_WORDS[0]}-{HOOK_WORDS[1]} words. Every other beat is {WORDS[0]}-{WORDS[1]} words in 1-2 full spoken sentences, the rehook {REHOOK_WORDS[0]}-{REHOOK_WORDS[1]} words (one line), and the CTA {CTA_WORDS[0]}-{CTA_WORDS[1]}. TOTAL budget for the whole script: {TOTAL_WORDS[0]}-{TOTAL_WORDS[1]} words (about 40-60 seconds). Be DETAILED, not padded: each beat gives its concrete idea, the reason, and one picture the viewer can see (who, when, what happens); the first 5 seconds still decide everything, so the hook and rehook stay sharp. No filler, no repeating what the last beat said. Never promise a guaranteed result or an outcome we cannot prove: say what the system does (replies to every message, instantly, day and night), not what it will earn.
 COMPLETE SENTENCES (the voice reads exactly what you write): every sentence needs its verb and helper word ("karte hain", "chhod dete hain", "hota hai", "sakte hain") and must end where the thought ends, never on ki/ke/se/mein/aur/kyunki or on a bare verb. Write "3 second mein" never "3 sec se" or "5 second batana". After "kyunki" and before it there must be a full clause, not a list of nouns. If a beat is too long, DROP a detail (a second source, an example) instead of dropping grammar; telegram-style fragments are rejected. BAD: "75% Indians mobile se browse karte; 3 sec se zyada load ho to site visitors chhod." GOOD: "75% Indians mobile se browse karte hain, aur site 3 second mein load na ho to zyadatar visitors chhod dete hain."
-{verticals.block(str(focus.get('id') or focus.get('name') or ''), datetime.date.fromisoformat(str(today)[:10]), int(os.getenv('REEL_SLOT') or 1) - 1, force=str((series or {}).get('vertical') or ''))}{series_block(series)}HOLD THE ANSWER BACK: after the poke comes the REHOOK, one short line that keeps the viewer waiting (a question or a held-back promise), and only then the fix. The hook, the poke and the rehook should end on a question or an unfinished thought, so each beat answers the last one and opens the next.
+{proof_facts.block()}{verticals.block(str(focus.get('id') or focus.get('name') or ''), datetime.date.fromisoformat(str(today)[:10]), int(os.getenv('REEL_SLOT') or 1) - 1, force=str((series or {}).get('vertical') or ''))}{series_block(series)}HOLD THE ANSWER BACK: after the poke comes the REHOOK, one short line that keeps the viewer waiting (a question or a held-back promise), and only then the fix. The hook, the poke and the rehook should end on a question or an unfinished thought, so each beat answers the last one and opens the next.
 FIRST 8 SECONDS: the hook ends on an unfinished consequence or a question; the POKE (beat 2) must then give the first surprising, specific answer (a thing, a time, a cost) so there is a reason to keep watching; never spend beat 2 only restating the problem.
 EXPLAIN, don't announce: pain = the moment AND why it hurts (what it costs: time, a lost customer); poke = why the obvious fix fails, the reason in plain words; fix = each step with a one-clause reason ("pehle ..., kyunki ..."); payoff = what the fact MEANS for this owner in plain words (do the arithmetic only if every number comes from a fact); recap = loop back to the pain.
 Use helping words (kyunki, isliye, matlab, jaise ki, phir, taaki, lekin) so each line connects to the one before it. A line must make sense when heard once, with no screen.
@@ -557,7 +565,7 @@ Return JSON: {{"hooks": ["...x5"], "beats": [{{"beat": "pain", "line": "spoken",
             beats[0]["line"] = scored[0]["text"]       # best hook wins; it must still pass the checks below
         script = {"style": style["id"], "hook": scored[0]["text"] if scored else "", "hooks": scored[:6], "hook_formula": (scored[0].get("formula") if scored else "") or "", "beats": beats,
                   "cta": str(data.get("cta") or (beats[-1].get("line") if beats else "")), "linkedin_english": str(data.get("linkedin_english") or ""),
-                  "marketing": {"keyword": marketingskills.cta_for(focus)["keyword"], "gets": marketingskills.cta_for(focus)["gets"], "pillar": marketingskills.pillar(today)}, "language": "hinglish", "facts": sheet["facts"], "topic": sheet.get("topic"), "service": focus.get("id") or focus.get("name"), "keyword": sheet.get("keyword")}
+                  "marketing": {"keyword": marketingskills.cta_for(focus)["keyword"], "gets": marketingskills.cta_for(focus)["gets"], "pillar": marketingskills.pillar(today)}, "language": "hinglish", "facts": real_facts, "topic": sheet.get("topic"), "service": focus.get("id") or focus.get("name"), "keyword": sheet.get("keyword")}
         script = repair_missing(script, style, ask, focus, sheet)
         bad = check_all(script, sheet, style, focus, ask)
         for _round in range(repair_rounds):                  # concrete feedback: rewrite ONLY the failing beats, keep the rest word for word

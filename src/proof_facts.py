@@ -44,6 +44,11 @@ def facts(today: date | None = None) -> list[dict]:
         else:
             claim = f"Maine ek local {p['business_type']} ko WhatsApp par message kiya ({_d(p['sent'])}). Message deliver hua, lekin {_d(p['checked'])} tak koi reply nahi aaya."
         out.append({"id": f"p{i}", "claim": claim, "source": f"AR Designs ka apna mystery-customer test, {_d(p['checked'])} ko dobara dekha", "proof": p["id"]})
+    rows = _fresh(today)
+    n, k, m = len(rows), sum(1 for p in rows if p.get("kind") != "ai_reply"), sum(1 for p in rows if p.get("kind") == "ai_reply")
+    if n >= 3 and k >= 2:                                        # the sample, counted from the screenshots themselves so it cannot drift from them
+        tail = f" {m} ka apna AI assistant ek minute mein reply de gaya." if m else ""
+        out.insert(0, {"id": "p0", "claim": f"Maine {n} local businesses ko WhatsApp par message kiya. Unmein se {k} ne {_d(min(p['checked'] for p in rows if p.get('kind') != 'ai_reply'))} tak reply nahi kiya.{tail}", "source": "AR Designs ka apna mystery-customer test (sirf ye ek chhota sample hai, sab businesses ka data nahi)", "proof": None, "n": n, "k": k})
     return out
 
 
@@ -54,8 +59,9 @@ def block(today: date | None = None) -> str:
     lines = "\n".join(f"  {r['id']}: {r['claim']}" for r in rows)
     return ("REAL PROOF (optional; the video shows a real, blurred screenshot of each). You may use AT MOST ONE no-reply proof and the AI-reply proof, in the poke or the payoff, "
             "cite its id in `facts`, and say it only as written, in your own Hinglish words:\n" + lines +
-            "\nNEVER: say how many businesses were tested, a percentage, 'sab / har / zyadatar businesses', a name or place, that the AI reply is ours, or that it brings customers or sales. "
-            "One proof is one example, not a trend. Without a proof listed here, never claim you tested or messaged a business.\n")
+            "\nYou may state the SAMPLE exactly as p0 counts it ('maine 5 businesses ko message kiya, 4 ne reply nahi kiya', or 'jin businesses ko maine message kiya, unmein se zyadatar ne reply nahi kiya'), and always as MY small test. "
+            "NEVER: a percentage, 'sab / har / zyadatar businesses' as if it were all businesses, a name or place, that the AI reply is ours, or that it brings customers or sales. "
+            "Without a proof listed here, never claim you tested or messaged a business.\n")
 
 
 TEST_CLAIM = re.compile(r"\b(maine|humne|hamne|mene)\b.{0,60}\b(message|msg|whatsapp|text)\b.{0,70}\b(reply|jawab|jawaab)\b", re.I)
@@ -63,14 +69,23 @@ OVER_CLAIM = re.compile(r"(?:\b(?:sab|saare|saari|har|zyadatar|kaafi|bahut se)\b
 FAKE_OWN = re.compile(r"\b(hamara|humara|hamare|humare|our)\b.{0,25}\b(chatbot|bot|ai)\b.{0,40}\b(reply|jawab)\b", re.I)
 
 
+PERCENT = re.compile(r"\d+\s*(?:%|percent\b|prati?shat\b)", re.I)
+MINE = re.compile(r"\b(maine|humne|hamne|mene)\b", re.I)
+SAMPLE_REF = re.compile(r"\b(unmein|unme|jin|jinko|jinhe)\b", re.I)
+
+
 def problems(lines: list[str], today: date | None = None) -> list[str]:
     """Hard accuracy checks on the spoken lines (empty when the script says nothing about proofs)."""
     have = facts(today)
+    summary = next((f for f in have if f["id"] == "p0"), None)
     out = []
     for ln in lines:
         ln = str(ln or "")
-        if OVER_CLAIM.search(ln):
-            out.append("proof: generalises from a few tests ('sab / har / % businesses'); one screenshot is one example, say 'maine ek <type> ko message kiya' only")
+        counted = bool(summary and MINE.search(ln) and (re.search(rf"\b{summary['n']}\b.{{0,60}}\b{summary['k']}\b", ln) or SAMPLE_REF.search(ln)))   # "maine 5 ko message kiya, 4 ne reply nahi kiya" / "jin ko maine ..., unmein se zyadatar ..."
+        if PERCENT.search(ln) and re.search(r"reply|jawab|jawaab", ln, re.I):
+            out.append("proof: a percentage from a handful of tests; say the count ('5 mein se 4') as my own small test")
+        elif OVER_CLAIM.search(ln) and not counted:
+            out.append("proof: generalises from a few tests ('sab / har / zyadatar businesses'); say it as my small test: 'maine 5 businesses ko message kiya, 4 ne reply nahi kiya'")
         if TEST_CLAIM.search(ln) and not have:
             out.append("proof: claims a test of a business's WhatsApp reply but no fresh proof exists; remove the claim")
         if FAKE_OWN.search(ln):

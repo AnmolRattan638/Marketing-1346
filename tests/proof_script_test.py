@@ -8,24 +8,27 @@ from src.agents import scriptwriter as sw
 today = date(2026, 11, 24)
 rows = pf.facts(today)
 ids = {r["id"] for r in rows}
-assert len(rows) == 5 and ids == {"p1", "p2", "p3", "p4", "p5"}, ids
+assert len(rows) == 6 and ids == {"p0", "p1", "p2", "p3", "p4", "p5"}, ids
+sample = next(r for r in rows if r["id"] == "p0")
+assert sample["n"] == 5 and sample["k"] == 4 and "5 local businesses" in sample["claim"] and "4 ne 23 Nov tak reply nahi kiya" in sample["claim"], sample["claim"]
 joined = " ".join(r["claim"] for r in rows)
 assert "gym" in joined and "restaurant" in joined and "ek minute" in joined
 assert not any(w in joined.lower() for w in ("pirates", "zoca", "kake", "aayojan", "aesthetic", "bhubaneswar", "+91")), "no names in what the writer sees"
-assert all("sab" not in r["claim"].lower() and "%" not in r["claim"] for r in rows)
+assert all("sab " not in r["claim"].lower().replace("sab businesses ka", "") and "%" not in r["claim"] for r in rows)
 blk = pf.block(today)
 assert "AT MOST ONE" in blk and "NEVER" in blk and "p1:" in blk
 
 # stale proofs are not offered, and then a test claim is rejected
 late = date(2027, 6, 1)
 assert pf.facts(late) == [] and pf.block(late) == ""
+assert pf.problems(["Maine 5 businesses ko message kiya, 4 ne reply nahi kiya."], late), "the sample claim needs fresh proofs too"
 assert pf.problems(["Maine ek gym ko WhatsApp message kiya, par koi reply nahi aaya."], late), "claim with no fresh proof"
 assert not pf.problems(["Maine ek gym ko WhatsApp message kiya, par koi reply nahi aaya."], today), "fine with a fresh proof"
 
 # over-claims are always rejected
-for bad in ("Maine kai gym ko message kiya aur sab business ne reply nahi diya.", "Zyadatar business WhatsApp par reply nahi karte.", "Maine test kiya aur 80% business ne reply nahi kiya.", "Ye hamara chatbot ek minute mein reply deta hai."):
+for bad in ("Maine kai gym ko message kiya aur sab business ne reply nahi diya.", "Zyadatar business WhatsApp par reply nahi karte.", "Maine test kiya aur 80% business ne reply nahi kiya.", "Maine 5 business ko test kiya, 80 percent ne reply nahi kiya.", "Ye hamara chatbot ek minute mein reply deta hai."):
     assert pf.problems([bad], today), bad
-for ok in ("Raat 9 baje customer ka message aaya aur staff ghar ja chuka hai.", "Maine ek restaurant ko message kiya, delivered hua, lekin reply nahi aaya.", "Ek business ka apna AI assistant ek minute mein reply de deta hai."):
+for ok in ("Maine 5 businesses ko WhatsApp par message kiya, aur 4 ne reply nahi kiya.", "Jin businesses ko maine message kiya, unmein se zyadatar ne reply nahi kiya.", "Raat 9 baje customer ka message aaya aur staff ghar ja chuka hai.", "Maine ek restaurant ko message kiya, delivered hua, lekin reply nahi aaya.", "Ek business ka apna AI assistant ek minute mein reply de deta hai."):
     assert not pf.problems([ok], today), ok
 
 # wiring: the prompt carries the block, problems() runs the check, finish() turns a cited proof into a marker and keeps it off the real fact list

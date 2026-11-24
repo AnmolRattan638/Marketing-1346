@@ -2451,6 +2451,13 @@
           "likes": 0,
           "comments": 0,
           "shares": 0
+        },
+        "7d": {
+          "age_h": 178.4,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
         }
       },
       "latest": {
@@ -2671,9 +2678,9 @@
         }
       },
       "latest": {
-        "impressions": 3,
-        "reach": 1,
-        "views": 3,
+        "impressions": 4,
+        "reach": 2,
+        "views": 4,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -2714,7 +2721,85 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-11-22|instagram": {
+      "date": "2026-11-22",
+      "platform": "instagram",
+      "service": "chatbot",
+      "problem_id": "inconsistent-information-given-to-custom",
+      "angle_type": "comparison",
+      "hook_style": "comparison",
+      "format": "carousel",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "hook_style",
+      "image_style": "glass-ui",
+      "carousel_flavor": "script:pain-poke-fix",
+      "slides": 6,
+      "structure": "retention-v2",
+      "vertical": "restaurant",
+      "hook_formula": "none",
+      "published_at": "2026-11-22T10:41:34.000Z",
+      "url": "https://www.instagram.com/p/DgCnUhbCNh3/",
+      "snap": {
+        "48h": {
+          "age_h": 59.8,
+          "source": "zernio",
+          "impressions": 5,
+          "reach": 1,
+          "views": 5,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 5,
+        "reach": 1,
+        "views": 5,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
+    },
+    "2026-11-22|bluesky": {
+      "date": "2026-11-22",
+      "platform": "bluesky",
+      "service": "chatbot",
+      "problem_id": "inconsistent-information-given-to-custom",
+      "angle_type": "comparison",
+      "hook_style": "comparison",
+      "format": "text",
+      "cta": "dm",
+      "mode": "exploit",
+      "variable": "hook_style",
+      "image_style": "glass-ui",
+      "carousel_flavor": "script:pain-poke-fix",
+      "slides": 6,
+      "structure": "retention-v2",
+      "vertical": "restaurant",
+      "hook_formula": "none",
+      "published_at": "2026-11-22T10:41:31.504048+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2vgjkumxa23",
+      "snap": {
+        "48h": {
+          "age_h": 59.8,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-11-23T23:55:15+00:00"
+  "updated_at": "2026-11-24T22:28:23+00:00"
 }

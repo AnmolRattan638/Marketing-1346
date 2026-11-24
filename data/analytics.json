@@ -2,6 +2,64 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "17967667566250032",
+      "url": "https://www.instagram.com/p/DgIFXydjZ8g/",
+      "published_at": "2026-11-24T13:40:19.000Z",
+      "text": "AAPKA AD HAR DUKAAN JAISE DIKHTA HAI?\n\n→ Generic templates ko log scroll mein skip kar dete hain.\n→ Custom motion se brand alag aur yaadgar ban sakti hai.\n→ Ye ",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 2,
+        "reach": 1,
+        "views": 2,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-24",
+        "service": "animated_ads",
+        "hook_style": "question",
+        "topic": "Does your Instagram ad look like every other business in your area?"
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n32rgywrpe27",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n32rgywrpe27",
+      "published_at": "2026-11-24T13:40:16.163138+00:00",
+      "text": "Most small business ads on Instagram look like the same template. A short animated clip with motion and text can feel more like your brand. It works as an ad, r",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 1,
+        "comments": 0,
+        "shares": 1,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-24",
+        "service": "animated_ads",
+        "hook_style": "question",
+        "topic": "Does your Instagram ad look like every other business in your area?"
+      }
+    },
+    {
+      "platform": "instagram",
       "id": "17958118242331826",
       "url": "https://www.instagram.com/reel/DgHCeKsJ2Vq/",
       "published_at": "2026-11-24T03:57:21.000Z",
@@ -9,17 +67,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 112,
-        "reach": 104,
-        "views": 112,
+        "impressions": 120,
+        "reach": 110,
+        "views": 120,
         "likes": 0,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 49.1,
-        "avg_watch_s": 5.542,
+        "skip_rate": 51.8,
+        "avg_watch_s": 5.336,
         "duration_s": 57
       },
       "matched": null
@@ -33,17 +91,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 109,
-        "reach": 92,
-        "views": 109,
+        "impressions": 113,
+        "reach": 96,
+        "views": 113,
         "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 57.7,
-        "avg_watch_s": 5.314,
+        "skip_rate": 56.5,
+        "avg_watch_s": 5.28,
         "duration_s": 42
       },
       "matched": null
@@ -197,9 +255,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 3,
-        "reach": 1,
-        "views": 3,
+        "impressions": 4,
+        "reach": 2,
+        "views": 4,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -337,17 +395,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 131,
-        "reach": 86,
-        "views": 131,
+        "impressions": 132,
+        "reach": 88,
+        "views": 132,
         "likes": 5,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 56.6,
-        "avg_watch_s": 4.169,
+        "skip_rate": 57,
+        "avg_watch_s": 4.156,
         "duration_s": 27
       },
       "matched": {
@@ -463,7 +521,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 64.4,
-        "avg_watch_s": 3.52,
+        "avg_watch_s": 3.513,
         "duration_s": 65
       },
       "matched": {
@@ -2163,7 +2221,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 38
+      "posts": 39
     }
   },
   "coverage": {
@@ -2540,5 +2598,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-24T09:55:49+00:00"
+  "updated_at": "2026-11-24T22:28:20+00:00"
 }

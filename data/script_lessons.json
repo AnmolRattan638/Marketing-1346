@@ -28,20 +28,20 @@
   ]
  },
  "total-length": {
-  "count": 31,
+  "count": 33,
   "rule": "The whole script stays under 85 words (about 30 s); give each beat one concrete idea and its reason, nothing more.",
   "recent": [
    {
     "on": "2026-11-23",
-    "mistake": "payoff: script is 106 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 16 to 14 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte ha"
-   },
-   {
-    "on": "2026-11-23",
-    "mistake": "fix: script is 151 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 32 to 31 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
-   },
-   {
-    "on": "2026-11-23",
     "mistake": "fix: script is 155 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 30 to 25 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
+   },
+   {
+    "on": "2026-11-24",
+    "mistake": "fix: script is 151 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 34 to 33 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
+   },
+   {
+    "on": "2026-11-24",
+    "mistake": "fix: script is 154 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 35 to 31 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
    }
   ]
  },
@@ -66,20 +66,20 @@
   "rule": "the ask ... is not in offers_allowed; fix to use an allowed offer like ..."
  },
  "number-unbacked": {
-  "count": 25,
+  "count": 28,
   "rule": "Every digit must come from a cited fact; if no fact has the number, say it in words with no digit.",
   "recent": [
    {
-    "on": "2026-11-23",
-    "mistake": "payoff: number(s) ['5'] not backed by a cited fact"
+    "on": "2026-11-24",
+    "mistake": "fix: number(s) ['3'] not backed by a cited fact"
    },
    {
-    "on": "2026-11-23",
-    "mistake": "recap: number(s) ['3'] not backed by a cited fact"
-   },
-   {
-    "on": "2026-11-23",
+    "on": "2026-11-24",
     "mistake": "cta: number(s) ['20'] not backed by a cited fact"
+   },
+   {
+    "on": "2026-11-24",
+    "mistake": "fix: number(s) ['20'] not backed by a cited fact"
    }
   ]
  },
@@ -192,8 +192,14 @@
   "rule": "line promises a result (time saved); rewrite to state capability, e.g., ..."
  },
  "other:payoff needs a cited verified fact": {
-  "count": 4,
-  "rule": "payoff needs a cited verified fact"
+  "count": 5,
+  "rule": "payoff needs a cited verified fact",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "payoff needs a cited verified fact"
+   }
+  ]
  },
  "other:the line names a person (Jitendra Wadhwa": {
   "count": 1,
@@ -316,20 +322,20 @@
   "rule": "grammar: sentence stops mid-thought on 'ki': ..."
  },
  "other:grammar: no verb before ..., write the f": {
-  "count": 6,
+  "count": 9,
   "rule": "grammar: no verb before ..., write the full clause (not a list of nouns): ...",
   "recent": [
    {
-    "on": "2026-11-22",
-    "mistake": "cta: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Comment mein BOT likho, main aapko WhatsApp reply checklist \""
+    "on": "2026-11-24",
+    "mistake": "poke: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Budget badhaane ya sirf caption badalne se engagement nahi b\""
    },
    {
-    "on": "2026-11-22",
-    "mistake": "fix: grammar: no verb before 'isliye', write the full clause (not a list of nouns): \"WhatsApp bot automatically answers common questions, saves e\""
+    "on": "2026-11-24",
+    "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Pehle apna alag ad banayein, kyunki template se ads jaise la\""
    },
    {
-    "on": "2026-11-23",
-    "mistake": "cta: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Comment ADS likho, main DM mein ek ek-page checklist bhejung\""
+    "on": "2026-11-24",
+    "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Pehle apna alag ad banayein, kyunki template se banaye ads g\""
    }
   ]
  },
@@ -368,32 +374,36 @@
   ]
  },
  "other:loops: end the hook and the poke (or the": {
-  "count": 2,
+  "count": 3,
   "rule": "loops: end the hook and the poke (or the rehook) on a question or an unfinished thought (... or ?) so the next beat has to answer;",
   "recent": [
    {
-    "on": "2026-11-23",
+    "on": "2026-11-24",
     "mistake": "poke: loops: end the hook and the poke (or the rehook) on a question or an unfinished thought (... or ?) so the next beat has to answer; at least two of them"
    }
   ]
  },
  "other:context: the hook must name the viewer..": {
-  "count": 3,
+  "count": 4,
   "rule": "context: the hook must name the viewer...business owners'",
   "recent": [
    {
-    "on": "2026-11-23",
+    "on": "2026-11-24",
     "mistake": "pain: context: the hook must name the viewer's business type (clinic, salon, cafe, coaching centre, homestay, gym, shop...) so it is clear in 2 seconds who this is for; never just 'business owners'"
    }
   ]
  },
  "ai-tell": {
-  "count": 2,
+  "count": 3,
   "rule": "No em dashes, 'it is not X, it is Y', 'No X, no Y' or stock phrases; state the point directly.",
   "recent": [
    {
     "on": "2026-11-23",
     "mistake": "rehook: contrast reveal ('it is not X, it is Y'); state the point directly"
+   },
+   {
+    "on": "2026-11-24",
+    "mistake": "recap: contrast reveal ('it is not X, it is Y'); state the point directly"
    }
   ]
  },
@@ -488,11 +498,11 @@
   ]
  },
  "other:needs a number, a time, a question or a ": {
-  "count": 1,
+  "count": 2,
   "rule": "needs a number, a time, a question or a named situation (a concrete stake)",
   "recent": [
    {
-    "on": "2026-11-23",
+    "on": "2026-11-24",
     "mistake": "hook: needs a number, a time, a question or a named situation (a concrete stake)"
    }
   ]
@@ -504,6 +514,70 @@
    {
     "on": "2026-11-23",
     "mistake": "pain: pronunciation: \"f1\" (heard in: \"...ek ad mein daalte hain, jo f1 ke mutabik viewers ko confu...\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
+   }
+  ]
+ },
+ "other:price [..., ...] is not in the price lis": {
+  "count": 2,
+  "rule": "price [..., ...] is not in the price list; copy a price only from the service's price note",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "payoff: price ['100', '100'] is not in the price list; copy a price only from the service's price note"
+   },
+   {
+    "on": "2026-11-24",
+    "mistake": "fix: price ['100', '100'] is not in the price list; copy a price only from the service's price note"
+   }
+  ]
+ },
+ "other:The line claims cheap views result from ": {
+  "count": 1,
+  "rule": "The line claims cheap views result from increasing the budget, which contradicts fact fN that cheap views come from ads looking id",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "meaning: poke: The line claims cheap views result from increasing the budget, which contradicts fact f1 that cheap views come from ads looking identical. Fix: remove the budget claim and attribute cheap views to identical ad design."
+   }
+  ]
+ },
+ "other:The line promises that native animated a": {
+  "count": 1,
+  "rule": "The line promises that native animated ads will boost creative quality and lower cost per result, which is not supported by any fa",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "meaning: payoff: The line promises that native animated ads will boost creative quality and lower cost per result, which is not supported by any fact and not a capability of the short animated ad service. Fix: hedge the claim (e.g., “can help improve quality a"
+   }
+  ]
+ },
+ "other:The line promises to DM a checklist, whi": {
+  "count": 1,
+  "rule": "The line promises to DM a checklist, which is not a capability of the short animated ad service and is not backed by any fact. ",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "meaning: cta: The line promises to DM a checklist, which is not a capability of the short animated ad service and is not backed by any fact. Fix: remove the promise or rephrase to a non‑committal suggestion such as “you can request a checklist.”"
+   }
+  ]
+ },
+ "generic": {
+  "count": 1,
+  "rule": "No filler like 'game changer' or 'next level'; say something only this business could say.",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "rehook: generic filler phrase ('game‑changer'); say something only this business could say"
+   }
+  ]
+ },
+ "other:price [...] is not in the price list; co": {
+  "count": 1,
+  "rule": "price [...] is not in the price list; copy a price only from the service's price note",
+  "recent": [
+   {
+    "on": "2026-11-24",
+    "mistake": "payoff: price ['100'] is not in the price list; copy a price only from the service's price note"
    }
   ]
  }

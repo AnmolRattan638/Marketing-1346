@@ -1,0 +1,721 @@
+{
+  "id": "2026-11-24-4c801e",
+  "date": "2026-11-24",
+  "created_at": "2026-11-24T13:16:40+00:00",
+  "status": "pending",
+  "service": "animated_ads",
+  "topic": "Does your Instagram ad look like every other business in your area?",
+  "idea_id": null,
+  "problem_id": "using-generic-templates-that-look-like-s",
+  "angle_type": null,
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "using-generic-templates-that-look-like-s",
+    "angle_type": null,
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "Before: Same old static frame. After: Moving brand story."
+    },
+    {
+      "style": "mistake",
+      "text": "Mistake: Reusing a stock template makes viewers scroll past instantly."
+    },
+    {
+      "style": "value",
+      "text": "Swap generic frames for AI‑driven motion; watch engagement spike."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "Ads that look identical to other ads in the same category can get cheap views but result in a high cost per direct‑message enquiry.",
+        "figure": null,
+        "source": "trymarkpilot.com",
+        "title": "Instagram Ads Cost in India for Small Business: Real Numbers — MarkPilot",
+        "url": "https://trymarkpilot.com/blog/instagram-ads-cost-india-small-business",
+        "date": "2026-07-01",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "The quality of the creative is the top factor affecting cost per result on Instagram ads.",
+        "figure": null,
+        "source": "trymarkpilot.com",
+        "title": "Instagram Ads Cost in India for Small Business: Real Numbers — MarkPilot",
+        "url": "https://trymarkpilot.com/blog/instagram-ads-cost-india-small-business",
+        "date": "2026-07-01",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Small businesses can launch Instagram ad campaigns with a daily budget as low as ₹100.",
+        "figure": "₹100",
+        "source": "trymarkpilot.com",
+        "title": "Instagram Ads Cost in India for Small Business: Real Numbers — MarkPilot",
+        "url": "https://trymarkpilot.com/blog/instagram-ads-cost-india-small-business",
+        "date": "2026-07-01",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "A campaign that reached 50,000 people for ₹2,000 generated no messages, showing that high reach does not guarantee enquiries.",
+        "figure": "50,000",
+        "source": "trymarkpilot.com",
+        "title": "Instagram Ads Cost in India for Small Business: Real Numbers — MarkPilot",
+        "url": "https://trymarkpilot.com/blog/instagram-ads-cost-india-small-business",
+        "date": "2026-07-01",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Ads that mimic the look, feel, and voice of organic Instagram content are considered native and blend in better with the feed.",
+        "figure": null,
+        "source": "futuristicmarketingservices.com",
+        "title": "Instagram Ad Design: How to Make Ads That Don't Look Like Ads",
+        "url": "https://futuristicmarketingservices.com/Blogs/graphic-designing/instagram-ad-design/",
+        "date": "2026-03-19",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "India has 481 million Instagram users.",
+        "figure": "481 million",
+        "source": "socialsaga.in",
+        "title": "Why most Indian brands sound the same on Instagram",
+        "url": "https://socialsaga.in/blog/why-indian-brands-sound-the-same-on-instagram",
+        "date": "2026-10-11",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Most Indian brands use the same two or three design tools and template libraries, leading to similar ad appearances.",
+        "figure": "2–3",
+        "source": "socialsaga.in",
+        "title": "Why most Indian brands sound the same on Instagram",
+        "url": "https://socialsaga.in/blog/why-indian-brands-sound-the-same-on-instagram",
+        "date": "2026-10-11",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Ads that reuse the same hook style, color treatment, creator framing, offer badge, testimonial layout, and CTA as competitors are less memorable to users.",
+        "figure": null,
+        "source": "leadenforce.com",
+        "title": "LeadEnforce Stop Instagram Ads From Looking Like Everyone Else",
+        "url": "https://leadenforce.com/blog/stop-instagram-ads-from-looking-like-everyone-else",
+        "date": "2026-06-07",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "dropped": 0,
+    "topic": "Does your Instagram ad look like every other business in your area?"
+  },
+  "master_script": null,
+  "script_style": null,
+  "structure": null,
+  "posts": {
+    "instagram": "AAPKA AD HAR DUKAAN JAISE DIKHTA HAI?\n\n→ Generic templates ko log scroll mein skip kar dete hain.\n→ Custom motion se brand alag aur yaadgar ban sakti hai.\n→ Ye clip ad, reel ya story mein chal sakti hai.\n\n𝗚𝗘𝗡𝗘𝗥𝗜𝗖 𝗧𝗘𝗠𝗣𝗟𝗔𝗧𝗘𝗦 𝗖𝗨𝗦𝗧𝗢𝗠 𝗠𝗢𝗧𝗜𝗢𝗡 𝗔𝗜 𝗔𝗡𝗜𝗠𝗔𝗧𝗘𝗗 𝗔𝗗𝗦\n\nComment 𝗔𝗗𝗦 aur main aapko DM karunga, payment sirf aapke approval ke baad. 📱\n\n#SmallBusinessIndia #AnimatedAds #InstagramAds #IndiaBusiness #D2CIndia",
+    "linkedin": "Many small business ads on Instagram look exactly like the same template everyone else uses.\n\nA café owner or a clinic receptionist spends hours designing a static image for a Facebook ad. The text is small, the colors match a free template, and the offer blends into the feed. Customers scroll past without stopping because the image looks like every other local business they saw that morning, whether it sells sarees, samosas or sessions.\n\nI build short animated ads for small businesses anywhere in India to use on Instagram and Facebook. It is a short animated video made for Instagram and Facebook. It shows an offer or service in a few seconds with motion and text. It can be used as an ad, a reel or a story. It is sized and paced for a phone screen, so it does not need a camera crew or a studio.\n\nFirst, the owner tells me what the business sells and what customers keep asking. Then I build the animation using plain motion and text. After that, the owner reviews it and asks for changes. The client pays only after approving the work.\n\nA moving clip can catch the eye faster than a still image. Customers can read the offer while waiting for a bus or during a break. The business gets a piece of creative that feels like its own instead of a copy of a template, and it can be reused across a week of posts.\n\nThis works best for businesses that already have a clear offer to show. It does not replace a personal reply to complicated questions, and it does not fix a product or service that customers do not want. It is one part of how a business shows up online.\n\nI am happy to talk through whether this fits your business, and payment happens only after you approve the final clip. DM ADS and tell me what you sell. 🙂",
+    "bluesky": "Most small business ads on Instagram look like the same template. A short animated clip with motion and text can feel more like your brand. It works as an ad, reel or story on a phone screen. DM ADS if you want to talk about it. 🙂"
+  },
+  "replies": [
+    {
+      "if_they_say": "How much?",
+      "reply": "Hi, thanks for messaging. I build short animated ads for Instagram and Facebook. The price range is INR 999 / 1,499 / 2,199. Before I quote, I need to know what you want customers to do after seeing it: call, WhatsApp, book, or fill a form? Payment is only after you approve the work."
+    },
+    {
+      "if_they_say": "Do you do this for my kind of business?",
+      "reply": "Hi, thanks for reaching out. I make short animated videos for any small business that talks to customers on Instagram or Facebook. What does your business sell, and what is the main offer you want to show?"
+    },
+    {
+      "if_they_say": "Can I see a demo or sample?",
+      "reply": "Hi, I do not share demos or samples for specific businesses. I can explain how a short animated ad works in general and whether it fits what you sell. Tell me about your business and we can start from there."
+    }
+  ],
+  "image": {
+    "prompt": "a matte-black laptop with a glowing cyan screen rests on a matte-black desk, its brushed‑metal chassis catching a cool key light that washes the display, while a rim light outlines the edges and casts soft shadows. The laptop fills the upper two‑thirds of the frame, shot from eye level with a slight downward tilt, leaving calm dark space across the lower 40 % for the headline. Beside it a small ceramic mug with faint steam adds warmth, and dust particles drift in the cyan glow. Palette of black, charcoal, white and accent cyan creates sleek, futuristic confidence. Captured with an 85 mm lens at f/1.8, shallow depth of field keeps the laptop sharp and the background softly blurred, highlighting brushed‑metal texture and glass reflections. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-24.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "using-generic-templates-that-look-like-s",
+      "angle_type": "question",
+      "style": "bold",
+      "headline": "Does your ad look like every other business?",
+      "highlight": [
+        "every other business"
+      ],
+      "sub": "Move from static templates to AI animated stories.",
+      "chat": [],
+      "cta": "Comment \"ADS\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ],
+    "style_id": "network"
+  },
+  "carousel": {
+    "flavor": "before-after-example",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-24.jpg",
+      "data/media/2026-11-24-s2.jpg",
+      "data/media/2026-11-24-s3.jpg",
+      "data/media/2026-11-24-s4.jpg",
+      "data/media/2026-11-24-s5.jpg"
+    ],
+    "alts": [
+      "Before: Same old static frame. After: Moving brand story.",
+      "Slide 2 of 5: Generic template = ad blindness. Example: a cafe or clinic using a generic template. Viewers scroll past without a second glance; it feels like any other local post in India.",
+      "Slide 3 of 5: Custom AI motion adds brand personality. Our AI creates a short animated clip that moves with your logo, colors, and voice. No camera crew needed; the result feels like a mini‑film made for your brand.",
+      "Slide 4 of 5: No‑risk approval process. You see the final 20‑second clip, give a thumbs‑up, then complete the deal. If it’s not what you expected, you can stop before any transaction.",
+      "Slide 5 of 5: Comment ADS. Drop the word ADS below and I’ll DM you a one‑page checklist for a 20‑second ad that tells customers what you do."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Before: Same old static frame. After: Moving brand story.",
+        "body": "A typical Instagram ad looks like every other. Imagine it alive with your brand."
+      },
+      {
+        "role": "problem",
+        "headline": "Generic template = ad blindness",
+        "body": "Example: a cafe or clinic using a generic template. Viewers scroll past without a second glance; it feels like any other local post in India."
+      },
+      {
+        "role": "solution",
+        "headline": "Custom AI motion adds brand personality",
+        "body": "Our AI creates a short animated clip that moves with your logo, colors, and voice. No camera crew needed; the result feels like a mini‑film made for your brand."
+      },
+      {
+        "role": "solution",
+        "headline": "No‑risk approval process",
+        "body": "You see the final 20‑second clip, give a thumbs‑up, then complete the deal. If it’s not what you expected, you can stop before any transaction."
+      },
+      {
+        "role": "cta",
+        "headline": "Comment ADS",
+        "body": "Drop the word ADS below and I’ll DM you a one‑page checklist for a 20‑second ad that tells customers what you do."
+      }
+    ],
+    "scene_prompts": {
+      "2": "a matte‑black smartphone with a cyan edge, its glass screen showing a plain white rectangle with a generic coffee‑cup silhouette, held by two hands scrolling down; phone occupies the upper 55% of the frame, eye‑level view, leaving a calm dark lower 45% for text; cool cyan key light from the left creates a rim on the phone and hands, casting shadows; foreground a polished wooden café table with a steaming mug and blank flyers, midground a blurred counter, background a black wall punctuated by a constellation of bright cyan nodes linked by thin white lines; black, white, warm wood, accent cyan, conveying indifferent ad‑blindness; 85mm lens at f/1.8, shallow depth of field, matte phone surface, brushed metal edges, glass reflections. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "3": "a matte‑black tablet holds a cyan holographic ribbon of AI motion, guided by gray hands shaping the light; tablet and hands occupy the upper 55% from an elevated eye‑level view, leaving a calm dark area below; cool left‑front key light washes the scene in cyan, rim light outlines the hands, shadows fall on the desk; brushed‑metal desk foreground with glass reflections, midground tablet, background black void dotted with a constellation of white nodes linked by thin cyan lines and a flowing cyan light wave; midnight black, steel gray, white palette with a cyan accent, evoking calm confidence and progressive energy; 85mm lens at f/1.8, depth of field on hands and ribbon, showing brushed metal grain, glass sparkle, dust catching cyan light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "4": "A matte‑black tablet with a brushed‑metal edge shows a softly glowing cyan holographic video clip floating above it, cradled by relaxed hands with a thumb raised in approval; the hands and tablet sit in the upper half of the frame, leaving the lower area dark for overlay. The view is above eye level, captured with an 85mm lens at f/1.8 for shallow depth of field that keeps the hands crisp while the background blurs. A cool cyan key light from the front‑left washes the subject, edged by a subtle rim glow and shadows on a glossy black surface. Behind, faint white nodes linked by thin cyan lines suggest a minimalist network. Palette: deep black, white, single cyan accent, evoking calm confidence. Fine dust particles catch the light, emphasizing the polished texture. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": []
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Instagram draft offers a free one-page checklist, which is not allowed (only pay‑after‑approval and DM conversation are permitted)."
+    ],
+    "revised": {
+      "instagram": "**AAPKA AD HAR DUKAAN JAISE DIKHTA HAI?\n\n→ Generic templates ko log scroll mein skip kar dete hain.\n→ Custom motion se brand alag aur yaadgar ban sakti hai.\n→ Ye clip ad, reel ya story mein chal sakti hai.\n\n**GENERIC TEMPLATES** **CUSTOM MOTION** **AI ANIMATED ADS**\n\nComment **ADS** aur main aapko DM karunga, payment sirf aapke approval ke baad. 📱\n\n#SmallBusinessIndia #AnimatedAds #InstagramAds #IndiaBusiness #D2CIndia",
+      "linkedin": "Many small business ads on Instagram look exactly like the same template everyone else uses.\n\nA café owner or a clinic receptionist spends hours designing a static image for a Facebook ad. The text is small, the colors match a free template, and the offer blends into the feed. Customers scroll past without stopping because the image looks like every other local business they saw that morning, whether it sells sarees, samosas or sessions.\n\nI build short animated ads for small businesses anywhere in India to use on Instagram and Facebook. It is a short animated video made for Instagram and Facebook. It shows an offer or service in a few seconds with motion and text. It can be used as an ad, a reel or a story. It is sized and paced for a phone screen, so it does not need a camera crew or a studio.\n\nFirst, the owner tells me what the business sells and what customers keep asking. Then I build the animation using plain motion and text. After that, the owner reviews it and asks for changes. The client pays only after approving the work.\n\nA moving clip can catch the eye faster than a still image. Customers can read the offer while waiting for a bus or during a break. The business gets a piece of creative that feels like its own instead of a copy of a template, and it can be reused across a week of posts.\n\nThis works best for businesses that already have a clear offer to show. It does not replace a personal reply to complicated questions, and it does not fix a product or service that customers do not want. It is one part of how a business shows up online.\n\nI am happy to talk through whether this fits your business, and payment happens only after you approve the final clip. DM ADS and tell me what you sell. 🙂",
+      "bluesky": "Most small business ads on Instagram look like the same template. A short animated clip with motion and text can feel more like your brand. It works as an ad, reel or story on a phone screen. DM ADS if you want to talk about it. 🙂"
+    }
+  },
+  "sources": [
+    {
+      "title": "The BEST Instagram Ads Tutorial for Beginners in 2026",
+      "url": "https://www.youtube.com/watch?v=q7W4hgLb2mE",
+      "domain": "youtube.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Instagram Ads Cost in India for Small Business: Real Numbers — MarkPilot",
+      "url": "https://trymarkpilot.com/blog/instagram-ads-cost-india-small-business",
+      "domain": "trymarkpilot.com",
+      "date": "2026-07-01",
+      "provider": "exa"
+    },
+    {
+      "title": "Instagram",
+      "url": "https://tavily.com/knowledge/company/Dzg29Dc14Dc7",
+      "domain": "tavily.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Instagram Ad Design: How to Make Ads That Don't Look Like Ads",
+      "url": "https://futuristicmarketingservices.com/Blogs/graphic-designing/instagram-ad-design/",
+      "domain": "futuristicmarketingservices.com",
+      "date": "2026-03-19",
+      "provider": "exa"
+    },
+    {
+      "title": "5 Reasons Your Small Business Isn't Growing on Instagram (And How to Fix It)",
+      "url": "https://inspiredsocialstudio.com/small-business-instagram-growth-tips/",
+      "domain": "inspiredsocialstudio.com",
+      "date": "2026-04-02",
+      "provider": "exa"
+    },
+    {
+      "title": "Why most Indian brands sound the same on Instagram",
+      "url": "https://socialsaga.in/blog/why-indian-brands-sound-the-same-on-instagram",
+      "domain": "socialsaga.in",
+      "date": "2026-10-11",
+      "provider": "exa"
+    },
+    {
+      "title": "14 Best Practices to Grow Your Instagram Audience",
+      "url": "https://funnel.io/blog/instagram-ads-best-practices-high-conversion",
+      "domain": "funnel.io",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "LeadEnforce Stop Instagram Ads From Looking Like Everyone Else",
+      "url": "https://leadenforce.com/blog/stop-instagram-ads-from-looking-like-everyone-else",
+      "domain": "leadenforce.com",
+      "date": "2026-06-07",
+      "provider": "exa"
+    }
+  ],
+  "humanizer": {
+    "model": "openai/gpt-oss-20b",
+    "platforms": {
+      "linkedin": {
+        "status": "error",
+        "reason": "BadRequestError: Error code: 400 - Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for mo"
+      },
+      "instagram": {
+        "status": "kept",
+        "ai_before": 5.0,
+        "ai_after": 5.0,
+        "reason": "already reads human to the Critic"
+      },
+      "bluesky": {
+        "status": "skipped",
+        "reason": "body under 30 words"
+      }
+    }
+  },
+  "ad_score": 9,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 3.1,
+        "breakout_probability": 0.0,
+        "reach_p10": 333.0,
+        "reach_p50": 657.0,
+        "reach_p90": 1402.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'language/exclusion', 'severity': 'low', 'description': \"The primary copy is written in Hindi (with all‑cap",
+          "{'category': 'class perception', 'severity': 'low', 'description': 'The phrasing \"AAPKA AD HAR DUKAAN JAISE DIKHTA HAI?\""
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 5.0,
+          "practical_value": 5.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 357,
+            "share": 1,
+            "reply": 4,
+            "like": 2
+          },
+          "engagement_rate": 0.0192,
+          "by_role": {
+            "public": {
+              "n": 7,
+              "avg_sentiment": 0.59,
+              "share_rate": 0.143
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 8,
+          "reach_fraction": 0.013,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 3.3
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.1
+          },
+          {
+            "title": "Open a stronger curiosity gap",
+            "lift_pct": 3.0
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 5.5,
+        "breakout_probability": 0.0,
+        "reach_p10": 457.0,
+        "reach_p50": 935.0,
+        "reach_p90": 2075.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'culture', 'severity': 'low', 'description': 'The examples \"sarees\" and \"samosas\" are used as shorthand for"
+        ],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 4.0,
+          "educational": 6.0,
+          "novelty": 5.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 6.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Long post",
+            "impact": "medium"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 360,
+            "share": 5,
+            "reply": 5,
+            "like": 4
+          },
+          "engagement_rate": 0.0374,
+          "by_role": {
+            "public": {
+              "n": 14,
+              "avg_sentiment": 0.59,
+              "share_rate": 0.357
+            }
+          },
+          "cascade_size": 6,
+          "r_effective": 2.125,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 25,
+          "reach_fraction": 0.039,
+          "r_effective": 0.8139,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 10.5,
+        "breakout_probability": 0.0,
+        "reach_p10": 207.0,
+        "reach_p50": 423.0,
+        "reach_p90": 893.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 4.0,
+          "practical_value": 5.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 358,
+            "share": 1,
+            "reply": 2,
+            "like": 4
+          },
+          "engagement_rate": 0.0192,
+          "by_role": {
+            "public": {
+              "n": 7,
+              "avg_sentiment": 0.617,
+              "share_rate": 0.143
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 9,
+          "reach_fraction": 0.0135,
+          "r_effective": 0.4667,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "mistake",
+          "p_beats_chosen": 0.98,
+          "lift_pct": 12.0,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "value",
+          "p_beats_chosen": 0.97,
+          "lift_pct": 8.1,
+          "decisive": true
+        }
+      ],
+      "better": 1,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Rewrite hook as mistake/value hook in Hinglish (Romanized); change DM line to only 'Comment ADS' without checklist promise",
+      "linkedin: Replace Pune/Jaipur examples with generic varied locations; sharpen first line to mistake/value hook",
+      "bluesky: Replace opening generalization with mistake/value hook; soften 'Most' to 'Many' to reduce stereotype"
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 0.0,
+      "bluesky": 0.0
+    },
+    "after": {
+      "instagram": 3.1,
+      "linkedin": 5.5,
+      "bluesky": 10.5
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "google:gemma-4-26b-a4b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 429)",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 413)",
+      "FAILED groq: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "google:gemma-4-31b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 11.5,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6729, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7992, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7990, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 1473, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 2457, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6923, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7991, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7991, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6718, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5972, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3919, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3558, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6129, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.2,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8440, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5111, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7992, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 1760, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6055, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.2,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 10049, please reduce your message size and try again. Need more tokens? Upgra"
+      }
+    ]
+  }
+}

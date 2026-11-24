@@ -1,5 +1,5 @@
-- Hook style: rotate to **question** (1.83x) or **top3** (1.5x); pause contrast hooks.
-- Format: favour **images** over reels (reels earn 30% of images per reach); if video, keep hook under 3 seconds.
-- Angle: use **mistake** (1.36x) or **myth_bust** (1.25x) frames; lead-gen posts must address freelancers/agencies/any service seller, not developers.
-- Visual: try **silhouette** or **bright-desk** styles (1.5x).
-- Voice: every post reads like a developer showing real work, never an ad; no demos, samples, guarantees, or niche/region targeting.
+- Hook style to try next: rotate to **question** or **top3** (highest relative scores) but keep it one clear pain point.
+- Avoid repeating "DIY vs professional" or "cost comparison" phrasing – used in last 3 animated_ads posts.
+- Posts must read like a developer sharing real work: show a frame or code snippet, not a sales pitch.
+- Use silhouette or desk-glow image style; they outperformed others.
+- No demos, free audits, or niche examples – only general explanation + pay-after-approval offer.

@@ -177,22 +177,6 @@
    ],
    "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
   },
-  "v2_glitch": {
-   "file": "v2_glitch.wav",
-   "category": "custom",
-   "duration": 0.62,
-   "channels": 2,
-   "sync_at": 0.101,
-   "meets": "peak",
-   "lufs": -19.3,
-   "peak_dbfs": -8.1,
-   "tags": [
-    "tech",
-    "hook",
-    "pattern-interrupt"
-   ],
-   "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
-  },
   "v2_low_hit": {
    "file": "v2_low_hit.wav",
    "category": "custom",

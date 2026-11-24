@@ -1,6 +1,6 @@
-# Custom SFX pack (user-supplied, 15 WAVs (v2_glitch removed: it only masked the voice))
+# Custom SFX pack (user-supplied, 16 WAVs (v2_glitch rebuilt above 3.8 kHz so it no longer masks the voice))
 
-Added 2026-11-24 from `sound_effects.zip` (v1 = 7 sounds, v2 = 8 sounds). 44.1 kHz stereo 16-bit, 0.5-3.5 s.
+Added 2026-11-24 from `sound_effects.zip` (v1 = 7 sounds, v2 = 9 sounds). 44.1 kHz stereo 16-bit, 0.5-3.5 s.
 
 `catalog.json` uses the same field names as `../sfxkit/catalog.json` (`sync_at`, `lufs`, `tags`, ...).
 `sync_at` is the loudest moment, auto-detected - listen and correct any that are off (e.g. `v2_cinematic_whoosh`).

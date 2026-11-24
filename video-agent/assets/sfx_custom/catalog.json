@@ -240,6 +240,23 @@
     "cta"
    ],
    "source": "user-supplied pack (sound_effects.zip, 2026-11-24)"
+  },
+  "v2_glitch": {
+   "file": "v2_glitch.wav",
+   "category": "custom",
+   "duration": 0.5,
+   "channels": 2,
+   "sync_at": 0.0,
+   "meets": "start",
+   "lufs": -19.5,
+   "peak_dbfs": -6.8,
+   "tags": [
+    "tech",
+    "hook",
+    "pattern-interrupt"
+   ],
+   "note": "rebuilt: everything below 3.8 kHz removed so it cannot mask a voice; verify by ear",
+   "source": "user-supplied pack, reprocessed 2026-11-24"
   }
  }
 }

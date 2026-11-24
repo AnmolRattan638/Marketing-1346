@@ -183,7 +183,7 @@ def _marketing_line(master: dict) -> str:
 
 
 def prompt_block(master: dict) -> str:
-    beats = "\n".join(f"- {b['beat']}: \"{b['line']}\"  on screen: {b.get('screen', '')}  picture idea: {b.get('visual', '')}"
+    beats = "\n".join(f"- {b['beat']}: \"{b['line']}\"  on screen: {b.get('screen', '')}  picture idea: {b.get('visual', '')}" + (f"  REAL PROOF: use graphic mock type proof with items {b['proof']} on this scene" if b.get("proof") else "")
                       + (f"  STEPS to show as a step/checklist graphic, one per item: {' | '.join(b['steps'])}" if b.get("steps") else "") for b in master["beats"])
     return ("\nMASTER SCRIPT (fixed, fact-checked; you are the DIRECTOR). One scene per beat, in exactly this order, each with its `beat` field. Do NOT write or change any words: "
             "the scene's narration is the beat's line, copied. Your job is the picture: choose graphic layout, fx, camera, footage_query for each beat "

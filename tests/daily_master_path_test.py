@@ -64,6 +64,11 @@ _r = run_daily.hand_off_to_video(MASTER, {"id": "chatbot"}); assert _r is True, 
 assert (config.DATA / "master" / f"{run_daily.today}.json").exists()
 assert calls[0][0] == "git" and calls[1][0] == "post" and calls[1][1].endswith("/workflows/video-agent-fast.yml/dispatches"), calls
 assert "reel_started=1" in open(os.environ["GITHUB_OUTPUT"]).read()
+assert calls[2][0] == "post" and calls[2][1].endswith("/workflows/second-reel.yml/dispatches"), calls     # reel 2 starts at the same moment as reel 1
+os.environ["REEL2_WITH_REEL1"] = "0"; calls.clear()
+assert run_daily.hand_off_to_video(MASTER, {"id": "chatbot"}) is True
+assert not any("second-reel" in str(c) for c in calls), calls                                           # the switch turns it off
+del os.environ["REEL2_WITH_REEL1"]
 run_daily.requests.post = lambda url, **k: types.SimpleNamespace(status_code=500)
 assert run_daily.hand_off_to_video(MASTER, {"id": "chatbot"}) is False and any("reel handoff" in w for w in run_daily.WARNINGS)
 sys.path.insert(0, str(_pl.Path(__file__).resolve().parent.parent / "video-agent"))

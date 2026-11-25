@@ -2,6 +2,59 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "17951098380362494",
+      "url": "https://www.instagram.com/reel/DgKebAopUTh/",
+      "published_at": "2026-11-25T12:04:59.000Z",
+      "text": "SALON KE OWNERS, RAAT KO DER RAAT BHI AAPKE MESSAGES IGNORE HO RAHE HAIN?\n\n→ Aur asli dikkat script ki pehli line mein hai, jo main batata hoon…\n→ Cameratel ke ",
+      "format": "reel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 107,
+        "reach": 93,
+        "views": 107,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": 52.5,
+        "avg_watch_s": 5.088,
+        "duration_s": 53
+      },
+      "matched": null
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n354ispm5n23",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n354ispm5n23",
+      "published_at": "2026-11-25T12:03:27.968570+00:00",
+      "text": "Many reel scripts read like essays instead of spoken lines. Keep it short, start with the customer's question, and speak naturally. DM SCRIPT to discuss a reel ",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-25",
+        "service": "reel_scripts",
+        "hook_style": "question",
+        "topic": "Camera ke samne bolna kya hai, samajh nahi aata?"
+      }
+    },
+    {
+      "platform": "instagram",
       "id": "18135081026501211",
       "url": "https://www.instagram.com/reel/DgJbjgSILYf/",
       "published_at": "2026-11-25T02:15:02.000Z",
@@ -9,17 +62,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 135,
-        "reach": 127,
-        "views": 135,
+        "impressions": 140,
+        "reach": 131,
+        "views": 140,
         "likes": 0,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 53.8,
-        "avg_watch_s": 4.467,
+        "skip_rate": 53.7,
+        "avg_watch_s": 4.592,
         "duration_s": 43
       },
       "matched": null
@@ -115,17 +168,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 113,
-        "reach": 96,
-        "views": 113,
+        "impressions": 114,
+        "reach": 97,
+        "views": 114,
         "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 56.5,
-        "avg_watch_s": 5.28,
+        "skip_rate": 56,
+        "avg_watch_s": 5.356,
         "duration_s": 42
       },
       "matched": null
@@ -2067,9 +2120,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 318,
-        "reach": 126,
-        "views": 318,
+        "impressions": 319,
+        "reach": 127,
+        "views": 319,
         "likes": 7,
         "comments": 0,
         "shares": 0,
@@ -2245,7 +2298,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 39
+      "posts": 40
     }
   },
   "coverage": {
@@ -2630,5 +2683,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-25T08:37:09+00:00"
+  "updated_at": "2026-11-25T21:42:57+00:00"
 }

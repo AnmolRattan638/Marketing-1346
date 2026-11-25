@@ -277,9 +277,9 @@
         }
       },
       "latest": {
-        "impressions": 318,
-        "reach": 126,
-        "views": 318,
+        "impressions": 319,
+        "reach": 127,
+        "views": 319,
         "likes": 7,
         "comments": 0,
         "shares": 0,
@@ -2489,6 +2489,13 @@
           "likes": 1,
           "comments": 0,
           "shares": 0
+        },
+        "7d": {
+          "age_h": 178.0,
+          "source": "bluesky",
+          "likes": 1,
+          "comments": 0,
+          "shares": 0
         }
       },
       "latest": {
@@ -2799,7 +2806,85 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-11-23|instagram": {
+      "date": "2026-11-23",
+      "platform": "instagram",
+      "service": "lead_gen",
+      "problem_id": "the-digital-scavenger-hunt-for-contact-i",
+      "angle_type": "mistake",
+      "hook_style": "question",
+      "format": "carousel",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "silhouette",
+      "carousel_flavor": "contrarian",
+      "slides": 7,
+      "structure": null,
+      "vertical": null,
+      "hook_formula": null,
+      "published_at": "2026-11-23T11:24:17.000Z",
+      "url": "https://www.instagram.com/p/DgFRAJtDpnI/",
+      "snap": {
+        "48h": {
+          "age_h": 58.3,
+          "source": "zernio",
+          "impressions": 3,
+          "reach": 1,
+          "views": 3,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 3,
+        "reach": 1,
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
+    },
+    "2026-11-23|bluesky": {
+      "date": "2026-11-23",
+      "platform": "bluesky",
+      "service": "lead_gen",
+      "problem_id": "the-digital-scavenger-hunt-for-contact-i",
+      "angle_type": "mistake",
+      "hook_style": "question",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "silhouette",
+      "carousel_flavor": "contrarian",
+      "slides": 7,
+      "structure": null,
+      "vertical": null,
+      "hook_formula": null,
+      "published_at": "2026-11-23T11:24:14.519767+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n2xzeuk5i22j",
+      "snap": {
+        "48h": {
+          "age_h": 58.3,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-11-25T08:37:12+00:00"
+  "updated_at": "2026-11-25T21:43:00+00:00"
 }

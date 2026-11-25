@@ -18,11 +18,11 @@
   ]
  },
  "ask-early": {
-  "count": 4,
+  "count": 5,
   "rule": "Keep the DM ask out of every beat except cta.",
   "recent": [
    {
-    "on": "2026-11-22",
+    "on": "2026-11-25",
     "mistake": "fix: the ask belongs only in the cta beat"
    }
   ]
@@ -84,27 +84,31 @@
   ]
  },
  "abstract": {
-  "count": 6,
+  "count": 7,
   "rule": "Name a concrete moment or thing (11 pm message, unanswered enquiry) in pain and poke.",
   "recent": [
    {
     "on": "2026-11-24",
     "mistake": "pain: too abstract; name a concrete moment or thing (a 11 pm message, an unanswered enquiry, the WhatsApp reply)"
+   },
+   {
+    "on": "2026-11-25",
+    "mistake": "fix: too abstract; name a concrete moment or thing (a 11 pm message, an unanswered enquiry, the WhatsApp reply)"
    }
   ]
  },
  "connectors": {
-  "count": 18,
+  "count": 19,
   "rule": "Use helping words (kyunki, isliye, jaise ki, phir) so each line gives its reason.",
   "recent": [
    {
-    "on": "2026-11-24",
+    "on": "2026-11-25",
     "mistake": "lines are bare statements; use helping words that give the reason or an example (kyunki, isliye, matlab, jaise ki, phir, taaki) so the viewer understands WHY"
    }
   ]
  },
  "words": {
-  "count": 18,
+  "count": 19,
   "rule": "Keep each beat inside its word range, in full spoken sentences.",
   "recent": [
    {
@@ -113,16 +117,16 @@
    },
    {
     "on": "2026-11-24",
-    "mistake": "pain: line has 4 words (want 5-18; explain it in full spoken sentences, not a slogan)"
+    "mistake": "recap: line has 10 words (want 12-36; explain it in full spoken sentences, not a slogan)"
    },
    {
-    "on": "2026-11-24",
-    "mistake": "recap: line has 10 words (want 12-36; explain it in full spoken sentences, not a slogan)"
+    "on": "2026-11-25",
+    "mistake": "pain: line has 4 words (want 5-18; explain it in full spoken sentences, not a slogan)"
    }
   ]
  },
  "screen": {
-  "count": 8,
+  "count": 9,
   "rule": "`screen` text is a 2-6 word bold headline that works on mute; no full sentence.",
   "recent": [
    {
@@ -130,7 +134,7 @@
     "mistake": "hook: `screen` is the first-frame headline, 3-5 bold words that work on mute (now 2)"
    },
    {
-    "on": "2026-11-24",
+    "on": "2026-11-25",
     "mistake": "hook: `screen` is the first-frame headline, 3-5 bold words that work on mute (now 6)"
    }
   ]
@@ -334,13 +338,9 @@
   "rule": "grammar: sentence stops mid-thought on 'ki': ..."
  },
  "other:grammar: no verb before ..., write the f": {
-  "count": 13,
+  "count": 14,
   "rule": "grammar: no verb before ..., write the full clause (not a list of nouns): ...",
   "recent": [
-   {
-    "on": "2026-11-24",
-    "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Pehle bot ko sawal batayein, kyunki wo jawab degi.\""
-   },
    {
     "on": "2026-11-24",
     "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Pehle bot ko sawal batayein, kyunki wo turant jawab degi, au\""
@@ -348,6 +348,10 @@
    {
     "on": "2026-11-24",
     "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Bot ko pehle sawal dene se, kyunki wo turant jawab degi, aap\""
+   },
+   {
+    "on": "2026-11-25",
+    "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Pehle customers ka sawal likho, kyunki reel uska jawab degi.\""
    }
   ]
  },
@@ -386,21 +390,21 @@
   ]
  },
  "other:loops: end the hook and the poke (or the": {
-  "count": 5,
+  "count": 6,
   "rule": "loops: end the hook and the poke (or the rehook) on a question or an unfinished thought (... or ?) so the next beat has to answer;",
   "recent": [
    {
-    "on": "2026-11-24",
+    "on": "2026-11-25",
     "mistake": "poke: loops: end the hook and the poke (or the rehook) on a question or an unfinished thought (... or ?) so the next beat has to answer; at least two of them"
    }
   ]
  },
  "other:context: the hook must name the viewer..": {
-  "count": 6,
+  "count": 7,
   "rule": "context: the hook must name the viewer...business owners'",
   "recent": [
    {
-    "on": "2026-11-24",
+    "on": "2026-11-25",
     "mistake": "pain: context: the hook must name the viewer's business type (clinic, salon, cafe, coaching centre, homestay, gym, shop...) so it is clear in 2 seconds who this is for; never just 'business owners'"
    }
   ]
@@ -752,6 +756,120 @@
    {
     "on": "2026-11-24",
     "mistake": "payoff: pronunciation: \"IT\" (heard in: \"...Global IT Research ke mutabiq 73 perc...\") is written in capitals but has no spelling in the pronunciation list, so the voice would say it as one word (\"it\"). Write a plain word instead, or spell it with spaces (S E R"
+   }
+  ]
+ },
+ "other:line names ... which is not mentioned in": {
+  "count": 2,
+  "rule": "line names ... which is not mentioned in any fact; replace the attribution with a neutral phrase like ... or omit the company name",
+  "recent": [
+   {
+    "on": "2026-11-25",
+    "mistake": "meaning: poke: line names 'Cameratel' which is not mentioned in any fact; replace the attribution with a neutral phrase like 'Research suggests' or omit the company name."
+   },
+   {
+    "on": "2026-11-25",
+    "mistake": "meaning: payoff: line names 'Cameratel' which is not mentioned in any fact; replace the attribution with a neutral phrase like 'Research suggests' or omit the company name."
+   }
+  ]
+ },
+ "other:line promises that a reel response will ": {
+  "count": 1,
+  "rule": "line promises that a reel response will definitely prevent leads from leaving, which is not supported by any fact; rephrase to a h",
+  "recent": [
+   {
+    "on": "2026-11-25",
+    "mistake": "meaning: recap: line promises that a reel response will definitely prevent leads from leaving, which is not supported by any fact; rephrase to a hedged statement such as 'Raat 11 baje ke message ka jawab reel se dene se aapke lead ko engage karne ka chance bad"
+   }
+  ]
+ },
+ "other:The claim ... introduces an invented fig": {
+  "count": 1,
+  "rule": "The claim ... introduces an invented figure (three seconds) not backed by any fact; remove the specific time reference or cite a s",
+  "recent": [
+   {
+    "on": "2026-11-25",
+    "mistake": "meaning: fix: The claim 'Dusra teen second mein jawab dikhao' introduces an invented figure (three seconds) not backed by any fact; remove the specific time reference or cite a supporting source."
+   }
+  ]
+ },
+ "other:The line mentions ... and promises a one": {
+  "count": 1,
+  "rule": "The line mentions ... and promises a one-page checklist, both of which are invented figures and promises not covered by the servic",
+  "recent": [
+   {
+    "on": "2026-11-25",
+    "mistake": "meaning: cta: The line mentions 'panch lines' and promises a one-page checklist, both of which are invented figures and promises not covered by the service capabilities; remove or adjust the claim to reflect actual script features and avoid promising a checkli"
+   }
+  ]
+ },
+ "other:hook promises answer to ... but the body": {
+  "count": 1,
+  "rule": "hook promises answer to ... but the body never addresses this question, making it orphan clickbait; fix by either delivering the a",
+  "recent": [
+   {
+    "on": "2026-11-25",
+    "mistake": "skills: pain: hook promises answer to \"Raat 11 baje salon pe message kare toh kya hota hai?\" but the body never addresses this question, making it orphan clickbait; fix by either delivering the answer in the video or replace the hook with a line that matches t"
+   }
+  ]
+ },
+ "other:the script offers a ... which is not amo": {
+  "count": 1,
+  "rule": "the script offers a ... which is not among offers_allowed; replace with the allowed one-page checklist (the N lines every business",
+  "recent": [
+   {
+    "on": "2026-11-25",
+    "mistake": "marketing: offer: the script offers a \"ready reel script template\" which is not among offers_allowed; replace with the allowed one-page checklist (the 5 lines every business reel script needs) and optionally the fill-in template."
+   }
+  ]
+ },
+ "other:the CTA promises a template instead of t": {
+  "count": 1,
+  "rule": "the CTA promises a template instead of the allowed checklist; modify CTA to promise the one-page checklist (and fill‑in template) ",
+  "recent": [
+   {
+    "on": "2026-11-25",
+    "mistake": "marketing: cta: the CTA promises a template instead of the allowed checklist; modify CTA to promise the one-page checklist (and fill‑in template) after commenting the keyword."
+   }
+  ]
+ },
+ "other:the poke beat only restates the problem ": {
+  "count": 1,
+  "rule": "the poke beat only restates the problem of posting reels daily and doesn’t give a concrete first answer; rewrite to provide a spec",
+  "recent": [
+   {
+    "on": "2026-11-25",
+    "mistake": "marketing: poke: the poke beat only restates the problem of posting reels daily and doesn’t give a concrete first answer; rewrite to provide a specific tip, e.g., \"Start with a single script that answers the most common night‑time customer query.\""
+   }
+  ]
+ },
+ "other:hook would fail on mute because the line": {
+  "count": 1,
+  "rule": "hook would fail on mute because the line is too long and not instantly readable; fix: shorten to a concise N‑N word phrase (e.g., ",
+  "recent": [
+   {
+    "on": "2026-11-25",
+    "mistake": "skills: pain: hook would fail on mute because the line is too long and not instantly readable; fix: shorten to a concise 3‑5 word phrase (e.g., “11pm messages ignored?”) that can be read instantly on mute."
+   }
+  ]
+ },
+ "other:includes an uncited statistic (N-N video": {
+  "count": 1,
+  "rule": "includes an uncited statistic (N-N videos per week) which violates the rule against statistics without a verified citation. ",
+  "recent": [
+   {
+    "on": "2026-11-25",
+    "mistake": "marketing: payoff: includes an uncited statistic (2-3 videos per week) which violates the rule against statistics without a verified citation. Fix: remove the numeric claim or add a proper citation ID (e.g., '(ref:123)') to substantiate it."
+   }
+  ]
+ },
+ "other:contains an absolute claim (...) which v": {
+  "count": 1,
+  "rule": "contains an absolute claim (...) which violates the no‑absolute rule. ",
+  "recent": [
+   {
+    "on": "2026-11-25",
+    "mistake": "marketing: payoff: contains an absolute claim ('haptah mein 2-3 videos se shuruat kaafi hai') which violates the no‑absolute rule. Fix: rephrase to a non‑absolute statement such as 'haptah mein 2-3 videos se shuruat karna aam taur par kaafi hota hai' or 'aap s"
    }
   ]
  }

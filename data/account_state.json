@@ -1,31 +1,26 @@
 {
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "stage": "brand new under 100 followers",
   "followers": 8,
-  "summary": "Reels lose 61% viewers in first 3 seconds – hook fails. Bio targets niches/region, promises 24hr delivery and free audit, violating rules.",
-  "guidance": "- Hook style to try next: rotate to **question** or **top3** (highest relative scores) but keep it one clear pain point.\n- Avoid repeating \"DIY vs professional\" or \"cost comparison\" phrasing – used in last 3 animated_ads posts.\n- Posts must read like a developer sharing real work: show a frame or code snippet, not a sales pitch.\n- Use silhouette or desk-glow image style; they outperformed others.\n- No demos, free audits, or niche examples – only general explanation + pay-after-approval offer.",
+  "summary": "All platforms under 100 followers; Instagram median reach 4, engagement 0. Reels show 63-76% skip rates — first 3 seconds fail. Bio violates rules: niche/region targeting, unapproved free offer, timeframe claim. LinkedIn has 73% out-of-network reach but zero posts recently.",
+  "guidance": "- Hook: rotate to **question** (1.66x) or **top3** (1.5x) — avoid comparison (overused).\n- Angle: lead with a **mistake** (1.36x) small businesses make when scripting reels themselves.\n- Visual: try **silhouette** or **desk-glow** style (1.5x/1.44x) — static image with text overlay works better than talking-head reels right now.\n- Service focus: reel script writing — keep it broad (cafes, gyms, clinics, shops), not one niche.\n- CTA: only \"pay after approval\" + short DM conversation. No demos, samples, guarantees.\n- Posts must read like a developer sharing real work, never an ad.",
   "instructions": {
-    "research": "Find 2-3 common objections small Indian businesses have about video ads (budget, time, technical skill) from Reddit/Quora threads, not from competitors.",
-    "analysis": "Compare the last 3 animated_ads posts: all used comparison hooks. Note which angle (mistake, myth_bust) got any saves/shares – use that angle today.",
-    "writer": "Write a single carousel: slide 1 = question hook (e.g., \"What stops you from running video ads?\"), slides 2-3 = general how AI animation works (no demo), slide 4 = pay-after-approval + DM for advice. No niche mentions.",
-    "image": "Create a silhouette-style carousel cover: dark background, glowing outline of a phone playing a video, text \"AI animated ads\" – no logos, no client names.",
-    "video": "Skip video today; static carousel performs 3.7x better per reach. If you must, film a 5-second screen-record of the animation timeline (no client branding) with a caption overlay."
+    "research": "Find 3 common reel-script mistakes Indian small businesses make (e.g., writing essays instead of spoken lines, ignoring the hook, no clear CTA). Cite no sources, just note patterns.",
+    "analysis": "Compare today's reel-script topic to the 2026-11-11 post (\"15-sentence essay vs 3-line framework\"). Ensure new angle: focus on the *mistake* of skipping a spoken-structure, not a comparison.",
+    "writer": "Write one Instagram caption (Hinglish, ≤130 words). Hook: question about a mistake. Body: 2-3 lines on the mistake + how a spoken script helps. CTA: \"Pay after approval — DM me, I'll tell you if scripts fit your business.\" No niche, no region, no stats.",
+    "image": "Create a static silhouette-style graphic: dark background, glowing phone outline showing 3 short script lines (labelled \"Example\"). Text overlay: \"Reel script = spoken, not written.\" No logos, no brand names.",
+    "video": "Skip video today. Static image outperforms reels per current data. If you post a reel later, keep ≤15s, hook in first 1s, caption burned in."
   },
   "manual_tips": [
-    "Update Instagram bio: remove niches, region, \"24 hrs\", and free audit. Keep only: \"AI chatbots, animated ads, lead gen, websites for Indian small businesses. Pay after approval. DM for advice.\"",
-    "Comment thoughtfully on 5 posts from Indian small business owners (cafes, gyms, clinics) about their marketing struggles – no self-promo.",
-    "Reply to any story mentions or tags from followers with a genuine question about their ad challenges."
+    "Update Instagram bio: remove niches, region, price, timeframe, free offer. New bio: \"Websites, AI chatbots, animated ads, lead gen & reel scripts for small businesses across India. Pay after approval. DM for honest advice.\"",
+    "Comment on 5 posts from Indian small business pages (cafes, gyms, clinics, shops) — genuine observations, no pitching.",
+    "Reply to the 1 comment on your best Instagram post (WhatsApp one) to keep conversation alive."
   ],
   "weak_signals": [
     {
       "id": "follower_stall",
       "platform": "instagram",
-      "detail": "10 posts in 7 days and followers changed by -1"
-    },
-    {
-      "id": "high_skip_rate",
-      "platform": "instagram",
-      "detail": "reels lose 61% of viewers in the first 3 seconds across 5 reels: the hook is not stopping the scroll"
+      "detail": "12 posts in 7 days and followers changed by -1"
     },
     {
       "id": "weak_service",
@@ -35,7 +30,7 @@
     {
       "id": "weak_format",
       "platform": "instagram",
-      "detail": "by format, 'reel' earns 27% of what 'image' earns per person reached"
+      "detail": "by format, 'reel' earns 26% of what 'image' earns per person reached"
     },
     {
       "id": "zero_engagement_streak",
@@ -45,7 +40,7 @@
     {
       "id": "follower_stall",
       "platform": "bluesky",
-      "detail": "6 posts in 7 days and followers changed by +0"
+      "detail": "7 posts in 7 days and followers changed by +0"
     }
   ]
 }

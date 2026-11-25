@@ -1,5 +1,6 @@
-- Hook style to try next: rotate to **question** or **top3** (highest relative scores) but keep it one clear pain point.
-- Avoid repeating "DIY vs professional" or "cost comparison" phrasing – used in last 3 animated_ads posts.
-- Posts must read like a developer sharing real work: show a frame or code snippet, not a sales pitch.
-- Use silhouette or desk-glow image style; they outperformed others.
-- No demos, free audits, or niche examples – only general explanation + pay-after-approval offer.
+- Hook: rotate to **question** (1.66x) or **top3** (1.5x) — avoid comparison (overused).
+- Angle: lead with a **mistake** (1.36x) small businesses make when scripting reels themselves.
+- Visual: try **silhouette** or **desk-glow** style (1.5x/1.44x) — static image with text overlay works better than talking-head reels right now.
+- Service focus: reel script writing — keep it broad (cafes, gyms, clinics, shops), not one niche.
+- CTA: only "pay after approval" + short DM conversation. No demos, samples, guarantees.
+- Posts must read like a developer sharing real work, never an ad.

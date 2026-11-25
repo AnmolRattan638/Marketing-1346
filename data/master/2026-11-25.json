@@ -1,0 +1,206 @@
+{
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Salon ke owners, raat ko der raat bhi aapke messages ignore ho rahe hain?",
+    "hooks": [
+      {
+        "text": "Salon ki raat 11 baje, phone par message, aur koi jawab nahi…",
+        "score": 13.4,
+        "formula": ""
+      },
+      {
+        "text": "Salon ka reel kitne second mein chhod dete hain log?",
+        "score": 12.9,
+        "formula": ""
+      },
+      {
+        "text": "Main reel scripts ke baare mein galat tha…",
+        "score": 11.4,
+        "formula": "wrong"
+      },
+      {
+        "text": "Asli sachchai ye hai ki pehli line…",
+        "score": 11.4,
+        "formula": "truth"
+      },
+      {
+        "text": "Reels ka pehla second waste karna band karo…",
+        "score": 11.4,
+        "formula": "stop"
+      },
+      {
+        "text": "Salon ka reel chala, lekin raat ko message kare toh koi uthata nahi…",
+        "score": 9.4,
+        "formula": ""
+      }
+    ],
+    "hook_formula": "",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Salon ke owners, raat ko der raat bhi aapke messages ignore ho rahe hain?",
+        "screen": "Messages ignore ho rahe hain?",
+        "visual": "Phone screen glowing in dark, unread messages piling up",
+        "emotion": "warm",
+        "steps": [
+          "Salon ke owners",
+          "raat ko der raat bhi",
+          "messages ignore ho rahe hain"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "poke",
+        "line": "Naya reel roz banana solution nahi hai, kyunki customer ko apna sawal sunna chahiye, sirf offer nahi. Toh kya kaam karega?",
+        "screen": "Roz reel solution nahi",
+        "visual": "Owner filming a reel while a customer scrolls past without stopping",
+        "emotion": "urgent",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "rehook",
+        "line": "Aur asli dikkat script ki pehli line mein hai, jo main batata hoon…",
+        "screen": "Asli dikkat script mein",
+        "visual": "Close-up of handwritten script lines on a phone",
+        "emotion": "curious",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Sabse pehle aap customers ka sawal likhte hain, kyunki reel uska jawab degi. Phir pehli line mein wahi sawal uthate hain, taaki log ruk jayein, aur aakhir mein unhe message bhejne ko kehte hain.",
+        "screen": "Sawals likho, line me uthao",
+        "visual": "Notepad me sawal, reel frame me wahi sawal, message bubble ke saath CTA",
+        "emotion": "warm",
+        "steps": [
+          "customers ka sawal likho",
+          "sawal ko pehli line mein uthao",
+          "message bhejne ko bolo"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "payoff",
+        "line": "Cameratel ke mutabik, haptah mein 2-3 videos bana sakte hain, jo kaafi hota hai, isliye script kaam karegi.",
+        "screen": "2-3 videos weekly enough",
+        "visual": "Calendar with three video icons per week and a checkmark",
+        "emotion": "warm",
+        "steps": [
+          "Cameratel ke mutabik, haptah mein 2-3 videos",
+          "bana sakte hain, jo kaafi hota hai",
+          "isliye script kaam karegi"
+        ],
+        "facts": [
+          "f2"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Salon ka reel chala ho, lekin agar pehli line customer ka sawal nahi uthati, toh message koi nahi utha payega.",
+        "screen": "Pehli line sawal uthaye",
+        "visual": "Salon owner looking at phone, then at script paper",
+        "emotion": "empathetic",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "cta",
+        "line": "Agar aapke salon ke liye reel script chahiye, toh comment mein SCRIPT likho. Main aapko DM mein one-page checklist aur fill-in template bhejunga. Poora breakdown aaj ke carousel mein hai.",
+        "screen": "Comment likho SCRIPT",
+        "visual": "Text 'Comment SCRIPT' with arrow to comment box",
+        "emotion": "warm",
+        "steps": [],
+        "facts": []
+      }
+    ],
+    "cta": "Agar aapke salon ke liye reel script chahiye, toh comment mein SCRIPT likho. Main aapko DM mein one-page checklist aur fill-in template bhejunga. Poora breakdown aaj ke carousel mein hai.",
+    "linkedin_english": "If you run a salon, your reel might get views but no night-time messages because the first line does not ask the customer's real question. Instead of posting every day, write one script that answers the most common query and ends with a clear invitation to message. Comment SCRIPT and I will send you a one-page checklist with the lines every business reel script needs, plus a fill-in template.",
+    "marketing": {
+      "keyword": "SCRIPT",
+      "gets": "a one-page checklist: the 5 lines every business reel script needs, and a fill-in template",
+      "pillar": "educate"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Faceless YouTube videos let creators produce content without appearing on camera, using AI visuals, animations, screen recordings, stock clips, text graphics, and voiceovers.",
+        "figure": null,
+        "source": "hitubhatech.com",
+        "title": "AI Ki Help Se Faceless YouTube Video Kaise Banaye? (Step-by-Step Practical Guide) - HITUBHA TECH",
+        "url": "https://hitubhatech.com/faceless-youtube-video/",
+        "date": "2026-10-25",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "For small businesses, creating 2-3 videos per week is enough to start video marketing.",
+        "figure": "2-3",
+        "source": "cameratel.gorich.systems",
+        "title": "छोटे बिज़नेस के लिए वीडियो मार्केटिंग: मोबाइल से शुरू करें · Cameratel",
+        "url": "https://cameratel.gorich.systems/hi/blog/video-marketing-for-small-business/",
+        "date": "2026-10-13",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "There are 8 recommended video ideas for small‑business video marketing, such as product demos, FAQ answers, offers, behind‑the‑scenes, and customer reviews.",
+        "figure": "8",
+        "source": "cameratel.gorich.systems",
+        "title": "छोटे बिज़नेस के लिए वीडियो मार्केटिंग: मोबाइल से शुरू करें · Cameratel",
+        "url": "https://cameratel.gorich.systems/hi/blog/video-marketing-for-small-business/",
+        "date": "2026-10-13",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "AI image generators can create a picture in ten seconds.",
+        "figure": "ten seconds",
+        "source": "roydigital.in",
+        "title": "AI image and video tools for small brands in 2026: what's actually ready (and what still isn't) · Roy Digital App Studio",
+        "url": "https://roydigital.in/blog/ai-image-video-tools-for-small-brands-2026",
+        "date": "2026-08-23",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Axis network cameras provide a privacy feature that can mask people and moving objects in the video feed.",
+        "figure": null,
+        "source": "axis.com",
+        "title": "Axis Communications Network cameras and security solutions",
+        "url": "https://www.axis.com",
+        "date": null,
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "Public address systems integrated with network cameras can broadcast spoken messages to targeted areas without needing a person on site.",
+        "figure": null,
+        "source": "axis.com",
+        "title": "Axis Communications Network cameras and security solutions",
+        "url": "https://www.axis.com",
+        "date": null,
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Short videos can answer common customer questions such as price, delivery, size, and changes, saving time for small businesses.",
+        "figure": null,
+        "source": "cameratel.gorich.systems",
+        "title": "छोटे बिज़नेस के लिए वीडियो मार्केटिंग: मोबाइल से शुरू करें · Cameratel",
+        "url": "https://cameratel.gorich.systems/hi/blog/video-marketing-for-small-business/",
+        "date": "2026-10-13",
+        "verdict": "verified",
+        "id": "f7"
+      }
+    ],
+    "topic": "Camera ke samne bolna kya hai, samajh nahi aata?",
+    "service": "reel_scripts",
+    "keyword": "SCRIPT",
+    "carousel_tease": true,
+    "notes": [
+      "style remark (not blocking): meaning: cta: remove the promise to send a one-page checklist and fill-in template, as that is not a listed capability of the reel script service; instead only offer the s"
+    ]
+  },
+  "service": "reel_scripts"
+}

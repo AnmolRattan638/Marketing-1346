@@ -1,0 +1,62 @@
+name: Redo LinkedIn post
+
+# Replaces ONLY the LinkedIn post of the draft that is waiting for your tap (Instagram, Bluesky, image and reel stay exactly as they are).
+# Start it by hand: Actions > Redo LinkedIn post > Run workflow. It sends you a new Approve / Reject message in Telegram; the buttons on the earlier message stop working.
+# Why it stops the other runs first: a tap publishes the draft file that the listening run checked out when it started, so a run that is still listening would post the OLD text.
+# It does nothing unless the latest draft is still pending, and it always starts a fresh listener at the end so the new buttons work.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: linkedin-redo
+  cancel-in-progress: false
+
+jobs:
+  redo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      GROQ_API_KEY_2: ${{ secrets.GROQ_API_KEY_2 }}
+      GROQ_API_KEY_3: ${{ secrets.GROQ_API_KEY_3 }}
+      GROQ_API_KEY_4: ${{ secrets.GROQ_API_KEY_4 }}
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      NVIDIA_MODEL: ${{ vars.NVIDIA_MODEL }}
+      OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
+      GROQ_MODEL: ${{ vars.GROQ_MODEL }}
+      GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Is there a pending draft to redo?
+        id: check
+        run: python -m src.relinkedin --check
+      - name: Stop the runs still waiting with the old draft
+        id: stop
+        run: bash scripts/stop_listeners.sh
+      - name: Get the newest saved state (the stopped runs saved theirs on the way out)
+        run: git pull --rebase -q
+      - name: Write the new LinkedIn post and send the new Approve message
+        run: python -m src.relinkedin
+      - name: Save
+        if: always() && steps.check.outcome == 'success'
+        run: |
+          bash scripts/commit_state.sh "linkedin redo $(date -u +%FT%TZ)"
+      - name: Start a fresh listener (also if the redo failed, so the earlier buttons keep working)
+        if: always() && steps.check.outcome == 'success'
+        run: |
+          bash scripts/stop_listeners.sh || true      # anything that started while this ran holds the old file
+          gh workflow run approve-publish.yml -R "$GITHUB_REPOSITORY" -f hop=0

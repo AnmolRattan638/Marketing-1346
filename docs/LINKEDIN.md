@@ -18,3 +18,12 @@ LinkedIn used to be the Instagram pitch made longer (what I build, how it works,
 **If nothing passes in 3 attempts there is no LinkedIn post that day** (a warning is sent) rather than a bad one. The post that passed is posted exactly as written: the fact-checker and the humanizer skip LinkedIn.
 
 Tests: `tests/linkedin_story_test.py`.
+
+## Redo only the LinkedIn post
+
+Actions tab > **Redo LinkedIn post** > Run workflow. It replaces ONLY the LinkedIn post of the draft that is waiting for your tap (Instagram, Bluesky, image and reel stay exactly as they are) and sends you a new Approve / Reject message in Telegram.
+
+- It does nothing unless the latest draft is still **pending**. A draft that is publishing, published or rejected is never touched, and Telegram tells you why.
+- Tapping Approve posts whatever is in the saved draft at that moment, and a run that is still waiting holds an OLD copy. So the redo first **stops those waiting runs** (Daily draft and Approve and publish), waits for them to finish saving, writes the new post, gives the draft a **new id**, and starts a fresh listener. The Approve button on the earlier message then refuses to act ("older draft"), so it can never post the old text.
+- If the writer cannot produce a post that passes the checks, nothing changes, the earlier buttons still work, and a listener is started again.
+- The new post comes from the same writer, facts file and gate as the daily one (`src/relinkedin.py`, test: `tests/relinkedin_test.py`).

@@ -12,7 +12,7 @@ The reliable fix is a small outside timer that tells GitHub to start the run at 
 | Job | Time | URL |
 |---|---|---|
 | Reel 1 + carousel draft | 08:00 every day | `https://api.github.com/repos/AnmolRattan638/Marketing-1346/actions/workflows/daily-draft.yml/dispatches` |
-| Reel 2 | 17:00 every day | `https://api.github.com/repos/AnmolRattan638/Marketing-1346/actions/workflows/second-reel.yml/dispatches` |
+| Reel 2 (optional backup) | 17:00 every day | `https://api.github.com/repos/AnmolRattan638/Marketing-1346/actions/workflows/second-reel.yml/dispatches` |
 
 For both: method POST, body `{"ref":"main"}`, and these headers:
 
@@ -27,7 +27,7 @@ A success returns HTTP 204 (no body). Keep the token private: it can start workf
 ## What each run does
 
 - **Daily draft (08:00):** carousel, captions and reel 1 (same script). You approve the carousel in Telegram and post reel 1 yourself.
-- **Second reel (17:00):** a different service, its own research, verified facts and script, then its own video. It arrives in Telegram as "Reel 2 of today". Post it yourself.
+- **Second reel (now starts together with reel 1):** the Daily draft run starts it the moment reel 1's script is saved, so both reels render at the same time. Set the repository variable `REEL2_WITH_REEL1` to `0` to go back to the separate evening start. The 17:00 timer can stay as a backup: it does nothing when reel 2 already exists. Details: a different service, its own research, verified facts and script, then its own video. It arrives in Telegram as "Reel 2 of today". Post it yourself.
 - Starting either one again the same day does nothing (`data/master/<date>-2.json` and `data/drafts/<date>.json` mark the day as done). Use "Redo" in the manual run form to force it.
 
 ## When a run fails: lessons first, then an automatic restart

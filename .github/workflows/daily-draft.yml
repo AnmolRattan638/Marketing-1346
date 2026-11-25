@@ -85,6 +85,7 @@ jobs:
         id: gen
         env:
           GITHUB_TOKEN: ${{ github.token }}      # lets the script start the reel in parallel as soon as the master script is ready
+          REEL2_WITH_REEL1: ${{ vars.REEL2_WITH_REEL1 }}   # reel 2 starts together with reel 1 (set to 0 to turn off)
           PYTHONUNBUFFERED: "1"                  # live log lines
         run: |
           export RUN_DEADLINE_EPOCH=$(( $(date +%s) + 50*60 ))   # model calls stop after 50 minutes: slow providers can no longer hold the draft back for hours
@@ -100,7 +101,10 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run video-agent-fast.yml -R "$GITHUB_REPOSITORY"
+          REEL2_WITH_REEL1: ${{ vars.REEL2_WITH_REEL1 }}      # set the repository variable to 0 to start reel 2 only from its own timer
+        run: |
+          gh workflow run video-agent-fast.yml -R "$GITHUB_REPOSITORY"
+          case "${REEL2_WITH_REEL1:-1}" in 0|false|off|no) ;; *) gh workflow run second-reel.yml -R "$GITHUB_REPOSITORY" || true ;; esac
 
       - name: Wait for your Approve tap and publish
         if: steps.gen.outcome == 'success'

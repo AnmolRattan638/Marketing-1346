@@ -52,6 +52,28 @@ def check_repo_public():
         pass
 
 
+def reel2_with_reel1() -> bool:
+    """Reel 2 starts together with reel 1 unless the repository variable REEL2_WITH_REEL1 is 0 / false / off / no."""
+    return os.getenv("REEL2_WITH_REEL1", "1").strip().lower() not in ("0", "false", "off", "no")
+
+
+def start_reel2_now(token) -> bool:
+    """Reel 2 is normally PART 2 of reel 1 (same service and facts, no new research), so it needs only reel 1's saved script.
+    Start it at the same moment as reel 1 instead of waiting for the evening timer. The second-reel workflow does nothing if today's
+    reel 2 script already exists, so the old evening timer stays a harmless backup."""
+    if not reel2_with_reel1():
+        return False
+    try:
+        r = requests.post(f"https://api.github.com/repos/{config.REPO}/actions/workflows/second-reel.yml/dispatches", timeout=30,
+                          headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"}, json={"ref": os.getenv("GITHUB_REF_NAME") or "main"})
+        if r.status_code != 204:
+            WARNINGS.append(f"reel 2 start: HTTP {r.status_code}; the evening timer will start it instead")
+        return r.status_code == 204
+    except Exception as e:
+        WARNINGS.append(f"reel 2 start: {str(e)[:120]}; the evening timer will start it instead")
+        return False
+
+
 def hand_off_to_video(master, focus) -> bool:
     """Start the reel the moment the master script exists, so the video renders IN PARALLEL with the carousel and captions (same script, no waiting for the draft).
     Saves the script to the repo, then starts the video workflow. Only inside GitHub Actions; any failure just means the old path (start after the draft) runs. -> True if started."""
@@ -69,6 +91,8 @@ def hand_off_to_video(master, focus) -> bool:
         if ok and os.getenv("GITHUB_OUTPUT"):
             with open(os.environ["GITHUB_OUTPUT"], "a") as f:
                 f.write("reel_started=1\n")
+        if ok:
+            start_reel2_now(token)                               # reel 2 renders at the same time as reel 1
         if not ok:
             WARNINGS.append(f"reel handoff: HTTP {r.status_code}; it will start after the draft instead")
         return ok

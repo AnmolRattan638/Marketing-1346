@@ -1,6 +1,6 @@
 name: Second reel
 
-# Writes reel 2 of the day (a different service from reel 1) and starts its video. Safe to trigger many times: it does nothing if today's second script exists.
+# Writes reel 2 of the day and starts its video. The Daily draft workflow now starts this at the same moment as reel 1 (repository variable REEL2_WITH_REEL1=0 turns that off). Safe to trigger many times: it does nothing if today's second script exists.
 # GitHub's own schedule is unreliable for this repository (runs arrive hours late), so the real trigger should be an external timer; see docs/SCHEDULING.md.
 on:
   schedule:

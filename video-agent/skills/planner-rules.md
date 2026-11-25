@@ -61,6 +61,7 @@ Return exactly one JSON object:
   `heading2`, `chips`), `punch` (a loud one-line slide for the key point: `heading`, `heading2`, `ghost` one big background word).
   Every text is short (heading max 4 words, items 1-3 words) and uses words that are really spoken, so it can appear on its spoken word.
   More layouts: `numeral` (`step`=the numeral, `heading`=title, `kicker`=one line; one per list item), `inverse` (one sentence in `heading`+`heading2`), `tiles` (`heading`, `kicker`, `items` "1".."5": a count-along opener). More mocks: `tracker` (counter + ticking rows for an N-item list), `follow` (CTA scene only), `stickers`, `proof` (items [gym|restaurant|cafe|hotel|chatbot]: a real blurred WhatsApp screenshot; first four = no reply: say only "maine ek <type> ko message kiya, koi reply nahi"; chatbot = a business's AI answered in a minute; never a % or "sab"). Use `punch` once at most, `strike` once at most.
+  ANIMATION STYLES (4+ per reel), `step` mocks widgets, bill, stamp, tier, wall, phonefan, pullback, countdown, keyrain, viewfinder, lockon, rabbit, giant, collage.
   RHYTHM: alternate a talking/footage shot and a card every 1.5-3 s; something new every 2-3 s. Never invent facts in graphics.
 - CAMERA on footage (your raw clips are never shown static): `camera` is up to 4 moves, each `{move, at_word, focus, seconds}`. `move`: zoom_in, zoom_out,
   pan_down, pan_up, pan_left, pan_right, reset. `focus`: top, upper, center, lower, bottom, left, right (the part of the picture the camera goes to). Example: opening

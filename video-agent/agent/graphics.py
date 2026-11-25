@@ -29,6 +29,20 @@ browser page, file extract), struck-through lists, full-colour punch slides with
   tracker     rows of a list (title = topic): a "02/05" counter chip, a typed command bar, rows ticking one by one: the "wait for the end" counter
   follow      [handle, one line] (title = name): a profile card, a pointer glides to Follow and clicks on the first reveal word
   stickers    [starburst word, live pill, count badge, handwritten note]: badges that pop on their words
+  widgets     [big, label, big, label, ...] up to 3 frosted glass cards floating in
+  bill        ["name|price", ...] (title = header): a receipt printing line by line with a total
+  stamp       [card text, stamp word]: a card and a stamp that slams on the first reveal word
+  tier        [S item, A item, B item ...]: a tier list, each item drops into the next row on its word
+  wall        [handles...] (title = you): a grid of profile tiles filling in, the last one highlighted
+  phonefan    [line, line, line]: three phones fan out, one line each
+  pullback    [line]: a phone fills the frame then pulls back into a feed of posts
+  countdown   ["MM:SS"]: a flip clock counting down to zero over the scene
+  keyrain     [key labels]: key caps rain down and pile up
+  viewfinder  [line] (title unused): camera viewfinder (REC, timecode, corners) zooming in on the line
+  lockon      [word]: tracking brackets snap onto the word and say LOCKED
+  rabbit      [word]: nested frames shrinking to the word
+  giant       [heavy word, script word]: giant stacked caption words
+  collage     [giant word, line, line ...]: one giant gold word with bold lines under it
 
 Timing: `heading_at` (a word) places the heading, `reveal` is one word per item (or fewer: the rest are spread evenly).
 A word that is not spoken is replaced by an even spread, so nothing is ever placed at a random moment.
@@ -40,7 +54,9 @@ import re
 from .common import log
 
 LAYOUTS = ("title", "step", "strike", "punch", "hook", "numeral", "inverse", "tiles")          # "hook" is never chosen by the planner: viral.stop_fix forces it on scene 1
-MOCKS = ("terminal", "comment", "checklist", "browser", "file", "window", "chat", "maps", "gauge", "tracker", "follow", "stickers", "proof")
+EFFECTS = ("widgets", "bill", "stamp", "tier", "wall", "phonefan", "pullback", "countdown", "keyrain", "viewfinder", "lockon", "rabbit", "giant", "collage")      # the animation-style pool: every reel must use several (agent/effects_rule.py)
+MOCKS = ("terminal", "comment", "checklist", "browser", "file", "window", "chat", "maps", "gauge", "tracker", "follow", "stickers", "proof",
+         "widgets", "bill", "stamp", "tier", "wall", "phonefan", "pullback", "countdown", "keyrain", "viewfinder", "lockon", "rabbit", "giant", "collage")
 HEAD_AT = 0.12            # heading appears this long after the scene starts when no word is given
 HOLD = 0.8                # last element lands at least this long before the scene ends, so it can be read
 GAP = 0.35                # minimum seconds between two reveals

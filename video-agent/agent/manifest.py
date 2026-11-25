@@ -17,6 +17,10 @@ def _stage_sfx(types: set) -> None:
         src = ROOT / "assets" / "sfx" / f"{t}.mp3"
         if not src.exists():
             src = ROOT / "assets" / "sfxkit" / f"{t}.mp3"          # a sound from the SFX kit
+        custom = ROOT / "assets" / "sfx_custom" / f"{t}.wav"
+        if not src.exists() and custom.exists():                   # a sound from your own pack (agent/sfxcustom.py)
+            shutil.copy(custom, WORK / "sfx" / f"{t}.wav")
+            continue
         shutil.copy(src, WORK / "sfx" / f"{t}.mp3")
 
 
@@ -71,8 +75,12 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
     stems = sfx_stems()
     outro_cues = [{"type": "pop", "atSecond": 0.35, "volume": 0.5}] if outro and "pop" in kinds_available(stems) else []
     assign_files([b["sfx"] for b in built] + [outro_cues], stems, seed=str(plan.get("title", "")))      # a different file per cue, none more than 3 times in the reel
+    from . import sfxcustom
+    sfxcustom.add(built)                      # every animation-style effect plays one of your own sounds (compulsory)
     from . import avatar
     avatar.apply(built, cfg, fps, lambda b: math.ceil((b["narration_seconds"] + v["tail_seconds"]) * fps))
+    from . import effects_rule
+    caps = effects_rule.caption_plan([bool(b.get("graphic")) for b in built], (look or {}).get("caption", "pill"), str(plan.get("title", ""))) if look else []      # >= 3 different caption styles per reel
     for i, b in enumerate(built):
         # Round up to whole frames so Remotion's total length equals the sum of scenes.
         frames = math.ceil((b["narration_seconds"] + v["tail_seconds"]) * fps)
@@ -91,7 +99,7 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
         props["fx"] = fx                                   # stat / glitch / title / lower_third / shake, each at a spoken word
         props["transitionIn"] = b.get("transition", "settle")
         if look:
-            props["captionStyle"] = look["caption"]
+            props["captionStyle"] = caps[i]
         if i == len(built) - 1 and not b.get("graphic"):
             kw = next((w for w in re.findall(r"\b[A-Z][A-Z0-9]{2,}\b", " ".join(str(w.get("text", "")) for w in b.get("words") or []))), None)
             if kw:                                          # the "comment KEYWORD" line: the keyword in metallic gold with a light sweep

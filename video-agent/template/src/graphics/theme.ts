@@ -14,6 +14,8 @@ export const THEME = {
   glow: "rgba(240,192,64,0.45)",
   glowSoft: "rgba(240,192,64,0.14)",
 };
+// Neutral shades of the animation-style effects (paper receipt, key caps, flip clock, grey tiers): not brand colours, kept here so no hex lives in a component.
+export const FX = { paper: "#F4F0E6", paperInk: "#1B1B1B", keycap: "#F1EEE6", keycapEdge: "#B8B2A2", tierC: "#8892A6", tierD: "#5A6376", clock: "#12151C", clockEdge: "#2A2F3A" };
 // Per-reel art direction (agent/looks.py presets travel in manifest.look): background pattern and vignette strength. applyTheme() sets it before the first frame.
 export const LOOK: { bg: string; vignette: number } = { bg: "specks", vignette: 0.38 };
 export const FONT_HEAD =
@@ -27,7 +29,7 @@ export interface GraphicTimes {
   items: number[]; // one per item (list row / terminal line / checklist tick / strike), each on its spoken word
   chips: number;
 }
-export type MockType = "terminal" | "comment" | "checklist" | "browser" | "file" | "window" | "chat" | "maps" | "gauge" | "tracker" | "follow" | "stickers" | "proof";
+export type MockType = "terminal" | "comment" | "checklist" | "browser" | "file" | "window" | "chat" | "maps" | "gauge" | "tracker" | "follow" | "stickers" | "proof" | "widgets" | "bill" | "stamp" | "tier" | "wall" | "phonefan" | "pullback" | "countdown" | "keyrain" | "viewfinder" | "lockon" | "rabbit" | "giant" | "collage";
 export interface MockSpec {
   type: MockType;
   title?: string;

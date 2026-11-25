@@ -73,7 +73,7 @@ PLAN_SCHEMA = {
                                 "type": "object",
                                 "required": ["type"],
                                 "properties": {
-                                    "type": {"enum": ["terminal", "comment", "checklist", "browser", "file", "window", "chat", "maps", "gauge", "tracker", "follow", "stickers", "proof"]},
+                                    "type": {"enum": ["terminal", "comment", "checklist", "browser", "file", "window", "chat", "maps", "gauge", "tracker", "follow", "stickers", "widgets", "bill", "stamp", "tier", "wall", "phonefan", "pullback", "countdown", "keyrain", "viewfinder", "lockon", "rabbit", "giant", "collage", "proof"]},
                                     "title": {"type": "string", "maxLength": 30},
                                     "items": {"type": "array", "maxItems": 6, "items": {"type": "string", "maxLength": 60}},
                                 },

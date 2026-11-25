@@ -2,6 +2,30 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "18135081026501211",
+      "url": "https://www.instagram.com/reel/DgJbjgSILYf/",
+      "published_at": "2026-11-25T02:15:02.000Z",
+      "text": "KYA AAPKI CLINIC RAAT KE ELEVEN BAJE KE MESSAGES KA JAWAB DETI HAI?\n\n→ WhatsApp message deliver hota hai, lekin clinic ko koi email alert nahi aata.\n→ Par raat ",
+      "format": "reel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 135,
+        "reach": 127,
+        "views": 135,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": 53.8,
+        "avg_watch_s": 4.467,
+        "duration_s": 43
+      },
+      "matched": null
+    },
+    {
+      "platform": "instagram",
       "id": "17967667566250032",
       "url": "https://www.instagram.com/p/DgIFXydjZ8g/",
       "published_at": "2026-11-24T13:40:19.000Z",
@@ -395,17 +419,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 132,
+        "impressions": 133,
         "reach": 88,
-        "views": 132,
+        "views": 133,
         "likes": 5,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 57,
-        "avg_watch_s": 4.156,
+        "skip_rate": 57.4,
+        "avg_watch_s": 4.136,
         "duration_s": 27
       },
       "matched": {
@@ -1816,9 +1840,9 @@
       "format": "image",
       "source": "zernio",
       "metrics": {
-        "impressions": 273,
-        "reach": 92,
-        "views": 273,
+        "impressions": 274,
+        "reach": 93,
+        "views": 274,
         "likes": 6,
         "comments": 0,
         "shares": 0,
@@ -2215,7 +2239,7 @@
       "username": "ar__designerx"
     },
     "linkedin": {
-      "followers": 19,
+      "followers": 20,
       "username": "Anmol Rattan"
     },
     "bluesky": {
@@ -2594,9 +2618,17 @@
         "linkedin": 19,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-11-25",
+      "followers": {
+        "instagram": 8,
+        "linkedin": 20,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-24T22:28:20+00:00"
+  "updated_at": "2026-11-25T08:37:09+00:00"
 }

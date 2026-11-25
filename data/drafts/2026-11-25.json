@@ -1,0 +1,978 @@
+{
+  "id": "2026-11-25-b457c2",
+  "date": "2026-11-25",
+  "created_at": "2026-11-25T11:57:35+00:00",
+  "status": "pending",
+  "service": "reel_scripts",
+  "topic": "Camera ke samne bolna kya hai, samajh nahi aata?",
+  "idea_id": null,
+  "problem_id": "not-knowing-what-to-say-on-camera-and-st",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "not-knowing-what-to-say-on-camera-and-st",
+    "angle_type": null,
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "Salon ke owners, raat ko der raat bhi aapke messages ignore ho rahe hain?"
+    },
+    {
+      "style": "myth",
+      "text": "Business owners: Myth: Essay scripts work. Fact: 3‑line spoken script converts."
+    },
+    {
+      "style": "curiosity",
+      "text": "Business owners: Did you know you can cut reel length dramatically?"
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "Faceless YouTube videos let creators produce content without appearing on camera, using AI visuals, animations, screen recordings, stock clips, text graphics, and voiceovers.",
+        "figure": null,
+        "source": "hitubhatech.com",
+        "title": "AI Ki Help Se Faceless YouTube Video Kaise Banaye? (Step-by-Step Practical Guide) - HITUBHA TECH",
+        "url": "https://hitubhatech.com/faceless-youtube-video/",
+        "date": "2026-10-25",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "For small businesses, creating 2-3 videos per week is enough to start video marketing.",
+        "figure": "2-3",
+        "source": "cameratel.gorich.systems",
+        "title": "छोटे बिज़नेस के लिए वीडियो मार्केटिंग: मोबाइल से शुरू करें · Cameratel",
+        "url": "https://cameratel.gorich.systems/hi/blog/video-marketing-for-small-business/",
+        "date": "2026-10-13",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "There are 8 recommended video ideas for small‑business video marketing, such as product demos, FAQ answers, offers, behind‑the‑scenes, and customer reviews.",
+        "figure": "8",
+        "source": "cameratel.gorich.systems",
+        "title": "छोटे बिज़नेस के लिए वीडियो मार्केटिंग: मोबाइल से शुरू करें · Cameratel",
+        "url": "https://cameratel.gorich.systems/hi/blog/video-marketing-for-small-business/",
+        "date": "2026-10-13",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "AI image generators can create a picture in ten seconds.",
+        "figure": "ten seconds",
+        "source": "roydigital.in",
+        "title": "AI image and video tools for small brands in 2026: what's actually ready (and what still isn't) · Roy Digital App Studio",
+        "url": "https://roydigital.in/blog/ai-image-video-tools-for-small-brands-2026",
+        "date": "2026-08-23",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Axis network cameras provide a privacy feature that can mask people and moving objects in the video feed.",
+        "figure": null,
+        "source": "axis.com",
+        "title": "Axis Communications Network cameras and security solutions",
+        "url": "https://www.axis.com",
+        "date": null,
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "Public address systems integrated with network cameras can broadcast spoken messages to targeted areas without needing a person on site.",
+        "figure": null,
+        "source": "axis.com",
+        "title": "Axis Communications Network cameras and security solutions",
+        "url": "https://www.axis.com",
+        "date": null,
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Short videos can answer common customer questions such as price, delivery, size, and changes, saving time for small businesses.",
+        "figure": null,
+        "source": "cameratel.gorich.systems",
+        "title": "छोटे बिज़नेस के लिए वीडियो मार्केटिंग: मोबाइल से शुरू करें · Cameratel",
+        "url": "https://cameratel.gorich.systems/hi/blog/video-marketing-for-small-business/",
+        "date": "2026-10-13",
+        "verdict": "verified",
+        "id": "f7"
+      }
+    ],
+    "dropped": 1,
+    "topic": "Camera ke samne bolna kya hai, samajh nahi aata?"
+  },
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Salon ke owners, raat ko der raat bhi aapke messages ignore ho rahe hain?",
+    "hooks": [
+      {
+        "text": "Salon ki raat 11 baje, phone par message, aur koi jawab nahi…",
+        "score": 13.4,
+        "formula": ""
+      },
+      {
+        "text": "Salon ka reel kitne second mein chhod dete hain log?",
+        "score": 12.9,
+        "formula": ""
+      },
+      {
+        "text": "Main reel scripts ke baare mein galat tha…",
+        "score": 11.4,
+        "formula": "wrong"
+      },
+      {
+        "text": "Asli sachchai ye hai ki pehli line…",
+        "score": 11.4,
+        "formula": "truth"
+      },
+      {
+        "text": "Reels ka pehla second waste karna band karo…",
+        "score": 11.4,
+        "formula": "stop"
+      },
+      {
+        "text": "Salon ka reel chala, lekin raat ko message kare toh koi uthata nahi…",
+        "score": 9.4,
+        "formula": ""
+      }
+    ],
+    "hook_formula": "",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Salon ke owners, raat ko der raat bhi aapke messages ignore ho rahe hain?",
+        "screen": "Messages ignore ho rahe hain?",
+        "visual": "Phone screen glowing in dark, unread messages piling up",
+        "emotion": "warm",
+        "steps": [
+          "Salon ke owners",
+          "raat ko der raat bhi",
+          "messages ignore ho rahe hain"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "poke",
+        "line": "Naya reel roz banana solution nahi hai, kyunki customer ko apna sawal sunna chahiye, sirf offer nahi. Toh kya kaam karega?",
+        "screen": "Roz reel solution nahi",
+        "visual": "Owner filming a reel while a customer scrolls past without stopping",
+        "emotion": "urgent",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "rehook",
+        "line": "Aur asli dikkat script ki pehli line mein hai, jo main batata hoon…",
+        "screen": "Asli dikkat script mein",
+        "visual": "Close-up of handwritten script lines on a phone",
+        "emotion": "curious",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Sabse pehle aap customers ka sawal likhte hain, kyunki reel uska jawab degi. Phir pehli line mein wahi sawal uthate hain, taaki log ruk jayein, aur aakhir mein unhe message bhejne ko kehte hain.",
+        "screen": "Sawals likho, line me uthao",
+        "visual": "Notepad me sawal, reel frame me wahi sawal, message bubble ke saath CTA",
+        "emotion": "warm",
+        "steps": [
+          "customers ka sawal likho",
+          "sawal ko pehli line mein uthao",
+          "message bhejne ko bolo"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "payoff",
+        "line": "Cameratel ke mutabik, haptah mein 2-3 videos bana sakte hain, jo kaafi hota hai, isliye script kaam karegi.",
+        "screen": "2-3 videos weekly enough",
+        "visual": "Calendar with three video icons per week and a checkmark",
+        "emotion": "warm",
+        "steps": [
+          "Cameratel ke mutabik, haptah mein 2-3 videos",
+          "bana sakte hain, jo kaafi hota hai",
+          "isliye script kaam karegi"
+        ],
+        "facts": [
+          "f2"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Salon ka reel chala ho, lekin agar pehli line customer ka sawal nahi uthati, toh message koi nahi utha payega.",
+        "screen": "Pehli line sawal uthaye",
+        "visual": "Salon owner looking at phone, then at script paper",
+        "emotion": "empathetic",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "cta",
+        "line": "Agar aapke salon ke liye reel script chahiye, toh comment mein SCRIPT likho. Main aapko DM mein one-page checklist aur fill-in template bhejunga. Poora breakdown aaj ke carousel mein hai.",
+        "screen": "Comment likho SCRIPT",
+        "visual": "Text 'Comment SCRIPT' with arrow to comment box",
+        "emotion": "warm",
+        "steps": [],
+        "facts": []
+      }
+    ],
+    "cta": "Agar aapke salon ke liye reel script chahiye, toh comment mein SCRIPT likho. Main aapko DM mein one-page checklist aur fill-in template bhejunga. Poora breakdown aaj ke carousel mein hai.",
+    "linkedin_english": "If you run a salon, your reel might get views but no night-time messages because the first line does not ask the customer's real question. Instead of posting every day, write one script that answers the most common query and ends with a clear invitation to message. Comment SCRIPT and I will send you a one-page checklist with the lines every business reel script needs, plus a fill-in template.",
+    "marketing": {
+      "keyword": "SCRIPT",
+      "gets": "a one-page checklist: the 5 lines every business reel script needs, and a fill-in template",
+      "pillar": "educate"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Faceless YouTube videos let creators produce content without appearing on camera, using AI visuals, animations, screen recordings, stock clips, text graphics, and voiceovers.",
+        "figure": null,
+        "source": "hitubhatech.com",
+        "title": "AI Ki Help Se Faceless YouTube Video Kaise Banaye? (Step-by-Step Practical Guide) - HITUBHA TECH",
+        "url": "https://hitubhatech.com/faceless-youtube-video/",
+        "date": "2026-10-25",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "For small businesses, creating 2-3 videos per week is enough to start video marketing.",
+        "figure": "2-3",
+        "source": "cameratel.gorich.systems",
+        "title": "छोटे बिज़नेस के लिए वीडियो मार्केटिंग: मोबाइल से शुरू करें · Cameratel",
+        "url": "https://cameratel.gorich.systems/hi/blog/video-marketing-for-small-business/",
+        "date": "2026-10-13",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "There are 8 recommended video ideas for small‑business video marketing, such as product demos, FAQ answers, offers, behind‑the‑scenes, and customer reviews.",
+        "figure": "8",
+        "source": "cameratel.gorich.systems",
+        "title": "छोटे बिज़नेस के लिए वीडियो मार्केटिंग: मोबाइल से शुरू करें · Cameratel",
+        "url": "https://cameratel.gorich.systems/hi/blog/video-marketing-for-small-business/",
+        "date": "2026-10-13",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "AI image generators can create a picture in ten seconds.",
+        "figure": "ten seconds",
+        "source": "roydigital.in",
+        "title": "AI image and video tools for small brands in 2026: what's actually ready (and what still isn't) · Roy Digital App Studio",
+        "url": "https://roydigital.in/blog/ai-image-video-tools-for-small-brands-2026",
+        "date": "2026-08-23",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Axis network cameras provide a privacy feature that can mask people and moving objects in the video feed.",
+        "figure": null,
+        "source": "axis.com",
+        "title": "Axis Communications Network cameras and security solutions",
+        "url": "https://www.axis.com",
+        "date": null,
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "Public address systems integrated with network cameras can broadcast spoken messages to targeted areas without needing a person on site.",
+        "figure": null,
+        "source": "axis.com",
+        "title": "Axis Communications Network cameras and security solutions",
+        "url": "https://www.axis.com",
+        "date": null,
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Short videos can answer common customer questions such as price, delivery, size, and changes, saving time for small businesses.",
+        "figure": null,
+        "source": "cameratel.gorich.systems",
+        "title": "छोटे बिज़नेस के लिए वीडियो मार्केटिंग: मोबाइल से शुरू करें · Cameratel",
+        "url": "https://cameratel.gorich.systems/hi/blog/video-marketing-for-small-business/",
+        "date": "2026-10-13",
+        "verdict": "verified",
+        "id": "f7"
+      }
+    ],
+    "topic": "Camera ke samne bolna kya hai, samajh nahi aata?",
+    "service": "reel_scripts",
+    "keyword": "SCRIPT",
+    "carousel_tease": true,
+    "notes": [
+      "style remark (not blocking): meaning: cta: remove the promise to send a one-page checklist and fill-in template, as that is not a listed capability of the reel script service; instead only offer the s"
+    ]
+  },
+  "script_style": "pain-poke-fix",
+  "structure": {
+    "structure": "retention-v2",
+    "vertical": "salon",
+    "context_first": true,
+    "rehook": true,
+    "open_loops": 3,
+    "style": "pain-poke-fix",
+    "hook_formula": "none",
+    "series": false,
+    "words": 150
+  },
+  "posts": {
+    "instagram": "𝗥𝗘𝗘𝗟 𝗦𝗖𝗥𝗜𝗣𝗧𝗦 𝗔𝗖𝗢𝗢𝗥𝗗𝗘 𝗕𝗔𝗡𝗡𝗜 𝗖𝗛𝗔𝗛𝗜𝗬𝗘, 𝗡𝗔 𝗞𝗜 𝗘𝗦𝗦𝗔𝗬\n→ Likhe hue 𝗘𝗦𝗦𝗔𝗬𝗦 camera par sunne mein sakht lagte hain.\n→ Bolne ki tarah likhein: chhote vakya, seedhi baat.\n→ Pehli line customer ka 𝗦𝗔𝗪𝗔𝗔𝗟 ho, service list nahi.\nDM 𝗦𝗖𝗥𝗜𝗣𝗧 aur main batata hoon kaise aapke reels ko engaging bana sakte hain. 💬\n\n#SmallBusinessIndia #ReelScript #Hinglish #SmallBusiness #VideoMarketing",
+    "linkedin": "I built a website for a homestay in Dehradun.\n\nIt was a paying client and they now have their own website.\n\nI am Anmol, founder of AR Designs, based in Himachal Pradesh. I build websites, AI tools and lead generation systems for small businesses.\n\nI have about a year of hands-on work behind me. For one month I did lead generation for an agency using my own lead finder tool. I have spoken with agency owners and many businesses.\n\nI am looking to meet people who build things. Founders, agency owners, other builders. I am open to freelance projects, collaborations, partnerships and learning from others.\n\nIf you are building something, I would love to hear from you.",
+    "bluesky": "Many reel scripts read like essays instead of spoken lines. Keep it short, start with the customer's question, and speak naturally. DM SCRIPT to discuss a reel script that fits your business. 📱"
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I write reel scripts in Hinglish or English — a hook, body, and call to action paced for 30 to 60 seconds. Quick question: what do you want viewers to do after watching — call, WhatsApp, or visit your shop? We can fix the price only after you approve the script."
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi, I write scripts for any small business that talks to customers — shops, cafes, clinics, gyms, salons. What does your business sell, and what is the one question customers ask you most?"
+    },
+    {
+      "if_they_say": "I'll think about it",
+      "reply": "Of course. I can send a one-page checklist: the five lines every business reel script needs. Is the hesitation about the script, or whether reels fit your business right now?"
+    }
+  ],
+  "image": {
+    "prompt": "a matte‑black smartphone, its screen glowing warm‑gold with faint script‑like lines, placed on a walnut desk; the phone fills the upper two‑thirds of the frame, shot from eye level above, leaving the lower 40% clear for headline; an amber key light from the top‑right creates a rim glow around the phone and shadows on the desk; foreground shows walnut grain and a black ceramic mug, midground holds the glowing phone, and background fades into a hazy wall with a faint plant silhouette; charcoal palette with warm‑gold accent gives a calm, focused feel; captured with an 85 mm lens at f/1.8, depth isolates phone’s metal and glass reflections while wood grain and dust motes catch the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-25.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "not-knowing-what-to-say-on-camera-and-st",
+      "angle_type": "mistake",
+      "style": "bold",
+      "headline": "Writing your reels like an essay?",
+      "highlight": [
+        "like an essay"
+      ],
+      "sub": "People don't talk like that on camera.",
+      "cta": "Comment \"SCRIPT\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ],
+    "style_id": "desk-glow"
+  },
+  "carousel": {
+    "flavor": "script:pain-poke-fix",
+    "fact_id": null,
+    "checked": false,
+    "paths": [
+      "data/media/2026-11-25.jpg",
+      "data/media/2026-11-25-s2.jpg",
+      "data/media/2026-11-25-s3.jpg",
+      "data/media/2026-11-25-s4.jpg",
+      "data/media/2026-11-25-s5.jpg",
+      "data/media/2026-11-25-s6.jpg",
+      "data/media/2026-11-25-s7.jpg"
+    ],
+    "alts": [
+      "Salon ke owners, raat ko der raat bhi aapke messages ignore ho rahe hain?",
+      "Slide 2 of 7: Naya reel roz banana solution nahi hai. Customer ko sirf offer nahi, unka sawaal sunna zaroori hai. Warna reel bekaar.",
+      "Slide 3 of 7: Aur asli dikkat script ki pehli line mein hai. Agar pehli line mein customer ka sawaal nahi, to koi rukta hi nahi.",
+      "Slide 4 of 7: Customer ka sawaal pehli line mein likho. Short, conversational line se shuruaat karo. Agar sawaal nahi, koi rukta hi nahi, message miss ho jata.",
+      "Slide 5 of 7: Script ko teen lines (≈15 sec) tak rakho. Ek baar aloud practice karo, phir ek confident take mein record karo. Simple, asaan aur tezi se banega.",
+      "Slide 6 of 7: 2‑3 reels per week kaafi hain. cameratel.gorich.systems ke mutabik, har hafte 2‑3 videos se video marketing shuru ho sakti hai.",
+      "Slide 7 of 7: Comment SCRIPT. Apne salon ke liye reel script chahiye? DM mein 5‑line checklist aur fill‑in template bhejunga."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Salon ke owners, raat ko der raat bhi aapke messages ignore ho rahe hain?",
+        "body": "Kya aapke reels se customers ka reply nahi aata?"
+      },
+      {
+        "role": "problem",
+        "headline": "Naya reel roz banana solution nahi hai",
+        "body": "Customer ko sirf offer nahi, unka sawaal sunna zaroori hai. Warna reel bekaar."
+      },
+      {
+        "role": "problem",
+        "headline": "Aur asli dikkat script ki pehli line mein hai",
+        "body": "Agar pehli line mein customer ka sawaal nahi, to koi rukta hi nahi."
+      },
+      {
+        "role": "solution",
+        "headline": "Customer ka sawaal pehli line mein likho",
+        "body": "Short, conversational line se shuruaat karo. Agar sawaal nahi, koi rukta hi nahi, message miss ho jata."
+      },
+      {
+        "role": "solution",
+        "headline": "Script ko teen lines (≈15 sec) tak rakho",
+        "body": "Ek baar aloud practice karo, phir ek confident take mein record karo. Simple, asaan aur tezi se banega."
+      },
+      {
+        "role": "solution",
+        "headline": "2‑3 reels per week kaafi hain",
+        "body": "cameratel.gorich.systems ke mutabik, har hafte 2‑3 videos se video marketing shuru ho sakti hai."
+      },
+      {
+        "role": "cta",
+        "headline": "Comment SCRIPT",
+        "body": "Apne salon ke liye reel script chahiye? DM mein 5‑line checklist aur fill‑in template bhejunga."
+      }
+    ],
+    "scene_prompts": {
+      "2": "a pair of beige hands gripping a tangled vintage film reel with a matte gold coil faintly glowing. hands and reel dominate the upper 55% of the frame from a top view, the lower 45% fades into a dark space. amber key light from the left washes the hands, rim‑lighting the reel’s edge, casting shadows on a walnut desk. foreground walnut desk with grain, a black ceramic mug, a closed notebook with silver pen; background an amber lamp pool, plant silhouette, haze. Colour & mood: charcoal‑gray base, deep slate, accent warm gold, evoking weary creativity. Camera & texture: 85mm lens at f/1.8, shallow depth of field, crisp focus on hands, metal lamp, glass reflections on mug, dust motes catching amber glow. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "3": "a pair of hands, right hand gripping a matte‑black fountain pen with a gold nib, left hand hovering over a notebook page where the line is blank, surrounded by papers and a black ceramic mug. hands and notebook fill the upper 55% of the frame, shot above eye level, leaving the lower 45% dark for text. a amber desk lamp on the right casts a soft glow on the pen tip and a subtle rim on the hands, with shadows elsewhere. brushed‑metal desk, sticky notes, a plant fading into a dim background, dust haze. charcoal and slate base with a warm gold accent, conveying tension. 85mm lens at f/1.8, depth, metal sheen on the pen, glossy mug, textured paper. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "4": "An matte‑black laptop with a gold keyboard rests on a dark metal desk, pair of hands typing, occupying upper 55% of frame; view is above eye level, leaving lower 45% for overlay. Golden question‑mark icon hovers above keyboard, indicating customer’s query. Amber lamp light from right casts shadows and subtle gold rim around laptop, while a faint rim outlines hands. In front, black ceramic mug and closed notebook with silver pen sit beside laptop; leafy plant fades into charcoal wall in back, adding depth. Palette: charcoal and midnight blue with gold accent, feeling calm and productive. Shot with an 85 mm lens at f/1.8, shallow depth of field keeps laptop and hands crisp, showing metal texture and dust catching gold glow. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "5": "a matte-black laptop with a glowing dark screen sits on a desk; metal chassis catches a rim; relaxed hands rest on the keyboard while a gold stylus hovers, tracing three brief luminous strokes that arc upward. laptop and hands fill the upper 55% of the frame, shot from an eye‑level view, leaving the lower 45% in focus for overlay. key light from the right casts shadows, a subtle rim light outlines edges, and the gold strokes emit a gold glow. foreground wood grain, black ceramic mug; midground laptop, stylus; background blurred wall with subtle ambient light. charcoal‑slate base with warm‑gold accent, calm, organized, confident. 85mm lens at f/1.8, shallow depth of field, metal chassis, glass reflections, motes catching light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "6": "A matte‑black laptop with a glowing dark screen rests on a brushed‑metal desk, hands lightly on the keyboard; three warm‑gold film‑reel icons hover in an arc above the display, pulsing faintly. The laptop fills the upper 55% of the frame, shot from a view, while the lower area fades into dark space for text. Warm amber key light from the right rim‑lights the laptop and icons, with a cool‑blue fill adding contrast and shadows. A sleek brass desk lamp beside the laptop adds an amber pool, and the background recedes into charcoal wall. Palette of charcoal, slate and amber, highlighted by warm‑gold accents, conveys calm, organized confidence. Captured with 85mm lens at f/1.8, shallow depth of field keeps the laptop and icons sharp, while brushed‑metal texture catches the glow. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": []
+  },
+  "instagram_mode": "manual_reel",
+  "linkedin_format": "text",
+  "linkedin_mode": "intro",
+  "linkedin_topic": "who-i-am",
+  "video": {
+    "hook_first_3s": "Camera pe bolna mushkil? + Camera ke samne bolna kya hai, samajh nahi aata?",
+    "concept": "A business owner deletes a stiff script line, replaces it with a natural Hinglish line, and offers a ready reel script via DM.",
+    "parts": [
+      {
+        "time": "0-10s",
+        "voiceover": "Camera ke samne bolna kya hai, samajh nahi aata?",
+        "story": "Cold blue laptop screen shows a stiff script line; hands delete it, lamp glow shifts warm, revealing a natural Hinglish line ready to record.",
+        "flow_prompt": "A deeply relatable non-commercial indie-film style cinematic micro-story for 'AR Designs', shot on ARRI Alexa Mini LF with a 100mm Macro Anamorphic lens, 4K resolution, 60fps, Kodak Vision3 500T film emulation with rich halation, a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, in a minimalist white workspace with a Nordic oak wood desk, featuring a Space Silver MacBook Pro.\n[00:00-00:03 / Story 0-3s] A locked-off wide shot on a 35mm anamorphic lens at f/2.8 holds on the cold blue glow from the Space Silver MacBook Pro screen flooding the Nordic oak desk. The stiff robotic English sentence glows on screen while brushed aluminium reflects harsh light. A fingertip hovers above the trackpad, seen only as a blurred reflection in the screen glass. The 3200K tungsten lamp begins to brighten, casting diffused shadows. Volumetric dust motes hang still before drifting into emerging gold. Crisp glass reflections shift from cold blue to tungsten halation.\n[00:03-00:06 / Story 3-6s] A horizontal slider tracking shot alongside the cursor on a 100mm macro anamorphic lens at f/2.0 follows the hand as it deletes the stiff sentence in one clean sweep across the Space Silver MacBook Pro keyboard. The cold blue screen light retreats as the warm 3200K tungsten lamp floods the desk with gold. Rich halation glows around the matte-white architectural lamp shade. The natural Hinglish line appears on screen with soft amber and teal pacing tags. Volumetric dust motes dance in golden light while crisp glass reflections show warm ambience.\n[00:06-00:08 / Story 6-8s] A crane-style pull-back on a 50mm anamorphic lens at f/2.0 reveals the Space Silver MacBook Pro sitting open with the Hinglish script ready on screen. The 3200K tungsten lamp fills the white workspace with soft gold light and soft diffused shadows. Hands rest relaxed on the Nordic oak desk beside a sleek studio microphone. Brushed aluminium catches the glow while volumetric dust motes float slowly in the air. Crisp glass reflections frame the scene.\n[00:08-00:10 / Story 8-10s] A dolly zoom-out on a 100mm macro anamorphic lens at f/2.0 ends on a locked clean frame of the Space Silver MacBook Pro screen showing the Hinglish line in warm gold glow. Empty space sits beside the laptop for typography. Crisp glass reflections and brushed aluminium frame the shot while volumetric dust motes settle. This final frame sets up the next clip’s cursor highlight and swipe.\nAudio & Voiceover Sync: A tense silence opens the clip. A single heavy key click breaks the quiet, followed by rhythmic ASMR mechanical keystrokes as the finger works the trackpad. A decisive delete-key thud marks the stop, then a warm lo-fi ambient synth pad swells in. A relieved exhale breathes through the gold, ending on a lingering vinyl tail that fades back into silence. Warm, intimate, conversational, like a friend voiceover: \"Camera ke samne bolna kya hai, samajh nahi aata?\"",
+        "beat_sheet": "[00:00 - 00:01] Frame 1-60: The Cold Open\nVisual: Cold blue glow from the Space Silver MacBook Pro screen floods the Nordic oak desk. A stiff robotic English sentence glows on the script document. Brushed aluminium reflects harsh light while crisp glass reflections show no hands. Volumetric dust motes hang still in the blue light beside the matte-white architectural lamp.\nStory Feel: Screen ki blue light se darr lag raha hai, kuch samajh nahi aa raha.\nCamera & Lens: locked-off architectural wide shot holds still on the screen, 35mm anamorphic lens at f/2.8.\nAudio Cue: a tense silence.\n\n[00:01 - 00:02] Frame 61-120: The Stiff Sentence\nVisual: Close-up on MacBook Pro screen pixels showing the robotic English line. Cold blue light casts sharp shadows on the matte-white architectural lamp base. Brushed aluminium edge catches blue halation. A fingertip hovers above the trackpad, visible only as a blurred reflection in the screen glass.\nStory Feel: Ye words mere nahi hain, ye kisi aur ke hain.\nCamera & Lens: rack-focus from the screen pixels to the glass reflection, 85mm macro lens at f/1.4.\nAudio Cue: a single heavy key click.\n\n[00:02 - 00:03] Frame 121-180: The Hesitant Finger\nVisual: A fingertip touches the trackpad on the Nordic oak desk. The warm 3200K tungsten lamp begins to brighten, casting soft diffused shadows. Cold blue screen light still dominates but competes with emerging gold. Volumetric dust motes start to drift in the lamp light.\nStory Feel: Hath ruk gaya hai, dil dhadak raha hai.\nCamera & Lens: slow gimbal ease-out pulls back slightly from the desk, 50mm anamorphic lens at f/2.0.\nAudio Cue: rhythmic ASMR mechanical keystrokes.\n\n[00:03 - 00:04] Frame 181-240: The Clean Sweep\nVisual: A hand deletes the stiff sentence in one clean sweep across the Space Silver MacBook Pro keyboard. The screen blue flickers then retreats. Warm tungsten gold from the matte-white architectural lamp floods the desk. Rich halation glows around the lamp shade. Crisp glass reflections now show warm light.\nStory Feel: Ek swipe mein sab kuch badal gaya, raah khuli.\nCamera & Lens: horizontal slider tracking shot alongside the cursor, 100mm macro anamorphic lens at f/2.0.\nAudio Cue: a decisive delete-key thud.\n\n[00:04 - 00:05] Frame 241-300: The Warm Reveal\nVisual: The natural Hinglish line appears on the MacBook Pro screen with soft amber and teal pacing tags. The 3200K lamp light is fully golden. Volumetric dust motes dance in the light. A sleek studio microphone stands nearby, its brushed metal catching gold.\nStory Feel: Ab ye meri baat hai, ye meri awaaz hai.\nCamera & Lens: slight tilt-up with the centre in razor-sharp focus, 35mm anamorphic lens at f/2.8.\nAudio Cue: Camera ke samne bolna kya hai, samajh nahi aata? A warm lo-fi ambient synth pad begins.\n\n[00:05 - 00:06] Frame 301-360: The Ready Script\nVisual: The Hinglish line remains on the Space Silver MacBook Pro screen with amber and teal pacing tags pulsing softly. Warm gold lamp light fills the white workspace. Hands rest relaxed on the Nordic oak desk. Crisp glass reflections show warm studio ambience.\nStory Feel: Ab record karne ka time hai, koi darr nahi.\nCamera & Lens: macro probe-lens tracking shot glides over the keyboard, 85mm macro lens at f/1.4.\nAudio Cue: a relieved exhale.\n\n[00:06 - 00:08] Frame 361-480: The Golden Pause\nVisual: The Space Silver MacBook Pro sits open, script ready on screen. The 3200K tungsten lamp casts soft diffused shadows across the matte-white architectural lamp and Nordic oak desk. Volumetric dust motes float slowly. A sleek studio microphone glows in the warm light.\nStory Feel: Sab ready hai, bas shuru karna hai, aage badhna hai.\nCamera & Lens: crane-style pull-back rises above the desk to reveal the space, 50mm anamorphic lens at f/2.0.\nAudio Cue: warm lo-fi ambient synth pad continues, subtle studio light-switch click.\n\n[00:08 - 00:10] Frame 481-600: The Setup Frame\nVisual: A locked clean frame shows the Space Silver MacBook Pro screen with the Hinglish line in warm gold glow. Empty space sits beside the laptop for typography. Crisp glass reflections and brushed aluminium frame the shot while volumetric dust motes settle, setting up the next clip.\nStory Feel: Agla kadam abhi uthana hai, cursor badhega aage.\nCamera & Lens: dolly zoom-out pulls back to leave empty typography space, 100mm macro anamorphic lens at f/2.0.\nAudio Cue: a lingering vinyl tail fades into silence."
+      },
+      {
+        "time": "10-20s",
+        "voiceover": "I replace the rigid line with a conversational script you can film in one take.",
+        "story": "Cursor highlights the old line, a swipe deletes it; new Hinglish line appears, screen glow golden, hands relax on the desk.",
+        "flow_prompt": "Continuing the non-commercial indie-film style cinematic micro-story for 'AR Designs', shot on ARRI Alexa Mini LF with a 100mm Macro Anamorphic lens, 4K resolution, 60fps, Kodak Vision3 500T film emulation with rich halation, a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, in a minimalist white workspace with a Nordic oak wood desk, featuring a Space Silver MacBook Pro.\n[00:00-00:03 / Story 10-13s] A micro‑dolly push‑in with an 85mm macro lens at f/1.4 glides toward the Space Silver MacBook Pro on a Nordic oak desk. The screen glows a cold blue, highlighting a stiff English sentence while a cursor blinks. The matte‑white 3200K lamp is off, leaving only harsh blue light, brushed aluminium edges catching a faint lens flare, and dust motes drifting in the chill.\n[00:03-00:06 / Story 13-16s] A horizontal slider tracking shot with a 35mm anamorphic lens at f/2.8 follows a fingertip pressing delete; a decisive thud echoes as the line vanishes. The blue glow fades, replaced by a warm amber script that reads \"I replace the rigid line with a conversational script you can film in one take.\" The 3200K lamp floods the scene, golden halo spreading, glass reflecting soft light, dust motes swirling.\n[00:06-00:08 / Story 16-18s] A slow gimbal ease‑out using a 35mm anamorphic lens at f/2.8 captures relaxed hands resting on the Nordic oak, the matte‑white lamp casting soft shadows. The Space Silver MacBook Pro screen shows the full Hinglish script in amber, brushed aluminium frame gleaming, creamy bokeh from the lamp halo, and volumetric dust motes drifting in warm light.\n[00:08-00:10 / Story 18-20s] A crane‑style pull‑back with an 85mm macro lens at f/1.4 follows a fingertip lifting to close the laptop lid. The lid snaps shut with a satisfying magnetic thock, the warm lamp glow dimming, brushed aluminium catching a final highlight, dust motes settling, and the scene ending in quiet darkness, ready for the next frame.\nAudio & Voiceover Sync: tense silence, single heavy key click, crisp trackpad swipe, rhythmic ASMR mechanical keystrokes, relieved exhale, warm lo‑fi ambient synth pad, subtle studio light‑switch click, satisfying magnetic lid‑close thock, lingering vinyl tail fades into silence. Intimate, grounded, conversational, warm voiceover: \"I replace the rigid line with a conversational script you can film in one take.\"",
+        "beat_sheet": "[00:10 - 00:11] Frame 1-60: Cold Screen Intro\nVisual: Space Silver MacBook Pro sits on a Nordic oak desk, its screen bathed in a harsh blue glow that casts a cold shadow across brushed aluminium edges. The cursor blinks over a stiff English sentence, while volumetric dust motes drift in the faint light. No lamp is lit yet, only the screen's chill.\nStory Feel: Bhai, yeh blue glow bahut tight lag raha hai.\nCamera & Lens: Micro-dolly push-in with an 85mm macro lens at f/1.4, shallow depth isolates the screen and cursor.\nAudio Cue: tense silence\n\n[00:11 - 00:12] Frame 61-120: Highlight Problem\nVisual: A teal pacing tag appears as the cursor highlights the rigid line; the fingertip hovers just above the keyboard, reflected softly in the crisp glass. The matte-white 3200K lamp flickers on, casting warm diffused shadows that begin to soften the blue, while brushed aluminium catches a subtle lens flare.\nStory Feel: Yeh line bilkul robot jaisi lag rahi hai.\nCamera & Lens: Slight tilt-up with centre razor-sharp, using a 50mm anamorphic lens at f/2.0.\nAudio Cue: single heavy key click\n\n[00:12 - 00:13] Frame 121-180: Deliberate Rejection\nVisual: The fingertip presses the delete key; a decisive delete-key thud echoes as the sentence vanishes in a swift swipe. The blue glow dims, brushed aluminium frame gleams with a soft edge highlight, and the matte-white lamp now pours gentle amber light across the Nordic oak surface.\nStory Feel: Ab isko hataane ka time aa gaya.\nCamera & Lens: Horizontal slider tracking shot alongside the cursor, 35mm anamorphic lens at f/2.8.\nAudio Cue: crisp trackpad swipe\n\n[00:13 - 00:14] Frame 181-240: New Line Emerges\nVisual: Warm amber text blooms on the screen: \"I replace the rigid line with a conversational script you can film in one take.\" The 3200K lamp floods the scene, golden glow spreading, dust motes swirl, and the glass reflects the soft light, while a teal tag turns amber.\nStory Feel: Ab line natural aur chill lag rahi hai.\nCamera & Lens: Rack-focus from screen pixels to glass reflection, 100mm macro anamorphic lens at f/2.0.\nAudio Cue: rhythmic ASMR mechanical keystrokes, voiceover says: I replace the rigid line with a conversational script you can film in one take.\n\n[00:14 - 00:15] Frame 241-300: Golden Glow Settles\nVisual: The screen glows in warm gold, creamy bokeh from the lamp halo surrounds it. Brushed aluminium edges catch a soft flare, and the fingertip relaxes, resting lightly on the Nordic oak desk. Volumetric dust motes linger in the amber light, creating a calm visual texture.\nStory Feel: Ab sab kuch warm aur easy feel ho raha hai.\nCamera & Lens: Macro probe-lens tracking shot, 85mm macro lens at f/1.4.\nAudio Cue: relieved exhale\n\n[00:15 - 00:16] Frame 301-360: Hands Relax\nVisual: Close‑up of relaxed hands, fingers lightly touching the Nordic oak surface. The matte-white lamp casts soft moving shadows, dust motes drift lazily, and the crisp glass reflects the warm amber glow. Brushed aluminium frame stays sharp, adding tactile contrast.\nStory Feel: Mere haath ab bilkul chill hain.\nCamera & Lens: Overhead top-down glide, 50mm anamorphic lens at f/2.0.\nAudio Cue: warm lo‑fi ambient synth pad\n\n[00:16 - 00:17] Frame 361-420: Script Ready\nVisual: The document on the Space Silver MacBook Pro shows the full Hinglish script, amber text with soft teal pacing tags. The 3200K lamp shines fully, creating a bright halo, while brushed aluminium catches a subtle edge highlight and dust motes sparkle.\nStory Feel: Script ab ready hai, bilkul set.\nCamera & Lens: Slow gimbal ease-out, 35mm anamorphic lens at f/2.8.\nAudio Cue: subtle studio light‑switch click\n\n[00:17 - 00:18] Frame 421-480: Final Pause\nVisual: Empty space beside the laptop awaits typography; the lamp glows warmly, hands remain still. Volumetric dust motes linger in the soft light, and the brushed aluminium frame reflects a gentle halo, while the crisp glass stays still, holding the golden afterglow.\nStory Feel: Thoda sa silence, sab set lag raha hai.\nCamera & Lens: Locked‑off architectural wide shot, 100mm macro anamorphic lens at f/2.0.\nAudio Cue: lingering vinyl tail\n\n[00:18 - 00:19] Frame 481-540: Ready to Close\nVisual: A fingertip lifts to close the Space Silver MacBook Pro lid; the lid moves smoothly, catching a soft highlight on brushed aluminium. Warm lamp light dims slightly as the gold glow recedes, dust motes catching the last flicker.\nStory Feel: Ab bas ek thok se sab band.\nCamera & Lens: Crane‑style pull‑back, 85mm macro lens at f/1.4.\nAudio Cue: satisfying magnetic lid‑close thock\n\n[00:19 - 00:20] Frame 541-600: Silence Returns\nVisual: Laptop closed, matte-white 3200K lamp steady, Nordic oak desk calm. The warm amber ambience lingers in the air, dust motes settle, and the brushed aluminium frame rests in quiet darkness. The scene is a clean slate for the next thought.\nStory Feel: Ek dum shanti, phir se silence.\nCamera & Lens: Micro‑dolly push‑in, 50mm anamorphic lens at f/2.0, gentle tilt‑up to end frame.\nAudio Cue: final tail fades to silence"
+      },
+      {
+        "time": "20-30s",
+        "voiceover": "DM 'SCRIPT', pay after approval—camera pe bolna mushkil?",
+        "story": "Final frame shows the polished script on screen, lamp fully warm; a hand closes laptop, leaving the question lingering.",
+        "flow_prompt": "The final act of a non-commercial indie-film style cinematic micro-story for 'AR Designs', shot on ARRI Alexa Mini LF with a 50mm Anamorphic lens, 4K resolution, 60fps, Kodak Vision3 500T film emulation with rich halation, a warm 3200K tungsten architectural desk lamp casting soft diffused shadows, in a minimalist white workspace with a Nordic oak wood desk, featuring a Space Silver MacBook Pro.\n[00:00-00:03 / Story 20-23s] A micro-dolly push-in with an 85mm macro lens at f/1.4 reveals the 3200K tungsten lamp fully lit on the Nordic oak desk, bathing the Space Silver MacBook Pro in warm amber. The screen shows a stiff English line highlighted in red, brushed aluminium edges catching a soft halo.\n[00:03-00:06 / Story 23-26s] A rack-focus from the screen pixels to the glass reflection using a 100mm macro anamorphic lens at f/2.0 follows a fingertip swiping the trackpad, then a decisive delete-key thud with a 50mm anamorphic lens at f/2.0 as the line disappears and the Hinglish line with amber and teal tags appears, illuminated by the warm lamp.\n[00:06-00:08 / Story 26-28s] A locked-off architectural wide shot with a 35mm anamorphic lens at f/2.8 captures the voiceover delivering the line while the warm lo‑fi synth pad begins, then a crane‑style pull‑back with an 85mm macro lens at f/1.4 shows the hand closing the Space Silver MacBook Pro lid, magnetic thock echoing.\n[00:08-00:10 / Story 28-30s] A slow gimbal ease‑out with a 50mm anamorphic lens at f/2.0 holds the clean locked frame: Nordic oak desk, matte‑white lamp, closed Space Silver MacBook Pro, empty space for typography, lamp’s halation creating creamy bokeh as a subtle vinyl tail fades back into silence.\nAudio & Voiceover Sync: Start with a tense silence, then a crisp trackpad swipe, followed by a decisive delete-key thud, a relieved exhale, a warm conversational voice begins with a subtle lo‑fi synth pad, then a satisfying magnetic lid‑close thock, ambient synth pad continues, and finally a lingering vinyl tail fades back into the original silence. Intimate, grounded, conversational voiceover: \"DM 'SCRIPT', pay after approval—camera pe bolna mushkil?\"",
+        "beat_sheet": "[00:20 - 00:21] Frame 1-60: Warm Lamp Reveal\nVisual: The 3200K tungsten lamp glows fully, casting soft diffused shadows on the Nordic oak desk. The Space Silver MacBook Pro screen shows a script document with a stiff English sentence highlighted in red. Brushed aluminium edges catch a faint amber halo.\nStory Feel: Mann mein thoda tension, par lamp ki roshni se thodi relief\nCamera & Lens: micro-dolly push-in with 85mm macro lens at f/1.4, shallow depth of field focusing on the screen\nAudio Cue: tense silence\n\n[00:21 - 00:22] Frame 61-120: Trackpad Swipe\nVisual: A fingertip, skin tone, glides over the Space Silver MacBook Pro trackpad, moving the cursor to the highlighted line. The cold blue glow of the laptop screen contrasts with the warm lamp light, dust motes catching amber highlights.\nStory Feel: Ek choti si curiosity, swipe karte hue\nCamera & Lens: rack-focus from screen pixels to glass reflection, 100mm macro anamorphic lens at f/2.0\nAudio Cue: crisp trackpad swipe\n\n[00:22 - 00:23] Frame 121-180: Delete Thud\nVisual: The delete key is pressed; a decisive thud echoes. The stiff sentence disappears, replaced by a blank line. Volumetric dust motes swirl in the lamp's warm glow, brushed aluminium of the MacBook catching a quick highlight.\nStory Feel: Mann ki saaf safai, ek thud se\nCamera & Lens: slight tilt-up with centre razor-sharp, 50mm anamorphic lens at f/2.0\nAudio Cue: decisive delete-key thud\n\n[00:23 - 00:24] Frame 181-240: Hinglish Appears\nVisual: The new line \"DM 'SCRIPT', pay after approval—camera pe bolna mushkil?\" appears in amber and teal pacing tags. Warm lamp light dominates; the blue screen glow dims. Soft lens flare grazes the glass edge.\nStory Feel: Ek naya vibe, natural aur relaxed\nCamera & Lens: macro probe-lens tracking shot, 85mm macro lens at f/1.4\nAudio Cue: relieved exhale\n\n[00:24 - 00:25] Frame 241-300: Voice Over Line\nVisual: The same screen stays steady, fingertip resting lightly on the trackpad. The Space Silver MacBook Pro reflects the lamp's halation. Brushed aluminium frame glimmers faintly.\nStory Feel: Dost ki tarah secret share karna\nCamera & Lens: locked-off architectural wide shot, 35mm anamorphic lens at f/2.8\nAudio Cue: warm conversational voice begins, subtle lo‑fi synth pad starts\n\n[00:25 - 00:26] Frame 301-360: Closing the Laptop\nVisual: The hand lifts the Space Silver MacBook Pro lid; brushed aluminium catches a final highlight as the lid snaps shut with a magnetic thock. Lamp glow spikes brighter, dust motes settle in the golden light.\nStory Feel: Calm power move, kaam pura hone ka ehsaas\nCamera & Lens: crane-style pull-back, 85mm macro lens at f/1.4\nAudio Cue: satisfying magnetic lid‑close thock\n\n[00:26 - 00:27] Frame 361-420: Warm Light Dominates\nVisual: The Space Silver MacBook Pro is closed, screen dark. The 3200K lamp bathes the Nordic oak desk in soft amber, brushed aluminium now in shadow, volumetric dust motes floating lazily.\nStory Feel: Shanti ka pal, lamp ki roshni se\nCamera & Lens: slow gimbal ease-out, 50mm anamorphic lens at f/2.0\nAudio Cue: warm lo‑fi ambient synth pad continues\n\n[00:27 - 00:28] Frame 421-480: Locked Frame\nVisual: A clean, locked‑off architectural wide shot of the Nordic oak desk, matte‑white lamp, and closed Space Silver MacBook Pro. Empty negative space on the right awaits typography. Lamp’s halation creates creamy bokeh in the background.\nStory Feel: Kuch sochne ka invitation, loop back feeling\nCamera & Lens: locked-off architectural wide shot, 35mm anamorphic lens at f/2.8\nAudio Cue: ambient pad holds, subtle vinyl tail begins\n\n[00:28 - 00:30] Frame 481-600: Fade to Silence\nVisual: The scene remains still; dust motes drift. The warm lamp glows steady, the desk remains uncluttered, ready for the next line of text to appear in post. No movement, just quiet anticipation.\nStory Feel: Replay ka natural loop, silence mein wapas\nCamera & Lens: locked-off architectural wide shot, 35mm anamorphic lens at f/2.8\nAudio Cue: vinyl tail lingers then fades into the original tense silence"
+      }
+    ],
+    "voiceover": "Camera ke samne bolna kya hai, samajh nahi aata? I replace the rigid line with a conversational script you can film in one take. DM 'SCRIPT', pay after approval—camera pe bolna mushkil?",
+    "warnings": []
+  },
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Unsubstantiated claim \"MOST REEL SCRIPTS FAIL...\" needs softening.",
+      "Offering a free one-page checklist violates the rule that only pay-after-approval or conversation offers are allowed."
+    ],
+    "revised": {
+      "instagram": "**REEL SCRIPTS ACOORDE BANNI CHAHIYE, NA KI ESSAY**\n→ Likhe hue **ESSAYS** camera par sunne mein sakht lagte hain.\n→ Bolne ki tarah likhein: chhote vakya, seedhi baat.\n→ Pehli line customer ka **SAWAAL** ho, service list nahi.\nDM **SCRIPT** aur main batata hoon kaise aapke reels ko engaging bana sakte hain. 💬\n\n#SmallBusinessIndia #ReelScript #Hinglish #SmallBusiness #VideoMarketing",
+      "bluesky": "Many reel scripts read like essays instead of spoken lines. Keep it short, start with the customer's question, and speak naturally. DM SCRIPT to discuss a reel script that fits your business. 📱"
+    }
+  },
+  "sources": [
+    {
+      "title": "Best WiFi CCTV Camera for Home & Office 2026 🔥 BIS-ER ...",
+      "url": "https://www.youtube.com/watch?v=3H_15kyRDgI",
+      "domain": "youtube.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "AI Ki Help Se Faceless YouTube Video Kaise Banaye? (Step-by-Step Practical Guide) - HITUBHA TECH",
+      "url": "https://hitubhatech.com/faceless-youtube-video/",
+      "domain": "hitubhatech.com",
+      "date": "2026-10-25",
+      "provider": "exa"
+    },
+    {
+      "title": "Axis Communications Network cameras and security solutions",
+      "url": "https://www.axis.com",
+      "domain": "axis.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "छोटे बिज़नेस के लिए वीडियो मार्केटिंग: मोबाइल से शुरू करें · Cameratel",
+      "url": "https://cameratel.gorich.systems/hi/blog/video-marketing-for-small-business/",
+      "domain": "cameratel.gorich.systems",
+      "date": "2026-10-13",
+      "provider": "exa"
+    },
+    {
+      "title": "RED Digital Cinema Professional Cameras",
+      "url": "https://www.reddigitalcinema.com",
+      "domain": "reddigitalcinema.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "AI image and video tools for small brands in 2026: what's actually ready (and what still isn't) · Roy Digital App Studio",
+      "url": "https://roydigital.in/blog/ai-image-video-tools-for-small-brands-2026",
+      "domain": "roydigital.in",
+      "date": "2026-08-23",
+      "provider": "exa"
+    },
+    {
+      "title": "Google Translate – Apps on Google Play",
+      "url": "https://play.google.com/store/apps/details?id=com.google.android.apps.translate&hl=en_SG",
+      "domain": "play.google.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Camera Ke Samne Confident Aur Natural Kaise Dikhein 2026 JoinFilms Academy",
+      "url": "https://www.joinfilms.academy/blog/camera-ke-samne-confident-kaise-dikhein",
+      "domain": "joinfilms.academy",
+      "date": "2026-07-25",
+      "provider": "exa"
+    }
+  ],
+  "humanizer": {
+    "model": "openai/gpt-oss-20b",
+    "platforms": {
+      "instagram": {
+        "status": "skipped",
+        "reason": "body under 30 words"
+      },
+      "bluesky": {
+        "status": "skipped",
+        "reason": "body under 30 words"
+      }
+    }
+  },
+  "ad_score": 9,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 361.0,
+        "reach_p50": 714.0,
+        "reach_p90": 1575.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'exclusion', 'severity': 'medium', 'description': 'The script mixes Hindi and English (Hinglish) which may ",
+          "{'category': 'class', 'severity': 'low', 'description': 'The content assumes that all small‑business owners have the res",
+          "{'category': 'tone-deafness', 'severity': 'low', 'description': 'The phrase \"Likhe hue ESSAYS camera par sunne mein sakh"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 7.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 0,
+          "relatability": 6.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 353,
+            "share": 2,
+            "reply": 1,
+            "like": 3
+          },
+          "engagement_rate": 0.0167,
+          "by_role": {
+            "public": {
+              "n": 6,
+              "avg_sentiment": 0.805,
+              "share_rate": 0.333
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 9,
+          "reach_fraction": 0.016,
+          "r_effective": 0.8,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Add something actionable",
+            "lift_pct": 4.6
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 4.4
+          },
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 4.4
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 9.1,
+        "breakout_probability": 0.0,
+        "reach_p10": 395.0,
+        "reach_p50": 762.0,
+        "reach_p90": 1539.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 2.0,
+          "novelty": 1.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 3.0,
+          "practical_value": 4.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Give readers a next step",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 367,
+            "share": 1,
+            "like": 1
+          },
+          "engagement_rate": 0.0054,
+          "by_role": {
+            "public": {
+              "n": 2,
+              "avg_sentiment": 0.9,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 6,
+          "reach_fraction": 0.0065,
+          "r_effective": 0.2,
+          "polarization": 0.481,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 10.1,
+        "breakout_probability": 0.0,
+        "reach_p10": 214.0,
+        "reach_p50": 440.0,
+        "reach_p90": 959.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 7.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 0,
+          "relatability": 4.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 362,
+            "share": 1,
+            "reply": 1,
+            "like": 3
+          },
+          "engagement_rate": 0.0136,
+          "by_role": {
+            "public": {
+              "n": 5,
+              "avg_sentiment": 0.846,
+              "share_rate": 0.2
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 8,
+          "reach_fraction": 0.013,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "myth",
+          "p_beats_chosen": 0.99,
+          "lift_pct": 12.9,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "curiosity",
+          "p_beats_chosen": 0.99,
+          "lift_pct": 14.4,
+          "decisive": true
+        }
+      ],
+      "better": 1,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "linkedin: Rewrite as developer showing work: capital hook about a real insight, 3-> lines demonstrating a technique, DM SCRIPT line, pay after approval, 5 national hashtags, no client claims or bio details",
+      "instagram: Replace gendered 'karunga' with neutral phrasing; sharpen hook to myth/curiosity (e.g., 'MOST REEL SCRIPTS FAIL BECAUSE...'); add one concrete script tip in -> lines",
+      "bluesky: Add capital hook and -> lines; rephrase opening to avoid 'Many small businesses...' generalization; keep under 260 chars"
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 9.2,
+      "bluesky": 0.1
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 9.1,
+      "bluesky": 10.1
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "FAILED google:gemma-4-26b-a4b-it (HTTP 503)",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED gemma: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 429)",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 413)",
+      "FAILED groq: all its models",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "google:gemma-4-31b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 67.8,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemma-4-26b-a4b-it",
+        "status": "503",
+        "seconds": 4.5,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "503",
+        "seconds": 5.6,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 2138, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6855, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 34.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7992, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 1897, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6383, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 9.0,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 10328, please reduce your message size and try again. Need more tokens? Upgra"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6319, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3796, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5065, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4450, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3616, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4886, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.2,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8477, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 1732, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 1816, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3147, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6812, Req"
+      }
+    ]
+  }
+}

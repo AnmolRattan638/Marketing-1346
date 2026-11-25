@@ -264,5 +264,12 @@
     "topic": "Does your Instagram ad look like every other business in your area?",
     "hook_style": "question",
     "status": "published"
+  },
+  {
+    "date": "2026-11-25",
+    "service": "reel_scripts",
+    "topic": "Camera ke samne bolna kya hai, samajh nahi aata?",
+    "hook_style": "question",
+    "status": "published"
   }
 ]

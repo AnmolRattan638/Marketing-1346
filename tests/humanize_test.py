@@ -111,9 +111,10 @@ h._engine = lambda key: Fake(ok)
 posts = {"instagram": ORIG, "linkedin": ORIG, "bluesky": "Short post.", "replies": ["x", "y"]}
 out, report = h.humanize_posts(posts, focus)
 assert out["replies"] == ["x", "y"] and out["bluesky"] == "Short post." and report["platforms"]["instagram"]["status"] == "humanized" and report["platforms"]["bluesky"]["status"] == "skipped"
+assert "linkedin" not in report["platforms"] and out["linkedin"] == ORIG, "LinkedIn is skipped by default: the text that passed its own gate is what gets posted"
 assert "instagram humanized (Critic AI 80.0% -> 12.0%)" in h.summary_line(report) and "bluesky skipped" in h.summary_line(report)
 h._engine = lambda key: (_ for _ in ()).throw(RuntimeError("boom"))
-out, report = h.humanize_posts(posts, focus)
+out, report = h.humanize_posts(posts, focus, skip=())
 assert out == posts and report["platforms"]["linkedin"]["status"] == "error", "an engine bug leaves every post as it was"
 os.environ["HUMANIZE"] = "0"
 assert h.humanize_posts(posts, focus) == (posts, {}) and not h.enabled()

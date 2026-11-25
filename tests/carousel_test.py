@@ -329,6 +329,8 @@ def fcm(p, s="", **k):
     if "Fact-check this carousel" in p: return json.dumps({"ok": True, "issues": []})
     return json.dumps({"ok": True, "issues": [], "revised": {}})
 llm.groq, llm.gemma, llm.gemini, llm.factcheck_model = groq, gemma, gem, fcm
+from src.agents import linkedin_writer          # LinkedIn has its own writer now: give it a canned, valid post so the daily run is tested around it
+linkedin_writer.run = lambda mode, topic, fx=None, **k: {"post": "I built it myself. " + "word " * 130, "mode": mode, "topic": topic, "attempts": 1, "problems": []}
 llm.primary = gem
 tg.send = lambda text, buttons=None, reply_to=None: events.append(("text", text))
 tg.send_photo = lambda path, caption="": events.append(("photo", str(path), caption))

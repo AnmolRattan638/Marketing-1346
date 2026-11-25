@@ -18,6 +18,12 @@ SEED = [
     "Write every spoken line so a voice can say it: no ALL-CAPS word except the DM keyword (write 'SERP' as a plain word or as S E R P), no digits glued to letters (2BHK, Q4, mp3), no symbols (+ = $ @); acronyms the voice knows are fine (UPI, GST, SEO, CRM, FAQ, 24x7).",
 ]
 RULES = [
+    (r"linkedin\[pitchy\]", "linkedin-pitchy", "LinkedIn is personal, not an ad: no DM, price, 'pay after approval', discount, urgency or hire-me language; say it in plain words."),
+    (r"linkedin\[hook\]", "linkedin-hook", "The first line must be one curious sentence of 18 words or fewer that starts with a specific true detail, an admission or a real question; never 'Small businesses...' or another generic opener."),
+    (r"linkedin\[never\]", "linkedin-never", "Never write a phrase the facts file bans (client names, student, years of experience, job offers, DM)."),
+    (r"linkedin\[numbers\]", "linkedin-numbers", "Use only numbers that are written in the facts file, and never claim a count of clients or customers."),
+    (r"linkedin\[pitch-share\]", "linkedin-pitch-share", "On a pitch day keep the offer to 30% of the post or less and list its sentences in pitch_sentences; on every other day write no offer at all."),
+    (r"linkedin\[(length|shape|links)\]", "linkedin-shape", "Write 110 to 250 words in at least 3 short paragraphs, first person, no links, no hashtags, no exclamation marks, no percentages, at most one emoji."),
     (r"pronunciation: .*capitals", "pronounce-caps", "Never write an unknown ALL-CAPS word in a spoken line (the voice says it as one word); use a plain word or spell it with spaces (S E R P). Only the DM keyword may be in capitals."),
     (r"pronunciation: .*digits and letters", "pronounce-glued", "Never glue digits to letters in a spoken line (2BHK, Q4, mp3); write the number and the word apart or in full words."),
     (r"pronunciation: .*symbol", "pronounce-symbol", "Never leave a symbol (+ = $ @) in a spoken line; say it in words."),
@@ -96,10 +102,20 @@ def record(problems: list[str]) -> None:
         pass
 
 
-def prompt_block(limit: int = 6) -> str:
-    rules = list(SEED)
-    for _, row in sorted(load().items(), key=lambda kv: -kv[1].get("count", 0))[:limit]:
+SEED_LINKEDIN = [
+    "A LinkedIn post is a person talking: first person, one true story or one thing built, plain words, a curious first line that is paid off inside the post.",
+    "Use only the facts you are given. No prices, no client names, no results, no invented numbers, no DM keyword, no 'pay after approval'.",
+]
+
+
+def prompt_block(limit: int = 6, scope: str | None = None) -> str:
+    """The rules the writer must not break again. scope='linkedin' shows only the LinkedIn lessons; the default shows only the script lessons, so neither crowds the other out."""
+    li = scope == "linkedin"
+    rules = list(SEED_LINKEDIN if li else SEED)
+    rows = [kv for kv in load().items() if kv[0].startswith("linkedin-") == li]
+    for _, row in sorted(rows, key=lambda kv: -kv[1].get("count", 0))[:limit]:
         if row.get("rule") and row["rule"] not in rules:
             last = (row.get("recent") or [{}])[-1].get("mistake")
             rules.append(f"{row['rule']} (rejected {row['count']}x before)" + (f" LAST TIME you wrote this and it was rejected: {last}" if last else ""))
-    return "\nMISTAKES YOU HAVE MADE BEFORE (a rejected script costs the whole day; check each before answering):\n- " + "\n- ".join(rules) + "\n"
+    what = "a LinkedIn post" if li else "a script"
+    return f"\nMISTAKES YOU HAVE MADE BEFORE (a rejected {what} costs the whole day; check each before answering):\n- " + "\n- ".join(rules) + "\n"

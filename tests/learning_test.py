@@ -3,6 +3,9 @@ weak posts are diagnosed (distribution / hook / value), the problem bank gets st
 the weekly review reports missing numbers, and a full daily run records the experiment on the draft."""
 import datetime as dt, hashlib, json, pathlib, re, sys, tempfile
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+import tempfile as _tf, pathlib as _pl
+from src import scriptlessons as _sl
+_sl.STATE = _pl.Path(_tf.mkdtemp()) / "script_lessons.json"   # SAFE_LESSONS: a test never writes into the real data/script_lessons.json
 from src import analytics, config, learning, llm, tg
 
 ROOT = config.ROOT

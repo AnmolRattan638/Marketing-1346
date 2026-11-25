@@ -210,6 +210,9 @@ def publish_draft(draft):
         if p == "instagram" and not image_url:
             results[p] = {"ok": False, "detail": "Instagram needs an image and none was generated"}
             continue
+        if not str(draft["posts"].get(p) or "").strip():        # e.g. LinkedIn had no post that passed the checks today: skip it, never post an empty text
+            results[p] = {"ok": True, "detail": f"{p}: no post today, nothing was posted"}
+            continue
         img_url, img_path = (None, None) if (p == "linkedin" and draft.get("linkedin_format") == "text") else (image_url, image_path)
         multi = slides_for(p) if img_url else None
 

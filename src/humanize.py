@@ -206,8 +206,8 @@ def humanize_text(text: str, platform: str, focus: dict, deadline: float) -> tup
     return full, rep
 
 
-def humanize_posts(posts: dict, focus: dict) -> tuple[dict, dict]:
-    """-> (posts, report). Never raises; posts that were not humanized are returned exactly as they came in."""
+def humanize_posts(posts: dict, focus: dict, skip=("linkedin",)) -> tuple[dict, dict]:
+    """-> (posts, report). Never raises; posts that were not humanized (and every platform in `skip`) are returned exactly as they came in."""
     report = {"model": os.getenv("HUMANIZE_MODEL") or DEFAULT_MODEL, "platforms": {}}
     out = dict(posts)
     if not enabled():
@@ -218,7 +218,7 @@ def humanize_posts(posts: dict, focus: dict) -> tuple[dict, dict]:
         return out, {"model": report["model"], "error": f"humanizer not available ({type(e).__name__}: {str(e)[:100]})"}
     deadline = time.time() + float(os.getenv("HUMANIZE_BUDGET") or 150)
     for p in PLATFORM_ORDER:
-        if not isinstance(out.get(p), str) or not out[p].strip():
+        if p in skip or not isinstance(out.get(p), str) or not out[p].strip():     # LinkedIn is skipped: the text that passed its own gate is exactly what gets posted
             continue
         try:
             out[p], report["platforms"][p] = humanize_text(out[p], p, focus, deadline)

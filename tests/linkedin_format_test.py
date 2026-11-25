@@ -5,6 +5,9 @@ import json, os, pathlib, sys, tempfile
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 os.environ.update(BUFFER_API_KEY="x", ZERNIO_API_KEY="y")
 os.environ.pop("LINKEDIN_FORMAT", None)
+import tempfile as _tf, pathlib as _pl
+from src import scriptlessons as _sl
+_sl.STATE = _pl.Path(_tf.mkdtemp()) / "script_lessons.json"   # SAFE_LESSONS: a test never writes into the real data/script_lessons.json
 from src import analytics, config, formats, learning, llm, publish, tg
 
 tmp = pathlib.Path(tempfile.mkdtemp())
@@ -97,17 +100,13 @@ assert all(v == (True, "data/media/x.jpg") for v in c.values()), c
 c = publish_with(None)
 assert c["linkedin"] == (True, "data/media/x.jpg"), "older drafts without the field behave as before"
 
-# ------------------------------------------------------------------ the writer prompt
-from src.agents import writer
-seen = []
-llm.gemini = lambda p, s="", **k: seen.append(p) or json.dumps({"instagram": "**H** ok\n\nChatbot reply. DM **ADS** likho.", "linkedin": "A hook sentence. " + "word " * 320, "bluesky": "**B**", "replies": []})
-plan = {"hooks": [{"text": "Hook text"}], "chosen_hook": 0, "topic": "t", "angle": "a", "key_points": []}
-focus, brand = {"name": "Ads", "dm_keyword": "ADS"}, {"facts_rules": [], "languages": {}}
-writer.run(plan, focus, brand, "VOICE", "g", linkedin_format="text")
-writer.run(plan, focus, brand, "VOICE", "g", linkedin_format="image")
-writer.run(plan, focus, brand, "VOICE", "g")
-assert "NO PICTURE" in seen[0] and "see more" in seen[0] and "never refer to an image" in seen[0]
-assert "NO PICTURE" not in seen[1] and "NO PICTURE" not in seen[2], "image days and older callers are unchanged"
+# ------------------------------------------------------------------ the LinkedIn writer prompt
+from src import linkedin_story
+from src.agents import linkedin_writer
+fx = linkedin_story.facts()
+p_text, p_img = linkedin_writer.prompt(fx, "story", "24x7", text_only=True), linkedin_writer.prompt(fx, "story", "24x7", text_only=False)
+assert "NO PICTURE" in p_text and "see more" in p_text and "never refer to an image" in p_text
+assert "NO PICTURE" not in p_img and "NO PICTURE" in linkedin_writer.prompt(fx, "story", "24x7"), "image days are unchanged; text only is the default"
 
 # ------------------------------------------------------------------ a full daily run records and announces the format
 clear()

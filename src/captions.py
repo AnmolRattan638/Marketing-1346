@@ -12,8 +12,8 @@ import re
 
 BOLD_LIMIT = 6                 # more bold spans than this stops looking like emphasis
 MAX_SPAN = 90                  # a bold span longer than this is shouting, not emphasis
-LIMITS = {"instagram": 60, "instagram_reel": 45, "linkedin": 380}      # words, hashtags excluded
-LINKEDIN_MIN = 300             # LinkedIn is the long-form post: it explains the service, how it works and how it helps
+LIMITS = {"instagram": 60, "instagram_reel": 45, "linkedin": 250}      # words, hashtags excluded
+LINKEDIN_MIN = 110             # LinkedIn is a short personal post (a story, something I built, a question): 110 to 250 words
 LINKEDIN_CHARS = 2900          # LinkedIn stops at 3,000 characters
 BLUESKY_MAX = 300
 
@@ -51,7 +51,7 @@ def over_limit(posts, ig_mode="auto_image"):
         if n > LIMITS["linkedin"] + 25 or len(posts["linkedin"]) > LINKEDIN_CHARS:
             notes.append(f"linkedin post has {n} words ({len(posts['linkedin'])} characters), the maximum is {LIMITS['linkedin']} words and {LINKEDIN_CHARS} characters: cut the least useful paragraph")
         elif n < LINKEDIN_MIN:
-            notes.append(f"linkedin post has only {n} words, the minimum is {LINKEDIN_MIN}: add concrete detail to 'what I build', 'how it works' and 'how it helps' (use only the SERVICE FACTS), never filler")
+            notes.append(f"linkedin post has only {n} words, the minimum is {LINKEDIN_MIN}: add one more concrete, true detail")
     if len(posts.get("bluesky", "").replace("**", "")) > 280:
         notes.append("bluesky post is over 280 characters: cut it")
     return "; ".join(notes)

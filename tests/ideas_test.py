@@ -3,6 +3,9 @@ brand rules, used ideas are skipped, the prompts carry the new material, and a f
 import json, os, pathlib, re, sys, tempfile
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 os.environ.update(BUFFER_API_KEY="x", ZERNIO_API_KEY="y")
+import tempfile as _tf, pathlib as _pl
+from src import scriptlessons as _sl
+_sl.STATE = _pl.Path(_tf.mkdtemp()) / "script_lessons.json"   # SAFE_LESSONS: a test never writes into the real data/script_lessons.json
 from src import config, ideas, llm, tg
 
 # ------------------------------------------------------------------ the bank itself

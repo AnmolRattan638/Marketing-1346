@@ -3,8 +3,8 @@ import datetime as dt
 import os, secrets, subprocess
 import sys, traceback
 import requests
-from . import marketingskills, analytics, browser_research, captions, carousel, config, diagrams, formats, humanize, ideas, learning, llm, structure, tg, virality, web_research
-from .agents import analysis, carousel as carousel_agent, factcheck, factsheet, fit as fit_agent, image, scriptwriter, linkedin_edit, problems as problems_agent, research, strategist, video, writer
+from . import linkedin_story, marketingskills, analytics, browser_research, captions, carousel, config, diagrams, formats, humanize, ideas, learning, llm, structure, tg, virality, web_research
+from .agents import analysis, carousel as carousel_agent, factcheck, factsheet, fit as fit_agent, image, scriptwriter, linkedin_writer, problems as problems_agent, research, strategist, video, writer
 
 today = dt.date.today().isoformat()
 WARNINGS = []
@@ -89,11 +89,21 @@ def stage(name, fn, fallback=None):
         return fallback
 
 
-def polish_linkedin(posts, focus, brand):
-    """LinkedIn only: readability edit (plain, clear English). Instagram, Bluesky and the reply drafts are never touched."""
-    res = stage("linkedin_edit", lambda: linkedin_edit.run(posts.get("linkedin", ""), focus, brand), fallback={})
-    if res.get("post"):
-        posts["linkedin"] = res["post"]
+LI: dict = {}          # today's LinkedIn result: written once, so rewriting the Instagram caption never makes a second LinkedIn post
+
+
+def polish_linkedin(posts, focus, brand, li_fmt="text"):
+    """LinkedIn is its own post: a person talking (a true story, something I built, a real question, who I am, or one post in five a soft pitch of at most 30%), written by the LinkedIn writer
+    from config/about_me.json and checked by the gate in linkedin_story.py. It is never the Instagram caption made longer. If nothing passes the checks there is no LinkedIn post that day."""
+    if "res" not in LI:
+        def make():
+            fx, hist = linkedin_story.facts(), linkedin_story.recent()
+            mode, topic = linkedin_story.choose(fx, hist)
+            return linkedin_writer.run(mode, topic, fx, recent_posts=[h["post"] for h in hist], text_only=(li_fmt == "text"))
+        LI["res"] = stage("linkedin_writer", make, fallback={"post": "", "mode": None, "topic": None, "problems": ["the LinkedIn writer was unavailable"]})
+        if not LI["res"].get("post"):
+            WARNINGS.append("LinkedIn: no post today, nothing passed the checks (" + "; ".join(LI["res"].get("problems") or [])[:300] + "). Nothing will be posted to LinkedIn.")
+    posts["linkedin"] = LI["res"].get("post", "")
     return posts
 
 
@@ -146,6 +156,7 @@ def plan_experiment(focus, learned, brand, guidance, history):
 
 
 def main():
+    LI.clear()                                              # one LinkedIn post per run
     force = "--force" in sys.argv
     path = config.DRAFTS / f"{today}.json"
     skip, why = should_skip(path, force)
@@ -227,10 +238,10 @@ def main():
                 if (master or {}).get("carousel_tease"):
                     WARNINGS.append("the reel's CTA and caption say the full breakdown is in today's carousel, but no carousel was made: post a single-image carousel or edit that line before you post the reel.")
         posts = stage("writer", lambda: writer.run(plan, focus, brand, voice, g('writer'), ig_mode=ig_mode, linkedin_format=li_fmt, master=master, **ev_kw))
-        posts = polish_linkedin(posts, focus, brand)
-        fc = stage("factcheck", lambda: factcheck.run(posts, focus, brand, **ev_kw), fallback={"ok": None, "issues": ["fact-check unavailable"], "revised": {}})
+        posts = polish_linkedin(posts, focus, brand, li_fmt)
+        fc = stage("factcheck", lambda: factcheck.run(posts, focus, brand, keys=("instagram", "bluesky"), **ev_kw), fallback={"ok": None, "issues": ["fact-check unavailable"], "revised": {}})
         for k, v in (fc.get("revised") or {}).items():
-            if k in posts and v:
+            if k in posts and v and k != "linkedin":       # the LinkedIn post is checked against the facts file by its own gate
                 posts[k] = v[:300] if k == "bluesky" else v
         rv = stage("strategist.review", lambda: strategist.review(posts), fallback={"ad_score": None, "notes": ""})
         # virality: the predictor reads the first draft, the strategist turns its report into concrete fixes, and the two reasons to rewrite (ad-like,
@@ -256,10 +267,10 @@ def main():
             first_draft = dict(posts)
             posts = stage("writer.rewrite", lambda: writer.run(plan, focus, brand, voice, g('writer'), "\n".join(n for n in notes if n), ig_mode=ig_mode, linkedin_format=li_fmt, master=master, **ev_kw), fallback=posts)
             vsum = {"rewrote": posts != first_draft, "reasons": reasons, "changes": [str(c)[:240] for c in (vrev.get("changes") or [])[:5]]}
-            posts = polish_linkedin(posts, focus, brand)
-            fc2 = stage("factcheck.2", lambda: factcheck.run(posts, focus, brand, **ev_kw), fallback={"ok": None, "issues": [], "revised": {}})
+            posts = polish_linkedin(posts, focus, brand, li_fmt)
+            fc2 = stage("factcheck.2", lambda: factcheck.run(posts, focus, brand, keys=("instagram", "bluesky"), **ev_kw), fallback={"ok": None, "issues": [], "revised": {}})
             for k, v in (fc2.get("revised") or {}).items():
-                if k in posts and v:
+                if k in posts and v and k != "linkedin":
                     posts[k] = v[:300] if k == "bluesky" else v
             fc = fc2
         posts, hz = stage("humanizer", lambda: humanize.humanize_posts(posts, focus), fallback=(posts, {}))     # open-humanizer on the body of each long-enough post; guarded, fail-open
@@ -300,7 +311,7 @@ def main():
              "hook_style": plan["hooks"][plan.get("chosen_hook", 0)].get("style"),
              "fact_sheet": sheet if sheet.get("facts") else None, "master_script": master, "script_style": (master or {}).get("style"), "structure": structure.describe(master) or None,
              "posts": {k: posts[k] for k in config.PLATFORMS}, "replies": posts.get("replies", []),
-             "image": img, "carousel": car_data, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "video": vid, "factcheck": fc, "sources": web_research.sources_for_draft(ev), "humanizer": hz, "ad_score": rv.get("ad_score"), "virality": vir_after or None, "virality_review": vsum,
+             "image": img, "carousel": car_data, "instagram_mode": ig_mode, "linkedin_format": li_fmt, "linkedin_mode": (LI.get("res") or {}).get("mode"), "linkedin_topic": (LI.get("res") or {}).get("topic"), "video": vid, "factcheck": fc, "sources": web_research.sources_for_draft(ev), "humanizer": hz, "ad_score": rv.get("ad_score"), "virality": vir_after or None, "virality_review": vsum,
              "llm": {"answered": list(dict.fromkeys(llm.LOG)), "failures": llm.FAILURES[:20]}}
     config.save_json(path, draft)
 

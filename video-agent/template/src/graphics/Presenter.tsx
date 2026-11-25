@@ -47,14 +47,14 @@ const VideoPresenter: React.FC<{ spec: PresenterSpec }> = ({ spec }) => {
   return (
     <AbsoluteFill style={{ pointerEvents: "none" }}>
       {(spec.clips ?? []).filter((c) => c.frame !== "none").map((c, i) => {
-        const h = c.frame === "full" ? fr.fullHeight ?? 1260 : fr.compactHeight ?? 680;
+        const h = c.frame === "full" ? fr.fullHeight ?? 1160 : fr.compactHeight ?? 680;
         return (
           <Sequence key={i} from={c.f} durationInFrames={Math.max(1, c.n)} layout="none">
             {c.logo && spec.logo ? <WallLogo src={spec.logo} /> : null}
             <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: h, overflow: "hidden",
               WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, #000 12%)", maskImage: "linear-gradient(to bottom, transparent 0%, #000 12%)" }}>
               <OffthreadVideo src={staticFile(c.src)} muted startFrom={Math.round(c.from * fps)} playbackRate={c.rate}
-                style={{ position: "absolute", left: 0, top: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: `50% ${fr.objectY ?? 12}%`, transform: `scale(${c.zoom})`, transformOrigin: "50% 40%" }} />
+                style={{ position: "absolute", left: 0, top: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: `50% ${fr.objectY ?? 9}%`, transform: `scale(${c.zoom})`, transformOrigin: "50% 40%" }} />
             </div>
           </Sequence>
         );

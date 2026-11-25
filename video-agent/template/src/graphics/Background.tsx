@@ -18,14 +18,14 @@ export const Background: React.FC<{ punch?: boolean; ghost?: string }> = ({ punc
       style={{
         background: punch
           ? `linear-gradient(150deg, ${THEME.accent}, ${THEME.accent2} 75%)`
-          : `linear-gradient(170deg, ${THEME.bgTop}, ${THEME.bgBottom})`,
+          : `linear-gradient(170deg, ${THEME.bgTop}, ${THEME.bgBottom} 55%, ${THEME.card})`      // ends in the navy of the presenter backdrop, so the join under the presenter is invisible,
       }}
     >
       <AbsoluteFill
         style={{
           background: punch
             ? `radial-gradient(circle at 70% 25%, ${THEME.glow}, rgba(240,192,64,0) 55%)`
-            : `radial-gradient(circle at 75% 20%, ${THEME.glowSoft}, rgba(240,192,64,0) 55%), radial-gradient(circle at 15% 85%, rgba(201,168,76,0.08), rgba(201,168,76,0) 50%)`,
+            : `radial-gradient(circle at 75% 20%, rgba(240,192,64,0.06), rgba(240,192,64,0) 55%), radial-gradient(circle at 15% 85%, rgba(201,168,76,0.08), rgba(201,168,76,0) 50%)`,
         }}
       />
       {ghost ? (
@@ -47,6 +47,7 @@ export const Background: React.FC<{ punch?: boolean; ghost?: string }> = ({ punc
           </div>
         </AbsoluteFill>
       ) : null}
+      {!punch ? <Streaks t={t} width={width} height={height} /> : null}
       {!punch ? <Orbs t={t} width={width} height={height} /> : null}
       <Pattern kind={LOOK.bg} t={t} width={width} height={height} />
       <AbsoluteFill style={{ display: LOOK.bg === "specks" || LOOK.bg === "aurora" || LOOK.bg === "orbs" ? "block" : "none" }}>
@@ -55,6 +56,21 @@ export const Background: React.FC<{ punch?: boolean; ghost?: string }> = ({ punc
         ))}
       </AbsoluteFill>
       <AbsoluteFill style={{ background: `radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,${LOOK.vignette}) 100%)` }} />
+    </AbsoluteFill>
+  );
+};
+
+// Diagonal gold light streaks (the presenter backdrop's design), drifting very slowly; theme colours only.
+const Streaks: React.FC<{ t: number; width: number; height: number }> = ({ t, width, height }) => {
+  const band = (x: number, y: number, w: number, o: number, k: number) => (
+    <div style={{ position: "absolute", left: x + Math.sin(t * 0.35 + k) * 24, top: y + Math.cos(t * 0.3 + k) * 18, width: w, height: 1900, transform: "rotate(38deg)", transformOrigin: "0 0", opacity: o,
+      background: `linear-gradient(90deg, rgba(0,0,0,0), ${THEME.accent2} 48%, ${THEME.accent} 52%, rgba(0,0,0,0))` }} />
+  );
+  return (
+    <AbsoluteFill style={{ overflow: "hidden" }}>
+      {band(width * 0.9, height * 0.52, 120, 0.2, 0)}
+      {band(width * 0.62, height * 0.78, 40, 0.28, 1)}
+      {band(width * 0.04, height * 0.3, 70, 0.14, 2)}
     </AbsoluteFill>
   );
 };
@@ -138,8 +154,8 @@ const Orbs: React.FC<{ t: number; width: number; height: number }> = ({ t, width
   );
   return (
     <AbsoluteFill>
-      {orb(width * 0.2, height * 0.25, 340, THEME.accent, 0.5, 0.2)}
-      {orb(width * 0.85, height * 0.7, 380, THEME.accent2, 2.4, 0.17)}
+      {orb(width * 0.2, height * 0.25, 360, THEME.cardEdge, 0.5, 0.7)}      {/* navy light, like the presenter backdrop */}
+      {orb(width * 0.85, height * 0.7, 380, THEME.accent2, 2.4, 0.1)}
     </AbsoluteFill>
   );
 };

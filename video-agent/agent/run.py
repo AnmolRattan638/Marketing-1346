@@ -117,6 +117,9 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
             voiced[dm][1]["graphic"] = {"layout": "step", "step": "STEP 1", "kicker": d["kicker"], "heading": d["heading"], "mock": {"type": "checklist", "items": d["items"]}}
         elif dm is not None and not voiced[dm][1].get("graphic"):
             voiced[dm][1]["graphic"] = {"layout": "title", "heading": "Dekho kaise"}
+        from . import effects_rule      # compulsory: several different animation styles in every reel
+        for note in effects_rule.enforce([v[1] for v in voiced], {i for i in (ba, dm) if i is not None}, f"{date.today().isoformat()}|{topic}"):
+            log(f"animation styles: {note}")
         for idx, (sid, sc, sec, _, words) in enumerate(voiced):
             if no_raw and not sc.get("graphic") and stock_left > 0 and 0 < idx < len(voiced) - 1:      # never the hook or the CTA
                 stock_left -= 1

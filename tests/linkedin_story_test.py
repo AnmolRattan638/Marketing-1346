@@ -47,6 +47,9 @@ assert tags(GOOD.rstrip(" .") + "?\n", "question") == [], "...and passes when it
 assert "shape" in tags(GOOD.replace("Anmol", "x"), "intro")
 reason = ls.problems(GOOD.replace("My content system", "Ratty"), "story", fx)[0]
 assert "\"Ratty\"" in reason and reason.startswith("linkedin[never]:"), reason
+for line in ("The client pays only after approving the work.", "Payment happens only after you approve the final clip.", "You pay after you approve it.", "Pay once approved."):
+    assert "pitchy" in tags(GOOD.replace("connect", "connect. " + line)), line          # the phrases from the post that slipped through before
+assert tags(GOOD.replace("connect", "connect. I paid for the domain after testing it")) == [], "ordinary words are not flagged"
 # 3. a pitch day: the offer is declared word for word and is at most 30% of the post
 offer = "I build websites for small businesses and I am open to freelance projects."
 pitch_post = GOOD + "\n\n" + offer

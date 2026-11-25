@@ -15,7 +15,7 @@ MIN_WORDS, MAX_WORDS = 110, 250
 ROTATION = ("story", "build", "question")           # intro opens the series and returns rarely; pitch comes one post in five (see choose)
 
 OPENERS = re.compile(r"^(small|many|most|every|all)\s+(business|owner|compan|brand)|^in today|^did you know|^are you\b|^attention\b|^hey (everyone|linkedin|folks)|^as a\b|^i'?m (excited|thrilled|happy|proud)|^happy to|^thrilled", re.I)
-INSTAGRAM = re.compile(r"\bDMs?\b|pay after|payment (happens )?only|comment\s+\w+\s+(below|and)|link in bio|₹|\brs\.?\s*\d|\bpricing\b|\bprices?\s+(start|from|begin|are|is)\b|\$\s?\d|\bdiscount|free (audit|demo|trial|consult)|guarantee|limited (time|spots)|"
+INSTAGRAM = re.compile(r"\bDMs?\b|pays?\s+(only\s+)?after|payment\s+(happens\s+)?(only\s+)?(after|once)|only after (you |the owner |they )?approv|\bpay\s+(once|when)\b|comment\s+\w+\s+(below|and)|link in bio|₹|\brs\.?\s*\d|\bpricing\b|\bprices?\s+(start|from|begin|are|is)\b|\$\s?\d|\bdiscount|free (audit|demo|trial|consult)|guarantee|limited (time|spots)|"
                        r"book a call|\bclick\b|\bswipe\b|follow (me|for)|game[- ]?changer|\bunlock|supercharge|\b10x\b|revolution|skyrocket|\bboost", re.I)
 SELL = re.compile(r"\b(hire me|work with me|my services|my packages|get a quote|need a (website|chatbot|developer)|looking for clients|get in touch)\b", re.I)
 OFFER = re.compile(r"\b(i build|i can build|i can help|i offer|open to (freelance|collab|partner|project)|message me|reach out|work with me|hire me|get in touch)\b", re.I)

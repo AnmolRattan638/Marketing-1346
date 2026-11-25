@@ -96,7 +96,7 @@ def _wall_logo(cuts: list, scene_frames: list[int], a: dict) -> str | None:
     """Put your logo on the wall behind the presenter in a few scenes (the first cut of every other scene, never the hook or the last scene, only where he is big).
     Marks those cuts with logo=True and returns the staged logo file, or None when switched off / no logo file."""
     src = ROOT / "assets" / "brand" / "logo.png"
-    if not a.get("backdrop_logo", True) or not src.exists():
+    if not a.get("backdrop_logo", False) or not src.exists():
         return None
     starts, f = [], 0
     for n in scene_frames:

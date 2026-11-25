@@ -92,6 +92,29 @@ def apply(built: list, cfg: dict, fps: int, frames_of) -> int:
     return len(idx)
 
 
+def _wall_logo(cuts: list, scene_frames: list[int], a: dict) -> str | None:
+    """Put your logo on the wall behind the presenter in a few scenes (the first cut of every other scene, never the hook or the last scene, only where he is big).
+    Marks those cuts with logo=True and returns the staged logo file, or None when switched off / no logo file."""
+    src = ROOT / "assets" / "brand" / "logo.png"
+    if not a.get("backdrop_logo", True) or not src.exists():
+        return None
+    starts, f = [], 0
+    for n in scene_frames:
+        starts.append(f)
+        f += n
+    mx, done = int(a.get("backdrop_logo_max", 3)), 0
+    for i in range(1, len(starts) - 1, 2):
+        c = next((c for c in cuts if c["f"] == starts[i] and c["frame"] == "full"), None)
+        if c and done < mx:
+            c["logo"] = True
+            done += 1
+    if not done:
+        return None
+    (WORK / "brand").mkdir(parents=True, exist_ok=True)
+    shutil.copy(src, WORK / "brand" / "backdrop_logo.png")
+    return "assets/run/brand/backdrop_logo.png"
+
+
 def presenter(built: list, scene_frames: list[int], cfg: dict, fps: int, has_outro: bool, texts: list[str] | None = None) -> dict | None:
     """The permanent presenter: one block for the whole reel (poses, voice loudness for every frame, pose cuts, and where he is hidden). None when switched off.
     The window stays out of the hook (first scene, a full-screen opening), out of the big avatar scenes (he is already there) and out of the logo end."""
@@ -109,7 +132,8 @@ def presenter(built: list, scene_frames: list[int], cfg: dict, fps: int, has_out
         if has_outro:
             hide.append([sum(scene_frames), sum(scene_frames) + int(float((cfg.get("look") or {}).get("outro_seconds", 1.8)) * fps) + 5])
         log(f"avatar: presenter clips ({len(lib)} clips in the library), {len(cuts)} cuts: {clips.summary(cuts)}")
-        return {"mode": "video", "clips": cuts, "hide": hide, "src": [], "energy": [], "frame": a.get("frame") or {}}
+        logo = _wall_logo(cuts, scene_frames, a)
+        return {"mode": "video", "clips": cuts, "hide": hide, "src": [], "energy": [], "frame": a.get("frame") or {}, **({"logo": logo} if logo else {})}
     files = stage()
     if not files:
         return None

@@ -7,12 +7,14 @@ export interface VideoCut {
   src: string;                         // the source clip (private library)
   from: number;                        // seconds into the source
   rate: number; zoom: number;
+  logo?: boolean;                      // your logo sits on the wall behind him for this cut (agent/avatar.py picks a few)
   frame: "full" | "compact" | "none";  // full: big presenter in the lower screen; compact: smaller, under a full-screen picture; none: hook / logo end
 }
 
 export interface PresenterSpec {
   mode?: "video";                      // real clips of the character (agent/clips.py); without it the round still-image window below is used
   clips?: VideoCut[];
+  logo?: string;                       // the logo file for the wall behind him
   frame?: { fullHeight?: number; compactHeight?: number; objectY?: number };
   src: string[];                       // the poses (agent/avatar.py stages them)
   energy: number[];                    // voice loudness 0..1 for EVERY frame of the whole reel
@@ -24,6 +26,20 @@ const SIZE = 300;                      // px, the round presenter window; bottom
 
 // The masked presenter, on screen the whole reel. The mouth is covered so nothing needs lip-sync: the voice shows as a nod when a sentence starts, a lift and swell
 // while he speaks, a glow ring that follows the loudness, and a slow breathing sway when he is quiet. The pose changes at every scene and every few seconds.
+// Your logo on the wall BEHIND the presenter, right of the headline (no cutout needed: it is drawn under him, his clip fades in over its lower edge, so it reads as part of the set).
+// It fades in, floats slowly, and carries a soft shadow plus a faint gold glow so it looks lit by the room.
+const WallLogo: React.FC<{ src: string }> = ({ src }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const t = frame / fps;
+  const a = interpolate(frame, [0, 10], [0, 1], { extrapolateRight: "clamp" });
+  const size = 300;
+  return (
+    <Img src={staticFile(src)} style={{ position: "absolute", left: 1080 - size - 24, top: 440 + Math.sin(t * 1.1) * 9, width: size, height: size, opacity: 0.82 * a,
+      transform: `rotate(-5deg) scale(${0.94 + 0.06 * a + Math.sin(t * 0.8) * 0.008})`, filter: `drop-shadow(0 28px 36px rgba(0,0,0,0.65)) drop-shadow(0 0 46px ${THEME.glow})` }} />
+  );
+};
+
 // The presenter as real clips: the cut under each moment of the reel, in the lower screen, with the top edge melting into the backdrop.
 const VideoPresenter: React.FC<{ spec: PresenterSpec }> = ({ spec }) => {
   const { fps } = useVideoConfig();
@@ -31,13 +47,14 @@ const VideoPresenter: React.FC<{ spec: PresenterSpec }> = ({ spec }) => {
   return (
     <AbsoluteFill style={{ pointerEvents: "none" }}>
       {(spec.clips ?? []).filter((c) => c.frame !== "none").map((c, i) => {
-        const h = c.frame === "full" ? fr.fullHeight ?? 1040 : fr.compactHeight ?? 660;
+        const h = c.frame === "full" ? fr.fullHeight ?? 1260 : fr.compactHeight ?? 820;
         return (
           <Sequence key={i} from={c.f} durationInFrames={Math.max(1, c.n)} layout="none">
+            {c.logo && spec.logo ? <WallLogo src={spec.logo} /> : null}
             <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: h, overflow: "hidden",
-              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, #000 24%)", maskImage: "linear-gradient(to bottom, transparent 0%, #000 24%)" }}>
+              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, #000 12%)", maskImage: "linear-gradient(to bottom, transparent 0%, #000 12%)" }}>
               <OffthreadVideo src={staticFile(c.src)} muted startFrom={Math.round(c.from * fps)} playbackRate={c.rate}
-                style={{ position: "absolute", left: 0, bottom: 0, width: "100%", height: "auto", minHeight: "100%", objectFit: "cover", objectPosition: `50% ${fr.objectY ?? 30}%`, transform: `scale(${c.zoom})`, transformOrigin: "50% 78%" }} />
+                style={{ position: "absolute", left: 0, top: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: `50% ${fr.objectY ?? 12}%`, transform: `scale(${c.zoom})`, transformOrigin: "50% 40%" }} />
             </div>
           </Sequence>
         );

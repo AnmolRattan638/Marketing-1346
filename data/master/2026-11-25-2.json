@@ -1,0 +1,198 @@
+{
+  "master_script": {
+    "style": "myth-bust",
+    "hook": "Salon owners, 12 baje tak reply nahi mila?",
+    "hooks": [
+      {
+        "text": "Salon owners, 12 baje tak reply nahi mila?",
+        "score": 14.4,
+        "formula": ""
+      },
+      {
+        "text": "30 seconds mein aapka reel lead generate karega…",
+        "score": 13.4,
+        "formula": ""
+      },
+      {
+        "text": "Raat 11 baje WhatsApp pe appointment likha, reply dete, salon chala gaya.",
+        "score": 11.9,
+        "formula": ""
+      },
+      {
+        "text": "Main reel scripts ke baare mein galat tha…",
+        "score": 11.4,
+        "formula": "wrong"
+      },
+      {
+        "text": "Asli sachchai ye hai… reel scripts ke liye",
+        "score": 11.4,
+        "formula": "truth"
+      },
+      {
+        "text": "Ye karna band karo… reel script ka pehla second waste",
+        "score": 11.4,
+        "formula": "stop"
+      }
+    ],
+    "hook_formula": "",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Salon owners, 12 baje tak reply nahi mila?",
+        "screen": "11 baje WhatsApp appointment ignored",
+        "visual": "Phone shows 11pm WhatsApp message, no reply, then empty booking slot",
+        "emotion": "empathetic",
+        "facts": []
+      },
+      {
+        "beat": "poke",
+        "line": "Maine 5 local businesses ko WhatsApp par message kiya, aur unmein se 4 ne jawab nahi diya, isliye salon ka jawab abhi nahi aata.",
+        "screen": "4 of 5 didn't answer",
+        "visual": "WhatsApp chat showing 5 sent messages, 4 with no answer",
+        "emotion": "warm",
+        "facts": [],
+        "steps": [
+          "Message 5 local businesses",
+          "Four didn't answer"
+        ],
+        "proof": []
+      },
+      {
+        "beat": "rehook",
+        "line": "Par aapka reel script is problem ko kaise solve karega?",
+        "screen": "Kaise solve karega?",
+        "visual": "Question mark animation appears over a reel thumbnail",
+        "emotion": "curious",
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Pehle sawal likho, line me sawal dikhayo, phir video end me WhatsApp icon daalo.",
+        "screen": "3 steps: sawal, hook, icon",
+        "visual": "Notepad shows bullet points: 1. Sawalan likho, 2. Hook me sawal dikhayo, 3. WhatsApp icon daalo",
+        "emotion": "excited",
+        "facts": [],
+        "steps": [
+          "Sawalan likho",
+          "Hook me sawal dikhayo",
+          "WhatsApp icon daalo"
+        ]
+      },
+      {
+        "beat": "payoff",
+        "line": "Short videos aapke sawaal ka turant jawab dete, aapka time bachaate hain.",
+        "screen": "Time saved",
+        "visual": "Clock ticks down, then shows saved time and happy salon owner",
+        "emotion": "warm",
+        "facts": [
+          "f7"
+        ]
+      },
+      {
+        "beat": "cta",
+        "line": "Agar aapko yeh reel script chahiye, comment mein bas SCRIPT likhein, aur aapko DM mein ek quick setup plan ya honest advice mil jayegi ki yeh aapke salon ke liye fit hai ya nahi.",
+        "screen": "Comment SCRIPT for free plan",
+        "visual": "Comment box highlighted, word SCRIPT typed",
+        "emotion": "warm",
+        "facts": [],
+        "steps": [
+          "Reel script chahiye",
+          "Comment mein SCRIPT likhein",
+          "DM mein quick setup plan mil jayega"
+        ]
+      }
+    ],
+    "cta": "Agar aapko yeh reel script chahiye, comment mein bas SCRIPT likhein, aur aapko DM mein ek quick setup plan ya honest advice mil jayegi ki yeh aapke salon ke liye fit hai ya nahi.",
+    "linkedin_english": "Many salon owners lose bookings because they don’t reply to messages quickly. A simple reel script with a clear question and call‑to‑action can keep customers engaged. Comment SCRIPT to receive a free checklist and template.",
+    "marketing": {
+      "keyword": "SCRIPT",
+      "gets": "a one-page checklist: the 5 lines every business reel script needs, and a fill-in template",
+      "pillar": "educate"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Faceless YouTube videos let creators produce content without appearing on camera, using AI visuals, animations, screen recordings, stock clips, text graphics, and voiceovers.",
+        "figure": null,
+        "source": "hitubhatech.com",
+        "title": "AI Ki Help Se Faceless YouTube Video Kaise Banaye? (Step-by-Step Practical Guide) - HITUBHA TECH",
+        "url": "https://hitubhatech.com/faceless-youtube-video/",
+        "date": "2026-10-25",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "For small businesses, creating 2-3 videos per week is enough to start video marketing.",
+        "figure": "2-3",
+        "source": "cameratel.gorich.systems",
+        "title": "छोटे बिज़नेस के लिए वीडियो मार्केटिंग: मोबाइल से शुरू करें · Cameratel",
+        "url": "https://cameratel.gorich.systems/hi/blog/video-marketing-for-small-business/",
+        "date": "2026-10-13",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "There are 8 recommended video ideas for small‑business video marketing, such as product demos, FAQ answers, offers, behind‑the‑scenes, and customer reviews.",
+        "figure": "8",
+        "source": "cameratel.gorich.systems",
+        "title": "छोटे बिज़नेस के लिए वीडियो मार्केटिंग: मोबाइल से शुरू करें · Cameratel",
+        "url": "https://cameratel.gorich.systems/hi/blog/video-marketing-for-small-business/",
+        "date": "2026-10-13",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "AI image generators can create a picture in ten seconds.",
+        "figure": "ten seconds",
+        "source": "roydigital.in",
+        "title": "AI image and video tools for small brands in 2026: what's actually ready (and what still isn't) · Roy Digital App Studio",
+        "url": "https://roydigital.in/blog/ai-image-video-tools-for-small-brands-2026",
+        "date": "2026-08-23",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Axis network cameras provide a privacy feature that can mask people and moving objects in the video feed.",
+        "figure": null,
+        "source": "axis.com",
+        "title": "Axis Communications Network cameras and security solutions",
+        "url": "https://www.axis.com",
+        "date": null,
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "Public address systems integrated with network cameras can broadcast spoken messages to targeted areas without needing a person on site.",
+        "figure": null,
+        "source": "axis.com",
+        "title": "Axis Communications Network cameras and security solutions",
+        "url": "https://www.axis.com",
+        "date": null,
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Short videos can answer common customer questions such as price, delivery, size, and changes, saving time for small businesses.",
+        "figure": null,
+        "source": "cameratel.gorich.systems",
+        "title": "छोटे बिज़नेस के लिए वीडियो मार्केटिंग: मोबाइल से शुरू करें · Cameratel",
+        "url": "https://cameratel.gorich.systems/hi/blog/video-marketing-for-small-business/",
+        "date": "2026-10-13",
+        "verdict": "verified",
+        "id": "f7"
+      }
+    ],
+    "topic": "Camera ke samne bolna kya hai, samajh nahi aata?",
+    "service": "reel_scripts",
+    "keyword": "SCRIPT",
+    "notes": [
+      "style remark (not blocking): poke: grammar: no verb before 'isliye', write the full clause (not a list of nouns): \"Maine 5 local businesses ko WhatsApp par message kiya, aur u\""
+    ],
+    "series": {
+      "part": 2,
+      "of": "Salon ke owners, raat ko der raat bhi aapke messages ignore ho rahe hain?"
+    }
+  },
+  "service": "reel_scripts",
+  "slot": "2"
+}

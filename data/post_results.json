@@ -2535,6 +2535,21 @@
           "skip_rate": 56.3,
           "avg_watch_s": 4.2,
           "duration_s": 27
+        },
+        "7d": {
+          "age_h": 178.1,
+          "source": "zernio",
+          "impressions": 133,
+          "reach": 88,
+          "views": 133,
+          "likes": 5,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0,
+          "skip_rate": 57.4,
+          "avg_watch_s": 4.136,
+          "duration_s": 27
         }
       },
       "latest": {
@@ -2567,6 +2582,13 @@
       "snap": {
         "48h": {
           "age_h": 56.0,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        },
+        "7d": {
+          "age_h": 178.3,
           "source": "bluesky",
           "likes": 0,
           "comments": 0,
@@ -2884,7 +2906,85 @@
         "comments": 0,
         "shares": 0
       }
+    },
+    "2026-11-24|instagram": {
+      "date": "2026-11-24",
+      "platform": "instagram",
+      "service": "animated_ads",
+      "problem_id": "using-generic-templates-that-look-like-s",
+      "angle_type": null,
+      "hook_style": "question",
+      "format": "carousel",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "network",
+      "carousel_flavor": "before-after-example",
+      "slides": 5,
+      "structure": null,
+      "vertical": null,
+      "hook_formula": null,
+      "published_at": "2026-11-24T13:40:19.000Z",
+      "url": "https://www.instagram.com/p/DgIFXydjZ8g/",
+      "snap": {
+        "48h": {
+          "age_h": 55.9,
+          "source": "zernio",
+          "impressions": 2,
+          "reach": 1,
+          "views": 2,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
+        }
+      },
+      "latest": {
+        "impressions": 2,
+        "reach": 1,
+        "views": 2,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0
+      }
+    },
+    "2026-11-24|bluesky": {
+      "date": "2026-11-24",
+      "platform": "bluesky",
+      "service": "animated_ads",
+      "problem_id": "using-generic-templates-that-look-like-s",
+      "angle_type": null,
+      "hook_style": "question",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "network",
+      "carousel_flavor": "before-after-example",
+      "slides": 5,
+      "structure": null,
+      "vertical": null,
+      "hook_formula": null,
+      "published_at": "2026-11-24T13:40:16.163138+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n32rgywrpe27",
+      "snap": {
+        "48h": {
+          "age_h": 55.9,
+          "source": "bluesky",
+          "likes": 1,
+          "comments": 0,
+          "shares": 1
+        }
+      },
+      "latest": {
+        "likes": 1,
+        "comments": 0,
+        "shares": 1
+      }
     }
   },
-  "updated_at": "2026-11-25T21:43:00+00:00"
+  "updated_at": "2026-11-26T21:33:56+00:00"
 }

@@ -99,6 +99,38 @@ def _call_groq(messages: list[dict], cfg: dict) -> str:
     raise RuntimeError("no Groq model worked: " + " | ".join(errors))
 
 
+def _call_planner(messages: list[dict], cfg: dict) -> str:
+    """Groq first; when Groq cannot answer (daily token quota, rate limit, outage) the other vendors answer, so a spent Groq quota does not kill the reel."""
+    try:
+        return _call_groq(messages, cfg)
+    except (RuntimeError, requests.RequestException) as e:
+        log(f"Groq could not answer the planner ({str(e)[:120]}); trying Gemini, NVIDIA and OpenRouter")
+        import sys
+        repo = str(ROOT.parent)
+        if repo not in sys.path:
+            sys.path.append(repo)
+        from src import llm
+        system = "\n\n".join(m["content"] for m in messages if m["role"] == "system")
+        talk = "\n\n".join(("YOUR PREVIOUS ANSWER:\n" if m["role"] == "assistant" else "") + m["content"] for m in messages if m["role"] != "system")
+        talk += "\n\nReturn ONLY the JSON object. No prose, no markdown fences."
+        errs = [str(e)[:160]]
+        calls = []
+        if os.getenv("GEMINI_API_KEY"):
+            calls.append(("Gemini", llm._gemini))
+        if os.getenv("NVIDIA_API_KEY"):
+            calls.append(("NVIDIA", llm._nvidia))
+        if os.getenv("OPENROUTER_API_KEY"):
+            calls.append(("OpenRouter", llm.openrouter))
+        for name, fn in calls:
+            try:
+                out = fn(talk, system)
+                return json.dumps(llm.parse_json(out))
+            except Exception as e2:
+                errs.append(f"{name}: {str(e2)[:160]}")
+                log(f"planner fallback {name} failed ({str(e2)[:100]})")
+        raise RuntimeError("no model could write the plan: " + " | ".join(errs))
+
+
 def _blank(v) -> bool:
     return v is None or (isinstance(v, str) and not v.strip())
 
@@ -224,7 +256,7 @@ def make_plan(topic: str, cfg: dict, library: str = "", service: str = "general"
     last_problems: list[str] = []
     concrete: list[str] = []
     for attempt in (1, 2, 3):
-        raw = _call_groq(messages, cfg)
+        raw = _call_planner(messages, cfg)
         try:
             plan = tidy_plan(json.loads(raw))
             last_problems = validate_plan(plan) + (master_script.problems(plan, master) if master else master_script.narration_problems(plan))

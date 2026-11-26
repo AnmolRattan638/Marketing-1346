@@ -201,6 +201,11 @@ def _with_fallback(fn):
                 chain.append(("OpenRouter", lambda: openrouter(prompt, system)))
             if groq_keys() and fn.__name__ != "_groq":
                 chain.append(("Groq", lambda: _groq(prompt, system)))
+            # Groq's free quota is per day: when it is spent, Gemini and NVIDIA (other vendors, own quotas) still answer
+            if os.getenv("GEMINI_API_KEY") and fn.__name__ not in ("_gemini", "_gemma"):
+                chain.append(("Gemini", lambda: _gemini(prompt, system)))
+            if os.getenv("NVIDIA_API_KEY") and fn.__name__ != "_nvidia":
+                chain.append(("NVIDIA", lambda: _nvidia(prompt, system)))
             if not chain:
                 raise
             first = _scrub(str(e))[:300]

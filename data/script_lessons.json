@@ -28,20 +28,20 @@
   ]
  },
  "total-length": {
-  "count": 46,
+  "count": 48,
   "rule": "The whole script stays under 85 words (about 30 s); give each beat one concrete idea and its reason, nothing more.",
   "recent": [
    {
     "on": "2026-11-26",
-    "mistake": "fix: script is 151 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 28 to 27 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
-   },
-   {
-    "on": "2026-11-26",
-    "mistake": "payoff: script is 157 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 27 to 23 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte ha"
-   },
-   {
-    "on": "2026-11-26",
     "mistake": "fix: script is 157 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 26 to 23 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
+   },
+   {
+    "on": "2026-11-26",
+    "mistake": "payoff: script is 159 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 21 to 16 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte ha"
+   },
+   {
+    "on": "2026-11-26",
+    "mistake": "poke: script is 159 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 20 to 16 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain"
    }
   ]
  },
@@ -66,34 +66,34 @@
   "rule": "the ask ... is not in offers_allowed; fix to use an allowed offer like ..."
  },
  "number-unbacked": {
-  "count": 39,
+  "count": 43,
   "rule": "Every digit must come from a cited fact; if no fact has the number, say it in words with no digit.",
   "recent": [
    {
-    "on": "2026-11-24",
-    "mistake": "payoff: number(s) ['1'] not backed by a cited fact"
-   },
-   {
-    "on": "2026-11-25",
-    "mistake": "cta: number(s) ['5'] not backed by a cited fact"
+    "on": "2026-11-26",
+    "mistake": "cta: number(s) ['10'] not backed by a cited fact"
    },
    {
     "on": "2026-11-26",
-    "mistake": "payoff: number(s) ['1', '2'] not backed by a cited fact"
+    "mistake": "fix: number(s) ['3', '5'] not backed by a cited fact"
+   },
+   {
+    "on": "2026-11-26",
+    "mistake": "payoff: number(s) ['0'] not backed by a cited fact"
    }
   ]
  },
  "abstract": {
-  "count": 8,
+  "count": 9,
   "rule": "Name a concrete moment or thing (11 pm message, unanswered enquiry) in pain and poke.",
   "recent": [
    {
     "on": "2026-11-25",
-    "mistake": "fix: too abstract; name a concrete moment or thing (a 11 pm message, an unanswered enquiry, the WhatsApp reply)"
+    "mistake": "pain: too abstract; name a concrete moment or thing (a 11 pm message, an unanswered enquiry, the WhatsApp reply)"
    },
    {
-    "on": "2026-11-25",
-    "mistake": "pain: too abstract; name a concrete moment or thing (a 11 pm message, an unanswered enquiry, the WhatsApp reply)"
+    "on": "2026-11-26",
+    "mistake": "fix: too abstract; name a concrete moment or thing (a 11 pm message, an unanswered enquiry, the WhatsApp reply)"
    }
   ]
  },
@@ -212,7 +212,7 @@
   "rule": "line promises a result (time saved); rewrite to state capability, e.g., ..."
  },
  "other:payoff needs a cited verified fact": {
-  "count": 6,
+  "count": 7,
   "rule": "payoff needs a cited verified fact",
   "recent": [
    {
@@ -362,20 +362,20 @@
   ]
  },
  "other:grammar: no verb before ..., write the f": {
-  "count": 23,
+  "count": 27,
   "rule": "grammar: no verb before ..., write the full clause (not a list of nouns): ...",
   "recent": [
    {
     "on": "2026-11-26",
-    "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Pehla, chatbot ko WhatsApp Business se jodo, kyunki 24x7 rep\""
+    "mistake": "cta: grammar: no verb before 'isliye', write the full clause (not a list of nouns): \"Ek AI assistant ne ek minute mein jawab diya, isliye aapke c\""
    },
    {
     "on": "2026-11-26",
-    "mistake": "cta: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Comment BOT, main aapko WhatsApp reply bot ke liye das essen\""
+    "mistake": "cta: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Main aapko ek page ki checklist DM mein bhejunga, taaki aap \""
    },
    {
     "on": "2026-11-26",
-    "mistake": "fix: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"dusra, quick replies se naam aur number lete, taaki har enqu\""
+    "mistake": "cta: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Comment BOT, main aapko WhatsApp chatbot checklist DM karung\""
    }
   ]
  },
@@ -390,7 +390,7 @@
   ]
  },
  "hook": {
-  "count": 2,
+  "count": 3,
   "rule": "The hook is a short scene of the owner's pain: no greeting, price, brand or keyword.",
   "recent": [
    {
@@ -400,6 +400,10 @@
    {
     "on": "2026-11-23",
     "mistake": "hook is too long; 18 words max"
+   },
+   {
+    "on": "2026-11-26",
+    "mistake": "skills: pain: hook is too long to land in ~2 seconds; trim to a concise sentence under two seconds (e.g., \"Chatbot aapke salon ke liye raat ka staff ban sakta hai.\")"
    }
   ]
  },
@@ -414,7 +418,7 @@
   ]
  },
  "other:loops: end the hook and the poke (or the": {
-  "count": 7,
+  "count": 8,
   "rule": "loops: end the hook and the poke (or the rehook) on a question or an unfinished thought (... or ?) so the next beat has to answer;",
   "recent": [
    {
@@ -424,7 +428,7 @@
   ]
  },
  "other:context: the hook must name the viewer..": {
-  "count": 8,
+  "count": 9,
   "rule": "context: the hook must name the viewer...business owners'",
   "recent": [
    {
@@ -552,20 +556,20 @@
   ]
  },
  "pronounce-glued": {
-  "count": 8,
+  "count": 12,
   "rule": "Never glue digits to letters in a spoken line (2BHK, Q4, mp3); write the number and the word apart or in full words.",
   "recent": [
    {
-    "on": "2026-11-24",
-    "mistake": "payoff: pronunciation: \"p0\" (heard in: \"...ek minute mein reply mila, p0,....\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
+    "on": "2026-11-26",
+    "mistake": "fix: pronunciation: \"f3\" (heard in: \"...naam, number, poochte hain, f3, problem aur decision‑maker...\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
    },
    {
     "on": "2026-11-26",
-    "mistake": "payoff: pronunciation: \"f1\" (heard in: \"...number ke aate hain source,f1. Chatbot naam aur number le...\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
+    "mistake": "fix: pronunciation: \"f5\" (heard in: \"...aker se qualify karte hain, f5,....\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
    },
    {
     "on": "2026-11-26",
-    "mistake": "payoff: pronunciation: \"f2\" (heard in: \"...koi lead kho na jaye source,f2....\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
+    "mistake": "payoff: pronunciation: \"p0\" (heard in: \"...minute mein reply de gaya, p0,....\") mixes digits and letters, so the voice may spell it out or skip part of it. Write the number and the word apart, or in full words."
    }
   ]
  },
@@ -964,6 +968,66 @@
    {
     "on": "2026-11-26",
     "mistake": "marketing: recap: includes a result claim ('lead wahan rehti hai'); change to a capability statement (e.g., 'the bot replies instantly, keeping the conversation active')."
+   }
+  ]
+ },
+ "other:promises to send a checklist, which is n": {
+  "count": 1,
+  "rule": "promises to send a checklist, which is not a capability of the AI chatbot nor supported by facts; remove the promise or rephrase t",
+  "recent": [
+   {
+    "on": "2026-11-26",
+    "mistake": "meaning: cta: promises to send a checklist, which is not a capability of the AI chatbot nor supported by facts; remove the promise or rephrase to a non‑guaranteed offer."
+   }
+  ]
+ },
+ "other:first spoken word is filler and not the ": {
+  "count": 1,
+  "rule": "first spoken word is filler and not the most interesting word; rewrite line to start with ... (e.g., ...)",
+  "recent": [
+   {
+    "on": "2026-11-26",
+    "mistake": "skills: pain: first spoken word is filler and not the most interesting word; rewrite line to start with \"Chatbot\" (e.g., \"Chatbot raat ka staff ban sakta hai, agar aap salon ke owner hain…\")"
+   }
+  ]
+ },
+ "other:only restates the problem without giving": {
+  "count": 1,
+  "rule": "only restates the problem without giving a first specific answer; fix by replacing the line with a concrete tip, e.g., ....",
+  "recent": [
+   {
+    "on": "2026-11-26",
+    "mistake": "marketing: poke: only restates the problem without giving a first specific answer; fix by replacing the line with a concrete tip, e.g., \"Lekin aap sirf greeting set karte ho; aapko quick‑reply button lagana chahiye jo naam aur number capture kare, taaki lead c"
+   }
+  ]
+ },
+ "other:promises a result (reply within a minute": {
+  "count": 1,
+  "rule": "promises a result (reply within a minute) and uses a testimonial, which violates claims_rules; fix by rephrasing to a capability o",
+  "recent": [
+   {
+    "on": "2026-11-26",
+    "mistake": "marketing: payoff: promises a result (reply within a minute) and uses a testimonial, which violates claims_rules; fix by rephrasing to a capability only, e.g., \"Chatbot can help you reply to customer messages within a minute, making lead capture easier\"."
+   }
+  ]
+ },
+ "other:does not specify the allowed one‑page ch": {
+  "count": 1,
+  "rule": "does not specify the allowed one‑page checklist offer or what the viewer will receive; fix by changing to ....",
+  "recent": [
+   {
+    "on": "2026-11-26",
+    "mistake": "marketing: cta: does not specify the allowed one‑page checklist offer or what the viewer will receive; fix by changing to \"Comment BOT to receive the one‑page checklist in DM\"."
+   }
+  ]
+ },
+ "beats-exact": {
+  "count": 1,
+  "rule": "Return exactly the style's beats in order, including the last one.",
+  "recent": [
+   {
+    "on": "2026-11-26",
+    "mistake": "beats must be exactly ['pain', 'poke', 'rehook', 'fix', 'payoff', 'cta'], got ['pain', 'poke', 'rehook', 'fix', 'payoff', 'cta', 'cta']"
    }
   ]
  }

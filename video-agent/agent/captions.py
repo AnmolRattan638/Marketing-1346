@@ -13,6 +13,9 @@ from .common import log
 GROQ_STT_URL = "https://api.groq.com/openai/v1/audio/transcriptions"
 
 
+STT_MODEL = "whisper-large-v3-turbo"        # used when config.json has no captions.model (a missing key made every reel fall back to estimated word times)
+
+
 def _transcribe(mp3, lang: str, cfg: dict, prompt: str = "", model: str = "") -> list[dict]:
     r = None
     for key in groqkeys.rotated():
@@ -22,7 +25,7 @@ def _transcribe(mp3, lang: str, cfg: dict, prompt: str = "", model: str = "") ->
                 headers={"Authorization": f"Bearer {key}"},
                 files={"file": (mp3.name, fh, "audio/mpeg")},
                 data={
-                    "model": model or cfg["captions"]["model"],
+                    "model": model or (cfg.get("captions") or {}).get("model") or STT_MODEL,
                     "response_format": "verbose_json",
                     "timestamp_granularities[]": "word",
                     "language": lang,

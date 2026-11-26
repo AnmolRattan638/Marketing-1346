@@ -1,0 +1,234 @@
+{
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Cafe owners, ye aapko hairan kar sakta hai: 55% leads bina phone number ke, isliye follow‑up mushkil ho jata hai.",
+    "hooks": [
+      {
+        "text": "Ye aapko hairan kar sakta hai: 55% leads bina number ke…",
+        "score": 15.4,
+        "formula": "surprise"
+      },
+      {
+        "text": "Shayad aap agree na karo, lekin chatbot raat ka staff ban sakta hai…",
+        "score": 11.4,
+        "formula": "disagree"
+      },
+      {
+        "text": "Der se reply hi wajah hai ki customers kahin aur chale jaate hain…",
+        "score": 11.4,
+        "formula": "reason"
+      },
+      {
+        "text": "Aapke cafe ki WhatsApp enquiry ka reply na milne se customers dusri jagah chale jaate hain?",
+        "score": 10.4,
+        "formula": ""
+      },
+      {
+        "text": "Cafe ki WhatsApp enquiry ka reply na milne se sales ja rahi hain…",
+        "score": 9.4,
+        "formula": ""
+      },
+      {
+        "text": "Cafe ko message kiya, koi reply nahi; AI ne minute mein jawab diya…",
+        "score": 9.4,
+        "formula": ""
+      }
+    ],
+    "hook_formula": "surprise",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Cafe owners, ye aapko hairan kar sakta hai: 55% leads bina phone number ke, isliye follow‑up mushkil ho jata hai.",
+        "screen": "55% leads bina number",
+        "visual": "Cafe owner scrolling messages, missing numbers highlighted",
+        "emotion": "warm",
+        "steps": [
+          "55% leads bina phone number ke",
+          "isliye follow‑up mushkil ho jata hai"
+        ],
+        "facts": [
+          "f1"
+        ]
+      },
+      {
+        "beat": "poke",
+        "line": "Sirf WhatsApp Business mein greeting aur quick replies set karna kaafi lagta hai?",
+        "screen": "Greeting aur quick replies?",
+        "visual": "Phone screen showing WhatsApp settings",
+        "emotion": "warm",
+        "steps": [
+          "greeting set",
+          "quick replies",
+          "kaafi lagta hai?"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "rehook",
+        "line": "Maine kuch cafes ko message kiya, unmein se bahut ne reply nahi kiya – AI bot turant reply de gaya. Ab aap soch rahe hain, kaise?",
+        "screen": "AI bot turant reply?",
+        "visual": "Chat bubble with instant reply",
+        "emotion": "warm",
+        "steps": [
+          "cafes ko message",
+          "AI bot turant reply",
+          "kaise?"
+        ],
+        "facts": [],
+        "proof": []
+      },
+      {
+        "beat": "fix",
+        "line": "Chatbot ko WhatsApp se jodte hain, jo 24x7 reply karta hai; quick replies se naam‑number lete hain, taaki record ho jaye.",
+        "screen": "WhatsApp bot captures leads",
+        "visual": "WhatsApp icon linking to chatbot, quick‑reply bubbles, data saved icon",
+        "emotion": "warm",
+        "steps": [
+          "Chatbot ko WhatsApp se jodte hain",
+          "quick replies se naam‑number lete hain"
+        ],
+        "facts": [
+          "f3"
+        ]
+      },
+      {
+        "beat": "payoff",
+        "line": "Iska matlab hai ki aap do qualifiers pooch kar lead ko qualify karte hain, aur enquiry record ho jati hai.",
+        "screen": "Do qualifiers, record enquiry",
+        "visual": "Chat bubbles showing qualifier questions and saved record",
+        "emotion": "warm",
+        "steps": [
+          "Do qualifiers",
+          "Qualify lead",
+          "Record enquiry"
+        ],
+        "facts": [
+          "f5",
+          "f2"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Maine 5 businesses ko message kiya, 4 ne reply nahi kiya; AI bot ek minute mein reply de gaya.",
+        "screen": "Four of five missed, bot solved",
+        "visual": "Blurred screenshot of my test: 5 messages, 4 no reply, AI bot reply in a minute.",
+        "emotion": "warm",
+        "steps": [],
+        "facts": [],
+        "proof": []
+      },
+      {
+        "beat": "cta",
+        "line": "Comment BOT, main aapko WhatsApp reply bot ke liye das essential questions ki checklist DM karunga, taaki aap jaan sakte hain ki yeh aapke cafe ke liye fit hai ya nahi.",
+        "screen": "Comment BOT for checklist",
+        "visual": "DM icon with checklist overlay",
+        "emotion": "warm",
+        "steps": [
+          "Comment BOT",
+          "DM mein checklist bhejunga",
+          "taaki aap fit check kar saken"
+        ],
+        "facts": [
+          "f3"
+        ]
+      }
+    ],
+    "cta": "Comment BOT, main aapko WhatsApp reply bot ke liye das essential questions ki checklist DM karunga, taaki aap jaan sakte hain ki yeh aapke cafe ke liye fit hai ya nahi.",
+    "linkedin_english": "Many small businesses lose WhatsApp leads because they can't reply quickly. An AI chatbot can automatically answer enquiries, ask for name and number, and store them in a CRM. Comment “BOT” to receive a checklist of the essential questions your bot should handle.",
+    "marketing": {
+      "keyword": "BOT",
+      "gets": "a one-page checklist: the 10 questions a WhatsApp reply bot should answer for your business, so you can see if it fits",
+      "pillar": "educate"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "55% of WhatsApp leads arrived without a mobile number, making it hard to follow up.",
+        "figure": "55%",
+        "source": "interconnecta.com",
+        "title": "Implementation of the Month: How a University in Lima Captures WhatsApp Leads That Arrive Without a Phone Number Using AI and Zoho –...",
+        "url": "https://interconnecta.com/insights/implementation-of-the-month-nov26/",
+        "date": "2026-11-07",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "WhatsApp chats are not a database, so businesses should copy essential details like name and number into a shared sheet or CRM.",
+        "figure": null,
+        "source": "darshinnovations.in",
+        "title": "How can businesses organise WhatsApp enquiries? Darsh Innovations",
+        "url": "https://www.darshinnovations.in/blog/organise-whatsapp-enquiries",
+        "date": "2026-10-10",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Using quick replies that ask the two or three essential questions you always need answered helps capture name and contact number early in the conversation.",
+        "figure": "two or three",
+        "source": "darshinnovations.in",
+        "title": "How can businesses organise WhatsApp enquiries? Darsh Innovations",
+        "url": "https://www.darshinnovations.in/blog/organise-whatsapp-enquiries",
+        "date": "2026-10-10",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "A simple WhatsApp CRM for small businesses should track name and WhatsApp number as core fields.",
+        "figure": null,
+        "source": "kutrimbots.com",
+        "title": "WhatsApp CRM for Indian small businesses: a simple setup — KutrimBots",
+        "url": "https://kutrimbots.com/blog/whatsapp-crm-india",
+        "date": "2026-11-04",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Qualify leads in the first three messages by asking two qualifiers – what the prospect is trying to solve and who will decide – to filter and capture details quickly.",
+        "figure": "two qualifiers",
+        "source": "leadmanagement.co.in",
+        "title": "WhatsApp lead capture: turning conversations into qualified pipeline LeadManagement",
+        "url": "https://leadmanagement.co.in/blog/whatsapp-lead-capture-guide/",
+        "date": "2026-04-28",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "WhatsApp chat lists are sorted by the latest message, not by buyer readiness, causing hot leads to sink below newer chats and leading to missed follow‑ups and missing information.",
+        "figure": null,
+        "source": "kutrimbots.com",
+        "title": "WhatsApp CRM for Indian small businesses: a simple setup — KutrimBots",
+        "url": "https://kutrimbots.com/blog/whatsapp-crm-india",
+        "date": "2026-11-04",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Pre‑filling the initial WhatsApp message with context (e.g., \"Hi, I'd like a quote for {product}\") tells the sales team the prospect’s intent before the chat starts.",
+        "figure": null,
+        "source": "leadmanagement.co.in",
+        "title": "WhatsApp lead capture: turning conversations into qualified pipeline LeadManagement",
+        "url": "https://leadmanagement.co.in/blog/whatsapp-lead-capture-guide/",
+        "date": "2026-04-28",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Switching from personal WhatsApp to the free WhatsApp Business app provides a business profile, labels, quick replies, and greeting messages that help structure enquiries and capture contact details.",
+        "figure": null,
+        "source": "darshinnovations.in",
+        "title": "How can businesses organise WhatsApp enquiries? Darsh Innovations",
+        "url": "https://www.darshinnovations.in/blog/organise-whatsapp-enquiries",
+        "date": "2026-10-10",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "Why do most of your WhatsApp enquiries end without a name or contact number?",
+    "service": "chatbot",
+    "keyword": "BOT",
+    "notes": [
+      "style remark (not blocking): cta: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Comment BOT, main aapko WhatsApp reply bot ke liye das essen\""
+    ]
+  },
+  "service": "chatbot"
+}

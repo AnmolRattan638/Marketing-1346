@@ -1,6 +1,5 @@
-- Hook: rotate to **question** (1.66x) or **top3** (1.5x) — avoid comparison (overused).
-- Angle: lead with a **mistake** (1.36x) small businesses make when scripting reels themselves.
-- Visual: try **silhouette** or **desk-glow** style (1.5x/1.44x) — static image with text overlay works better than talking-head reels right now.
-- Service focus: reel script writing — keep it broad (cafes, gyms, clinics, shops), not one niche.
-- CTA: only "pay after approval" + short DM conversation. No demos, samples, guarantees.
-- Posts must read like a developer sharing real work, never an ad.
+- Hook style to try: **mistake** angle (1.3x) or **myth_bust** (1.25x) — rotate from overused question/comparison hooks
+- Avoid: repeating "same five questions" phrasing (used 11/12 chatbot post), "wrong price" fear hook, generic "robotic" myth — already saturated
+- Use carousel format (4x reel earnings per reach) with **self-test-signs** or **bold-slow-reveal** taste
+- Post must read as developer showing real work: explain chatbot logic generally, use ONE labelled example conversation, no demo offers
+- Include only allowed offer: "pay after approval" + short DM conversation for fit advice

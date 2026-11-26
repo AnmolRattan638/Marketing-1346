@@ -271,5 +271,12 @@
     "topic": "Camera ke samne bolna kya hai, samajh nahi aata?",
     "hook_style": "question",
     "status": "published"
+  },
+  {
+    "date": "2026-11-26",
+    "service": "chatbot",
+    "topic": "Why do most of your WhatsApp enquiries end without a name or contact number?",
+    "hook_style": "question",
+    "status": "published"
   }
 ]

@@ -2,7 +2,7 @@
   "id": "2026-11-26-c9735b",
   "date": "2026-11-26",
   "created_at": "2026-11-26T11:52:48+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "chatbot",
   "topic": "Why do most of your WhatsApp enquiries end without a name or contact number?",
   "idea_id": null,
@@ -974,5 +974,19 @@
         "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8532, please reduce your message size and try again. Need more tokens? Upgrad"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6b08395758833ba789e0df87 (6 slides)"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6b08398797cc1e20801fa565 (due 2026-11-26T13:52:07.707Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6b083989047833286322cbf0 (due 2026-11-26T13:52:09.363Z) (4 slides)"
+    }
   }
 }

@@ -1,11 +1,11 @@
 {
   "platforms": {
     "instagram": {
-      "n": 28,
-      "spearman": 0.61,
+      "n": 29,
+      "spearman": 0.63,
       "p_value": 0.0,
       "score_spread": 13.4,
-      "llm_scored": 15,
+      "llm_scored": 16,
       "median_actual_reach": 4.0,
       "median_predicted_reach": 690.0,
       "reach_ratio": 0.006,
@@ -18,8 +18,8 @@
       "score_spread": 0.5,
       "llm_scored": 0,
       "median_actual_reach": 57.0,
-      "median_predicted_reach": 851.0,
-      "reach_ratio": 0.067,
+      "median_predicted_reach": 844.0,
+      "reach_ratio": 0.068,
       "verdict": "too early"
     }
   },

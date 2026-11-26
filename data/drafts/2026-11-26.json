@@ -1,0 +1,978 @@
+{
+  "id": "2026-11-26-c9735b",
+  "date": "2026-11-26",
+  "created_at": "2026-11-26T11:52:48+00:00",
+  "status": "pending",
+  "service": "chatbot",
+  "topic": "Why do most of your WhatsApp enquiries end without a name or contact number?",
+  "idea_id": null,
+  "problem_id": "difficulty-collecting-lead-contact-infor",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "explore",
+    "variable": "problem",
+    "problem_id": "difficulty-collecting-lead-contact-infor",
+    "angle_type": null,
+    "hook_style": "question"
+  },
+  "hooks": [
+    {
+      "style": "question",
+      "text": "Cafe owners, ye aapko hairan kar sakta hai: 55% leads bina phone number ke"
+    },
+    {
+      "style": "mistake",
+      "text": "Stop manually asking for numbers—your bot should capture them instantly."
+    },
+    {
+      "style": "myth",
+      "text": "Myth: Asking for contacts annoys customers. Fact: Seamless bots boost replies."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "question",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "55% of WhatsApp leads arrived without a mobile number, making it hard to follow up.",
+        "figure": "55%",
+        "source": "interconnecta.com",
+        "title": "Implementation of the Month: How a University in Lima Captures WhatsApp Leads That Arrive Without a Phone Number Using AI and Zoho –...",
+        "url": "https://interconnecta.com/insights/implementation-of-the-month-nov26/",
+        "date": "2026-11-07",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "WhatsApp chats are not a database, so businesses should copy essential details like name and number into a shared sheet or CRM.",
+        "figure": null,
+        "source": "darshinnovations.in",
+        "title": "How can businesses organise WhatsApp enquiries? Darsh Innovations",
+        "url": "https://www.darshinnovations.in/blog/organise-whatsapp-enquiries",
+        "date": "2026-10-10",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Using quick replies that ask the two or three essential questions you always need answered helps capture name and contact number early in the conversation.",
+        "figure": "two or three",
+        "source": "darshinnovations.in",
+        "title": "How can businesses organise WhatsApp enquiries? Darsh Innovations",
+        "url": "https://www.darshinnovations.in/blog/organise-whatsapp-enquiries",
+        "date": "2026-10-10",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "A simple WhatsApp CRM for small businesses should track name and WhatsApp number as core fields.",
+        "figure": null,
+        "source": "kutrimbots.com",
+        "title": "WhatsApp CRM for Indian small businesses: a simple setup — KutrimBots",
+        "url": "https://kutrimbots.com/blog/whatsapp-crm-india",
+        "date": "2026-11-04",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Qualify leads in the first three messages by asking two qualifiers – what the prospect is trying to solve and who will decide – to filter and capture details quickly.",
+        "figure": "two qualifiers",
+        "source": "leadmanagement.co.in",
+        "title": "WhatsApp lead capture: turning conversations into qualified pipeline LeadManagement",
+        "url": "https://leadmanagement.co.in/blog/whatsapp-lead-capture-guide/",
+        "date": "2026-04-28",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "WhatsApp chat lists are sorted by the latest message, not by buyer readiness, causing hot leads to sink below newer chats and leading to missed follow‑ups and missing information.",
+        "figure": null,
+        "source": "kutrimbots.com",
+        "title": "WhatsApp CRM for Indian small businesses: a simple setup — KutrimBots",
+        "url": "https://kutrimbots.com/blog/whatsapp-crm-india",
+        "date": "2026-11-04",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Pre‑filling the initial WhatsApp message with context (e.g., \"Hi, I'd like a quote for {product}\") tells the sales team the prospect’s intent before the chat starts.",
+        "figure": null,
+        "source": "leadmanagement.co.in",
+        "title": "WhatsApp lead capture: turning conversations into qualified pipeline LeadManagement",
+        "url": "https://leadmanagement.co.in/blog/whatsapp-lead-capture-guide/",
+        "date": "2026-04-28",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Switching from personal WhatsApp to the free WhatsApp Business app provides a business profile, labels, quick replies, and greeting messages that help structure enquiries and capture contact details.",
+        "figure": null,
+        "source": "darshinnovations.in",
+        "title": "How can businesses organise WhatsApp enquiries? Darsh Innovations",
+        "url": "https://www.darshinnovations.in/blog/organise-whatsapp-enquiries",
+        "date": "2026-10-10",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "dropped": 0,
+    "topic": "Why do most of your WhatsApp enquiries end without a name or contact number?"
+  },
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Cafe owners, ye aapko hairan kar sakta hai: 55% leads bina phone number ke, isliye follow‑up mushkil ho jata hai.",
+    "hooks": [
+      {
+        "text": "Ye aapko hairan kar sakta hai: 55% leads bina number ke…",
+        "score": 15.4,
+        "formula": "surprise"
+      },
+      {
+        "text": "Shayad aap agree na karo, lekin chatbot raat ka staff ban sakta hai…",
+        "score": 11.4,
+        "formula": "disagree"
+      },
+      {
+        "text": "Der se reply hi wajah hai ki customers kahin aur chale jaate hain…",
+        "score": 11.4,
+        "formula": "reason"
+      },
+      {
+        "text": "Aapke cafe ki WhatsApp enquiry ka reply na milne se customers dusri jagah chale jaate hain?",
+        "score": 10.4,
+        "formula": ""
+      },
+      {
+        "text": "Cafe ki WhatsApp enquiry ka reply na milne se sales ja rahi hain…",
+        "score": 9.4,
+        "formula": ""
+      },
+      {
+        "text": "Cafe ko message kiya, koi reply nahi; AI ne minute mein jawab diya…",
+        "score": 9.4,
+        "formula": ""
+      }
+    ],
+    "hook_formula": "surprise",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Cafe owners, ye aapko hairan kar sakta hai: 55% leads bina phone number ke, isliye follow‑up mushkil ho jata hai.",
+        "screen": "55% leads bina number",
+        "visual": "Cafe owner scrolling messages, missing numbers highlighted",
+        "emotion": "warm",
+        "steps": [
+          "55% leads bina phone number ke",
+          "isliye follow‑up mushkil ho jata hai"
+        ],
+        "facts": [
+          "f1"
+        ]
+      },
+      {
+        "beat": "poke",
+        "line": "Sirf WhatsApp Business mein greeting aur quick replies set karna kaafi lagta hai?",
+        "screen": "Greeting aur quick replies?",
+        "visual": "Phone screen showing WhatsApp settings",
+        "emotion": "warm",
+        "steps": [
+          "greeting set",
+          "quick replies",
+          "kaafi lagta hai?"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "rehook",
+        "line": "Maine kuch cafes ko message kiya, unmein se bahut ne reply nahi kiya – AI bot turant reply de gaya. Ab aap soch rahe hain, kaise?",
+        "screen": "AI bot turant reply?",
+        "visual": "Chat bubble with instant reply",
+        "emotion": "warm",
+        "steps": [
+          "cafes ko message",
+          "AI bot turant reply",
+          "kaise?"
+        ],
+        "facts": [],
+        "proof": []
+      },
+      {
+        "beat": "fix",
+        "line": "Chatbot ko WhatsApp se jodte hain, jo 24x7 reply karta hai; quick replies se naam‑number lete hain, taaki record ho jaye.",
+        "screen": "WhatsApp bot captures leads",
+        "visual": "WhatsApp icon linking to chatbot, quick‑reply bubbles, data saved icon",
+        "emotion": "warm",
+        "steps": [
+          "Chatbot ko WhatsApp se jodte hain",
+          "quick replies se naam‑number lete hain"
+        ],
+        "facts": [
+          "f3"
+        ]
+      },
+      {
+        "beat": "payoff",
+        "line": "Iska matlab hai ki aap do qualifiers pooch kar lead ko qualify karte hain, aur enquiry record ho jati hai.",
+        "screen": "Do qualifiers, record enquiry",
+        "visual": "Chat bubbles showing qualifier questions and saved record",
+        "emotion": "warm",
+        "steps": [
+          "Do qualifiers",
+          "Qualify lead",
+          "Record enquiry"
+        ],
+        "facts": [
+          "f5",
+          "f2"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Maine 5 businesses ko message kiya, 4 ne reply nahi kiya; AI bot ek minute mein reply de gaya.",
+        "screen": "Four of five missed, bot solved",
+        "visual": "Blurred screenshot of my test: 5 messages, 4 no reply, AI bot reply in a minute.",
+        "emotion": "warm",
+        "steps": [],
+        "facts": [],
+        "proof": []
+      },
+      {
+        "beat": "cta",
+        "line": "Comment BOT, main aapko WhatsApp reply bot ke liye das essential questions ki checklist DM karunga, taaki aap jaan sakte hain ki yeh aapke cafe ke liye fit hai ya nahi.",
+        "screen": "Comment BOT for checklist",
+        "visual": "DM icon with checklist overlay",
+        "emotion": "warm",
+        "steps": [
+          "Comment BOT",
+          "DM mein checklist bhejunga",
+          "taaki aap fit check kar saken"
+        ],
+        "facts": [
+          "f3"
+        ]
+      }
+    ],
+    "cta": "Comment BOT, main aapko WhatsApp reply bot ke liye das essential questions ki checklist DM karunga, taaki aap jaan sakte hain ki yeh aapke cafe ke liye fit hai ya nahi.",
+    "linkedin_english": "Many small businesses lose WhatsApp leads because they can't reply quickly. An AI chatbot can automatically answer enquiries, ask for name and number, and store them in a CRM. Comment “BOT” to receive a checklist of the essential questions your bot should handle.",
+    "marketing": {
+      "keyword": "BOT",
+      "gets": "a one-page checklist: the 10 questions a WhatsApp reply bot should answer for your business, so you can see if it fits",
+      "pillar": "educate"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "55% of WhatsApp leads arrived without a mobile number, making it hard to follow up.",
+        "figure": "55%",
+        "source": "interconnecta.com",
+        "title": "Implementation of the Month: How a University in Lima Captures WhatsApp Leads That Arrive Without a Phone Number Using AI and Zoho –...",
+        "url": "https://interconnecta.com/insights/implementation-of-the-month-nov26/",
+        "date": "2026-11-07",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "WhatsApp chats are not a database, so businesses should copy essential details like name and number into a shared sheet or CRM.",
+        "figure": null,
+        "source": "darshinnovations.in",
+        "title": "How can businesses organise WhatsApp enquiries? Darsh Innovations",
+        "url": "https://www.darshinnovations.in/blog/organise-whatsapp-enquiries",
+        "date": "2026-10-10",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Using quick replies that ask the two or three essential questions you always need answered helps capture name and contact number early in the conversation.",
+        "figure": "two or three",
+        "source": "darshinnovations.in",
+        "title": "How can businesses organise WhatsApp enquiries? Darsh Innovations",
+        "url": "https://www.darshinnovations.in/blog/organise-whatsapp-enquiries",
+        "date": "2026-10-10",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "A simple WhatsApp CRM for small businesses should track name and WhatsApp number as core fields.",
+        "figure": null,
+        "source": "kutrimbots.com",
+        "title": "WhatsApp CRM for Indian small businesses: a simple setup — KutrimBots",
+        "url": "https://kutrimbots.com/blog/whatsapp-crm-india",
+        "date": "2026-11-04",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Qualify leads in the first three messages by asking two qualifiers – what the prospect is trying to solve and who will decide – to filter and capture details quickly.",
+        "figure": "two qualifiers",
+        "source": "leadmanagement.co.in",
+        "title": "WhatsApp lead capture: turning conversations into qualified pipeline LeadManagement",
+        "url": "https://leadmanagement.co.in/blog/whatsapp-lead-capture-guide/",
+        "date": "2026-04-28",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "WhatsApp chat lists are sorted by the latest message, not by buyer readiness, causing hot leads to sink below newer chats and leading to missed follow‑ups and missing information.",
+        "figure": null,
+        "source": "kutrimbots.com",
+        "title": "WhatsApp CRM for Indian small businesses: a simple setup — KutrimBots",
+        "url": "https://kutrimbots.com/blog/whatsapp-crm-india",
+        "date": "2026-11-04",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Pre‑filling the initial WhatsApp message with context (e.g., \"Hi, I'd like a quote for {product}\") tells the sales team the prospect’s intent before the chat starts.",
+        "figure": null,
+        "source": "leadmanagement.co.in",
+        "title": "WhatsApp lead capture: turning conversations into qualified pipeline LeadManagement",
+        "url": "https://leadmanagement.co.in/blog/whatsapp-lead-capture-guide/",
+        "date": "2026-04-28",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "Switching from personal WhatsApp to the free WhatsApp Business app provides a business profile, labels, quick replies, and greeting messages that help structure enquiries and capture contact details.",
+        "figure": null,
+        "source": "darshinnovations.in",
+        "title": "How can businesses organise WhatsApp enquiries? Darsh Innovations",
+        "url": "https://www.darshinnovations.in/blog/organise-whatsapp-enquiries",
+        "date": "2026-10-10",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "Why do most of your WhatsApp enquiries end without a name or contact number?",
+    "service": "chatbot",
+    "keyword": "BOT",
+    "notes": [
+      "style remark (not blocking): cta: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Comment BOT, main aapko WhatsApp reply bot ke liye das essen\""
+    ]
+  },
+  "script_style": "pain-poke-fix",
+  "structure": {
+    "structure": "retention-v2",
+    "vertical": "restaurant",
+    "context_first": true,
+    "rehook": true,
+    "open_loops": 2,
+    "style": "pain-poke-fix",
+    "hook_formula": "surprise",
+    "series": false,
+    "words": 150
+  },
+  "posts": {
+    "instagram": "WHATSAPP LEAD AAYA LEKIN NUMBER NAHI MILTA? KYON?\n→ Bot pehle naam aur number poochta hai, phir requirement.\n→ Har detail save hoti hai, enquiries miss hone ke chances kam ho jate hain. 💬\n→ Aapko baar baar message karke details nahi mangni padengi.\nComment 𝗕𝗢𝗧, main aapko WhatsApp bot checklist DM karunga. 📱\n\n#SmallBusinessIndia #WhatsAppBusiness #LeadGeneration #ChatbotIndia #IndiaBusiness",
+    "linkedin": "My content system once read “24x7” as “24 x 7.”\n\nIt sounded wrong. I kept listening to the recordings.\n\nSome amounts ran into the next word. “4K” became “4 thousand.” “show/hide” turned into nonsense and I noted them all.\n\nI built a pronunciation list. Now every script is checked for words the voice would say wrong before it is recorded. I do not skip this step, every time.\n\nI used to record first and fix later. Now I check first. It takes longer and sounds right every time.\n\nThe voice does not forgive small mistakes. I am still working it out. If you build things, I would be glad to connect.",
+    "bluesky": "Many WhatsApp enquiries miss a name or number, often because the flow doesn’t ask for them. I build flows that capture name, number and requirement in the first three messages. DM BOT for a quick fit check. #SmallBusinessIndia"
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi [Name], thanks for messaging. I build AI chatbots that answer customer questions and collect name, number and requirement automatically. What do you want customers to do — call you, WhatsApp you, book a slot or fill a form? Once I know that, I can share the fixed price: INR 2,999 or INR 4,999 plus INR 299/month maintenance. You pay only after you approve the work. Prefer a WhatsApp chat or details here?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Hi [Name], glad the post helped. I build chatbots for any small business that talks to customers on WhatsApp, Instagram or phone — shops, cafes, clinics, salons, coaching centres. What kind of business do you run, and what do customers ask you most often?"
+    },
+    {
+      "if_they_say": "will customers find it annoying to share details?",
+      "reply": "Hi [Name], good question. The bot only asks name and number in the first two or three messages, so it feels like a normal conversation, not a form. What kind of business do you run, and what do customers usually ask you first?"
+    }
+  ],
+  "image": {
+    "prompt": "a matte‑black smartphone with brushed‑metal frame and gold edge, its screen glowing blue, showing a WhatsApp chat with a user bubble and a bot bubble marked by a phone icon. phone rests on upper two‑thirds of a light wooden desk, shot from level, leaving lower 40% clear for headline. cool key light from left front creates a blue rim on the screen, while warm daylight from a nearby window spills amber across the desk, casting shadows. a white ceramic mug sits beside the phone; a blurred window with sheer curtains adds depth. neutral palette with a blue accent, sleek and reassuring. 85 mm lens at f/1.8, shallow depth of field keeps phone sharp, highlighting brushed metal. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-26.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "style": "chat",
+      "headline": "Why do chats end without a number?",
+      "highlight": [
+        "number"
+      ],
+      "sub": "No name. No number.",
+      "chat": [
+        {
+          "side": "left",
+          "text": "I need this one.",
+          "time": "1:47 AM"
+        },
+        {
+          "side": "left",
+          "text": "Can you deliver tomorrow?",
+          "time": "1:49 AM"
+        }
+      ],
+      "cta": "Comment \"BOT\"",
+      "tag": "FOR EVERY SMALL BUSINESS",
+      "chat_overlay": true
+    },
+    "errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ],
+    "style_id": "bright-desk"
+  },
+  "carousel": {
+    "flavor": "script:pain-poke-fix",
+    "fact_id": null,
+    "checked": true,
+    "paths": [
+      "data/media/2026-11-26.jpg",
+      "data/media/2026-11-26-s2.jpg",
+      "data/media/2026-11-26-s3.jpg",
+      "data/media/2026-11-26-s4.jpg",
+      "data/media/2026-11-26-s5.jpg",
+      "data/media/2026-11-26-s6.jpg"
+    ],
+    "alts": [
+      "Cafe owners, ye aapko hairan kar sakta hai: 55% leads bina phone number ke",
+      "Slide 2 of 6: Sirf greeting aur quick replies set karna kaafi nahi lagta?. WhatsApp inbox mein messages aate hain, lekin naam‑number capture nahi hota, isse lead slip ho jati hai.",
+      "Slide 3 of 6: Maine kuch cafes ko message kiya, bahut ne reply nahi kiya. AI bot turant reply dene ki koshish karta hai, ab aap soch rahe hain, kaise?",
+      "Slide 4 of 6: Chatbot ko WhatsApp se jod kar 24x7 reply aur quick questions. Bot turant naam, phone, requirement poochta hai. Example: User: “Quote” → Bot: “Naam?” → “Ravi” → Bot: “Phone?” → “9876543210”. (source: darshinnovations.in)",
+      "Slide 5 of 6: Data automatically CRM ya shared sheet mein sync hota hai. Har lead record ho jati hai, manual entry ki zarurat nahi. Qualify karne ke liye do questions pooch kar lead ready ho jati hai. (source: darshinnovations.in, leadmanagement.co.in, kutrimbots.com)",
+      "Slide 6 of 6: Comment BOT. Main aapko WhatsApp reply bot ke liye 10 essential questions ki checklist DM karunga."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      5
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Cafe owners, ye aapko hairan kar sakta hai: 55% leads bina phone number ke",
+        "body": "Follow‑up mushkil ho jata hai. (source: interconnecta.com)"
+      },
+      {
+        "role": "problem",
+        "headline": "Sirf greeting aur quick replies set karna kaafi nahi lagta?",
+        "body": "WhatsApp inbox mein messages aate hain, lekin naam‑number capture nahi hota, isse lead slip ho jati hai."
+      },
+      {
+        "role": "problem",
+        "headline": "Maine kuch cafes ko message kiya, bahut ne reply nahi kiya",
+        "body": "AI bot turant reply dene ki koshish karta hai, ab aap soch rahe hain, kaise?"
+      },
+      {
+        "role": "solution",
+        "headline": "Chatbot ko WhatsApp se jod kar 24x7 reply aur quick questions",
+        "body": "Bot turant naam, phone, requirement poochta hai. Example: User: “Quote” → Bot: “Naam?” → “Ravi” → Bot: “Phone?” → “9876543210”. (source: darshinnovations.in)"
+      },
+      {
+        "role": "solution",
+        "headline": "Data automatically CRM ya shared sheet mein sync hota hai",
+        "body": "Har lead record ho jati hai, manual entry ki zarurat nahi. Qualify karne ke liye do questions pooch kar lead ready ho jati hai. (source: darshinnovations.in, leadmanagement.co.in, kutrimbots.com)"
+      },
+      {
+        "role": "cta",
+        "headline": "Comment BOT",
+        "body": "Main aapko WhatsApp reply bot ke liye 10 essential questions ki checklist DM karunga."
+      }
+    ],
+    "scene_prompts": {
+      "2": "Slender hands hold a matte‑black smartphone whose screen emits a soft‑blue glow of WhatsApp chat bubbles, each hinting at a missing contact icon. The phone hovers above a light wooden desk, filling the upper 55 % of the frame, captured from a slightly elevated eye‑level view, while the lower 45 % fades into a smooth dark area for text. Cool daylight streams from a left window, rim‑lighting the phone and casting soft shadows. In the foreground a brushed‑metal laptop with a dark glowing interface rests on the desk. Warm wood and muted gray dominate, punctuated by a soft‑blue accent, conveying focused determination. Shot with an 85 mm lens at f/1.8, shallow depth of field renders the phone glass crisp and dust motes catch the light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "3": "a matte‑black laptop with a dark glowing screen, its keyboard tapped by hands, a smartphone beside it showing a coffee‑cup icon with blue notification glow, and blue AI sphere hovering over display. the laptop and hands occupy upper 55% of frame at eye level, leaving lower 45% calm and dark for text. daylight from left window casts shadows, while AI sphere and phone emit a blue rim light outlining hands. a light wooden desk anchors foreground, devices in midground, and a blurred pastel wall behind. wood and matte‑black tones with a soft‑blue accent, feeling focused and hopeful. 85mm lens at f/1.8, shallow depth of field, laptop surface, glass reflections on phone, dust catching glow. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "4": "A person seen from behind in silhouette sits at a light wooden desk, right hand on a matte-black laptop with a dark screen glowing soft blue, left hand holding a smartphone radiating the same blue light, while a small translucent soft-blue speech-bubble shape floats above the phone. The subject fills the upper 55% from an eye-level angle, leaving lower 45% calm, dark, and blurred. Cool neutral daylight from a side window keys the scene, a blue rim light traces the shoulders and laptop edge, casting shadows. Foreground brushed wood grain, midground laptop and phone, background blurred neutral room with window glow and dust. Soft blue accent, warm wood, charcoal, cream; calm, organised, relieved mood. 85mm lens at f/1.8, shallow depth of field, glass reflections, matte metal, dust in light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "5": "A person seen from behind sits at a light oak desk, shoulders relaxed, hands resting on a matte-black laptop with a softly glowing dark interface. A thin soft-blue luminous ribbon rises from the keyboard and drifts upward like data syncing to a shared sheet. The subject occupies the upper 55% of the frame from a slightly above eye-level angle, leaving the lower 45% calm, dark and uncluttered. Soft natural daylight from a high window is the key light, cool and even, with a gentle rim light tracing the silhouette and a soft blue accent glow from the ribbon. The background is a blurred neutral wall. Palette: warm oak, matte black, charcoal, soft blue accent, calm and relieved. Shot on an 85mm lens at f/1.8, shallow depth of field. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": []
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "linkedin_mode": "story",
+  "linkedin_topic": "24x7",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Instagram post contains absolute outcome claim 'koi enquiry khooti nahi hai' which guarantees no enquiries are lost.",
+      "Bluesky post contains absolute claim 'Most WhatsApp enquiries end without a name or number' without citing a source.",
+      "Bluesky post makes a statistical claim without providing a source, violating the rule for statistics."
+    ],
+    "revised": {
+      "instagram": "**WHATSAPP LEAD AAYA LEKIN NUMBER NAHI MILTA? KYON?\n→ Bot pehle naam aur number poochta hai, phir requirement.\n→ Har detail save hoti hai, enquiries miss hone ke chances kam ho jate hain. 💬\n→ Aapko baar baar message karke details nahi mangni padengi.\nComment **BOT**, main aapko WhatsApp bot checklist DM karunga. 📱\n\n#SmallBusinessIndia #WhatsAppBusiness #LeadGeneration #ChatbotIndia #IndiaBusiness",
+      "bluesky": "Many WhatsApp enquiries miss a name or number, often because the flow doesn’t ask for them. I build flows that capture name, number and requirement in the first three messages. DM BOT for a quick fit check. #SmallBusinessIndia"
+    }
+  },
+  "sources": [
+    {
+      "title": "WhatsApp",
+      "url": "https://tavily.com/knowledge/company/1sPw42GqnpEX",
+      "domain": "tavily.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "How can businesses organise WhatsApp enquiries? Darsh Innovations",
+      "url": "https://www.darshinnovations.in/blog/organise-whatsapp-enquiries",
+      "domain": "darshinnovations.in",
+      "date": "2026-10-10",
+      "provider": "exa"
+    },
+    {
+      "title": "WhatsApp CRM for Indian small businesses: a simple setup — KutrimBots",
+      "url": "https://kutrimbots.com/blog/whatsapp-crm-india",
+      "domain": "kutrimbots.com",
+      "date": "2026-11-04",
+      "provider": "exa"
+    },
+    {
+      "title": "WhatsApp lead capture: turning conversations into qualified pipeline LeadManagement",
+      "url": "https://leadmanagement.co.in/blog/whatsapp-lead-capture-guide/",
+      "domain": "leadmanagement.co.in",
+      "date": "2026-04-28",
+      "provider": "exa"
+    },
+    {
+      "title": "WhatsApp Enquiry Flows for Indian B2B Websites: What Works and What Gets Ignored Buddhiworks",
+      "url": "https://buddhiworks.com/blog/whatsapp-enquiry-flows-for-indian-b2b-websites",
+      "domain": "buddhiworks.com",
+      "date": "2026-11-16",
+      "provider": "exa"
+    },
+    {
+      "title": "Implementation of the Month: How a University in Lima Captures WhatsApp Leads That Arrive Without a Phone Number Using AI and Zoho –...",
+      "url": "https://interconnecta.com/insights/implementation-of-the-month-nov26/",
+      "domain": "interconnecta.com",
+      "date": "2026-11-07",
+      "provider": "exa"
+    },
+    {
+      "title": "Consulate General of Canada in New York, United States",
+      "url": "https://www.international.gc.ca/country-pays/us-eu/new_york.aspx?lang=eng",
+      "domain": "international.gc.ca",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "The Business Cost of Inaction WhatsApp for Business",
+      "url": "https://whatsappbusiness.com/resources/resource-library/the-business-cost-of-inaction/",
+      "domain": "whatsappbusiness.com",
+      "date": "2026-11-06",
+      "provider": "exa"
+    }
+  ],
+  "humanizer": {
+    "model": "openai/gpt-oss-20b",
+    "platforms": {
+      "instagram": {
+        "status": "skipped",
+        "reason": "body under 30 words"
+      },
+      "bluesky": {
+        "status": "skipped",
+        "reason": "body under 30 words"
+      }
+    }
+  },
+  "ad_score": 9,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 1.5,
+        "breakout_probability": 0.0,
+        "reach_p10": 351.0,
+        "reach_p50": 714.0,
+        "reach_p90": 1541.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'exclusion (language)', 'severity': 'medium', 'description': 'The content is written entirely in Hindi, whi"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 5.0,
+          "educational": 5.0,
+          "novelty": 3.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 5.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 352,
+            "share": 3,
+            "like": 4,
+            "reply": 2
+          },
+          "engagement_rate": 0.0249,
+          "by_role": {
+            "public": {
+              "n": 9,
+              "avg_sentiment": 0.567,
+              "share_rate": 0.333
+            }
+          },
+          "cascade_size": 4,
+          "r_effective": 1.25,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 3.4
+          },
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 3.3
+          },
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.3
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 10.4,
+        "breakout_probability": 0.002,
+        "reach_p10": 493.0,
+        "reach_p50": 994.0,
+        "reach_p90": 2251.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 3.0,
+          "curiosity": 5.0,
+          "educational": 7.0,
+          "novelty": 4.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 4.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Give readers a next step",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 352,
+            "reply": 6,
+            "share": 5,
+            "like": 3
+          },
+          "engagement_rate": 0.0383,
+          "by_role": {
+            "public": {
+              "n": 14,
+              "avg_sentiment": 0.743,
+              "share_rate": 0.357
+            }
+          },
+          "cascade_size": 6,
+          "r_effective": 1.125,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 25,
+          "reach_fraction": 0.035,
+          "r_effective": 0.7861,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 9.9,
+        "breakout_probability": 0.0,
+        "reach_p10": 193.0,
+        "reach_p50": 399.0,
+        "reach_p90": 850.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 0,
+          "relatability": 2.0,
+          "practical_value": 4.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 362,
+            "share": 1,
+            "like": 1
+          },
+          "engagement_rate": 0.0055,
+          "by_role": {
+            "public": {
+              "n": 2,
+              "avg_sentiment": 0.86,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 5,
+          "reach_fraction": 0.007,
+          "r_effective": 0.0,
+          "polarization": 0.481,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "mistake",
+          "p_beats_chosen": 0.89,
+          "lift_pct": 1.1,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "myth",
+          "p_beats_chosen": 0.32,
+          "lift_pct": -0.2,
+          "decisive": false
+        }
+      ],
+      "better": 1,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "marketing and content disagreed",
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Replace checklist offer with 'DM BOT for a quick chat on whether a chatbot fits your business'; write hook in Hinglish",
+      "linkedin: Add DM line with keyword (e.g., 'DM CHATBOT to discuss') and rewrite body to show relevant work like chatbot or lead gen flow without claiming a demo",
+      "bluesky: Capitalize hook line; replace checklist offer with 'DM BOT for a quick chat'"
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 9.7,
+      "bluesky": 0.0
+    },
+    "after": {
+      "instagram": 1.5,
+      "linkedin": 10.4,
+      "bluesky": 9.9
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "google:gemma-4-26b-a4b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 429)",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 413)",
+      "FAILED groq: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "FAILED google:gemma-4-26b-a4b-it (HTTP 503)",
+      "FAILED gemma: all its models"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 27.4,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 35.3,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7988, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7987, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5125, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4798, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6580, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7987, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3028, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 2690, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.3,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8571, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4248, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5612, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7048, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7981, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7764, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7462, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5222, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6075, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6347, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.3,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8532, please reduce your message size and try again. Need more tokens? Upgrad"
+      }
+    ]
+  }
+}

@@ -27,3 +27,7 @@ Actions tab > **Redo LinkedIn post** > Run workflow. It replaces ONLY the Linked
 - Tapping Approve posts whatever is in the saved draft at that moment, and a run that is still waiting holds an OLD copy. So the redo first **stops those waiting runs** (Daily draft and Approve and publish), waits for them to finish saving, writes the new post, gives the draft a **new id**, and starts a fresh listener. The Approve button on the earlier message then refuses to act ("older draft"), so it can never post the old text.
 - If the writer cannot produce a post that passes the checks, nothing changes, the earlier buttons still work, and a listener is started again.
 - The new post comes from the same writer, facts file and gate as the daily one (`src/relinkedin.py`, test: `tests/relinkedin_test.py`).
+
+## Context first (added after a post got 136 impressions)
+
+A post named "my content system" and never said what it is. Now `config/about_me.json` has `terms`: a plain-words description of each thing you built. The writer is told to explain a named thing in one plain sentence within the first two paragraphs, and the gate rejects a post that names one (content system, Lead Finder, LocalSignal, pronunciation list) without the cues that explain it. The stories that use them also start by saying what the thing is. Add a term there when you build something new.

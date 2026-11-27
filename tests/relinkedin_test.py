@@ -11,7 +11,7 @@ config.DRAFTS.mkdir()
 SL.STATE = TMP / "script_lessons.json"
 OLD = "Many small business ads on Instagram look the same.\n\nI build short animated ads for small businesses.\n\nPayment happens only after you approve. DM ADS and tell me what you sell."
 INTRO = ("I am Anmol, and my content system once read “24x7” as “24 times 7.”\n\n"
-         "I only noticed because the voiceover sounded strange. The script was fine, but the voice said the symbol the way it was written.\n\n"
+         "It is a program that writes short videos, reads them out in an AI voice and posts them every day. I only noticed because the voiceover sounded strange. The script was fine, but the voice said the symbol the way it was written.\n\n"
          "So I went looking and found more. A price ran into the next word. “4K” became “4 thousand”. A slash turned a short phrase into nonsense.\n\n"
          "I built a pronunciation list from those mistakes, and now every script is checked for words the voice would say wrong before anything is recorded.\n\n"
          "It is a small fix, but it taught me something: a system that talks has to be checked by listening, not only by reading.\n\n"

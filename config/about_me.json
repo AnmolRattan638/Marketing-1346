@@ -1,5 +1,5 @@
 {
-  "_help": "The ONLY facts the LinkedIn writer may use about Anmol. Edit freely: change a sentence, delete a topic, add one. Anything not written here will never be claimed in a post. Topics marked check_me were written from what you told me in chat, so read them first. No prices, no client names, no results you cannot show.",
+  "_help": "The ONLY facts the LinkedIn writer may use about Anmol. Edit freely: change a sentence, delete a topic, add one. Anything not written here will never be claimed in a post. Topics marked check_me were written from what you told me in chat, so read them first. No prices, no client names, no results you cannot show. 'terms' = plain-words descriptions of the things you built: whenever a post uses one of these names, it must explain it near the start (the gate checks that every group in 'needs' has one of its words in the first two paragraphs).",
   "who": {
     "name": "Anmol Rattan",
     "title": "Founder, AR Designs",
@@ -46,37 +46,214 @@
     }
   },
   "goals": {
-    "meet": ["founders", "agency owners", "other builders"],
-    "open_to": ["freelance projects", "collaborations", "partnerships", "learning from others"],
+    "meet": [
+      "founders",
+      "agency owners",
+      "other builders"
+    ],
+    "open_to": [
+      "freelance projects",
+      "collaborations",
+      "partnerships",
+      "learning from others"
+    ],
     "tone": "Friendly and curious."
   },
   "offer": "I build websites for small businesses, AI chatbots and lead generation tools, and I am open to freelance projects, collaborations and partnerships.",
   "topics": [
-    {"id": "24x7", "mode": "story",
-     "facts": ["My content system's voice read '24x7' as '24 x 7' instead of 'twenty four by seven'.", "Looking into it, I found more words and symbols the voice got wrong: prices that ran into the next word, '4K' read as '4 thousand', 'show/hide' turned into nonsense.", "I built a pronunciation list, and now every script is checked for words the voice would say wrong before it is recorded."]},
-    {"id": "rejects-itself", "mode": "story",
-     "facts": ["My content system rejects its own scripts when they break a rule.", "Each rejection is saved as a lesson with the exact mistake: what was written, where, and why it failed.", "The next attempt reads that lesson, and if a run fails, it starts again by itself."]},
-    {"id": "ignored-outreach", "mode": "story", "check_me": true,
-     "facts": ["My outreach to hotel and business owners was mostly ignored.", "It looked like a problem with my message, not my product, because I led with what I build.", "I am now trying to open with the owner's problem instead."]},
-    {"id": "too-many-follow-ups", "mode": "story", "check_me": true,
-     "facts": ["I messaged warm leads again within hours or days, and several conversations went cold.", "I know the rule: one follow-up after a day or two, one last one after three days, then stop.", "I still break it when I get excited about a lead."]},
-    {"id": "tool-to-platform", "mode": "story",
-     "facts": ["I built Lead Finder for my own outreach.", "Then I turned it into a platform, LocalSignal, where anyone picks what they sell and where, and gets leads by email.", "So far I am the only user."]},
-    {"id": "lead-finder-checks", "mode": "build", "built": "lead_finder"},
-    {"id": "localsignal", "mode": "build", "built": "localsignal"},
-    {"id": "content-system", "mode": "build", "built": "content_system"},
-    {"id": "verify-leads", "mode": "question",
-     "facts": ["I check that a lead is real before I message it: the listing is open, the phone number works, the website is live and the email domain receives mail.", "I still wonder what other checks people trust."]},
-    {"id": "name-a-client", "mode": "question",
-     "facts": ["I built a website for a client and I would like to mention it publicly.", "I am not sure how builders ask a client for permission to name them."]},
-    {"id": "cold-opener", "mode": "question", "check_me": true,
-     "facts": ["Messages that open with what I sell tend to be ignored.", "I am looking for better ways to open a first message to a business owner."]},
-    {"id": "who-i-am", "mode": "intro",
-     "facts": ["I am Anmol, founder of AR Designs, based in Himachal Pradesh.", "I build websites, AI tools and lead generation systems for small businesses.", "I have about a year of hands-on work behind me, and I am looking to meet people who build things."]}
+    {
+      "id": "24x7",
+      "mode": "story",
+      "facts": [
+        "I run an automated content system: it writes short videos, reads them out in an AI voice and posts them every day.",
+        "My content system's voice read '24x7' as '24 x 7' instead of 'twenty four by seven'.",
+        "Looking into it, I found more words and symbols the voice got wrong: prices that ran into the next word, '4K' read as '4 thousand', 'show/hide' turned into nonsense.",
+        "I built a pronunciation list, and now every script is checked for words the voice would say wrong before it is recorded."
+      ]
+    },
+    {
+      "id": "rejects-itself",
+      "mode": "story",
+      "facts": [
+        "I run an automated content system: it writes short videos, reads them out in an AI voice and posts them every day.",
+        "My content system rejects its own scripts when they break a rule.",
+        "Each rejection is saved as a lesson with the exact mistake: what was written, where, and why it failed.",
+        "The next attempt reads that lesson, and if a run fails, it starts again by itself."
+      ]
+    },
+    {
+      "id": "ignored-outreach",
+      "mode": "story",
+      "check_me": true,
+      "facts": [
+        "My outreach to hotel and business owners was mostly ignored.",
+        "It looked like a problem with my message, not my product, because I led with what I build.",
+        "I am now trying to open with the owner's problem instead."
+      ]
+    },
+    {
+      "id": "too-many-follow-ups",
+      "mode": "story",
+      "check_me": true,
+      "facts": [
+        "I messaged warm leads again within hours or days, and several conversations went cold.",
+        "I know the rule: one follow-up after a day or two, one last one after three days, then stop.",
+        "I still break it when I get excited about a lead."
+      ]
+    },
+    {
+      "id": "tool-to-platform",
+      "mode": "story",
+      "facts": [
+        "Lead Finder is a tool that finds local businesses on Google Maps and checks that they are real.",
+        "I built Lead Finder for my own outreach.",
+        "Then I turned it into a platform, LocalSignal, where anyone picks what they sell and where, and gets leads by email.",
+        "So far I am the only user."
+      ]
+    },
+    {
+      "id": "lead-finder-checks",
+      "mode": "build",
+      "built": "lead_finder"
+    },
+    {
+      "id": "localsignal",
+      "mode": "build",
+      "built": "localsignal"
+    },
+    {
+      "id": "content-system",
+      "mode": "build",
+      "built": "content_system"
+    },
+    {
+      "id": "verify-leads",
+      "mode": "question",
+      "facts": [
+        "I check that a lead is real before I message it: the listing is open, the phone number works, the website is live and the email domain receives mail.",
+        "I still wonder what other checks people trust."
+      ]
+    },
+    {
+      "id": "name-a-client",
+      "mode": "question",
+      "facts": [
+        "I built a website for a client and I would like to mention it publicly.",
+        "I am not sure how builders ask a client for permission to name them."
+      ]
+    },
+    {
+      "id": "cold-opener",
+      "mode": "question",
+      "check_me": true,
+      "facts": [
+        "Messages that open with what I sell tend to be ignored.",
+        "I am looking for better ways to open a first message to a business owner."
+      ]
+    },
+    {
+      "id": "who-i-am",
+      "mode": "intro",
+      "facts": [
+        "I am Anmol, founder of AR Designs, based in Himachal Pradesh.",
+        "I build websites, AI tools and lead generation systems for small businesses.",
+        "I have about a year of hands-on work behind me, and I am looking to meet people who build things."
+      ]
+    }
   ],
   "never_say": {
-    "phrases": ["Old British House", "oldbritishhouse", "Ratty", "Pariksha", "3+ years", "3 years", "three years", "student", "college", "university", "github.com", "job offer", "job proposal", "turned down", "declined the offer", "40%", "pay after", "payment only", "DM me", "DM "],
-    "notes": ["No prices, revenue or percentage-improvement figures.", "No client results I cannot show.", "No client name or web address.", "No PM visit or CM award.", "Never present the 153 sample pages as websites built for clients."]
+    "phrases": [
+      "Old British House",
+      "oldbritishhouse",
+      "Ratty",
+      "Pariksha",
+      "3+ years",
+      "3 years",
+      "three years",
+      "student",
+      "college",
+      "university",
+      "github.com",
+      "job offer",
+      "job proposal",
+      "turned down",
+      "declined the offer",
+      "40%",
+      "pay after",
+      "payment only",
+      "DM me",
+      "DM "
+    ],
+    "notes": [
+      "No prices, revenue or percentage-improvement figures.",
+      "No client results I cannot show.",
+      "No client name or web address.",
+      "No PM visit or CM award.",
+      "Never present the 153 sample pages as websites built for clients."
+    ]
   },
-  "rules": {"pitch_max_share": 0.3, "pitch_one_post_in": 5}
+  "rules": {
+    "pitch_max_share": 0.3,
+    "pitch_one_post_in": 5
+  },
+  "terms": {
+    "content system": {
+      "say": "An automated system that writes short videos and posts for me, reads them out in an AI voice, and posts them every day.",
+      "needs": [
+        [
+          "writes",
+          "makes",
+          "creates"
+        ],
+        [
+          "posts",
+          "publishes",
+          "uploads"
+        ]
+      ]
+    },
+    "lead finder": {
+      "say": "A tool that finds local businesses on Google Maps and checks that they are real.",
+      "needs": [
+        [
+          "finds",
+          "searches"
+        ],
+        [
+          "businesses",
+          "leads"
+        ]
+      ]
+    },
+    "localsignal": {
+      "say": "A platform where someone says what they sell and where, and gets matching leads by email every day.",
+      "needs": [
+        [
+          "leads"
+        ],
+        [
+          "platform",
+          "tool",
+          "service"
+        ]
+      ]
+    },
+    "pronunciation list": {
+      "say": "A list of words and symbols the AI voice says wrongly, with how each should be said.",
+      "needs": [
+        [
+          "list"
+        ],
+        [
+          "voice"
+        ],
+        [
+          "say",
+          "says",
+          "said",
+          "wrong"
+        ]
+      ]
+    }
+  }
 }

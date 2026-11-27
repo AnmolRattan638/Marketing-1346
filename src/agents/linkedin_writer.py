@@ -40,6 +40,9 @@ TOPIC FACTS (the heart of the post; use them and add nothing that is not here):
 {offer}
 {HOOKS}
 {pic}
+CONTEXT FIRST: assume the reader has never heard of anything you built. The first time you name one of these, explain it in one plain sentence within the first two paragraphs, BEFORE the point of the story. The first line may be curious, but the second or third line must make clear who is talking and what the thing is.
+PLAIN DESCRIPTIONS you may use: {json.dumps({k: v["say"] for k, v in (fx.get("terms") or {}).items()}, ensure_ascii=False)}
+
 SHAPE: {story.MIN_WORDS} to {story.MAX_WORDS} words. First line = the hook. Then 3 to 5 short paragraphs (1 to 3 sentences each), a blank line between them. First person ("I", "my"). Plain English, short sentences, concrete detail.
 End with a calm line that invites people who build things to connect, or with the question. No hashtags, no links, no exclamation marks, no percentages, at most one emoji.
 BANNED: DM, prices, 'pay after approval', discounts, urgency, 'game changer', hire-me language, client names, any number or count that is not in the facts above, claims about results.

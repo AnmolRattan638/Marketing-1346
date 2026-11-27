@@ -122,6 +122,13 @@ def problems(text: str, mode: str, fx: dict, pitch=()) -> list[str]:
     m = COUNT_CLAIM.search(text)
     if m:
         out.append(f"linkedin[numbers]: \"{m[0]}\" claims a count of clients or customers that is not in the facts file; remove it")
+    for term, spec in (fx.get("terms") or {}).items():       # a name the reader has never heard of must be explained near the start, in plain words
+        for i, para in enumerate(paras):
+            if re.search(r"(?<![A-Za-z])" + re.escape(term) + r"(?![A-Za-z])", para, re.I):
+                window = " ".join(paras[: i + 2]).lower()
+                if not all(any(k in window for k in group) for group in spec["needs"]):
+                    out.append(f"linkedin[context]: the post says \"{term}\" but never says what it is; a reader who has never heard of it is lost. Within the first two paragraphs add one plain sentence about it, for example: \"{spec['say']}\"")
+                break
     if mode == "question" and not text.rstrip().endswith("?"):
         out.append("linkedin[shape]: a question post must end with its question (the last line ends with a question mark)")
     if mode == "intro" and "Anmol" not in text:

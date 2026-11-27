@@ -19,6 +19,7 @@ SEED = [
 ]
 RULES = [
     (r"linkedin\[pitchy\]", "linkedin-pitchy", "LinkedIn is personal, not an ad: no DM, price, 'pay after approval', discount, urgency or hire-me language; say it in plain words."),
+    (r"linkedin\[context\]", "linkedin-context", "Assume the reader has never heard of anything you built: the first time you name it (content system, Lead Finder, LocalSignal, the voice), say in one plain sentence what it is and does, within the first two paragraphs, before the story's point."),
     (r"linkedin\[hook\]", "linkedin-hook", "The first line must be one curious sentence of 18 words or fewer that starts with a specific true detail, an admission or a real question; never 'Small businesses...' or another generic opener."),
     (r"linkedin\[never\]", "linkedin-never", "Never write a phrase the facts file bans (client names, student, years of experience, job offers, DM)."),
     (r"linkedin\[numbers\]", "linkedin-numbers", "Use only numbers that are written in the facts file, and never claim a count of clients or customers."),

@@ -8,7 +8,7 @@ from src.agents import linkedin_writer as lw
 fx = ls.facts()
 SL.STATE = pathlib.Path(tempfile.mkdtemp()) / "lessons.json"
 GOOD = ("My content system once read “24x7” as “24 times 7.”\n\n"
-        "I only noticed because the voiceover sounded strange. The script was fine, but the voice said the symbol the way it was written.\n\n"
+        "It is a program that writes short videos, reads them out in an AI voice and posts them every day. I only noticed because the voiceover sounded strange. The script was fine, but the voice said the symbol the way it was written.\n\n"
         "So I went looking and found more. A price ran into the next word. “4K” became “4 thousand”. A slash turned a short phrase into nonsense.\n\n"
         "I built a pronunciation list from those mistakes, and now every script is checked for words the voice would say wrong before anything is recorded.\n\n"
         "It is a small fix, but it taught me something: a system that talks has to be checked by listening, not only by reading.\n\n"
@@ -50,6 +50,19 @@ assert "\"Ratty\"" in reason and reason.startswith("linkedin[never]:"), reason
 for line in ("The client pays only after approving the work.", "Payment happens only after you approve the final clip.", "You pay after you approve it.", "Pay once approved."):
     assert "pitchy" in tags(GOOD.replace("connect", "connect. " + line)), line          # the phrases from the post that slipped through before
 assert tags(GOOD.replace("connect", "connect. I paid for the domain after testing it")) == [], "ordinary words are not flagged"
+# 2b. context: the post that got 136 impressions named "my content system" and never said what it is
+REAL = ("My content system once read “24x7” as “24 x 7.”\n\nIt sounded wrong. I kept listening to the recordings.\n\nSome amounts ran into the next word. “4K” became “4 thousand.” “show/hide” turned into nonsense and I noted them all.\n\n"
+        "I built a pronunciation list. Now every script is checked for words the voice would say wrong before it is recorded. I do not skip this step, every time.\n\nI used to record first and fix later. Now I check first. It takes longer and sounds right every time.\n\n"
+        "The voice does not forgive small mistakes. I am still working it out. If you build things, I would be glad to connect.")
+assert "context" in tags(REAL), tags(REAL)
+assert [p for p in ls.problems(REAL, "story", fx) if "[context]" in p][0].count("content system") == 1 and "writes short videos" in ls.problems(REAL, "story", fx)[0] + " ".join(ls.problems(REAL, "story", fx))
+assert "context" not in tags(GOOD), "explained in the second paragraph: fine"
+assert "context" in tags(GOOD.replace("It is a program that writes short videos, reads them out in an AI voice and posts them every day. ", "")), "remove the explanation and it fails"
+assert "context" in tags(GOOD.replace("My content system", "Our Lead Finder").replace("It is a program that writes short videos, reads them out in an AI voice and posts them every day. ", "")), "every named thing needs its explanation"
+assert "context" not in tags(GOOD.replace("My content system", "My small program").replace("It is a program that writes short videos, reads them out in an AI voice and posts them every day. ", "")), "no named thing, nothing to explain"
+for tid in ("24x7", "rejects-itself", "tool-to-platform"):
+    assert any("automated content system" in f or "Lead Finder is a tool" in f for f in ls.topic_facts(fx, tid)["facts"][:1]), tid     # those stories start by saying what the thing is
+assert "CONTEXT FIRST" in lw.prompt(fx, "story", "24x7") and "writes short videos" in lw.prompt(fx, "story", "24x7")
 # 3. a pitch day: the offer is declared word for word and is at most 30% of the post
 offer = "I build websites for small businesses and I am open to freelance projects."
 pitch_post = GOOD + "\n\n" + offer

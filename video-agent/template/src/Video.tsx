@@ -12,6 +12,7 @@ import GraphicScene from "./sequences/GraphicScene";
 import { LogoBug } from "./components/LogoBug";
 import { applyTheme } from "./graphics/themes";
 import { Presenter } from "./graphics/Presenter";
+import { StageContext } from "./graphics/theme";
 
 // Map of component path (as used in manifest.scenes[].component) to the
 // actual React component. Add entries here as you create new scene files.
@@ -43,7 +44,9 @@ export const Video: React.FC = () => {
     return { scene: s, startFrame, durationFrames: durFrames };
   });
 
+  const stage = ((manifest as any).presenter?.clips ?? []).some((c: any) => c.alpha) ? ((manifest as any).presenter?.frame?.stage ?? 0.66) : 1;
   return (
+    <StageContext.Provider value={stage}>
     <AbsoluteFill>
       {/* Music bed sits at the root so it plays continuously */}
       {manifest.audio.music && (
@@ -84,5 +87,6 @@ export const Video: React.FC = () => {
         </Sequence>
       )}
     </AbsoluteFill>
+    </StageContext.Provider>
   );
 };

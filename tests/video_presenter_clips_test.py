@@ -11,6 +11,7 @@ for n in ("explain_F_01", "explain_F_02", "explain_F_03", "explain_L_01", "expla
     make(n + ".mp4")
 make("notaclip.mp4"); make("explain_X_01.mp4"); make("short_F_01.mp4", 1); make("explain_F_09.mp4", 1)       # wrong names and clips that are too short are ignored
 clips.folder = lambda: d
+clips.FRONT_ONLY = False          # the old behaviour: all angles (the front-only rule is tested at the end)
 lib = clips.library()
 assert len(lib) == 17 and {c.angle for c in lib} == {"F", "L", "R"}, [c.name for c in lib]
 c0 = next(c for c in lib if c.name == "explain_F_01.mp4")
@@ -63,3 +64,24 @@ assert pc["hide"][0] == [0, 75] and pc["hide"][-1][0] == sum(frames)
 assert (avatar.WORK / "avatar" / "clips" / pc["clips"][1]["src"].split("/")[-1]).exists()
 assert avatar.apply([{"graphic": {"layout": "title"}}] * 4, {"avatar": {"enabled": True}}, 30, lambda b: 90) == 0      # no separate still-image scenes with real clips
 print("presenter clips test passed")
+
+
+# front only: with front clips present the side angles are dropped
+clips.FRONT_ONLY = True
+fl = clips.library()
+assert fl and {c.angle for c in fl} == {"F"} and len(fl) == 14, [c.name for c in fl]
+
+# transparent clips (webm with alpha): found first, flagged, the person is on screen in every cut except the logo end, the hook/last scene get him bigger, zoom stays small
+a = pathlib.Path(tempfile.mkdtemp())
+for n in ("explain_F_01", "explain_F_02", "explain_F_03", "hook_F_01", "pointdown_F_01", "idle_F_01", "question_F_01", "but_F_01", "pain_F_01"):
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "color=c=0x101830:s=180x320:d=10:r=30", "-c:v", "libvpx-vp9", "-pix_fmt", "yuva420p", str(a / (n + ".webm"))], check=True)
+clips.folder = lambda: a
+al = clips.library()
+assert len(al) == 9 and all(c.path.suffix == ".webm" for c in al)
+ac = clips.plan(texts, layouts, frames, 30, al, seed="2026-11-21")
+assert all(c.get("alpha") for c in ac) and all(c["zoom"] in clips.ALPHA_ZOOMS for c in ac)
+assert ac[0]["frame"] == "full" and ac[-1]["frame"] == "full" and all(c["frame"] in ("full", "compact") for c in ac), [c["frame"] for c in ac]
+assert max(c["n"] for c in ac) <= 100, "a new clip about every 2.4 s (the call to action is one clean cut of up to 3.3 s)"
+ac2 = clips.plan(["a", "b"], ["title", "logo"], [90, 60], 30, al, seed="x")
+assert ac2[-1]["frame"] == "none", "only the logo end hides him"
+print("presenter clips ok")

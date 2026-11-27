@@ -26,7 +26,9 @@ TYPES = ("explain", "question", "excited", "pointr", "pointl", "pointdown", "lea
 ACTION = {"question", "excited", "pointr", "pointl", "pointdown", "leanin", "pain", "agree", "count", "hook", "but"}   # the gesture is in the middle of the clip
 FALLBACK = {"pointl": ("pointr",), "pointr": ("pointl",), "hook": ("excited", "leanin"), "count": ("agree", "explain"), "but": ("question", "explain"), "pain": ("leanin", "explain"),
             "agree": ("explain",), "excited": ("explain",), "leanin": ("explain",), "question": ("explain",), "pointdown": ("pointr", "explain"), "idle": ("explain",), "explain": ("idle",)}
-NAME = re.compile(r"^(?P<type>[a-z]+)_(?P<angle>[FLR])_(?P<take>\d+)\.mp4$", re.I)
+NAME = re.compile(r"^(?P<type>[a-z]+)_(?P<angle>[FLR])_(?P<take>\d+)\.(?:mp4|webm)$", re.I)
+ALPHA_ZOOMS = (1.0, 1.05, 1.1)    # transparent clips sit in front of the scene: a small punch-in only, a big one would cover the picture
+FRONT_ONLY = True                 # front-facing clips only (side angles look stiff and make the head jump between cuts)
 
 
 @dataclass(frozen=True)
@@ -44,8 +46,8 @@ class Clip:
 
 def folder() -> Path | None:
     """Where the clips are: the private checkout first, then a local folder (tests, or a machine that has them)."""
-    for p in (ROOT / "assets" / "avatar-private" / "clips", ROOT / "assets" / "avatar-private", ROOT / "assets" / "avatar" / "clips"):
-        if p.is_dir() and any(NAME.match(x.name) for x in p.glob("*.mp4")):
+    for p in (ROOT / "assets" / "avatar-private" / "alpha", ROOT / "assets" / "avatar-private" / "clips", ROOT / "assets" / "avatar-private", ROOT / "assets" / "avatar" / "clips"):
+        if p.is_dir() and any(NAME.match(x.name) for x in (*p.glob("*.mp4"), *p.glob("*.webm"))):
             return p
     return None
 
@@ -60,13 +62,15 @@ def _seconds(p: Path) -> float:
 def library() -> list[Clip]:
     f = folder()
     out = []
-    for p in sorted(f.glob("*.mp4")) if f else []:
+    for p in sorted((*f.glob("*.mp4"), *f.glob("*.webm"))) if f else []:
         m = NAME.match(p.name)
         if not m or m["type"].lower() not in TYPES:
             continue
         s = _seconds(p)
         if s >= SLOT / 2 + 2 * EDGE:
             out.append(Clip(p, m["type"].lower(), m["angle"].upper(), int(m["take"]), s))
+    if FRONT_ONLY and any(c.angle == "F" for c in out):
+        out = [c for c in out if c.angle == "F"]
     return out
 
 
@@ -134,7 +138,7 @@ def plan(texts: list[str], layouts: list[str | None], frames: list[int], fps: in
     start = 0
     for i, (text, lay, fr) in enumerate(zip(texts, layouts, frames)):
         secs = fr / fps
-        n_cuts = max(1, -(-int(secs * 10) // 30))              # ceil(secs / 3.0)
+        n_cuts = max(1, -(-int(secs * 10) // 24))              # ceil(secs / 2.4): a new clip (with its punch-in) about every 2.4 s
         if i == len(texts) - 1 and secs <= 4.6:
             n_cuts = 1                                          # the call to action is one clean point-down cut
         want = intent(text, i, len(texts), lay, have)
@@ -157,8 +161,13 @@ def plan(texts: list[str], layouts: list[str | None], frames: list[int], fps: in
             f0 = start + int(k * fr / n_cuts)
             f1 = start + int((k + 1) * fr / n_cuts) if k < n_cuts - 1 else start + fr
             used.add((c.name, s)); uses[(c.name, s)] = uses.get((c.name, s), 0) + 1
-            cuts.append({"f": f0, "n": f1 - f0, "src": c.name, "from": round(s, 3), "rate": round(rate, 3), "zoom": ZOOMS[zi], "angle": c.angle, "type": typ,
-                         "frame": "none" if lay in ("hook", "logo") else ("compact" if lay in FULL or lay is None else "full")})
+            alpha = c.path.suffix.lower() == ".webm"
+            if alpha:         # person + table only: always on screen in front of the scene's own background (only the logo end hides him); the hook and the last scene get him bigger
+                frame = "none" if lay == "logo" else ("full" if (lay in ("hook", "avatar") or i in (0, len(texts) - 1)) else "compact")
+            else:
+                frame = "none" if lay in ("hook", "logo") else ("compact" if lay in FULL or lay is None else "full")
+            cuts.append({"f": f0, "n": f1 - f0, "src": c.name, "from": round(s, 3), "rate": round(rate, 3), "zoom": (ALPHA_ZOOMS if alpha else ZOOMS)[zi], "angle": c.angle, "type": typ,
+                         "frame": frame, **({"alpha": True} if alpha else {})})
             last_clip, last_angle = c.name, c.angle
         start += fr
     return cuts

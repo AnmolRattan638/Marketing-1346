@@ -39,3 +39,8 @@ export interface MockSpec {
 
 // The logo bug sits top-left (config.json -> logo: margin 48/150, size 120 => x 48-168, y 150-270). Motion graphics and effects keep everything below LOGO_SAFE_TOP so nothing is drawn near it.
 export const LOGO_SAFE_TOP = 300;
+
+// With the transparent presenter the scene's picture is the background around him: the content block shrinks into the top zone (above his head), the background stays full-frame.
+import React from "react";
+export const StageContext = React.createContext<number>(1);
+export const STAGE_ORIGIN_Y = LOGO_SAFE_TOP;

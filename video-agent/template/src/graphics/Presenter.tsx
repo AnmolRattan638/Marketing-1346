@@ -7,6 +7,7 @@ export interface VideoCut {
   src: string;                         // the source clip (private library)
   from: number;                        // seconds into the source
   rate: number; zoom: number;
+  alpha?: boolean;                     // a transparent clip (person + table only): drawn in FRONT of the scene's own background, bottom-anchored
   logo?: boolean;                      // your logo sits on the wall behind him for this cut (agent/avatar.py picks a few)
   frame: "full" | "compact" | "none";  // full: big presenter in the lower screen; compact: smaller, under a full-screen picture; none: hook / logo end
 }
@@ -15,7 +16,7 @@ export interface PresenterSpec {
   mode?: "video";                      // real clips of the character (agent/clips.py); without it the round still-image window below is used
   clips?: VideoCut[];
   logo?: string;                       // the logo file for the wall behind him
-  frame?: { fullHeight?: number; compactHeight?: number; objectY?: number };
+  frame?: { fullHeight?: number; compactHeight?: number; objectY?: number; alphaFull?: number; alphaCompact?: number; stage?: number };
   src: string[];                       // the poses (agent/avatar.py stages them)
   energy: number[];                    // voice loudness 0..1 for EVERY frame of the whole reel
   cuts: { f: number; i: number }[];    // from frame f the pose is src[i] (a new pose on every scene and every few seconds, like a camera cut)
@@ -40,13 +41,38 @@ const WallLogo: React.FC<{ src: string }> = ({ src }) => {
   );
 };
 
+// A transparent clip: the person and the table only, bottom-anchored in front of whatever the scene draws, so the scene's picture is the whole background around him.
+// Every cut lands with a quick punch-in and a soft gold flash behind him, which hides the jump between two clips (the head is never in exactly the same place).
+const AlphaCut: React.FC<{ c: VideoCut; full: number; compact: number; fps: number }> = ({ c, full, compact, fps }) => (
+  <Sequence from={c.f} durationInFrames={Math.max(1, c.n)} layout="none"><AlphaInner c={c} full={full} compact={compact} fps={fps} /></Sequence>
+);
+
+const AlphaInner: React.FC<{ c: VideoCut; full: number; compact: number; fps: number }> = ({ c, full, compact, fps }) => {
+  const f = useCurrentFrame();
+  const base = (c.frame === "full" ? full : compact) * c.zoom;
+  const punch = interpolate(f, [0, 7], [1.07, 1], { extrapolateRight: "clamp", easing: (t) => 1 - Math.pow(1 - t, 3) });
+  const flash = interpolate(f, [0, 2, 8], [0, 0.55, 0], { extrapolateRight: "clamp" });
+  const fadeIn = interpolate(f, [0, 3], [0.35, 1], { extrapolateRight: "clamp" });
+  return (
+    <>
+      <AbsoluteFill style={{ background: `radial-gradient(60% 45% at 50% 62%, ${THEME.accent} 0%, transparent 70%)`, opacity: flash * 0.6, mixBlendMode: "screen" }} />
+      <AbsoluteFill style={{ opacity: fadeIn, transform: `scale(${base * punch})`, transformOrigin: "50% 100%",
+        WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%)", maskImage: "linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%)" }}>
+        <OffthreadVideo src={staticFile(c.src)} muted transparent startFrom={Math.round(c.from * fps)} playbackRate={c.rate}
+          style={{ position: "absolute", left: 0, top: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+      </AbsoluteFill>
+    </>
+  );
+};
+
 // The presenter as real clips: the cut under each moment of the reel, in the lower screen, with the top edge melting into the backdrop.
 const VideoPresenter: React.FC<{ spec: PresenterSpec }> = ({ spec }) => {
   const { fps } = useVideoConfig();
   const fr = spec.frame ?? {};
   return (
-    <AbsoluteFill style={{ pointerEvents: "none" }}>
+    <AbsoluteFill style={{ pointerEvents: "none", zIndex: 10 }}>      {/* under the captions (zIndex 30): his body never hides a spoken word */}
       {(spec.clips ?? []).filter((c) => c.frame !== "none").map((c, i) => {
+        if (c.alpha) return <AlphaCut key={i} c={c} full={fr.alphaFull ?? 0.66} compact={fr.alphaCompact ?? 0.6} fps={fps} />;
         const h = c.frame === "full" ? fr.fullHeight ?? 1160 : fr.compactHeight ?? 680;
         return (
           <Sequence key={i} from={c.f} durationInFrames={Math.max(1, c.n)} layout="none">

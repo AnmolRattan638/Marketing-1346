@@ -3003,7 +3003,41 @@
         "comments": 0,
         "shares": 1
       }
+    },
+    "2026-11-25|bluesky": {
+      "date": "2026-11-25",
+      "platform": "bluesky",
+      "service": "reel_scripts",
+      "problem_id": "not-knowing-what-to-say-on-camera-and-st",
+      "angle_type": "mistake",
+      "hook_style": "question",
+      "format": "text",
+      "cta": "dm",
+      "mode": "explore",
+      "variable": "problem",
+      "image_style": "desk-glow",
+      "carousel_flavor": "script:pain-poke-fix",
+      "slides": 7,
+      "structure": "retention-v2",
+      "vertical": "salon",
+      "hook_formula": "none",
+      "published_at": "2026-11-25T12:03:27.968570+00:00",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n354ispm5n23",
+      "snap": {
+        "48h": {
+          "age_h": 57.3,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        }
+      },
+      "latest": {
+        "likes": 0,
+        "comments": 0,
+        "shares": 0
+      }
     }
   },
-  "updated_at": "2026-11-27T08:36:53+00:00"
+  "updated_at": "2026-11-27T21:19:07+00:00"
 }

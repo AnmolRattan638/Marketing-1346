@@ -2,6 +2,88 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "18110929589362199",
+      "url": "https://www.instagram.com/reel/DgPpGWvpUS3/",
+      "published_at": "2026-11-27T12:11:08.000Z",
+      "text": "No caption....",
+      "format": "reel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 137,
+        "reach": 132,
+        "views": 137,
+        "likes": 1,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": 93.1,
+        "avg_watch_s": 1.67,
+        "duration_s": 32
+      },
+      "matched": null
+    },
+    {
+      "platform": "instagram",
+      "id": "18030521087871154",
+      "url": "https://www.instagram.com/p/DgPo62PjpNZ/",
+      "published_at": "2026-11-27T12:05:59.000Z",
+      "text": "FREELANCERS, MAPS PE GHANTON BITATE HO?\n\n→ Google Maps kabhi kabhi limited results dikhata hai, baar baar wahi business.\n→ 𝗦𝗛𝗘𝗘𝗧 mein Google Places ke business,",
+      "format": "carousel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 1,
+        "reach": 1,
+        "views": 1,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-27",
+        "service": "lead_gen",
+        "hook_style": "comparison",
+        "topic": "The myth that manual research is the only way to find 'high-quality' local leads."
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n3c5kfxdqh27",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n3c5kfxdqh27",
+      "published_at": "2026-11-27T12:05:33.829938+00:00",
+      "text": "Freelancers spend mornings copying leads from Google Maps, only to see the same businesses again. A daily sheet from Google Places with contacts, review counts ",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-27",
+        "service": "lead_gen",
+        "hook_style": "comparison",
+        "topic": "The myth that manual research is the only way to find 'high-quality' local leads."
+      }
+    },
+    {
+      "platform": "instagram",
       "id": "18350393707264150",
       "url": "https://www.instagram.com/p/DgNQUtyjW1H/",
       "published_at": "2026-11-26T13:52:13.000Z",
@@ -77,7 +159,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 52.9,
-        "avg_watch_s": 5.009,
+        "avg_watch_s": 4.907,
         "duration_s": 53
       },
       "matched": null
@@ -130,7 +212,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 53.7,
-        "avg_watch_s": 4.592,
+        "avg_watch_s": 4.562,
         "duration_s": 43
       },
       "matched": null
@@ -2356,7 +2438,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 41
+      "posts": 42
     }
   },
   "coverage": {
@@ -2757,5 +2839,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-27T08:36:50+00:00"
+  "updated_at": "2026-11-27T21:19:04+00:00"
 }

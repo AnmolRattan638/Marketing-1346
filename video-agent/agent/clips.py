@@ -27,7 +27,7 @@ ACTION = {"question", "excited", "pointr", "pointl", "pointdown", "leanin", "pai
 FALLBACK = {"pointl": ("pointr",), "pointr": ("pointl",), "hook": ("excited", "leanin"), "count": ("agree", "explain"), "but": ("question", "explain"), "pain": ("leanin", "explain"),
             "agree": ("explain",), "excited": ("explain",), "leanin": ("explain",), "question": ("explain",), "pointdown": ("pointr", "explain"), "idle": ("explain",), "explain": ("idle",)}
 NAME = re.compile(r"^(?P<type>[a-z]+)_(?P<angle>[FLR])_(?P<take>\d+)\.(?:mp4|webm)$", re.I)
-ALPHA_ZOOMS = (1.0, 1.05, 1.1)    # transparent clips sit in front of the scene: a small punch-in only, a big one would cover the picture
+ALPHA_ZOOMS = (1.0, 1.07, 1.14)    # transparent clips sit in front of the scene: a small punch-in only, a big one would cover the picture
 FRONT_ONLY = True                 # front-facing clips only (side angles look stiff and make the head jump between cuts)
 
 
@@ -122,10 +122,29 @@ def intent(text: str, i: int, n: int, layout: str | None, have: set[str]) -> str
     return next(iter(have)) if have else "explain"
 
 
+CUT_SECONDS = 1.5
+
+
+def cut_points(words: list[dict] | None, frames: int, fps: int, n: int) -> list[int]:
+    """n+1 frame offsets inside a scene (first 0, last = frames). With spoken words the cuts land in the pause right after the word nearest to each even
+    split, so a cut never falls inside a word; without words the split is even."""
+    even = [int(k * frames / n) for k in range(n + 1)]
+    if n < 2 or not words:
+        return even
+    ends = sorted(int(float(w.get("end", 0)) * fps) for w in words if w.get("end") is not None)
+    out = [0]
+    for k in range(1, n):
+        near = [e for e in ends if out[-1] + int(0.8 * fps) <= e <= frames - int(0.8 * fps)]
+        pick = min(near, key=lambda e: abs(e - even[k])) if near else even[k]
+        out.append(pick if abs(pick - even[k]) <= int(0.6 * fps) else even[k])
+    out.append(frames)
+    return out if all(b > a for a, b in zip(out, out[1:])) else even
+
+
 PRESENTER_BEATS = ("rehook", "cta")
 
 
-def plan(texts: list[str], layouts: list[str | None], frames: list[int], fps: int, lib: list[Clip], seed: str = "", beats: list[str | None] | None = None) -> list[dict]:
+def plan(texts: list[str], layouts: list[str | None], frames: list[int], fps: int, lib: list[Clip], seed: str = "", beats: list[str | None] | None = None, words: list[list[dict]] | None = None) -> list[dict]:
     """Cuts for the whole reel: [{f, n, src, from, rate, zoom, angle, type, frame}] in global frames. Pure and deterministic for a given seed (the date by default)."""
     if not lib:
         return []
@@ -141,7 +160,8 @@ def plan(texts: list[str], layouts: list[str | None], frames: list[int], fps: in
     start = 0
     for i, (text, lay, fr) in enumerate(zip(texts, layouts, frames)):
         secs = fr / fps
-        n_cuts = max(1, -(-int(secs * 10) // 24))              # ceil(secs / 2.4): a new clip (with its punch-in) about every 2.4 s
+        alpha_lib = lib[0].path.suffix.lower() == ".webm"
+        n_cuts = max(1, round(secs / CUT_SECONDS)) if alpha_lib else max(1, -(-int(secs * 10) // 24))      # presenter in front of graphics: a cut about every 1.5 s; footage clips: ceil(secs / 2.4)
         if i == len(texts) - 1 and secs <= 4.6:
             n_cuts = 1                                          # the call to action is one clean point-down cut
         want = intent(text, i, len(texts), lay, have)
@@ -161,8 +181,9 @@ def plan(texts: list[str], layouts: list[str | None], frames: list[int], fps: in
             length = min(secs / n_cuts, SLOT / 0.95)
             rate = min(rng.choice(RATES), SLOT / max(length, 0.1))
             zi = (zi + rng.choice((1, 2))) % 3
-            f0 = start + int(k * fr / n_cuts)
-            f1 = start + int((k + 1) * fr / n_cuts) if k < n_cuts - 1 else start + fr
+            bounds = cut_points(words[i] if words and i < len(words) else None, fr, fps, n_cuts)
+            f0 = start + bounds[k]
+            f1 = start + bounds[k + 1]
             used.add((c.name, s)); uses[(c.name, s)] = uses.get((c.name, s), 0) + 1
             alpha = c.path.suffix.lower() == ".webm"
             if alpha:         # person + table only: always on screen in front of the scene's own background (only the logo end hides him); the hook and the last scene get him bigger

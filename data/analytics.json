@@ -2350,7 +2350,7 @@
       "username": "ar__designerx"
     },
     "linkedin": {
-      "followers": 26,
+      "followers": 52,
       "username": "Anmol Rattan"
     },
     "bluesky": {
@@ -2745,9 +2745,17 @@
         "linkedin": 26,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-11-27",
+      "followers": {
+        "instagram": 7,
+        "linkedin": 52,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-26T21:33:53+00:00"
+  "updated_at": "2026-11-27T08:36:50+00:00"
 }

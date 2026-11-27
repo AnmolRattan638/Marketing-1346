@@ -2629,6 +2629,18 @@
           "shares": 0,
           "saves": 0,
           "clicks": 0
+        },
+        "7d": {
+          "age_h": 173.0,
+          "source": "zernio",
+          "impressions": 3,
+          "reach": 2,
+          "views": 3,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "clicks": 0
         }
       },
       "latest": {
@@ -2661,6 +2673,13 @@
       "snap": {
         "48h": {
           "age_h": 51.2,
+          "source": "bluesky",
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        },
+        "7d": {
+          "age_h": 173.0,
           "source": "bluesky",
           "likes": 0,
           "comments": 0,
@@ -2986,5 +3005,5 @@
       }
     }
   },
-  "updated_at": "2026-11-26T21:33:56+00:00"
+  "updated_at": "2026-11-27T08:36:53+00:00"
 }

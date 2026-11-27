@@ -129,7 +129,8 @@ for i, (scn, cr) in enumerate(zip(m["scenes"], credits)):
     assert all(w["end"] <= dur + 1e-6 for w in p["words"]), "caption words stay inside the scene"
     starts = {round(w["start"], 3) for w in p["words"] if w["text"].strip(".,!?").lower() in {e.strip(".,!?").lower() for e in p["emphasis"]}}
     fx_starts = {round(f["atSecond"], 3) for f in p["fx"] if f["type"] in ("stat", "glitch", "title")}
-    assert set(p["pulses"]) <= starts | fx_starts, (p["pulses"], starts, fx_starts)           # the zoom pulse lands on an emphasis word or a graphic
+    word_ends = {round(w["end"], 3) for w in p["words"]}                                       # cadence pulses (agent/cadence.py) sit on word ends
+    assert set(p["pulses"]) <= starts | fx_starts | word_ends, (p["pulses"], starts, fx_starts)           # the zoom pulse lands on an emphasis word or a graphic
     assert ("fadeOutFrames" in p) == (i == len(m["scenes"]) - 1), "only the last scene fades to black"
     assert p["transitionIn"] in fx_plan.TRANSITIONS and (i > 0 or p["transitionIn"] == "settle")
     for f in p["fx"]:                                                                          # graphics sit on a spoken word and inside the scene

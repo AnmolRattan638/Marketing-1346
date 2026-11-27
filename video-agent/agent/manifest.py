@@ -110,6 +110,8 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
         if b.get("zones"):
             props["captionZones"] = b["zones"]          # smart placement: where the captions sit, moment by moment (agent/caption_zones.py)
         props["pulses"] += [f["atSecond"] for f in fx if f["type"] in ("stat", "glitch", "title")]     # the picture hits with the graphic
+        from . import cadence
+        props["pulses"] += cadence.fill(list(props["pulses"]), frames / fps, b.get("words"))      # a picture change at least every ~2.6 s
         props["pulses"].sort()
         if (cfg.get("fx") or {}).get("grain"):
             props["grain"] = cfg["fx"]["grain"]
@@ -139,7 +141,7 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
     total = sum(s["duration"] for s in scenes)
     if total > 60:
         log(f"warning: video is {total:.0f}s, longer than a typical short")
-    presenter = avatar.presenter(built, [math.ceil((b["narration_seconds"] + v["tail_seconds"]) * fps) for b in built], cfg, fps, bool(outro), [str(sc.get("narration") or "") for sc in plan["scenes"]], [sc.get("beat") for sc in plan["scenes"]])
+    presenter = avatar.presenter(built, [math.ceil((b["narration_seconds"] + v["tail_seconds"]) * fps) for b in built], cfg, fps, bool(outro), [str(sc.get("narration") or "") for sc in plan["scenes"]], [sc.get("beat") for sc in plan["scenes"]], [b.get("words") or [] for b in built])
     return {
         **({"presenter": presenter} if presenter else {}),
         "video": {"id": "daily", "width": v["width"], "height": v["height"], "fps": fps,

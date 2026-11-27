@@ -140,7 +140,7 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
         if editor and footage_scenes:   # the whole reel is planned at once so the hybrid rules apply to the reel, not to each scene
             editor.prepare(footage_scenes, WORK / "footage", {sid: words for sid, _, _, _, words in voiced})      # cuts are snapped to the spoken words
         for i, (sid, sc, seconds, mp3, words) in enumerate(voiced):
-            transition = pick_transition(sc, i, look, cfg)
+            transition = pick_transition(sc, i, look, cfg, built[-1]["transition"] if built else None)
             gp = graphics.get(sid)
             if gp:
                 clip, fx, zones, camera = None, plan_fx(sc, words, seconds + tail, cfg), [], []

@@ -110,11 +110,19 @@ def pick_look(seed: str, cfg: dict) -> dict:
     return look
 
 
-def pick_transition(scene: dict, index: int, look: dict, cfg: dict) -> str:
-    """The planner's choice wins; otherwise cycle through this reel's transition set (never the same twice in a row, none on the first scene)."""
+PUNCHY = ("whip", "zoom", "glitch", "circle")      # arrive with motion: into a presenter shot or a beat that hits
+SOFT = ("sweep", "iris", "leak", "zoom")           # calm explanation graphics
+
+
+def pick_transition(scene: dict, index: int, look: dict, cfg: dict, prev: str | None = None) -> str:
+    """Matched to the shot that follows: a punchy beat (pain, poke, twist, call to action, or the presenter's scenes) arrives with motion, a calm explanation
+    with a soft reveal. The plain "settle" fade is only for the first scene; a planner's "settle" anywhere else is replaced. Never the same twice in a row."""
     if index == 0:
         return "settle"
-    if scene.get("transition"):
-        return scene["transition"]
-    pool = TRANSITION_SETS.get(look.get("transitions"), TRANSITION_SETS["mixed"])
+    want = scene.get("transition")
+    punchy = scene.get("beat") in ("pain", "poke", "rehook", "cta")
+    pool = list(PUNCHY if punchy else SOFT)
+    if want and want != "settle" and want != prev:
+        return want
+    pool = [t for t in pool if t != prev] or list(pool)
     return pool[(index - 1) % len(pool)]

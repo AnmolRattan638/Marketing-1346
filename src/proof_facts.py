@@ -57,8 +57,8 @@ def block(today: date | None = None) -> str:
     if not rows:
         return ""
     lines = "\n".join(f"  {r['id']}: {r['claim']}" for r in rows)
-    return ("REAL PROOF (optional; the video shows a real, blurred screenshot of each). You may use AT MOST ONE no-reply proof and the AI-reply proof, in the poke or the payoff, "
-            "cite its id in `facts`, and say it only as written, in your own Hinglish words:\n" + lines +
+    return ("REAL PROOF (REQUIRED in every script: exactly ONE of the proofs below, in the poke or the payoff beat; the video then shows its real, blurred screenshot as a full scene). "
+            "Cite its id in `facts` (p1, p2.., not p0) and say it only as written, in your own Hinglish words. A script that cites no proof is rejected:\n" + lines +
             "\nYou may state the SAMPLE exactly as p0 counts it ('maine 5 businesses ko message kiya, 4 ne reply nahi kiya', or 'jin businesses ko maine message kiya, unmein se zyadatar ne reply nahi kiya'), and always as MY small test. "
             "NEVER: a percentage, 'sab / har / zyadatar businesses' as if it were all businesses, a name or place, that the AI reply is ours, or that it brings customers or sales. "
             "Without a proof listed here, never claim you tested or messaged a business.\n")
@@ -91,3 +91,19 @@ def problems(lines: list[str], today: date | None = None) -> list[str]:
         if FAKE_OWN.search(ln):
             out.append("proof: presents the business's own AI reply as our product; say 'ek business ka apna AI assistant' instead")
     return out
+
+
+def required(beats: list[dict], today: date | None = None) -> list[str]:
+    """Every reel shows a real proof: with a fresh proof on file, the script must cite one (p1, p2..) in its poke or payoff beat so the video can show the screenshot."""
+    have = [f for f in facts(today) if f.get("proof")]
+    if not have:
+        return []
+    ids = {f["id"] for f in have}
+    cited = [b for b in beats if ids & {str(x) for x in (b.get("facts") or [])}]
+    if not cited:
+        return [f"proof: no real proof is cited; cite exactly one of {', '.join(sorted(ids))} in the poke or payoff beat (the video shows its screenshot)"]
+    if len(cited) > 1:
+        return ["proof: cite a proof in ONE beat only"]
+    if cited[0].get("beat") not in ("poke", "payoff"):
+        return ["proof: the proof belongs in the poke or payoff beat"]
+    return []

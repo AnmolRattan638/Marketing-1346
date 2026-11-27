@@ -65,9 +65,11 @@ export const Video: React.FC = () => {
             `Scene component "${scene.component}" not in sceneRegistry. Register it in Video.tsx.`
           );
         }
+        const mid = startFrame + durationFrames / 2;
+        const hidden = (((manifest as any).presenter?.hide ?? []) as number[][]).some((r) => mid >= r[0] && mid < r[1]);
         return (
+          <StageContext.Provider key={scene.id} value={hidden ? 1 : stage}>
           <Sequence
-            key={scene.id}
             from={startFrame}
             durationInFrames={durationFrames}
             name={scene.id}
@@ -78,6 +80,7 @@ export const Video: React.FC = () => {
               <SFXCue key={i} src={cue.src} atSecond={cue.atSecond} volume={cue.volume} />
             ))}
           </Sequence>
+          </StageContext.Provider>
         );
       })}
       {((manifest as any).presenter?.src?.length || (manifest as any).presenter?.clips?.length) ? <Presenter spec={(manifest as any).presenter} /> : null}

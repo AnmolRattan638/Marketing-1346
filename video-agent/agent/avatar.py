@@ -115,7 +115,7 @@ def _wall_logo(cuts: list, scene_frames: list[int], a: dict) -> str | None:
     return "assets/run/brand/backdrop_logo.png"
 
 
-def presenter(built: list, scene_frames: list[int], cfg: dict, fps: int, has_outro: bool, texts: list[str] | None = None) -> dict | None:
+def presenter(built: list, scene_frames: list[int], cfg: dict, fps: int, has_outro: bool, texts: list[str] | None = None, beats: list[str | None] | None = None) -> dict | None:
     """The permanent presenter: one block for the whole reel (poses, voice loudness for every frame, pose cuts, and where he is hidden). None when switched off.
     The window stays out of the hook (first scene, a full-screen opening), out of the big avatar scenes (he is already there) and out of the logo end."""
     a = cfg.get("avatar") or {}
@@ -124,7 +124,7 @@ def presenter(built: list, scene_frames: list[int], cfg: dict, fps: int, has_out
     lib = clips.library()
     if lib:                                            # the real clips: a large presenter that gestures (no still-image window)
         layouts = [(b.get("graphic") or {}).get("layout") for b in built]
-        cuts = clips.plan(texts or [""] * len(built), layouts, scene_frames, fps, lib)
+        cuts = clips.plan(texts or [""] * len(built), layouts, scene_frames, fps, lib, beats=beats)
         srcs = clips.stage(cuts, lib)
         for c in cuts:
             c["src"] = srcs[c["src"]]

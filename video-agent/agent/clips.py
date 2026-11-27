@@ -122,7 +122,10 @@ def intent(text: str, i: int, n: int, layout: str | None, have: set[str]) -> str
     return next(iter(have)) if have else "explain"
 
 
-def plan(texts: list[str], layouts: list[str | None], frames: list[int], fps: int, lib: list[Clip], seed: str = "") -> list[dict]:
+PRESENTER_BEATS = ("rehook", "cta")
+
+
+def plan(texts: list[str], layouts: list[str | None], frames: list[int], fps: int, lib: list[Clip], seed: str = "", beats: list[str | None] | None = None) -> list[dict]:
     """Cuts for the whole reel: [{f, n, src, from, rate, zoom, angle, type, frame}] in global frames. Pure and deterministic for a given seed (the date by default)."""
     if not lib:
         return []
@@ -163,7 +166,11 @@ def plan(texts: list[str], layouts: list[str | None], frames: list[int], fps: in
             used.add((c.name, s)); uses[(c.name, s)] = uses.get((c.name, s), 0) + 1
             alpha = c.path.suffix.lower() == ".webm"
             if alpha:         # person + table only: always on screen in front of the scene's own background (only the logo end hides him); the hook and the last scene get him bigger
-                frame = "none" if lay == "logo" else ("full" if (lay in ("hook", "avatar") or i in (0, len(texts) - 1)) else "compact")
+                star = lay in ("hook", "avatar") or i in (0, len(texts) - 1) or (beats is not None and i < len(beats) and beats[i] in PRESENTER_BEATS)
+                if lay == "logo" or (beats is not None and not star):
+                    frame = "none"                     # hybrid: explanation scenes are full-frame motion graphics, the presenter only opens, twists and closes
+                else:
+                    frame = "full" if star else "compact"
             else:
                 frame = "none" if lay in ("hook", "logo") else ("compact" if lay in FULL or lay is None else "full")
             cuts.append({"f": f0, "n": f1 - f0, "src": c.name, "from": round(s, 3), "rate": round(rate, 3), "zoom": (ALPHA_ZOOMS if alpha else ZOOMS)[zi], "angle": c.angle, "type": typ,

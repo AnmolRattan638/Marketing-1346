@@ -16,7 +16,16 @@ assert "gym" in joined and "restaurant" in joined and "ek minute" in joined
 assert not any(w in joined.lower() for w in ("pirates", "zoca", "kake", "aayojan", "aesthetic", "bhubaneswar", "+91")), "no names in what the writer sees"
 assert all("sab " not in r["claim"].lower().replace("sab businesses ka", "") and "%" not in r["claim"] for r in rows)
 blk = pf.block(today)
-assert "AT MOST ONE" in blk and "NEVER" in blk and "p1:" in blk
+assert "REQUIRED" in blk and "NEVER" in blk and "p1:" in blk
+
+# every reel must cite exactly one proof (p1..) in the poke or payoff beat while a fresh proof exists
+assert pf.required([{"beat": "poke", "facts": ["f1"]}], today), "no proof cited"
+assert not pf.required([{"beat": "poke", "facts": ["p1"]}, {"beat": "fix", "facts": []}], today)
+assert not pf.required([{"beat": "payoff", "facts": ["p5"]}], today)
+assert pf.required([{"beat": "poke", "facts": ["p1"]}, {"beat": "payoff", "facts": ["p2"]}], today), "two proofs"
+assert pf.required([{"beat": "pain", "facts": ["p1"]}], today), "wrong beat"
+assert pf.required([{"beat": "poke", "facts": ["p0"]}], today), "p0 is a sample count, it has no screenshot"
+assert pf.required([{"beat": "poke", "facts": []}], date(2027, 6, 1)) == [], "stale proofs: nothing to require"
 
 # stale proofs are not offered, and then a test claim is rejected
 late = date(2027, 6, 1)

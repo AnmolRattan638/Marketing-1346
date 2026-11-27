@@ -1,0 +1,968 @@
+{
+  "id": "2026-11-27-576fd1",
+  "date": "2026-11-27",
+  "created_at": "2026-11-27T11:29:58+00:00",
+  "status": "pending",
+  "service": "lead_gen",
+  "topic": "The myth that manual research is the only way to find 'high-quality' local leads.",
+  "idea_id": null,
+  "problem_id": "manual-lead-searching-exhaustion",
+  "angle_type": "myth_bust",
+  "experiment": {
+    "mode": "exploit",
+    "variable": "angle_type",
+    "problem_id": "manual-lead-searching-exhaustion",
+    "angle_type": "myth_bust",
+    "hook_style": "comparison"
+  },
+  "hooks": [
+    {
+      "style": "comparison",
+      "text": "Kabhi dhyan diya hai, Google Maps sirf 60 results dikhata hai…"
+    },
+    {
+      "style": "myth",
+      "text": "Freelancers: Myth—manual hunting is essential. Fact—curated lists halve prep time."
+    },
+    {
+      "style": "question",
+      "text": "Freelancers: Tired of endless tabs? Want a ready‑made lead list?"
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "comparison",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "Manual research on maps and search is free and uncovers many local businesses, especially those that appear on Google Maps but have no website.",
+        "figure": null,
+        "source": "leadsmint.com",
+        "title": "How to Find Leads in India: Methods Compared LeadsMint",
+        "url": "https://leadsmint.com/how-to-find-leads-in-india",
+        "date": "2026-10-09",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "The downside of manual map research is the time it takes, because nothing is recorded and repeated searches return the same businesses.",
+        "figure": null,
+        "source": "leadsmint.com",
+        "title": "How to Find Leads in India: Methods Compared LeadsMint",
+        "url": "https://leadsmint.com/how-to-find-leads-in-india",
+        "date": "2026-10-09",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Lead‑finder software such as LeadsMint lets you search for a business type within a radius of 1 to 50 km, review results for free, unlock leads for a credit, and manage them in a CRM, but it only shows businesses listed on Google Maps.",
+        "figure": "1 to 50 km",
+        "source": "leadsmint.com",
+        "title": "How to Find Leads in India: Methods Compared LeadsMint",
+        "url": "https://leadsmint.com/how-to-find-leads-in-india",
+        "date": "2026-10-09",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "A single Google Maps search returns a limited set of results, currently up to 60 per query.",
+        "figure": "60",
+        "source": "leadsmint.com",
+        "title": "How to Find Leads in India: Methods Compared LeadsMint",
+        "url": "https://leadsmint.com/how-to-find-leads-in-india",
+        "date": "2026-10-09",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Google Maps and other map listings give you the name, phone, address, rating and website (if any) of local businesses, but each lead must be captured manually.",
+        "figure": null,
+        "source": "mantisai.in",
+        "title": "How to Get Leads Without Buying Lists or Spending Money",
+        "url": "https://mantisai.in/resources/how-to-get-leads-without-buying-lists",
+        "date": "2026-10-23",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "LinkedIn’s free search can reveal decision‑maker names and titles, although the free version imposes usage limits.",
+        "figure": null,
+        "source": "mantisai.in",
+        "title": "How to Get Leads Without Buying Lists or Spending Money",
+        "url": "https://mantisai.in/resources/how-to-get-leads-without-buying-lists",
+        "date": "2026-10-23",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "BrightLocal reported that 84 % of consumers searched for a local business in the past three months, and 73 % started their most recent local search on a mobile device.",
+        "figure": "84%",
+        "source": "capyscout.com",
+        "title": "How to Find Leads for Local Businesses: The Signal Playbook - CapyScout Blog",
+        "url": "https://www.capyscout.com/blog/how-to-find-leads-for-local-businesses-the-signal-playbook",
+        "date": "2026-10-04",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "BrightLocal also found that 75 % of consumers decide which local business to use within 30 minutes, and 72 % consider three or fewer options.",
+        "figure": "75%",
+        "source": "capyscout.com",
+        "title": "How to Find Leads for Local Businesses: The Signal Playbook - CapyScout Blog",
+        "url": "https://www.capyscout.com/blog/how-to-find-leads-for-local-businesses-the-signal-playbook",
+        "date": "2026-10-04",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "dropped": 0,
+    "topic": "The myth that manual research is the only way to find 'high-quality' local leads."
+  },
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Kabhi dhyan diya hai, Google Maps sirf 60 results dikhata hai…",
+    "hooks": [
+      {
+        "text": "Kabhi dhyan diya hai, Google Maps sirf 60 results dikhata hai…",
+        "score": 15.3,
+        "formula": "noticed"
+      },
+      {
+        "text": "Subah se shaam local business dhoondhte dhoondhte nikal jati hai?",
+        "score": 12.8,
+        "formula": ""
+      },
+      {
+        "text": "Bohot kam log local business leads ye kar rahe hain…",
+        "score": 11.4,
+        "formula": "nobody"
+      },
+      {
+        "text": "Kaash mujhe local business dhoondhne ka ye tareeka pehle pata hota…",
+        "score": 11.4,
+        "formula": "wish"
+      },
+      {
+        "text": "Manual lead generation aapka sabse zyada time khata hai…",
+        "score": 9.4,
+        "formula": ""
+      },
+      {
+        "text": "Har search mein wahi business dikhte hain kyunki kuch save nahi hota hai.",
+        "score": 7.9,
+        "formula": ""
+      }
+    ],
+    "hook_formula": "noticed",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Kabhi dhyan diya hai, Google Maps sirf 60 results dikhata hai…",
+        "screen": "Wahi business baar baar",
+        "visual": "Phone screen showing repeated Google Maps searches with same results",
+        "emotion": "empathetic",
+        "steps": [],
+        "facts": [
+          "f2"
+        ]
+      },
+      {
+        "beat": "poke",
+        "line": "Google Maps sirf 60 results dikhata hai, har lead copy karni padti hai kyun?",
+        "screen": "Sirf 60 results",
+        "visual": "Google Maps result list stopping at 60",
+        "emotion": "urgent",
+        "steps": [],
+        "facts": [
+          "f4"
+        ]
+      },
+      {
+        "beat": "rehook",
+        "line": "Kya agar rozana ready Excel sheet aapko mile?",
+        "screen": "Ready Excel sheet?",
+        "visual": "Excel sheet preview on phone screen",
+        "emotion": "curious",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Google Places se business nikalte hain, phir website se qualify karte hain.",
+        "screen": "Google Places + Website",
+        "visual": "Screen recording of lead sheet being built",
+        "emotion": "calm",
+        "steps": [
+          "Google Places se business nikalna",
+          "Website se qualify karna",
+          "Rozana Excel sheet bhejna"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "payoff",
+        "line": "BrightLocal ke mutabiq 84% log teen mahine mein local business dhoondhte hain.",
+        "screen": "84% local search",
+        "visual": "BrightLocal statistic graphic",
+        "emotion": "calm",
+        "steps": [],
+        "facts": [
+          "f7"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Manual khojne mein time lagta hai, wahi business baar baar aate hain.",
+        "screen": "Time bachao, clients dhoondho",
+        "visual": "Freelancer looking at clock then pitching",
+        "emotion": "empathetic",
+        "steps": [],
+        "facts": [
+          "f2"
+        ]
+      },
+      {
+        "beat": "cta",
+        "line": "Comment LEADS likho, main DM mein checklist bhejunga. Poora breakdown aaj ke carousel mein hai.",
+        "screen": "Comment LEADS",
+        "visual": "Comment box with LEADS typed",
+        "emotion": "urgent",
+        "steps": [],
+        "facts": []
+      }
+    ],
+    "cta": "Comment LEADS likho, main DM mein checklist bhejunga. Poora breakdown aaj ke carousel mein hai.",
+    "linkedin_english": "If you are a freelancer or agency selling to local businesses, finding leads on Google Maps takes hours and shows the same results again. LocalSignal sends you a daily Excel sheet of pre-qualified local businesses with website details, so you can pitch instead of searching. Comment LEADS and I will send you a checklist for picking businesses to contact and what to say.",
+    "marketing": {
+      "keyword": "LEADS",
+      "gets": "a one-page checklist: how to pick the 20 local businesses worth contacting first and what to say in the first message",
+      "pillar": "educate"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Manual research on maps and search is free and uncovers many local businesses, especially those that appear on Google Maps but have no website.",
+        "figure": null,
+        "source": "leadsmint.com",
+        "title": "How to Find Leads in India: Methods Compared LeadsMint",
+        "url": "https://leadsmint.com/how-to-find-leads-in-india",
+        "date": "2026-10-09",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "The downside of manual map research is the time it takes, because nothing is recorded and repeated searches return the same businesses.",
+        "figure": null,
+        "source": "leadsmint.com",
+        "title": "How to Find Leads in India: Methods Compared LeadsMint",
+        "url": "https://leadsmint.com/how-to-find-leads-in-india",
+        "date": "2026-10-09",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Lead‑finder software such as LeadsMint lets you search for a business type within a radius of 1 to 50 km, review results for free, unlock leads for a credit, and manage them in a CRM, but it only shows businesses listed on Google Maps.",
+        "figure": "1 to 50 km",
+        "source": "leadsmint.com",
+        "title": "How to Find Leads in India: Methods Compared LeadsMint",
+        "url": "https://leadsmint.com/how-to-find-leads-in-india",
+        "date": "2026-10-09",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "A single Google Maps search returns a limited set of results, currently up to 60 per query.",
+        "figure": "60",
+        "source": "leadsmint.com",
+        "title": "How to Find Leads in India: Methods Compared LeadsMint",
+        "url": "https://leadsmint.com/how-to-find-leads-in-india",
+        "date": "2026-10-09",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Google Maps and other map listings give you the name, phone, address, rating and website (if any) of local businesses, but each lead must be captured manually.",
+        "figure": null,
+        "source": "mantisai.in",
+        "title": "How to Get Leads Without Buying Lists or Spending Money",
+        "url": "https://mantisai.in/resources/how-to-get-leads-without-buying-lists",
+        "date": "2026-10-23",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "LinkedIn’s free search can reveal decision‑maker names and titles, although the free version imposes usage limits.",
+        "figure": null,
+        "source": "mantisai.in",
+        "title": "How to Get Leads Without Buying Lists or Spending Money",
+        "url": "https://mantisai.in/resources/how-to-get-leads-without-buying-lists",
+        "date": "2026-10-23",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "BrightLocal reported that 84 % of consumers searched for a local business in the past three months, and 73 % started their most recent local search on a mobile device.",
+        "figure": "84%",
+        "source": "capyscout.com",
+        "title": "How to Find Leads for Local Businesses: The Signal Playbook - CapyScout Blog",
+        "url": "https://www.capyscout.com/blog/how-to-find-leads-for-local-businesses-the-signal-playbook",
+        "date": "2026-10-04",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "BrightLocal also found that 75 % of consumers decide which local business to use within 30 minutes, and 72 % consider three or fewer options.",
+        "figure": "75%",
+        "source": "capyscout.com",
+        "title": "How to Find Leads for Local Businesses: The Signal Playbook - CapyScout Blog",
+        "url": "https://www.capyscout.com/blog/how-to-find-leads-for-local-businesses-the-signal-playbook",
+        "date": "2026-10-04",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "The myth that manual research is the only way to find 'high-quality' local leads.",
+    "service": "lead_gen",
+    "keyword": "LEADS",
+    "carousel_tease": true,
+    "notes": [
+      "style remark (not blocking): lines are bare statements; use helping words that give the reason or an example (kyunki, isliye, matlab, jaise ki, phir, taaki) so the viewer understands WHY",
+      "style remark (not blocking): pain: context: the hook must name the viewer's business type (clinic, salon, cafe, coaching centre, homestay, gym, shop...) so it is clear in 2 seconds who this is for; ne"
+    ]
+  },
+  "script_style": "pain-poke-fix",
+  "structure": {
+    "structure": "rehook-only",
+    "vertical": "none",
+    "context_first": false,
+    "rehook": true,
+    "open_loops": 3,
+    "style": "pain-poke-fix",
+    "hook_formula": "noticed",
+    "series": false,
+    "words": 84
+  },
+  "posts": {
+    "instagram": "FREELANCERS, MAPS PE GHANTON BITATE HO?\n\n→ Google Maps kabhi kabhi limited results dikhata hai, baar baar wahi business.\n→ 𝗦𝗛𝗘𝗘𝗧 mein Google Places ke business, contacts aur review counts milte hain.\n→ Rozana update, naye khule business bhi shamil hote hain, whatever you sell.\n\nComment 𝗟𝗘𝗔𝗗𝗦 aur main DM mein checklist bhejunga. 🙂\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+    "linkedin": "How do you know a lead is real before you message it?\n\nI am Anmol Rattan, founder of AR Designs, based in Himachal Pradesh. My lead finder is a tool that finds local businesses on Google Maps and checks that they are real.\n\nIt runs on GitHub Actions and is written in Python. It checks whether a listing is open, the phone number works, the website is live, and the email domain can receive mail.\n\nThen it scores buying intent from reviews and public posts, using rules plus an AI check. It shortlists the strongest leads and emails them.\n\nIt has screened more than 13,000 businesses and generated 153 sample pages for outreach. The honest limit is that it has no front end, so nobody else can use it yet.\n\nIf you build tools too, I would love to hear how you handle the parts that still feel manual.",
+    "bluesky": "Freelancers spend mornings copying leads from Google Maps, only to see the same businesses again. A daily sheet from Google Places with contacts, review counts and website checks can help you save time. DM LEADS for a quick chat about fit. #FreelanceIndia"
+  },
+  "replies": [
+    {
+      "if_they_say": "how much?",
+      "reply": "Hi, thanks for messaging. I help freelancers and agencies get a daily sheet of local businesses from Google Places so they can pitch instead of searching. What kind of service do you sell to local businesses?"
+    },
+    {
+      "if_they_say": "do you do this for my kind of business?",
+      "reply": "Glad you asked. The sheet works for any freelancer or agency selling to local businesses, whatever the service: marketing, design, video, SEO, ads, web, software, photography, accounting, consulting, coaching. What do you offer?"
+    },
+    {
+      "if_they_say": "is the list updated?",
+      "reply": "Yes, the sheet is refreshed daily with local businesses from Google Places, including newly opened ones, so the contacts stay relevant for morning pitches. Want to know how it fits your workflow?"
+    }
+  ],
+  "image": {
+    "prompt": "a matte‑black ceramic coffee mug with a warm amber glaze, steaming, placed on a deep‑navy matte desk; the mug fills the upper two‑thirds, shot from a high eye‑level angle, leaving a lower 40 % for headline; soft amber key light from a desk lamp on the left creates gentle shadows, while an electric‑cyan rim light outlines the mug and a floating glass‑like interface card, casting a subtle cyan glow on the polished surface; sleek desk surface, faint reflective floor, and a haze of dust particles; deep navy background with electric‑cyan accent, conveying focused modern efficiency; 85 mm lens at f/1.8, shallow depth of field highlights the mug’s glossy glaze and translucent card with faint line‑chart bars. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-27.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "manual-lead-searching-exhaustion",
+      "angle_type": "myth_bust",
+      "style": "bold",
+      "headline": "Endless searching vs. pitching instead",
+      "highlight": [
+        "pitching instead"
+      ],
+      "sub": "Spend your morning pitching, not searching.",
+      "chat": [],
+      "cta": "Comment \"LEADS\"",
+      "tag": "FOR FREELANCERS & AGENCIES"
+    },
+    "errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ],
+    "style_id": "glass-ui"
+  },
+  "carousel": {
+    "flavor": "script:pain-poke-fix",
+    "fact_id": null,
+    "checked": false,
+    "paths": [
+      "data/media/2026-11-27.jpg",
+      "data/media/2026-11-27-s2.jpg",
+      "data/media/2026-11-27-s3.jpg",
+      "data/media/2026-11-27-s4.jpg",
+      "data/media/2026-11-27-s5.jpg",
+      "data/media/2026-11-27-s6.jpg",
+      "data/media/2026-11-27-s7.jpg"
+    ],
+    "alts": [
+      "Kabhi dhyan diya hai, Google Maps sirf 60 results dikhata hai…",
+      "Slide 2 of 7: Manual research ka time sink. Har din map search karna, leads copy karna, aur repeat karna aapke billable hours ko ghata deta hai.",
+      "Slide 3 of 7: Limited results, manual copy ka jhanjhat. Ek search me sirf 60 results milte hain (leadsmint.com), har lead ko manually capture karna thakawat bhara aur baar‑baar same business dikhata hai. Kya agar rozana ready Excel sheet aapko mile?",
+      "Slide 4 of 7: Daily ready Excel sheet. LocalSignal har roz Google Places se business nikalta hai, website check karta hai, aur contact, rating, review count, aur naye khule business ke saath ek Excel sheet ready karta hai.",
+      "Slide 5 of 7: Weekly updates, fresh leads. Har hafte list refresh hoti hai, isse aapke morning pitches hamesha up‑to‑date hoti hain aur repeat leads ka risk kam hota hai. BrightLocal ne bataya ki log aksar local business dhoondte hain.",
+      "Slide 6 of 7: Time saved for billable work. Manual map research me samay lagta hai (leadsmint.com), aur wahi business baar‑baar aate hain; ab ye samay aapke client projects ya higher‑value outreach me laga sakte hain, isse productivity badhti hai.",
+      "Slide 7 of 7: Comment LEADS. Comment LEADS, main DM me ek checklist bhejunga: kaise 20 best local businesses chunen aur pehla message kaise likhen."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Kabhi dhyan diya hai, Google Maps sirf 60 results dikhata hai…",
+        "body": "Aapke local leads sirf ek chhoti list tak simit hain."
+      },
+      {
+        "role": "problem",
+        "headline": "Manual research ka time sink",
+        "body": "Har din map search karna, leads copy karna, aur repeat karna aapke billable hours ko ghata deta hai."
+      },
+      {
+        "role": "problem",
+        "headline": "Limited results, manual copy ka jhanjhat",
+        "body": "Ek search me sirf 60 results milte hain (leadsmint.com), har lead ko manually capture karna thakawat bhara aur baar‑baar same business dikhata hai. Kya agar rozana ready Excel sheet aapko mile?"
+      },
+      {
+        "role": "solution",
+        "headline": "Daily ready Excel sheet",
+        "body": "LocalSignal har roz Google Places se business nikalta hai, website check karta hai, aur contact, rating, review count, aur naye khule business ke saath ek Excel sheet ready karta hai."
+      },
+      {
+        "role": "solution",
+        "headline": "Weekly updates, fresh leads",
+        "body": "Har hafte list refresh hoti hai, isse aapke morning pitches hamesha up‑to‑date hoti hain aur repeat leads ka risk kam hota hai. BrightLocal ne bataya ki log aksar local business dhoondte hain."
+      },
+      {
+        "role": "solution",
+        "headline": "Time saved for billable work",
+        "body": "Manual map research me samay lagta hai (leadsmint.com), aur wahi business baar‑baar aate hain; ab ye samay aapke client projects ya higher‑value outreach me laga sakte hain, isse productivity badhti hai."
+      },
+      {
+        "role": "cta",
+        "headline": "Comment LEADS",
+        "body": "Comment LEADS, main DM me ek checklist bhejunga: kaise 20 best local businesses chunen aur pehla message kaise likhen."
+      }
+    ],
+    "scene_prompts": {
+      "2": "a matte‑black laptop with brushed metal edges and a cyan screen rests on a walnut desk; hands hover over the keyboard while a printed map, sticky notes, and a coffee mug lie scattered, depicting manual research; the laptop and hands occupy the upper 55% of the frame from an angle, leaving lower 45% dark for text; a light from the left creates a cyan rim on the hands and a glow on the laptop, casting shadows on the desk; behind, a navy wall with a cyan hue and glass cards hover, showing cyan lines that reflect on the floor; palette navy, charcoal, gray with electric cyan accent, mood focused and determined; shot with an 85mm lens at f/1.8, depth of field highlights metal, glass reflections, and dust catching cyan light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "3": "a matte‑black laptop with an electric cyan glow cradled by hands, one holding a pen, the other hovering over a thin stack of printed sheets showing only a few rows; laptop and hands fill the upper fifty‑five percent, lower forty‑five percent stays dark for overlay; cool cyan key light from the left rim‑lights the laptop edges, casting soft shadows on a brushed‑metal desk; sticky notes, a mug, floating glass cards with blank bars and line charts hover above the laptop against a navy wall; navy and charcoal base with electric cyan accent, focused hopeful; 85mm lens at f/1.8, shallow depth of field keeps hands and laptop sharp, bokeh, brushed metal sheen and glass reflections catch fine dust in cyan glow. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "5": "An matte‑black tablet cradled in relaxed hands, its screen glowing with an electric‑cyan refresh glyph that releases a cascade of tiny cyan lead icons, visualizing fresh weekly leads; the tablet fills the upper 55% at a high‑angle, leaving a calm dark band below for overlay, while two translucent glass‑like cards hover behind, showing blank bars and faint line‑chart glows. A cool front‑left key light (5600 K) bathes the scene, rim‑lighting edges in electric cyan and casting soft shadows on a brushed‑metal desk with dust. Deep navy wall, soft haze, and a glossy floor reflect the cyan glow. Palette: deep navy, charcoal, brushed steel, accent electric cyan; mood: organized, confident. 85 mm f/1.8, shallow DOF keeps tablet and hands sharp, cards in creamy bokeh; brushed metal grain, glass reflections, dust catching rim light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "6": "Matte‑black laptop with electric‑cyan glow rests on metal desk; hands hover above touchpad as a swipe releases two floating glass‑like cards with blank bars, while translucent hourglass floats nearby, its sand turning into electric‑cyan particles that rise, visualizing saved time. Laptop fills upper half of frame, shot from high angle, leaving lower area dark for overlay. Cool front‑right key light rims laptop in cyan, left fill adds depth, shadows fall on surface. Glass coaster holds mug, floor reflects cards, navy wall recedes behind. Palette of navy, charcoal, metal highlighted by electric cyan creates focused, relieved mood. Captured with 85mm lens at f/1.8, shallow depth of field keeps laptop sharp as cards and floor blur into creamy bokeh, showing metal grain, glass reflections. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": [
+      "slide_prompt: none"
+    ]
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "linkedin_mode": "build",
+  "linkedin_topic": "lead-finder-checks",
+  "video": {},
+  "factcheck": {
+    "ok": false,
+    "issues": [
+      "Specific claim about Google Maps showing only 60 results lacks source and must be softened.",
+      "Absolute outcome claim 'saves those hours' in Bluesky must be softened."
+    ],
+    "revised": {
+      "instagram": "**FREELANCERS, MAPS PE GHANTON BITATE HO?\n\n→ Google Maps kabhi kabhi limited results dikhata hai, baar baar wahi business.\n→ **SHEET** mein Google Places ke business, contacts aur review counts milte hain.\n→ Rozana update, naye khule business bhi shamil hote hain, whatever you sell.\n\nComment **LEADS** aur main DM mein checklist bhejunga. 🙂\n\n#FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia",
+      "bluesky": "Freelancers spend mornings copying leads from Google Maps, only to see the same businesses again. A daily sheet from Google Places with contacts, review counts and website checks can help you save time. DM LEADS for a quick chat about fit. #FreelanceIndia"
+    }
+  },
+  "sources": [
+    {
+      "title": "Friday, November 27, 2026, 5pm EST - Smithsonian Event",
+      "url": "https://www.si.edu/events/detail?trumbaEmbed=view%3Devent%26eventid%3D211476810",
+      "domain": "si.edu",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "How to Find Leads in India: Methods Compared LeadsMint",
+      "url": "https://leadsmint.com/how-to-find-leads-in-india",
+      "domain": "leadsmint.com",
+      "date": "2026-10-09",
+      "provider": "exa"
+    },
+    {
+      "title": "UAF Home University of Alaska Fairbanks",
+      "url": "https://www.uaf.edu",
+      "domain": "uaf.edu",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "How to Get Leads Without Buying Lists or Spending Money",
+      "url": "https://mantisai.in/resources/how-to-get-leads-without-buying-lists",
+      "domain": "mantisai.in",
+      "date": "2026-10-23",
+      "provider": "exa"
+    },
+    {
+      "title": "Just a moment...",
+      "url": "https://www.ouhealth.com",
+      "domain": "ouhealth.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "How to Find Local Businesses With No Website: A Practical Lead Generation Guide TradaHQ",
+      "url": "https://tradahq.com/blog/how-to-find-local-businesses-with-no-website-a-practical-lead-generation-guide",
+      "domain": "tradahq.com",
+      "date": "2026-10-02",
+      "provider": "exa"
+    },
+    {
+      "title": "ICH CAHPS Survey Administration and Specifications ...",
+      "url": "https://ichcahps.org/Portals/0/SurveyMaterials/ICH_SurveyAdminManual.pdf",
+      "domain": "ichcahps.org",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "How to Find Leads for Local Businesses: The Signal Playbook - CapyScout Blog",
+      "url": "https://www.capyscout.com/blog/how-to-find-leads-for-local-businesses-the-signal-playbook",
+      "domain": "capyscout.com",
+      "date": "2026-10-04",
+      "provider": "exa"
+    }
+  ],
+  "humanizer": {
+    "model": "openai/gpt-oss-20b",
+    "platforms": {
+      "instagram": {
+        "status": "kept",
+        "ai_before": 5.0,
+        "ai_after": 5.0,
+        "reason": "already reads human to the Critic"
+      },
+      "bluesky": {
+        "status": "skipped",
+        "reason": "body under 30 words"
+      }
+    }
+  },
+  "ad_score": 9,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 346.0,
+        "reach_p50": 707.0,
+        "reach_p90": 1464.0,
+        "risk": "high",
+        "risk_issues": [
+          "{'category': 'privacy/data scraping', 'severity': 'high', 'description': 'The post claims to provide a sheet with busine",
+          "{'category': 'potential illicit promotion', 'severity': 'medium', 'description': 'The phrase \"whatever you sell\" is vagu",
+          "{'category': 'language exclusion', 'severity': 'low', 'description': \"The mix of Hindi and English may exclude non‑Hindi"
+        ],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 5.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 4.0,
+          "practical_value": 6.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 353,
+            "share": 3,
+            "like": 3,
+            "reply": 2
+          },
+          "engagement_rate": 0.0222,
+          "by_role": {
+            "public": {
+              "n": 8,
+              "avg_sentiment": 0.557,
+              "share_rate": 0.375
+            }
+          },
+          "cascade_size": 4,
+          "r_effective": 1.25,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 14,
+          "reach_fraction": 0.0275,
+          "r_effective": 0.7389,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Open a stronger curiosity gap",
+            "lift_pct": 3.6
+          },
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 3.6
+          },
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 3.5
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 12.4,
+        "breakout_probability": 0.0,
+        "reach_p10": 417.0,
+        "reach_p50": 805.0,
+        "reach_p90": 1673.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 4.0,
+          "controversy": 0,
+          "emotional_intensity": 0,
+          "relatability": 3.0,
+          "practical_value": 4.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 365,
+            "share": 2,
+            "like": 1
+          },
+          "engagement_rate": 0.0082,
+          "by_role": {
+            "public": {
+              "n": 3,
+              "avg_sentiment": 0.74,
+              "share_rate": 0.667
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 9,
+          "reach_fraction": 0.0135,
+          "r_effective": 0.4667,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 208.0,
+        "reach_p50": 434.0,
+        "reach_p90": 934.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'class', 'severity': 'low', 'description': 'The copy frames freelancers as performing repetitive, low‑skill",
+          "{'category': 'tone-deafness', 'severity': 'low', 'description': 'The message assumes a universal freelancer experience (",
+          "{'category': 'exclusion', 'severity': 'low', 'description': 'By addressing only \"Freelancers\" and using the hashtag #Fre"
+        ],
+        "dims": {
+          "humor": 2.0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 2.0,
+          "relatability": 4.0,
+          "practical_value": 5.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 363,
+            "share": 2,
+            "like": 1,
+            "reply": 1
+          },
+          "engagement_rate": 0.0109,
+          "by_role": {
+            "public": {
+              "n": 4,
+              "avg_sentiment": 0.585,
+              "share_rate": 0.5
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 12,
+          "reach_fraction": 0.019,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "myth",
+          "p_beats_chosen": 0.11,
+          "lift_pct": -1.1,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "question",
+          "p_beats_chosen": 0.48,
+          "lift_pct": -0.0,
+          "decisive": false
+        }
+      ],
+      "better": null,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Replace 'Comment LEADS aur DM mein ek quick checklist bhej dunga' with 'DM LEADS for a quick chat about fit' to avoid free sample offer.",
+      "linkedin: Rewrite to address freelancers/agencies/solo service sellers (not tool builders), remove all counts (13,000, 153), add capital hook line, DM line with keyword LEADS, and allowed hashtags.",
+      "bluesky: Capitalize first line, add hashtags #FreelanceIndia #Freelancers #LeadGeneration #GetClients #SmallBusinessIndia, change 'quick fit check' to 'quick chat about fit'."
+    ],
+    "before": {
+      "instagram": 0.0,
+      "linkedin": 12.5,
+      "bluesky": 9.9
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 12.4,
+      "bluesky": 0.0
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google:gemma-4-31b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 429)",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 413)",
+      "FAILED groq: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemini-3.8-flash (HTTP 503)",
+      "FAILED google:gemini-3.7-flash (HTTP 503)",
+      "FAILED gemini: all its models",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "google:gemma-4-26b-a4b-it"
+    ],
+    "failures": [
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 1019, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7987, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7990, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7452, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5830, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5056, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5220, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4434, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7991, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5645, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.3,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4005, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 16.4,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8651, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.4,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8793, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6610, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6314, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7988, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6986, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5614, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4720, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3349, Req"
+      }
+    ]
+  }
+}

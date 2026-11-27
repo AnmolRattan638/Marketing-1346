@@ -15,7 +15,7 @@ export const THEME = {
   glowSoft: "rgba(240,192,64,0.14)",
 };
 // Neutral shades of the animation-style effects (paper receipt, key caps, flip clock, grey tiers): not brand colours, kept here so no hex lives in a component.
-export const FX = { paper: "#F4F0E6", paperInk: "#1B1B1B", keycap: "#F1EEE6", keycapEdge: "#B8B2A2", tierC: "#8892A6", tierD: "#5A6376", clock: "#12151C", clockEdge: "#2A2F3A" };
+export const FX = { paper: "#F4F0E6", paperInk: "#1B1B1B", keycap: "#F1EEE6", keycapEdge: "#B8B2A2", tierC: "#8892A6", tierD: "#5A6376", clock: "#12151C", clockEdge: "#2A2F3A", royalDeep: "#040B22", royal: "#0A1A47", royalLight: "#12306E" };   // royal*: the deep navy of the signature backdrop (navy panels, gold light bands)
 // Per-reel art direction (agent/looks.py presets travel in manifest.look): background pattern and vignette strength. applyTheme() sets it before the first frame.
 export const LOOK: { bg: string; vignette: number } = { bg: "specks", vignette: 0.38 };
 export const FONT_HEAD =

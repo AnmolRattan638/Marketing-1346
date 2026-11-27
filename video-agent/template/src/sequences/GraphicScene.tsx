@@ -14,7 +14,7 @@ import { LogoOutro } from "../graphics/LogoOutro";
 import { CircleWipe } from "../graphics/CircleWipe";
 import { ArrivalOverlay, HookTiles, InverseCard, NumeralCard } from "../graphics/RefScenes";
 import { ProgressBar } from "../graphics/ProgressBar";
-import { THEME, GraphicTimes, MockSpec, LOGO_SAFE_TOP } from "../graphics/theme";
+import { THEME, GraphicTimes, MockSpec, LOGO_SAFE_TOP, StageContext, STAGE_ORIGIN_Y } from "../graphics/theme";
 import { TemplateStage, TemplateSpec } from "../locomotion/TemplateStage";
 import { BeforeAfterBoard, BeforeAfterSpec } from "../graphics/BeforeAfter";
 import { BrowserSite, ChatSpec, PhoneChat, SiteSpec } from "../graphics/Devices";
@@ -58,6 +58,7 @@ const GraphicScene: React.FC<GraphicSceneProps> = ({
   layout, tpl, ba, chat, site, hook, avatar, words, step, kicker, heading = "", heading2, ghost, chips = [], items = [], mock, times, logo, cta,
   emphasis = [], pulses = [], fx = [], transitionIn = "settle", captionStyle, grain = 0, progress, showProgress = true, fadeOutFrames = 0,
 }) => {
+  const stage = React.useContext(StageContext);
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
   const circle = transitionIn === "circle";
@@ -154,7 +155,7 @@ const GraphicScene: React.FC<GraphicSceneProps> = ({
         }}
       >
         <Background punch={isPunch} ghost={isPunch ? ghost || heading.split(" ")[0] : undefined} />
-        {body}
+        {stage < 1 && !isLogo ? <AbsoluteFill style={{ transform: `scale(${stage})`, transformOrigin: `50% ${STAGE_ORIGIN_Y}px` }}>{body}</AbsoluteFill> : body}
       </AbsoluteFill>
       <FxLayer items={fx} />
       {isLogo || layout === "hook" || layout === "inverse" ? null : <CaptionLayer words={words} emphasis={emphasis} upper style={captionStyle && REF_FIXED.has(captionStyle) ? undefined : captionStyle} />}   {/* the placed reference styles are for footage scenes: a card with its own heading keeps the bottom pill; the inverse card already carries the words */}

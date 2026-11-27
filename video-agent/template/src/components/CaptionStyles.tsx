@@ -151,9 +151,9 @@ const useZoneShift = (zones?: CaptionZone[]) => {
 
 export const CaptionLayer: React.FC<Props> = (p) => {
   const dy = useZoneShift(p.zones);
-  if (p.style && REF_FIXED.has(p.style)) return <AbsoluteFill><CaptionStyleSwitch {...p} /></AbsoluteFill>;     // these sit at their own place on the frame
+  if (p.style && REF_FIXED.has(p.style)) return <AbsoluteFill style={{ zIndex: 30 }}><CaptionStyleSwitch {...p} /></AbsoluteFill>;     // these sit at their own place on the frame
   return (
-    <AbsoluteFill style={{ transform: dy ? `translateY(${dy}px)` : undefined }}>
+    <AbsoluteFill style={{ zIndex: 30, transform: dy ? `translateY(${dy}px)` : undefined }}>
       <CaptionStyleSwitch {...p} />
     </AbsoluteFill>
   );

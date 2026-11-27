@@ -43,7 +43,7 @@ WORDS = (12, 36)      # a body beat: 1-2 spoken sentences, one concrete idea and
 HOOK_WORDS = (5, 18)
 CTA_WORDS = (8, 36)      # 28 + room for the carousel pointer (see tease_carousel)
 REHOOK_WORDS = (8, 40)    # a short scene (who, when, what goes wrong) ending in the open question
-TOTAL_WORDS = (80, 150)   # whole spoken script: ~40-60 seconds (detailed: scene, reason, steps)
+TOTAL_WORDS = (60, 100)   # whole spoken script: ~25-35 seconds. Shorter by FEWER details per beat, never by cutting words out of a sentence (the model rewrites tighter, complete sentences are checked)
 # helping words that join a thought to its reason or example; a script made only of short bare statements fails
 CONNECT = re.compile(r"\b(kyunki|kyuki|isliye|isiliye|matlab|yaani|jaise|jaise ki|maan lo|socho|yani|toh phir|phir|isse|taaki|warna|lekin|par asli|asli baat|dhyan rakho|iska matlab)\b", re.I)
 # a statistic describes how things are; a line must not turn it into a promise (e.g. "70-90% of calls are repeat questions" is not "70-90% of calls will stop")

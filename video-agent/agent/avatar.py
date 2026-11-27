@@ -131,6 +131,13 @@ def presenter(built: list, scene_frames: list[int], cfg: dict, fps: int, has_out
         hide = [[c["f"], c["f"] + c["n"]] for c in cuts if c["frame"] == "none"]
         if has_outro:
             hide.append([sum(scene_frames), sum(scene_frames) + int(float((cfg.get("look") or {}).get("outro_seconds", 1.8)) * fps) + 5])
+        merged: list[list[int]] = []
+        for r in sorted(hide):                       # touching ranges (a hook cut in two clips) become one
+            if merged and r[0] <= merged[-1][1]:
+                merged[-1][1] = max(merged[-1][1], r[1])
+            else:
+                merged.append(list(r))
+        hide = merged
         log(f"avatar: presenter clips ({len(lib)} clips in the library), {len(cuts)} cuts: {clips.summary(cuts)}")
         logo = _wall_logo(cuts, scene_frames, a)
         return {"mode": "video", "clips": cuts, "hide": hide, "src": [], "energy": [], "frame": a.get("frame") or {}, **({"logo": logo} if logo else {})}

@@ -85,3 +85,17 @@ assert max(c["n"] for c in ac) <= 100, "a new clip about every 2.4 s (the call t
 ac2 = clips.plan(["a", "b"], ["title", "logo"], [90, 60], 30, al, seed="x")
 assert ac2[-1]["frame"] == "none", "only the logo end hides him"
 print("presenter clips ok")
+
+# hybrid layout: with beats, only the hook, twist (rehook), cta and avatar scenes carry the presenter; the rest are full-frame graphics
+hb = ["pain", "poke", "rehook", "fix", "payoff", "recap", "cta"]
+hc = clips.plan(texts, layouts, frames, 30, al, seed="2026-11-21", beats=(hb + [None] * len(texts))[:len(texts)])
+by_scene = {}
+s0 = 0
+for i, fr in enumerate(frames):
+    by_scene[i] = [c["frame"] for c in hc if s0 <= c["f"] < s0 + fr]
+    s0 += fr
+for i in range(len(texts)):
+    b = (hb + [None] * len(texts))[i]
+    want = layouts[i] == "logo" or not (layouts[i] in ("hook", "avatar") or i in (0, len(texts) - 1) or b in clips.PRESENTER_BEATS)
+    assert all((f == "none") == want for f in by_scene[i]), (i, b, by_scene[i])
+print("hybrid ok")

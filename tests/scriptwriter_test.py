@@ -4,6 +4,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 from src.agents import factsheet as fs, scriptwriter as sw
 import tempfile
 from src import scriptlessons as SL
+sw.proof_facts.required = lambda beats, today=None: []      # the every-reel-cites-a-proof rule has its own test (proof_script_test.py); these scripts are about other rules
 SL.STATE = pathlib.Path(tempfile.mkdtemp()) / "script_lessons.json"      # tests never touch the real memory file
 
 items = [{"title": "Reply study", "url": "https://a.com/1", "domain": "a.com", "date": "2026-09-01", "snippet": "Firms replying within 5 minutes win 21 times more leads."},

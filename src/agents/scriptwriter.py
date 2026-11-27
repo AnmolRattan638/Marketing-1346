@@ -264,6 +264,7 @@ def problems(script, sheet, style, focus=None):
             out.append("fix: needs 2-3 concrete steps (each 7 words max) in `steps`, and the spoken line must walk through them")
     out += structure_problems(beats)
     out += proof_facts.problems([str(b.get('line') or '') for b in beats])
+    out += proof_facts.required(beats)
     cta = beats[-1] if beats else {}
     if cta.get("beat") == "cta":
         text = str(cta.get("line") or "")

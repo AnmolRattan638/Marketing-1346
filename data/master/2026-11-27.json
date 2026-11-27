@@ -1,0 +1,215 @@
+{
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Kabhi dhyan diya hai, Google Maps sirf 60 results dikhata hai…",
+    "hooks": [
+      {
+        "text": "Kabhi dhyan diya hai, Google Maps sirf 60 results dikhata hai…",
+        "score": 15.3,
+        "formula": "noticed"
+      },
+      {
+        "text": "Subah se shaam local business dhoondhte dhoondhte nikal jati hai?",
+        "score": 12.8,
+        "formula": ""
+      },
+      {
+        "text": "Bohot kam log local business leads ye kar rahe hain…",
+        "score": 11.4,
+        "formula": "nobody"
+      },
+      {
+        "text": "Kaash mujhe local business dhoondhne ka ye tareeka pehle pata hota…",
+        "score": 11.4,
+        "formula": "wish"
+      },
+      {
+        "text": "Manual lead generation aapka sabse zyada time khata hai…",
+        "score": 9.4,
+        "formula": ""
+      },
+      {
+        "text": "Har search mein wahi business dikhte hain kyunki kuch save nahi hota hai.",
+        "score": 7.9,
+        "formula": ""
+      }
+    ],
+    "hook_formula": "noticed",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Kabhi dhyan diya hai, Google Maps sirf 60 results dikhata hai…",
+        "screen": "Wahi business baar baar",
+        "visual": "Phone screen showing repeated Google Maps searches with same results",
+        "emotion": "empathetic",
+        "steps": [],
+        "facts": [
+          "f2"
+        ]
+      },
+      {
+        "beat": "poke",
+        "line": "Google Maps sirf 60 results dikhata hai, har lead copy karni padti hai kyun?",
+        "screen": "Sirf 60 results",
+        "visual": "Google Maps result list stopping at 60",
+        "emotion": "urgent",
+        "steps": [],
+        "facts": [
+          "f4"
+        ]
+      },
+      {
+        "beat": "rehook",
+        "line": "Kya agar rozana ready Excel sheet aapko mile?",
+        "screen": "Ready Excel sheet?",
+        "visual": "Excel sheet preview on phone screen",
+        "emotion": "curious",
+        "steps": [],
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Google Places se business nikalte hain, phir website se qualify karte hain.",
+        "screen": "Google Places + Website",
+        "visual": "Screen recording of lead sheet being built",
+        "emotion": "calm",
+        "steps": [
+          "Google Places se business nikalna",
+          "Website se qualify karna",
+          "Rozana Excel sheet bhejna"
+        ],
+        "facts": []
+      },
+      {
+        "beat": "payoff",
+        "line": "BrightLocal ke mutabiq 84% log teen mahine mein local business dhoondhte hain.",
+        "screen": "84% local search",
+        "visual": "BrightLocal statistic graphic",
+        "emotion": "calm",
+        "steps": [],
+        "facts": [
+          "f7"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Manual khojne mein time lagta hai, wahi business baar baar aate hain.",
+        "screen": "Time bachao, clients dhoondho",
+        "visual": "Freelancer looking at clock then pitching",
+        "emotion": "empathetic",
+        "steps": [],
+        "facts": [
+          "f2"
+        ]
+      },
+      {
+        "beat": "cta",
+        "line": "Comment LEADS likho, main DM mein checklist bhejunga. Poora breakdown aaj ke carousel mein hai.",
+        "screen": "Comment LEADS",
+        "visual": "Comment box with LEADS typed",
+        "emotion": "urgent",
+        "steps": [],
+        "facts": []
+      }
+    ],
+    "cta": "Comment LEADS likho, main DM mein checklist bhejunga. Poora breakdown aaj ke carousel mein hai.",
+    "linkedin_english": "If you are a freelancer or agency selling to local businesses, finding leads on Google Maps takes hours and shows the same results again. LocalSignal sends you a daily Excel sheet of pre-qualified local businesses with website details, so you can pitch instead of searching. Comment LEADS and I will send you a checklist for picking businesses to contact and what to say.",
+    "marketing": {
+      "keyword": "LEADS",
+      "gets": "a one-page checklist: how to pick the 20 local businesses worth contacting first and what to say in the first message",
+      "pillar": "educate"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Manual research on maps and search is free and uncovers many local businesses, especially those that appear on Google Maps but have no website.",
+        "figure": null,
+        "source": "leadsmint.com",
+        "title": "How to Find Leads in India: Methods Compared LeadsMint",
+        "url": "https://leadsmint.com/how-to-find-leads-in-india",
+        "date": "2026-10-09",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "The downside of manual map research is the time it takes, because nothing is recorded and repeated searches return the same businesses.",
+        "figure": null,
+        "source": "leadsmint.com",
+        "title": "How to Find Leads in India: Methods Compared LeadsMint",
+        "url": "https://leadsmint.com/how-to-find-leads-in-india",
+        "date": "2026-10-09",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "Lead‑finder software such as LeadsMint lets you search for a business type within a radius of 1 to 50 km, review results for free, unlock leads for a credit, and manage them in a CRM, but it only shows businesses listed on Google Maps.",
+        "figure": "1 to 50 km",
+        "source": "leadsmint.com",
+        "title": "How to Find Leads in India: Methods Compared LeadsMint",
+        "url": "https://leadsmint.com/how-to-find-leads-in-india",
+        "date": "2026-10-09",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "A single Google Maps search returns a limited set of results, currently up to 60 per query.",
+        "figure": "60",
+        "source": "leadsmint.com",
+        "title": "How to Find Leads in India: Methods Compared LeadsMint",
+        "url": "https://leadsmint.com/how-to-find-leads-in-india",
+        "date": "2026-10-09",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "Google Maps and other map listings give you the name, phone, address, rating and website (if any) of local businesses, but each lead must be captured manually.",
+        "figure": null,
+        "source": "mantisai.in",
+        "title": "How to Get Leads Without Buying Lists or Spending Money",
+        "url": "https://mantisai.in/resources/how-to-get-leads-without-buying-lists",
+        "date": "2026-10-23",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "LinkedIn’s free search can reveal decision‑maker names and titles, although the free version imposes usage limits.",
+        "figure": null,
+        "source": "mantisai.in",
+        "title": "How to Get Leads Without Buying Lists or Spending Money",
+        "url": "https://mantisai.in/resources/how-to-get-leads-without-buying-lists",
+        "date": "2026-10-23",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "BrightLocal reported that 84 % of consumers searched for a local business in the past three months, and 73 % started their most recent local search on a mobile device.",
+        "figure": "84%",
+        "source": "capyscout.com",
+        "title": "How to Find Leads for Local Businesses: The Signal Playbook - CapyScout Blog",
+        "url": "https://www.capyscout.com/blog/how-to-find-leads-for-local-businesses-the-signal-playbook",
+        "date": "2026-10-04",
+        "verdict": "verified",
+        "id": "f7"
+      },
+      {
+        "claim": "BrightLocal also found that 75 % of consumers decide which local business to use within 30 minutes, and 72 % consider three or fewer options.",
+        "figure": "75%",
+        "source": "capyscout.com",
+        "title": "How to Find Leads for Local Businesses: The Signal Playbook - CapyScout Blog",
+        "url": "https://www.capyscout.com/blog/how-to-find-leads-for-local-businesses-the-signal-playbook",
+        "date": "2026-10-04",
+        "verdict": "verified",
+        "id": "f8"
+      }
+    ],
+    "topic": "The myth that manual research is the only way to find 'high-quality' local leads.",
+    "service": "lead_gen",
+    "keyword": "LEADS",
+    "carousel_tease": true,
+    "notes": [
+      "style remark (not blocking): lines are bare statements; use helping words that give the reason or an example (kyunki, isliye, matlab, jaise ki, phir, taaki) so the viewer understands WHY",
+      "style remark (not blocking): pain: context: the hook must name the viewer's business type (clinic, salon, cafe, coaching centre, homestay, gym, shop...) so it is clear in 2 seconds who this is for; ne"
+    ]
+  },
+  "service": "lead_gen"
+}

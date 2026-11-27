@@ -1,5 +1,5 @@
-- Hook style to try: **mistake** angle (1.3x) or **myth_bust** (1.25x) — rotate from overused question/comparison hooks
-- Avoid: repeating "same five questions" phrasing (used 11/12 chatbot post), "wrong price" fear hook, generic "robotic" myth — already saturated
-- Use carousel format (4x reel earnings per reach) with **self-test-signs** or **bold-slow-reveal** taste
-- Post must read as developer showing real work: explain chatbot logic generally, use ONE labelled example conversation, no demo offers
-- Include only allowed offer: "pay after approval" + short DM conversation for fit advice
+- Rotate hook styles: question, contrast, top3 (avoid overusing comparison)
+- Lead gen posts: speak to freelancers/agencies broadly, not developers; describe sheet generally (Google Places data, contacts, review counts, website checks, new openings)
+- Image style: test desk-glow or silhouette (highest scores, though n<5)
+- Never read like an ad; show developer's real work
+- Avoid repeating 'Google Maps' phrasing used in 3 recent lead gen posts

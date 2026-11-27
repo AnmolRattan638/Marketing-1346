@@ -28,20 +28,20 @@
   ]
  },
  "total-length": {
-  "count": 48,
+  "count": 56,
   "rule": "The whole script stays under 85 words (about 30 s); give each beat one concrete idea and its reason, nothing more.",
   "recent": [
    {
-    "on": "2026-11-26",
-    "mistake": "fix: script is 157 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 26 to 23 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
+    "on": "2026-11-27",
+    "mistake": "cta: script is 106 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 27 to 21 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
    },
    {
-    "on": "2026-11-26",
-    "mistake": "payoff: script is 159 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 21 to 16 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte ha"
+    "on": "2026-11-27",
+    "mistake": "fix: script is 104 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 16 to 14 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain,"
    },
    {
-    "on": "2026-11-26",
-    "mistake": "poke: script is 159 words, the reel must stay under 150 (about 30 seconds); tighten this beat from 20 to 16 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain"
+    "on": "2026-11-27",
+    "mistake": "poke: script is 104 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 15 to 13 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain"
    }
   ]
  },
@@ -66,13 +66,9 @@
   "rule": "the ask ... is not in offers_allowed; fix to use an allowed offer like ..."
  },
  "number-unbacked": {
-  "count": 43,
+  "count": 44,
   "rule": "Every digit must come from a cited fact; if no fact has the number, say it in words with no digit.",
   "recent": [
-   {
-    "on": "2026-11-26",
-    "mistake": "cta: number(s) ['10'] not backed by a cited fact"
-   },
    {
     "on": "2026-11-26",
     "mistake": "fix: number(s) ['3', '5'] not backed by a cited fact"
@@ -80,11 +76,15 @@
    {
     "on": "2026-11-26",
     "mistake": "payoff: number(s) ['0'] not backed by a cited fact"
+   },
+   {
+    "on": "2026-11-27",
+    "mistake": "rehook: number(s) ['60'] not backed by a cited fact"
    }
   ]
  },
  "abstract": {
-  "count": 9,
+  "count": 10,
   "rule": "Name a concrete moment or thing (11 pm message, unanswered enquiry) in pain and poke.",
   "recent": [
    {
@@ -92,17 +92,17 @@
     "mistake": "pain: too abstract; name a concrete moment or thing (a 11 pm message, an unanswered enquiry, the WhatsApp reply)"
    },
    {
-    "on": "2026-11-26",
+    "on": "2026-11-27",
     "mistake": "fix: too abstract; name a concrete moment or thing (a 11 pm message, an unanswered enquiry, the WhatsApp reply)"
    }
   ]
  },
  "connectors": {
-  "count": 20,
+  "count": 21,
   "rule": "Use helping words (kyunki, isliye, jaise ki, phir) so each line gives its reason.",
   "recent": [
    {
-    "on": "2026-11-25",
+    "on": "2026-11-27",
     "mistake": "lines are bare statements; use helping words that give the reason or an example (kyunki, isliye, matlab, jaise ki, phir, taaki) so the viewer understands WHY"
    }
   ]
@@ -126,13 +126,9 @@
   ]
  },
  "screen": {
-  "count": 11,
+  "count": 12,
   "rule": "`screen` text is a 2-6 word bold headline that works on mute; no full sentence.",
   "recent": [
-   {
-    "on": "2026-11-22",
-    "mistake": "hook: `screen` is the first-frame headline, 3-5 bold words that work on mute (now 2)"
-   },
    {
     "on": "2026-11-26",
     "mistake": "hook: `screen` is the first-frame headline, 3-5 bold words that work on mute (now 9)"
@@ -140,6 +136,10 @@
    {
     "on": "2026-11-26",
     "mistake": "hook: `screen` is the first-frame headline, 3-5 bold words that work on mute (now 6)"
+   },
+   {
+    "on": "2026-11-27",
+    "mistake": "hook: `screen` is the first-frame headline, 3-5 bold words that work on mute (now 7)"
    }
   ]
  },
@@ -284,11 +284,11 @@
   "rule": "line promises a result (“website answers customers until N”) which violates the claims_rules; rephrase to a capability like “A mob"
  },
  "hinglish": {
-  "count": 6,
+  "count": 7,
   "rule": "Every spoken line is everyday Hindi in Roman letters with English tech words.",
   "recent": [
    {
-    "on": "2026-11-24",
+    "on": "2026-11-27",
     "mistake": "pain: not Hinglish (needs everyday spoken Hindi in Roman letters, like talking to a shop owner)"
    }
   ]
@@ -418,21 +418,21 @@
   ]
  },
  "other:loops: end the hook and the poke (or the": {
-  "count": 8,
+  "count": 9,
   "rule": "loops: end the hook and the poke (or the rehook) on a question or an unfinished thought (... or ?) so the next beat has to answer;",
   "recent": [
    {
-    "on": "2026-11-26",
+    "on": "2026-11-27",
     "mistake": "poke: loops: end the hook and the poke (or the rehook) on a question or an unfinished thought (... or ?) so the next beat has to answer; at least two of them"
    }
   ]
  },
  "other:context: the hook must name the viewer..": {
-  "count": 9,
+  "count": 10,
   "rule": "context: the hook must name the viewer...business owners'",
   "recent": [
    {
-    "on": "2026-11-26",
+    "on": "2026-11-27",
     "mistake": "pain: context: the hook must name the viewer's business type (clinic, salon, cafe, coaching centre, homestay, gym, shop...) so it is clear in 2 seconds who this is for; never just 'business owners'"
    }
   ]
@@ -638,11 +638,11 @@
   ]
  },
  "other:loops: no figures in the rehook, it only": {
-  "count": 2,
+  "count": 3,
   "rule": "loops: no figures in the rehook, it only keeps the viewer waiting",
   "recent": [
    {
-    "on": "2026-11-26",
+    "on": "2026-11-27",
     "mistake": "rehook: loops: no figures in the rehook, it only keeps the viewer waiting"
    }
   ]
@@ -668,12 +668,16 @@
   ]
  },
  "other:grammar: sentence ends on a bare verb 'd": {
-  "count": 1,
+  "count": 2,
   "rule": "grammar: sentence ends on a bare verb 'de' with no helper (chhod deta hai / chhod dete hain): ...",
   "recent": [
    {
     "on": "2026-11-24",
     "mistake": "fix: grammar: sentence ends on a bare verb 'de' with no helper (chhod deta hai / chhod dete hain): \"ra, AI chatbot integrate karo, jo turant jawab de.\""
+   },
+   {
+    "on": "2026-11-27",
+    "mistake": "rehook: grammar: sentence ends on a bare verb 'de' with no helper (chhod deta hai / chhod dete hain): \"ol chahiye jo daily ready leads ki Excel sheet de?\""
    }
   ]
  },
@@ -1028,6 +1032,26 @@
    {
     "on": "2026-11-26",
     "mistake": "beats must be exactly ['pain', 'poke', 'rehook', 'fix', 'payoff', 'cta'], got ['pain', 'poke', 'rehook', 'fix', 'payoff', 'cta', 'cta']"
+   }
+  ]
+ },
+ "other:ask the viewer to comment the word LEADS": {
+  "count": 1,
+  "rule": "ask the viewer to comment the word LEADS (a public comment); the freebie arrives in their DM",
+  "recent": [
+   {
+    "on": "2026-11-27",
+    "mistake": "cta: ask the viewer to comment the word LEADS (a public comment); the freebie arrives in their DM"
+   }
+  ]
+ },
+ "other:grammar: sentence ends on ... without ha": {
+  "count": 1,
+  "rule": "grammar: sentence ends on ... without hai/hain: ...",
+  "recent": [
+   {
+    "on": "2026-11-27",
+    "mistake": "pain: grammar: sentence ends on 'karte' without hai/hain: \"Bohot kam log ye karte…\""
    }
   ]
  }

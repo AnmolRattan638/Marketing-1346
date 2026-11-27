@@ -56,10 +56,9 @@ const AlphaInner: React.FC<{ c: VideoCut; full: number; compact: number; fps: nu
   return (
     <>
       <AbsoluteFill style={{ background: `radial-gradient(60% 45% at 50% 62%, ${THEME.accent} 0%, transparent 70%)`, opacity: flash * 0.6, mixBlendMode: "screen" }} />
-      <AbsoluteFill style={{ opacity: fadeIn, transform: `scale(${base * punch})`, transformOrigin: "50% 100%",
-        WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%)", maskImage: "linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%)" }}>
+      <AbsoluteFill style={{ opacity: fadeIn, transform: `scale(${base * punch})`, transformOrigin: "50% 100%" }}>
         <OffthreadVideo src={staticFile(c.src)} muted transparent startFrom={Math.round(c.from * fps)} playbackRate={c.rate}
-          style={{ position: "absolute", left: 0, top: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+          style={{ position: "absolute", left: "-33.3333%", top: 0, width: "166.6667%", height: "100%", objectFit: "cover" }} />      {/* the clip is 1800 wide: the table runs past the frame, so it reaches both edges at any size */}
       </AbsoluteFill>
     </>
   );

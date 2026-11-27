@@ -4,6 +4,7 @@ import { Captions } from "./Captions";
 import { FONT_SERIF, THEME } from "../graphics/theme";
 import { CaptionStyle, CaptionZone, DEFAULT_Y, MONO, Props, SANS, Box, norm, useChunk } from "./captionKit";
 import { REF_CAPTIONS, REF_FIXED } from "./RefCaptions";
+import { StageContext } from "../graphics/theme";
 export type { CaptionStyle, CaptionZone };
 export const CAPTION_STYLES: CaptionStyle[] = ["pill", "cinematic", "karaoke", "stack", "typewriter", ...(Object.keys(REF_CAPTIONS) as CaptionStyle[])];
 
@@ -149,8 +150,12 @@ const useZoneShift = (zones?: CaptionZone[]) => {
   return prev + (cur - prev) * ease - DEFAULT_Y;
 };
 
+const ALPHA_LANE_SHIFT = -560;      // with the transparent presenter the captions sit in the lane just above his head (their usual place is over his hands)
+
 export const CaptionLayer: React.FC<Props> = (p) => {
-  const dy = useZoneShift(p.zones);
+  const stage = React.useContext(StageContext);
+  const dy = useZoneShift(p.zones) + (stage < 1 ? ALPHA_LANE_SHIFT : 0);
+  if (p.style && stage < 1 && !REF_FIXED.has(p.style)) return <AbsoluteFill style={{ zIndex: 30, transform: `translateY(${dy}px)` }}><CaptionStyleSwitch {...p} /></AbsoluteFill>;
   if (p.style && REF_FIXED.has(p.style)) return <AbsoluteFill style={{ zIndex: 30 }}><CaptionStyleSwitch {...p} /></AbsoluteFill>;     // these sit at their own place on the frame
   return (
     <AbsoluteFill style={{ zIndex: 30, transform: dy ? `translateY(${dy}px)` : undefined }}>

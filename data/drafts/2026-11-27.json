@@ -2,7 +2,7 @@
   "id": "2026-11-27-576fd1",
   "date": "2026-11-27",
   "created_at": "2026-11-27T11:29:58+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "lead_gen",
   "topic": "The myth that manual research is the only way to find 'high-quality' local leads.",
   "idea_id": null,
@@ -964,5 +964,19 @@
         "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3349, Req"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6b0971e968cad37f5b8949b4 (7 slides)"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6b09720c062ed764a8116601 (due 2026-11-27T12:05:32.446Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n3c5kfxdqh27 (4 slides)"
+    }
   }
 }

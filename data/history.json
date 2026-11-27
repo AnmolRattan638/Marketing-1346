@@ -278,5 +278,12 @@
     "topic": "Why do most of your WhatsApp enquiries end without a name or contact number?",
     "hook_style": "question",
     "status": "published"
+  },
+  {
+    "date": "2026-11-27",
+    "service": "lead_gen",
+    "topic": "The myth that manual research is the only way to find 'high-quality' local leads.",
+    "hook_style": "comparison",
+    "status": "published"
   }
 ]

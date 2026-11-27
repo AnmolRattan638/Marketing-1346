@@ -1,0 +1,217 @@
+{
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Gym owners, kya aapka ad 15 second mein dhyaan khinchta hai?",
+    "hooks": [
+      {
+        "text": "Bohot kam brands apne ads mein ye ek cheez karte hain…",
+        "score": 11.4,
+        "formula": "nobody"
+      },
+      {
+        "text": "Kaash mujhe ads ke baare mein ye pehle pata hota…",
+        "score": 11.4,
+        "formula": "wish"
+      },
+      {
+        "text": "Kabhi dhyan diya hai, ads mein log pehle kya dekhte hain…",
+        "score": 11.4,
+        "formula": "noticed"
+      },
+      {
+        "text": "Do second mein grahak aapka ad scroll kar deta hai…",
+        "score": 9.4,
+        "formula": ""
+      },
+      {
+        "text": "Cafe ki static photo ad ko grahak do second mein scroll kar deta…",
+        "score": 9.4,
+        "formula": ""
+      },
+      {
+        "text": "Cafe ki static photo ad grahak do second mein scroll kar deta hai, kyunki motion nahi hota.",
+        "score": 7.9,
+        "formula": ""
+      }
+    ],
+    "hook_formula": "nobody",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Gym owners, kya aapka ad 15 second mein dhyaan khinchta hai?",
+        "screen": "Gym owners: 15‑second ad?",
+        "visual": "Gym interior with trainer, phone showing 15‑second timer and stopwatch overlay.",
+        "emotion": "warm",
+        "facts": [
+          "f6"
+        ],
+        "steps": [
+          "Gym owners",
+          "ad 15 second mein",
+          "dhyaan khinchta hai?"
+        ]
+      },
+      {
+        "beat": "poke",
+        "line": "WhatsApp pe enquiry ka reply aap miss kar rahe hain, koi follow‑up nahi milta.",
+        "screen": "WhatsApp enquiry missed",
+        "visual": "Phone screen with WhatsApp chat, unread message bubble highlighted.",
+        "emotion": "warm",
+        "facts": [],
+        "steps": [
+          "WhatsApp enquiry reply miss",
+          "koi follow‑up nahi milta"
+        ]
+      },
+      {
+        "beat": "rehook",
+        "line": "Par ads mein pehle kya dikhaya jaye, ye decide nahi hota…",
+        "screen": "Pehle kya dikhayen?",
+        "visual": "Blurred text on a phone screen with a question mark.",
+        "emotion": "curious",
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Enquiry reply nahi aata? Offer chunein, taaki aap 15‑second ad bana saken.",
+        "screen": "Offer chunein, 15‑second ad",
+        "visual": "Phone screen shows missed WhatsApp notification, then a 15‑second animated ad thumbnail appears.",
+        "emotion": "warm",
+        "steps": [
+          "Enquiry reply nahi aata",
+          "Offer chunein",
+          "15‑second ad bana saken"
+        ],
+        "facts": [
+          "f6"
+        ]
+      },
+      {
+        "beat": "payoff",
+        "line": "Genyad ke mutabik, 15‑second ad mein paanch core beats hote hain, zaroori.",
+        "screen": "15‑second ad, paanch core beats",
+        "visual": "Genyad logo, timeline of 15‑second ad with icons for hook, problem, offer, proof, ask",
+        "emotion": "warm",
+        "facts": [
+          "f6"
+        ],
+        "steps": [
+          "Genyad ke mutabik",
+          "15‑second ad",
+          "paanch core beats"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Static photo se grahak chala jata, lekin chhota ad ungli rok leta hai.",
+        "screen": "Chhota ad ungli roke",
+        "visual": "Split screen: a still photo is ignored, then an animated ad stops the thumb.",
+        "emotion": "empathetic",
+        "facts": []
+      },
+      {
+        "beat": "cta",
+        "line": "Comment ADS, taaki main DM mein checklist bhejun aur aap samajh saken. Poora breakdown aaj ke carousel mein hai.",
+        "screen": "Comment ADS, DM checklist bhejun",
+        "visual": "Anmol points to comment box, then shows DM screen with checklist.",
+        "emotion": "warm",
+        "facts": [],
+        "steps": [
+          "Comment ADS",
+          "DM mein checklist bhejun",
+          "aap samajh saken"
+        ]
+      }
+    ],
+    "cta": "Comment ADS, taaki main DM mein checklist bhejun aur aap samajh saken. Poora breakdown aaj ke carousel mein hai.",
+    "linkedin_english": "Small business owners often lose attention with static image ads on Instagram and Facebook. A short animated ad can fit a complete message in 15 seconds, with a hook, problem, offer, proof, and ask. Comment ADS and I will send you a one-page checklist for what your short ad should show, so a customer understands your business.",
+    "marketing": {
+      "keyword": "ADS",
+      "gets": "a one-page checklist: what a 20-second ad must show so a customer understands your business, in order",
+      "pillar": "educate"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "Short‑form video accounts for 49% of the top ROI‑driving content formats for marketers.",
+        "figure": "49%",
+        "source": "hubspot.com",
+        "title": "2026 Marketing Statistics, Trends, & Data",
+        "url": "https://www.hubspot.com/marketing-statistics",
+        "date": null,
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "Long‑form video makes up 29% of the top ROI‑driving content formats for marketers.",
+        "figure": "29%",
+        "source": "hubspot.com",
+        "title": "2026 Marketing Statistics, Trends, & Data",
+        "url": "https://www.hubspot.com/marketing-statistics",
+        "date": null,
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "More than 60% of consumers say they see the same ad multiple times in a single session, which raises frustration.",
+        "figure": "60%",
+        "source": "omc.com",
+        "title": "Omnicom Media Study Warns of ‘Negative Reach’ as Frequency Misfires Undermine Campaign Performance - Omnicom",
+        "url": "https://www.omc.com/newsroom/omnicom-media-study-warns-of-negative-reach-as-frequency-misfires-undermine-campaign-performance/",
+        "date": "2026-04-22",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "Unaided recall is 58% higher when an ad appears in a lighter ad‑load environment versus a heavier one.",
+        "figure": "58%",
+        "source": "ppc.land",
+        "title": "More ads cut streaming brand recall from 41% to 26%, FreeWheel finds",
+        "url": "https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/",
+        "date": "2026-09-18",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "In the heavy ad‑load condition, ads occupied nine minutes of a 30‑minute program, equal to 30% of the running time.",
+        "figure": "30%",
+        "source": "ppc.land",
+        "title": "More ads cut streaming brand recall from 41% to 26%, FreeWheel finds",
+        "url": "https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/",
+        "date": "2026-09-18",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "A 15‑second feed ad can fit five core messaging beats such as hook, problem, offer, proof, and ask.",
+        "figure": "15 seconds",
+        "source": "genyad.com",
+        "title": "The Direct Response Video Formula, Compressed to 15 Seconds Genyad",
+        "url": "https://www.genyad.com/post/direct-response-video-formula",
+        "date": "2026-09-30",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "A brand story video lasting two minutes and twenty‑six seconds gets served far more often than completed, while the same footage could be repurposed into eight fifteen‑second ads.",
+        "figure": "two minutes and twenty‑six seconds",
+        "source": "sugarycitrus.in",
+        "title": "Three Indian D2C Meta Ads, Reviewed Sugary Citrus",
+        "url": "https://sugarycitrus.in/insights/meta-ads-three-indian-d2c-brands-review",
+        "date": "2026-11-08",
+        "verdict": "verified",
+        "id": "f7"
+      }
+    ],
+    "topic": "Why 'more' is actually 'less' in video ads",
+    "service": "animated_ads",
+    "keyword": "ADS",
+    "carousel_tease": true,
+    "notes": [
+      "style remark (not blocking): fix: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Offer chunein, taaki aap 15‑second ad bana saken.\"",
+      "style remark (not blocking): cta: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Comment ADS, taaki main DM mein checklist bhejun aur aap sam\""
+    ]
+  },
+  "service": "animated_ads",
+  "slot": "2"
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, random, useCurrentFrame, useVideoConfig } from "remotion";
-import { LOOK, THEME } from "./theme";
+import { FX, LOOK, THEME } from "./theme";
 
 // Themed backdrop: gradient, soft glow, a few slowly drifting specks (seeded, so every render is identical), vignette.
 // `punch` swaps to the full-colour slide; `ghost` is the giant faint word behind a punch line.
@@ -18,14 +18,14 @@ export const Background: React.FC<{ punch?: boolean; ghost?: string }> = ({ punc
       style={{
         background: punch
           ? `linear-gradient(150deg, ${THEME.accent}, ${THEME.accent2} 75%)`
-          : `linear-gradient(170deg, ${THEME.bgTop}, ${THEME.bgBottom} 55%, ${THEME.card})`      // ends in the navy of the presenter backdrop, so the join under the presenter is invisible,
+          : `linear-gradient(160deg, ${FX.royalDeep}, ${FX.royal} 50%, ${FX.royalDeep})`      // the signature backdrop: deep royal navy, crisp gold light bands on top (no blur)
       }}
     >
       <AbsoluteFill
         style={{
           background: punch
             ? `radial-gradient(circle at 70% 25%, ${THEME.glow}, rgba(240,192,64,0) 55%)`
-            : `radial-gradient(circle at 75% 20%, rgba(240,192,64,0.06), rgba(240,192,64,0) 55%), radial-gradient(circle at 15% 85%, rgba(201,168,76,0.08), rgba(201,168,76,0) 50%)`,
+            : "none",
         }}
       />
       {ghost ? (
@@ -47,8 +47,7 @@ export const Background: React.FC<{ punch?: boolean; ghost?: string }> = ({ punc
           </div>
         </AbsoluteFill>
       ) : null}
-      {!punch ? <Streaks t={t} width={width} height={height} /> : null}
-      {!punch ? <Orbs t={t} width={width} height={height} /> : null}
+      {!punch ? <Signature t={t} width={width} height={height} /> : null}
       <Pattern kind={LOOK.bg} t={t} width={width} height={height} />
       <AbsoluteFill style={{ display: LOOK.bg === "specks" || LOOK.bg === "aurora" || LOOK.bg === "orbs" ? "block" : "none" }}>
         {specks.map((s, i) => (
@@ -56,21 +55,6 @@ export const Background: React.FC<{ punch?: boolean; ghost?: string }> = ({ punc
         ))}
       </AbsoluteFill>
       <AbsoluteFill style={{ background: `radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,${LOOK.vignette}) 100%)` }} />
-    </AbsoluteFill>
-  );
-};
-
-// Diagonal gold light streaks (the presenter backdrop's design), drifting very slowly; theme colours only.
-const Streaks: React.FC<{ t: number; width: number; height: number }> = ({ t, width, height }) => {
-  const band = (x: number, y: number, w: number, o: number, k: number) => (
-    <div style={{ position: "absolute", left: x + Math.sin(t * 0.35 + k) * 24, top: y + Math.cos(t * 0.3 + k) * 18, width: w, height: 1900, transform: "rotate(38deg)", transformOrigin: "0 0", opacity: o,
-      background: `linear-gradient(90deg, rgba(0,0,0,0), ${THEME.accent2} 48%, ${THEME.accent} 52%, rgba(0,0,0,0))` }} />
-  );
-  return (
-    <AbsoluteFill style={{ overflow: "hidden" }}>
-      {band(width * 0.9, height * 0.52, 120, 0.2, 0)}
-      {band(width * 0.62, height * 0.78, 40, 0.28, 1)}
-      {band(width * 0.04, height * 0.3, 70, 0.14, 2)}
     </AbsoluteFill>
   );
 };
@@ -147,15 +131,36 @@ const Pattern: React.FC<{ kind: string; t: number; width: number; height: number
   return null;
 };
 
-// Two large slow colour orbs under every backdrop, so no look is ever a flat gradient.
-const Orbs: React.FC<{ t: number; width: number; height: number }> = ({ t, width, height }) => {
-  const orb = (cx: number, cy: number, r: number, c: string, ph: number, o: number) => (
-    <div style={{ position: "absolute", left: cx + Math.sin(t * 0.45 + ph) * 140 - r, top: cy + Math.cos(t * 0.38 + ph) * 190 - r, width: r * 2, height: r * 2, borderRadius: "50%", background: c, filter: "blur(110px)", opacity: o }} />
+// The signature backdrop (navy panels, crisp gold light bands, corner dot grids), after the reference image. The bands sit at the sides and slide very slowly, the centre stays calm so the
+// headline and the presenter read clearly. Built from the theme colours only.
+const Signature: React.FC<{ t: number; width: number; height: number }> = ({ t, width, height }) => {
+  const ANGLE = -40;          // the bands climb to the right, like the reference
+  const panel = (cx: number, cy: number, w: number, k: number, o: number) => (
+    <div key={`p${k}`} style={{ position: "absolute", left: cx - 800, top: cy - w / 2 + Math.sin(t * 0.3 + k) * 10, width: 1600, height: w, transform: `rotate(${ANGLE}deg)`, background: `linear-gradient(180deg, ${FX.royalLight}, ${FX.royal})`, borderTop: `2px solid ${THEME.glowSoft}`, opacity: o }} />
+  );
+  const band = (cx: number, cy: number, w: number, o: number, k: number) => {
+    const slide = Math.sin(t * 0.5 + k) * 26;
+    return (
+      <div key={`b${k}`} style={{ position: "absolute", left: cx - 300 + slide, top: cy - w / 2, width: 600, height: w, transform: `rotate(${ANGLE}deg)`, opacity: o * (0.9 + 0.1 * Math.sin(t * 1.3 + k)),
+        WebkitMaskImage: cx < width / 2 ? "linear-gradient(90deg, transparent 0%, #000 35%, #000 100%)" : "linear-gradient(90deg, #000 0%, #000 65%, transparent 100%)", background: `linear-gradient(180deg, rgba(0,0,0,0) 0%, ${THEME.accent2} 16%, ${THEME.accent} 50%, ${THEME.accent2} 84%, rgba(0,0,0,0) 100%)`, boxShadow: `0 0 ${Math.round(w * 0.6)}px ${THEME.glowSoft}` }} />
+    );
+  };
+  const dots = (x: number, y: number, w: number, h: number, dir: string) => (
+    <div style={{ position: "absolute", left: x, top: y, width: w, height: h, opacity: 0.55, backgroundImage: `radial-gradient(${THEME.accent2} 2.2px, transparent 2.6px)`, backgroundSize: "30px 30px", backgroundPosition: `${(t * 4) % 30}px 0`,
+      WebkitMaskImage: `linear-gradient(${dir}, #000, transparent)`, maskImage: `linear-gradient(${dir}, #000, transparent)` }} />
   );
   return (
-    <AbsoluteFill>
-      {orb(width * 0.2, height * 0.25, 360, THEME.cardEdge, 0.5, 0.7)}      {/* navy light, like the presenter backdrop */}
-      {orb(width * 0.85, height * 0.7, 380, THEME.accent2, 2.4, 0.1)}
+    <AbsoluteFill style={{ overflow: "hidden" }}>
+      {panel(width * 0.05, height * 0.42, 210, 0, 0.3)}
+      {panel(width * 0.98, height * 0.2, 260, 1, 0.3)}
+      {panel(width * 1.0, height * 0.58, 160, 2, 0.25)}
+      {band(width * 0.0, height * 0.46, 56, 0.95, 0)}
+      {band(width * 0.0, height * 0.54, 20, 0.9, 1)}
+      {band(width * 1.0, height * 0.12, 70, 0.9, 2)}
+      {band(width * 1.0, height * 0.2, 14, 0.85, 3)}
+      {band(width * 1.0, height * 0.5, 50, 0.9, 4)}
+      {dots(0, 0, 330, 380, "135deg")}
+      {dots(width - 340, height * 0.28, 340, 420, "225deg")}
     </AbsoluteFill>
   );
 };

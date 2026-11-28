@@ -4,10 +4,10 @@
       "n": 30,
       "spearman": 0.61,
       "p_value": 0.0,
-      "score_spread": 13.4,
+      "score_spread": 13.5,
       "llm_scored": 17,
       "median_actual_reach": 4.0,
-      "median_predicted_reach": 694.0,
+      "median_predicted_reach": 691.0,
       "reach_ratio": 0.006,
       "verdict": "some signal"
     },
@@ -18,7 +18,7 @@
       "score_spread": 0.4,
       "llm_scored": 0,
       "median_actual_reach": 57.0,
-      "median_predicted_reach": 841.0,
+      "median_predicted_reach": 842.0,
       "reach_ratio": 0.068,
       "verdict": "too early"
     }

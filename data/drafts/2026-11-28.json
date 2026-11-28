@@ -1,0 +1,947 @@
+{
+  "id": "2026-11-28-c61baa",
+  "date": "2026-11-28",
+  "created_at": "2026-11-28T11:08:53+00:00",
+  "status": "pending",
+  "service": "website",
+  "topic": "Top 3 website mistakes that force you to repeat your rates and details on WhatsApp every day.",
+  "idea_id": null,
+  "problem_id": "repeatedly-answering-the-same-basic-ques",
+  "angle_type": "mistake",
+  "experiment": {
+    "mode": "exploit",
+    "variable": "hook_style",
+    "problem_id": "repeatedly-answering-the-same-basic-ques",
+    "angle_type": null,
+    "hook_style": "top3"
+  },
+  "hooks": [
+    {
+      "style": "top3",
+      "text": "Cafe ka WhatsApp raat 11 baje baja, reply subah tak nahi..."
+    },
+    {
+      "style": "value",
+      "text": "Entrepreneurs: A simple way to stop daily rate repeats with one webpage."
+    },
+    {
+      "style": "myth",
+      "text": "Business owners: Myth – need chatbots; Fact – website ends rate repeats."
+    }
+  ],
+  "chosen_hook": 0,
+  "hook_style": "top3",
+  "fact_sheet": {
+    "ok": true,
+    "facts": [
+      {
+        "claim": "A WhatsApp number does not appear in Google search results, so without a website new customers cannot find you",
+        "figure": null,
+        "source": "itisme.in",
+        "title": "Why Your Business Needs a Website, Not Just WhatsApp",
+        "url": "https://itisme.in/blog/why-your-business-needs-a-website-not-just-whatsapp",
+        "date": "2026-06-26",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "WhatsApp cannot show a full catalogue; owners must send individual photos or PDFs that load slowly, preventing customers from browsing at their own pace",
+        "figure": null,
+        "source": "itisme.in",
+        "title": "Why Your Business Needs a Website, Not Just WhatsApp",
+        "url": "https://itisme.in/blog/why-your-business-needs-a-website-not-just-whatsapp",
+        "date": "2026-06-26",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "A weak or missing call-to-action on a website, such as lacking a \"WhatsApp Us Now\" button, converts significantly worse than a pre-filled WhatsApp click-to-chat message",
+        "figure": null,
+        "source": "smarterdigi.com",
+        "title": "10 Website Mistakes Costing Indian Small Businesses Leads in 2026",
+        "url": "https://www.smarterdigi.com/blog/website-mistakes-costing-leads-india",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "61.6% of homepages had no contact form",
+        "figure": "61.6%",
+        "source": "astralabs.store",
+        "title": "State of Small Business Websites 2026: Data from 1,568 Businesses Astra Labs",
+        "url": "https://astralabs.store/reports/small-business-websites-2026/",
+        "date": "2026-11-01",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "54.8% of homepages had no tap-to-call link",
+        "figure": "54.8%",
+        "source": "astralabs.store",
+        "title": "State of Small Business Websites 2026: Data from 1,568 Businesses Astra Labs",
+        "url": "https://astralabs.store/reports/small-business-websites-2026/",
+        "date": "2026-11-01",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "52.2% of homepages lacked any one-tap call or message option, with WhatsApp links being rare",
+        "figure": "52.2%",
+        "source": "astralabs.store",
+        "title": "State of Small Business Websites 2026: Data from 1,568 Businesses Astra Labs",
+        "url": "https://astralabs.store/reports/small-business-websites-2026/",
+        "date": "2026-11-01",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Corporate clients often request a website link as a trust signal; a WhatsApp number alone looks informal and can miss professional credibility",
+        "figure": null,
+        "source": "itisme.in",
+        "title": "Why Your Business Needs a Website, Not Just WhatsApp",
+        "url": "https://itisme.in/blog/why-your-business-needs-a-website-not-just-whatsapp",
+        "date": "2026-06-26",
+        "verdict": "verified",
+        "id": "f7"
+      }
+    ],
+    "dropped": 1,
+    "topic": "Top 3 website mistakes that force you to repeat your rates and details on WhatsApp every day."
+  },
+  "master_script": {
+    "style": "pain-poke-fix",
+    "hook": "Cafe ka WhatsApp raat 11 baje baja, reply subah tak nahi...",
+    "hooks": [
+      {
+        "text": "Cafe ka WhatsApp raat 11 baje baja, reply subah tak nahi...",
+        "score": 13.4,
+        "formula": ""
+      },
+      {
+        "text": "Cafe ka WhatsApp raat 11 baje baja, reply nahi...",
+        "score": 13.4,
+        "formula": ""
+      },
+      {
+        "text": "Website par ye ek cheez karna band karo...",
+        "score": 11.4,
+        "formula": "stop"
+      },
+      {
+        "text": "Main website ke baare mein ek cheez mein bilkul galat tha...",
+        "score": 11.3,
+        "formula": "wrong"
+      },
+      {
+        "text": "Business ki website ki asli sachchai ye hai...",
+        "score": 11.2,
+        "formula": "truth"
+      },
+      {
+        "text": "WhatsApp number Google search mein nahi dikhti, isliye grahak aapko nahi dhoond pa sakte...",
+        "score": 9.3,
+        "formula": ""
+      }
+    ],
+    "hook_formula": "",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Cafe ka WhatsApp raat 11 baje baja, reply subah tak nahi...",
+        "screen": "Cafe ka WhatsApp reply nahi",
+        "visual": "Phone screen showing a WhatsApp message at night with no reply",
+        "emotion": "urgent",
+        "facts": []
+      },
+      {
+        "beat": "poke",
+        "line": "Maine cafe ko WhatsApp message kiya; 23 Nov tak reply nahi aaya, kyun?",
+        "screen": "23 Nov tak reply nahi",
+        "visual": "Blurred WhatsApp chat with a cafe, date 23 Nov visible",
+        "emotion": "curious",
+        "facts": [],
+        "proof": [
+          "cafe"
+        ]
+      },
+      {
+        "beat": "rehook",
+        "line": "Par asli dikkat WhatsApp nahi, website pe kahan chhuti hai?",
+        "screen": "Asli dikkat kahan hai?",
+        "visual": "Developer pointing at a website wireframe on a monitor",
+        "emotion": "curious",
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Website banayein, kyunki grahak phone pe browse karte hain; WhatsApp button se tap karein.",
+        "screen": "Website with one-tap WhatsApp",
+        "visual": "Phone screen showing website home with WhatsApp button",
+        "emotion": "warm",
+        "steps": [
+          "Website banayein",
+          "Grahak phone pe browse karte hain",
+          "WhatsApp button se tap karein"
+        ],
+        "facts": [
+          "f1",
+          "f3"
+        ]
+      },
+      {
+        "beat": "payoff",
+        "line": "Itisme.in kehta hai WhatsApp number Google mein nahi dikhti, isliye website grahak mil nahi sakte.",
+        "screen": "WhatsApp number not in Google",
+        "visual": "Google search bar with no WhatsApp number result",
+        "emotion": "warm",
+        "facts": [
+          "f1"
+        ],
+        "steps": [
+          "Itisme.in kehta hai",
+          "WhatsApp number Google mein nahi dikhti",
+          "isliye website grahak mil nahi sakte"
+        ]
+      },
+      {
+        "beat": "recap",
+        "line": "Cafe ka WhatsApp eleven baje baja, lekin website hota toh grahak message kar sakte.",
+        "screen": "Website would get messages",
+        "visual": "Cafe phone with missed WhatsApp, then website notification pops up",
+        "emotion": "warm",
+        "facts": [],
+        "steps": [
+          "Cafe ka WhatsApp eleven baje baja",
+          "lekin website hota",
+          "toh grahak message kar sakte"
+        ]
+      },
+      {
+        "beat": "cta",
+        "line": "Comment SITE, main aapko page ki checklist message karunga: grahak website pe cheezein dekhte hain. Poora breakdown aaj ke carousel mein hai.",
+        "screen": "Comment SITE",
+        "visual": "Developer pointing to the comment section with SITE highlighted",
+        "emotion": "warm",
+        "facts": []
+      }
+    ],
+    "cta": "Comment SITE, main aapko page ki checklist message karunga: grahak website pe cheezein dekhte hain. Poora breakdown aaj ke carousel mein hai.",
+    "linkedin_english": "If you run a cafe, your WhatsApp may ring at 11 p.m. and go unanswered until morning. A mobile-first website with WhatsApp and call buttons makes it easy for customers to find and contact you anytime. Comment SITE, and I will send you a one-page checklist of what customers judge on your website, with an honest note on whether you need a new one.",
+    "marketing": {
+      "keyword": "SITE",
+      "gets": "a one-page checklist: 10 things a customer judges your website on, with an honest note on whether you need a new one",
+      "pillar": "how_it_works"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "A WhatsApp number does not appear in Google search results, so without a website new customers cannot find you",
+        "figure": null,
+        "source": "itisme.in",
+        "title": "Why Your Business Needs a Website, Not Just WhatsApp",
+        "url": "https://itisme.in/blog/why-your-business-needs-a-website-not-just-whatsapp",
+        "date": "2026-06-26",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "WhatsApp cannot show a full catalogue; owners must send individual photos or PDFs that load slowly, preventing customers from browsing at their own pace",
+        "figure": null,
+        "source": "itisme.in",
+        "title": "Why Your Business Needs a Website, Not Just WhatsApp",
+        "url": "https://itisme.in/blog/why-your-business-needs-a-website-not-just-whatsapp",
+        "date": "2026-06-26",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "A weak or missing call-to-action on a website, such as lacking a \"WhatsApp Us Now\" button, converts significantly worse than a pre-filled WhatsApp click-to-chat message",
+        "figure": null,
+        "source": "smarterdigi.com",
+        "title": "10 Website Mistakes Costing Indian Small Businesses Leads in 2026",
+        "url": "https://www.smarterdigi.com/blog/website-mistakes-costing-leads-india",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "61.6% of homepages had no contact form",
+        "figure": "61.6%",
+        "source": "astralabs.store",
+        "title": "State of Small Business Websites 2026: Data from 1,568 Businesses Astra Labs",
+        "url": "https://astralabs.store/reports/small-business-websites-2026/",
+        "date": "2026-11-01",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "54.8% of homepages had no tap-to-call link",
+        "figure": "54.8%",
+        "source": "astralabs.store",
+        "title": "State of Small Business Websites 2026: Data from 1,568 Businesses Astra Labs",
+        "url": "https://astralabs.store/reports/small-business-websites-2026/",
+        "date": "2026-11-01",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "52.2% of homepages lacked any one-tap call or message option, with WhatsApp links being rare",
+        "figure": "52.2%",
+        "source": "astralabs.store",
+        "title": "State of Small Business Websites 2026: Data from 1,568 Businesses Astra Labs",
+        "url": "https://astralabs.store/reports/small-business-websites-2026/",
+        "date": "2026-11-01",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Corporate clients often request a website link as a trust signal; a WhatsApp number alone looks informal and can miss professional credibility",
+        "figure": null,
+        "source": "itisme.in",
+        "title": "Why Your Business Needs a Website, Not Just WhatsApp",
+        "url": "https://itisme.in/blog/why-your-business-needs-a-website-not-just-whatsapp",
+        "date": "2026-06-26",
+        "verdict": "verified",
+        "id": "f7"
+      }
+    ],
+    "topic": "Top 3 website mistakes that force you to repeat your rates and details on WhatsApp every day.",
+    "service": "website",
+    "keyword": "SITE",
+    "carousel_tease": true,
+    "notes": [
+      "style remark (not blocking): fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Website banayein, kyunki grahak phone pe browse karte hain;\""
+    ]
+  },
+  "script_style": "pain-poke-fix",
+  "structure": {
+    "structure": "retention-v2",
+    "vertical": "restaurant",
+    "context_first": true,
+    "rehook": true,
+    "open_loops": 3,
+    "style": "pain-poke-fix",
+    "hook_formula": "none",
+    "series": false,
+    "words": 99
+  },
+  "posts": {
+    "instagram": "WhatsApp pe rates baar‑baar repeat karna? Ek simple pricing page aur clear contact button se ye kaam kam ho sakta hai. Mobile‑first website se aapke customers 24/7 services, photos, rates dekh sakte hain. Comment 𝗦𝗜𝗧𝗘 – main DM me aapki website ka quick look dunga, 3 cheezein fix karne ke liye. Pay after approval. 📱\n\n#SmallBusinessIndia #WebsiteTips #FreelanceIndia #GetClients",
+    "linkedin": "I check the listing, the phone, the website, and the mail, and I still feel unsure.\n\nMy name is Anmol Rattan. I run AR Designs from Himachal Pradesh, and I built a lead finder that finds local businesses on Google Maps and checks that they are real.\n\nBefore I message anyone, I check that the listing is open, the phone number works, the website is live, and the email domain receives mail.\n\nI do this because I do not want to waste time on leads that are not real. Still, I wonder if there are checks I have not thought of.\n\nI have spoken with agency owners and many businesses, and everyone seems to do it differently.\n\nWhat other checks do you trust when you verify a lead before messaging it?",
+    "bluesky": "Many small businesses repeat rates on WhatsApp. A mobile‑first website with a pricing page and a WhatsApp button can reduce that. DM SITE for a quick look at your website – I’ll point out 3 things to fix. Pay after approval. #SmallBusinessIndia #WebsiteTips"
+  },
+  "replies": [
+    {
+      "if_they_say": "How much does a website cost?",
+      "reply": "Hi, thanks for reaching out. I build fast, mobile‑first sites with a WhatsApp button and clear pricing. What main action do you want visitors to take – call, WhatsApp, or a booking form? A basic site starts at INR 1,499, up to INR 3,599 for a bundle, and you pay only after you approve the work."
+    },
+    {
+      "if_they_say": "Do you do this for my salon?",
+      "reply": "Hi, thanks for the message. I create simple mobile‑first websites that show services, rates and a one‑tap WhatsApp button, which works for any small business like salons, cafes, or gyms. What’s the biggest info you currently repeat on WhatsApp?"
+    },
+    {
+      "if_they_say": "Can you fix my existing site?",
+      "reply": "Hi, thanks for contacting me. I can improve an existing site by adding a pricing page, consistent service copy, and a clear contact button. What’s the main issue you’re facing right now – missing rates, unclear services, or no contact button?"
+    }
+  ],
+  "image": {
+    "prompt": "a matte‑black laptop with a blue glow, brushed‑metal frame, open on a walnut desk, displaying a clean pricing table. laptop fills the upper two‑thirds, shot from an above eye‑level angle, leaving lower 40 % for headline. cool blue key light from left casts shadows, violet rim light outlines the laptop and a silhouette, highlights three translucent icons – broken link, loading spinner, cluttered page – representing the top three website mistakes. foreground a ceramic mug with steam, midground laptop and silhouette, background indigo wall with drifting particles. indigo background, blue‑violet accents, focused and tranquil. 85 mm lens at f/1.8, shallow depth of field, crisp brushed‑metal detail, glass reflections, dust motes catching light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+    "path": "data/media/2026-11-28.jpg",
+    "engine": "visual:cloudflare",
+    "style": "visual",
+    "ai_generated": true,
+    "spec": {
+      "problem_id": "repeatedly-answering-the-same-basic-ques",
+      "angle_type": "mistake",
+      "style": "bold",
+      "headline": "3 website mistakes making you repeat rates",
+      "highlight": [
+        "repeat rates"
+      ],
+      "sub": "Stop typing the same details every single day.",
+      "cta": "Comment \"SITE\"",
+      "tag": "FOR EVERY SMALL BUSINESS"
+    },
+    "errors": [
+      "ideogram: 402 Client Error: Payment Required for url: https://api.ideogram.ai/v1/ideogram-v3/generate"
+    ],
+    "style_id": "silhouette"
+  },
+  "carousel": {
+    "flavor": "script:pain-poke-fix",
+    "fact_id": null,
+    "checked": false,
+    "paths": [
+      "data/media/2026-11-28.jpg",
+      "data/media/2026-11-28-s2.jpg",
+      "data/media/2026-11-28-s3.jpg",
+      "data/media/2026-11-28-s4.jpg",
+      "data/media/2026-11-28-s5.jpg",
+      "data/media/2026-11-28-s6.jpg",
+      "data/media/2026-11-28-s7.jpg"
+    ],
+    "alts": [
+      "Cafe ka WhatsApp raat 11 baje baja, reply subah tak nahi...",
+      "Slide 2 of 7: WhatsApp pe message bheja, koi jawab nahi aaya. Maine cafe ko WhatsApp kiya, 23 Nov tak koi reply nahi mila. Kyun?",
+      "Slide 3 of 7: Asli dikkat WhatsApp nahi, website pe chhuti hai. Par asli dikkat WhatsApp nahi, website pe kahan chhuti hai? Sochiye.",
+      "Slide 4 of 7: Website banayein, phone pe browse karne wale grahak ko WhatsApp button dikhaye. Website se grahak phone pe hi browse karte hain. WhatsApp button ek tap se milta hai, isse contact karna asaan hota hai. (itisme.in, smarterdigi.com)",
+      "Slide 5 of 7: WhatsApp number Google mein nahi dikhti – website se mil sakta hai. itisme.in kehta hai WhatsApp number Google search mein nahi aata, website se naya grahak mil sakta hai.",
+      "Slide 6 of 7: Website hota toh grahak turant message kar sakta tha. Cafe ka WhatsApp eleven baje baja, lekin website hoti toh grahak turant WhatsApp button se message kar sakta.",
+      "Slide 7 of 7: Comment SITE. Comment SITE, main aapko DM mein 10 cheezein bhejunga jo har website pe dekhte hain. Poora breakdown aaj ke carousel mein hai."
+    ],
+    "roles": [
+      "hook",
+      "problem",
+      "problem",
+      "solution",
+      "solution",
+      "solution",
+      "cta"
+    ],
+    "bluesky": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "slides": [
+      {
+        "role": "hook",
+        "headline": "Cafe ka WhatsApp raat 11 baje baja, reply subah tak nahi...",
+        "body": "Raat ko aane wala message, subah tak kaun reply karega?"
+      },
+      {
+        "role": "problem",
+        "headline": "WhatsApp pe message bheja, koi jawab nahi aaya",
+        "body": "Maine cafe ko WhatsApp kiya, 23 Nov tak koi reply nahi mila. Kyun?"
+      },
+      {
+        "role": "problem",
+        "headline": "Asli dikkat WhatsApp nahi, website pe chhuti hai",
+        "body": "Par asli dikkat WhatsApp nahi, website pe kahan chhuti hai? Sochiye."
+      },
+      {
+        "role": "solution",
+        "headline": "Website banayein, phone pe browse karne wale grahak ko WhatsApp button dikhaye",
+        "body": "Website se grahak phone pe hi browse karte hain. WhatsApp button ek tap se milta hai, isse contact karna asaan hota hai. (itisme.in, smarterdigi.com)"
+      },
+      {
+        "role": "solution",
+        "headline": "WhatsApp number Google mein nahi dikhti – website se mil sakta hai",
+        "body": "itisme.in kehta hai WhatsApp number Google search mein nahi aata, website se naya grahak mil sakta hai."
+      },
+      {
+        "role": "solution",
+        "headline": "Website hota toh grahak turant message kar sakta tha",
+        "body": "Cafe ka WhatsApp eleven baje baja, lekin website hoti toh grahak turant WhatsApp button se message kar sakta."
+      },
+      {
+        "role": "cta",
+        "headline": "Comment SITE",
+        "body": "Comment SITE, main aapko DM mein 10 cheezein bhejunga jo har website pe dekhte hain. Poora breakdown aaj ke carousel mein hai."
+      }
+    ],
+    "scene_prompts": {
+      "2": "dark silhouette hands holding a matte‑black smartphone, its screen glowing blue with a translucent chat bubble and checkmark, indicating a sent message. hands and phone fill the upper 55% of the frame, seen from an eye‑level angle, while the lower 45% fades into an area for overlay. blue key light from the left highlights the phone, violet rim light outlines the hands, shadows recede toward the bottom. a wooden café table holds a coffee mug and a notebook; behind, a laptop shows faint code lines; distant background blurs into indigo ambience with bokeh. indigo backdrop with a blue‑violet accent, conveying anticipation. 85mm lens at f/1.8, shallow depth of field, glass reflections on the phone, laptop surface, dust motes. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "3": "a matte‑black laptop with a glowing screen showing a fragmented website layout and a cracked browser window, hands poised over the keyboard; the laptop fills the upper 55 % of the frame, seen from a slight top‑down eye‑level angle, leaving the lower 45 % a calm dark area for overlay; cool‑blue key light from the left and a subtle violet rim glow around the screen create soft shadows; metal desk with sticky notes and a ceramic mug in the foreground, the laptop in midground, and an indigo wall with faint network lines and drifting particles in the background; deep indigo with blue‑violet accents, focused determination; 85 mm lens at f/1.8, shallow depth of field, crisp metal grain and dust motes illuminated. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "4": "Brushed‑aluminum smartphone cradled in a right hand rests on a matte‑black desk, a deep‑blue glowing chat‑bubble hovering above like a button, rim tinged violet; dark screen reflects the glow while a laptop nearby shows a faint indigo website outline. Hand and devices fill upper 55% of frame, eye‑level with slight high angle, leaving calm dark lower area for text. Cool left key light washes scene in blue, a violet rim light outlines hand, and drifting particles add depth. Setting includes brushed‑metal desk, tiny ceramic mug, and indigo wall with thin network lines. Palette deep indigo, soft violet, deep‑blue accent, feeling calm confidence. Shot with 85mm lens at f/1.8, shallow depth of field keeps phone and bubble sharp, background softly blurred with dust catching the glow. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "5": "A sleek matte‑black laptop with a glowing screen occupies the upper 55% of the frame, its keyboard pressed by a pair of hands while a faint holographic WhatsApp icon hovers above the display. The view is above, leaving the lower 45% as a dark area for overlay. Cool blue key light streams from the left, rimmed by violet glow that outlines the hands and casts soft shadows. A brushed‑metal desk forms the foreground, translucent website UI elements drift in the midground, and an indigo wall with network lines and drifting particles recedes in the background. The palette is indigo with a blue accent and violet highlights, conveying calm confidence. Shot with an 85 mm lens at f/1.8, the shallow depth of field shows screen reflections and dust motes catching light. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition.",
+      "6": "Dark silhouette of a person seated at a matte‑black desk, hands on a sleek matte‑black laptop whose screen emits a deep‑blue glow, with a floating translucent website window and a glowing chat‑bubble outline hovering above. The figure and laptop occupy the upper 55% of the frame, captured from an eye‑level angle, leaving the lower 45% a blurred area for overlay. A cool violet key light from the left casts shadows, while a blue rim light outlines the silhouette and laptop edges. In front, a wood surface; behind, a deep indigo wall traced with neon network lines. Palette: deep indigo, violet undertones, deep‑blue accent; mood: calm confidence. Shot with an 85mm lens at f/1.8, shallow depth of field, brushed‑metal laptop surface reflects the glow, grain on the wood. Ultra-sharp 4K resolution, highly detailed, crisp focus, clean edges, cinematic lighting with soft glow, rich contrast, high dynamic range, premium polished finish, vertical 4:5 composition."
+    },
+    "picture_errors": []
+  },
+  "instagram_mode": "auto_image",
+  "linkedin_format": "text",
+  "linkedin_mode": "question",
+  "linkedin_topic": "verify-leads",
+  "video": {},
+  "factcheck": {
+    "ok": true,
+    "issues": [
+      "Instagram draft was in English instead of Hinglish, contained an absolute outcome claim \"stops that\" and sounded like a direct ad; Bluesky draft contained an absolute outcome claim \"stops that\" and omitted the required \"pay after approval\" phrase."
+    ],
+    "revised": {
+      "instagram": "WhatsApp pe rates baar‑baar repeat karna? Ek simple pricing page aur clear contact button se ye kaam kam ho sakta hai. Mobile‑first website se aapke customers 24/7 services, photos, rates dekh sakte hain. Comment **SITE** – main DM me aapki website ka quick look dunga, 3 cheezein fix karne ke liye. Pay after approval. 📱\n\n#SmallBusinessIndia #WebsiteTips #FreelanceIndia #GetClients",
+      "bluesky": "Many small businesses repeat rates on WhatsApp. A mobile‑first website with a pricing page and a WhatsApp button can reduce that. DM SITE for a quick look at your website – I’ll point out 3 things to fix. Pay after approval. #SmallBusinessIndia #WebsiteTips"
+    }
+  },
+  "sources": [
+    {
+      "title": "WhatsApp",
+      "url": "https://tavily.com/knowledge/company/1sPw42GqnpEX",
+      "domain": "tavily.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Why Your Business Needs a Website, Not Just WhatsApp",
+      "url": "https://itisme.in/blog/why-your-business-needs-a-website-not-just-whatsapp",
+      "domain": "itisme.in",
+      "date": "2026-06-26",
+      "provider": "exa"
+    },
+    {
+      "title": "Find Book Cheap Hotels Red Roof Inn",
+      "url": "https://www.redroof.com",
+      "domain": "redroof.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "Do You Need a Website If You Have Instagram?",
+      "url": "https://ictaccesspoint.com/guides/websites-systems/do-i-need-a-website-if-i-have-instagram/",
+      "domain": "ictaccesspoint.com",
+      "date": "2026-11-01",
+      "provider": "exa"
+    },
+    {
+      "title": "Store Details - LEGO® Store Disney Springs",
+      "url": "https://www.lego.com/en-us/stores/store/disney-springs",
+      "domain": "lego.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "10 Website Mistakes Costing Indian Small Businesses Leads in 2026",
+      "url": "https://www.smarterdigi.com/blog/website-mistakes-costing-leads-india",
+      "domain": "smarterdigi.com",
+      "date": "2026-04-15",
+      "provider": "exa"
+    },
+    {
+      "title": "NYT Connections Answers for November 28, 2026 - The New York Times",
+      "url": "https://www.nytimes.com/2026/11/27/crosswords/connections-companion-1266.html",
+      "domain": "nytimes.com",
+      "date": "",
+      "provider": "tavily"
+    },
+    {
+      "title": "State of Small Business Websites 2026: Data from 1,568 Businesses Astra Labs",
+      "url": "https://astralabs.store/reports/small-business-websites-2026/",
+      "domain": "astralabs.store",
+      "date": "2026-11-01",
+      "provider": "exa"
+    }
+  ],
+  "humanizer": {
+    "model": "openai/gpt-oss-20b",
+    "platforms": {
+      "instagram": {
+        "status": "skipped",
+        "reason": "body under 30 words"
+      },
+      "bluesky": {
+        "status": "skipped",
+        "reason": "body under 30 words"
+      }
+    }
+  },
+  "ad_score": 9,
+  "virality": {
+    "version": 2,
+    "platforms": {
+      "instagram": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 356.0,
+        "reach_p50": 714.0,
+        "reach_p90": 1505.0,
+        "risk": "medium",
+        "risk_issues": [
+          "{'category': 'cultural/linguistic exclusion', 'severity': 'medium', 'description': 'The copy mixes Hindi and English wit",
+          "{'category': 'class bias', 'severity': 'low', 'description': 'The message assumes that all small‑business owners have th",
+          "{'category': 'tone‑deafness (work‑life balance)', 'severity': 'low', 'description': 'Promoting 24/7 availability of serv"
+        ],
+        "dims": {
+          "humor": 1.0,
+          "curiosity": 4.0,
+          "educational": 6.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 1.0,
+          "relatability": 4.0,
+          "practical_value": 7.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 365,
+            "share": 2,
+            "like": 1,
+            "reply": 1,
+            "dislike": 1
+          },
+          "engagement_rate": 0.0135,
+          "by_role": {
+            "public": {
+              "n": 5,
+              "avg_sentiment": 0.334,
+              "share_rate": 0.4
+            }
+          },
+          "cascade_size": 3,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 12,
+          "reach_fraction": 0.019,
+          "r_effective": 0.6,
+          "polarization": 0.48,
+          "echo_chamber": 0.07
+        },
+        "levers": [
+          {
+            "title": "Raise the emotional stakes",
+            "lift_pct": 3.5
+          },
+          {
+            "title": "Make it feel fresher",
+            "lift_pct": 3.3
+          },
+          {
+            "title": "Teach one concrete thing",
+            "lift_pct": 3.2
+          }
+        ],
+        "edits": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "scorer": "llm"
+      },
+      "linkedin": {
+        "score": 12.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 399.0,
+        "reach_p50": 759.0,
+        "reach_p90": 1551.0,
+        "risk": "none",
+        "risk_issues": [],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 2.0,
+          "novelty": 1.0,
+          "controversy": 0,
+          "emotional_intensity": 0,
+          "relatability": 4.0,
+          "practical_value": 4.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Add one concrete detail",
+            "impact": "medium"
+          },
+          {
+            "title": "Conversation starter",
+            "impact": "medium"
+          },
+          {
+            "title": "No image or video",
+            "impact": "low"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 365,
+            "share": 1,
+            "like": 2
+          },
+          "engagement_rate": 0.0082,
+          "by_role": {
+            "public": {
+              "n": 3,
+              "avg_sentiment": 0.893,
+              "share_rate": 0.333
+            }
+          },
+          "cascade_size": 2,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 5,
+          "reach_fraction": 0.007,
+          "r_effective": 0.0,
+          "polarization": 0.481,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      },
+      "bluesky": {
+        "score": 0.0,
+        "breakout_probability": 0.0,
+        "reach_p10": 196.0,
+        "reach_p50": 405.0,
+        "reach_p90": 865.0,
+        "risk": "low",
+        "risk_issues": [
+          "{'category': 'Class', 'severity': 'low', 'description': 'The content assumes that small businesses have the resources to",
+          "{'category': 'Tone-deafness', 'severity': 'low', 'description': 'The phrase \"Many small businesses repeat rates on Whats",
+          "{'category': 'Exclusion', 'severity': 'low', 'description': 'The use of the hashtag #SmallBusinessIndia explicitly targe"
+        ],
+        "dims": {
+          "humor": 0,
+          "curiosity": 4.0,
+          "educational": 4.0,
+          "novelty": 2.0,
+          "controversy": 0,
+          "emotional_intensity": 0,
+          "relatability": 4.0,
+          "practical_value": 4.0
+        },
+        "tips": [
+          {
+            "title": "Sharpen the first line",
+            "impact": "high"
+          },
+          {
+            "title": "Make it worth saving",
+            "impact": "low"
+          }
+        ],
+        "agents": {
+          "totals": {
+            "ignore": 349,
+            "share": 3,
+            "like": 1,
+            "reply": 1
+          },
+          "engagement_rate": 0.0141,
+          "by_role": {
+            "public": {
+              "n": 5,
+              "avg_sentiment": 0.754,
+              "share_rate": 0.6
+            }
+          },
+          "cascade_size": 4,
+          "r_effective": 1.0,
+          "discourse_tension": 0.0
+        },
+        "network": {
+          "cascade_size": 6,
+          "reach_fraction": 0.0065,
+          "r_effective": 0.2,
+          "polarization": 0.481,
+          "echo_chamber": 0.07
+        },
+        "levers": [],
+        "edits": [],
+        "scorer": "llm"
+      }
+    },
+    "ab": {
+      "chosen": 0,
+      "vs_chosen": [
+        {
+          "hook": 1,
+          "style": "value",
+          "p_beats_chosen": 0.18,
+          "lift_pct": -0.7,
+          "decisive": true
+        },
+        {
+          "hook": 2,
+          "style": "myth",
+          "p_beats_chosen": 0.98,
+          "lift_pct": 9.5,
+          "decisive": true
+        }
+      ],
+      "better": 2,
+      "advisory": true
+    },
+    "note": "advisory only; heuristic scorer; simulated reach is in model units, not a forecast for this account"
+  },
+  "virality_review": {
+    "rewrote": true,
+    "reasons": [
+      "it read like an ad",
+      "the virality report named weak spots"
+    ],
+    "changes": [
+      "instagram: Replace the hook with a value‑driven capital line (e.g., 'STOP REPEATING RATES ON WHATSAPP – ADD A PRICING PAGE').",
+      "linkedin: Open with 'Freelancers, Agencies, Anyone selling a service', add a capital hook line, include a DM line with keyword LEAD inviting a short conversation and pay‑after‑approval, and remove the state reference.",
+      "bluesky: Add a capital hook line, keep total under 260 characters, add two national hashtags (e.g., #SmallBusinessIndia #WebsiteTips), and retain the DM SITE line."
+    ],
+    "before": {
+      "instagram": 11.9,
+      "linkedin": 12.0,
+      "bluesky": 10.7
+    },
+    "after": {
+      "instagram": 0.0,
+      "linkedin": 12.0,
+      "bluesky": 0.0
+    }
+  },
+  "llm": {
+    "answered": [
+      "openrouter.ai:nvidia/nemotron-3-ultra-550b-a55b:free",
+      "FAILED google:gemma-4-31b-it (HTTP 503)",
+      "google:gemma-4-26b-a4b-it",
+      "groq.com:openai/gpt-oss-120b",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 429)",
+      "FAILED groq.com:openai/gpt-oss-120b (HTTP 413)",
+      "FAILED groq: all its models",
+      "openrouter.ai:nvidia/nemotron-3.5-super-vl:free",
+      "FAILED google:gemini-3.8-flash (ProviderDown)",
+      "FAILED google:gemini-3.7-flash (ProviderDown)",
+      "FAILED gemini: all its models",
+      "google:gemma-4-31b-it"
+    ],
+    "failures": [
+      {
+        "model": "google:gemma-4-31b-it",
+        "status": "503",
+        "seconds": 31.1,
+        "error": "HTTP 503 from generativelanguage.googleapis.com: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3006, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 34.0,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7992, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 33.7,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7991, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 0.3,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8320, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6992, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7992, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4917, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6374, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6984, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3804, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4406, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7948, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 72.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5576, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.1,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvjhmnev4rzyg8c9brx0kh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4780, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7bvg8zbe2n96wrnkfh0t86k` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 379, Requ"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "429",
+        "seconds": 0.2,
+        "error": "HTTP 429 from api.groq.com: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3kqqta0em6aewwt4anm7rqh` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 2840, Req"
+      },
+      {
+        "model": "groq.com:openai/gpt-oss-120b",
+        "status": "413",
+        "seconds": 45.3,
+        "error": "HTTP 413 from api.groq.com: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01m4fvqp5pez5r0xx72r0hwyva` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8526, please reduce your message size and try again. Need more tokens? Upgrad"
+      },
+      {
+        "model": "google:gemini-3.8-flash",
+        "status": "ProviderDown",
+        "seconds": 244.4,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      },
+      {
+        "model": "google:gemini-3.7-flash",
+        "status": "ProviderDown",
+        "seconds": 243.3,
+        "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
+      }
+    ]
+  }
+}

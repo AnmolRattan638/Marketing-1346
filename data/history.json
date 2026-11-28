@@ -285,5 +285,12 @@
     "topic": "The myth that manual research is the only way to find 'high-quality' local leads.",
     "hook_style": "comparison",
     "status": "published"
+  },
+  {
+    "date": "2026-11-28",
+    "service": "website",
+    "topic": "Top 3 website mistakes that force you to repeat your rates and details on WhatsApp every day.",
+    "hook_style": "top3",
+    "status": "published"
   }
 ]

@@ -2,7 +2,7 @@
   "id": "2026-11-28-c61baa",
   "date": "2026-11-28",
   "created_at": "2026-11-28T11:08:53+00:00",
-  "status": "pending",
+  "status": "published",
   "service": "website",
   "topic": "Top 3 website mistakes that force you to repeat your rates and details on WhatsApp every day.",
   "idea_id": null,
@@ -943,5 +943,19 @@
         "error": "generativelanguage.googleapis.com unreachable: ReadTimeout"
       }
     ]
+  },
+  "results": {
+    "instagram": {
+      "ok": true,
+      "detail": "zernio: posted 6b0ab6cd29f37208af40c44e (7 slides)"
+    },
+    "linkedin": {
+      "ok": true,
+      "detail": "buffer: sent to Buffer 6b0ab6ee669c22f85de92747 (due 2026-11-28T11:11:42.817Z)"
+    },
+    "bluesky": {
+      "ok": true,
+      "detail": "bluesky-direct: at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n3ekz3vhpj27 (4 slides)"
+    }
   }
 }

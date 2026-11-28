@@ -1,5 +1,5 @@
-- Rotate hook styles: question, contrast, top3 (avoid overusing comparison)
-- Lead gen posts: speak to freelancers/agencies broadly, not developers; describe sheet generally (Google Places data, contacts, review counts, website checks, new openings)
-- Image style: test desk-glow or silhouette (highest scores, though n<5)
-- Never read like an ad; show developer's real work
-- Avoid repeating 'Google Maps' phrasing used in 3 recent lead gen posts
+- Hook: rotate to **top3 list** (1.5x) or **contrast** (1.44x) — avoid pure question hooks (0.97x angle, though question hook style 1.46x).
+- Angle: **mistake** (1.3x, n=10) works best; **myth_bust** (1.25x) next. Stop repeating "why do customers call" / "WhatsApp enquiries end" — already used 3× in 2 weeks.
+- Format: **carousel** beats reel (23% earnings per reach). Use **desk-glow** or **silhouette** image style.
+- Service: **lead_gen** (1.62x) and **chatbot** (1.39x) outperform **website** (1.25x) — but today is website, so frame as a mistake/myth bust, not a pitch.
+- Never read like an ad: show developer thinking, not selling. No demo claims, no niche targeting, no timeframes.

@@ -28,20 +28,20 @@
   ]
  },
  "total-length": {
-  "count": 67,
+  "count": 69,
   "rule": "The whole script stays under 85 words (about 30 s); give each beat one concrete idea and its reason, nothing more.",
   "recent": [
    {
     "on": "2026-11-27",
-    "mistake": "payoff: script is 107 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 16 to 14 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte ha"
-   },
-   {
-    "on": "2026-11-27",
-    "mistake": "poke: script is 107 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 15 to 13 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hain"
-   },
-   {
-    "on": "2026-11-27",
     "mistake": "payoff: script is 107 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 20 to 13 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte ha"
+   },
+   {
+    "on": "2026-11-28",
+    "mistake": "payoff: script is 103 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 17 to 15 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte ha"
+   },
+   {
+    "on": "2026-11-28",
+    "mistake": "recap: script is 103 words, the reel must stay under 100 (about 30 seconds); tighten this beat from 15 to 14 words max by dropping a detail, an example or a repeat; every sentence must stay grammatically complete with its verb and helper (hain/hai/ho/sakte hai"
    }
   ]
  },
@@ -366,13 +366,9 @@
   ]
  },
  "other:grammar: no verb before ..., write the f": {
-  "count": 36,
+  "count": 37,
   "rule": "grammar: no verb before ..., write the full clause (not a list of nouns): ...",
   "recent": [
-   {
-    "on": "2026-11-27",
-    "mistake": "fix: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Khas offer chunein, taaki grahak yaad rakhe.\""
-   },
    {
     "on": "2026-11-27",
     "mistake": "cta: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Comment ADS, main DM mein checklist bhejunga taaki grahak sa\""
@@ -380,6 +376,10 @@
    {
     "on": "2026-11-27",
     "mistake": "cta: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Comment ADS, main direct message mein checklist bhejunga taa\""
+   },
+   {
+    "on": "2026-11-28",
+    "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Pehle mobile-first website banayein, kyunki grahak phone pe \""
    }
   ]
  },

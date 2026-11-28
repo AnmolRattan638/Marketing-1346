@@ -1,46 +1,46 @@
 {
-  "date": "2026-11-27",
+  "date": "2026-11-28",
   "stage": "brand new under 100 followers",
   "followers": 7,
-  "summary": "Instagram engagement is near zero (median 0, last 4 posts zero engagement, -2 followers in 7 days). LinkedIn growing but only 2 posts with 0 real engagement. Lead gen posts score highest (1.62x) but n=8. High reel skip rates (63-76%) show hooks fail in first 3s. Bio violates rules: niche/region specific and offers free check outside website posts.",
-  "guidance": "- Rotate hook styles: question, contrast, top3 (avoid overusing comparison)\n- Lead gen posts: speak to freelancers/agencies broadly, not developers; describe sheet generally (Google Places data, contacts, review counts, website checks, new openings)\n- Image style: test desk-glow or silhouette (highest scores, though n<5)\n- Never read like an ad; show developer's real work\n- Avoid repeating 'Google Maps' phrasing used in 3 recent lead gen posts",
+  "summary": "Instagram at 7 followers (-2 in 7d) with 33 posts/30d but median engagement 0. LinkedIn growing (57 followers) but 0 posts/30d. Bio violates rules: names niches (hotels, cafes, gyms, homestays), region (Himachal), timeframe (24 hrs), and free offer outside website posts. Reels show 63-76% skip rates — first 3 seconds fail.",
+  "guidance": "- Hook: rotate to **top3 list** (1.5x) or **contrast** (1.44x) — avoid pure question hooks (0.97x angle, though question hook style 1.46x).\n- Angle: **mistake** (1.3x, n=10) works best; **myth_bust** (1.25x) next. Stop repeating \"why do customers call\" / \"WhatsApp enquiries end\" — already used 3× in 2 weeks.\n- Format: **carousel** beats reel (23% earnings per reach). Use **desk-glow** or **silhouette** image style.\n- Service: **lead_gen** (1.62x) and **chatbot** (1.39x) outperform **website** (1.25x) — but today is website, so frame as a mistake/myth bust, not a pitch.\n- Never read like an ad: show developer thinking, not selling. No demo claims, no niche targeting, no timeframes.",
   "instructions": {
-    "research": "List 5 pain points freelancers/agencies face when finding local business leads manually (time, bad contacts, no website check, missed new openings, disorganised data).",
-    "analysis": "Compare the 3 published lead gen posts (Nov 13, 19, 23) — all used comparison/question hooks about Google Maps; note which got any saves/shares.",
-    "writer": "Write a lead gen post with a question hook opening 'Freelancers, ever spend hours on Maps only to find dead emails?' Describe the sheet generally: local businesses from Google Places with contacts, review counts, website status, new openings. End with 'pay after approval' and DM for fit check.",
-    "image": "Create a clean desk-glow style carousel: slide 1 hook, slide 2-3 problem (manual search pain), slide 4 what the sheet includes (bullets), slide 5 pay after approval + DM CTA. No demo/mockup claims.",
-    "video": "Not needed for today's lead gen post."
+    "research": "Find one common website mistake Indian small businesses make (e.g. missing WhatsApp link, no clear pricing, broken mobile menu) — cite a public example type, not a client.",
+    "analysis": "Compare the last 3 website posts (Nov 14, 21, today) — all used question hooks. Confirm they got near-zero engagement; recommend switching to mistake/contrast hook for today.",
+    "writer": "Write a carousel post: hook = top3 list of website mistakes that lose enquiries. Angle = mistake. No niche, no region, no price, no timeframe. End with 'pay after approval' + DM for honest fit check. Hinglish allowed.",
+    "image": "Create 3-slide carousel: slide 1 = bold headline (top 3 mistakes), slides 2-4 = each mistake with silhouette/desk-glow code snippet or UI sketch. No logos, no client names. Text readable on mobile.",
+    "video": "Skip reel today — carousel earns 4.3× more per reach. If video needed later, use retention-v2 structure but only after 3 carousels test better."
   },
   "manual_tips": [
-    "Update Instagram bio: remove niche/region list (hotels, cafes, gyms, homestays, Himachal) and free 2-min site check offer; keep only 'Websites, AI chatbots, animated ads, lead gen for small businesses across India. Pay after approval. DM to chat.'",
-    "Comment thoughtfully on 5 posts from Indian freelancers/agencies discussing client acquisition struggles — no self-promo, just genuine insight.",
-    "Reply to any story polls/questions from target audience (freelancers, agency owners) to start DM conversations naturally."
+    "Update Instagram bio to: 'Websites for small businesses across India. Pay after approval. DM for honest advice.' Remove niches, region, price, timeframe, free audit offer.",
+    "Comment thoughtfully on 5 posts by Indian freelancers/agencies discussing client acquisition (not web dev specific) — add value, don't pitch.",
+    "Post one LinkedIn text post today: share a real observation about website projects (e.g. 'Most sites I review miss a click-to-WhatsApp button'). No hashtags, no sell."
   ],
   "weak_signals": [
     {
       "id": "zero_engagement_streak",
       "platform": "instagram",
-      "detail": "the last 4 settled posts got zero likes, comments, shares and saves"
+      "detail": "the last 5 settled posts got zero likes, comments, shares and saves"
     },
     {
       "id": "follower_stall",
       "platform": "instagram",
-      "detail": "10 posts in 7 days and followers changed by -2"
+      "detail": "13 posts in 7 days and followers changed by -2"
     },
     {
       "id": "weak_service",
       "platform": "instagram",
-      "detail": "by service, 'chatbot' earns 17% of what 'website' earns per person reached"
+      "detail": "by service, 'chatbot' earns 14% of what 'website' earns per person reached"
     },
     {
       "id": "weak_format",
       "platform": "instagram",
-      "detail": "by format, 'reel' earns 22% of what 'carousel' earns per person reached"
+      "detail": "by format, 'reel' earns 23% of what 'carousel' earns per person reached"
     },
     {
       "id": "follower_stall",
       "platform": "bluesky",
-      "detail": "6 posts in 7 days and followers changed by +0"
+      "detail": "7 posts in 7 days and followers changed by +0"
     }
   ]
 }

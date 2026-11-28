@@ -2,6 +2,30 @@
   "posts": [
     {
       "platform": "instagram",
+      "id": "17977424394174486",
+      "url": "https://www.instagram.com/reel/DgRZmuxTVJE/",
+      "published_at": "2026-11-28T04:30:06.000Z",
+      "text": "No captions....",
+      "format": "reel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": 35
+      },
+      "matched": null
+    },
+    {
+      "platform": "instagram",
       "id": "18110929589362199",
       "url": "https://www.instagram.com/reel/DgPpGWvpUS3/",
       "published_at": "2026-11-27T12:11:08.000Z",
@@ -9,17 +33,17 @@
       "format": "reel",
       "source": "zernio",
       "metrics": {
-        "impressions": 137,
-        "reach": 132,
-        "views": 137,
+        "impressions": 138,
+        "reach": 134,
+        "views": 138,
         "likes": 1,
         "comments": 0,
         "shares": 0,
         "saves": 0,
         "clicks": 0,
         "reposts": null,
-        "skip_rate": 93.1,
-        "avg_watch_s": 1.67,
+        "skip_rate": 93.2,
+        "avg_watch_s": 1.662,
         "duration_s": 32
       },
       "matched": null
@@ -2432,7 +2456,7 @@
       "username": "ar__designerx"
     },
     "linkedin": {
-      "followers": 52,
+      "followers": 57,
       "username": "Anmol Rattan"
     },
     "bluesky": {
@@ -2835,9 +2859,17 @@
         "linkedin": 52,
         "bluesky": 1
       }
+    },
+    {
+      "date": "2026-11-28",
+      "followers": {
+        "instagram": 7,
+        "linkedin": 57,
+        "bluesky": 1
+      }
     }
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-27T21:19:04+00:00"
+  "updated_at": "2026-11-28T07:51:24+00:00"
 }

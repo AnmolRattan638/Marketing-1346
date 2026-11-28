@@ -60,3 +60,9 @@ assert graphics.resolve_graphic({"graphic": g}, [], 4.0) is not None
 assert "November" in speech_text.clean("23 Nov tak reply nahi aaya") and "October" in speech_text.clean("21 Oct ko")
 assert set(graphics.HOOK_VARIANTS) == {"phone", "slam", "zig"}
 print("repairs ok")
+
+# the proof card lands with the heading, not seconds into an empty screen
+_w = [{"text": t, "start": i * 0.4, "end": i * 0.4 + 0.35} for i, t in enumerate("Maine cafe ko WhatsApp message kiya tak reply nahi aaya kyun".split())]
+_g = graphics.resolve_graphic({"narration": "x", "graphic": {"layout": "step", "heading": "CAFE", "mock": {"type": "proof", "items": ["cafe"]}}}, _w, 6.0)
+assert _g and _g["mock"]["type"] == "proof" and _g["times"]["mock"] <= 1.0, _g and _g["times"]
+print("proof early ok")

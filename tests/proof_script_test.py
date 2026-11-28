@@ -10,7 +10,7 @@ rows = pf.facts(today)
 ids = {r["id"] for r in rows}
 assert len(rows) == 6 and ids == {"p0", "p1", "p2", "p3", "p4", "p5"}, ids
 sample = next(r for r in rows if r["id"] == "p0")
-assert sample["n"] == 5 and sample["k"] == 4 and "5 local businesses" in sample["claim"] and "4 ne 23 Nov tak reply nahi kiya" in sample["claim"], sample["claim"]
+assert sample["n"] == 5 and sample["k"] == 4 and "5 local businesses" in sample["claim"] and "4 ne 23 November tak reply nahi kiya" in sample["claim"], sample["claim"]
 joined = " ".join(r["claim"] for r in rows)
 assert "gym" in joined and "restaurant" in joined and "ek minute" in joined
 assert not any(w in joined.lower() for w in ("pirates", "zoca", "kake", "aayojan", "aesthetic", "bhubaneswar", "+91")), "no names in what the writer sees"

@@ -24,5 +24,6 @@
   "eta": "E T A", "hq": "H Q", "pov": "P O V", "gpt": "G P T", "dm": "D M",
   "dms": "D M's", "d2c": "D two C", "p2p": "P two P", "saas": "sass", "chatgpt": "Chat G P T",
   "gpay": "G Pay", "phonepe": "Phone Pay", "paytm": "Pay T M", "wifi": "Wi Fi", "a/b": "A B",
-  "and/or": "and or"
+  "and/or": "and or",
+  "jan": "January", "feb": "February", "apr": "April", "jun": "June", "jul": "July", "aug": "August", "sep": "September", "sept": "September", "oct": "October", "nov": "November", "dec": "December"
 }

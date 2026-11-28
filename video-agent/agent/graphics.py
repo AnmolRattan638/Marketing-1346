@@ -144,6 +144,8 @@ def resolve_graphic(scene: dict, words: list[dict], seconds: float) -> dict | No
         first = max(head + 0.55, 0.7)
         times = spread([_find(words, w) for w in (g.get("reveal") or [])], len(items), first, max(last, first + GAP * len(items))) if items else []
     mock_at = round(max(0.0, (times[0] - 0.3) if times else head + 0.4), 3)
+    if proof and mock:
+        mock_at = round(min(mock_at, head + 0.3), 3)           # the real screenshot is the point of the scene: it lands with the heading, never seconds into an empty screen
     chips = [str(c)[:24] for c in (g.get("chips") or [])][:3]
     chips_at = round(min((times[-1] + 0.5) if times else head + 0.6, max(seconds - 0.5, 0.2)), 3)
 

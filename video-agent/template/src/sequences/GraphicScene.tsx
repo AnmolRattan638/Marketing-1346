@@ -158,7 +158,7 @@ const GraphicScene: React.FC<GraphicSceneProps> = ({
         {stage < 1 && !isLogo ? <AbsoluteFill style={{ transform: `scale(${stage})`, transformOrigin: `50% ${STAGE_ORIGIN_Y}px` }}>{body}</AbsoluteFill> : body}
       </AbsoluteFill>
       <FxLayer items={fx} />
-      {isLogo || layout === "hook" || layout === "inverse" ? null : <CaptionLayer words={words} emphasis={emphasis} upper style={captionStyle && REF_FIXED.has(captionStyle) ? undefined : captionStyle} />}   {/* the placed reference styles are for footage scenes: a card with its own heading keeps the bottom pill; the inverse card already carries the words */}
+      {isLogo || layout === "hook" || layout === "inverse" ? null : <div style={{ position: "absolute", inset: 0, ...(captionStyle === "explode" && stage >= 1 ? { transform: "translateY(480px)" } : {}) }}><CaptionLayer words={words} emphasis={emphasis} upper style={captionStyle && REF_FIXED.has(captionStyle) && captionStyle !== "explode" ? undefined : captionStyle} /></div>}   {/* the placed reference styles are for footage scenes: a card with its own heading keeps the bottom pill; the inverse card already carries the words */}
       {grain > 0 ? <FilmGrain opacity={grain} /> : null}
       {showProgress && progress && !isLogo ? <ProgressBar progress={progress} light={isPunch} /> : null}
       {circle ? <CircleWipe /> : null}

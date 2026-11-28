@@ -118,7 +118,11 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
         elif dm is not None and not voiced[dm][1].get("graphic"):
             voiced[dm][1]["graphic"] = {"layout": "title", "heading": "Dekho kaise"}
         from . import effects_rule      # compulsory: several different animation styles in every reel
-        for note in effects_rule.enforce([v[1] for v in voiced], {i for i in (ba, dm) if i is not None}, f"{date.today().isoformat()}|{topic}"):
+        from . import proof as _proof
+        _note = effects_rule.ensure_proof([v[1] for v in voiced], _proof.pick(f"{date.today().isoformat()}|{topic}"))      # compulsory: one real proof in every reel
+        if _note:
+            log(f"proof: {_note}")
+        for note in effects_rule.enforce([v[1] for v in voiced], {i for i in (ba, dm) if i is not None} | effects_rule.proof_indices([v[1] for v in voiced]), f"{date.today().isoformat()}|{topic}"):
             log(f"animation styles: {note}")
         for idx, (sid, sc, sec, _, words) in enumerate(voiced):
             if no_raw and not sc.get("graphic") and stock_left > 0 and 0 < idx < len(voiced) - 1:      # never the hook or the CTA

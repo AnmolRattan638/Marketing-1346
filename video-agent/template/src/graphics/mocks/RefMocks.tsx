@@ -84,6 +84,27 @@ export const StickersCard: React.FC<{ at: number; items: string[]; times: number
   );
 };
 
+// Chips circling the screenshot on a tilted ellipse: the ones at the back pass behind the card, smaller and dimmer; the ones at the front cross over it. They state only what the picture shows.
+const ProofOrbit: React.FC<{ chips: string[]; w: number; h: number; p: number }> = ({ chips, w, h, p }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const t = frame / fps;
+  return (
+    <>
+      {chips.map((c, i) => {
+        const a = (t * 0.9 + (i / chips.length) * Math.PI * 2);
+        const depth = (Math.sin(a) + 1) / 2;                       // 0 = behind, 1 = in front
+        const x = Math.cos(a) * (w * 0.66), y = Math.sin(a) * (h * 0.3);
+        return (
+          <div key={i} style={{ position: "absolute", left: "50%", top: "50%", zIndex: depth > 0.5 ? 3 : -1, padding: "10px 22px", borderRadius: 999, whiteSpace: "nowrap",
+            background: THEME.card, border: `2px solid ${THEME.accent2}`, color: THEME.text, fontFamily: FONT_HEAD, fontWeight: 800, fontSize: 30,
+            opacity: Math.min(1, p * 2) * (0.35 + 0.65 * depth), transform: `translate(-50%, -50%) translate(${x}px, ${y}px) scale(${0.72 + 0.4 * depth})`, boxShadow: "0 10px 26px rgba(0,0,0,.45)" }}>{c}</div>
+        );
+      })}
+    </>
+  );
+};
+
 // A REAL blurred screenshot (assets/proof): items = [tag line, image path, height/width ratio]. The tag states only what the picture shows; a "no reply" stamp lands on the first reveal word.
 export const ProofShot: React.FC<{ at: number; items: string[]; times: number[] }> = ({ at, items, times }) => {
   const frame = useCurrentFrame();
@@ -101,6 +122,7 @@ export const ProofShot: React.FC<{ at: number; items: string[]; times: number[] 
         <Img src={staticFile(items[1])} style={{ width: W, height: W * ratio, display: "block", objectFit: "cover" }} />
         </div>
         <div style={{ position: "absolute", right: 28, ...(ai ? { bottom: -84 } : { bottom: 30 }), padding: "12px 26px", borderRadius: 14, background: THEME.accent, color: THEME.ink, fontSize: 40, fontWeight: 900, letterSpacing: 1, transform: `rotate(-6deg) scale(${stamp})`, opacity: Math.min(1, stamp * 3), boxShadow: "0 10px 26px rgba(0,0,0,.5)" }}>{ai ? "AI REPLIED" : "NO REPLY"}</div>
+        <ProofOrbit chips={ai ? ["✓✓ Delivered", "Seen", "AI replied", "Real chat"] : ["✓✓ Delivered", "Seen", "0 replies", "Real chat"]} w={W} h={W * ratio} p={p} />
       </div>
     </div>
   );

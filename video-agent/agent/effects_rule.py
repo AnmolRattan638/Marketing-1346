@@ -28,6 +28,36 @@ def effect_of(scene: dict) -> str | None:
     return t if t in EFFECTS else None
 
 
+def proof_indices(scenes: list[dict]) -> set[int]:
+    return {i for i, s in enumerate(scenes) if ((s.get("graphic") or {}).get("mock") or {}).get("type") == "proof"}
+
+
+def ensure_proof(scenes: list[dict], pid: str | None) -> str | None:
+    """Every reel shows one real proof. When the plan has no proof scene, the poke/payoff scene (else a middle one) becomes it. Returns a note, or None."""
+    if not pid or proof_indices(scenes) or len(scenes) < 3:
+        return None
+    mid = range(1, len(scenes) - 1)
+    order = sorted(mid, key=lambda i: (scenes[i].get("beat") not in ("poke", "payoff"), effect_of(scenes[i]) is not None, abs(i - len(scenes) * 0.6)))
+    i = order[0]
+    g = dict(scenes[i].get("graphic") or {})
+    g.update({"layout": "step", "heading": g.get("heading") or _key(scenes[i]), "mock": {"type": "proof", "title": "", "items": [pid]}})
+    scenes[i]["graphic"] = g
+    return f"scene {i + 1}: real proof '{pid}' added (the plan had none)"
+
+
+def explode_slot(beats: list[str | None], graphic: list[bool], avoid: set[int] | None = None) -> int | None:
+    """The scene whose captions explode: the twist (rehook), else the poke, else the second scene. Never the first or last."""
+    n = len(beats)
+    if n < 3:
+        return None
+    avoid = avoid or set()      # the proof card carries its own tag at the same height: never the same scene
+    for want in ("rehook", "poke"):
+        for i in range(1, n - 1):
+            if beats[i] == want and i not in avoid:
+                return i
+    return next((i for i in range(1, n - 1) if i not in avoid), None)
+
+
 def check(scenes: list[dict]) -> list[str]:
     """What is wrong with the reel's animation styles; empty = fine."""
     used = [effect_of(s) for s in scenes]
@@ -110,7 +140,7 @@ def enforce(scenes: list[dict], protect: set[int] | None = None, seed: str = "")
     return notes
 
 
-def caption_plan(graphic: list[bool], look_caption: str, seed: str = "") -> list[str]:
+def caption_plan(graphic: list[bool], look_caption: str, seed: str = "", explode_at: int | None = None) -> list[str]:
     """One caption style per scene: at least MIN_CAPTIONS different in the reel, never the same in two scenes in a row. Graphic scenes can only show the classic styles
     (their own heading is the picture), footage scenes the placed reference styles; the reel's own look is used first."""
     rng = random.Random(seed)
@@ -137,4 +167,7 @@ def caption_plan(graphic: list[bool], look_caption: str, seed: str = "") -> list
         if not pool:
             break
         out[i] = pool[0]
+    if explode_at is not None and 0 <= explode_at < len(out):      # compulsory: one exploding caption in every reel
+        out = ["pill" if (c == "explode" and k != explode_at) else c for k, c in enumerate(out)]
+        out[explode_at] = "explode"
     return out

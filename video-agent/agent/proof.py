@@ -36,6 +36,12 @@ def entry(pid: str, today: date | None = None) -> dict | None:
     return None
 
 
+def pick(seed: str = "", today: date | None = None) -> str | None:
+    """The id of a usable proof (image present, check recent), rotating by seed; None when there is none."""
+    ok = [p["id"] for p in _load() if p.get("id") and entry(p["id"], today)]
+    return ok[sum(map(ord, seed)) % len(ok)] if ok else None
+
+
 def _d(s: str) -> str:
     return datetime.strptime(s, "%Y-%m-%d").strftime("%-d %b")
 

@@ -20,6 +20,7 @@ export interface PresenterSpec {
   src: string[];                       // the poses (agent/avatar.py stages them)
   energy: number[];                    // voice loudness 0..1 for EVERY frame of the whole reel
   cuts: { f: number; i: number }[];    // from frame f the pose is src[i] (a new pose on every scene and every few seconds, like a camera cut)
+  word?: { text: string; f: number; n: number; y?: number };   // a giant word BEHIND his head (drawn under his cut-out, so the head and shoulders overlap the letters)
   hide: [number, number][];            // frame ranges where the character is not drawn (the hook, the big avatar scenes, the logo end)
 }
 
@@ -65,11 +66,24 @@ const AlphaInner: React.FC<{ c: VideoCut; full: number; compact: number; fps: nu
 };
 
 // The presenter as real clips: the cut under each moment of the reel, in the lower screen, with the top edge melting into the backdrop.
+const BehindWord: React.FC<{ w: NonNullable<PresenterSpec["word"]> }> = ({ w }) => {
+  const frame = useCurrentFrame() - w.f;
+  const { fps } = useVideoConfig();
+  const pop = spring({ frame, fps, config: { damping: 14, stiffness: 120, mass: 0.8 } });
+  const out = interpolate(frame, [w.n - 8, w.n], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const size = Math.min(320, 1020 / (0.82 * Math.max(3, w.text.length)));      // wide faces: the whole word always fits the 1080 frame
+  return (
+    <div style={{ position: "absolute", left: 0, right: 0, top: (w.y ?? 1010) - size / 2, textAlign: "center", fontFamily: "Impact, 'Arial Black', sans-serif", fontWeight: 900, fontSize: size, lineHeight: 1, letterSpacing: 6,
+      color: THEME.accent2, opacity: 0.95 * Math.min(1, pop * 1.6) * out, transform: `scale(${0.8 + 0.2 * Math.min(1, pop)})`, textShadow: `0 0 60px ${THEME.glow}`, WebkitTextStroke: `3px ${THEME.accent}` }}>{w.text}</div>
+  );
+};
+
 const VideoPresenter: React.FC<{ spec: PresenterSpec }> = ({ spec }) => {
   const { fps } = useVideoConfig();
   const fr = spec.frame ?? {};
   return (
     <AbsoluteFill style={{ pointerEvents: "none", zIndex: 10 }}>      {/* under the captions (zIndex 30): his body never hides a spoken word */}
+      {spec.word ? <Sequence from={spec.word.f} durationInFrames={Math.max(1, spec.word.n)} layout="none"><BehindWord w={spec.word} /></Sequence> : null}
       {(spec.clips ?? []).filter((c) => c.frame !== "none").map((c, i) => {
         if (c.alpha) return <AlphaCut key={i} c={c} full={fr.alphaFull ?? 0.66} compact={fr.alphaCompact ?? 0.6} fps={fps} />;
         const h = c.frame === "full" ? fr.fullHeight ?? 1160 : fr.compactHeight ?? 680;

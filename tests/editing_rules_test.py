@@ -48,3 +48,15 @@ assert avatar.behind_word("Hello there", [{"f": 0, "n": 100, "frame": "none", "a
 assert avatar.behind_word("Hello there", [{"f": 0, "n": 100, "frame": "full"}], 100) is None
 assert proof.pick("x") is None or isinstance(proof.pick("x"), str)
 print("trio ok")
+
+# no empty screens, months spoken in full, hook variants
+from agent import graphics, speech_text
+
+g = graphics.repair_graphic({"narration": "Maine cafe ko WhatsApp message kiya", "graphic": {"layout": "step", "mock": {"type": "proof", "items": ["cafe"]}}})
+assert g["layout"] == "step" and g["mock"]["type"] == "proof" and g["heading"], g
+g = graphics.repair_graphic({"narration": "Customers phone par website dekhte hain", "graphic": {"layout": "nope"}})
+assert g["layout"] == "title" and g["heading"] == "CUSTOMERS WEBSITE DEKHTE", g
+assert graphics.resolve_graphic({"graphic": g}, [], 4.0) is not None
+assert "November" in speech_text.clean("23 Nov tak reply nahi aaya") and "October" in speech_text.clean("21 Oct ko")
+assert set(graphics.HOOK_VARIANTS) == {"phone", "slam", "zig"}
+print("repairs ok")

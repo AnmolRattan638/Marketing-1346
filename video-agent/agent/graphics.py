@@ -102,6 +102,9 @@ def spread(known: list[float | None], n: int, start: float, end: float, gap: flo
     return [round(t, 3) for t in out]
 
 
+HOOK_VARIANTS = ("phone", "slam", "zig")
+
+
 def scene_kind(scene: dict) -> str:
     return "graphic" if scene.get("graphic") else "footage"
 
@@ -176,11 +179,31 @@ def resolve_graphic(scene: dict, words: list[dict], seconds: float) -> dict | No
         cues += [{"type": "click", "atSecond": t, "volume": 0.3} for t in times[:3]]
     if layout == "hook":                                                       # the breaking-phone opening: an impact on EVERY spoken word, a whoosh into it
         from . import scenarios
-        props["hook"] = {"notifs": scenarios.hook_notifs()}
+        seed = sum(ord(c) for w in words for c in str(w.get("text", "")))
+        props["hook"] = {"notifs": scenarios.hook_notifs(), "variant": HOOK_VARIANTS[seed % len(HOOK_VARIANTS)] if len(words) <= 7 else HOOK_VARIANTS[seed % 2]}      # the opening is not the same picture every time
         props["emphasis"] = [str(w)[:20] for w in (g.get("emphasis") or [])][:6]
         cues = [{"type": "whoosh", "atSecond": 0.0, "volume": 0.5}] + [{"type": "impact", "atSecond": round(float(w["start"]), 3), "volume": 0.55 if i == 0 else 0.4} for i, w in enumerate(words[:9])]
     props["sfx"] = [c for c in cues if 0 <= c["atSecond"] < seconds - 0.1]
     return props
+
+
+def _heading(narration: str) -> str:
+    """Up to three of the longest words of the line, in the order spoken, as a big heading."""
+    ws = re.findall(r"[^\W\d_][\w']*", narration or "")
+    big = sorted(range(len(ws)), key=lambda i: -len(ws[i]))[:3]
+    big = [i for i in sorted(big) if len(ws[i]) >= 4]
+    return " ".join(ws[i] for i in big).upper()[:30] or "WATCH THIS"
+
+
+def repair_graphic(scene: dict) -> dict:
+    """The planner's graphic that could not be used (no heading, a layout we do not have, an empty list, a step without a mock-up): keep what is good (a real proof stays a
+    proof) and fill the rest from the narration, so a scene is never left as an empty screen with only captions."""
+    g = dict(scene.get("graphic") or {})
+    mock = g.get("mock") if isinstance(g.get("mock"), dict) else None
+    head = str(g.get("heading") or "").strip() or _heading(scene.get("narration", ""))
+    if mock and mock.get("type") == "proof":
+        return {"layout": "step", "heading": head[:30], "kicker": str(g.get("kicker") or "")[:40], "mock": mock}
+    return {"layout": "title", "heading": head[:30], "kicker": str(g.get("kicker") or "")[:40]}
 
 
 def fallback_graphic(scene: dict) -> dict:

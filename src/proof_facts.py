@@ -32,7 +32,7 @@ def _fresh(today: date | None = None) -> list[dict]:
 
 
 def _d(s: str) -> str:
-    return datetime.strptime(s, "%Y-%m-%d").strftime("%-d %b")
+    return datetime.strptime(s, "%Y-%m-%d").strftime("%-d %B")
 
 
 def facts(today: date | None = None) -> list[dict]:

@@ -25,7 +25,7 @@ from .caption_zones import zones_for
 from .brand import load_palette
 from . import templates as tpl_lib
 from .looks import pick_look, pick_transition
-from .graphics import fallback_graphic, resolve_graphic
+from .graphics import fallback_graphic, repair_graphic, resolve_graphic
 from .sfx_plan import emphasis_beats, plan_sfx
 from .voice import prepare as prepare_voice, synth
 
@@ -133,6 +133,10 @@ def build(topic: str, offline: bool, no_render: bool, master: dict | None = None
                     log(f"{sid}: no raw clips to show, so this scene becomes a motion graphic instead of stock footage")
                     sc["graphic"] = fallback_graphic(sc)
                 gp = resolve_graphic(sc, words, sec + tail)
+                if not gp:
+                    sc["graphic"] = repair_graphic(sc)          # never an empty screen: a graphic the model left unusable is rebuilt from the narration
+                    log(f"{sid}: its graphic was unusable, rebuilt from the narration")
+                    gp = resolve_graphic(sc, words, sec + tail)
                 if gp:
                     graphics[sid] = gp
                 else:

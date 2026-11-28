@@ -33,7 +33,11 @@ for _s in STYLES:                                  # every style holds the answe
     _s["beats"].insert(_s["beats"].index("fix"), "rehook")
     _s["how"] += REHOOK_HOW
 BY_ID = {s["id"]: s for s in STYLES}
-SYS = "You write short vertical-video scripts for a solo web and AI developer in India talking to small-business owners. Plain, specific, spoken."
+SYS = ("You write short vertical-video scripts for a solo web and AI developer in India talking to small-business owners. Plain, specific, spoken. "
+       "CLARITY RULES (a viewer hears each line once, with no context): (1) the HOOK is ONE plain sentence that states a situation a stranger understands at once: who, what happened. "
+       "Good: 'Maine ek cafe ko WhatsApp kiya, aaj tak reply nahi aaya.' / 'Cafe owner ne raat 11 baje message padha hi nahi.' Bad: metaphors, riddles or verbs that do not fit the noun ('WhatsApp baja', 'phone bajta hai lekin koi nahi'). "
+       "(2) Say the months in full (October, November), never Oct/Nov. (3) Never say a website or source name aloud (no 'itisme.in kehta hai'): say what is true, or 'ek survey ke mutabiq'. "
+       "(4) One idea per beat; every line must make sense alone, without the previous one. (5) Read the line as a customer would: if a word could be heard as another thing, rewrite it. (6) No semicolons.")
 BAD_OPEN = re.compile(r"^\s*(hi|hello|hey|namaste|welcome|in this (video|reel)|today (i|we)|aaj hum)\b", re.I)
 _NUM = re.compile(r"\d[\d,\.]*")
 # LENGTH BUDGET: a reel's viewers are gone by second 5 and almost nobody reaches 60 s (a 65 s reel kept ~0% after the first 10 s). Spoken Hinglish runs ~2.9 words/s, so
@@ -323,6 +327,12 @@ def structure_problems(beats) -> list[str]:
         return out
     if not verticals.of(beats[0].get("line")):
         out.append("pain: context: the hook must name the viewer's business type (clinic, salon, cafe, coaching centre, homestay, gym, shop...) so it is clear in 2 seconds who this is for; never just 'business owners'")
+    for b in beats:                                                      # what the voice would garble or the viewer could not follow
+        ln = str(b.get("line") or "")
+        if re.search(r"\b(?:jan|feb|apr|jun|jul|aug|sep|sept|oct|nov|dec)\b\.?", ln, re.I):
+            out.append(f"{b.get('beat')}: clarity: write the month in full (October, November)")
+    if ";" in str(beats[0].get("line") or ""):
+        out.append("pain: clarity: the hook is ONE plain sentence, no semicolon")
     rh = next((b for b in beats if b.get("beat") == "rehook"), None)
     if rh is not None:
         line = str(rh.get("line") or "")

@@ -150,7 +150,7 @@ const useZoneShift = (zones?: CaptionZone[]) => {
   return prev + (cur - prev) * ease - DEFAULT_Y;
 };
 
-const ALPHA_LANE_SHIFT = -560;      // with the transparent presenter the captions sit in the lane just above his head (their usual place is over his hands)
+const ALPHA_LANE_SHIFT = -700;      // with the transparent presenter the captions sit in the lane just above his head (their usual place is over his hands)
 
 export const CaptionLayer: React.FC<Props> = (p) => {
   const stage = React.useContext(StageContext);

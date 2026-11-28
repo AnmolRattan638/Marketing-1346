@@ -2,16 +2,16 @@
   "posts": [
     {
       "platform": "instagram",
-      "id": "17977424394174486",
-      "url": "https://www.instagram.com/reel/DgRZmuxTVJE/",
-      "published_at": "2026-11-28T04:30:06.000Z",
-      "text": "No captions....",
-      "format": "reel",
+      "id": "18143939446623530",
+      "url": "https://www.instagram.com/p/DgSHjk-DYE2/",
+      "published_at": "2026-11-28T11:11:49.000Z",
+      "text": "WhatsApp pe rates baar‑baar repeat karna? Ek simple pricing page aur clear contact button se ye kaam kam ho sakta hai. Mobile‑first website se aapke customers 2",
+      "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": null,
-        "reach": null,
-        "views": null,
+        "impressions": 6,
+        "reach": 2,
+        "views": 6,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -20,6 +20,64 @@
         "reposts": null,
         "skip_rate": null,
         "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-28",
+        "service": "website",
+        "hook_style": "top3",
+        "topic": "Top 3 website mistakes that force you to repeat your rates and details on WhatsApp every day."
+      }
+    },
+    {
+      "platform": "bluesky",
+      "id": "at://did:plc:ihkbbelxo655qh3kmk4tzvor/app.bsky.feed.post/3n3ekz3vhpj27",
+      "url": "https://bsky.app/profile/anmolrattan852.bsky.social/post/3n3ekz3vhpj27",
+      "published_at": "2026-11-28T11:11:44.117328+00:00",
+      "text": "Many small businesses repeat rates on WhatsApp. A mobile‑first website with a pricing page and a WhatsApp button can reduce that. DM SITE for a quick look at yo",
+      "format": "text",
+      "source": "bluesky",
+      "metrics": {
+        "impressions": null,
+        "reach": null,
+        "views": null,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": null,
+        "clicks": null,
+        "reposts": null,
+        "skip_rate": null,
+        "avg_watch_s": null,
+        "duration_s": null
+      },
+      "matched": {
+        "date": "2026-11-28",
+        "service": "website",
+        "hook_style": "top3",
+        "topic": "Top 3 website mistakes that force you to repeat your rates and details on WhatsApp every day."
+      }
+    },
+    {
+      "platform": "instagram",
+      "id": "17977424394174486",
+      "url": "https://www.instagram.com/reel/DgRZmuxTVJE/",
+      "published_at": "2026-11-28T04:30:06.000Z",
+      "text": "No captions....",
+      "format": "reel",
+      "source": "zernio",
+      "metrics": {
+        "impressions": 27,
+        "reach": 20,
+        "views": 27,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "clicks": 0,
+        "reposts": null,
+        "skip_rate": 81.8,
+        "avg_watch_s": 4.773,
         "duration_s": 35
       },
       "matched": null
@@ -43,7 +101,7 @@
         "clicks": 0,
         "reposts": null,
         "skip_rate": 93.2,
-        "avg_watch_s": 1.662,
+        "avg_watch_s": 1.668,
         "duration_s": 32
       },
       "matched": null
@@ -57,9 +115,9 @@
       "format": "carousel",
       "source": "zernio",
       "metrics": {
-        "impressions": 1,
+        "impressions": 3,
         "reach": 1,
-        "views": 1,
+        "views": 3,
         "likes": 0,
         "comments": 0,
         "shares": 0,
@@ -2462,7 +2520,7 @@
     "bluesky": {
       "followers": 1,
       "following": 2,
-      "posts": 42
+      "posts": 43
     }
   },
   "coverage": {
@@ -2871,5 +2929,5 @@
   ],
   "ig_token": {},
   "alerts": {},
-  "updated_at": "2026-11-28T07:51:24+00:00"
+  "updated_at": "2026-11-28T20:05:39+00:00"
 }

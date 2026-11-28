@@ -1,0 +1,196 @@
+{
+  "master_script": {
+    "style": "myth-bust",
+    "hook": "Cafe ka WhatsApp raat 11 baje baja, reply subah tak nahi...?",
+    "hooks": [
+      {
+        "text": "Cafe ka WhatsApp raat 11 baje baja, reply subah tak nahi...?",
+        "score": 15.9,
+        "formula": ""
+      },
+      {
+        "text": "Stop doing this…",
+        "score": 14.4,
+        "formula": "stop"
+      },
+      {
+        "text": "Main iske baare mein galat tha...",
+        "score": 11.4,
+        "formula": "wrong"
+      },
+      {
+        "text": "Asli sachchai ye hai...",
+        "score": 11.4,
+        "formula": "truth"
+      },
+      {
+        "text": "Ye karna band karo...",
+        "score": 11.4,
+        "formula": "stop"
+      },
+      {
+        "text": "Customer WhatsApp ka reply der se milta hai, turant competitor ko chala jata hai.",
+        "score": 7.8,
+        "formula": ""
+      }
+    ],
+    "hook_formula": "",
+    "beats": [
+      {
+        "beat": "pain",
+        "line": "Cafe ka WhatsApp raat 11 baje baja, reply subah tak nahi...?",
+        "screen": "Lost to competitor",
+        "visual": "Owner checking phone, sees no reply, looks worried as another cafe's ad appears",
+        "emotion": "empathetic",
+        "facts": []
+      },
+      {
+        "beat": "poke",
+        "line": "Maine ek local gym ko WhatsApp par message kiya, 23 Nov tak reply nahi aaya.",
+        "screen": "Gym no reply",
+        "visual": "Screenshot of WhatsApp chat with 'delivered' tick, no response",
+        "emotion": "curious",
+        "facts": [],
+        "proof": [
+          "gym"
+        ]
+      },
+      {
+        "beat": "rehook",
+        "line": "Kya sirf WhatsApp hi aapka sabse bada blocker hai?",
+        "screen": "WhatsApp blocker?",
+        "visual": "Close-up of WhatsApp icon with a question mark overlay",
+        "emotion": "urgent",
+        "facts": []
+      },
+      {
+        "beat": "fix",
+        "line": "Main aapke liye mobile‑first website banata hoon, usmein WhatsApp click‑to‑chat aur tap‑to‑call button lagata hoon, taaki enquiry ek tap mein mil jaye.",
+        "screen": "Mobile‑first site with one‑tap WhatsApp",
+        "visual": "Phone screen showing the website layout with a WhatsApp click‑to‑chat button and a tap‑to‑call icon",
+        "emotion": "warm",
+        "steps": [
+          "mobile‑first website banata hoon",
+          "WhatsApp click‑to‑chat lagata hoon",
+          "tap‑to‑call button lagata hoon"
+        ],
+        "facts": [
+          "f3",
+          "f5",
+          "f6"
+        ]
+      },
+      {
+        "beat": "payoff",
+        "line": "Astra Labs ke hisaab se 61.6% sites mein contact form nahi, matlab aadha enquiry miss hota hai.",
+        "screen": "61.6% no contact",
+        "visual": "Bar chart from Astra Labs report highlighting 61.6% figure",
+        "emotion": "excited",
+        "facts": [
+          "f4"
+        ]
+      },
+      {
+        "beat": "cta",
+        "line": "Comment SITE, main DM mein checklist bhejunga. Poora breakdown aaj ke carousel mein hai.",
+        "screen": "Comment SITE",
+        "visual": "Text overlay with 'Comment SITE' and a DM envelope icon",
+        "emotion": "warm",
+        "facts": []
+      }
+    ],
+    "cta": "Comment SITE, main DM mein checklist bhejunga. Poora breakdown aaj ke carousel mein hai.",
+    "linkedin_english": "If your WhatsApp replies are delayed, customers switch to competitors. A simple mobile‑first website with click‑to‑chat and tap‑to‑call buttons ensures instant enquiries. 61.6% of sites lack a contact form, meaning half of potential leads are missed. Comment SITE to receive a checklist in DM.",
+    "marketing": {
+      "keyword": "SITE",
+      "gets": "a one-page checklist: 10 things a customer judges your website on, with an honest note on whether you need a new one",
+      "pillar": "how_it_works"
+    },
+    "language": "hinglish",
+    "facts": [
+      {
+        "claim": "A WhatsApp number does not appear in Google search results, so without a website new customers cannot find you",
+        "figure": null,
+        "source": "itisme.in",
+        "title": "Why Your Business Needs a Website, Not Just WhatsApp",
+        "url": "https://itisme.in/blog/why-your-business-needs-a-website-not-just-whatsapp",
+        "date": "2026-06-26",
+        "verdict": "verified",
+        "id": "f1"
+      },
+      {
+        "claim": "WhatsApp cannot show a full catalogue; owners must send individual photos or PDFs that load slowly, preventing customers from browsing at their own pace",
+        "figure": null,
+        "source": "itisme.in",
+        "title": "Why Your Business Needs a Website, Not Just WhatsApp",
+        "url": "https://itisme.in/blog/why-your-business-needs-a-website-not-just-whatsapp",
+        "date": "2026-06-26",
+        "verdict": "verified",
+        "id": "f2"
+      },
+      {
+        "claim": "A weak or missing call-to-action on a website, such as lacking a \"WhatsApp Us Now\" button, converts significantly worse than a pre-filled WhatsApp click-to-chat message",
+        "figure": null,
+        "source": "smarterdigi.com",
+        "title": "10 Website Mistakes Costing Indian Small Businesses Leads in 2026",
+        "url": "https://www.smarterdigi.com/blog/website-mistakes-costing-leads-india",
+        "date": "2026-04-15",
+        "verdict": "verified",
+        "id": "f3"
+      },
+      {
+        "claim": "61.6% of homepages had no contact form",
+        "figure": "61.6%",
+        "source": "astralabs.store",
+        "title": "State of Small Business Websites 2026: Data from 1,568 Businesses Astra Labs",
+        "url": "https://astralabs.store/reports/small-business-websites-2026/",
+        "date": "2026-11-01",
+        "verdict": "verified",
+        "id": "f4"
+      },
+      {
+        "claim": "54.8% of homepages had no tap-to-call link",
+        "figure": "54.8%",
+        "source": "astralabs.store",
+        "title": "State of Small Business Websites 2026: Data from 1,568 Businesses Astra Labs",
+        "url": "https://astralabs.store/reports/small-business-websites-2026/",
+        "date": "2026-11-01",
+        "verdict": "verified",
+        "id": "f5"
+      },
+      {
+        "claim": "52.2% of homepages lacked any one-tap call or message option, with WhatsApp links being rare",
+        "figure": "52.2%",
+        "source": "astralabs.store",
+        "title": "State of Small Business Websites 2026: Data from 1,568 Businesses Astra Labs",
+        "url": "https://astralabs.store/reports/small-business-websites-2026/",
+        "date": "2026-11-01",
+        "verdict": "verified",
+        "id": "f6"
+      },
+      {
+        "claim": "Corporate clients often request a website link as a trust signal; a WhatsApp number alone looks informal and can miss professional credibility",
+        "figure": null,
+        "source": "itisme.in",
+        "title": "Why Your Business Needs a Website, Not Just WhatsApp",
+        "url": "https://itisme.in/blog/why-your-business-needs-a-website-not-just-whatsapp",
+        "date": "2026-06-26",
+        "verdict": "verified",
+        "id": "f7"
+      }
+    ],
+    "topic": "Top 3 website mistakes that force you to repeat your rates and details on WhatsApp every day.",
+    "service": "website",
+    "keyword": "SITE",
+    "carousel_tease": true,
+    "notes": [
+      "style remark (not blocking): fix: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Main aapke liye mobile‑first website banata hoon, usmein Wha\""
+    ],
+    "series": {
+      "part": 2,
+      "of": "Cafe ka WhatsApp raat 11 baje baja, reply subah tak nahi..."
+    }
+  },
+  "service": "website",
+  "slot": "2"
+}

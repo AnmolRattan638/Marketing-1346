@@ -66,13 +66,9 @@
   "rule": "the ask ... is not in offers_allowed; fix to use an allowed offer like ..."
  },
  "number-unbacked": {
-  "count": 48,
+  "count": 49,
   "rule": "Every digit must come from a cited fact; if no fact has the number, say it in words with no digit.",
   "recent": [
-   {
-    "on": "2026-11-27",
-    "mistake": "payoff: number(s) ['5'] not backed by a cited fact"
-   },
    {
     "on": "2026-11-27",
     "mistake": "fix: number(s) ['15'] not backed by a cited fact"
@@ -80,6 +76,10 @@
    {
     "on": "2026-11-27",
     "mistake": "cta: number(s) ['15'] not backed by a cited fact"
+   },
+   {
+    "on": "2026-11-28",
+    "mistake": "fix: number(s) ['1'] not backed by a cited fact"
    }
   ]
  },
@@ -366,13 +366,9 @@
   ]
  },
  "other:grammar: no verb before ..., write the f": {
-  "count": 37,
+  "count": 38,
   "rule": "grammar: no verb before ..., write the full clause (not a list of nouns): ...",
   "recent": [
-   {
-    "on": "2026-11-27",
-    "mistake": "cta: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Comment ADS, main DM mein checklist bhejunga taaki grahak sa\""
-   },
    {
     "on": "2026-11-27",
     "mistake": "cta: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Comment ADS, main direct message mein checklist bhejunga taa\""
@@ -380,6 +376,10 @@
    {
     "on": "2026-11-28",
     "mistake": "fix: grammar: no verb before 'kyunki', write the full clause (not a list of nouns): \"Pehle mobile-first website banayein, kyunki grahak phone pe \""
+   },
+   {
+    "on": "2026-11-28",
+    "mistake": "fix: grammar: no verb before 'taaki', write the full clause (not a list of nouns): \"Mobile‑first website banayein, WhatsApp click‑to‑chat aur ta\""
    }
   ]
  },

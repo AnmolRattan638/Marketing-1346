@@ -1,6 +1,7 @@
 """The masked avatar. Picks which spoken scenes show the character, which pose, and measures how loud the voice is on every frame so the glow and
 the breathing follow the narration (the mouth is covered, so no lip-sync is needed). Pure CPU: no GPU, no paid service."""
 import array
+import re
 import shutil
 import subprocess
 from datetime import date
@@ -115,6 +116,18 @@ def _wall_logo(cuts: list, scene_frames: list[int], a: dict) -> str | None:
     return "assets/run/brand/backdrop_logo.png"
 
 
+def behind_word(text: str, cuts: list[dict], hook_frames: int) -> dict | None:
+    """The giant word behind his head in the hook (compulsory in every reel with the transparent presenter): the longest word of the hook line, in capitals.
+    Only when he is on screen in the hook."""
+    if not any(c.get("alpha") and c["frame"] != "none" and c["f"] < hook_frames for c in cuts):
+        return None
+    ws = re.findall(r"[^\W\d_][\w'-]*", text or "", flags=re.UNICODE)
+    ws = [w for w in ws if 4 <= len(w) <= 8] or [w for w in ws if len(w) >= 4] or ws      # short and punchy: a long word would have to shrink
+    if not ws or hook_frames < 20:
+        return None
+    return {"text": max(ws, key=len).upper()[:14], "f": 6, "n": hook_frames - 6}
+
+
 def presenter(built: list, scene_frames: list[int], cfg: dict, fps: int, has_outro: bool, texts: list[str] | None = None, beats: list[str | None] | None = None, words: list[list[dict]] | None = None) -> dict | None:
     """The permanent presenter: one block for the whole reel (poses, voice loudness for every frame, pose cuts, and where he is hidden). None when switched off.
     The window stays out of the hook (first scene, a full-screen opening), out of the big avatar scenes (he is already there) and out of the logo end."""
@@ -140,7 +153,8 @@ def presenter(built: list, scene_frames: list[int], cfg: dict, fps: int, has_out
         hide = merged
         log(f"avatar: presenter clips ({len(lib)} clips in the library), {len(cuts)} cuts: {clips.summary(cuts)}")
         logo = _wall_logo(cuts, scene_frames, a)
-        return {"mode": "video", "clips": cuts, "hide": hide, "src": [], "energy": [], "frame": a.get("frame") or {}, **({"logo": logo} if logo else {})}
+        word = behind_word((texts or [""])[0], cuts, scene_frames[0] if scene_frames else 0)
+        return {"mode": "video", "clips": cuts, "hide": hide, "src": [], "energy": [], "frame": a.get("frame") or {}, **({"logo": logo} if logo else {}), **({"word": word} if word else {})}
     files = stage()
     if not files:
         return None

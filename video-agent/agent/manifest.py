@@ -80,7 +80,7 @@ def build_manifest(plan: dict, built: list[dict], cfg: dict, look: dict | None =
     from . import avatar
     avatar.apply(built, cfg, fps, lambda b: math.ceil((b["narration_seconds"] + v["tail_seconds"]) * fps))
     from . import effects_rule
-    caps = effects_rule.caption_plan([bool(b.get("graphic")) for b in built], (look or {}).get("caption", "pill"), str(plan.get("title", ""))) if look else []      # >= 3 different caption styles per reel
+    caps = effects_rule.caption_plan([bool(b.get("graphic")) for b in built], (look or {}).get("caption", "pill"), str(plan.get("title", "")), effects_rule.explode_slot([sc.get("beat") for sc in plan["scenes"]], [bool(b.get("graphic")) for b in built], {i for i, b in enumerate(built) if (((b.get("graphic") or {}).get("mock") or {}).get("type") == "proof")})) if look else []      # >= 3 different caption styles per reel
     for i, b in enumerate(built):
         # Round up to whole frames so Remotion's total length equals the sum of scenes.
         frames = math.ceil((b["narration_seconds"] + v["tail_seconds"]) * fps)
